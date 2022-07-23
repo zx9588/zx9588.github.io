@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>中间件-5-Netty | zhangxinの随笔</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="中间件-5-Netty | zhangxinの随笔">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="-Tomcat面试专题.pdf-Tomcat优化相关问题.pdf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat相关书籍">
+<meta property="og:url" content="http://example.com/posts/176a/index.html">
+<meta property="og:site_name" content="zhangxinの随笔">
+<meta property="og:description" content="-Tomcat面试专题.pdf-Tomcat优化相关问题.pdf">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-23T06:12:07.000Z">
+<meta property="article:modified_time" content="2022-07-23T06:16:39.562Z">
+<meta property="article:author" content="zx">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/zotero.ico">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/dino.ico"/>
+</a>
+<div class="author">
+    <span>zx</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/zx20219898"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1205362172@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1205362172&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(179)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Java">
+                        
+                        Java
+                        <small>(22)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="面试题">
+                        
+                        面试题
+                        <small>(38)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="网站书签">
+                        
+                        网站书签
+                        <small>(19)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Books">
+                        
+                        Books
+                        <small>(18)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="设计模式">
+                        
+                        设计模式
+                        <small>(26)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件安装">
+                        
+                        软件安装
+                        <small>(11)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="快捷键">
+                        
+                        快捷键
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Git">
+                        
+                        Git
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Hexo">
+                        
+                        Hexo
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Other">
+                        
+                        Other
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="书籍">
+                        
+                        书籍
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据库">
+                        
+                        数据库
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Docker">
+                        
+                        Docker
+                        <small>(20)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Spring">
+                        
+                        Spring
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="179">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://hexo.io">Hexo</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+            <li><a target="_blank" href="https://butterfly.js.org/">Butterfly</a></li>
+            
+            <li><a target="_blank" href="https://blinkfox.github.io/">闪烁之狐</a></li>
+            
+            <li><a target="_blank" href="https://www.eg3.cn/">Meng</a></li>
+            
+            <li><a target="_blank" href="https://www.antmoe.com/categories/">小康博客</a></li>
+            
+            <li><a target="_blank" href="https://vlts.cn/categories/">小嘉的部落格</a></li>
+            
+            <li><a target="_blank" href="https://codeppx.gitee.io/myblog/">Code皮皮虾</a></li>
+            
+            <li><a target="_blank" href="https://www.fangshitao.top/">Wind</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/176a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tomcat相关书籍">Tomcat相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:12:07">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/798d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringCloud相关书籍">SpringCloud相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:10:59">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/e60/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Nginx相关书籍">Nginx相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:08:32">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/a599/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kafka相关书籍">Kafka相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:53:21">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b4e6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git相关书籍">Git相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:46:06">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b748/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JVM相关书籍">JVM相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:43:38">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/c0c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="RabbitMQ相关书籍">RabbitMQ相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:27:12">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/3715/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring相关书籍">Spring相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:23:09">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b0b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringBoot相关书籍">SpringBoot相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:21:09">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/f2f5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringMVC相关书籍">SpringMVC相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:18:13">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/1ac1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ZooKeeper相关书籍">ZooKeeper相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:16:19">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/ee7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="atom常用快捷键-mac亲测">atom常用快捷键-mac亲测</span>
+            <span class="post-date" title="2022-07-23 10:37:06">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/ddb8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dubbo相关书籍">Dubbo相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:32:24">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/81b4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言相关书籍">Java语言相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:31:36">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/2ae1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis相关书籍">Redis相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:28:10">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 书籍 "
+           href="/posts/2ae1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redis相关书籍">redis相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:28:10">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/8b3a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="其他书籍">其他书籍</span>
+            <span class="post-date" title="2022-07-23 10:14:58">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/1319/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux相关书籍">Linux相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:01:22">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Spring "
+           href="/posts/d9c2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring-资源网站">Spring-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:37:44">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/d1ed/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计模式-资源网站">设计模式-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:36:03">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/29c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-资源网站">数据库-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:33:18">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/6cc6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OA办公">OA办公</span>
+            <span class="post-date" title="2022-07-22 22:22:42">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/50/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线教程和文档">在线教程和文档</span>
+            <span class="post-date" title="2022-07-22 22:20:22">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f8ca/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编程学习">在线编程学习</span>
+            <span class="post-date" title="2022-07-22 22:19:54">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f687/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线办公工具">在线办公工具</span>
+            <span class="post-date" title="2022-07-22 22:19:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/a324/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="写作辅助工具">写作辅助工具</span>
+            <span class="post-date" title="2022-07-22 22:17:55">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/6fa0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线素材库">在线素材库</span>
+            <span class="post-date" title="2022-07-22 22:13:41">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2b47/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="网络工具">网络工具</span>
+            <span class="post-date" title="2022-07-22 22:11:55">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/7b68/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="正则表达式工具">正则表达式工具</span>
+            <span class="post-date" title="2022-07-22 22:11:09">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f2d4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线转换工具">在线转换工具</span>
+            <span class="post-date" title="2022-07-22 22:09:39">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/228d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计制作类工具">设计制作类工具</span>
+            <span class="post-date" title="2022-07-22 22:01:28">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f6c6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编译运行工具">在线编译运行工具</span>
+            <span class="post-date" title="2022-07-22 21:58:50">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/5438/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线生成器">在线生成器</span>
+            <span class="post-date" title="2022-07-22 21:57:57">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/4813/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编解码工具">在线编解码工具</span>
+            <span class="post-date" title="2022-07-22 21:51:16">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/d988/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="可视化/格式化工具">可视化/格式化工具</span>
+            <span class="post-date" title="2022-07-22 21:36:15">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2b3c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开发辅助工具">开发辅助工具</span>
+            <span class="post-date" title="2022-07-22 21:27:10">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/47fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="画图工具">画图工具</span>
+            <span class="post-date" title="2022-07-22 21:20:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/ce00/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="如何免费申请js.cool二级域名">如何免费申请js.cool二级域名</span>
+            <span class="post-date" title="2022-07-22 14:56:17">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/2e7c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="修改文章永久链接为随机编号">修改文章永久链接为随机编号</span>
+            <span class="post-date" title="2022-07-22 13:44:30">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/fd51/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Netty相关书籍">Netty相关书籍</span>
+            <span class="post-date" title="2022-07-22 13:22:21">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/2a5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库相关书籍">数据库相关书籍</span>
+            <span class="post-date" title="2022-07-22 11:38:07">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Linux "
+           href="/posts/dbd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自定义命令">自定义命令</span>
+            <span class="post-date" title="2022-07-21 18:47:07">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Linux "
+           href="/posts/a470/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vim编辑器">vim编辑器</span>
+            <span class="post-date" title="2022-07-21 15:38:21">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/posts/4471/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ssh连接云服务器">ssh连接云服务器</span>
+            <span class="post-date" title="2022-07-21 14:53:53">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2e52/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="文档笔记工具">文档笔记工具</span>
+            <span class="post-date" title="2022-07-21 14:30:15">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/c4f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git学习">Git学习</span>
+            <span class="post-date" title="2022-07-21 11:05:21">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/3b9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2022-07-21 10:40:17">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/ff76/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="又拍云加速">又拍云加速</span>
+            <span class="post-date" title="2022-07-20 08:37:55">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/51bb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vercel托管">Vercel托管</span>
+            <span class="post-date" title="2022-07-20 08:37:07">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/cdcb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="并发编程">并发编程</span>
+            <span class="post-date" title="2022-07-19 16:18:04">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/1d9c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="IO流">IO流</span>
+            <span class="post-date" title="2022-07-19 16:05:04">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/5257/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java集合">Java集合</span>
+            <span class="post-date" title="2022-07-19 14:54:48">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/f499/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Windonws端口被占用">Windonws端口被占用</span>
+            <span class="post-date" title="2022-07-18 17:01:40">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4523/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="枚举">枚举</span>
+            <span class="post-date" title="2022-07-18 17:01:06">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4041/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="字符集/编码集">字符集/编码集</span>
+            <span class="post-date" title="2022-07-18 17:00:30">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/bc61/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java定时任务">Java定时任务</span>
+            <span class="post-date" title="2022-07-18 16:59:53">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/8609/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lambda表达式">Lambda表达式</span>
+            <span class="post-date" title="2022-07-18 16:59:11">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/330f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="java.lang.Math">java.lang.Math</span>
+            <span class="post-date" title="2022-07-18 16:58:19">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/8556/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="java.time.LocalDateTime">java.time.LocalDateTime</span>
+            <span class="post-date" title="2022-07-18 16:57:22">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/1cea/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="System系统类">System系统类</span>
+            <span class="post-date" title="2022-07-18 16:56:10">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/3293/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BigDicimal类">BigDicimal类</span>
+            <span class="post-date" title="2022-07-18 16:55:29">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/2367/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="方法引用">方法引用</span>
+            <span class="post-date" title="2022-07-18 16:54:22">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/b543/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stream流">Stream流</span>
+            <span class="post-date" title="2022-07-18 16:53:08">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/95da/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="递归">递归</span>
+            <span class="post-date" title="2022-07-18 16:51:32">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4486/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java正则表达式">Java正则表达式</span>
+            <span class="post-date" title="2022-07-18 16:50:35">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4bfb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="日志级别">日志级别</span>
+            <span class="post-date" title="2022-07-18 16:47:24">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/e4e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="时间复杂度">时间复杂度</span>
+            <span class="post-date" title="2022-07-18 14:38:47">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/59b9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署hexo">Docker部署hexo</span>
+            <span class="post-date" title="2022-07-17 12:19:11">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/35b5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署RabbitMQ">Docker部署RabbitMQ</span>
+            <span class="post-date" title="2022-07-17 12:18:20">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/35c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Cloudreve">Docker部署Cloudreve</span>
+            <span class="post-date" title="2022-07-17 12:16:50">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/6360/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Wordpress">Docker部署Wordpress</span>
+            <span class="post-date" title="2022-07-17 12:13:57">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/e9b6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Nacos集群">Docker部署Nacos集群</span>
+            <span class="post-date" title="2022-07-17 12:08:33">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/a7a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dcoker部署Nacos">Dcoker部署Nacos</span>
+            <span class="post-date" title="2022-07-17 12:04:33">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/f3b5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署CentOS">Docker部署CentOS</span>
+            <span class="post-date" title="2022-07-17 12:03:59">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/34c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Redis">Docker部署Redis</span>
+            <span class="post-date" title="2022-07-17 12:02:42">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/7ac1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Nginx">Docker部署Nginx</span>
+            <span class="post-date" title="2022-07-17 12:00:54">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/2fc3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Tomcat">Docker部署Tomcat</span>
+            <span class="post-date" title="2022-07-17 11:59:58">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/d561/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker创建自定义网络">Docker创建自定义网络</span>
+            <span class="post-date" title="2022-07-17 11:47:14">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/78b3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2022-07-17 11:44:26">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/c014/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-资源网站">Docker-资源网站</span>
+            <span class="post-date" title="2022-07-17 08:54:26">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/533b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-Compose">Docker-Compose</span>
+            <span class="post-date" title="2022-07-16 16:33:13">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/4924/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dockerfile">Dockerfile</span>
+            <span class="post-date" title="2022-07-16 16:26:58">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/c242/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker镜像制作">Docker镜像制作</span>
+            <span class="post-date" title="2022-07-16 16:19:09">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/b827/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker配置数据卷和数据卷容器">Docker配置数据卷和数据卷容器</span>
+            <span class="post-date" title="2022-07-16 16:05:15">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/ef5f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker镜像仓库">Docker镜像仓库</span>
+            <span class="post-date" title="2022-07-16 15:33:28">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/76cd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOS安装Docker">CentOS安装Docker</span>
+            <span class="post-date" title="2022-07-16 09:53:59">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/8e7e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker命令">Docker命令</span>
+            <span class="post-date" title="2022-07-16 09:44:00">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/f7b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SSH工具安装配置">SSH工具安装配置</span>
+            <span class="post-date" title="2022-07-15 17:05:04">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/738/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker安装配置">Docker安装配置</span>
+            <span class="post-date" title="2022-07-15 16:50:31">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/2f9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="idea快捷键-mac">idea快捷键-mac</span>
+            <span class="post-date" title="2022-07-15 16:35:00">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/3ea3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="解释器模式">解释器模式</span>
+            <span class="post-date" title="2022-07-15 12:13:27">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/db96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="备忘录模式">备忘录模式</span>
+            <span class="post-date" title="2022-07-15 12:07:37">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/e0f5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="访问者模式">访问者模式</span>
+            <span class="post-date" title="2022-07-15 12:06:28">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/6e51/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="迭代器模式">迭代器模式</span>
+            <span class="post-date" title="2022-07-15 12:04:44">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/d8bf/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中介者模式">中介者模式</span>
+            <span class="post-date" title="2022-07-15 12:03:04">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/1e3a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="观察者模式">观察者模式</span>
+            <span class="post-date" title="2022-07-15 12:01:03">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/9a17/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="状态模式">状态模式</span>
+            <span class="post-date" title="2022-07-15 11:57:07">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/ea6f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="责任链模式">责任链模式</span>
+            <span class="post-date" title="2022-07-15 11:53:13">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/59c1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="命令模式">命令模式</span>
+            <span class="post-date" title="2022-07-15 11:51:49">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/e50f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="策略模式">策略模式</span>
+            <span class="post-date" title="2022-07-15 11:02:57">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/a767/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="模板方法模式">模板方法模式</span>
+            <span class="post-date" title="2022-07-15 10:55:35">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/fe8b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="享元模式">享元模式</span>
+            <span class="post-date" title="2022-07-15 10:53:22">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/afc1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="组合模式">组合模式</span>
+            <span class="post-date" title="2022-07-15 10:48:05">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/814c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="外观模式">外观模式</span>
+            <span class="post-date" title="2022-07-14 20:05:05">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/a970/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="桥接模式">桥接模式</span>
+            <span class="post-date" title="2022-07-14 20:01:01">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/fb3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="macos挂载阿里云盘当做本地盘">macos挂载阿里云盘当做本地盘</span>
+            <span class="post-date" title="2022-07-14 17:43:48">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/dcb7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Typora安装配置">Typora安装配置</span>
+            <span class="post-date" title="2022-07-14 16:41:41">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/f34/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="装饰者模式">装饰者模式</span>
+            <span class="post-date" title="2022-07-14 13:31:46">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/9a82/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="适配器模式">适配器模式</span>
+            <span class="post-date" title="2022-07-14 13:29:08">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/bb83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="代理模式">代理模式</span>
+            <span class="post-date" title="2022-07-14 13:23:57">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/740f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="建造者模式">建造者模式</span>
+            <span class="post-date" title="2022-07-14 13:21:59">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/5bc5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单工厂+配置文件解除耦合">简单工厂+配置文件解除耦合</span>
+            <span class="post-date" title="2022-07-14 13:15:09">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/dc87/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="抽象工厂模式">抽象工厂模式</span>
+            <span class="post-date" title="2022-07-14 13:12:53">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/79ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="工厂方法模式">工厂方法模式</span>
+            <span class="post-date" title="2022-07-14 13:10:41">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/5814/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="原型模式">原型模式</span>
+            <span class="post-date" title="2022-07-14 13:07:40">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/b434/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="单例模式">单例模式</span>
+            <span class="post-date" title="2022-07-14 12:44:40">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/dbc0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="软件设计原则">软件设计原则</span>
+            <span class="post-date" title="2022-07-14 12:37:58">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/2ccc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UML图">UML图</span>
+            <span class="post-date" title="2022-07-14 11:37:00">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/9395/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图床工具">图床工具</span>
+            <span class="post-date" title="2022-07-14 09:23:13">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/e597/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="影视资源">影视资源</span>
+            <span class="post-date" title="2022-07-13 21:01:25">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/62b7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tampermonkey安装配置">Tampermonkey安装配置</span>
+            <span class="post-date" title="2022-07-13 20:56:14">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/ef61/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mac快捷键">Mac快捷键</span>
+            <span class="post-date" title="2022-07-13 20:51:26">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/c472/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac软件下载网站">mac软件下载网站</span>
+            <span class="post-date" title="2022-07-13 20:48:18">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/75b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="本地项目上传GitHub">本地项目上传GitHub</span>
+            <span class="post-date" title="2022-07-12 21:53:43">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/1910/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git安装配置">Git安装配置</span>
+            <span class="post-date" title="2022-07-12 19:18:55">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/7cbe/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac安装vpn">mac安装vpn</span>
+            <span class="post-date" title="2022-07-12 15:45:37">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/f169/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac安装Windows虚拟机">mac安装Windows虚拟机</span>
+            <span class="post-date" title="2022-07-12 15:42:17">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/1205/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Navicat安装配置">Navicat安装配置</span>
+            <span class="post-date" title="2022-07-12 13:22:26">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/posts/6c1e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="腾讯云服务器环境配置">腾讯云服务器环境配置</span>
+            <span class="post-date" title="2022-07-12 12:54:34">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/2841/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java环境配置">Java环境配置</span>
+            <span class="post-date" title="2022-07-12 12:54:34">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b524/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UML">UML</span>
+            <span class="post-date" title="2022-07-12 11:02:08">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/5666/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="场景题">场景题</span>
+            <span class="post-date" title="2022-07-12 11:01:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a2d2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计模式">设计模式</span>
+            <span class="post-date" title="2022-07-12 11:01:28">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a013/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-9-高级算法">数据结构与算法-9-高级算法</span>
+            <span class="post-date" title="2022-07-12 10:58:12">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e885/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-8-队列">数据结构与算法-8-队列</span>
+            <span class="post-date" title="2022-07-12 10:58:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/35cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-7-堆栈">数据结构与算法-7-堆栈</span>
+            <span class="post-date" title="2022-07-12 10:57:41">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/9e5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-6-排序">数据结构与算法-6-排序</span>
+            <span class="post-date" title="2022-07-12 10:55:26">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/d820/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/59e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/3879/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4ea0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java">Java</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/7df6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java算法">Java算法</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/9f25/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/a9a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="随笔">随笔</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6695/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-5-数组">数据结构与算法-5-数组</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3e4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-4-链表">数据结构与算法-4-链表</span>
+            <span class="post-date" title="2022-07-12 10:55:16">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/4d1f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-3-遍历">数据结构与算法-3-遍历</span>
+            <span class="post-date" title="2022-07-12 10:55:11">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/2491/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo安装配置">Hexo安装配置</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/3eeb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/83b4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="资源网址">资源网址</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/40cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/bf96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-2-树">数据结构与算法-2-树</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/30b1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-1-哈希">数据结构与算法-1-哈希</span>
+            <span class="post-date" title="2022-07-12 10:54:59">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="操作系统">操作系统</span>
+            <span class="post-date" title="2022-07-12 10:53:44">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7056/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机网络">计算机网络</span>
+            <span class="post-date" title="2022-07-12 10:53:33">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a3a7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分布式">分布式</span>
+            <span class="post-date" title="2022-07-12 10:52:23">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/55df/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-5-Netty">中间件-5-Netty</span>
+            <span class="post-date" title="2022-07-12 10:51:08">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/9aaa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-4-Kafka">中间件-4-Kafka</span>
+            <span class="post-date" title="2022-07-12 10:51:07">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/1740/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-3-搜索引擎">中间件-3-搜索引擎</span>
+            <span class="post-date" title="2022-07-12 10:51:06">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/8cef/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-2-消息队列">中间件-2-消息队列</span>
+            <span class="post-date" title="2022-07-12 10:50:51">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/c5c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-1-Redis">中间件-1-Redis</span>
+            <span class="post-date" title="2022-07-12 10:50:39">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/f1a6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-7-Dubbo">web开发-7-Dubbo</span>
+            <span class="post-date" title="2022-07-12 10:49:59">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e80/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-6-ZooKeeper">web开发-6-ZooKeeper</span>
+            <span class="post-date" title="2022-07-12 10:49:58">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b0ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-5-其他">web开发-5-其他</span>
+            <span class="post-date" title="2022-07-12 10:49:57">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/29a9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-4-MyBatis">web开发-4-MyBatis</span>
+            <span class="post-date" title="2022-07-12 10:49:56">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/cc91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-3-SpringMVC">web开发-3-SpringMVC</span>
+            <span class="post-date" title="2022-07-12 10:49:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/1a4b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-2-Spring">web开发-2-Spring</span>
+            <span class="post-date" title="2022-07-12 10:49:03">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/953b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-1-SpringBoot">web开发-1-SpringBoot</span>
+            <span class="post-date" title="2022-07-12 10:49:02">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a25f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-6-其他">数据库-6-其他</span>
+            <span class="post-date" title="2022-07-12 10:48:20">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/bbcc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-5-优化">数据库-5-优化</span>
+            <span class="post-date" title="2022-07-12 10:48:19">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/162d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-4-锁">数据库-4-锁</span>
+            <span class="post-date" title="2022-07-12 10:48:14">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6382/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-3-事务">数据库-3-事务</span>
+            <span class="post-date" title="2022-07-12 10:46:56">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7634/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-2-索引">数据库-2-索引</span>
+            <span class="post-date" title="2022-07-12 10:46:42">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3652/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-1-SQL">数据库-1-SQL</span>
+            <span class="post-date" title="2022-07-12 10:46:32">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e35d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-5-JVM">Java语言-5-JVM</span>
+            <span class="post-date" title="2022-07-12 10:34:39">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/4838/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-4-多线程">Java语言-4-多线程</span>
+            <span class="post-date" title="2022-07-12 10:34:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6ef6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-3-IO">Java语言-3-IO</span>
+            <span class="post-date" title="2022-07-12 10:34:11">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/81f0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-2-集合类">Java语言-2-集合类</span>
+            <span class="post-date" title="2022-07-12 10:34:00">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3f44/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-1-Java基础">Java语言-1-Java基础</span>
+            <span class="post-date" title="2022-07-12 10:33:39">2022/07/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-面试题/中间件-5-Netty" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">中间件-5-Netty</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="面试题">面试题</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-07-22 17:05:11'>2022-07-12 10:51</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ANetty"><span class="toc-text">补充：Netty</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81BIO%E3%80%81NIO-%E5%92%8C-AIO-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1、BIO、NIO 和 AIO 的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81NIO-%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">2、NIO 的组成?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Netty-%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">3、Netty 的特点?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Netty-%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">4、Netty 的线程模型?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81TCP-%E7%B2%98%E5%8C%85-x2F-%E6%8B%86%E5%8C%85%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">5、TCP 粘包&#x2F;拆包的原因及解决方法?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E4%BA%86%E8%A7%A3%E5%93%AA%E5%87%A0%E7%A7%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%8D%8F%E8%AE%AE"><span class="toc-text">6、了解哪几种序列化协议?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BA%8F%E5%88%97%E5%8C%96%E5%8D%8F%E8%AE%AE"><span class="toc-text">7、如何选择序列化协议?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81Netty-%E7%9A%84%E9%9B%B6%E6%8B%B7%E8%B4%9D%E5%AE%9E%E7%8E%B0"><span class="toc-text">8、Netty 的零拷贝实现?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81Netty-%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E8%A1%A8%E7%8E%B0%E5%9C%A8%E5%93%AA%E4%BA%9B%E6%96%B9%E9%9D%A2"><span class="toc-text">9、Netty 的高性能表现在哪些方面?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81NIOEventLoopGroup-%E6%BA%90%E7%A0%81"><span class="toc-text">10、NIOEventLoopGroup 源码?</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="补充：Netty"><a href="#补充：Netty" class="headerlink" title="补充：Netty"></a>补充：Netty</h2><p>Netty 是一款基于 NIO（Nonblocking I&#x2F;O，非阻塞IO）开发的网络通信框架，对比于 BIO（Blocking I&#x2F;O，阻塞IO），他的并发性能得到了很大提高。难能可贵的是，在保证快速和易用性的同时，并没有丧失可维护性和性能等优势。</p>
+<p>Netty 的应用也是比较广泛的，比如阿里巴巴开源的 Dubbo 和 Sofa-Bolt 框架底层网络通讯都是基于 Netty 来实现的。本文将带大家通过netty的高频面试题来了解Netty框架并掌握Netty的一些重要知识点。</p>
+<p><strong>申明：本人对Netty没有过深入了解，只知道一点皮毛，本文的著作权不归本人所有，只是在整理面试系列，故借花献佛，因为不知道文章出处，所以特此说明，如果有幸被原作者看到，感谢您的无心插柳帮助到这么多有需要的人！如果侵权，请联系码之初立即删除，如果有需要转载的朋友，也请附上申明这段话，让我们一起尊重原作者的著作权和知识产权，谢谢配合！</strong></p>
+<p>下面让我们一起来看看Netty的高频面试题。</p>
+<h3 id="1、BIO、NIO-和-AIO-的区别"><a href="#1、BIO、NIO-和-AIO-的区别" class="headerlink" title="1、BIO、NIO 和 AIO 的区别?"></a>1、BIO、NIO 和 AIO 的区别?</h3><p>BIO:一个连接一个线程，客户端有连接请求时服务器端就需要启动一个线程进行处理。线 程开销大。</p>
+<p>伪异步 IO:将请求连接放入线程池，一对多，但线程还是很宝贵的资源。NIO:一个请求一个线程，但客户端发送的连接请求都会注册到多路复用器上，多路复用 器轮询到连接有 I&#x2F;O 请求时才启动一个线程进行处理。AIO:一个有效请求一个线程，客户端的 I&#x2F;O 请求都是由 OS 先完成了再通知服务器应用去 启动线程进行处理，</p>
+<p>BIO 是面向流的，NIO 是面向缓冲区的;BIO 的各种流是阻塞的。而 NIO 是非阻塞的;BIO的 Stream 是单向的，而 NIO 的 channel 是双向的。</p>
+<p>NIO 的特点:事件驱动模型、单线程处理多任务、非阻塞 I&#x2F;O，I&#x2F;O 读写不再阻塞，而是返 回 0、基于 block 的传输比基于流的传输更高效、更高级的 IO 函数 zero-copy、IO 多路复用 大大提高了 java 网络应用的可伸缩性和实用性。基于 Reactor 线程模型。</p>
+<p>在 Reactor 模式中，事件分发器等待某个事件或者可应用或个操作的状态发生，事件分发 器就把这个事件传给事先注册的事件处理函数或者回调函数，由后者来做实际的读写操 作。如在 Reactor 中实现读:注册读就绪事件和相应的事件处理器、事件分发器等待事 件、事件到来，激活分发器，分发器调用事件对应的处理器、事件处理器完成实际的读操 作，处理读到的数据，注册新的事件，然后返还控制权。</p>
+<h3 id="2、NIO-的组成"><a href="#2、NIO-的组成" class="headerlink" title="2、NIO 的组成?"></a>2、NIO 的组成?</h3><p>Buffer:与 Channel 进行交互，数据是从 Channel 读入缓冲区，从缓冲区写入 Channel 中的。</p>
+<p>flip方法 : 反转此缓冲区，将position给limit，然后将position置为0，其实就是切换读 写模式。<br>clear 方法 :清除此缓冲区，将 position 置为 0，把 capacity 的值给 limit。<br>rewind 方法 : 重绕此缓冲区，将 position 置为 0</p>
+<p>DirectByteBuffer 可减少一次系统空间到用户空间的拷贝。但 Buffer 创建和销毁的成本更 高，不可控，通常会用内存池来提高性能。直接缓冲区主要分配给那些易受基础系统的本 机 I&#x2F;O 操作影响的大型、持久的缓冲区。如果数据量比较小的中小应用情况下，可以考虑 使用 heapBuffer，由 JVM 进行管理。</p>
+<p>Channel:表示 IO 源与目标打开的连接，是双向的，但不能直接访问数据，只能与Buffer进行交互。通过源码可知，FileChannel 的 read 方法和 write 方法都导致数据复制了两次!</p>
+<p>Selector 可使一个单独的线程管理多个 Channel，open 方法可创建 Selector，register 方法向 多路复用器器注册通道，可以监听的事件类型:读、写、连接、accept。注册事件后会产 生一个 SelectionKey:它表示 SelectableChannel 和 Selector 之间的注册关系，wakeup 方 法:使尚未返回的第一个选择操作立即返回，唤醒的原因是:注册了新的 channel 或者事 件;channel 关闭，取消注册;优先级更高的事件触发(如定时器事件)，希望及时处理。</p>
+<p>Selector 在 Linux 的实现类是 EPollSelectorImpl，委托给 EPollArrayWrapper 实现，其中三个native 方法是对 epoll 的封装，而 EPollSelectorImpl. implRegister 方法，通过调用 epoll_ctl向 epoll 实例中注册事件，还将注册的文件描述符(fd)与 SelectionKey 的对应关系添加到fdToKey 中，这个 map 维护了文件描述符与 SelectionKey 的映射。</p>
+<p>fdToKey 有时会变得非常大，因为注册到 Selector 上的 Channel 非常多(百万连接);过期 或失效的 Channel 没有及时关闭。fdToKey 总是串行读取的，而读取是在 select 方法中进行 的，该方法是非线程安全的。</p>
+<p>Pipe:两个线程之间的单向数据连接，数据会被写到 sink 通道，从 source 通道读取。</p>
+<p>NIO 的服务端建立过程:Selector.open():打开一个 Selector;ServerSocketChannel.open(): 创建服务端的 Channel;bind():绑定到某个端口上。并配置非阻塞模式;register():注册Channel 和关注的事件到 Selector 上;select()轮询拿到已经就绪的事件。</p>
+<h3 id="3、Netty-的特点"><a href="#3、Netty-的特点" class="headerlink" title="3、Netty 的特点?"></a>3、Netty 的特点?</h3><ul>
+<li>一个高性能、异步事件驱动的 NIO 框架，它提供了对 TCP、UDP 和文件传输的支持</li>
+<li>使用更高效的 socket 底层，对 epoll 空轮询引起的 cpu 占用飙升在内部进行了处理，避免 了直接使用 NIO 的陷阱，简化了 NIO 的处理方式。</li>
+<li>采用多种 decoder&#x2F;encoder 支持，对 TCP 粘包&#x2F;分包进行自动化处理</li>
+<li>可使用接受&#x2F;处理线程池，提高连接效率，对重连、心跳检测的简单支持</li>
+<li>可配置IO线程数、TCP参数， TCP接收和发送缓冲区使用直接内存代替堆内存，通过内存 池的方式循环利用 ByteBuf</li>
+<li>通过引用计数器及时申请释放不再引用的对象，降低了 GC 频率 使用单线程串行化的方式，高效的 Reactor 线程模型</li>
+<li>大量使用了 volitale、使用了 CAS 和原子类、线程安全类的使用、读写锁的使用</li>
+</ul>
+<h3 id="4、Netty-的线程模型"><a href="#4、Netty-的线程模型" class="headerlink" title="4、Netty 的线程模型?"></a>4、Netty 的线程模型?</h3><p>Netty 通过 Reactor 模型基于多路复用器接收并处理用户请求，内部实现了两个线程池，<strong>boss 线程池和 work 线程池</strong>，其中 boss 线程池的线程负责处理请求的 accept 事件，当接收 到 accept 事件的请求时，把对应的 socket 封装到一个 NioSocketChannel 中，并交给 work线程池，其中 work 线程池负责请求的 read 和 write 事件，由对应的 Handler 处理。</p>
+<ul>
+<li><p>单线程模型:所有 I&#x2F;O 操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor 线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送&#x2F;读取请 求或应答&#x2F;响应消息。一个 NIO 线程同时处理成百上千的链路，性能上无法支撑，速度 慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。</p>
+</li>
+<li><p>多线程模型:有一个NIO 线程(Acceptor) 只负责监听服务端，接收客户端的TCP 连接 请求;NIO 线程池负责网络IO 的操作，即消息的读取、解码、编码和发送;1 个NIO 线 程可以同时处理N 条链路，但是1 个链路只对应1 个NIO 线程，这是为了防止发生并发 操作问题。但在并发百万客户端连接或需要安全认证时，一个Acceptor 线程可能会存在性 能不足问题。</p>
+</li>
+<li><p>主从多线程模型:Acceptor 线程用于绑定监听端口，接收客户端连接，将 SocketChannel从主线程池的Reactor 线程的多路复用器上移除，重新注册到Sub 线程池的线程上，用于处理 I&#x2F;O 的读写等操作，从而保证 mainReactor 只负责接入认证、握手等操作。</p>
+</li>
+</ul>
+<h3 id="5、TCP-粘包-x2F-拆包的原因及解决方法"><a href="#5、TCP-粘包-x2F-拆包的原因及解决方法" class="headerlink" title="5、TCP 粘包&#x2F;拆包的原因及解决方法?"></a>5、TCP 粘包&#x2F;拆包的原因及解决方法?</h3><p>TCP 是以流的方式来处理数据，一个完整的包可能会被 TCP 拆分成多个包进行发送，也可 能把小的封装成一个大的数据包发送。</p>
+<p><strong>TCP 粘包&#x2F;分包的原因：</strong></p>
+<p>应用程序写入的字节大小大于套接字发送缓冲区的大小，会发生拆包现象，而应用程序写 入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘 包现象;</p>
+<p>进行 MSS 大小的 TCP 分段，当 TCP 报文长度-TCP 头部长度&gt;MSS 的时候将发生拆包 以太网帧的 payload(净荷)大于 MTU(1500 字节)进行 ip 分片。</p>
+<p><strong>解决方法：</strong></p>
+<p>消息定长:FixedLengthFrameDecoder 类 包尾增加特殊字符分割:行分隔符类:LineBasedFrameDecoder 或自定义分隔符类 :DelimiterBasedFrameDecoder将消息分为消息头和消息体:LengthFieldBasedFrameDecoder 类。分为有头部的拆包与粘 包、长度字段在前且有头部的拆包与粘包、多扩展头部的拆包与粘包。</p>
+<h3 id="6、了解哪几种序列化协议"><a href="#6、了解哪几种序列化协议" class="headerlink" title="6、了解哪几种序列化协议?"></a>6、了解哪几种序列化协议?</h3><p>序列化(编码)是将对象序列化为二进制形式(字节数组)，主要用于网络传输、数据持久 化等;而反序列化(解码)则是将从网络、磁盘等读取的字节数组还原成原始对象，主要 用于网络传输对象的解码，以便完成远程调用。</p>
+<p>影响序列化性能的关键因素:序列化后的码流大小(网络带宽的占用)、序列化的性能 (CPU 资源占用);是否支持跨语言(异构系统的对接和开发语言切换)。</p>
+<ul>
+<li><p>java 默认提供的序列化:无法跨语言、序列化后的码流太大、序列化的性能差</p>
+</li>
+<li><p>XML，优点:人机可读性好，可指定元素或特性的名称。缺点:序列化数据只包含数据本 身以及类的结构，不包括类型标识和程序集信息;只能序列化公共属性和字段;不能序列 化方法;文件庞大，文件格式复杂，传输占带宽。适用场景:当做配置文件存储数据，实 时数据转换。</p>
+</li>
+<li><p>JSON，是一种轻量级的数据交换格式，优点:兼容性高、数据格式比较简单，易于读写、 序列化后数据较小，可扩展性好，兼容性好、与 XML 相比，其协议比较简单，解析速度比 较快。缺点:数据的描述性比 XML 差、不适合性能要求为 ms 级别的情况、额外空间开销 比较大。适用场景(可替代XML):跨防火墙访问、可调式性要求高、基于 Web browser 的 Ajax 请求、传输数据量相对小，实时性要求相对低(例如秒级别)的服务。</p>
+</li>
+<li><p>Fastjson，采用一种“假定有序快速匹配”的算法。优点:接口简单易用、目前 java 语言中 最快的 json 库。缺点:过于注重快，而偏离了“标准”及功能性、代码质量不高，文档不 全。适用场景:协议交互、Web 输出、Android 客户端</p>
+</li>
+<li><p>Thrift，不仅是序列化协议，还是一个 RPC 框架。优点:序列化后的体积小, 速度快、支持 多种语言和丰富的数据类型、对于数据字段的增删具有较强的兼容性、支持二进制压缩编 码。缺点:使用者较少、跨防火墙访问时，不安全、不具有可读性，调试代码时相对困 难、不能与其他传输层协议共同使用(例如 HTTP)、无法支持向持久层直接读写数据，即 不适合做数据持久化序列化协议。适用场景:分布式系统的 RPC 解决方案</p>
+</li>
+<li><p>Avro，Hadoop 的一个子项目，解决了 JSON 的冗长和没有 IDL 的问题。优点:支持丰富的 数据类型、简单的动态语言结合功能、具有自我描述属性、提高了数据解析速度、快速可 压缩的二进制数据形式、可以实现远程过程调用 RPC、支持跨编程语言实现。缺点:对于 习惯于静态类型语言的用户不直观。适用场景:在 Hadoop 中做 Hive、Pig 和 MapReduce的持久化数据格式。</p>
+</li>
+<li><p>Protobuf，将数据结构以.proto 文件进行描述，通过代码生成工具可以生成对应数据结构的POJO 对象和 Protobuf 相关的方法和属性。优点:序列化后码流小，性能高、结构化数据存 储格式(XML JSON 等)、通过标识字段的顺序，可以实现协议的前向兼容、结构化的文档 更容易管理和维护。缺点:需要依赖于工具生成代码、支持的语言相对较少，官方只支持java 、C++ 、python。适用场景:对性能要求高的RPC调用、具有良好的跨防火墙的访问 属性、适合应用层对象的持久化</p>
+</li>
+</ul>
+<p><strong>其它</strong></p>
+<ul>
+<li>protostuff 基于 protobuf 协议，但不需要配置 proto 文件，直接导包即可</li>
+<li>Jboss marshaling 可以直接序列化 java 类， 无须实 java.io.Serializable 接口</li>
+<li>Message pack 一个高效的二进制序列化格式</li>
+<li>Hessian 采用二进制协议的轻量级 remoting onhttp 工具</li>
+<li>kryo 基于 protobuf 协议，只支持 java 语言,需要注册(Registration)，然后序列化 (Output)，反序列化(Input)</li>
+</ul>
+<h3 id="7、如何选择序列化协议"><a href="#7、如何选择序列化协议" class="headerlink" title="7、如何选择序列化协议?"></a>7、如何选择序列化协议?</h3><p><strong>具体场景</strong></p>
+<p>对于公司间的系统调用，如果性能要求在 100ms 以上的服务，基于 XML 的 SOAP 协议是一 个值得考虑的方案。</p>
+<p>基于 Web browser 的 Ajax，以及 Mobile app 与服务端之间的通讯，JSON 协议是首选。对于 性能要求不太高，或者以动态类型语言为主，或者传输数据载荷很小的的运用场景，JSON也是非常不错的选择。</p>
+<p>对于调试环境比较恶劣的场景，采用 JSON 或 XML 能够极大的提高调试效率，降低系统开 发成本。</p>
+<p>当对性能和简洁性有极高要求的场景，Protobuf，Thrift，Avro 之间具有一定的竞争关系。对于 T 级别的数据的持久化应用场景，Protobuf 和 Avro 是首要选择。如果持久化后的数据 存储在 hadoop 子项目里，Avro 会是更好的选择。</p>
+<p>对于持久层非 Hadoop 项目，以静态类型语言为主的应用场景，Protobuf 会更符合静态类 型语言工程师的开发习惯。由于 Avro 的设计理念偏向于动态类型语言，对于动态语言为主 的应用场景，Avro 是更好的选择。</p>
+<p>如果需要提供一个完整的 RPC 解决方案，Thrift 是一个好的选择。如果序列化之后需要支持不同的传输层协议，或者需要跨防火墙访问的高性能场景，Protobuf 可以优先考虑。</p>
+<p>protobuf 的数据类型有多种:bool、double、float、int32、int64、string、bytes、enum、message。protobuf的限定符:required: 必须赋值，不能为空、optional:字段可以赋值，也 可以不赋值、repeated: 该字段可以重复任意次数(包括 0 次)、枚举;只能用指定的常量 集中的一个值作为其值;</p>
+<p>protobuf 的基本规则:每个消息中必须至少留有一个 required 类型的字段、包含 0 个或多 个 optional 类型的字段;repeated 表示的字段可以包含 0 个或多个数据;[1,15]之内的标识 号在编码的时候会占用一个字节(常用)，[16,2047]之内的标识号则占用 2 个字节，标识号 一定不能重复、使用消息类型，也可以将消息嵌套任意多层，可用嵌套消息类型来代替 组。</p>
+<p>protobuf 的消息升级原则:不要更改任何已有的字段的数值标识;不能移除已经存在的required 字段，optional 和 repeated 类型的字段可以被移除，但要保留标号不能被重用。新添加的字段必须是 optional 或 repeated。因为旧版本程序无法读取或写入新增的required 限定符的字段。</p>
+<p>编译器为每一个消息类型生成了一个.java 文件，以及一个特殊的 Builder 类(该类是用来创 建消息类接口的)。如:UserProto.User.Builder builder &#x3D; UserProto.User.newBuilder();builder.build();</p>
+<p>Netty 中的使用:ProtobufVarint32FrameDecoder 是用于处理半包消息的解码类;ProtobufDecoder(UserProto.User.getDefaultInstance())这是创建的 UserProto.java 文件中的解 码类;ProtobufVarint32LengthFieldPrepender 对 protobuf 协议的消息头上加上一个长度为32 的整形字段，用于标志这个消息的长度的类;ProtobufEncoder 是编码类将 StringBuilder 转换为 ByteBuf 类型:copiedBuffer()方法</p>
+<h3 id="8、Netty-的零拷贝实现"><a href="#8、Netty-的零拷贝实现" class="headerlink" title="8、Netty 的零拷贝实现?"></a>8、Netty 的零拷贝实现?</h3><p>Netty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存进行 Socket 读 写，不需要进行字节缓冲区的二次拷贝。堆内存多了一次内存拷贝，JVM 会将堆内存Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。ByteBuffer 由 ChannelConfig 分配， 而 ChannelConfig 创建 ByteBufAllocator 默认使用 Direct Buffer</p>
+<p>CompositeByteBuf 类可以将多个 ByteBuf 合并为一个逻辑上的 ByteBuf, 避免了传统通过 内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。addComponents 方法将 header与 body 合并为一个逻辑上的 ByteBuf, 这两个 ByteBuf 在 CompositeByteBuf 内部都是单 独存在的, CompositeByteBuf 只是逻辑上是一个整体</p>
+<p>通过 FileRegion 包装的 FileChannel.tranferTo 方法 实现文件传输, 可以直接将文件缓冲区 的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。</p>
+<p>通过 wrap 方法, 我们可以将 byte[] 数组、ByteBuf、ByteBuffer 等包装成一个 Netty ByteBuf 对象, 进而避免了拷贝操作。</p>
+<p>Selector BUG:若 Selector 的轮询结果为空，也没有 wakeup 或新消息处理，则发生空轮 询，CPU 使用率 100%，</p>
+<p>Netty 的解决办法:对 Selector 的 select 操作周期进行统计，每完成一次空的 select 操作进 行一次计数，若在某个周期内连续发生 N 次空轮询，则触发了 epoll 死循环 bug。重建Selector，判断是否是其他线程发起的重建请求，若不是则将原 SocketChannel 从旧的Selector 上去除注册，重新注册到新的 Selector 上，并将原来的 Selector 关闭。</p>
+<h3 id="9、Netty-的高性能表现在哪些方面"><a href="#9、Netty-的高性能表现在哪些方面" class="headerlink" title="9、Netty 的高性能表现在哪些方面?"></a>9、Netty 的高性能表现在哪些方面?</h3><ul>
+<li><p>心跳，对服务端:会定时清除闲置会话 inactive(netty5)，对客户端:用来检测会话是否断 开，是否重来，检测网络延迟，其中 idleStateHandler 类 用来检测会话状态</p>
+</li>
+<li><p>串行无锁化设计，即消息的处理尽可能在同一个线程内完成，期间不进行线程切换，这样 就避免了多线程竞争和同步锁。表面上看，串行化设计似乎 CPU 利用率不高，并发程度不 够。但是，通过调整 NIO 线程池的线程参数，可以同时启动多个串行化的线程并行运行， 这种局部无锁化的串行线程设计相比一个队列-多个工作线程模型性能更优。</p>
+</li>
+<li><p>可靠性，链路有效性检测:链路空闲检测机制，读&#x2F;写空闲超时机制;内存保护机制:通过 内存池重用 ByteBuf;ByteBuf 的解码保护;优雅停机:不再接收新消息、退出前的预处理操 作、资源的释放操作。</p>
+</li>
+<li><p>Netty安全性:支持的安全协议:SSL V2和V3，TLS，SSL单向认证、双向认证和第三方CA认证。</p>
+</li>
+<li><p>高效并发编程的体现:volatile 的大量、正确使用;CAS 和原子类的广泛使用;线程安全容 器的使用;通过读写锁提升并发性能。IO 通信性能三原则:传输(AIO)、协议(Http)、线 程(主从多线程)</p>
+</li>
+<li><p>流量整型的作用(变压器):防止由于上下游网元性能不均衡导致下游网元被压垮，业务流中断;防止由于通信模块接受消息过快，后端业务线程处理不及时导致撑死问题。</p>
+</li>
+<li><p>TCP 参数配置:SO_RCVBUF 和 SO_SNDBUF:通常建议值为 128K 或者 256K;SO_TCPNODELAY:NAGLE 算法通过将缓冲区内的小封包自动相连，组成较大的封包，阻止 大量小封包的发送阻塞网络，从而提高网络应用效率。但是对于时延敏感的应用场景需要 关闭该优化算法;</p>
+</li>
+</ul>
+<h3 id="10、NIOEventLoopGroup-源码"><a href="#10、NIOEventLoopGroup-源码" class="headerlink" title="10、NIOEventLoopGroup 源码?"></a>10、NIOEventLoopGroup 源码?</h3><p>NioEventLoopGroup(其实是 MultithreadEventExecutorGroup) 内部维护一个类型为EventExecutor children [], 默认大小是处理器核数 * 2, 这样就构成了一个线程池，初始化EventExecutor 时 NioEventLoopGroup 重载 newChild 方法，所以 children 元素的实际类型为NioEventLoop。</p>
+<p>线程启动时调用 SingleThreadEventExecutor 的构造方法，执行 NioEventLoop 类的 run 方 法，首先会调用 hasTasks()方法判断当前 taskQueue 是否有元素。如果 taskQueue 中有元 素，执行 selectNow() 方法，最终执行 selector.selectNow()，该方法会立即返回。如果taskQueue 没有元素，执行 select(oldWakenUp) 方法</p>
+<p>select ( oldWakenUp) 方法解决了 Nio 中的 bug，selectCnt 用来记录 selector.select 方法的 执行次数和标识是否执行过 selector.selectNow()，若触发了 epoll 的空轮询 bug，则会反复 执行selector.select(timeoutMillis)，变量selectCnt 会逐渐变大，当selectCnt 达到阈值(默 认 512)，则执行 rebuildSelector 方法，进行 selector 重建，解决 cpu 占用 100%的 bug。</p>
+<p>rebuildSelector方法先通过openSelector方法创建一个新的selector。然后将old selector的selectionKey 执行 cancel。最后将 old selector 的 channel 重新注册到新的 selector 中。rebuild 后，需要重新执行方法 selectNow，检查是否有已 ready 的 selectionKey。</p>
+<p>接下来调用 processSelectedKeys 方法(处理 I&#x2F;O 任务)，当 selectedKeys !&#x3D; null 时，调用processSelectedKeysOptimized方法，迭代 selectedKeys 获取就绪的 IO 事件的selectkey存 放在数组 selectedKeys 中, 然后为每个事件都调用 processSelectedKey 来处理它，processSelectedKey 中分别处理 OP_READ;OP_WRITE;OP_CONNECT 事件。</p>
+<p>最后调用 runAllTasks 方法(非 IO 任务)，该方法首先会调用 fetchFromScheduledTaskQueue方法，把 scheduledTaskQueue 中已经超过延迟执行时间的任务移到 taskQueue 中等待被执 行，然后依次从 taskQueue 中取任务执行，每执行 64 个任务，进行耗时检查，如果已执行 时间超过预先设定的执行时间，则停止执行非 IO 任务，避免非 IO 任务太多，影响 IO 任务 的执行。</p>
+<p>每个 NioEventLoop 对应一个线程和一个 Selector，NioServerSocketChannel 会主动注册到某 一个 NioEventLoop 的 Selector 上，NioEventLoop 负责事件轮询。</p>
+<p>Outbound 事件都是请求事件, 发起者是 Channel，处理者是 unsafe，通过 Outbound 事 件进行通知，传播方向是 tail到head。Inbound 事件发起者是 unsafe，事件的处理者是Channel, 是通知事件，传播方向是从头到尾。</p>
+<p>内存管理机制，首先会预申请一大块内存 Arena，Arena 由许多 Chunk 组成，而每个 Chunk默认由 2048 个 page 组成。Chunk 通过 AVL 树的形式组织 Page，每个叶子节点表示一个Page，而中间节点表示内存区域，节点自己记录它在整个 Arena 中的偏移地址。当区域被 分配出去后，中间节点上的标记位会被标记，这样就表示这个中间节点以下的所有节点都 已被分配了。大于 8k 的内存分配在 poolChunkList 中，而 PoolSubpage 用于分配小于 8k 的 内存，它会把一个 page 分割成多段，进行内存分配。</p>
+<p>ByteBuf 的特点:支持自动扩容(4M)，保证 put 方法不会抛出异常、通过内置的复合缓冲 类型，实现零拷贝(zero-copy);不需要调用 flip()来切换读&#x2F;写模式，读取和写入索引分开;方法链;引用计数基于 AtomicIntegerFieldUpdater 用于内存回收;PooledByteBuf 采用 二叉树来实现一个内存池，集中管理内存的分配和释放，不用每次使用都新建一个缓冲区 对象。UnpooledHeapByteBuf 每次都会新建一个缓冲区对象。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2021-2022 zhangxin
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</html>

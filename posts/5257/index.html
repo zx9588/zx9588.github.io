@@ -1,0 +1,3507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java集合 | zhangxinの随笔</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Java集合 | zhangxinの随笔">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="-Tomcat面试专题.pdf-Tomcat优化相关问题.pdf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat相关书籍">
+<meta property="og:url" content="http://example.com/posts/176a/index.html">
+<meta property="og:site_name" content="zhangxinの随笔">
+<meta property="og:description" content="-Tomcat面试专题.pdf-Tomcat优化相关问题.pdf">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-23T06:12:07.000Z">
+<meta property="article:modified_time" content="2022-07-23T06:16:39.562Z">
+<meta property="article:author" content="zx">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/zotero.ico">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/dino.ico"/>
+</a>
+<div class="author">
+    <span>zx</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/zx20219898"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1205362172@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1205362172&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(179)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Java">
+                        
+                        Java
+                        <small>(22)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="面试题">
+                        
+                        面试题
+                        <small>(38)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="网站书签">
+                        
+                        网站书签
+                        <small>(19)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Books">
+                        
+                        Books
+                        <small>(18)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="设计模式">
+                        
+                        设计模式
+                        <small>(26)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件安装">
+                        
+                        软件安装
+                        <small>(11)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="快捷键">
+                        
+                        快捷键
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Git">
+                        
+                        Git
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Hexo">
+                        
+                        Hexo
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Other">
+                        
+                        Other
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="书籍">
+                        
+                        书籍
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据库">
+                        
+                        数据库
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Docker">
+                        
+                        Docker
+                        <small>(20)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Spring">
+                        
+                        Spring
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="179">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://hexo.io">Hexo</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+            <li><a target="_blank" href="https://butterfly.js.org/">Butterfly</a></li>
+            
+            <li><a target="_blank" href="https://blinkfox.github.io/">闪烁之狐</a></li>
+            
+            <li><a target="_blank" href="https://www.eg3.cn/">Meng</a></li>
+            
+            <li><a target="_blank" href="https://www.antmoe.com/categories/">小康博客</a></li>
+            
+            <li><a target="_blank" href="https://vlts.cn/categories/">小嘉的部落格</a></li>
+            
+            <li><a target="_blank" href="https://codeppx.gitee.io/myblog/">Code皮皮虾</a></li>
+            
+            <li><a target="_blank" href="https://www.fangshitao.top/">Wind</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/176a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tomcat相关书籍">Tomcat相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:12:07">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/798d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringCloud相关书籍">SpringCloud相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:10:59">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/e60/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Nginx相关书籍">Nginx相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:08:32">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/a599/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kafka相关书籍">Kafka相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:53:21">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b4e6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git相关书籍">Git相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:46:06">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b748/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JVM相关书籍">JVM相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:43:38">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/c0c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="RabbitMQ相关书籍">RabbitMQ相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:27:12">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/3715/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring相关书籍">Spring相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:23:09">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b0b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringBoot相关书籍">SpringBoot相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:21:09">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/f2f5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringMVC相关书籍">SpringMVC相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:18:13">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/1ac1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ZooKeeper相关书籍">ZooKeeper相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:16:19">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/ee7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="atom常用快捷键-mac亲测">atom常用快捷键-mac亲测</span>
+            <span class="post-date" title="2022-07-23 10:37:06">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/ddb8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dubbo相关书籍">Dubbo相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:32:24">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/81b4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言相关书籍">Java语言相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:31:36">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/2ae1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis相关书籍">Redis相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:28:10">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 书籍 "
+           href="/posts/2ae1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redis相关书籍">redis相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:28:10">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/8b3a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="其他书籍">其他书籍</span>
+            <span class="post-date" title="2022-07-23 10:14:58">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/1319/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux相关书籍">Linux相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:01:22">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Spring "
+           href="/posts/d9c2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring-资源网站">Spring-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:37:44">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/d1ed/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计模式-资源网站">设计模式-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:36:03">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/29c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-资源网站">数据库-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:33:18">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/6cc6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OA办公">OA办公</span>
+            <span class="post-date" title="2022-07-22 22:22:42">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/50/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线教程和文档">在线教程和文档</span>
+            <span class="post-date" title="2022-07-22 22:20:22">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f8ca/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编程学习">在线编程学习</span>
+            <span class="post-date" title="2022-07-22 22:19:54">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f687/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线办公工具">在线办公工具</span>
+            <span class="post-date" title="2022-07-22 22:19:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/a324/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="写作辅助工具">写作辅助工具</span>
+            <span class="post-date" title="2022-07-22 22:17:55">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/6fa0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线素材库">在线素材库</span>
+            <span class="post-date" title="2022-07-22 22:13:41">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2b47/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="网络工具">网络工具</span>
+            <span class="post-date" title="2022-07-22 22:11:55">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/7b68/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="正则表达式工具">正则表达式工具</span>
+            <span class="post-date" title="2022-07-22 22:11:09">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f2d4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线转换工具">在线转换工具</span>
+            <span class="post-date" title="2022-07-22 22:09:39">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/228d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计制作类工具">设计制作类工具</span>
+            <span class="post-date" title="2022-07-22 22:01:28">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f6c6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编译运行工具">在线编译运行工具</span>
+            <span class="post-date" title="2022-07-22 21:58:50">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/5438/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线生成器">在线生成器</span>
+            <span class="post-date" title="2022-07-22 21:57:57">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/4813/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编解码工具">在线编解码工具</span>
+            <span class="post-date" title="2022-07-22 21:51:16">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/d988/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="可视化/格式化工具">可视化/格式化工具</span>
+            <span class="post-date" title="2022-07-22 21:36:15">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2b3c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开发辅助工具">开发辅助工具</span>
+            <span class="post-date" title="2022-07-22 21:27:10">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/47fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="画图工具">画图工具</span>
+            <span class="post-date" title="2022-07-22 21:20:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/ce00/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="如何免费申请js.cool二级域名">如何免费申请js.cool二级域名</span>
+            <span class="post-date" title="2022-07-22 14:56:17">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/2e7c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="修改文章永久链接为随机编号">修改文章永久链接为随机编号</span>
+            <span class="post-date" title="2022-07-22 13:44:30">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/fd51/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Netty相关书籍">Netty相关书籍</span>
+            <span class="post-date" title="2022-07-22 13:22:21">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/2a5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库相关书籍">数据库相关书籍</span>
+            <span class="post-date" title="2022-07-22 11:38:07">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Linux "
+           href="/posts/dbd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自定义命令">自定义命令</span>
+            <span class="post-date" title="2022-07-21 18:47:07">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Linux "
+           href="/posts/a470/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vim编辑器">vim编辑器</span>
+            <span class="post-date" title="2022-07-21 15:38:21">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/posts/4471/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ssh连接云服务器">ssh连接云服务器</span>
+            <span class="post-date" title="2022-07-21 14:53:53">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2e52/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="文档笔记工具">文档笔记工具</span>
+            <span class="post-date" title="2022-07-21 14:30:15">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/c4f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git学习">Git学习</span>
+            <span class="post-date" title="2022-07-21 11:05:21">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/3b9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2022-07-21 10:40:17">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/ff76/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="又拍云加速">又拍云加速</span>
+            <span class="post-date" title="2022-07-20 08:37:55">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/51bb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vercel托管">Vercel托管</span>
+            <span class="post-date" title="2022-07-20 08:37:07">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/cdcb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="并发编程">并发编程</span>
+            <span class="post-date" title="2022-07-19 16:18:04">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/1d9c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="IO流">IO流</span>
+            <span class="post-date" title="2022-07-19 16:05:04">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/5257/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java集合">Java集合</span>
+            <span class="post-date" title="2022-07-19 14:54:48">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/f499/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Windonws端口被占用">Windonws端口被占用</span>
+            <span class="post-date" title="2022-07-18 17:01:40">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4523/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="枚举">枚举</span>
+            <span class="post-date" title="2022-07-18 17:01:06">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4041/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="字符集/编码集">字符集/编码集</span>
+            <span class="post-date" title="2022-07-18 17:00:30">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/bc61/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java定时任务">Java定时任务</span>
+            <span class="post-date" title="2022-07-18 16:59:53">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/8609/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lambda表达式">Lambda表达式</span>
+            <span class="post-date" title="2022-07-18 16:59:11">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/330f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="java.lang.Math">java.lang.Math</span>
+            <span class="post-date" title="2022-07-18 16:58:19">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/8556/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="java.time.LocalDateTime">java.time.LocalDateTime</span>
+            <span class="post-date" title="2022-07-18 16:57:22">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/1cea/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="System系统类">System系统类</span>
+            <span class="post-date" title="2022-07-18 16:56:10">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/3293/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BigDicimal类">BigDicimal类</span>
+            <span class="post-date" title="2022-07-18 16:55:29">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/2367/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="方法引用">方法引用</span>
+            <span class="post-date" title="2022-07-18 16:54:22">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/b543/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stream流">Stream流</span>
+            <span class="post-date" title="2022-07-18 16:53:08">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/95da/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="递归">递归</span>
+            <span class="post-date" title="2022-07-18 16:51:32">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4486/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java正则表达式">Java正则表达式</span>
+            <span class="post-date" title="2022-07-18 16:50:35">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4bfb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="日志级别">日志级别</span>
+            <span class="post-date" title="2022-07-18 16:47:24">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/e4e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="时间复杂度">时间复杂度</span>
+            <span class="post-date" title="2022-07-18 14:38:47">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/59b9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署hexo">Docker部署hexo</span>
+            <span class="post-date" title="2022-07-17 12:19:11">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/35b5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署RabbitMQ">Docker部署RabbitMQ</span>
+            <span class="post-date" title="2022-07-17 12:18:20">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/35c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Cloudreve">Docker部署Cloudreve</span>
+            <span class="post-date" title="2022-07-17 12:16:50">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/6360/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Wordpress">Docker部署Wordpress</span>
+            <span class="post-date" title="2022-07-17 12:13:57">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/e9b6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Nacos集群">Docker部署Nacos集群</span>
+            <span class="post-date" title="2022-07-17 12:08:33">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/a7a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dcoker部署Nacos">Dcoker部署Nacos</span>
+            <span class="post-date" title="2022-07-17 12:04:33">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/f3b5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署CentOS">Docker部署CentOS</span>
+            <span class="post-date" title="2022-07-17 12:03:59">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/34c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Redis">Docker部署Redis</span>
+            <span class="post-date" title="2022-07-17 12:02:42">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/7ac1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Nginx">Docker部署Nginx</span>
+            <span class="post-date" title="2022-07-17 12:00:54">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/2fc3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Tomcat">Docker部署Tomcat</span>
+            <span class="post-date" title="2022-07-17 11:59:58">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/d561/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker创建自定义网络">Docker创建自定义网络</span>
+            <span class="post-date" title="2022-07-17 11:47:14">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/78b3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2022-07-17 11:44:26">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/c014/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-资源网站">Docker-资源网站</span>
+            <span class="post-date" title="2022-07-17 08:54:26">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/533b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-Compose">Docker-Compose</span>
+            <span class="post-date" title="2022-07-16 16:33:13">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/4924/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dockerfile">Dockerfile</span>
+            <span class="post-date" title="2022-07-16 16:26:58">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/c242/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker镜像制作">Docker镜像制作</span>
+            <span class="post-date" title="2022-07-16 16:19:09">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/b827/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker配置数据卷和数据卷容器">Docker配置数据卷和数据卷容器</span>
+            <span class="post-date" title="2022-07-16 16:05:15">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/ef5f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker镜像仓库">Docker镜像仓库</span>
+            <span class="post-date" title="2022-07-16 15:33:28">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/76cd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOS安装Docker">CentOS安装Docker</span>
+            <span class="post-date" title="2022-07-16 09:53:59">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/8e7e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker命令">Docker命令</span>
+            <span class="post-date" title="2022-07-16 09:44:00">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/f7b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SSH工具安装配置">SSH工具安装配置</span>
+            <span class="post-date" title="2022-07-15 17:05:04">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/738/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker安装配置">Docker安装配置</span>
+            <span class="post-date" title="2022-07-15 16:50:31">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/2f9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="idea快捷键-mac">idea快捷键-mac</span>
+            <span class="post-date" title="2022-07-15 16:35:00">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/3ea3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="解释器模式">解释器模式</span>
+            <span class="post-date" title="2022-07-15 12:13:27">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/db96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="备忘录模式">备忘录模式</span>
+            <span class="post-date" title="2022-07-15 12:07:37">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/e0f5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="访问者模式">访问者模式</span>
+            <span class="post-date" title="2022-07-15 12:06:28">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/6e51/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="迭代器模式">迭代器模式</span>
+            <span class="post-date" title="2022-07-15 12:04:44">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/d8bf/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中介者模式">中介者模式</span>
+            <span class="post-date" title="2022-07-15 12:03:04">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/1e3a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="观察者模式">观察者模式</span>
+            <span class="post-date" title="2022-07-15 12:01:03">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/9a17/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="状态模式">状态模式</span>
+            <span class="post-date" title="2022-07-15 11:57:07">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/ea6f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="责任链模式">责任链模式</span>
+            <span class="post-date" title="2022-07-15 11:53:13">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/59c1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="命令模式">命令模式</span>
+            <span class="post-date" title="2022-07-15 11:51:49">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/e50f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="策略模式">策略模式</span>
+            <span class="post-date" title="2022-07-15 11:02:57">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/a767/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="模板方法模式">模板方法模式</span>
+            <span class="post-date" title="2022-07-15 10:55:35">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/fe8b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="享元模式">享元模式</span>
+            <span class="post-date" title="2022-07-15 10:53:22">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/afc1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="组合模式">组合模式</span>
+            <span class="post-date" title="2022-07-15 10:48:05">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/814c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="外观模式">外观模式</span>
+            <span class="post-date" title="2022-07-14 20:05:05">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/a970/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="桥接模式">桥接模式</span>
+            <span class="post-date" title="2022-07-14 20:01:01">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/fb3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="macos挂载阿里云盘当做本地盘">macos挂载阿里云盘当做本地盘</span>
+            <span class="post-date" title="2022-07-14 17:43:48">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/dcb7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Typora安装配置">Typora安装配置</span>
+            <span class="post-date" title="2022-07-14 16:41:41">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/f34/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="装饰者模式">装饰者模式</span>
+            <span class="post-date" title="2022-07-14 13:31:46">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/9a82/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="适配器模式">适配器模式</span>
+            <span class="post-date" title="2022-07-14 13:29:08">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/bb83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="代理模式">代理模式</span>
+            <span class="post-date" title="2022-07-14 13:23:57">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/740f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="建造者模式">建造者模式</span>
+            <span class="post-date" title="2022-07-14 13:21:59">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/5bc5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单工厂+配置文件解除耦合">简单工厂+配置文件解除耦合</span>
+            <span class="post-date" title="2022-07-14 13:15:09">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/dc87/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="抽象工厂模式">抽象工厂模式</span>
+            <span class="post-date" title="2022-07-14 13:12:53">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/79ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="工厂方法模式">工厂方法模式</span>
+            <span class="post-date" title="2022-07-14 13:10:41">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/5814/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="原型模式">原型模式</span>
+            <span class="post-date" title="2022-07-14 13:07:40">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/b434/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="单例模式">单例模式</span>
+            <span class="post-date" title="2022-07-14 12:44:40">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/dbc0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="软件设计原则">软件设计原则</span>
+            <span class="post-date" title="2022-07-14 12:37:58">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/2ccc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UML图">UML图</span>
+            <span class="post-date" title="2022-07-14 11:37:00">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/9395/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图床工具">图床工具</span>
+            <span class="post-date" title="2022-07-14 09:23:13">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/e597/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="影视资源">影视资源</span>
+            <span class="post-date" title="2022-07-13 21:01:25">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/62b7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tampermonkey安装配置">Tampermonkey安装配置</span>
+            <span class="post-date" title="2022-07-13 20:56:14">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/ef61/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mac快捷键">Mac快捷键</span>
+            <span class="post-date" title="2022-07-13 20:51:26">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/c472/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac软件下载网站">mac软件下载网站</span>
+            <span class="post-date" title="2022-07-13 20:48:18">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/75b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="本地项目上传GitHub">本地项目上传GitHub</span>
+            <span class="post-date" title="2022-07-12 21:53:43">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/1910/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git安装配置">Git安装配置</span>
+            <span class="post-date" title="2022-07-12 19:18:55">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/7cbe/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac安装vpn">mac安装vpn</span>
+            <span class="post-date" title="2022-07-12 15:45:37">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/f169/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac安装Windows虚拟机">mac安装Windows虚拟机</span>
+            <span class="post-date" title="2022-07-12 15:42:17">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/1205/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Navicat安装配置">Navicat安装配置</span>
+            <span class="post-date" title="2022-07-12 13:22:26">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/posts/6c1e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="腾讯云服务器环境配置">腾讯云服务器环境配置</span>
+            <span class="post-date" title="2022-07-12 12:54:34">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/2841/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java环境配置">Java环境配置</span>
+            <span class="post-date" title="2022-07-12 12:54:34">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b524/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UML">UML</span>
+            <span class="post-date" title="2022-07-12 11:02:08">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/5666/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="场景题">场景题</span>
+            <span class="post-date" title="2022-07-12 11:01:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a2d2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计模式">设计模式</span>
+            <span class="post-date" title="2022-07-12 11:01:28">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a013/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-9-高级算法">数据结构与算法-9-高级算法</span>
+            <span class="post-date" title="2022-07-12 10:58:12">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e885/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-8-队列">数据结构与算法-8-队列</span>
+            <span class="post-date" title="2022-07-12 10:58:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/35cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-7-堆栈">数据结构与算法-7-堆栈</span>
+            <span class="post-date" title="2022-07-12 10:57:41">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/9e5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-6-排序">数据结构与算法-6-排序</span>
+            <span class="post-date" title="2022-07-12 10:55:26">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/d820/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/59e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/3879/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4ea0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java">Java</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/7df6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java算法">Java算法</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/9f25/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/a9a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="随笔">随笔</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6695/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-5-数组">数据结构与算法-5-数组</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3e4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-4-链表">数据结构与算法-4-链表</span>
+            <span class="post-date" title="2022-07-12 10:55:16">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/4d1f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-3-遍历">数据结构与算法-3-遍历</span>
+            <span class="post-date" title="2022-07-12 10:55:11">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/2491/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo安装配置">Hexo安装配置</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/3eeb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/83b4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="资源网址">资源网址</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/40cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/bf96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-2-树">数据结构与算法-2-树</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/30b1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-1-哈希">数据结构与算法-1-哈希</span>
+            <span class="post-date" title="2022-07-12 10:54:59">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="操作系统">操作系统</span>
+            <span class="post-date" title="2022-07-12 10:53:44">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7056/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机网络">计算机网络</span>
+            <span class="post-date" title="2022-07-12 10:53:33">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a3a7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分布式">分布式</span>
+            <span class="post-date" title="2022-07-12 10:52:23">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/55df/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-5-Netty">中间件-5-Netty</span>
+            <span class="post-date" title="2022-07-12 10:51:08">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/9aaa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-4-Kafka">中间件-4-Kafka</span>
+            <span class="post-date" title="2022-07-12 10:51:07">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/1740/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-3-搜索引擎">中间件-3-搜索引擎</span>
+            <span class="post-date" title="2022-07-12 10:51:06">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/8cef/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-2-消息队列">中间件-2-消息队列</span>
+            <span class="post-date" title="2022-07-12 10:50:51">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/c5c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-1-Redis">中间件-1-Redis</span>
+            <span class="post-date" title="2022-07-12 10:50:39">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/f1a6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-7-Dubbo">web开发-7-Dubbo</span>
+            <span class="post-date" title="2022-07-12 10:49:59">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e80/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-6-ZooKeeper">web开发-6-ZooKeeper</span>
+            <span class="post-date" title="2022-07-12 10:49:58">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b0ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-5-其他">web开发-5-其他</span>
+            <span class="post-date" title="2022-07-12 10:49:57">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/29a9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-4-MyBatis">web开发-4-MyBatis</span>
+            <span class="post-date" title="2022-07-12 10:49:56">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/cc91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-3-SpringMVC">web开发-3-SpringMVC</span>
+            <span class="post-date" title="2022-07-12 10:49:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/1a4b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-2-Spring">web开发-2-Spring</span>
+            <span class="post-date" title="2022-07-12 10:49:03">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/953b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-1-SpringBoot">web开发-1-SpringBoot</span>
+            <span class="post-date" title="2022-07-12 10:49:02">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a25f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-6-其他">数据库-6-其他</span>
+            <span class="post-date" title="2022-07-12 10:48:20">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/bbcc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-5-优化">数据库-5-优化</span>
+            <span class="post-date" title="2022-07-12 10:48:19">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/162d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-4-锁">数据库-4-锁</span>
+            <span class="post-date" title="2022-07-12 10:48:14">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6382/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-3-事务">数据库-3-事务</span>
+            <span class="post-date" title="2022-07-12 10:46:56">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7634/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-2-索引">数据库-2-索引</span>
+            <span class="post-date" title="2022-07-12 10:46:42">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3652/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-1-SQL">数据库-1-SQL</span>
+            <span class="post-date" title="2022-07-12 10:46:32">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e35d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-5-JVM">Java语言-5-JVM</span>
+            <span class="post-date" title="2022-07-12 10:34:39">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/4838/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-4-多线程">Java语言-4-多线程</span>
+            <span class="post-date" title="2022-07-12 10:34:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6ef6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-3-IO">Java语言-3-IO</span>
+            <span class="post-date" title="2022-07-12 10:34:11">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/81f0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-2-集合类">Java语言-2-集合类</span>
+            <span class="post-date" title="2022-07-12 10:34:00">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3f44/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-1-Java基础">Java语言-1-Java基础</span>
+            <span class="post-date" title="2022-07-12 10:33:39">2022/07/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Java/Java集合" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java集合</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Java">Java</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-07-22 13:51:54'>2022-07-19 14:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API"><span class="toc-text">API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">集合的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%A7%8D%E7%B1%BB"><span class="toc-text">常见的数据结构种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedList"><span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedHashSet"><span class="toc-text">LinkedHashSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">集合的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeSet"><span class="toc-text">TreeSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection%E6%8E%92%E5%BA%8F"><span class="toc-text">Collection排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collections-Util"><span class="toc-text">Collections Util</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#args"><span class="toc-text">args</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91"><span class="toc-text">斗地主游戏的案例开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-1"><span class="toc-text">API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="toc-text">遍历方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B"><span class="toc-text">存储自定义类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedHashMap"><span class="toc-text">LinkedHashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeMap"><span class="toc-text">TreeMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties"><span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%82%EF%BC%88%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%89"><span class="toc-text">输出一个字符串中每个字符出现的次数。（经典面试题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91-Map%E9%9B%86%E5%90%88%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-text">斗地主游戏的案例开发-Map集合实现。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-text">图书管理系统的开发</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://s2.loli.net/2022/07/17/QUHmKwsgcpOy7eG.gif"></p>
+<p><img src="https://s2.loli.net/2022/07/17/ZTGKogfRHed9ptX.png"></p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set系列集合：添加的元素是无序（底层采用了哈希表存储元素），不重复，无索引的。<br>无序，不可重复，最多允许有一个Null元素对象，取元素时只能用Iterator接口取得所有元 素，在逐一遍历各个元素。元素在set中的位置是有该元素的 HashCode 决定的，其位置其实是固定的（加入Set 的 Object 必须定义 equals ()方法）。<br>迭代方法：迭代器 foreach lambda<br>查询慢，增删快（因为增删不会引起元素位置改变 ）</p>
+<ul>
+<li>HashSet:添加的元素是无序，不重复，无索引的。</li>
+<li>LinkedHashSet:添加的元素是有序，不重复，无索引的。</li>
+<li>TreeSet:不重复，无索引，按照大小默认升序排序!!</li>
+</ul>
+<p>JDK 1.8之前：哈希表 &#x3D; 数组 + 链表  + （哈希算法）<br>JDK 1.8之后：哈希表 &#x3D; 数组 + 链表 + 红黑树  + （哈希算法）<br>当链表长度超过阈值（8）时，将链表转换为红黑树，这样大大减少了查找时间。<br>Set系列集合是基于哈希表存储数据的<br>它的增删改查的性能都很好！！但是它是无序不重复的！如果不在意当然可以使用！</p>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>List系列集合：添加的元素是有序，可重复，有索引。<br>有序，按对象进入的顺序保存对象，可重复，允许多个Null元素对象，可以使用Iterator取出所有元素，在逐一遍历，还可以使用get(int index)获取指定下标的元素。<br>迭代方法：迭代器 foreach lambda fori<br>查询快（通过下标），增删慢（因为会引起其他元素位置改变）</p>
+<ul>
+<li>ArrayList：基于数组存储数据的，添加的元素是有序，可重复，有索引。查询快，增删慢。</li>
+<li>LinekdList：添加的元素是有序，可重复，有索引。</li>
+</ul>
+<p>List集合继承了Collection集合的全部功能.</p>
+<ul>
+<li><code>public E remove(int index)</code>: 移除列表中指定位置的元素, 返回的是被移除的元素。</li>
+<li><code>public E set(int index, E element)</code>:用指定元素替换集合中指定位置的元素,返回更新前的元素值。</li>
+</ul>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
+<li><code>public boolean add(E e)</code>：  把给定的对象添加到当前集合中 。</li>
+<li><code>public void clear()</code> :清空集合中所有的元素。</li>
+<li><code>public boolean remove(E e)</code>: 把给定的对象在当前集合中删除。</li>
+<li><code>public boolean contains(Object obj)</code>: 判断当前集合中是否包含给定的对象。</li>
+<li><code>public boolean isEmpty()</code>: 判断当前集合是否为空。</li>
+<li><code>public int size()</code>: 返回集合中元素的个数。</li>
+<li><code>public Object[] toArray()</code>: 把集合中的元素，存储到数组中</li>
+</ul>
+<h3 id="集合的遍历"><a href="#集合的遍历" class="headerlink" title="集合的遍历"></a>集合的遍历</h3><ul>
+<li><p>迭代器</p>
+<pre><code class="java">Iterator&lt;String&gt; it = lists.iterator();
+while(it.hasNext())&#123;
+    String ele = it.next();
+    System.out.println(ele);
+&#125;
+</code></pre>
+</li>
+<li><p>foreach</p>
+<pre><code class="java">for (String ele : lists) &#123;
+    System.out.println(ele);
+&#125;
+</code></pre>
+</li>
+<li><p>lambda</p>
+<pre><code class="java">lists.forEach(s -&gt; System.out.println(s));
+</code></pre>
+</li>
+</ul>
+<p>List集合遍历比Collection集合多一个<code>fori</code>循环</p>
+<pre><code class="java">for(int i = 0 ; i &lt; lists.size() ; i++ ) &#123;
+    String ele = lists.get(i);
+&#125;
+</code></pre>
+<h3 id="常见的数据结构种类"><a href="#常见的数据结构种类" class="headerlink" title="常见的数据结构种类"></a>常见的数据结构种类</h3><p>a.队列（queue）</p>
+<ul>
+<li>先进先出，后进后出。</li>
+<li>场景：各种排队。叫号系统。</li>
+<li>有很多集合可以实现队列。</li>
+</ul>
+<p>b.栈（stack）</p>
+<ul>
+<li>后进先出，先进后出</li>
+<li>压栈 &#x3D;&#x3D; 入栈</li>
+<li>弹栈 &#x3D;&#x3D; 出栈</li>
+<li>场景：手枪的弹夹。</li>
+</ul>
+<p>c.数组</p>
+<ul>
+<li>数组是内存中的连续存储区域。</li>
+<li>分成若干等分的小区域（每个区域大小是一样的）</li>
+<li>元素存在索引</li>
+<li>特点：查询元素快（根据索引快速计算出元素的地址，然后立即去定位）<br>增删元素慢（创建新数组，迁移元素）</li>
+</ul>
+<p>d.链表</p>
+<ul>
+<li>元素不是内存中的连续区域存储。</li>
+<li>元素是游离存储的。每个元素会记录下个元素的地址。</li>
+<li>特点：查询元素慢<br>增删元素快（针对于首尾元素，速度极快，一般是双链表）</li>
+</ul>
+<p>e.红黑树<br>二叉树：binary tree 永远只有一个根节点,是每个结点不超过2个节点的树（tree） 。<br>查找二叉树,排序二叉树：小的左边，大的右边，但是可能树很高，性能变差。<br>为了做排序和搜索会进行左旋和右旋实现平衡查找二叉树，让树的高度差不大于1</p>
+<p>红黑树（就是基于红黑规则实现了自平衡的排序二叉树）：<br>树尽量的保证到了很矮小，但是又排好序了，性能最高的树。<br>红黑树的增删查改性能都好！！！</p>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p>LinkedList: 基于链表，增删比较快，查询慢！！<br>LinkedList是支持双链表，定位前后的元素是非常快的，增删首尾的元素也是最快的<br>所以提供了很多操作首尾元素的特殊API可以做栈和队列的实现。</p>
+<ul>
+<li><code>public void addFirst(E e)</code>:将指定元素插入此列表的开头。</li>
+<li><code>public void addLast(E e)</code>:将指定元素添加到此列表的结尾。</li>
+<li><code>public E getFirst()</code>:返回此列表的第一个元素。</li>
+<li><code>public E getLast()</code>:返回此列表的最后一个元素。</li>
+<li><code>public E removeFirst()</code>:移除并返回此列表的第一个元素。</li>
+<li><code>public E removeLast()</code>:移除并返回此列表的最后一个元素。</li>
+<li><code>public E pop()</code>:从此列表所表示的堆栈处弹出一个元素。</li>
+<li><code>public void push(E e)</code>:将元素推入此列表所表示的堆栈。</li>
+</ul>
+<p>用LinkedList做一个队列:先进先出，后进后出。</p>
+<pre><code>LinkedList&lt;String&gt; queue = new LinkedList&lt;&gt;();
+// 入队
+queue.addLast(&quot;1号&quot;);
+queue.addLast(&quot;2号&quot;);
+queue.addLast(&quot;3号&quot;);
+queue.addLast(&quot;4号&quot;);
+System.out.println(queue); // [1号, 2号, 3号, 4号]
+// 出队
+System.out.println(queue.removeFirst());
+System.out.println(queue.removeFirst());
+System.out.println(queue);
+</code></pre>
+<p>做一个栈</p>
+<pre><code class="java">LinkedList&lt;String&gt; stack = new LinkedList&lt;&gt;();
+// 压栈
+stack.push(&quot;第1颗子弹&quot;);
+stack.push(&quot;第2颗子弹&quot;);
+stack.push(&quot;第3颗子弹&quot;);
+stack.push(&quot;第4颗子弹&quot;);
+System.out.println(stack); // [第4颗子弹, 第3颗子弹, 第2颗子弹, 第1颗子弹]
+// 弹栈
+System.out.println(stack.pop());
+System.out.println(stack.pop());
+System.out.println(stack);
+</code></pre>
+<h3 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h3><p>LinkedHashSet: HashSet的子类，元素是“有序” 不重复，无索引.<br>LinkedHashSet底层依然是使用哈希表存储元素的，<br>但是每个元素都额外带一个链来维护添加顺序！！<br>不光增删查快，还有序。<br>缺点是多了一个存储顺序的链会占内存空间!!而且不允许重复，无索引。</p>
+<h3 id="集合的使用场景"><a href="#集合的使用场景" class="headerlink" title="集合的使用场景"></a>集合的使用场景</h3><p>如果希望元素可以重复，又有索引，查询要快用ArrayList集合。（用的最多）<br>如果希望元素可以重复，又有索引，增删要快要用LinkedList集合。（适合查询元素比较少的情况，经常要首尾操作元素的情况）<br>如果希望增删改查都很快，但是元素不重复以及无序无索引，那么用HashSet集合。<br>如果希望增删改查都很快且有序，但是元素不重复以及无索引，那么用LinkedHashSet集合。</p>
+<h3 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h3><p>TreeSet: 不重复，无索引，按照大小默认升序排序!!<br>TreeSet集合称为排序不重复集合，可以对元素进行默认的升序排序。</p>
+<p>TreeSet集合自自排序的方式：<br>1.有值特性的元素直接可以升序排序。（浮点型，整型）<br>2.字符串类型的元素会按照首字符的编号排序。<br>3.对于自定义的引用数据类型，TreeSet默认无法排序，执行的时候直接报错，因为人家不知道排序规则。</p>
+<h3 id="Collection排序"><a href="#Collection排序" class="headerlink" title="Collection排序"></a>Collection排序</h3><p>注意：如果类和集合都存在大小规则，默认使用集合自带的规则进行大小排序！！</p>
+<p>a. 类实现Comparable接口</p>
+<pre><code class="java">public class Orange implements Comparable &#123;
+    private String name;
+    private double weight;
+    private String price;
+    @Override
+    public String toString() &#123;
+        return &quot;Orange&#123;&quot; +
+                &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+                &quot;, weight=&quot; + weight +
+                &quot;, price=&#39;&quot; + price + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;+&quot;\n&quot;;
+    &#125;
+    @Override
+    public int compareTo(Object o) &#123;
+        Orange o2 = (Orange) o;
+        // 集合会自动送入两个句子对象来比较！！
+        // 认为o1 &gt; o2返回正整数。
+        // 认为o1 = o2返回0。
+        // 认为o1 &lt; o2返回负整数。
+        if(this.weight &gt; o2.weight) return 1;
+        if(this.weight &lt; o2.weight) return -1;
+        return 0;
+    &#125;
+&#125;
+</code></pre>
+<p>b. TreeSet直接为设置比较器Comparator对象,重写比较方法</p>
+<p><code>public TreeSet(Comparator&lt;? super E&gt; comparator)</code></p>
+<pre><code class="java">Set&lt;Employee&gt; employees1 = new TreeSet&lt;&gt;(new Comparator&lt;Employee&gt;() &#123;
+    @Override
+    public int compare(Employee o1, Employee o2) &#123;
+        return o1.getAge() - o2.getAge();
+    &#125;
+&#125;);
+employees1.add(new Employee(&quot;播仔&quot;,6500.0,21));
+employees1.add(new Employee(&quot;播妞&quot;,7500.0,19));
+employees1.add(new Employee(&quot;乔治&quot;,4500.0,23));
+System.out.println(employees1);
+</code></pre>
+<p>Collections集合的方法</p>
+<pre><code class="java">List&lt;Orange&gt; oranges1 = new ArrayList&lt;&gt;();
+Orange o11 = new Orange(&quot;红橘子&quot;,654.0 ,&quot;贼便宜~&quot;);
+Orange o22 = new Orange(&quot;黄橘子&quot;,454.0 ,&quot;贼便宜~&quot;);
+Orange o33 = new Orange(&quot;黄橘子&quot;,454.0 ,&quot;贼便宜~&quot;);
+Orange o44 = new Orange(&quot;青橘子&quot;,456.0 ,&quot;贼便宜~&quot;);
+Collections.addAll(oranges1,o11,o22,o33,o44);
+// 优先用方法自带的比较器对象Comparator而不会用类的比较规则！！
+Collections.sort(oranges1, new Comparator&lt;Orange&gt;() &#123;
+    @Override
+    public int compare(Orange o1, Orange o2) &#123;
+        if(o1.getWeight() &gt; o2.getWeight()) return -1;
+        if(o1.getWeight() &lt; o2.getWeight()) return 1;
+        return 0;
+    &#125;
+&#125;);
+System.out.println(oranges1);
+</code></pre>
+<h3 id="Collections-Util"><a href="#Collections-Util" class="headerlink" title="Collections Util"></a>Collections Util</h3><ul>
+<li><code>public static &lt;T&gt; boolean addAll(Collection&lt;? super T&gt; c, T... elements)</code>:给集合对象批量添加元素！</li>
+<li><code>public static void shuffle(List&lt;?&gt; list)</code> :打乱集合顺序。</li>
+<li><code>public static &lt;T&gt; void sort(List&lt;T&gt; list)</code>:将集合中元素按照默认规则排序。</li>
+<li><code>public static &lt;T&gt; void sort(List&lt;T&gt; list，Comparator&lt;? super T&gt; )</code>:将集合中元素按照指定规则排序。</li>
+</ul>
+<h3 id="args"><a href="#args" class="headerlink" title="args"></a>args</h3><p>可变参数的格式：数据类型… 参数名称<br>可变参数在方法内部本质上就是一个数组。</p>
+<p>可变参数的注意事项：<br>1.一个形参列表中可变参数只能有一个！！<br>2.可变参数必须放在形参列表的最后面！！</p>
+<pre><code class="java">public class MethodDemo &#123;
+    public static void main(String[] args) &#123;
+        sum(); // 可以不传输参数。
+        sum(10); // 可以传输一个参数。
+        sum(10,20,30); // 可以传输多个参数。
+        sum(new int[]&#123;10,30,50,70,90&#125;); // 可以传输一个数组。
+    &#125;
+    public static void sum(int...nums)&#123;
+        // 可变参数在方法内部本质上就是一个数组。
+        System.out.println(&quot;元素个数：&quot;+nums.length);
+        System.out.println(&quot;元素内容：&quot;+ Arrays.toString(nums));
+        System.out.println(&quot;--------------------------&quot;);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="斗地主游戏的案例开发"><a href="#斗地主游戏的案例开发" class="headerlink" title="斗地主游戏的案例开发"></a>斗地主游戏的案例开发</h3><pre><code>/**
+目标：斗地主游戏的案例开发。
+
+业务需求分析:
+斗地主的做牌，洗牌，发牌,排序（拓展知识）, 看牌
+业务:总共有54张牌。
+点数: &quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;J&quot;,&quot;Q&quot;,&quot;K&quot;,&quot;A&quot;,&quot;2&quot;
+花色: &quot;♠&quot;, &quot;♥&quot;, &quot;♣&quot;, &quot;♦&quot;
+大小王: &quot;👲&quot; , &quot;&quot;
+点数分别要组合4种花色，大小王各一张。
+斗地主：发出51张牌，剩下3张作为底牌。
+
+功能：
+1.做牌。
+2.洗牌
+3.定义3个玩家。
+4.发牌。
+5.排序（拓展，了解）
+6.看牌。
+
+用面向对象设计案例：
+a.定义一个牌类，代表牌对象。 一个牌对象代表一张牌。
+b.定义一个集合存储54张牌，集合只需要一个(因为牌只需要一副)
+*/
+</code></pre>
+<pre><code class="java">public class GameDemo &#123;
+    /** a.定义一个静态集合，存储54张牌对象，集合只需要一个 */
+    public static final List&lt;Card&gt; ALL_CARDS = new ArrayList&lt;&gt;();
+
+    /** b.做牌 */
+    static &#123;
+        // 1.定义一个数组存储牌的点数，类型确定，个数确定请用数组存储！
+        String[] numbers = &#123;&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;J&quot;,&quot;Q&quot;,&quot;K&quot;,&quot;A&quot;,&quot;2&quot;&#125;;
+        // 2.定义一个数组存储牌的花色，类型确定，个数确定请用数组存储！
+        String[] colors = &#123; &quot;♠&quot;, &quot;♥&quot;, &quot;♣&quot;, &quot;♦&quot; &#125;;
+        // 3.先遍历点数与四种花色组装成牌对象存入到集合中去
+        for (String number : numbers) &#123;
+            // 遍历花色
+            for (String color : colors) &#123;
+                // 创建一张牌对象封装点数和花色
+                Card card = new Card(number , color);
+                ALL_CARDS.add(card);
+            &#125;
+        &#125;
+        // 4.单独加入大小王
+        Collections.addAll(ALL_CARDS ,  new Card(&quot;&quot;,&quot;🃏&quot;) ,new Card(&quot;&quot;,&quot;👲&quot;) );
+        System.out.println(&quot;输出新牌：&quot;+ALL_CARDS);
+    &#125;
+
+    public static void main(String[] args) &#123;
+
+    &#125;
+&#125;
+
+// 牌类
+public class Card &#123;
+    private String number;
+    private String color;
+
+    @Override
+    public String toString() &#123;
+        return number+color;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><pre><code>    Map集合的体系：
+            Map&lt;K , V&gt;(接口,Map集合的祖宗类)
+           /                      \
+          TreeMap&lt;K , V&gt;           HashMap&lt;K , V&gt;(实现类,经典的，用的最多)
+                                     \
+                                      LinkedHashMap&lt;K, V&gt;(实现类)
+</code></pre>
+<pre><code>Map集合是另一个集合体系。
+Collection是单值集合体系。
+
+Map集合是一种双列集合，每个元素包含两个值。
+Map集合的每个元素的格式：key=value(键值对元素)。
+Map集合也被称为“键值对集合”。
+
+Map集合的完整格式：&#123;key1=value1 , key2=value2 , key3=value3 , ...&#125;
+
+Map集合有啥用？
+1.Map集合存储的信息更加的具体丰富。
+Collection: [&quot;苍老师&quot;,&quot;日本&quot;,&quot;女&quot;,&quot;动作演员&quot;,23,&quot;广州&quot;]
+Map : &#123;name=&quot;苍老师&quot; , jiaxiang=小日本 , sex=&quot;女&quot; , age = 23 , addr=广州&#125;
+
+2.Map集合很适合做购物车这样的系统。
+Map:  &#123;娃娃=30 , huawei=1 , iphonex=1&#125;
+
+注意：集合和泛型都只能支持引用数据类型，集合完全可以称为是对象容器，存储都是对象。
+
+Map集合的特点：
+1.Map集合的特点都是由键决定的。
+2.Map集合的键是无序,不重复的，无索引的。
+Map集合后面重复的键对应的元素会覆盖前面的整个元素！
+3.Map集合的值无要求。
+4.Map集合的键值对都可以为null。
+
+HashMap:元素按照键是无序，不重复，无索引，值不做要求。
+LinkedHashMap:元素按照键是有序，不重复，无索引，值不做要求。
+</code></pre>
+<pre><code class="java">// 一行经典代码
+maps.put(&quot;娃娃&quot;,1);
+maps.put(&quot;huawei&quot;,10);
+maps.put(&quot;iphoneXS&quot;,2);
+maps.put(null , null );
+maps.put(&quot;娃娃&quot;,30);
+maps.put(&quot;特仑苏&quot;,2);
+System.out.println(maps);
+</code></pre>
+<h3 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h3><pre><code class="java">- V remove(Object key): 把指定的键 所对应的键值对元素 在Map集合中删除，返回被删除元素的值。
+- Set&lt;K&gt; keySet(): 获取Map集合中所有的键，存储到Set集合中。
+- Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet(): 获取到Map集合中所有的键值对对象的集合(Set集合)。
+- boolean containKey(Object key):判断该集合中是否有此键。
+- boolean containsValue(Object value);
+- void clear();清空集合
+- Collection&lt;V&gt; values();获取全部值的集合 Map集合的值是不做要求的，可能重复，所以值要用Collection集合接收!
+- void putAll(Map&lt;? extends K, ? extends V&gt; m);
+</code></pre>
+<pre><code class="java">// 添加元素: 无序，不重复，无索引。
+Map&lt;String , Integer&gt; maps = new HashMap&lt;&gt;();
+maps.put(&quot;iphoneX&quot;,10);
+maps.put(&quot;iphoneX&quot;,100);//  Map集合后面重复的键对应的元素会覆盖前面重复的整个元素！
+</code></pre>
+<h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><p>a.“键找值”</p>
+<pre><code class="java">Set&lt;String&gt; keys = maps.keySet();
+for (String key : keys) &#123;
+    Integer value = maps.get(key);
+&#125;
+</code></pre>
+<p>b.“键值对”</p>
+<pre><code class="java">Set&lt;Map.Entry&lt;String,Integer&gt;&gt; entries = maps.entrySet();
+for (Map.Entry&lt;String, Integer&gt; entry : entries) &#123;
+    String key = entry.getKey();
+    Integer value = entry.getValue();
+&#125;
+</code></pre>
+<p>c.Lambda表达式</p>
+<pre><code class="java">maps.forEach((k , v) -&gt; System.out.println(k+&quot;==&gt;&quot;+v));
+</code></pre>
+<h3 id="存储自定义类型"><a href="#存储自定义类型" class="headerlink" title="存储自定义类型"></a>存储自定义类型</h3><pre><code>Map集合的键和值都可以存储自定义类型。
+如果希望Map集合认为自定义类型的键对象重复了，必须重写对象的hashCode()和equals()方法
+</code></pre>
+<pre><code class="java">Map&lt;Orange,String&gt; maps = new HashMap&lt;&gt;();
+Orange o1 = new Orange(&quot;黄橘子&quot;,20.3 , &quot;贼便宜！&quot;);
+maps.put(o1 , &quot;江西\n&quot;);
+maps.put(o2 , &quot;赣州\n&quot;);
+maps.put(o3 , &quot;广州\n&quot;);
+maps.put(o4 , &quot;广西\n&quot;);
+
+public class Orange &#123;
+    private String name;
+    private double weight;
+    private String price;
+    @Override
+    public boolean equals(Object o) &#123;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Orange orange = (Orange) o;
+        return Double.compare(orange.weight, weight) == 0 &amp;&amp;
+            Objects.equals(name, orange.name) &amp;&amp;
+            Objects.equals(price, orange.price);
+    &#125;
+    @Override
+    public int hashCode() &#123;
+        return Objects.hash(name, weight, price);
+    &#125;
+    public String toString() &#123;
+        return &quot;Orange&#123;name = &quot; + name + &quot;, weight = &quot; + weight + &quot;, price = &quot; + price + &quot;&#125;&quot;;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h3><pre><code>HashMap 无序不重复
+LinkedHashMap 有序不重复 
+他们都是基于哈希表存储数据,增删改查都很好。
+
+HashSet集合相当于是HashMap集合的键都不带值。
+LinkedHashSet集合相当于是LinkedHashMap集合的键都不带值。
+</code></pre>
+<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><pre><code>TreeMap集合按照键是可排序不重复的键值对集合。(默认升序)
+TreeMap集合和TreeSet集合都是排序不重复集合
+
+TreeSet集合的底层是基于TreeMap，只是键没有附属值而已。
+所以TreeMap集合指定大小规则有2种方式：
+a.直接为对象的类实现比较器规则接口Comparable，重写比较方法（拓展方式）
+b.直接为集合设置比较器Comparator对象,重写比较方法
+</code></pre>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><pre><code class="java">-- public Object setProperty(String key, String value) ： 保存一对属性。
+-- public String getProperty(String key) ：使用此属性列表中指定的键搜索属性值
+-- public Set&lt;String&gt; stringPropertyNames() ：所有键的名称的集合
+-- public void store(OutputStream out, String comments):保存数据到属性文件中去
+-- public void store(Writer fw, String comments):保存数据到属性文件中去
+-- public synchronized void load(InputStream inStream):加载属性文件的数据到属性集对象中去
+-- public synchronized void load(Reader fr):加载属性文件的数据到属性集对象中去
+
+properties.load(new FileInputStream(&quot;Day10Demo/src/users.properties&quot;));
+System.out.println(properties);
+System.out.println(properties.getProperty(&quot;dlei&quot;));
+System.out.println(properties.getProperty(&quot;admin&quot;));
+</code></pre>
+<h3 id="输出一个字符串中每个字符出现的次数。（经典面试题）"><a href="#输出一个字符串中每个字符出现的次数。（经典面试题）" class="headerlink" title="输出一个字符串中每个字符出现的次数。（经典面试题）"></a>输出一个字符串中每个字符出现的次数。（经典面试题）</h3><pre><code class="java">package com.itheima._07Map集合练习;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+/**
+    目标：输出一个字符串中每个字符出现的次数。（经典面试题）
+
+    分析：
+        （1）键盘录入一个字符串。aabbccddaa123。
+        （2）定义一个Map集合，键是每个字符，值是其出现的次数。 &#123;a=4 , b=2 ,...&#125;
+        （3）遍历字符串中的每一个字符。
+        （4）拿着这个字符去Map集合中看是否有这个字符键，有说明之前统计过，其值+1
+            没有这个字符键，说明该字符是第一次统计，直接存入“该字符=1”
+
+ */
+public class MapDemo01 &#123;
+    public static void main(String[] args) &#123;
+        // （1）键盘录入一个字符串。aabbccddaa123。
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(&quot;请您输入一个字符串：&quot;);
+        String datas = scanner.nextLine();
+
+        // （2）定义一个Map集合，键是每个字符，值是其出现的次数。
+        Map&lt;Character , Integer&gt; infos = new HashMap&lt;&gt;(); // &#123;a=2,b=2&#125;
+
+        // （3）遍历字符串中的每一个字符。
+        // datas = aabbccddaa123
+        for(int i = 0 ; i &lt; datas.length() ; i++ )&#123;
+            // 取出当前索引的字符
+            char ch = datas.charAt(i);
+            // （4）拿着这个字符去Map集合中看是否有这个字符键，有说明之前统计过，其值+1
+            //   没有这个字符键，说明该字符是第一次统计，直接存入“该字符=1”
+            if(infos.containsKey(ch))&#123;
+                // 说明这个字符之前已经出现过，其值+1
+                infos.put(ch , infos.get(ch) + 1);
+            &#125;else&#123;
+                // 说明这个字符第一次出现，直接存入 a=1
+                infos.put(ch , 1);
+            &#125;
+        &#125;
+        // （5）输出结果
+        System.out.println(&quot;结果：&quot;+infos);
+
+    &#125;
+&#125;
+</code></pre>
+<h3 id="斗地主游戏的案例开发-Map集合实现。"><a href="#斗地主游戏的案例开发-Map集合实现。" class="headerlink" title="斗地主游戏的案例开发-Map集合实现。"></a>斗地主游戏的案例开发-Map集合实现。</h3><pre><code class="java">package com.itheima._08斗地主游戏洗牌发牌看牌;
+
+import java.util.*;
+
+/**
+    目标：斗地主游戏的案例开发-Map集合实现。
+
+    业务需求分析:
+        斗地主的做牌，洗牌，发牌,排序（拓展知识）, 看牌
+        业务:总共有54张牌。
+        点数: &quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;J&quot;,&quot;Q&quot;,&quot;K&quot;,&quot;A&quot;,&quot;2&quot;
+        花色: &quot;♠&quot;, &quot;♥&quot;, &quot;♣&quot;, &quot;♦&quot;
+        大小王: &quot;👲&quot; , &quot;🃏&quot;
+        点数分别要组合4种花色，大小王各一张。
+        斗地主：发出51张牌，剩下3张作为底牌。
+
+    功能：
+        1.做牌。
+        2.洗牌
+        3.定义3个玩家。
+        4.发牌。
+        5.
+        6.看牌。
+
+    用面向对象设计案例：
+        a.定义一个牌类，代表牌对象。 一个牌对象代表一张牌。
+        b.定义一个集合存储54张牌，集合只需要一个(因为牌只需要一副)
+                &#123;card1=0 , card2=1, ......&#125;
+ */
+public class GameDemo &#123;
+    /** 1.定义一个Map集合存储54张牌对象，键是牌对象，值是其大小 用于实现大小排序  */
+    public static final Map&lt;Card , Integer&gt; ALL_CARDS_SIZE = new HashMap&lt;&gt;();
+    // 真正存储54张牌对象的List集合，用于做牌，洗牌，发牌！
+    public static final List&lt;Card&gt; ALL_CARDS = new ArrayList&lt;&gt;();
+    /** 2.做牌：静态代码块初始化54张牌对象  */
+    static &#123;
+        // 1.定义一个数组存储牌的点数，类型确定，个数确定请用数组存储！
+        String[] numbers = &#123;&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;J&quot;,&quot;Q&quot;,&quot;K&quot;,&quot;A&quot;,&quot;2&quot;&#125;;
+        // 2.定义一个数组存储牌的花色，类型确定，个数确定请用数组存储！
+        String[] colors = &#123; &quot;♠&quot;, &quot;♥&quot;, &quot;♣&quot;, &quot;♦&quot; &#125;;
+
+        // 3.先遍历点数与四种花色组装成牌对象存入到集合中去
+        int index = 0;
+        for (String number : numbers) &#123;
+            // 遍历花色
+            for (String color : colors) &#123;
+                // 创建一张牌对象封装点数和花色
+                Card card = new Card(number , color);
+                ALL_CARDS.add(card);
+                ALL_CARDS_SIZE.put(card , index++);
+            &#125;
+        &#125;
+        Card c1 = new Card(&quot;&quot;,&quot;🃏&quot;);
+        Card c2 = new Card(&quot;&quot;, &quot;👲&quot;);
+
+        ALL_CARDS.add(c1);
+        ALL_CARDS.add(c2);
+        ALL_CARDS_SIZE.put(c1 , index++);
+        ALL_CARDS_SIZE.put(c2 , index++);
+        System.out.println(&quot;新牌：&quot;+ ALL_CARDS);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        /**
+         c.洗牌(把新牌的牌顺序打乱)
+         */
+        Collections.shuffle(ALL_CARDS);
+        System.out.println(&quot;洗牌后：&quot;+ALL_CARDS);
+
+        /**
+         d.定义3个玩家。
+         */
+        List&lt;Card&gt; lingHuChong = new ArrayList&lt;&gt;();
+        List&lt;Card&gt; jiuMoZhi = new ArrayList&lt;&gt;();
+        List&lt;Card&gt; dongfangbubai = new ArrayList&lt;&gt;();
+
+        /**
+         e.发牌 依次发出51张牌出去。
+         ALL_CARDS = [J♠, 5♠, 2♠, 9♣, 5♦, 4♠, Q♣, 6♥, 8♠, ......
+         0   1   2   3   4    5   6   7   8   % 3（轮询的长度）
+         */
+        for(int i = 0 ; i &lt; ALL_CARDS.size() - 3 ; i++ )&#123;
+            // 得到当前这张牌对象
+            Card c = ALL_CARDS.get(i);
+            // 判断这个牌发给谁
+            if(i % 3 == 0 )&#123;
+                // 请令狐冲接牌
+                lingHuChong.add(c);
+            &#125;else if(i % 3 == 1)&#123;
+                // 请啊鸠接牌
+                jiuMoZhi.add(c);
+            &#125;else if(i % 3 == 2)&#123;
+                // 请阿东接牌
+                dongfangbubai.add(c);
+            &#125;
+        &#125;
+
+        /**
+         * f.对牌进行排序（拓展,了解）
+         */
+        sortCards(lingHuChong);
+        sortCards(jiuMoZhi);
+        sortCards(dongfangbubai);
+
+        /**
+         g.看牌
+         */
+        System.out.println(&quot;令狐冲：&quot;+lingHuChong);
+        System.out.println(&quot;鸠摩智：&quot;+jiuMoZhi);
+        System.out.println(&quot;东方不败：&quot;+dongfangbubai);
+        //System.out.println(&quot;底牌：&quot;+ALL_CARDS.get(53) +&quot;-&quot;+ALL_CARDS.get(52) + &quot;-&quot; +ALL_CARDS.get(51) );
+        // 拓展: 截取集合的最后三张牌到一个新的List集合中去。
+        List&lt;Card&gt; lastThreeCards = ALL_CARDS.subList(ALL_CARDS.size() -3 , ALL_CARDS.size());
+        System.out.println(&quot;底牌：&quot;+lastThreeCards);
+
+    &#125;
+
+    /**
+     对牌的List集合进行排序（降序排序）
+     */
+    private static void sortCards(List&lt;Card&gt; cards) &#123;
+        // cards = [ 3♦ , 👲,  10♣ , 9♦ , 8♦ , J♠ , ...
+        Collections.sort(cards, new Comparator&lt;Card&gt;() &#123;
+            @Override
+            public int compare(Card o1, Card o2) &#123;
+                // o1   Q♦
+                // o2   👲
+                // 牌的大小就是当前牌在Map集合中的值存储的大小！
+                return ALL_CARDS_SIZE.get(o2) - ALL_CARDS_SIZE.get(o1);
+            &#125;
+        &#125;);
+    &#125;
+&#125;
+</code></pre>
+<h3 id="图书管理系统的开发"><a href="#图书管理系统的开发" class="headerlink" title="图书管理系统的开发"></a>图书管理系统的开发</h3><pre><code class="java">package com.itheima._09图书管理案例;
+
+import java.util.*;
+
+/**
+    目标：图书管理系统的开发。
+
+    业务需求分析：
+        （1）查看全部书籍。query
+        （2）添加书本信息。add
+        （3）删除书本信息。delete
+        （4）修改书本信息。update
+        （5）退出系统。 exit
+
+    书本信息的结构:
+        类型                书名            价格        作者
+        ---------------------------------------------------
+        言情小说
+                         《金瓶梅》         99.9        阿猫
+                         《红楼梦》         198.2       曹雪芹
+        武侠小说
+                         《三少爷的剑》      98.2        古龙
+                         《神雕侠侣》        98.2        金庸
+        ------------------------------------------------------
+    分析：
+        （1）定义一个书本类。
+        （2）定义一个集合表示图书馆用于存储书本信息数据：Map&lt;String,List&lt;Book&gt;&gt;。
+        （3）展示操作界面。
+        （4）完成相应功能。
+ */
+public class BookSystem &#123;
+    /**
+        1.定义一个集合表示图书馆用于存储书本信息数据：Map&lt;String,List&lt;Book&gt;&gt;。
+        使用Map集合，键是橱柜的栏目类型名称，值是橱柜的List集合对象存储书本信息
+     */
+    public static final Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = new HashMap&lt;&gt;();
+    public static final Scanner SYS_SCANNER = new Scanner(System.in);
+
+    public static void main(String[] args) &#123;
+        /** 2.展示操作界面 ：独立功能建立封装成方法调用 方便互相之间的逻辑调用 */
+        showCommand();
+    &#125;
+
+    /**
+     * 展示操作界面的命令
+     */
+    private static void showCommand() &#123;
+        System.out.println(&quot;===============欢迎您进入系统===================&quot;);
+        System.out.println(&quot;（1）查看全部书籍。query&quot;);
+        System.out.println(&quot;（2）添加书本信息。add&quot;);
+        System.out.println(&quot;（3）删除书本信息。delete&quot;);
+        System.out.println(&quot;（4）修改书本信息。update&quot;);
+        System.out.println(&quot;（5）退出系统。 exit&quot;);
+        System.out.print(&quot;请您输入您的操作命令：&quot;);
+        String command = SYS_SCANNER.nextLine();
+        // 判断用户的命令是想干啥
+        switch (command)&#123;
+            case &quot;query&quot;:
+                // 查看全部书籍
+                queryBooks();
+                break;
+            case &quot;add&quot;:
+                // 添加书籍
+                addBook();
+                break;
+            case &quot;delete&quot;:
+                // 删除书籍
+                break;
+            case &quot;update&quot;:
+                // 修改书籍
+                updateBook();
+                break;
+            case &quot;exit&quot;:
+                // 退出系统
+                System.out.println(&quot;退出成功，期待您下次光临！&quot;);
+                System.exit(0);
+                break;
+            default:
+                System.err.println(&quot;您的命令输入有无，请重新确认！&quot;);
+        &#125;
+        showCommand(); // 调用自己
+    &#125;
+
+    /**
+        修改书本信息。
+     */
+    private static void updateBook() &#123;
+        if(BOOK_STORE.size() == 0 )&#123;
+            System.out.println(&quot;您现在根本没有任何栏目可以修改!&quot;);
+        &#125;else&#123;
+            queryBooks();
+            System.out.println(&quot;===============欢迎您进入修改书本业务=================&quot;);
+            while(true)&#123;
+                System.out.print(&quot;请您输入修改书本的栏目：&quot;);
+                String type = SYS_SCANNER.nextLine();
+                // 1.判断是否存在该栏目
+                if(BOOK_STORE.containsKey(type))&#123;
+                    while(true)&#123;
+                        // 存在该栏目
+                        // 2.请输入要修改的书名
+                        System.out.print(&quot;请您输入修改书本的名称：&quot;);
+                        String name = SYS_SCANNER.nextLine();
+                        // 3.判断该栏目下是否存在该书本对象。
+                        // 根据栏目和书名去栏目下查询出这本书对象
+                        Book book = getBookByTypeAndName(type , name);
+                        if(book == null)&#123;
+                            System.err.println(&quot;您的输入的书名不存在，，请重新确认！&quot;);
+                        &#125;else&#123;
+                            // 书名正确了，开始正式修改
+                            System.out.println(&quot;请您输入修改书本的新名称：&quot;);
+                            String newName = SYS_SCANNER.nextLine();
+                            System.out.println(&quot;请您输入修改书本的新价格：&quot;);
+                            String newPrice = SYS_SCANNER.nextLine();
+                            System.out.println(&quot;请您输入修改书本的新作者：&quot;);
+                            String newAuthor = SYS_SCANNER.nextLine();
+                            book.setName(newName);
+                            book.setPrice(Double.valueOf(newPrice));
+                            book.setAuthor(newAuthor);
+                            queryBooks();
+                            System.out.println(&quot;您修改的书本成功，请看如上信息确认！&quot;);
+                            return; // 结束修改的方法！
+                        &#125;
+                    &#125;
+                &#125;else&#123;
+                    // 不存在该栏目
+                    System.err.println(&quot;您输入的栏目不存在，请重新确认！&quot;);
+                &#125;
+            &#125;
+        &#125;
+
+    &#125;
+
+    /**
+     * 在某个栏目下，根据书名查询出这本书对象返回！
+     * @param type  栏目名称
+     * @param name  书名称
+     * @return 书本对象
+     */
+    public static Book getBookByTypeAndName(String type , String name)&#123;
+        // 1.先提取这个栏目的橱柜，根据栏目提取它的值
+        List&lt;Book&gt; books = BOOK_STORE.get(type);
+        for (Book book : books) &#123;
+            // 如果本书的名称与要找的名称一样，该书就是我们要的，直接返回！
+            if(book.getName().equals(name))&#123;
+                return book;
+            &#125;
+        &#125;
+        return null;// 没有这本书
+    &#125;
+
+    /**
+        查询全部书本信息
+         Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = &#123;type1=[b1, b2, b3] , type2=[b1] &#125;
+     */
+    private static void queryBooks() &#123;
+        System.out.println(&quot;===============欢迎您进入查询书本业务=================&quot;);
+        if(BOOK_STORE.size() == 0)&#123;
+            System.out.println(&quot;您的图书馆一本书都没有，请赶紧买书去！&quot;);
+        &#125;else&#123;
+            System.out.println(&quot;类型\t\t\t\t书名\t\t\t\t\t价格\t\t\t作者&quot;);
+            BOOK_STORE.forEach((type , books) -&gt; &#123;
+                System.out.println(type);
+                // 遍历该类型下的橱柜中的全部书本对象
+                for (Book book : books) &#123;
+                    System.out.println(&quot;\t\t\t\t&quot;+book.getName()+&quot;\t\t\t&quot;+book.getPrice()+&quot;\t\t&quot;+book.getAuthor());
+                &#125;
+            &#125;);
+        &#125;
+    &#125;
+
+    /**
+        添加书本信息数据
+        Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = &#123;type1=[] , &#125;
+     */
+    private static void addBook() &#123;
+        System.out.println(&quot;===============欢迎您进入添加书本业务=================&quot;);
+        System.out.print(&quot;请您输入添加书本的栏目：&quot;);
+        String type = SYS_SCANNER.nextLine();
+        // 定义一个List集合用于指向栏目的橱柜
+        // 这个橱柜变量要根据栏目是否存在来确定是用已经存在的橱柜，还是创建一个新橱柜！
+        List&lt;Book&gt; books = null ;
+        // 1.判断是否存在该栏目。
+        if(BOOK_STORE.containsKey(type)) &#123;
+            // 3.存在该栏目
+            // 直接得到该栏目存在的橱柜对象
+             books = BOOK_STORE.get(type);
+        &#125;else&#123;
+            // 2.该栏目是第一次添加。
+            // 为该栏目创建一个橱柜对象（List&lt;Book&gt;）
+             books = new ArrayList&lt;&gt;();
+             // 新橱柜和新栏目必须手工加入到图书馆！
+             BOOK_STORE.put(type , books);
+        &#125;
+        System.out.println(&quot;请您输入添加书本的名称：&quot;);
+        String name = SYS_SCANNER.nextLine();
+        System.out.println(&quot;请您输入添加书本的价格：&quot;);
+        String price = SYS_SCANNER.nextLine();
+        System.out.println(&quot;请您输入添加书本的作者：&quot;);
+        String author = SYS_SCANNER.nextLine();
+        // 定义一个书本对象封装用户输入的书本信息。
+        Book book = new Book(name , Double.valueOf(price) , author);
+        books.add(book);
+        System.out.println(&quot;您添加在&quot;+type+&quot;下的书本&quot;+book.getName()+&quot;成功！&quot;);
+    &#125;
+&#125;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2021-2022 zhangxin
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</html>

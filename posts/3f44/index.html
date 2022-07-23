@@ -1,0 +1,3868 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Java语言-1-Java基础 | zhangxinの随笔</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Java语言-1-Java基础 | zhangxinの随笔">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="-Tomcat面试专题.pdf-Tomcat优化相关问题.pdf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat相关书籍">
+<meta property="og:url" content="http://example.com/posts/176a/index.html">
+<meta property="og:site_name" content="zhangxinの随笔">
+<meta property="og:description" content="-Tomcat面试专题.pdf-Tomcat优化相关问题.pdf">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-23T06:12:07.000Z">
+<meta property="article:modified_time" content="2022-07-23T06:16:39.562Z">
+<meta property="article:author" content="zx">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/zotero.ico">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/dino.ico"/>
+</a>
+<div class="author">
+    <span>zx</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/zx20219898"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1205362172@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1205362172&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(179)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Java">
+                        
+                        Java
+                        <small>(22)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="面试题">
+                        
+                        面试题
+                        <small>(38)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="网站书签">
+                        
+                        网站书签
+                        <small>(19)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Books">
+                        
+                        Books
+                        <small>(18)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="设计模式">
+                        
+                        设计模式
+                        <small>(26)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件安装">
+                        
+                        软件安装
+                        <small>(11)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="快捷键">
+                        
+                        快捷键
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Git">
+                        
+                        Git
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Hexo">
+                        
+                        Hexo
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Other">
+                        
+                        Other
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="书籍">
+                        
+                        书籍
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据库">
+                        
+                        数据库
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Docker">
+                        
+                        Docker
+                        <small>(20)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Spring">
+                        
+                        Spring
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="179">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://hexo.io">Hexo</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+            <li><a target="_blank" href="https://butterfly.js.org/">Butterfly</a></li>
+            
+            <li><a target="_blank" href="https://blinkfox.github.io/">闪烁之狐</a></li>
+            
+            <li><a target="_blank" href="https://www.eg3.cn/">Meng</a></li>
+            
+            <li><a target="_blank" href="https://www.antmoe.com/categories/">小康博客</a></li>
+            
+            <li><a target="_blank" href="https://vlts.cn/categories/">小嘉的部落格</a></li>
+            
+            <li><a target="_blank" href="https://codeppx.gitee.io/myblog/">Code皮皮虾</a></li>
+            
+            <li><a target="_blank" href="https://www.fangshitao.top/">Wind</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/176a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tomcat相关书籍">Tomcat相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:12:07">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/798d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringCloud相关书籍">SpringCloud相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:10:59">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/e60/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Nginx相关书籍">Nginx相关书籍</span>
+            <span class="post-date" title="2022-07-23 14:08:32">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/a599/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Kafka相关书籍">Kafka相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:53:21">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b4e6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git相关书籍">Git相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:46:06">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b748/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="JVM相关书籍">JVM相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:43:38">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/c0c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="RabbitMQ相关书籍">RabbitMQ相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:27:12">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/3715/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring相关书籍">Spring相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:23:09">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/b0b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringBoot相关书籍">SpringBoot相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:21:09">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/f2f5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SpringMVC相关书籍">SpringMVC相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:18:13">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/1ac1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ZooKeeper相关书籍">ZooKeeper相关书籍</span>
+            <span class="post-date" title="2022-07-23 13:16:19">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/ee7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="atom常用快捷键-mac亲测">atom常用快捷键-mac亲测</span>
+            <span class="post-date" title="2022-07-23 10:37:06">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/ddb8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dubbo相关书籍">Dubbo相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:32:24">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/81b4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言相关书籍">Java语言相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:31:36">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/2ae1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Redis相关书籍">Redis相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:28:10">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 书籍 "
+           href="/posts/2ae1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="redis相关书籍">redis相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:28:10">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/8b3a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="其他书籍">其他书籍</span>
+            <span class="post-date" title="2022-07-23 10:14:58">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/1319/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux相关书籍">Linux相关书籍</span>
+            <span class="post-date" title="2022-07-23 10:01:22">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 Spring "
+           href="/posts/d9c2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring-资源网站">Spring-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:37:44">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/d1ed/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计模式-资源网站">设计模式-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:36:03">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/29c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-资源网站">数据库-资源网站</span>
+            <span class="post-date" title="2022-07-22 23:33:18">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/6cc6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="OA办公">OA办公</span>
+            <span class="post-date" title="2022-07-22 22:22:42">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/50/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线教程和文档">在线教程和文档</span>
+            <span class="post-date" title="2022-07-22 22:20:22">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f8ca/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编程学习">在线编程学习</span>
+            <span class="post-date" title="2022-07-22 22:19:54">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f687/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线办公工具">在线办公工具</span>
+            <span class="post-date" title="2022-07-22 22:19:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/a324/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="写作辅助工具">写作辅助工具</span>
+            <span class="post-date" title="2022-07-22 22:17:55">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/6fa0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线素材库">在线素材库</span>
+            <span class="post-date" title="2022-07-22 22:13:41">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2b47/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="网络工具">网络工具</span>
+            <span class="post-date" title="2022-07-22 22:11:55">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/7b68/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="正则表达式工具">正则表达式工具</span>
+            <span class="post-date" title="2022-07-22 22:11:09">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f2d4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线转换工具">在线转换工具</span>
+            <span class="post-date" title="2022-07-22 22:09:39">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/228d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计制作类工具">设计制作类工具</span>
+            <span class="post-date" title="2022-07-22 22:01:28">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/f6c6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编译运行工具">在线编译运行工具</span>
+            <span class="post-date" title="2022-07-22 21:58:50">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/5438/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线生成器">在线生成器</span>
+            <span class="post-date" title="2022-07-22 21:57:57">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/4813/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线编解码工具">在线编解码工具</span>
+            <span class="post-date" title="2022-07-22 21:51:16">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/d988/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="可视化/格式化工具">可视化/格式化工具</span>
+            <span class="post-date" title="2022-07-22 21:36:15">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2b3c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="开发辅助工具">开发辅助工具</span>
+            <span class="post-date" title="2022-07-22 21:27:10">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/47fa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="画图工具">画图工具</span>
+            <span class="post-date" title="2022-07-22 21:20:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/ce00/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="如何免费申请js.cool二级域名">如何免费申请js.cool二级域名</span>
+            <span class="post-date" title="2022-07-22 14:56:17">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/2e7c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="修改文章永久链接为随机编号">修改文章永久链接为随机编号</span>
+            <span class="post-date" title="2022-07-22 13:44:30">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/fd51/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Netty相关书籍">Netty相关书籍</span>
+            <span class="post-date" title="2022-07-22 13:22:21">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Books "
+           href="/posts/2a5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库相关书籍">数据库相关书籍</span>
+            <span class="post-date" title="2022-07-22 11:38:07">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 Linux "
+           href="/posts/dbd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自定义命令">自定义命令</span>
+            <span class="post-date" title="2022-07-21 18:47:07">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Linux "
+           href="/posts/a470/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vim编辑器">vim编辑器</span>
+            <span class="post-date" title="2022-07-21 15:38:21">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/posts/4471/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="ssh连接云服务器">ssh连接云服务器</span>
+            <span class="post-date" title="2022-07-21 14:53:53">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/2e52/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="文档笔记工具">文档笔记工具</span>
+            <span class="post-date" title="2022-07-21 14:30:15">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/c4f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git学习">Git学习</span>
+            <span class="post-date" title="2022-07-21 11:05:21">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/3b9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2022-07-21 10:40:17">2022/07/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/ff76/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="又拍云加速">又拍云加速</span>
+            <span class="post-date" title="2022-07-20 08:37:55">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/51bb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Vercel托管">Vercel托管</span>
+            <span class="post-date" title="2022-07-20 08:37:07">2022/07/20</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/cdcb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="并发编程">并发编程</span>
+            <span class="post-date" title="2022-07-19 16:18:04">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/1d9c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="IO流">IO流</span>
+            <span class="post-date" title="2022-07-19 16:05:04">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/5257/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java集合">Java集合</span>
+            <span class="post-date" title="2022-07-19 14:54:48">2022/07/19</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/f499/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Windonws端口被占用">Windonws端口被占用</span>
+            <span class="post-date" title="2022-07-18 17:01:40">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4523/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="枚举">枚举</span>
+            <span class="post-date" title="2022-07-18 17:01:06">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4041/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="字符集/编码集">字符集/编码集</span>
+            <span class="post-date" title="2022-07-18 17:00:30">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/bc61/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java定时任务">Java定时任务</span>
+            <span class="post-date" title="2022-07-18 16:59:53">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/8609/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Lambda表达式">Lambda表达式</span>
+            <span class="post-date" title="2022-07-18 16:59:11">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/330f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="java.lang.Math">java.lang.Math</span>
+            <span class="post-date" title="2022-07-18 16:58:19">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/8556/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="java.time.LocalDateTime">java.time.LocalDateTime</span>
+            <span class="post-date" title="2022-07-18 16:57:22">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/1cea/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="System系统类">System系统类</span>
+            <span class="post-date" title="2022-07-18 16:56:10">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/3293/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="BigDicimal类">BigDicimal类</span>
+            <span class="post-date" title="2022-07-18 16:55:29">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/2367/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="方法引用">方法引用</span>
+            <span class="post-date" title="2022-07-18 16:54:22">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/b543/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Stream流">Stream流</span>
+            <span class="post-date" title="2022-07-18 16:53:08">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/95da/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="递归">递归</span>
+            <span class="post-date" title="2022-07-18 16:51:32">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4486/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java正则表达式">Java正则表达式</span>
+            <span class="post-date" title="2022-07-18 16:50:35">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4bfb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="日志级别">日志级别</span>
+            <span class="post-date" title="2022-07-18 16:47:24">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/e4e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="时间复杂度">时间复杂度</span>
+            <span class="post-date" title="2022-07-18 14:38:47">2022/07/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/59b9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署hexo">Docker部署hexo</span>
+            <span class="post-date" title="2022-07-17 12:19:11">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/35b5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署RabbitMQ">Docker部署RabbitMQ</span>
+            <span class="post-date" title="2022-07-17 12:18:20">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/35c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Cloudreve">Docker部署Cloudreve</span>
+            <span class="post-date" title="2022-07-17 12:16:50">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/6360/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Wordpress">Docker部署Wordpress</span>
+            <span class="post-date" title="2022-07-17 12:13:57">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/e9b6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Nacos集群">Docker部署Nacos集群</span>
+            <span class="post-date" title="2022-07-17 12:08:33">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/a7a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dcoker部署Nacos">Dcoker部署Nacos</span>
+            <span class="post-date" title="2022-07-17 12:04:33">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/f3b5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署CentOS">Docker部署CentOS</span>
+            <span class="post-date" title="2022-07-17 12:03:59">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/34c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Redis">Docker部署Redis</span>
+            <span class="post-date" title="2022-07-17 12:02:42">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/7ac1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Nginx">Docker部署Nginx</span>
+            <span class="post-date" title="2022-07-17 12:00:54">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/2fc3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署Tomcat">Docker部署Tomcat</span>
+            <span class="post-date" title="2022-07-17 11:59:58">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/d561/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker创建自定义网络">Docker创建自定义网络</span>
+            <span class="post-date" title="2022-07-17 11:47:14">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/78b3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2022-07-17 11:44:26">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/c014/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-资源网站">Docker-资源网站</span>
+            <span class="post-date" title="2022-07-17 08:54:26">2022/07/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/533b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker-Compose">Docker-Compose</span>
+            <span class="post-date" title="2022-07-16 16:33:13">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/4924/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Dockerfile">Dockerfile</span>
+            <span class="post-date" title="2022-07-16 16:26:58">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/c242/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker镜像制作">Docker镜像制作</span>
+            <span class="post-date" title="2022-07-16 16:19:09">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/b827/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker配置数据卷和数据卷容器">Docker配置数据卷和数据卷容器</span>
+            <span class="post-date" title="2022-07-16 16:05:15">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/ef5f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker镜像仓库">Docker镜像仓库</span>
+            <span class="post-date" title="2022-07-16 15:33:28">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/76cd/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOS安装Docker">CentOS安装Docker</span>
+            <span class="post-date" title="2022-07-16 09:53:59">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 Docker "
+           href="/posts/8e7e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker命令">Docker命令</span>
+            <span class="post-date" title="2022-07-16 09:44:00">2022/07/16</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/f7b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SSH工具安装配置">SSH工具安装配置</span>
+            <span class="post-date" title="2022-07-15 17:05:04">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/738/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Docker安装配置">Docker安装配置</span>
+            <span class="post-date" title="2022-07-15 16:50:31">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/2f9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="idea快捷键-mac">idea快捷键-mac</span>
+            <span class="post-date" title="2022-07-15 16:35:00">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/3ea3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="解释器模式">解释器模式</span>
+            <span class="post-date" title="2022-07-15 12:13:27">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/db96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="备忘录模式">备忘录模式</span>
+            <span class="post-date" title="2022-07-15 12:07:37">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/e0f5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="访问者模式">访问者模式</span>
+            <span class="post-date" title="2022-07-15 12:06:28">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/6e51/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="迭代器模式">迭代器模式</span>
+            <span class="post-date" title="2022-07-15 12:04:44">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/d8bf/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中介者模式">中介者模式</span>
+            <span class="post-date" title="2022-07-15 12:03:04">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/1e3a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="观察者模式">观察者模式</span>
+            <span class="post-date" title="2022-07-15 12:01:03">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/9a17/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="状态模式">状态模式</span>
+            <span class="post-date" title="2022-07-15 11:57:07">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/ea6f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="责任链模式">责任链模式</span>
+            <span class="post-date" title="2022-07-15 11:53:13">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/59c1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="命令模式">命令模式</span>
+            <span class="post-date" title="2022-07-15 11:51:49">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/e50f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="策略模式">策略模式</span>
+            <span class="post-date" title="2022-07-15 11:02:57">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/a767/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="模板方法模式">模板方法模式</span>
+            <span class="post-date" title="2022-07-15 10:55:35">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/fe8b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="享元模式">享元模式</span>
+            <span class="post-date" title="2022-07-15 10:53:22">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/afc1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="组合模式">组合模式</span>
+            <span class="post-date" title="2022-07-15 10:48:05">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/814c/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="外观模式">外观模式</span>
+            <span class="post-date" title="2022-07-14 20:05:05">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/a970/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="桥接模式">桥接模式</span>
+            <span class="post-date" title="2022-07-14 20:01:01">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/fb3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="macos挂载阿里云盘当做本地盘">macos挂载阿里云盘当做本地盘</span>
+            <span class="post-date" title="2022-07-14 17:43:48">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/dcb7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Typora安装配置">Typora安装配置</span>
+            <span class="post-date" title="2022-07-14 16:41:41">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/f34/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="装饰者模式">装饰者模式</span>
+            <span class="post-date" title="2022-07-14 13:31:46">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/9a82/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="适配器模式">适配器模式</span>
+            <span class="post-date" title="2022-07-14 13:29:08">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/bb83/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="代理模式">代理模式</span>
+            <span class="post-date" title="2022-07-14 13:23:57">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/740f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="建造者模式">建造者模式</span>
+            <span class="post-date" title="2022-07-14 13:21:59">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/5bc5/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="简单工厂+配置文件解除耦合">简单工厂+配置文件解除耦合</span>
+            <span class="post-date" title="2022-07-14 13:15:09">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/dc87/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="抽象工厂模式">抽象工厂模式</span>
+            <span class="post-date" title="2022-07-14 13:12:53">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/79ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="工厂方法模式">工厂方法模式</span>
+            <span class="post-date" title="2022-07-14 13:10:41">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/5814/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="原型模式">原型模式</span>
+            <span class="post-date" title="2022-07-14 13:07:40">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/b434/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="单例模式">单例模式</span>
+            <span class="post-date" title="2022-07-14 12:44:40">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/dbc0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="软件设计原则">软件设计原则</span>
+            <span class="post-date" title="2022-07-14 12:37:58">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 设计模式 "
+           href="/posts/2ccc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UML图">UML图</span>
+            <span class="post-date" title="2022-07-14 11:37:00">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/9395/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图床工具">图床工具</span>
+            <span class="post-date" title="2022-07-14 09:23:13">2022/07/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 网站书签 "
+           href="/posts/e597/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="影视资源">影视资源</span>
+            <span class="post-date" title="2022-07-13 21:01:25">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/62b7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tampermonkey安装配置">Tampermonkey安装配置</span>
+            <span class="post-date" title="2022-07-13 20:56:14">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 快捷键 "
+           href="/posts/ef61/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Mac快捷键">Mac快捷键</span>
+            <span class="post-date" title="2022-07-13 20:51:26">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/c472/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac软件下载网站">mac软件下载网站</span>
+            <span class="post-date" title="2022-07-13 20:48:18">2022/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/75b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="本地项目上传GitHub">本地项目上传GitHub</span>
+            <span class="post-date" title="2022-07-12 21:53:43">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/1910/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git安装配置">Git安装配置</span>
+            <span class="post-date" title="2022-07-12 19:18:55">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/7cbe/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac安装vpn">mac安装vpn</span>
+            <span class="post-date" title="2022-07-12 15:45:37">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/f169/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="mac安装Windows虚拟机">mac安装Windows虚拟机</span>
+            <span class="post-date" title="2022-07-12 15:42:17">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/1205/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Navicat安装配置">Navicat安装配置</span>
+            <span class="post-date" title="2022-07-12 13:22:26">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Other "
+           href="/posts/6c1e/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="腾讯云服务器环境配置">腾讯云服务器环境配置</span>
+            <span class="post-date" title="2022-07-12 12:54:34">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/2841/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java环境配置">Java环境配置</span>
+            <span class="post-date" title="2022-07-12 12:54:34">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b524/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="UML">UML</span>
+            <span class="post-date" title="2022-07-12 11:02:08">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/5666/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="场景题">场景题</span>
+            <span class="post-date" title="2022-07-12 11:01:47">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a2d2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="设计模式">设计模式</span>
+            <span class="post-date" title="2022-07-12 11:01:28">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a013/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-9-高级算法">数据结构与算法-9-高级算法</span>
+            <span class="post-date" title="2022-07-12 10:58:12">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e885/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-8-队列">数据结构与算法-8-队列</span>
+            <span class="post-date" title="2022-07-12 10:58:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/35cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-7-堆栈">数据结构与算法-7-堆栈</span>
+            <span class="post-date" title="2022-07-12 10:57:41">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/9e5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-6-排序">数据结构与算法-6-排序</span>
+            <span class="post-date" title="2022-07-12 10:55:26">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/d820/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 数据库 "
+           href="/posts/59e9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/3879/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/4ea0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java">Java</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/7df6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java算法">Java算法</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/9f25/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Java "
+           href="/posts/a9a8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="随笔">随笔</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6695/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-5-数组">数据结构与算法-5-数组</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3e4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-4-链表">数据结构与算法-4-链表</span>
+            <span class="post-date" title="2022-07-12 10:55:16">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/4d1f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-3-遍历">数据结构与算法-3-遍历</span>
+            <span class="post-date" title="2022-07-12 10:55:11">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/2491/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo安装配置">Hexo安装配置</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/3eeb/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 Hexo "
+           href="/posts/83b4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="资源网址">资源网址</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/40cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/bf96/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-2-树">数据结构与算法-2-树</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/30b1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据结构与算法-1-哈希">数据结构与算法-1-哈希</span>
+            <span class="post-date" title="2022-07-12 10:54:59">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/437/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="操作系统">操作系统</span>
+            <span class="post-date" title="2022-07-12 10:53:44">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7056/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机网络">计算机网络</span>
+            <span class="post-date" title="2022-07-12 10:53:33">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a3a7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分布式">分布式</span>
+            <span class="post-date" title="2022-07-12 10:52:23">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/55df/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-5-Netty">中间件-5-Netty</span>
+            <span class="post-date" title="2022-07-12 10:51:08">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/9aaa/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-4-Kafka">中间件-4-Kafka</span>
+            <span class="post-date" title="2022-07-12 10:51:07">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/1740/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-3-搜索引擎">中间件-3-搜索引擎</span>
+            <span class="post-date" title="2022-07-12 10:51:06">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/8cef/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-2-消息队列">中间件-2-消息队列</span>
+            <span class="post-date" title="2022-07-12 10:50:51">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/c5c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中间件-1-Redis">中间件-1-Redis</span>
+            <span class="post-date" title="2022-07-12 10:50:39">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/f1a6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-7-Dubbo">web开发-7-Dubbo</span>
+            <span class="post-date" title="2022-07-12 10:49:59">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e80/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-6-ZooKeeper">web开发-6-ZooKeeper</span>
+            <span class="post-date" title="2022-07-12 10:49:58">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b0ae/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-5-其他">web开发-5-其他</span>
+            <span class="post-date" title="2022-07-12 10:49:57">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/29a9/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-4-MyBatis">web开发-4-MyBatis</span>
+            <span class="post-date" title="2022-07-12 10:49:56">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/cc91/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-3-SpringMVC">web开发-3-SpringMVC</span>
+            <span class="post-date" title="2022-07-12 10:49:04">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/1a4b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-2-Spring">web开发-2-Spring</span>
+            <span class="post-date" title="2022-07-12 10:49:03">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/953b/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="web开发-1-SpringBoot">web开发-1-SpringBoot</span>
+            <span class="post-date" title="2022-07-12 10:49:02">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a25f/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-6-其他">数据库-6-其他</span>
+            <span class="post-date" title="2022-07-12 10:48:20">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/bbcc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-5-优化">数据库-5-优化</span>
+            <span class="post-date" title="2022-07-12 10:48:19">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/162d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-4-锁">数据库-4-锁</span>
+            <span class="post-date" title="2022-07-12 10:48:14">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6382/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-3-事务">数据库-3-事务</span>
+            <span class="post-date" title="2022-07-12 10:46:56">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7634/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-2-索引">数据库-2-索引</span>
+            <span class="post-date" title="2022-07-12 10:46:42">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3652/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="数据库-1-SQL">数据库-1-SQL</span>
+            <span class="post-date" title="2022-07-12 10:46:32">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/e35d/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-5-JVM">Java语言-5-JVM</span>
+            <span class="post-date" title="2022-07-12 10:34:39">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/4838/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-4-多线程">Java语言-4-多线程</span>
+            <span class="post-date" title="2022-07-12 10:34:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/6ef6/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-3-IO">Java语言-3-IO</span>
+            <span class="post-date" title="2022-07-12 10:34:11">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/81f0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-2-集合类">Java语言-2-集合类</span>
+            <span class="post-date" title="2022-07-12 10:34:00">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3f44/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Java语言-1-Java基础">Java语言-1-Java基础</span>
+            <span class="post-date" title="2022-07-12 10:33:39">2022/07/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-面试题/Java语言-1-Java基础" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Java语言-1-Java基础</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="面试题">面试题</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-07-22 16:43:54'>2022-07-12 10:33</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%B8%BA%E4%BB%80%E4%B9%88Java%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%BC%96%E5%86%99%E3%80%81%E5%88%B0%E5%A4%84%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="toc-text">1.1 为什么Java代码可以实现一次编写、到处运行？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E4%B8%80%E4%B8%AAJava%E6%96%87%E4%BB%B6%E9%87%8C%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%90%97%EF%BC%88%E4%B8%8D%E5%90%AB%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="toc-text">1.2 一个Java文件里可以有多个类吗（不含内部类）？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">1.3 说一说你对Java访问权限的了解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.4 介绍一下Java的数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-int%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-text">1.5 int类型的数据范围是多少？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.6 请介绍全局变量和局部变量的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">1.7 请介绍一下实例变量的默认值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-%E4%B8%BA%E5%95%A5%E8%A6%81%E6%9C%89%E5%8C%85%E8%A3%85%E7%B1%BB%EF%BC%9F"><span class="toc-text">1.8 为啥要有包装类？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9-%E8%AF%B4%E4%B8%80%E8%AF%B4%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E3%80%81%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">1.9 说一说自动装箱、自动拆箱的应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-%E5%A6%82%E4%BD%95%E5%AF%B9Integer%E5%92%8CDouble%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89%EF%BC%9F"><span class="toc-text">1.10 如何对Integer和Double类型判断相等？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-11-int%E5%92%8CInteger%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BA%8C%E8%80%85%E5%9C%A8%E5%81%9A-x3D-x3D-%E8%BF%90%E7%AE%97%E6%97%B6%E4%BC%9A%E5%BE%97%E5%88%B0%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%9C%EF%BC%9F"><span class="toc-text">1.11 int和Integer有什么区别，二者在做&#x3D;&#x3D;运算时会得到什么结果？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.12 说一说你对面向对象的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.13 面向对象的三大特征是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%BB%A7%E6%89%BF"><span class="toc-text">补充：继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-14-%E5%B0%81%E8%A3%85%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%B0%81%E8%A3%85%EF%BC%9F"><span class="toc-text">1.14 封装的目的是什么，为什么要有封装？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-15-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%A4%9A%E6%80%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.15 说一说你对多态的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-16-Java%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">1.16 Java中的多态是怎么实现的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-17-Java%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E7%BB%A7%E6%89%BF%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%A4%9A%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">1.17 Java为什么是单继承，为什么不能多继承？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-18-%E8%AF%B4%E4%B8%80%E8%AF%B4%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.18 说一说重写与重载的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-19-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E8%83%BD%E4%B8%8D%E8%83%BD%E9%87%8D%E5%86%99%EF%BC%9F"><span class="toc-text">1.19 构造方法能不能重写？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-20-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BObject%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">1.20 介绍一下Object类中的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-21-%E8%AF%B4%E4%B8%80%E8%AF%B4hashCode-%E5%92%8Cequals-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">1.21 说一说hashCode()和equals()的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashCode-%E5%92%8Cequals-%EF%BC%9F"><span class="toc-text">1.22 为什么要重写hashCode()和equals()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-23-x3D-x3D-%E5%92%8Cequals-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.23 &#x3D;&#x3D;和equals()有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-24-String%E7%B1%BB%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">1.24 String类有哪些方法？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-25-String%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F"><span class="toc-text">1.25 String可以被继承吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-26-%E8%AF%B4%E4%B8%80%E8%AF%B4String%E5%92%8CStringBuffer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">1.26 说一说String和StringBuffer有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-27-%E8%AF%B4%E4%B8%80%E8%AF%B4StringBuffer%E5%92%8CStringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">1.27 说一说StringBuffer和StringBuilder有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-28-%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%EF%BC%8Cnew%E5%92%8C%E2%80%9D%E2%80%9D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">1.28 使用字符串时，new和””推荐使用哪种方式？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-29-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.29 说一说你对字符串拼接的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-30-%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0%E7%9A%84%E5%BA%95%E5%B1%82%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">1.30 两个字符串相加的底层是如何实现的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-31-String-a-x3D-%E2%80%9Cabc%E2%80%9D-%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E8%BF%87%E7%A8%8B%E4%BC%9A%E5%88%9B%E5%BB%BA%E4%BB%80%E4%B9%88%EF%BC%8C%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">1.31 String a &#x3D; “abc”; ，说一下这个过程会创建什么，放在哪里？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-32-new-String-%E2%80%9Cabc%E2%80%9D-%E6%98%AF%E5%8E%BB%E4%BA%86%E5%93%AA%E9%87%8C%EF%BC%8C%E4%BB%85%E4%BB%85%E6%98%AF%E5%9C%A8%E5%A0%86%E9%87%8C%E9%9D%A2%E5%90%97%EF%BC%9F"><span class="toc-text">1.32 new String(“abc”) 是去了哪里，仅仅是在堆里面吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-33-%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.33 接口和抽象类有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-34-%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%9C%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%90%97%EF%BC%9F"><span class="toc-text">1.34 接口中可以有构造函数吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-35-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.35 谈谈你对面向接口编程的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-36-%E9%81%87%E5%88%B0%E8%BF%87%E5%BC%82%E5%B8%B8%E5%90%97%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-text">1.36 遇到过异常吗，如何处理？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-37-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6"><span class="toc-text">1.37 说一说Java的异常机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-38-%E8%AF%B7%E4%BB%8B%E7%BB%8DJava%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8E%A5%E5%8F%A3"><span class="toc-text">1.38 请介绍Java的异常接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-39-finally%E6%98%AF%E6%97%A0%E6%9D%A1%E4%BB%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">1.39 finally是无条件执行的吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-40-%E5%9C%A8finally%E4%B8%ADreturn%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.40 在finally中return会发生什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-41-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9static%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.41 说一说你对static关键字的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-42-static%E4%BF%AE%E9%A5%B0%E7%9A%84%E7%B1%BB%E8%83%BD%E4%B8%8D%E8%83%BD%E8%A2%AB%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">1.42 static修饰的类能不能被继承？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-43-static%E5%92%8Cfinal%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.43 static和final有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Afinalize"><span class="toc-text">补充：finalize</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-44-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.44 说一说你对泛型的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-45-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4"><span class="toc-text">1.45 介绍一下泛型擦除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-46-List-lt-super-T-gt-%E5%92%8CList-lt-extends-T-gt-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.46 List&lt;? super T&gt;和List&lt;? extends T&gt;有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-47-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.47 说一说你对Java反射机制的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Ajava%E8%8E%B7%E5%8F%96%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">补充：java获取反射的三种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-48-Java%E5%8F%8D%E5%B0%84%E5%9C%A8%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">1.48 Java反射在实际项目中有哪些应用场景？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-49-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">1.49 说一说Java的四种引用方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">补充：内部类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%95%B0%E7%BB%84%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%88%86%E9%85%8D"><span class="toc-text">补充：数组在内存中的分配</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-1-为什么Java代码可以实现一次编写、到处运行？"><a href="#1-1-为什么Java代码可以实现一次编写、到处运行？" class="headerlink" title="1.1 为什么Java代码可以实现一次编写、到处运行？"></a>1.1 为什么Java代码可以实现一次编写、到处运行？</h4><p><strong>参考答案</strong></p>
+<p>JVM（Java虚拟机）是Java跨平台的关键。</p>
+<p>在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。</p>
+<p>同一份Java源代码在不同的平台上运行，它不需要做任何的改变，并且只需要编译一次。而编译好的字节码，是通过JVM这个中间的“桥梁”实现跨平台的，JVM是与平台相关的软件，它能将统一的字节码翻译成该平台的机器码。</p>
+<p><strong>注意事项</strong></p>
+<ol>
+<li>编译的结果是生成字节码、不是机器码，字节码不能直接运行，必须通过JVM翻译成机器码才能运行；</li>
+<li>跨平台的是Java程序、而不是JVM，JVM是用C&#x2F;C++开发的软件，不同平台下需要安装不同版本的JVM。</li>
+</ol>
+<h4 id="1-2-一个Java文件里可以有多个类吗（不含内部类）？"><a href="#1-2-一个Java文件里可以有多个类吗（不含内部类）？" class="headerlink" title="1.2 一个Java文件里可以有多个类吗（不含内部类）？"></a>1.2 一个Java文件里可以有多个类吗（不含内部类）？</h4><p><strong>参考答案</strong></p>
+<ol>
+<li>一个java文件里可以有多个类，但最多只能有一个被public修饰的类；</li>
+<li>如果这个java文件中包含public修饰的类，则这个类的名称必须和java文件名一致。</li>
+</ol>
+<h4 id="1-3-说一说你对Java访问权限的了解"><a href="#1-3-说一说你对Java访问权限的了解" class="headerlink" title="1.3 说一说你对Java访问权限的了解"></a>1.3 说一说你对Java访问权限的了解</h4><p><strong>参考答案</strong></p>
+<p>Java语言为我们提供了三种访问修饰符，即private、protected、public，在使用这些修饰符修饰目标时，一共可以形成四种访问权限，即private、default、protected、public，注意在不加任何修饰符时为default访问权限。</p>
+<p>在修饰成员变量&#x2F;成员方法时，该成员的四种访问权限的含义如下：</p>
+<ul>
+<li>private：该成员可以被该类内部成员访问；</li>
+<li>default：该成员可以被该类内部成员访问，也可以被同一包下其他的类访问；</li>
+<li>protected：该成员可以被该类内部成员访问，也可以被同一包下其他的类访问，还可以被它的子类访问；</li>
+<li>public：该成员可以被任意包下，任意类的成员进行访问。</li>
+</ul>
+<p>在修饰类时，该类只有两种访问权限，对应的访问权限的含义如下：</p>
+<ul>
+<li>default：该类可以被同一包下其他的类访问；</li>
+<li>public：该类可以被任意包下，任意的类所访问。</li>
+</ul>
+<p><strong>补充</strong></p>
+<p><img src="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png"></p>
+<h4 id="1-4-介绍一下Java的数据类型"><a href="#1-4-介绍一下Java的数据类型" class="headerlink" title="1.4 介绍一下Java的数据类型"></a>1.4 介绍一下Java的数据类型</h4><p><strong>参考答案</strong></p>
+<p>Java数据类型包括基本数据类型和引用数据类型两大类。</p>
+<p>基本数据类型有8个，可以分为4个小类，分别是整数类型（byte&#x2F;short&#x2F;int&#x2F;long）、浮点类型（float&#x2F;double）、字符类型（char）、布尔类型（boolean）。其中，4个整数类型中，int类型最为常用。2个浮点类型中，double最为常用。另外，在这8个基本类型当中，除了布尔类型之外的其他7个类型，都可以看做是数字类型，它们相互之间可以进行类型转换。</p>
+<p>引用类型就是对一个对象的引用，根据引用对象类型的不同，可以将引用类型分为3类，即数组、类、接口类型。引用类型本质上就是通过指针，指向堆中对象所持有的内存空间，只是Java语言不再沿用指针这个说法而已。</p>
+<p><strong>扩展阅读</strong></p>
+<p>对于基本数据类型，你需要了解每种类型所占据的内存空间，面试官可能会追问这类问题：</p>
+<ul>
+<li>byte：1字节（8位），数据范围是 -2^7 ~ 2^7-1。</li>
+<li>short：2字节（16位），数据范围是 -2^15 ~ 2^15-1。</li>
+<li>int：4字节（32位），数据范围是 -2^31 ~ 2^31-1。</li>
+<li>long：8字节（64位），数据范围是 -2^63 ~ 2^63-1。</li>
+<li>float：4字节（32位），数据范围大约是 -3.4<em>10^38 ~ 3.4</em>10^38。</li>
+<li>double：8字节（64位），数据范围大约是 -1.8<em>10^308 ~ 1.8</em>10^308。</li>
+<li>char：2字节（16位），数据范围是 \u0000 ~ \uffff。</li>
+<li>boolean：Java规范没有明确的规定，不同的JVM有不同的实现机制。</li>
+</ul>
+<p>对于引用数据类型，你需要了解JVM的内存分布情况，知道引用以及引用对象存放的位置，详见JVM部分的题目。</p>
+<h4 id="1-5-int类型的数据范围是多少？"><a href="#1-5-int类型的数据范围是多少？" class="headerlink" title="1.5 int类型的数据范围是多少？"></a>1.5 int类型的数据范围是多少？</h4><p>int类型占4字节（32位），数据范围是 -2^31 ~ 2^31-1。</p>
+<h4 id="1-6-请介绍全局变量和局部变量的区别"><a href="#1-6-请介绍全局变量和局部变量的区别" class="headerlink" title="1.6 请介绍全局变量和局部变量的区别"></a>1.6 请介绍全局变量和局部变量的区别</h4><p><strong>参考答案</strong></p>
+<p>Java中的变量分为成员变量和局部变量，它们的区别如下：</p>
+<p>成员变量：</p>
+<ol>
+<li>成员变量是在类的范围里定义的变量；</li>
+<li>成员变量有默认初始值；</li>
+<li>未被static修饰的成员变量也叫实例变量，它存储于对象所在的堆内存中，生命周期与对象相同；</li>
+<li>被static修饰的成员变量也叫类变量，它存储于方法区中，生命周期与当前类相同。</li>
+</ol>
+<p>局部变量：</p>
+<ol>
+<li>局部变量是在方法里定义的变量；</li>
+<li>局部变量没有默认初始值；</li>
+<li>局部变量存储于栈内存中，作用的范围结束，变量空间会自动的释放。</li>
+</ol>
+<p><strong>注意事项</strong></p>
+<p>Java中没有真正的全局变量，面试官应该是出于其他语言的习惯说全局变量的，他的本意应该是指成员变量。</p>
+<h4 id="1-7-请介绍一下实例变量的默认值"><a href="#1-7-请介绍一下实例变量的默认值" class="headerlink" title="1.7 请介绍一下实例变量的默认值"></a>1.7 请介绍一下实例变量的默认值</h4><p><strong>参考答案</strong></p>
+<p>实例变量若为引用数据类型，其默认值一律为null。若为基本数据类型，其默认值如下：</p>
+<ul>
+<li>byte：0</li>
+<li>short：0</li>
+<li>int：0</li>
+<li>long：0L</li>
+<li>float：0.0F</li>
+<li>double：0.0</li>
+<li>char：’\u0000’</li>
+<li>boolean：false</li>
+</ul>
+<p><strong>注意事项</strong></p>
+<p>上述默认值规则适用于所有的成员变量，所以对于类变量也是适用的。</p>
+<h4 id="1-8-为啥要有包装类？"><a href="#1-8-为啥要有包装类？" class="headerlink" title="1.8 为啥要有包装类？"></a>1.8 为啥要有包装类？</h4><p><strong>参考答案</strong></p>
+<p>Java语言是面向对象的语言，其设计理念是“一切皆对象”。但8种基本数据类型却出现了例外，它们不具备对象的特性。正是为了解决这个问题，Java为每个基本数据类型都定义了一个对应的引用类型，这就是包装类。</p>
+<p><strong>扩展阅读</strong></p>
+<p>Java之所以提供8种基本数据类型，主要是为了照顾程序员的传统习惯。这8种基本数据类型的确带来了一定的方便性，但在某些时候也会受到一些制约。比如，所有的引用类型的变量都继承于Object类，都可以当做Object类型的变量使用，但基本数据类型却不可以。如果某个方法需要Object类型的参数，但实际传入的值却是数字的话，就需要做特殊的处理了。有了包装类，这种问题就可以得以简化。</p>
+<h4 id="1-9-说一说自动装箱、自动拆箱的应用场景"><a href="#1-9-说一说自动装箱、自动拆箱的应用场景" class="headerlink" title="1.9 说一说自动装箱、自动拆箱的应用场景"></a>1.9 说一说自动装箱、自动拆箱的应用场景</h4><p><strong>参考答案</strong></p>
+<p>自动装箱、自动拆箱是JDK1.5提供的功能。</p>
+<p>自动装箱：可以把一个基本类型的数据直接赋值给对应的包装类型；</p>
+<p>自动拆箱：可以把一个包装类型的对象直接赋值给对应的基本类型；</p>
+<p>通过自动装箱、自动拆箱功能，可以大大简化基本类型变量和包装类对象之间的转换过程。比如，某个方法的参数类型为包装类型，调用时我们所持有的数据却是基本类型的值，则可以不做任何特殊的处理，直接将这个基本类型的值传入给方法即可。</p>
+<h4 id="1-10-如何对Integer和Double类型判断相等？"><a href="#1-10-如何对Integer和Double类型判断相等？" class="headerlink" title="1.10 如何对Integer和Double类型判断相等？"></a>1.10 如何对Integer和Double类型判断相等？</h4><p><strong>参考答案</strong></p>
+<p>Integer、Double不能直接进行比较，这包括：</p>
+<ul>
+<li>不能用&#x3D;&#x3D;进行直接比较，因为它们是不同的数据类型；</li>
+<li>不能转为字符串进行比较，因为转为字符串后，浮点值带小数点，整数值不带，这样它们永远都不相等；</li>
+<li>不能使用compareTo方法进行比较，虽然它们都有compareTo方法，但该方法只能对相同类型进行比较。</li>
+</ul>
+<p>整数、浮点类型的包装类，都继承于Number类型，而Number类型分别定义了将数字转换为byte、short、int、long、float、double的方法。所以，可以将Integer、Double先转为转换为相同的基本数据类型（如double），然后使用&#x3D;&#x3D;进行比较。</p>
+<p><strong>示例代码</strong></p>
+<pre><code class="java">class class1 &#123;
+    void method1() &#123;
+        Integer i = 100;
+        Double d = 100.00;
+        System.out.println(i.doubleValue() == d.doubleValue());
+    &#125;
+&#125;
+</code></pre>
+<h4 id="1-11-int和Integer有什么区别，二者在做-x3D-x3D-运算时会得到什么结果？"><a href="#1-11-int和Integer有什么区别，二者在做-x3D-x3D-运算时会得到什么结果？" class="headerlink" title="1.11 int和Integer有什么区别，二者在做&#x3D;&#x3D;运算时会得到什么结果？"></a>1.11 int和Integer有什么区别，二者在做&#x3D;&#x3D;运算时会得到什么结果？</h4><p><strong>参考答案</strong></p>
+<p>int是基本数据类型，Integer是int的包装类。二者在做&#x3D;&#x3D;运算时，Integer会自动拆箱为int类型，然后再进行比较。届时，如果两个int值相等则返回true，否则就返回false。</p>
+<p><strong>补充</strong></p>
+<p>1.把基本数据类型的值转成字符串</p>
+<p>Integer it &#x3D; 100 ;</p>
+<ul>
+<li>调用toString()方法。<code>String itStr = it.toString();</code></li>
+<li>调用Integer.toString(基本数据类型的值)得到字符串。<code>String itStr1 = Integer.toString(it);</code></li>
+<li>直接把基本数据类型+空字符串就得到了字符串。<code>String itStr2 = it+&quot;&quot;;</code></li>
+</ul>
+<p>2.把字符串类型的数值转换成对应的基本数据类型的值。（真的很有用）</p>
+<p>String numStr &#x3D; “23”;</p>
+<ul>
+<li><code>int numInt = Integer.parseInt(numStr);</code></li>
+<li><code>int numInt = Integer.valueOf(numStr);</code></li>
+</ul>
+<p>String doubleStr &#x3D; “99.9”;</p>
+<ul>
+<li><code>double doubleDb = Double.parseDouble(doubleStr);</code></li>
+<li><code>double doubleDb = Double.valueOf(doubleStr);</code></li>
+</ul>
+<h4 id="1-12-说一说你对面向对象的理解"><a href="#1-12-说一说你对面向对象的理解" class="headerlink" title="1.12 说一说你对面向对象的理解"></a>1.12 说一说你对面向对象的理解</h4><p><strong>参考答案</strong></p>
+<p>面向对象是一种更优秀的程序设计方法，它的基本思想是使用类、对象、继承、封装、消息等基本概念进行程序设计。它从现实世界中客观存在的事物出发来构造软件系统，并在系统构造中尽可能运用人类的自然思维方式，强调直接以现实世界中的事物为中心来思考，认识问题，并根据这些事物的本质特点，把它们抽象地表示为系统中的类，作为系统的基本构成单元，这使得软件系统的组件可以直接映像到客观世界，并保持客观世界中事物及其相互关系的本来面貌。</p>
+<p><strong>扩展阅读</strong></p>
+<p>结构化程序设计方法主张按功能来分析系统需求，其主要原则可概括为自顶向下、逐步求精、模块化等。结构化程序设计首先采用结构化分析方法对系统进行需求分析，然后使用结构化设计方法对系统进行概要设计、详细设计，最后采用结构化编程方法来实现系统。</p>
+<p>因为结构化程序设计方法主张按功能把软件系统逐步细分，因此这种方法也被称为面向功能的程序设计方法；结构化程序设计的每个功能都负责对数据进行一次处理，每个功能都接受一些数据，处理完后输出一些数据，这种处理方式也被称为面向数据流的处理方式。</p>
+<p>结构化程序设计里最小的程序单元是函数，每个函数都负责完成一个功能，用以接收一些输入数据，函数对这些输入数据进行处理，处理结束后输出一些数据。整个软件系统由一个个函数组成，其中作为程序入口的函数被称为主函数，主函数依次调用其他普通函数，普通函数之间依次调用，从而完成整个软件系统的功能。</p>
+<p>每个函数都是具有输入、输出的子系统，函数的输入数据包括函数形参、全局变量和常量等，函数的输出数据包括函数返回值以及传出参数等。结构化程序设计方式有如下两个局限性：</p>
+<ul>
+<li>设计不够直观，与人类习惯思维不一致。采用结构化程序分析、设计时，开发者需要将客观世界模型分解成一个个功能，每个功能用以完成一定的数据处理。</li>
+<li>适应性差，可扩展性不强。由于结构化设计采用自顶向下的设计方式，所以当用户的需求发生改变，或需要修改现有的实现方式时，都需要自顶向下地修改模块结构，这种方式的维护成本相当高。</li>
+</ul>
+<h4 id="1-13-面向对象的三大特征是什么？"><a href="#1-13-面向对象的三大特征是什么？" class="headerlink" title="1.13 面向对象的三大特征是什么？"></a>1.13 面向对象的三大特征是什么？</h4><p><strong>参考答案</strong></p>
+<p>面向对象的程序设计方法具有三个基本特征：封装、继承、多态。其中，封装指的是将对象的实现细节隐藏起来，然后通过一些公用方法来暴露该对象的功能；继承是面向对象实现软件复用的重要手段，当子类继承父类后，子类作为一种特殊的父类，将直接获得父类的属性和方法；多态指的是子类对象可以直接赋给父类变量，但运行时依然表现出子类的行为特征，这意味着同一个类型的对象在执行同一个方法时，可能表现出多种行为特征。</p>
+<p><strong>扩展阅读</strong></p>
+<p>抽象也是面向对象的重要部分，抽象就是忽略一个主题中与当前目标无关的那些方面，以便更充分地注意与当前目标有关的方面。抽象并不打算了解全部问题，而只是考虑部分问题。例如，需要考察Person对象时，不可能在程序中把Person的所有细节都定义出来，通常只能定义Person的部分数据、部分行为特征，而这些数据、行为特征是软件系统所关心的部分。</p>
+<h4 id="补充：继承"><a href="#补充：继承" class="headerlink" title="补充：继承"></a>补充：继承</h4><p>子类不能继承父类的构造器:子类有自己的构造器。</p>
+<p>子类是否可以继承父类的私有成员（私有成员变量，私有成员方法）? 需要暴力访问。</p>
+<p>子类是否可以继承父类的静态成员？共享并非继承。</p>
+<p>继承后-成员变量的访问特点：就近原则</p>
+<p>继承后-成员方法的访问特点：就近原则</p>
+<p>方法重写</p>
+<ul>
+<li>方法签名相同（申明不变，重新实现）</li>
+<li>两小一大<ul>
+<li>返回值类型：子类≤父类</li>
+<li>抛出的异常：子类≤父类</li>
+<li>权限修饰符：子类≥父类</li>
+</ul>
+</li>
+<li>@Override优势：可读性好，安全，优雅！！</li>
+<li>super可以用在子类的实例方法中调用父类被重写的方法。</li>
+<li>静态方法和私有方法<strong>不</strong>可以被重写（拓展语法）</li>
+</ul>
+<p>继承后-构造器的特点</p>
+<ul>
+<li>子类的全部构造器默认一定会先访问父类的无参数构造器，再执行子类自己的构造器。</li>
+</ul>
+<h4 id="1-14-封装的目的是什么，为什么要有封装？"><a href="#1-14-封装的目的是什么，为什么要有封装？" class="headerlink" title="1.14 封装的目的是什么，为什么要有封装？"></a>1.14 封装的目的是什么，为什么要有封装？</h4><p><strong>参考答案</strong></p>
+<p>封装是面向对象编程语言对客观世界的模拟，在客观世界里，对象的状态信息都被隐藏在对象内部，外界无法直接操作和修改。对一个类或对象实现良好的封装，可以实现以下目的：</p>
+<ul>
+<li>隐藏类的实现细节；</li>
+<li>让使用者只能通过事先预定的方法来访问数据，从而可以在该方法里加入控制逻辑，限制对成员变量的不合理访问；</li>
+<li>可进行数据检查，从而有利于保证对象信息的完整性；</li>
+<li>便于修改，提高代码的可维护性。</li>
+</ul>
+<p><strong>扩展阅读</strong></p>
+<p>为了实现良好的封装，需要从两个方面考虑：</p>
+<ul>
+<li>将对象的成员变量和实现细节隐藏起来，不允许外部直接访问；</li>
+<li>把方法暴露出来，让方法来控制对这些成员变量进行安全的访问和操作。</li>
+</ul>
+<p>封装实际上有两个方面的含义：把该隐藏的隐藏起来，把该暴露的暴露出来。这两个方面都需要通过使用Java提供的访问控制符来实现。</p>
+<h4 id="1-15-说一说你对多态的理解"><a href="#1-15-说一说你对多态的理解" class="headerlink" title="1.15 说一说你对多态的理解"></a>1.15 说一说你对多态的理解</h4><p><strong>参考答案</strong></p>
+<p>因为子类其实是一种特殊的父类，因此Java允许把一个子类对象直接赋给一个父类引用变量，无须任何类型转换，或者被称为向上转型，向上转型由系统自动完成。</p>
+<p>当把一个子类对象直接赋给父类引用变量时，例如 BaseClass obj &#x3D; new SubClass()<br>;，这个obj引用变量的编译时类型是BaseClass，而运行时类型是SubClass，当运行时调用该引用变量的方法时，其方法行为总是表现出子类方法的行为特征，而不是父类方法的行为特征，这就可能出现：相同类型的变量、调用同一个方法时呈现出多种不同的行为特征，这就是多态。</p>
+<p><strong>扩展阅读</strong></p>
+<p>多态可以提高程序的可扩展性，在设计程序时让代码更加简洁而优雅。</p>
+<p>例如我要设计一个司机类，他可以开轿车、巴士、卡车等等，示例代码如下：</p>
+<pre><code class="java">class Driver &#123;
+    void drive(Car car) &#123;
+        //... 
+    &#125;
+
+    void drive(Bus bus) &#123;
+        //... 
+    &#125;
+
+    void drive(Truck truck) &#123;
+        //... 
+    &#125;
+&#125;
+</code></pre>
+<p>在设计上述代码时，我已采用了重载机制，将方法名进行了统一。这样在进行调用时，无论要开什么交通工具，都是通过driver.drive(obj)这样的方式来调用，对调用者足够的友好。</p>
+<p>但对于程序的开发者来说，这显得繁琐，因为实际上这个司机可以驾驶更多的交通工具。当系统需要为这个司机增加车型时，开发者就需要相应的增加driver方法，类似的代码会堆积的越来越多，显得臃肿。</p>
+<p>采用多态的方式来设计上述程序，就会变得简洁很多。我们可以为所有的交通工具定义一个父类Vehicle，然后按照如下的方式设计drive方法。调用时，我们可以传入Vehicle类型的实例，也可以传入任意的Vehicle子类型的实例，对于调用者来说一样的方便，但对于开发者来说，代码却变得十分的简洁了。</p>
+<pre><code class="java">class Driver &#123;
+    void drive(Vehicle vehicle) &#123;
+        // ...
+    &#125;
+&#125;
+</code></pre>
+<p><strong>补充</strong></p>
+<pre><code class="java">class Animal &#123;
+    public void run() &#123;
+        System.out.println(&quot;动物跑！&quot;);
+    &#125;
+&#125;
+
+class Dog extends Animal &#123;
+    @Override
+    public void run() &#123;
+        System.out.println(&quot;🐕跑的贼快~~~~！&quot;);
+    &#125;
+
+    // 独有功能
+    public void lookDoor() &#123;
+        System.out.println(&quot;🐶看门&quot;);
+    &#125;
+&#125;
+
+class Cat extends Animal &#123;
+    @Override
+    public void run() &#123;
+        System.out.println(&quot;🐱跑的飞快~~~~！&quot;);
+    &#125;
+
+    // 独有功能
+    public void catchMouse() &#123;
+        System.out.println(&quot;🐱抓🐀&quot;);
+    &#125;
+&#125;
+
+class Wolf extends Animal &#123;
+    @Override
+    public void run() &#123;
+        System.out.println(&quot;狼跑的飞快~~~&quot;);
+    &#125;
+
+    public void catchSheep() &#123;
+        System.out.println(&quot;🐺抓🐏&quot;);
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><p>父类类型 对象名称 &#x3D; new 子类构造器;</p>
+</li>
+<li><p>接口 对象名称 &#x3D; new 实现类构造器;</p>
+</li>
+<li><p>父类类型的范围 &gt; 子类类型范围的。</p>
+</li>
+<li><p>多态的识别技巧： 对于方法的调用：编译看左边，运行看右边。 对于变量的调用：编译看左边，运行看左边。</p>
+</li>
+</ul>
+<pre><code class="java">  class class1 &#123;
+    viod method() &#123;
+        Animal dlam = new Dog();
+        dlam.run(); // 对于方法的调用：编译看左边，运行看右边。
+        dlam.lookDoor(); // 报错了，多态形式下，编译看左边，左边没有独有功能
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><p>多态的使用前提： （1） 必须存在继承或者实现关系。 （2） 必须存在父类类型的变量引用子类类型的对象。 （3） 需要存在方法重写。</p>
+</li>
+<li><p>在多态形式下，右边对象可以实现组件化切换，业务功能也随之改变， 便于扩展和维护。可以实现类与类之间的解耦。</p>
+</li>
+<li><p>实际开发的过程中，父类类型作为方法形式参数，传递子类对象给方法， 可以传入一切子类对象进行方法的调用，更能体现出多态的扩展性与便利。</p>
+</li>
+</ul>
+<h4 id="1-16-Java中的多态是怎么实现的？"><a href="#1-16-Java中的多态是怎么实现的？" class="headerlink" title="1.16 Java中的多态是怎么实现的？"></a>1.16 Java中的多态是怎么实现的？</h4><p><strong>参考答案</strong></p>
+<p>多态的实现离不开继承，在设计程序时，我们可以将参数的类型定义为父类型。在调用程序时，则可以根据实际情况，传入该父类型的某个子类型的实例，这样就实现了多态。对于父类型，可以有三种形式，即普通的类、抽象类、接口。对于子类型，则要根据它自身的特征，重写父类的某些方法，或实现抽象类&#x2F;接口的某些抽象方法。</p>
+<h4 id="1-17-Java为什么是单继承，为什么不能多继承？"><a href="#1-17-Java为什么是单继承，为什么不能多继承？" class="headerlink" title="1.17 Java为什么是单继承，为什么不能多继承？"></a>1.17 Java为什么是单继承，为什么不能多继承？</h4><p><strong>参考答案</strong></p>
+<p>首先，Java是单继承的，指的是Java中一个类只能有一个直接的父类。Java不能多继承，则是说Java中一个类不能直接继承多个父类。</p>
+<p>其次，Java在设计时借鉴了C++的语法，而C++是支持多继承的。Java语言之所以摒弃了多继承的这项特征，是因为多继承容易产生混淆。比如，两个父类中包含相同的方法时，子类在调用该方法或重写该方法时就会迷惑。</p>
+<p>准确来说，Java是可以实现”多继承”的。因为尽管一个类只能有一个直接父类，但是却可以有任意多个间接的父类。这样的设计方式，避免了多继承时所产生的混淆。</p>
+<h4 id="1-18-说一说重写与重载的区别"><a href="#1-18-说一说重写与重载的区别" class="headerlink" title="1.18 说一说重写与重载的区别"></a>1.18 说一说重写与重载的区别</h4><p><strong>参考答案</strong></p>
+<p>重载发生在同一个类中，若多个方法之间方法名相同、参数列表不同，则它们构成重载的关系。重载与方法的返回值以及访问修饰符无关，即重载的方法不能根据返回类型进行区分。</p>
+<p>重写发生在父类子类中，若子类方法想要和父类方法构成重写关系，则它的方法名、参数列表必须与父类方法相同。另外，返回值要小于等于父类方法，抛出的异常要小于等于父类方法，访问修饰符则要大于等于父类方法。还有，若父类方法的访问修饰符为private，则子类不能对其重写。</p>
+<h4 id="1-19-构造方法能不能重写？"><a href="#1-19-构造方法能不能重写？" class="headerlink" title="1.19 构造方法能不能重写？"></a>1.19 构造方法能不能重写？</h4><p><strong>参考答案</strong></p>
+<p>构造方法不能重写。因为构造方法需要和类保持同名，而重写的要求是子类方法要和父类方法保持同名。如果允许重写构造方法的话，那么子类中将会存在与类名不同的构造方法，这与构造方法的要求是矛盾的。</p>
+<h4 id="1-20-介绍一下Object类中的方法"><a href="#1-20-介绍一下Object类中的方法" class="headerlink" title="1.20 介绍一下Object类中的方法"></a>1.20 介绍一下Object类中的方法</h4><p><strong>参考答案</strong></p>
+<p>Object类提供了如下几个常用方法：</p>
+<ul>
+<li><code>Class&lt;?&gt; getClass()</code>：返回该对象的运行时类。</li>
+<li><code>boolean equals(Object obj)</code>：判断指定对象与该对象是否相等。</li>
+<li><code>int hashCode()</code>：返回该对象的hashCode值。在默认情况下，Object类的hashCode()方法根据该对象的地址来计算。但很多类都重写了Object类的hashCode()<br>方法，不再根据地址来计算其hashCode()方法值。</li>
+<li><code>String toString()</code>：返回该对象的字符串表示，当程序使用System.out.println()方法输出一个对象，或者把某个对象和字符串进行连接运算时，系统会自动调用该对象的toString()<br>方法返回该对象的字符串表示。Object类的toString()方法返回 运行时类名@十六进制hashCode值 格式的字符串，但很多类都重写了Object类的toString()方法，用于返回可以表述该对象信息的字符串。</li>
+</ul>
+<p>另外，Object类还提供了wait()、notify()、notifyAll()这几个方法，通过这几个方法可以控制线程的暂停和运行。Object类还提供了一个clone()<br>方法，该方法用于帮助其他对象来实现“自我克隆”，所谓“自我克隆”就是得到一个当前对象的副本，而且二者之间完全隔离。由于该方法使用了protected修饰，因此它只能被子类重写或调用。</p>
+<p><strong>扩展阅读</strong></p>
+<p>Object类还提供了一个finalize()方法，当系统中没有引用变量引用到该对象时，垃圾回收器调用此方法来清理该对象的资源。并且，针对某一个对象，垃圾回收器最多只会调用它的finalize()方法一次。</p>
+<p>注意，finalize()方法何时调用、是否调用都是不确定的，我们也不要主动调用finalize()方法。从JDK9开始，这个方法被标记为不推荐使用的方法。</p>
+<h4 id="1-21-说一说hashCode-和equals-的关系"><a href="#1-21-说一说hashCode-和equals-的关系" class="headerlink" title="1.21 说一说hashCode()和equals()的关系"></a>1.21 说一说hashCode()和equals()的关系</h4><p><strong>参考答案</strong></p>
+<p>hashCode()用于获取哈希码（散列码），eauqls()用于比较两个对象是否相等，它们应遵守如下规定：</p>
+<ul>
+<li>如果两个对象相等，则它们必须有相同的哈希码。</li>
+<li>如果两个对象有相同的哈希码，则它们未必相等。</li>
+</ul>
+<p><strong>扩展阅读</strong></p>
+<p>在Java中，Set接口代表无序的、元素不可重复的集合，HashSet则是Set接口的典型实现。</p>
+<p>当向HashSet中加入一个元素时，它需要判断集合中是否已经包含了这个元素，从而避免重复存储。由于这个判断十分的频繁，所以要讲求效率，绝不能采用遍历集合逐个元素进行比较的方式。实际上，HashSet是通过获取对象的哈希码，以及调用对象的equals()<br>方法来解决这个判断问题的。</p>
+<p>HashSet首先会调用对象的hashCode()方法获取其哈希码，并通过哈希码确定该对象在集合中存放的位置。假设这个位置之前已经存了一个对象，则HashSet会调用equals()<br>对两个对象进行比较。若相等则说明对象重复，此时不会保存新加的对象。若不等说明对象不重复，但是它们存储的位置发生了碰撞，此时HashSet会采用链式结构在同一位置保存多个对象，即将新加对象链接到原来对象的之后。之后，再有新添加对象也映射到这个位置时，就需要与这个位置中所有的对象进行equals()<br>比较，若均不相等则将其链到最后一个对象之后。</p>
+<h4 id="1-22-为什么要重写hashCode-和equals-？"><a href="#1-22-为什么要重写hashCode-和equals-？" class="headerlink" title="1.22 为什么要重写hashCode()和equals()？"></a>1.22 为什么要重写hashCode()和equals()？</h4><p><strong>参考答案</strong></p>
+<p>Object类提供的equals()<br>方法默认是用&#x3D;&#x3D;来进行比较的，也就是说只有两个对象是同一个对象时，才能返回相等的结果。而实际的业务中，我们通常的需求是，若两个不同的对象它们的内容是相同的，就认为它们相等。鉴于这种情况，Object类中equals()<br>方法的默认实现是没有实用价值的，所以通常都要重写。</p>
+<p>由于hashCode()与equals()具有联动关系（参考“说一说hashCode()和equals()的关系”一题），所以equals()方法重写时，通常也要将hashCode()进行重写，使得这两个方法始终满足相关的约定。</p>
+<h4 id="1-23-x3D-x3D-和equals-有什么区别？"><a href="#1-23-x3D-x3D-和equals-有什么区别？" class="headerlink" title="1.23 &#x3D;&#x3D;和equals()有什么区别？"></a>1.23 &#x3D;&#x3D;和equals()有什么区别？</h4><p><strong>参考答案</strong></p>
+<p>&#x3D;&#x3D;运算符：</p>
+<ul>
+<li>作用于基本数据类型时，是比较两个数值是否相等；</li>
+<li>作用于引用数据类型时，是比较两个对象的内存地址是否相同，即判断它们是否为同一个对象；</li>
+</ul>
+<p>equals()方法：</p>
+<ul>
+<li>没有重写时，Object默认以 &#x3D;&#x3D; 来实现，即比较两个对象的内存地址是否相同；</li>
+<li>进行重写后，一般会按照对象的内容来进行比较，若两个对象内容相同则认为对象相等，否则认为对象不等。</li>
+</ul>
+<h4 id="1-24-String类有哪些方法？"><a href="#1-24-String类有哪些方法？" class="headerlink" title="1.24 String类有哪些方法？"></a>1.24 String类有哪些方法？</h4><p><strong>参考答案</strong></p>
+<p>String类是Java最常用的API，它包含了大量处理字符串的方法，比较常用的有：</p>
+<ul>
+<li><code>char charAt(int index)</code>：返回指定索引处的字符；</li>
+<li><code>String substring(int beginIndex, int endIndex)</code>：从此字符串中截取出一部分子字符串；</li>
+<li><code>String[] split(String regex)</code>：以指定的规则将此字符串分割成数组；</li>
+<li><code>String trim()</code>：删除字符串前导和后置的空格；</li>
+<li><code>int indexOf(String str)</code>：返回子串在此字符串首次出现的索引；</li>
+<li><code>int lastIndexOf(String str)</code>：返回子串在此字符串最后出现的索引；</li>
+<li><code>boolean startsWith(String prefix)</code>：判断此字符串是否以指定的前缀开头；</li>
+<li><code>boolean endsWith(String suffix)</code>：判断此字符串是否以指定的后缀结尾；</li>
+<li><code>String toUpperCase()</code>：将此字符串中所有的字符大写；</li>
+<li><code>String toLowerCase()</code>：将此字符串中所有的字符小写；</li>
+<li><code>String replaceFirst(String regex, String replacement)</code>：用指定字符串替换第一个匹配的子串；</li>
+<li><code>String replaceAll(String regex, String replacement)</code>：用指定字符串替换所有的匹配的子串。</li>
+</ul>
+<p><strong>注意事项</strong></p>
+<p>String类的方法太多了，你没必要都记下来，更不需要一一列举。面试时能说出一些常用的方法，表现出对这个类足够的熟悉就可以了。另外，建议你挑几个方法仔细看看源码实现，面试时可以重点说这几个方法。</p>
+<h4 id="1-25-String可以被继承吗？"><a href="#1-25-String可以被继承吗？" class="headerlink" title="1.25 String可以被继承吗？"></a>1.25 String可以被继承吗？</h4><p><strong>参考答案</strong></p>
+<p>String类由final修饰，所以不能被继承。</p>
+<p><strong>扩展阅读</strong></p>
+<p>在Java中，String类被设计为不可变类，主要表现在它保存字符串的成员变量是final的。</p>
+<ul>
+<li>Java 9之前字符串采用char[]数组来保存字符，即 private final char[] value；</li>
+<li>Java 9做了改进，采用byte[]数组来保存字符，即 private final byte[] value；</li>
+</ul>
+<p>之所以要把String类设计为不可变类，主要是出于安全和性能的考虑，可归纳为如下4点。</p>
+<ul>
+<li>由于字符串无论在任何 Java 系统中都广泛使用，会用来存储敏感信息，如账号，密码，网络路径，文件处理等场景里，保证字符串 String<br>类的安全性就尤为重要了，如果字符串是可变的，容易被篡改，那我们就无法保证使用字符串进行操作时，它是安全的，很有可能出现 SQL 注入，访问危险文件等操作。</li>
+<li>在多线程中，只有不变的对象和值是线程安全的，可以在多个线程中共享数据。由于 String<br>天然的不可变，当一个线程”修改“了字符串的值，只会产生一个新的字符串对象，不会对其他线程的访问产生副作用，访问的都是同样的字符串数据，不需要任何同步操作。</li>
+<li>字符串作为基础的数据结构，大量地应用在一些集合容器之中，尤其是一些散列集合，在散列集合中，存放元素都要根据对象的 hashCode() 方法来确定元素的位置。由于字符串 hashcode 属性不会变更，保证了唯一性，使得类似<br>HashMap，HashSet 等容器才能实现相应的缓存功能。由于 String 的不可变，避免重复计算 hashcode，只要使用缓存的 hashcode 即可，这样一来大大提高了在散列集合中使用 String 对象的性能。</li>
+<li>当字符串不可变时，字符串常量池才有意义。字符串常量池的出现，可以减少创建相同字面量的字符串，让不同的引用指向池中同一个字符串，为运行时节约很多的堆内存。若字符串可变，字符串常量池失去意义，基于常量池的 String.intern()<br>方法也失效，每次创建新的字符串将在堆内开辟出新的空间，占据更多的内存。</li>
+</ul>
+<p>因为要保证String类的不可变，那么将这个类定义为final的就很容易理解了。如果没有final修饰，那么就会存在String的子类，这些子类可以重写String类的方法，强行改变字符串的值，这便违背了String类设计的初衷。</p>
+<h4 id="1-26-说一说String和StringBuffer有什么区别"><a href="#1-26-说一说String和StringBuffer有什么区别" class="headerlink" title="1.26 说一说String和StringBuffer有什么区别"></a>1.26 说一说String和StringBuffer有什么区别</h4><p><strong>参考答案</strong></p>
+<p>String类是不可变类，即一旦一个String对象被创建以后，包含在这个对象中的字符序列是不可改变的，直至这个对象被销毁。</p>
+<p>StringBuffer对象则代表一个字符序列可变的字符串，当一个StringBuffer被创建以后，通过StringBuffer提供的append()、insert()、reverse()、setCharAt()、setLength()<br>等方法可以改变这个字符串对象的字符序列。一旦通过StringBuffer生成了最终想要的字符串，就可以调用它的toString()方法将其转换为一个String对象。</p>
+<h4 id="1-27-说一说StringBuffer和StringBuilder有什么区别"><a href="#1-27-说一说StringBuffer和StringBuilder有什么区别" class="headerlink" title="1.27 说一说StringBuffer和StringBuilder有什么区别"></a>1.27 说一说StringBuffer和StringBuilder有什么区别</h4><p><strong>参考答案</strong></p>
+<p>StringBuffer、StringBuilder都代表可变的字符串对象，它们有共同的父类<br>AbstractStringBuilder，并且两个类的构造方法和成员方法也基本相同。不同的是，StringBuffer是线程安全的，而StringBuilder是非线程安全的，所以StringBuilder性能略高。一般情况下，要创建一个内容可变的字符串，建议优先考虑StringBuilder类。</p>
+<h4 id="1-28-使用字符串时，new和””推荐使用哪种方式？"><a href="#1-28-使用字符串时，new和””推荐使用哪种方式？" class="headerlink" title="1.28 使用字符串时，new和””推荐使用哪种方式？"></a>1.28 使用字符串时，new和””推荐使用哪种方式？</h4><p><strong>参考答案</strong></p>
+<p>先看看 “hello” 和 new String(“hello”) 的区别：</p>
+<ul>
+<li>当Java程序直接使用 “hello” 的字符串直接量时，JVM将会使用常量池来管理这个字符串；</li>
+<li>当使用 new String(“hello”) 时，JVM会先使用常量池来管理 “hello” 直接量，再调用String类的构造器来创建一个新的String对象，新创建的String对象被保存在堆内存中。</li>
+</ul>
+<p>显然，采用new的方式会多创建一个对象出来，会占用更多的内存，所以一般建议使用直接量的方式创建字符串。</p>
+<h4 id="1-29-说一说你对字符串拼接的理解"><a href="#1-29-说一说你对字符串拼接的理解" class="headerlink" title="1.29 说一说你对字符串拼接的理解"></a>1.29 说一说你对字符串拼接的理解</h4><p><strong>参考答案</strong></p>
+<p>拼接字符串有很多种方式，其中最常用的有4种，下面列举了这4种方式各自适合的场景。</p>
+<ol>
+<li>+ 运算符：如果拼接的都是字符串直接量，则适合使用 + 运算符实现拼接；</li>
+<li>StringBuilder：如果拼接的字符串中包含变量，并不要求线程安全，则适合使用StringBuilder；</li>
+<li>StringBuffer：如果拼接的字符串中包含变量，并且要求线程安全，则适合使用StringBuffer；</li>
+<li>String类的concat方法：如果只是对两个字符串进行拼接，并且包含变量，则适合使用concat方法；</li>
+</ol>
+<p><strong>扩展阅读</strong></p>
+<p>采用 + 运算符拼接字符串时：</p>
+<ul>
+<li>如果拼接的都是字符串直接量，则在编译时编译器会将其直接优化为一个完整的字符串，和你直接写一个完整的字符串是一样的，所以效率非常的高。</li>
+<li>如果拼接的字符串中包含变量，则在编译时编译器采用StringBuilder对其进行优化，即自动创建StringBuilder实例并调用其append()<br>方法，将这些字符串拼接在一起，效率也很高。但如果这个拼接操作是在循环中进行的，那么每次循环编译器都会创建一个StringBuilder实例，再去拼接字符串，相当于执行了 new StringBuilder().append(str)<br>，所以此时效率很低。</li>
+</ul>
+<p>采用StringBuilder&#x2F;StringBuffer拼接字符串时：</p>
+<ul>
+<li>StringBuilder&#x2F;StringBuffer都有字符串缓冲区，缓冲区的容量在创建对象时确定，并且默认为16。当拼接的字符串超过缓冲区的容量时，会触发缓冲区的扩容机制，即缓冲区加倍。</li>
+<li>缓冲区频繁的扩容会降低拼接的性能，所以如果能提前预估最终字符串的长度，则建议在创建可变字符串对象时，放弃使用默认的容量，可以指定缓冲区的容量为预估的字符串的长度。</li>
+</ul>
+<p>采用String类的concat方法拼接字符串时：</p>
+<ul>
+<li>concat方法的拼接逻辑是，先创建一个足以容纳待拼接的两个字符串的字节数组，然后先后将两个字符串拼到这个数组里，最后将此数组转换为字符串。</li>
+<li>在拼接大量字符串的时候，concat方法的效率低于StringBuilder。但是只拼接2个字符串时，concat方法的效率要优于StringBuilder。并且这种拼接方式代码简洁，所以只拼2个字符串时建议优先选择concat方法。</li>
+</ul>
+<h4 id="1-30-两个字符串相加的底层是如何实现的？"><a href="#1-30-两个字符串相加的底层是如何实现的？" class="headerlink" title="1.30 两个字符串相加的底层是如何实现的？"></a>1.30 两个字符串相加的底层是如何实现的？</h4><p><strong>参考答案</strong></p>
+<p>如果拼接的都是字符串直接量，则在编译时编译器会将其直接优化为一个完整的字符串，和你直接写一个完整的字符串是一样的。</p>
+<p>如果拼接的字符串中包含变量，则在编译时编译器采用StringBuilder对其进行优化，即自动创建StringBuilder实例并调用其append()方法，将这些字符串拼接在一起。</p>
+<h4 id="1-31-String-a-x3D-“abc”-，说一下这个过程会创建什么，放在哪里？"><a href="#1-31-String-a-x3D-“abc”-，说一下这个过程会创建什么，放在哪里？" class="headerlink" title="1.31 String a &#x3D; “abc”; ，说一下这个过程会创建什么，放在哪里？"></a>1.31 String a &#x3D; “abc”; ，说一下这个过程会创建什么，放在哪里？</h4><p><strong>参考答案</strong></p>
+<p>JVM会使用常量池来管理字符串直接量。在执行这句话时，JVM会先检查常量池中是否已经存有”abc”，若没有则将”abc”存入常量池，否则就复用常量池中已有的”abc”，将其引用赋值给变量a。</p>
+<h4 id="1-32-new-String-“abc”-是去了哪里，仅仅是在堆里面吗？"><a href="#1-32-new-String-“abc”-是去了哪里，仅仅是在堆里面吗？" class="headerlink" title="1.32 new String(“abc”) 是去了哪里，仅仅是在堆里面吗？"></a>1.32 new String(“abc”) 是去了哪里，仅仅是在堆里面吗？</h4><p><strong>参考答案</strong></p>
+<p>在执行这句话时，JVM会先使用常量池来管理字符串直接量，即将”abc”存入常量池。然后再创建一个新的String对象，这个对象会被保存在堆内存中。并且，堆中对象的数据会指向常量池中的直接量。</p>
+<h4 id="1-33-接口和抽象类有什么区别？"><a href="#1-33-接口和抽象类有什么区别？" class="headerlink" title="1.33 接口和抽象类有什么区别？"></a>1.33 接口和抽象类有什么区别？</h4><p><strong>参考答案</strong></p>
+<p>从设计目的上来说，二者有如下的区别：</p>
+<p>接口体现的是一种规范。对于接口的实现者而言，接口规定了实现者必须向外提供哪些服务；对于接口的调用者而言，接口规定了调用者可以调用哪些服务，以及如何调用这些服务。当在一个程序中使用接口时，接口是多个模块间的耦合标准；当在多个应用程序之间使用接口时，接口是多个程序之间的通信标准。</p>
+<p>抽象类体现的是一种模板式设计。抽象类作为多个子类的抽象父类，可以被当成系统实现过程中的中间产品，这个中间产品已经实现了系统的部分功能，但这个产品依然不能当成最终产品，必须有更进一步的完善，这种完善可能有几种不同方式。</p>
+<p>从使用方式上来说，二者有如下的区别：</p>
+<ul>
+<li>接口里只能包含抽象方法、静态方法、默认方法和私有方法，不能为普通方法提供方法实现；抽象类则完全可以包含普通方法。</li>
+<li>接口里只能定义静态常量，不能定义普通成员变量；抽象类里则既可以定义普通成员变量，也可以定义静态常量。</li>
+<li>接口里不包含构造器；抽象类里可以包含构造器，抽象类里的构造器并不是用于创建对象，而是让其子类调用这些构造器来完成属于抽象类的初始化操作。</li>
+<li>接口里不能包含初始化块；但抽象类则完全可以包含初始化块。</li>
+<li>一个类最多只能有一个直接父类，包括抽象类；但一个类可以直接实现多个接口，通过实现多个接口可以弥补Java单继承的不足。</li>
+</ul>
+<p><strong>扩展阅读</strong></p>
+<p>接口和抽象类很像，它们都具有如下共同的特征：</p>
+<ul>
+<li>接口和抽象类都不能被实例化，它们都位于继承树的顶端，用于被其他类实现和继承。</li>
+<li>接口和抽象类都可以包含抽象方法，实现接口或继承抽象类的普通子类都必须实现这些抽象方法。</li>
+</ul>
+<p><strong>补充</strong></p>
+<p><img src="https://s2.loli.net/2022/07/17/ciWpk6JxXjNtFYg.png"></p>
+<p>设计目的区别</p>
+<ul>
+<li>接口的设计目的：只约束行为有无， 但不限制实现。</li>
+<li>抽象类的设计目的：代码复用。</li>
+<li>抽象类是用来捕捉子类的通用特性的，而接口则是抽象方法的集合</li>
+</ul>
+<p>使用场景</p>
+<ul>
+<li>当你关注一个事物的本质的时候，用抽象类；当你关注一个操作的时候，用接口。</li>
+</ul>
+<p>抽象类的功能要远超过接口，但是，定义抽象类的代价高。因为单继承。在这个类中，你必须继承或编写出其所有子类的所有共性。</p>
+<p>虽然接口在功能上会弱化许多，但是它只是针对一个动作的描述。而且你可以在一个类中同时实现多个接口。在设计阶段会降低难度</p>
+<ol>
+<li><p>在接口中常量的修饰符：public static final 可以省略不写，默认会加上。</p>
+</li>
+<li><p>在接口中抽象方法的修饰符：public abstract 可以省略不写，默认会加上。</p>
+</li>
+<li><p>JDK 1.8开始之后接口新增了如下三种方法。</p>
+<p>a.默认方法（就是之前写的普通实例方法）</p>
+<ul>
+<li>必须用default修饰，默认会public修饰</li>
+<li>必须用接口的实现类的对象来调用。</li>
+</ul>
+<p>b.静态方法</p>
+<ul>
+<li>默认会public修饰</li>
+<li>注意：接口的静态方法必须用接口的类名本身来调用。</li>
+</ul>
+<p>c.私有方法（就是私有的实例方法）: JDK 1.9才开始有的。</p>
+<ul>
+<li>只能在本类中被其他的默认方法或者私有方法访问。</li>
+</ul>
+</li>
+<li><p>实现多个接口的使用注意实现。(非常偏的语法，理解和了解即可)</p>
+<ul>
+<li>如果实现了多个接口，多个接口中存在同名的静态方法并不会冲突， 原因是只能通过各自接口名访问静态方法。</li>
+<li>当一个类，既继承一个父类，又实现若干个接口时，(重点)<br>父类中的成员方法与接口中的默认方法重名，子类就近选择执行父类的成员方法。</li>
+<li>当一个类实现多个接口时，多个接口中存在同名的默认方法。 实现类必须重写这个方法。</li>
+<li>接口中，没有构造器，不能创建对象。(重点)<br>接口是更彻底的抽象，连构造器都没有，自然不能创建对象！！</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-34-接口中可以有构造函数吗？"><a href="#1-34-接口中可以有构造函数吗？" class="headerlink" title="1.34 接口中可以有构造函数吗？"></a>1.34 接口中可以有构造函数吗？</h4><p><strong>参考答案</strong></p>
+<p>由于接口定义的是一种规范，因此接口里不能包含构造器和初始化块定义。接口里可以包含成员变量（只能是静态常量）、方法（只能是抽象实例方法、类方法、默认方法或私有方法）、内部类（包括内部接口、枚举）定义。</p>
+<h4 id="1-35-谈谈你对面向接口编程的理解"><a href="#1-35-谈谈你对面向接口编程的理解" class="headerlink" title="1.35 谈谈你对面向接口编程的理解"></a>1.35 谈谈你对面向接口编程的理解</h4><p><strong>参考答案</strong></p>
+<p>接口体现的是一种规范和实现分离的设计哲学，充分利用接口可以极好地降低程序各模块之间的耦合，从而提高系统的可扩展性和可维护性。基于这种原则，很多软件架构设计理论都倡导“面向接口”编程，而不是面向实现类编程，希望通过面向接口编程来降低程序的耦合。</p>
+<h4 id="1-36-遇到过异常吗，如何处理？"><a href="#1-36-遇到过异常吗，如何处理？" class="headerlink" title="1.36 遇到过异常吗，如何处理？"></a>1.36 遇到过异常吗，如何处理？</h4><p><strong>参考答案</strong></p>
+<p>在Java中，可以按照如下三个步骤处理异常：</p>
+<ol>
+<li><p>捕获异常</p>
+<p>将业务代码包裹在try块内部，当业务代码中发生任何异常时，系统都会为此异常创建一个异常对象。创建异常对象之后，JVM会在try块之后寻找可以处理它的catch块，并将异常对象交给这个catch块处理。</p>
+</li>
+<li><p>处理异常</p>
+<p>在catch块中处理异常时，应该先记录日志，便于以后追溯这个异常。然后根据异常的类型、结合当前的业务情况，进行相应的处理。比如，给变量赋予一个默认值、直接返回空值、向外抛出一个新的业务异常交给调用者处理，等等。</p>
+</li>
+<li><p>回收资源</p>
+<p>如果业务代码打开了某个资源，比如数据库连接、网络连接、磁盘文件等，则需要在这段业务代码执行完毕后关闭这项资源。并且，无论是否发生异常，都要尝试关闭这项资源。将关闭资源的代码写在finally块内，可以满足这种需求，即无论是否发生异常，finally块内的代码总会被执行。</p>
+</li>
+</ol>
+<h4 id="1-37-说一说Java的异常机制"><a href="#1-37-说一说Java的异常机制" class="headerlink" title="1.37 说一说Java的异常机制"></a>1.37 说一说Java的异常机制</h4><p><strong>参考答案</strong></p>
+<p>关于异常处理：</p>
+<p>在Java中，处理异常的语句由try、catch、finally三部分组成。其中，try块用于包裹业务代码，catch块用于捕获并处理某个类型的异常，finally块则用于回收资源。当业务代码发生异常时，系统会创建一个异常对象，然后由JVM寻找可以处理这个异常的catch块，并将异常对象交给这个catch块处理。若业务代码打开了某项资源，则可以在finally块中关闭这项资源，因为无论是否发生异常，finally块一定会执行。</p>
+<p>关于抛出异常：</p>
+<p>当程序出现错误时，系统会自动抛出异常。除此以外，Java也允许程序主动抛出异常。当业务代码中，判断某项错误的条件成立时，可以使用throw关键字向外抛出异常。在这种情况下，如果当前方法不知道该如何处理这个异常，可以在方法签名上通过throws关键字声明抛出异常，则该异常将交给JVM处理。</p>
+<p>关于异常跟踪栈：</p>
+<p>程序运行时，经常会发生一系列方法调用，从而形成方法调用栈。异常机制会导致异常在这些方法之间传播，而异常传播的顺序与方法的调用相反。异常从发生异常的方法向外传播，首先传给该方法的调用者，再传给上层调用者，以此类推。最终会传到main方法，若依然没有得到处理，则JVM会终止程序，并打印异常跟踪栈的信息</p>
+<h4 id="1-38-请介绍Java的异常接口"><a href="#1-38-请介绍Java的异常接口" class="headerlink" title="1.38 请介绍Java的异常接口"></a>1.38 请介绍Java的异常接口</h4><p><strong>参考答案</strong></p>
+<p>Throwable是异常的顶层父类，代表所有的非正常情况。它有两个直接子类，分别是Error、Exception。</p>
+<p>Error是错误，一般是指与虚拟机相关的问题，如系统崩溃、虚拟机错误、动态链接失败等，这种错误无法恢复或不可能捕获，将导致应用程序中断。通常应用程序无法处理这些错误，因此应用程序不应该试图使用catch块来捕获Error对象。在定义方法时，也无须在其throws子句中声明该方法可能抛出Error及其任何子类。</p>
+<p>Exception是异常，它被分为两大类，分别是Checked异常和Runtime异常。所有的RuntimeException类及其子类的实例被称为Runtime异常；不是RuntimeException类及其子类的异常实例则被称为Checked异常。Java认为Checked异常都是可以被处理（修复）的异常，所以Java程序必须显式处理Checked异常。如果程序没有处理Checked异常，该程序在编译时就会发生错误，无法通过编译。Runtime异常则更加灵活，Runtime异常无须显式声明抛出，如果程序需要捕获Runtime异常，也可以使用try…catch块来实现。</p>
+<p><strong>补充</strong></p>
+<p><img src="https://s2.loli.net/2022/07/17/8DhLBqUPw9Clzex.png"></p>
+<p>迭代器遍历没有此元素异常：NoSuchElementException。 数字转换异常： NumberFormatException。</p>
+<p><strong>异常的产生默认的处理过程解析</strong></p>
+<p>目标：异常的产生默认的处理过程解析。(自动处理的过程！)<br>（1）默认会在出现异常的代码那里自动的创建一个异常对象：ArithmeticException。 （2）异常会从方法中出现的点这里抛出给调用者，调用者最终抛出给JVM虚拟机。 （3）虚拟机接收到异常对象后，先在控制台直接输出异常栈信息数据。<br>（4）直接从当前执行的异常点干掉当前程序。 （5）后续代码没有机会执行了，因为程序已经死亡。</p>
+<p><strong>编译时异常的处理机制</strong></p>
+<p>监视捕获处理异常企业级写法：</p>
+<pre><code class="java">try &#123;
+    // 可能出现异常的代码！
+&#125; catch (Exception e) &#123;
+    e.printStackTrace(); // 直接打印异常栈信息
+&#125;
+</code></pre>
+<p>Exception可以捕获处理一切异常类型！</p>
+<p>规范做法：抛出最外层统一处理</p>
+<p><strong>异常的语法注意</strong></p>
+<ul>
+<li>运行时异常被抛出可以不处理。可以自动抛出,编译时异常必须处理.按照规范都应该处理!</li>
+<li>重写方法申明抛出的异常，应该与父类被重写方法申明抛出的异常一样或者范围更小</li>
+<li>方法默认都可以自动抛出运行时异常！ throws RuntimeException可以省略不写!!</li>
+<li>当多异常处理时，捕获处理，前边的异常类不能是后边异常类的父类。</li>
+<li>在try&#x2F;catch后可以追加finally代码块，其中的代码一定会被执行，通常用于资源回收操作。</li>
+</ul>
+<p><strong>自定义异常</strong></p>
+<pre><code class="java">/**
+ 自定义编译时异常类：
+ 1.继承Exception。
+ 2.重写构造器。
+ */
+public class ItheimaAgeIllegalException extends Exception &#123;
+    public ItheimaAgeIllegalException() &#123;
+    &#125;
+
+    public ItheimaAgeIllegalException(String message) &#123;
+        super(message);
+    &#125;
+
+    public ItheimaAgeIllegalException(String message, Throwable cause) &#123;
+        super(message, cause);
+    &#125;
+
+    public ItheimaAgeIllegalException(Throwable cause) &#123;
+        super(cause);
+    &#125;
+
+    public ItheimaAgeIllegalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) &#123;
+        super(message, cause, enableSuppression, writableStackTrace);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ 自定义运行时异常类：
+ 1.继承RuntimeException
+ 2.重写构造器。
+ */
+public class ItheimaAgeIllegalRuntimeException extends RuntimeException &#123;
+    public ItheimaAgeIllegalRuntimeException() &#123;
+    &#125;
+
+    public ItheimaAgeIllegalRuntimeException(String message) &#123;
+        super(message);
+    &#125;
+
+    public ItheimaAgeIllegalRuntimeException(String message, Throwable cause) &#123;
+        super(message, cause);
+    &#125;
+
+    public ItheimaAgeIllegalRuntimeException(Throwable cause) &#123;
+        super(cause);
+    &#125;
+
+    public ItheimaAgeIllegalRuntimeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) &#123;
+        super(message, cause, enableSuppression, writableStackTrace);
+    &#125;
+&#125;
+</code></pre>
+<p><strong>异常分类以及处理机制</strong></p>
+<p><img src="https://s2.loli.net/2022/07/17/NcqugQ2r5sZKIlb.jpg"></p>
+<p>java标准库内建了一些通用的异常，这些类以Throwable为顶层父类。Throwable又派生出Error类和Exception类。</p>
+<p>错误:Error类以及他的子类的实例，代表了JVM本身的错误。错误不能被程序员通过代码处理，Error很少出现。因此，程序员应该关注Exception为父类的分支下的各种异常类。</p>
+<p>异常:Exception以及他的子类，代表程序运行时发送的各种不期望发生的事件。可以被java异常处理机制使用， 是异常处理的核心。</p>
+<p><img src="https://s2.loli.net/2022/07/17/UKuYB3JGEWRfrH4.webp"></p>
+<p>总体上我们根据 javac 对异常的处理要求，将异常类分为二类。</p>
+<p>非检查异常（ unckecked exception ）</p>
+<blockquote>
+<p>Error 和 RuntimeException 以及他们的子类。 javac 在编译时， 不会提示和发现这样的异常，不要求在程序处理这些异常。所以如果愿意，我们可以编写代码处理（使用 try… catch…finally ）这样的异常，也可以不处理。对于这些异常，我们应该修正代码，而不是去通过异常处理器处 理 。这样的异常发生的原因多半是代码写的有问题。如除0错误 ArithmeticException ，错误的强制类型转换错 误 ClassCastException ，数组索引越界 ArrayIndexOutOfBoundsException ，使用了空对象 NullPointerException 等等。</p>
+</blockquote>
+<p>检查异常（ checked exception ）</p>
+<blockquote>
+<p>除了 Error 和 RuntimeException 的其它异常。 javac 强制要求程序员 为这样的异常做预备处理工作（使用 try…catch…finally 或者 throws ）。在方法中要么用 try-catch 语句捕 获它并处理，要么用throws子句声明抛出它，否则编译不会通过。这样的异常一般是由程序的运行环境导致的。因 为程序可能被运行在各种未知的环境下，而程序员无法干预用户如何使用他编写的程序，于是程序员就应该为这样 的异常时刻准备着。如 SQLException , IOException , ClassNotFoundException 等。</p>
+</blockquote>
+<p>需要明确的是：检查和非检查是对于 javac 来说的，这样就很好理解和区分了。</p>
+<h4 id="1-39-finally是无条件执行的吗？"><a href="#1-39-finally是无条件执行的吗？" class="headerlink" title="1.39 finally是无条件执行的吗？"></a>1.39 finally是无条件执行的吗？</h4><p><strong>参考答案</strong></p>
+<p>不管try块中的代码是否出现异常，也不管哪一个catch块被执行，甚至在try块或catch块中执行了return语句，finally块总会被执行。</p>
+<p><strong>注意事项</strong></p>
+<p>如果在try块或catch块中使用 System.exit(1); 来退出虚拟机，则finally块将失去执行的机会。但是我们在实际的开发中，重来都不会这样做，所以尽管存在这种导致finally块无法执行的可能， 也只是一种可能而已。</p>
+<h4 id="1-40-在finally中return会发生什么？"><a href="#1-40-在finally中return会发生什么？" class="headerlink" title="1.40 在finally中return会发生什么？"></a>1.40 在finally中return会发生什么？</h4><p><strong>参考答案</strong></p>
+<p>在通常情况下，不要在finally块中使用return、throw等导致方法终止的语句，一旦在finally块中使用了return、throw语句，将会导致try块、catch块中的return、throw语句失效。</p>
+<p><strong>详细解析</strong></p>
+<p>当Java程序执行try块、catch块时遇到了return或throw语句，这两个语句都会导致该方法立即结束，但是系统执行这两个语句并不会结束该方法，而是去寻找该异常处理流程中是否包含finally块，如果没有finally块，程序立即执行return或throw语句，方法终止；如果有finally块，系统立即开始执行finally块。只有当finally块执行完成后，系统才会再次跳回来执行try块、catch块里的return或throw语句；如果finally块里也使用了return或throw等导致方法终止的语句，finally块已经终止了方法，系统将不会跳回去执行try块、catch块里的任何代码。</p>
+<p><strong>补充</strong></p>
+<ul>
+<li>finally的作用: 可以在代码执行完毕以后进行资源的释放操作。 什么是资源？资源都是实现了Closeable接口的，都自带close()关闭方法！！</li>
+<li>try: 1次。 catch：0-N次  (如果有finally那么catch可以没有!!)<br>finally: 0-1次</li>
+</ul>
+<pre><code class="java">class class1 &#123;
+    public static void chu() &#123;
+        InputStream is = null;
+        try &#123;
+            is = new FileInputStream(&quot;D:/cang.png&quot;);
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+            // 回收资源。用于在代码执行完毕以后进行资源的回收操作！
+            try &#123;
+                if (is != null) is.close();
+            &#125; catch (Exception e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>从 java 7 build 105 版本开始，java 7 的编译器和运行环境支持新的 try-with-resources 语句，称为 ARM 块(Automatic Resource Management) ，自动资源管理。</p>
+<pre><code class="java">class class1 &#123;
+    private static void customBufferStreamCopy(File source, File target) &#123;
+        try (InputStream fis = new FileInputStream(source);
+             OutputStream fos = new FileOutputStream(target)) &#123;
+            byte[] buf = new byte[8192];
+            int i;
+            while ((i = fis.read(buf)) != -1) &#123;
+                fos.write(buf, 0, i);
+            &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h4 id="1-41-说一说你对static关键字的理解"><a href="#1-41-说一说你对static关键字的理解" class="headerlink" title="1.41 说一说你对static关键字的理解"></a>1.41 说一说你对static关键字的理解</h4><p><strong>参考答案</strong></p>
+<p>在Java类里只能包含成员变量、方法、构造器、初始化块、内部类（包括接口、枚举）5种成员，而static可以修饰成员变量、方法、初始化块、内部类（包括接口、枚举），以static修饰的成员就是类成员。类成员属于整个类，而不属于单个对象。</p>
+<p>对static关键字而言，有一条非常重要的规则：类成员（包括成员变量、方法、初始化块、内部类和内部枚举）不能访问实例成员（包括成员变量、方法、初始化块、内部类和内部枚举）。因为类成员是属于类的，类成员的作用域比实例成员的作用域更大，完全可能出现类成员已经初始化完成，但实例成员还不曾初始化的情况，如果允许类成员访问实例成员将会引起大量错误。</p>
+<h4 id="1-42-static修饰的类能不能被继承？"><a href="#1-42-static修饰的类能不能被继承？" class="headerlink" title="1.42 static修饰的类能不能被继承？"></a>1.42 static修饰的类能不能被继承？</h4><p><strong>参考答案</strong></p>
+<p>static修饰的类可以被继承。</p>
+<p><strong>扩展阅读</strong></p>
+<p>如果使用static来修饰一个内部类，则这个内部类就属于外部类本身，而不属于外部类的某个对象。因此使用static修饰的内部类被称为类内部类，有的地方也称为静态内部类。</p>
+<p>static关键字的作用是把类的成员变成类相关，而不是实例相关，即static修饰的成员属于整个类，而不属于单个对象。外部类的上一级程序单元是包，所以不可使用static修饰；而内部类的上一级程序单元是外部类，使用static修饰可以将内部类变成外部类相关，而不是外部类实例相关。因此static关键字不可修饰外部类，但可修饰内部类。</p>
+<p>静态内部类需满足如下规则：</p>
+<ol>
+<li><p>静态内部类可以包含静态成员，也可以包含非静态成员；</p>
+</li>
+<li><p>静态内部类不能访问外部类的实例成员，只能访问它的静态成员；</p>
+</li>
+<li><p>外部类的所有方法、初始化块都能访问其内部定义的静态内部类；</p>
+</li>
+<li><p>在外部类的外部，也可以实例化静态内部类，语法如下：</p>
+<p><code>外部类.内部类 变量名 = new 外部类.内部类构造方法();</code></p>
+</li>
+</ol>
+<h4 id="1-43-static和final有什么区别？"><a href="#1-43-static和final有什么区别？" class="headerlink" title="1.43 static和final有什么区别？"></a>1.43 static和final有什么区别？</h4><p><strong>参考答案</strong></p>
+<p>static关键字可以修饰成员变量、成员方法、初始化块、内部类，被static修饰的成员是类的成员，它属于类、不属于单个对象。以下是static修饰这4种成员时表现出的特征：</p>
+<ul>
+<li>类变量：被static修饰的成员变量叫类变量（静态变量）。类变量属于类，它随类的信息存储在方法区，并不随对象存储在堆中，类变量可以通过类名来访问，也可以通过对象名来访问，但建议通过类名访问它。</li>
+<li>类方法：被static修饰的成员方法叫类方法（静态方法）。类方法属于类，可以通过类名访问，也可以通过对象名访问，建议通过类名访问它。</li>
+<li>静态块：被static修饰的初始化块叫静态初始化块。静态块属于类，它在类加载的时候被隐式调用一次，之后便不会被调用了。</li>
+<li>静态内部类：被static修饰的内部类叫静态内部类。静态内部类可以包含静态成员，也可以包含非静态成员。静态内部类不能访问外部类的实例成员，只能访问外部类的静态成员。外部类的所有方法、初始化块都能访问其内部定义的静态内部类。</li>
+</ul>
+<p>final关键字可以修饰类、方法、变量，以下是final修饰这3种目标时表现出的特征：</p>
+<ul>
+<li>final类：final关键字修饰的类不可以被继承。</li>
+<li>final方法：final关键字修饰的方法不可以被重写。（：但是可以重载）</li>
+<li>final变量：final关键字修饰的变量，一旦获得了初始值，就不可以被修改。</li>
+</ul>
+<p><strong>扩展阅读</strong></p>
+<p>变量分为成员变量、局部变量。</p>
+<p>final修饰成员变量：</p>
+<ul>
+<li>类变量：可以在声明变量时指定初始值，也可以在静态初始化块中指定初始值；</li>
+<li>实例变量：可以在声明变量时指定初始值，也可以在初始化块或构造方法中指定初始值；</li>
+</ul>
+<p>final修饰局部变量：</p>
+<ul>
+<li>可以在声明变量时指定初始值，也可以在后面的代码中指定初始值。</li>
+</ul>
+<p><em>注意：被 final 修饰的任何形式的变量，一旦获得了初始值，就不可以被修改！</em></p>
+<p><strong>补充</strong></p>
+<p>final和abstract的关系：互斥关系,不能同时修饰类或者同时修饰方法！！</p>
+<p>修饰基本数据类型的变量，数值初始化之后不可更改。修饰引用类型的变量，引用不可变，引用的值可变。</p>
+<pre><code class="java">final int[] iArr = &#123;1, 2, 3, 4&#125;;
+iArr[2] = -3;//合法        
+iArr = null;//非法，对iArr不能重新赋值  
+
+final Person p = new Person(25);
+p.setAge(24);//合法        
+p = null;//非法    
+</code></pre>
+<p><strong>为什么局部内部类和匿名内部类只能访问局部final变量？</strong></p>
+<ul>
+<li>编译之后会生成两个class文件，Test.class Test1.class</li>
+</ul>
+<pre><code class="java">public class Test &#123;
+    public static void main(String[] args) &#123;
+    &#125;
+
+    //局部final变量a,b    
+    public void test(final int b) &#123;
+        //jdk8在这里做了优化, 不用写,语法糖，但实际上也是有的，也不能修改        
+        final int a = 10;
+
+        //匿名内部类        
+        new Thread() &#123;
+            public void run() &#123;
+                System.out.println(a);
+                System.out.println(b);
+            &#125;
+        &#125;.start();
+    &#125;
+&#125;
+
+class OutClass &#123;
+    private int age = 12;
+
+    public void outPrint(final int x) &#123;
+        class InClass &#123;
+            public void InPrint() &#123;
+                System.out.println(x);
+                System.out.println(age);
+            &#125;
+        &#125;
+        new InClass().InPrint();
+    &#125;
+&#125;
+</code></pre>
+<p>首先需要知道的一点是: 内部类和外部类是处于同一个级别的，内部类不会因为定义在方法中就会随着 方法的执行完毕就被销毁。</p>
+<p>这里就会产生问题：当外部类的方法结束时，局部变量就会被销毁了，但是内部类对象可能还存在(只有 没有人再引用它时，才会死亡)。这里就出现了一个矛盾：内部类对象访问了一个不存在的变量。为了解<br>决这个问题，就将局部变量复制了一份作为内部类的成员变量，这样当局部变量死亡后，内部类仍可以 访问它，实际访问的是局部变量的”copy”。这样就好像延长了局部变量的生命周期</p>
+<p>将局部变量复制为内部类的成员变量时，必须保证这两个变量是一样的，也就是如果我们在内部类中修 改了成员变量，方法中的局部变量也得跟着改变，怎么解决问题呢？</p>
+<p>就将局部变量设置为final，对它初始化后，我就不让你再去修改这个变量，就保证了内部类的成员变量 和方法的局部变量的一致性。这实际上也是一种妥协。使得局部变量与内部类内建立的拷贝保持一致。</p>
+<h4 id="补充：finalize"><a href="#补充：finalize" class="headerlink" title="补充：finalize"></a>补充：finalize</h4><p>finalize是一个方法，属于Object类的一个方法，而Object类是所有类的父类，该方法一般由垃圾回收器来调用，当我们调用 System.gc() 方法的时候，由垃圾回收器调用finalize()<br>，回收垃圾，一个对象是否可回收的最后判断。</p>
+<h4 id="1-44-说一说你对泛型的理解"><a href="#1-44-说一说你对泛型的理解" class="headerlink" title="1.44 说一说你对泛型的理解"></a>1.44 说一说你对泛型的理解</h4><p><strong>参考答案</strong></p>
+<p>Java集合有个缺点—把一个对象“丢进”集合里之后，集合就会“忘记”这个对象的数据类型，当再次取出该对象时，该对象的编译类型就变成了Object类型（其运行时类型没变）。</p>
+<p>Java集合之所以被设计成这样，是因为集合的设计者不知道我们会用集合来保存什么类型的对象，所以他们把集合设计成能保存任何类型的对象，只要求具有很好的通用性。但这样做带来如下两个问题：</p>
+<ul>
+<li>集合对元素类型没有任何限制，这样可能引发一些问题。例如，想创建一个只能保存Dog对象的集合，但程序也可以轻易地将Cat对象“丢”进去，所以可能引发异常。</li>
+<li>由于把对象“丢进”集合时，集合丢失了对象的状态信息，只知道它盛装的是Object，因此取出集合元素后通常还需要进行强制类型转换。这种强制类型转换既增加了编程的复杂度，也可能引发ClassCastException异常。</li>
+</ul>
+<p>从Java 5开始，Java引入了“参数化类型”的概念，允许程序在创建集合时指定集合元素的类型，Java的参数化类型被称为泛型（Generic）。例如 List<String>，表明该List只能保存字符串类型的对象。</p>
+<p>有了泛型以后，程序再也不能“不小心”地把其他对象“丢进”集合中。而且程序更加简洁，集合自动记住所有集合元素的数据类型，从而无须对集合元素进行强制类型转换。</p>
+<p><strong>补充</strong></p>
+<p><strong>泛型接口</strong></p>
+<pre><code>修饰符 interface 接口名称&lt;泛型变量&gt;&#123;
+
+&#125;
+</code></pre>
+<pre><code class="java">public interface Data&lt;E&gt; &#123;
+    void add(E stu);
+
+    void delete(E stu);
+
+    void update(E stu);
+
+    E query(int id);
+&#125;
+
+// 操作学生数据
+public class StudentData implements Data&lt;Student&gt; &#123;
+    @Override
+    public void add(Student stu) &#123;
+        System.out.println(&quot;添加学生！&quot;);
+    &#125;
+
+    @Override
+    public void delete(Student stu) &#123;
+        System.out.println(&quot;删除学生！&quot;);
+    &#125;
+
+    @Override
+    public void update(Student stu) &#123;
+    &#125;
+
+    @Override
+    public Student query(int id) &#123;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p><strong>泛型通配符</strong></p>
+<pre><code>通配符：？
+?可以用在使用泛型的时候代表一切类型。
+E , T , K , V是在定义泛型的时候使用代表一切类型。
+
+泛型的上下限：
+? extends Car : 那么?必须是Car或者其子类。(泛型的上限)
+? super  Car :那么?必须是Car或者其父类。（泛型的下限。不是很常见）
+</code></pre>
+<pre><code class="java">public class GenericDemo &#123;
+    public static void main(String[] args) &#123;
+        ArrayList&lt;BMW&gt; bmws = new ArrayList&lt;&gt;();
+        bmws.add(new BMW());
+        bmws.add(new BMW());
+        bmws.add(new BMW());
+        run(bmws);
+
+        ArrayList&lt;BENZ&gt; benzs = new ArrayList&lt;&gt;();
+        benzs.add(new BENZ());
+        benzs.add(new BENZ());
+        benzs.add(new BENZ());
+        run(benzs);
+
+        ArrayList&lt;Dog&gt; dogs = new ArrayList&lt;&gt;();
+        dogs.add(new Dog());
+        dogs.add(new Dog());
+        dogs.add(new Dog());
+        // run(dogs); // 就进不来了！
+    &#125;
+
+    // 定义一个方法，可以让很多汽车一起进入参加比赛
+    public static void run(ArrayList&lt;? extends Car&gt; cars) &#123;
+
+    &#125;
+&#125;
+
+class Car &#123;
+&#125;
+
+class BMW extends Car &#123;
+&#125;
+
+class BENZ extends Car &#123;
+&#125;
+
+class Dog &#123;
+&#125;
+</code></pre>
+<p><strong>自定义泛型方法</strong></p>
+<pre><code>修饰符 &lt;泛型变量&gt; 返回值类型 方法名称(形参列表)&#123;
+
+&#125;
+</code></pre>
+<pre><code class="java">
+class class1 &#123;
+    public static &lt;T&gt; String arrToString(T[] nums) &#123;
+        StringBuilder sb = new StringBuilder();
+        sb.append(&quot;[&quot;);
+        if (nums != null &amp;&amp; nums.length &gt; 0) &#123;
+            for (int i = 0; i &lt; nums.length; i++) &#123;
+                T ele = nums[i];
+                sb.append(i == nums.length - 1 ? ele : ele + &quot;, &quot;);
+            &#125;
+        &#125;
+        sb.append(&quot;]&quot;);
+        return sb.toString();
+    &#125;
+&#125;
+</code></pre>
+<p><strong>自定义泛型类</strong></p>
+<pre><code>修饰符 class 类名&lt;泛型变量&gt;&#123;
+
+&#125;
+泛型变量建议使用 E , T , K , V
+</code></pre>
+<pre><code class="java">class MyArrayList&lt;E&gt; &#123;
+    private ArrayList lists = new ArrayList();
+
+    public void add(E e) &#123;
+        lists.add(e);
+    &#125;
+
+    public void remove(E e) &#123;
+        lists.remove(e);
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return lists.toString();
+    &#125;
+&#125;
+</code></pre>
+<h4 id="1-45-介绍一下泛型擦除"><a href="#1-45-介绍一下泛型擦除" class="headerlink" title="1.45 介绍一下泛型擦除"></a>1.45 介绍一下泛型擦除</h4><p><strong>参考答案</strong></p>
+<p>在严格的泛型代码里，带泛型声明的类总应该带着类型参数。但为了与老的Java代码保持一致，也允许在使用带泛型声明的类时不指定实际的类型。如果没有为这个泛型类指定实际的类型，此时被称作raw<br>type（原始类型），默认是声明该泛型形参时指定的第一个上限类型。</p>
+<p>当把一个具有泛型信息的对象赋给另一个没有泛型信息的变量时，所有在尖括号之间的类型信息都将被扔掉。比如一个 List<String> 类型被转换为List，则该List对集合元素的类型检查变成了泛型参数的上限（即Object）。</p>
+<p>上述规则即为泛型擦除，可以通过下面代码进一步理解泛型擦除：</p>
+<pre><code class="java">List&lt;String&gt; list1 = ...;
+List list2 = list1; // list2将元素当做Object处理
+</code></pre>
+<p><strong>扩展阅读</strong></p>
+<p>从逻辑上来看，List<String> 是List的子类，如果直接把一个List对象赋给一个List<String>对象应该引起编译错误，但实际上不会。对泛型而言，可以直接把一个List对象赋给一个 List<String><br>对象，编译器仅仅提示“未经检查的转换”。</p>
+<p>上述规则叫做泛型转换，可以通过下面代码进一步理解泛型转换：</p>
+<pre><code class="java">List list1 = ...;
+List&lt;String&gt; list2 = list1; // 编译时警告“未经检查的转换”
+</code></pre>
+<h4 id="1-46-List-lt-super-T-gt-和List-lt-extends-T-gt-有什么区别？"><a href="#1-46-List-lt-super-T-gt-和List-lt-extends-T-gt-有什么区别？" class="headerlink" title="1.46 List&lt;? super T&gt;和List&lt;? extends T&gt;有什么区别？"></a>1.46 List&lt;? super T&gt;和List&lt;? extends T&gt;有什么区别？</h4><p><strong>参考答案</strong></p>
+<ul>
+<li><code>?</code> 是类型通配符，List&lt;?&gt; 可以表示各种泛型List的父类，意思是元素类型未知的List；</li>
+<li><code>List&lt;? super T&gt;</code> 用于设定类型通配符的下限，此处 ? 代表一个未知的类型，但它必须是T的父类型；</li>
+<li><code>List&lt;? extends T&gt;</code> 用于设定类型通配符的上限，此处 ? 代表一个未知的类型，但它必须是T的子类型。</li>
+</ul>
+<p><strong>扩展阅读</strong></p>
+<p>在Java的早期设计中，允许把Integer[]数组赋值给Number[]变量，此时如果试图把一个Double对象保存到该Number[]<br>数组中，编译可以通过，但在运行时抛出ArrayStoreException异常。这显然是一种不安全的设计，因此Java在泛型设计时进行了改进，它不再允许把 List<Integer> 对象赋值给 List<Number> 变量。</p>
+<p>数组和泛型有所不同，假设Foo是Bar的一个子类型（子类或者子接口），那么Foo[]依然是Bar[]的子类型，但G<Foo> 不是 G<Bar> 的子类型。Foo[]自动向上转型为Bar[]<br>的方式被称为型变，也就是说，Java的数组支持型变，但Java集合并不支持型变。Java泛型的设计原则是，只要代码在编译时没有出现警告，就不会遇到运行时ClassCastException异常。</p>
+<h4 id="1-47-说一说你对Java反射机制的理解"><a href="#1-47-说一说你对Java反射机制的理解" class="headerlink" title="1.47 说一说你对Java反射机制的理解"></a>1.47 说一说你对Java反射机制的理解</h4><p><strong>参考答案</strong></p>
+<p>Java程序中的对象在运行时可以表现为两种类型，即编译时类型和运行时类型。例如 Person p &#x3D; new Student(); ，这行代码将会生成一个p变量，该变量的编译时类型为Person，运行时类型为Student。</p>
+<p>有时，程序在运行时接收到外部传入的一个对象，该对象的编译时类型是Object，但程序又需要调用该对象的运行时类型的方法。这就要求程序需要在运行时发现对象和类的真实信息，而解决这个问题有以下两种做法：</p>
+<ul>
+<li>第一种做法是假设在编译时和运行时都完全知道类型的具体信息，在这种情况下，可以先使用instanceof运算符进行判断，再利用强制类型转换将其转换成其运行时类型的变量即可。</li>
+<li>第二种做法是编译时根本无法预知该对象和类可能属于哪些类，程序只依靠运行时信息来发现该对象和类的真实信息，这就必须使用反射。</li>
+</ul>
+<p>具体来说，通过反射机制，我们可以实现如下的操作：</p>
+<ul>
+<li>程序运行时，可以通过反射获得任意一个类的Class对象，并通过这个对象查看这个类的信息；</li>
+<li>程序运行时，可以通过反射创建任意一个类的实例，并访问该实例的成员；</li>
+<li>程序运行时，可以通过反射机制生成一个类的动态代理类或动态代理对象。</li>
+</ul>
+<p><strong>补充</strong></p>
+<p>java 反射机制是在运行状态中，对于任意一个类，都能够获得这个类的所有属性和方法，对于任意一个对象都能够 调用它的任意一个属性和方法。这种在运行时动态的获取信息以及动态调用对象的方法的功能称为 java 的反射机 制。</p>
+<p>Class 类与 java.lang.reflect 类库一起对反射的概念进行了支持，该类库包含了 Field,Method,Constructor 类 (每 个类都实现了 Member 接口)。这些类型的对象时由 JVM<br>在运行时创建的，用以表示未知类里对应的成员。</p>
+<p>这样你就可以使用 Constructor 创建新的对象，用 get() 和 set() 方法读取和修改与 Field 对象关联的字段，用 invoke() 方法调用与 Method 对象关联的方法。另外，还可以调用 getFields()<br>getMethods() 和 getConstructors() 等很便利的方法，以返回表示字段，方法，以及构造器的对象的数组。这样匿名对象的信息 就能在运行时被完全确定下来，而在编译时不需要知道任何事情。</p>
+<pre><code class="java">import java.lang.reflect.Constructor;
+
+public class ReflectTest &#123;
+    public static void main(String[] args) throws Exception &#123;
+        Class clazz = null;
+        clazz = Class.forName(&quot;com.jas.reflect.Fruit&quot;);
+        Constructor&lt;Fruit&gt; constructor1 = clazz.getConstructor();
+        Constructor&lt;Fruit&gt; constructor2 = clazz.getConstructor(String.class);
+        Fruit fruit1 = constructor1.newInstance();
+        Fruit fruit2 = constructor2.newInstance(&quot;Apple&quot;);
+    &#125;
+&#125;
+
+class Fruit &#123;
+    public Fruit() &#123;
+        System.out.println(&quot;无参构造器 Run...........&quot;);
+    &#125;
+
+    public Fruit(String type) &#123;
+        System.out.println(&quot;有参构造器 Run...........&quot; + type);
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>运行结果:无参构造器 Run………..有参构造器 Run………..Apple</p>
+</blockquote>
+<h4 id="补充：java获取反射的三种方法"><a href="#补充：java获取反射的三种方法" class="headerlink" title="补充：java获取反射的三种方法"></a>补充：java获取反射的三种方法</h4><ol>
+<li>通过new对象实现反射机制。</li>
+<li>通过路径实现反射机制。</li>
+<li>通过类名实现反射机制。</li>
+</ol>
+<pre><code class="java">public class Student &#123;
+    private int id;
+    String name;
+    protected boolean sex;
+    public float score;
+&#125;
+</code></pre>
+<p>方式一(通过建立对象)</p>
+<pre><code class="java">Student stu=new Student();
+Class classobj1=stu.getClass();
+</code></pre>
+<p>方式二(所在通过路径-相对路径)</p>
+<pre><code class="java">Class classobj2=Class.forName(&quot;fanshe.Student&quot;); 
+</code></pre>
+<p>方式三(通过类名)</p>
+<pre><code class="java">Class classobj3=Student.class;
+</code></pre>
+<h4 id="1-48-Java反射在实际项目中有哪些应用场景？"><a href="#1-48-Java反射在实际项目中有哪些应用场景？" class="headerlink" title="1.48 Java反射在实际项目中有哪些应用场景？"></a>1.48 Java反射在实际项目中有哪些应用场景？</h4><p><strong>参考答案</strong></p>
+<p>Java的反射机制在实际项目中应用广泛，常见的应用场景有：</p>
+<ul>
+<li>使用JDBC时，如果要创建数据库的连接，则需要先通过反射机制加载数据库的驱动程序；</li>
+<li>多数框架都支持注解&#x2F;XML配置，从配置中解析出来的类是字符串，需要利用反射机制实例化；</li>
+<li>面向切面编程（AOP）的实现方案，是在程序运行时创建目标对象的代理类，这必须由反射机制来实现。</li>
+</ul>
+<h4 id="1-49-说一说Java的四种引用方式"><a href="#1-49-说一说Java的四种引用方式" class="headerlink" title="1.49 说一说Java的四种引用方式"></a>1.49 说一说Java的四种引用方式</h4><p><strong>参考答案</strong></p>
+<p>Java对象的四种引用方式分别是强引用、软引用、弱引用、虚引用，具体含义如下：</p>
+<ul>
+<li>强引用：这是Java程序中最常见的引用方式，即程序创建一个对象，并把这个对象赋给一个引用变量，程序通过该引用变量来操作实际的对象。当一个对象被一个或一个以上的引用变量所引用时，它处于可达状态，不可能被系统垃圾回收机制回收。</li>
+<li>软引用：当一个对象只有软引用时，它有可能被垃圾回收机制回收。对于只有软引用的对象而言，当系统内存空间足够时，它不会被系统回收，程序也可使用该对象。当系统内存空间不足时，系统可能会回收它。软引用通常用于对内存敏感的程序中。</li>
+<li>弱引用：弱引用和软引用很像，但弱引用的引用级别更低。对于只有弱引用的对象而言，当系统垃圾回收机制运行时，不管系统内存是否足够，总会回收该对象所占用的内存。当然，并不是说当一个对象只有弱引用时，它就会立即被回收，正如那些失去引用的对象一样，必须等到系统垃圾回收机制运行时才会被回收。</li>
+<li>虚引用：虚引用完全类似于没有引用。虚引用对对象本身没有太大影响，对象甚至感觉不到虚引用的存在。如果一个对象只有一个虚引用时，那么它和没有引用的效果大致相同。虚引用主要用于跟踪对象被垃圾回收的状态，虚引用不能单独使用，虚引用必须和引用队列联合使用。</li>
+</ul>
+<p><strong>补充</strong></p>
+<ol>
+<li><p><strong>强引用</strong></p>
+<p>只要引用存在，垃圾回收器永远不会回收</p>
+<pre><code class="java">Object obj = new Object();
+User user=new User();
+</code></pre>
+<p>可直接通过obj取得对应的对象 如 obj.equels(new Object()); 而这样 obj 对象对后面 new Object 的一个强 引用，只有当 obj<br>这个引用被释放之后，对象才会被释放掉，这也是我们经常所用到的编码形式。</p>
+</li>
+<li><p><strong>软引用</strong></p>
+<p>非必须引用，内存溢出之前进行回收，可以通过以下代码实现</p>
+<pre><code class="java">Object obj = new Object();
+SoftReference&lt;Object&gt; sf = new SoftReference&lt;Object&gt;(obj);
+obj = null;
+sf.get();//有时候会返回null
+</code></pre>
+<p>这时候sf是对obj的一个软引用，通过sf.get()方法可以取到这个对象，当然，当这个对象被标记为需要回收的对象 时，则返回null； 软引用主要用户实现类似缓存的功能，在内存足够的情况下直接通过软引用取值，无需从繁忙的<br>真实来源查询数据，提升速度；当内存不足时，自动删除这部分缓存数据，从真正的来源查询这些数据。</p>
+</li>
+<li><p><strong>弱引用</strong></p>
+<p>第二次垃圾回收时回收，可以通过如下代码实现</p>
+<pre><code class="java">Object obj = new Object();
+WeakReference&lt;Object&gt; wf = new WeakReference&lt;Object&gt;(obj);
+obj = null;
+wf.get();//有时候会返回null
+wf.isEnQueued();//返回是否被垃圾回收器标记为即将回收的垃圾
+</code></pre>
+<p>弱引用是在第二次垃圾回收时回收，短时间内通过弱引用取对应的数据，可以取到，当执行过第二次垃圾回收时， 将返回null。弱引用主要用于监控对象是否已经被垃圾回收器标记为即将回收的垃圾，可以通过弱引用的 isEnQueued<br>方法返回对象是否被垃圾回收器标记。</p>
+<p>ThreadLocal 中有使用到弱引用</p>
+<pre><code class="java">public class ThreadLocal&lt;T&gt; &#123;
+    static class ThreadLocalMap &#123;
+        static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; &#123;
+           /** The value associated with this ThreadLocal. */
+           Object value;
+
+           Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;
+               super(k);
+               value = v;
+           &#125;
+        &#125;
+    //....
+    &#125;
+//.....
+&#125;
+</code></pre>
+</li>
+<li><p><strong>虚引用</strong></p>
+<p>垃圾回收时回收，无法通过引用取到对象值，可以通过如下代码实现</p>
+<pre><code class="java">Object obj = new Object();
+PhantomReference&lt;Object&gt; pf = new PhantomReference&lt;Object&gt;(obj);
+obj=null;
+pf.get();//永远返回null
+pf.isEnQueued();//返回是否从内存中已经删除
+</code></pre>
+<p>虚引用是每次垃圾回收的时候都会被回收，通过虚引用的get方法永远获取到的数据为null，因此也被成为幽灵引 用。虚引用主要用于检测对象是否已经从内存中删除。</p>
+</li>
+</ol>
+<h4 id="补充：内部类"><a href="#补充：内部类" class="headerlink" title="补充：内部类"></a>补充：内部类</h4><p>类的五大成分：成员变量，方法，构造器，代码块，内部类。</p>
+<ol>
+<li><strong>静态内部类</strong></li>
+</ol>
+<p>有static修饰，类有的成分它都有，属于外部类本身，会加载一次。</p>
+<p>所以它的特点与外部类是完全一样的，只是位置在别人里面而已。</p>
+<pre><code class="java">class Outter &#123;
+    public static int age1 = 12;
+    private double salary;
+
+    // 静态内部类：有static修饰，属于外部类本身，只会加载一次
+    public static class Inner &#123;
+        private String name;
+        private int age;
+        public static String schoolName = &quot;黑马&quot;;
+
+        public void show() &#123;
+            System.out.println(name + &quot;--&gt;&quot; + age + &quot;岁~&quot;);
+            System.out.println(age1);
+            //System.out.println(salary);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">Outter.Inner in=new Outter.Inner();
+in.setName(&quot;张三&quot;);
+System.out.println(in.getName());
+in.show();
+</code></pre>
+<ol start="2">
+<li><strong>实例内部类。（成员内部类）</strong></li>
+</ol>
+<p>无static修饰的内部类，属于外部类的每个对象的，跟着对象一起加载的。</p>
+<p>实例内部类中不能定义静态成员，其他都可以定义。可以定义常量。</p>
+<pre><code class="java">class Outter &#123;
+    public static int age = 1;
+    private double salary;
+
+    // 实例内部类：无static修饰，属于外部类的对象
+    public class Inner &#123;
+        private String name;
+
+        public static final String schoolName = &quot;黑马&quot;;
+        // 不能在实例内部类中定义静态成员！！！
+//      public static String schoolName = &quot;黑马&quot;;
+//      public static void test()&#123;
+//
+//      &#125;
+
+        // 实例方法
+        public void show() &#123;
+            System.out.println(name + &quot;名称！&quot;);
+            System.out.println(age);
+            System.out.println(salary);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">Outter.Inner in=new Outter().new Inner();
+in.show();
+</code></pre>
+<ol start="3">
+<li><strong>局部内部类（几乎不用，局部内部类没啥用）</strong></li>
+</ol>
+<p>定义在方法中，在构造器中，代码块中，for循环中定义的内部类</p>
+<p>只能定义实例成员，不能定义静态成员，可以定义常量的。</p>
+<pre><code class="java">public class InnerClass &#123;
+
+  static &#123;
+      abstract class A &#123;
+      &#125;
+  &#125;
+
+  public static void main(String[] args) &#123;
+      class A &#123;
+          private String name;
+
+          public void test() &#123;
+          &#125;
+      &#125;
+      A a = new A();
+      a.test();
+  &#125;
+
+  public static void test() &#123;
+      class Animal &#123;
+      &#125;
+      class Cat extends Animal &#123;
+      &#125;
+  &#125;
+&#125;
+</code></pre>
+<ol start="4">
+<li><strong>匿名内部类（重点）</strong></li>
+</ol>
+<p>简化代码，也是开发中常用的形式。</p>
+<p>匿名内部类是一个没有名字的内部类。</p>
+<p>匿名内部类一旦写出来，就会立即创建一个匿名内部类的对象返回。</p>
+<p>匿名内部类的对象的类型相当于是当前new的那个的类型的子类类型。</p>
+<pre><code class="java">new 类名|抽象类|接口(形参)&#123;
+方法重写。
+&#125;
+
+// 匿名内部类写法
+new Thread(new Runnable()&#123;
+@Override
+public void run()&#123;
+  for(int i=0;i&lt; 10;i++)&#123;
+    System.out.println(Thread.currentThread().getName()+&quot;==&gt;&quot;+i);
+  &#125;
+&#125;
+&#125;).start();
+</code></pre>
+<h4 id="补充：数组在内存中的分配"><a href="#补充：数组在内存中的分配" class="headerlink" title="补充：数组在内存中的分配"></a>补充：数组在内存中的分配</h4><p>对于 java 数组的初始化，有以下两种方式，这也是面试中经常考到的经典题目。</p>
+<p>静态初始化:初始化时由程序员显式指定每个数组元素的初始值，由系统决定数组长度，如:</p>
+<pre><code class="java">//只是指定初始值，并没有指定数组的长度，但是系统为自动决定该数组的长度为4  
+String[]computers=&#123;&quot;Dell&quot;,&quot;Lenovo&quot;,&quot;Apple&quot;,&quot;Acer&quot;&#125;; //1  
+
+//只是指定初始值，并没有指定数组的长度，但是系统为自动决定该数组的长度为3  
+String[]names=new String[]&#123;&quot;多啦A梦&quot;,&quot;大雄&quot;,&quot;静香&quot;&#125;; //2
+</code></pre>
+<p>动态初始化:初始化时由程序员显示的指定数组的长度，由系统为数据每个元素分配初始值，如:</p>
+<pre><code class="java">//只是指定了数组的长度，并没有显示的为数组指定初始值，但是系统会默认给数组数组元素分配初始值为null  
+String[]cars=new String[4]; //3
+</code></pre>
+<p>因为 java 数组变量是引用类型的变量，所以上述几行初始化语句执行后，三个数组在内存中的分配情况如下图所 示:</p>
+<p><img src="https://s2.loli.net/2022/07/17/2UWedZ6FS1XsfJo.webp"></p>
+<p>由上图可知，静态初始化方式，程序员虽然没有指定数组长度，但是系统已经自动帮我们给分配了，而动态初始化 方式，程序员虽然没有显示的指定初始化值，但是因为 java 数组是引用类型的变量，所以系统也为每个元素分配 了初始化值 null<br>，当然不同类型的初始化值也是不一样的，假设是基本类型int类型，那么为系统分配的初始化值 也是对应的默认值0。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2021-2022 zhangxin
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</html>
