@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>zhangxinの随笔</title>
+  <title>sql示例 | zhangxinの随笔</title>
   <meta name="keywords" content="">
-  <meta name="description" content="zhangxinの随笔">
+  <meta name="description" content="sql示例 | zhangxinの随笔">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="HTTP权威指南.pdf 图解TCP_IP_第5版.pdf 图解HTTP 彩色版.pdf TCP IP详解卷1：协议 原书第2版">
 <meta property="og:type" content="article">
@@ -59,7 +59,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -2247,12 +2247,51 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-sql示例" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E7%AB%99%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">本站快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%89%8B%E6%8B%8D"><span class="toc-text">随手拍</span></a></li></ol>
+        <h1 class="article-title">sql示例</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="数据库">数据库</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-07-23 18:24:01'>2022-07-23 18:21</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%A1%A8"><span class="toc-text">建表</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -2265,81 +2304,80 @@
     }
 </style>
 </div>
-            <p><strong><a target="_blank" rel="noopener" href="https://www.zhangxin.cloud/">zhangxin.cloud</a> 域名即将到期，请收藏永久域名：<a target="_blank" rel="noopener" href="https://zx.js.cool/">zx.js.cool</a></strong></p>
-<ul>
-<li>知行合一，不破难立</li>
-<li>要有大局观，勿陷于一时一处</li>
-<li>勿毕其功于一役</li>
-<li>人无远虑，必有近忧</li>
-<li>见贤思齐焉，见不贤而内自省也</li>
-</ul>
-<h3 id="本站快捷键"><a href="#本站快捷键" class="headerlink" title="本站快捷键"></a>本站快捷键</h3><p><strong>全局</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">Key</th>
-<th align="left">Descption</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>s/S</code></td>
-<td align="left">全屏&#x2F;取消全屏</td>
-</tr>
-<tr>
-<td align="left"><code>w/W</code></td>
-<td align="left">打开&#x2F;关闭文章目录</td>
-</tr>
-<tr>
-<td align="left">i&#x2F;I</td>
-<td align="left">获取搜索框焦点</td>
-</tr>
-<tr>
-<td align="left">j&#x2F;J</td>
-<td align="left">向下滑动</td>
-</tr>
-<tr>
-<td align="left">k&#x2F;K</td>
-<td align="left">向上滑动</td>
-</tr>
-<tr>
-<td align="left">gg&#x2F;GG</td>
-<td align="left">到最顶端</td>
-</tr>
-<tr>
-<td align="left">shift+G&#x2F;g</td>
-<td align="left">到最下端</td>
-</tr>
-</tbody></table>
-<p><strong>搜索框</strong></p>
-<table>
-<thead>
-<tr>
-<th align="left">Key</th>
-<th align="left">Descption</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">ESC</td>
-<td align="left">1.如果输入框有内容，清除内容 2.如果输入框无内容，失去焦点</td>
-</tr>
-<tr>
-<td align="left">下</td>
-<td align="left">向下选择文章</td>
-</tr>
-<tr>
-<td align="left">上</td>
-<td align="left">向上选择文章</td>
-</tr>
-<tr>
-<td align="left">回车</td>
-<td align="left">打开当前选中的文章，若没有，则默认打开第一个</td>
-</tr>
-</tbody></table>
-<h3 id="随手拍"><a href="#随手拍" class="headerlink" title="随手拍"></a>随手拍</h3><p><img src="https://s2.loli.net/2022/07/22/54VfdlD8ocZvJEj.jpg"><br><img src="https://s2.loli.net/2022/07/23/MilBRSQeK4JWgG5.jpg"><br><img src="https://s2.loli.net/2022/07/23/lMKJrXS7nxh4FkP.jpg"><br><img src="https://s2.loli.net/2022/07/23/DuE8sBNocg4RAxM.jpg"><br><img src="https://s2.loli.net/2022/07/23/hgOnosByIcbdXvH.jpg"><br><img src="https://s2.loli.net/2022/07/23/TzjyCnXRfH53DI9.jpg"><br><img src="https://s2.loli.net/2022/07/23/pYOeGgKNaoRywMf.jpg"><br><img src="https://s2.loli.net/2022/07/23/MhXYAGdn1vaCweE.jpg"><br><img src="https://s2.loli.net/2022/07/23/s6FazliZKYtIdoN.jpg"><br><img src="https://s2.loli.net/2022/07/23/BlmzYkjbMdreuNO.jpg"><br><img src="https://s2.loli.net/2022/07/23/BwzIjNAfYRMTuUa.jpg"><br><img src="https://s2.loli.net/2022/07/23/FNos7w8ptle2fUI.jpg"></p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><pre><code class="sql">SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
-        </article>
-        
-        
+-- ----------------------------
+-- Table structure for t_trans_submit
+-- ----------------------------
+DROP TABLE IF EXISTS `t_trans_submit`;
+CREATE TABLE `t_trans_submit`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT &#39;主键&#39;,
+  `cif_id` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;cifId&#39;,
+  `pay_acc` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;payAcc&#39;,
+  `trans_type` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankId&#39;,
+  `pay_acc_name` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankSingleLimit&#39;,
+  `acc_op_bank` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `rec_acc` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `rec_acc_name` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `rec_bank` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `amt` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `us` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `rec_phone` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `pay_stt` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `trans_way` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `amt_c_n` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `fee` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `rem` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `remark` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `is_order` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `order_time` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `order_date` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `order_phone` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `trans_flow` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `submit_time` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  `trans_method` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT &#39;openBankDayLimit&#39;,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1541611347942412290 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of t_trans_submit
+-- ----------------------------
+INSERT INTO `t_trans_submit` VALUES (1541453811006631937, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346202026&#39;, &#39;2022-06-28 12:10:02&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453912416514050, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346226205&#39;, &#39;2022-06-28 12:10:26&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453919748157442, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346227947&#39;, &#39;2022-06-28 12:10:27&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453925137838081, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346229237&#39;, &#39;2022-06-28 12:10:29&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453930280054786, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;1&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346230463&#39;, &#39;2022-06-28 12:10:30&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453935158030337, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346231627&#39;, &#39;2022-06-28 12:10:31&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453940010840065, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346232784&#39;, &#39;2022-06-28 12:10:32&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453945194999809, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346234019&#39;, &#39;2022-06-28 12:10:34&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541453950169444353, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656346235206&#39;, &#39;2022-06-28 12:10:35&#39;, NULL);
+INSERT INTO `t_trans_submit` VALUES (1541611347942412289, &#39;8080808080&#39;, &#39;1122334455667799&#39;, &#39;0&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;1122334455667788&#39;, &#39;北京新天地科技股份有限公司&#39;, &#39;1000&#39;, &#39;100000&#39;, &#39;转账用途&#39;, &#39;13170030905&#39;, &#39;2&#39;, &#39;转账方式&#39;, &#39;转账大写金额&#39;, &#39;附言&#39;, NULL, &#39;备注&#39;, &#39;预约处理&#39;, &#39;预约时间&#39;, &#39;2025-12-12&#39;, &#39;13170030905&#39;, &#39;1656383761745&#39;, &#39;2022-06-28 02:36:01&#39;, NULL);
+
+SET FOREIGN_KEY_CHECKS = 1;
+</code></pre>
+<pre><code class="sql">
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry"><span class="miit">
@@ -2352,11 +2390,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
