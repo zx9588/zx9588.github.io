@@ -6,17 +6,20 @@
   <meta name="keywords" content="">
   <meta name="description" content="文档笔记工具 | zhangxinの随笔">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="explain select * from servers; +----+-------------+---------+------+---------------+------+---------+------+------+-------+ | id | select_type | table   | type | possible_keys | key  | key_len | ref">
+<meta name="description" content="查看本地分支git branch 查看当前所在分支，加上-a查看所有 创建本地分支git branch 分支名 切换分支git checkout 分支名 切换分支，git checkout -b 分支名 在一个分支的基础上，创建并切换分支git checkout -b 分支名 origin&#x2F;分支名 拉取新分支-本地没有但是线上有的分支 合并分支（merge）git merge 某分支名称 当前所在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL-explain-详解">
-<meta property="og:url" content="http://example.com/posts/c007/index.html">
+<meta property="og:title" content="Git分支操作">
+<meta property="og:url" content="http://example.com/posts/c008/index.html">
 <meta property="og:site_name" content="zhangxinの随笔">
-<meta property="og:description" content="explain select * from servers; +----+-------------+---------+------+---------------+------+---------+------+------+-------+ | id | select_type | table   | type | possible_keys | key  | key_len | ref">
+<meta property="og:description" content="查看本地分支git branch 查看当前所在分支，加上-a查看所有 创建本地分支git branch 分支名 切换分支git checkout 分支名 切换分支，git checkout -b 分支名 在一个分支的基础上，创建并切换分支git checkout -b 分支名 origin&#x2F;分支名 拉取新分支-本地没有但是线上有的分支 合并分支（merge）git merge 某分支名称 当前所在">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-24T04:28:16.000Z">
-<meta property="article:modified_time" content="2022-07-24T05:34:00.658Z">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/TuCxYwosXHdyLlD.png">
+<meta property="article:published_time" content="2022-07-24T07:27:50.000Z">
+<meta property="article:modified_time" content="2022-07-24T07:36:37.716Z">
 <meta property="article:author" content="zx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png">
 
 
 <link rel="icon" href="/img/zotero.ico">
@@ -245,7 +248,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(199)</small>
+                <small>(202)</small>
             
         </div>
     </li>
@@ -354,7 +357,7 @@
                     <div data-rel="Git">
                         
                         Git
-                        <small>(4)</small>
+                        <small>(7)</small>
                         
                     </div>
                     
@@ -466,7 +469,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="199">
+<input type="hidden" id="yelog_site_posts_number" value="202">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -538,6 +541,42 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/c008/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git分支操作">Git分支操作</span>
+            <span class="post-date" title="2022-07-24 15:27:50">2022/07/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/f4a4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git工作流程图">Git工作流程图</span>
+            <span class="post-date" title="2022-07-24 15:25:24">2022/07/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/2e5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git安装与常用命令">Git安装与常用命令</span>
+            <span class="post-date" title="2022-07-24 15:09:34">2022/07/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/2a87/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="操作远程仓库">操作远程仓库</span>
+            <span class="post-date" title="2022-07-24 14:49:36">2022/07/24</span>
+        </a>
         
         
         <a  class="全部文章 数据库 "
@@ -1122,15 +1161,6 @@
            data-author="" >
             <span class="post-title" title="文档笔记工具">文档笔记工具</span>
             <span class="post-date" title="2022-07-21 14:30:15">2022/07/21</span>
-        </a>
-        
-        
-        <a  class="全部文章 Git "
-           href="/posts/c4f/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Git笔记">Git笔记</span>
-            <span class="post-date" title="2022-07-21 11:05:21">2022/07/21</span>
         </a>
         
         
@@ -1840,7 +1870,7 @@
            href="/posts/1910/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Git安装配置">Git安装配置</span>
+            <span class="post-title" title="Git安装配置-mac版本">Git安装配置-mac版本</span>
             <span class="post-date" title="2022-07-12 19:18:55">2022/07/12</span>
         </a>
         
@@ -1972,19 +2002,19 @@
         
         
         <a  class="全部文章 Java "
-           href="/posts/4ea0/"
+           href="/posts/9f25/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Java">Java</span>
+            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
         
         <a  class="全部文章 Java "
-           href="/posts/9f25/"
+           href="/posts/4ea0/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
+            <span class="post-title" title="Java">Java</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -1999,19 +2029,19 @@
         
         
         <a  class="全部文章 数据库 "
-           href="/posts/d820/"
+           href="/posts/59e9/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
+            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
         
         <a  class="全部文章 数据库 "
-           href="/posts/59e9/"
+           href="/posts/d820/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
+            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -2043,15 +2073,6 @@
         </a>
         
         
-        <a  class="全部文章 软件安装 "
-           href="/posts/40cc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
-            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
-        </a>
-        
-        
         <a  class="全部文章 Hexo "
            href="/posts/2491/"
            data-tag=""
@@ -2075,6 +2096,15 @@
            data-tag=""
            data-author="" >
             <span class="post-title" title="资源网址">资源网址</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/40cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
             <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
         </a>
         

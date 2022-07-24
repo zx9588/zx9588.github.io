@@ -2,21 +2,24 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Git笔记 | zhangxinの随笔</title>
+  <title>Git分支操作 | zhangxinの随笔</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Git笔记 | zhangxinの随笔">
+  <meta name="description" content="Git分支操作 | zhangxinの随笔">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="explain select * from servers; +----+-------------+---------+------+---------------+------+---------+------+------+-------+ | id | select_type | table   | type | possible_keys | key  | key_len | ref">
+<meta name="description" content="查看本地分支git branch 查看当前所在分支，加上-a查看所有 创建本地分支git branch 分支名 切换分支git checkout 分支名 切换分支，git checkout -b 分支名 在一个分支的基础上，创建并切换分支git checkout -b 分支名 origin&#x2F;分支名 拉取新分支-本地没有但是线上有的分支 合并分支（merge）git merge 某分支名称 当前所在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL-explain-详解">
-<meta property="og:url" content="http://example.com/posts/c007/index.html">
+<meta property="og:title" content="Git分支操作">
+<meta property="og:url" content="http://example.com/posts/c008/index.html">
 <meta property="og:site_name" content="zhangxinの随笔">
-<meta property="og:description" content="explain select * from servers; +----+-------------+---------+------+---------------+------+---------+------+------+-------+ | id | select_type | table   | type | possible_keys | key  | key_len | ref">
+<meta property="og:description" content="查看本地分支git branch 查看当前所在分支，加上-a查看所有 创建本地分支git branch 分支名 切换分支git checkout 分支名 切换分支，git checkout -b 分支名 在一个分支的基础上，创建并切换分支git checkout -b 分支名 origin&#x2F;分支名 拉取新分支-本地没有但是线上有的分支 合并分支（merge）git merge 某分支名称 当前所在">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-24T04:28:16.000Z">
-<meta property="article:modified_time" content="2022-07-24T05:34:00.658Z">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/TuCxYwosXHdyLlD.png">
+<meta property="article:published_time" content="2022-07-24T07:27:50.000Z">
+<meta property="article:modified_time" content="2022-07-24T07:36:37.716Z">
 <meta property="article:author" content="zx">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png">
 
 
 <link rel="icon" href="/img/zotero.ico">
@@ -245,7 +248,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(199)</small>
+                <small>(202)</small>
             
         </div>
     </li>
@@ -354,7 +357,7 @@
                     <div data-rel="Git">
                         
                         Git
-                        <small>(4)</small>
+                        <small>(7)</small>
                         
                     </div>
                     
@@ -466,7 +469,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="199">
+<input type="hidden" id="yelog_site_posts_number" value="202">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -538,6 +541,42 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/c008/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git分支操作">Git分支操作</span>
+            <span class="post-date" title="2022-07-24 15:27:50">2022/07/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/f4a4/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git工作流程图">Git工作流程图</span>
+            <span class="post-date" title="2022-07-24 15:25:24">2022/07/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/2e5a/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git安装与常用命令">Git安装与常用命令</span>
+            <span class="post-date" title="2022-07-24 15:09:34">2022/07/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 Git "
+           href="/posts/2a87/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="操作远程仓库">操作远程仓库</span>
+            <span class="post-date" title="2022-07-24 14:49:36">2022/07/24</span>
+        </a>
         
         
         <a  class="全部文章 数据库 "
@@ -1122,15 +1161,6 @@
            data-author="" >
             <span class="post-title" title="文档笔记工具">文档笔记工具</span>
             <span class="post-date" title="2022-07-21 14:30:15">2022/07/21</span>
-        </a>
-        
-        
-        <a  class="全部文章 Git "
-           href="/posts/c4f/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Git笔记">Git笔记</span>
-            <span class="post-date" title="2022-07-21 11:05:21">2022/07/21</span>
         </a>
         
         
@@ -1840,7 +1870,7 @@
            href="/posts/1910/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Git安装配置">Git安装配置</span>
+            <span class="post-title" title="Git安装配置-mac版本">Git安装配置-mac版本</span>
             <span class="post-date" title="2022-07-12 19:18:55">2022/07/12</span>
         </a>
         
@@ -1972,19 +2002,19 @@
         
         
         <a  class="全部文章 Java "
-           href="/posts/4ea0/"
+           href="/posts/9f25/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Java">Java</span>
+            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
         
         <a  class="全部文章 Java "
-           href="/posts/9f25/"
+           href="/posts/4ea0/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
+            <span class="post-title" title="Java">Java</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -1999,19 +2029,19 @@
         
         
         <a  class="全部文章 数据库 "
-           href="/posts/d820/"
+           href="/posts/59e9/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
+            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
         
         <a  class="全部文章 数据库 "
-           href="/posts/59e9/"
+           href="/posts/d820/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《高性能MySQL》读书笔记">《高性能MySQL》读书笔记</span>
+            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -2043,15 +2073,6 @@
         </a>
         
         
-        <a  class="全部文章 软件安装 "
-           href="/posts/40cc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
-            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
-        </a>
-        
-        
         <a  class="全部文章 Hexo "
            href="/posts/2491/"
            data-tag=""
@@ -2075,6 +2096,15 @@
            data-tag=""
            data-author="" >
             <span class="post-title" title="资源网址">资源网址</span>
+            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 软件安装 "
+           href="/posts/40cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PicGo安装配置">PicGo安装配置</span>
             <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
         </a>
         
@@ -2348,9 +2378,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Git/Git笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Git/Git分支操作" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Git笔记</h1>
+        <h1 class="article-title">Git分支操作</h1>
     
     <div class="article-meta">
         
@@ -2368,7 +2398,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-07-24 12:11:36'>2022-07-21 11:05</time>
+            发布时间 : <time class="date" title='最后更新: 2022-07-24 15:36:37'>2022-07-24 15:27</time>
         
     </div>
     <div class="article-meta">
@@ -2390,7 +2420,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">Git工作流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-text">git基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-text">为常用指令配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3GitBash%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-text">解决GitBash乱码问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-text">获取本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">Git常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E7%94%A8%E5%88%B0%E7%9A%84linux%E5%91%BD%E4%BB%A4"><span class="toc-text">需要用到的linux命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%87%E4%BB%B6%E8%87%B3%E5%BF%BD%E7%95%A5%E5%88%97%E8%A1%A8"><span class="toc-text">添加文件至忽略列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E5%88%86%E6%94%AF%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99%E4%B8%8E%E6%B5%81%E7%A8%8B"><span class="toc-text">开发中分支使用原则与流程</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="toc-text">查看本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="toc-text">创建本地分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-text">切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%EF%BC%88merge%EF%BC%89"><span class="toc-text">合并分支（merge）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-text">删除分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E5%88%86%E6%94%AF%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99%E4%B8%8E%E6%B5%81%E7%A8%8B"><span class="toc-text">开发中分支使用原则与流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"></span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -2406,54 +2436,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iiG4k085dohi">Git讲义.pdf</a></li>
-<li><a target="_blank" rel="noopener" href="https://zx.js.cool/posts/b4e6/">Git-相关书籍</a></li>
-</ul>
-<h3 id="Git工作流程图"><a href="#Git工作流程图" class="headerlink" title="Git工作流程图"></a>Git工作流程图</h3><p><img src="https://s2.loli.net/2022/07/21/mnNrgk4o92EIyX6.png" alt="Git工作流程图"></p>
-<p>命令如下</p>
-<ol>
-<li>clone(克隆): 从远程仓库中克隆代码到本地仓库</li>
-<li>checkout (检出):从本地仓库中检出一个仓库分支然后进行修订</li>
-<li>add(添加): 在提交前先将代码提交到暂存区</li>
-<li>commit(提交): 提交到本地仓库。本地仓库中保存修改的各个历史版本</li>
-<li>fetch (抓取) : 从远程库，抓取到本地仓库，不进行任何的合并动作，一般操作比较少。</li>
-<li>pull (拉取) : 从远程库拉到本地库，自动进行合并(merge)，然后放到到工作区，相当于<br>fetch+merge</li>
-<li>push(推送) : 修改完成后，需要和团队成员共享代码时，将代码推送到远程仓库</li>
-</ol>
-<h3 id="git基本配置"><a href="#git基本配置" class="headerlink" title="git基本配置"></a>git基本配置</h3><p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#122;&#x78;&#64;&#122;&#x78;&#x2e;&#106;&#115;&#46;&#99;&#x6f;&#111;&#108;">&#122;&#x78;&#64;&#122;&#x78;&#x2e;&#106;&#115;&#46;&#99;&#x6f;&#111;&#108;</a>”</p>
-<p>查看配置信息<br>git config –global user.name<br>git config –global user.email</p>
-<h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a target="_blank" rel="noopener" href="https://zx.js.cool/posts/dbd/">为常用指令配置别名</a></h3><pre><code class="shell">#用于输出git提交日志
-alias git-log=&#39;git log --pretty=oneline --all --graph --abbrev-commit&#39; 
-#用于输出当前目录所有文件及基本信息
-alias ll=&#39;ls -al&#39;
-</code></pre>
-<p>命令形式:git log [option]<br>options<br>–all 显示所有分支<br>–pretty&#x3D;oneline 将提交信息显示为一行<br>–abbrev-commit 使得输出的commitId更简短<br>–graph 以图的形式显示</p>
-<p>git log –all –pretty&#x3D;oneline –abbrev-commit –graph</p>
-<h3 id="解决GitBash乱码问题"><a href="#解决GitBash乱码问题" class="headerlink" title="解决GitBash乱码问题"></a>解决GitBash乱码问题</h3><p>执行<code>git config --global core.quotepath false</code></p>
-<p>${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行<br><code>export LANG=&quot;zh_CN.UTF-8&quot;</code><br><code>export LC_ALL=&quot;zh_CN.UTF-8&quot;</code></p>
-<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p><code>cd</code> 项目目录下（或者新建一个空目录） <code>git init</code><br><code>ls -al</code> 可发现生成的<code>.git</code>文件夹</p>
-<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a><a target="_blank" rel="noopener" href="https://zx.js.cool/posts/3b9/">Git常用命令</a></h3><h3 id="需要用到的linux命令"><a href="#需要用到的linux命令" class="headerlink" title="需要用到的linux命令"></a>需要用到的linux命令</h3><ul>
-<li>ls&#x2F;ll 查看当前目录</li>
-<li>cat 查看文件内容</li>
-<li>touch 创建文件</li>
-<li>vi vi编辑器(使用vi编辑器是为了方便展示效果，学员可以记事本、editPlus、notPad++等其它编 辑器)</li>
-</ul>
-<h3 id="添加文件至忽略列表"><a href="#添加文件至忽略列表" class="headerlink" title="添加文件至忽略列表"></a>添加文件至忽略列表</h3><p><code>cd</code> 工作目录下 <code>vim .gitignore</code> </p>
-<p>示例</p>
-<pre><code class="shell"># no .a files
-*.a
-# but do track lib.a, even though you&#39;re ignoring .a files above
-!lib.a
-# only ignore the TODO file in the current directory, not subdir/TODO
-/TODO
-# ignore all files in the build/ directory
-build/
-# ignore doc/notes.txt, but not doc/server/arch.txt
-doc/*.txt
-# ignore all .pdf files in the doc/ directory
-doc//*.pdf
-</code></pre>
+        <h3 id="查看本地分支"><a href="#查看本地分支" class="headerlink" title="查看本地分支"></a>查看本地分支</h3><p><code>git branch</code> 查看当前所在分支，加上<code>-a</code>查看所有</p>
+<h3 id="创建本地分支"><a href="#创建本地分支" class="headerlink" title="创建本地分支"></a>创建本地分支</h3><p><code>git branch 分支名</code></p>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><p><code>git checkout 分支名</code> 切换分支，<br><code>git checkout -b 分支名</code> 在一个分支的基础上，创建并切换分支<br><code>git checkout -b 分支名 origin/分支名</code> 拉取新分支-本地没有但是线上有的分支</p>
+<h3 id="合并分支（merge）"><a href="#合并分支（merge）" class="headerlink" title="合并分支（merge）"></a>合并分支（merge）</h3><p><code>git merge 某分支名称</code> 当前所在分支合并到某分支</p>
+<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><p><code>git branch -d 分支名</code> 删除分支时，需要做各种检查<br><code>git branch -D 分支名</code> 不做任何检查 强制删除</p>
 <h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>当两个分支上对文件的修改可能会存在冲突，例如同时修改了同一个文件的同一行，这时就需要手动解<br>决冲突，解决冲突步骤如下:</p>
 <ol>
 <li>处理文件中冲突的地方</li>
@@ -2461,7 +2448,7 @@ doc//*.pdf
 <li>提交到仓库(commit)</li>
 </ol>
 <p>冲突部分的内容处理如下所示:</p>
-<p><img src="https://s2.loli.net/2022/07/24/bjl4JLCGsP65BNr.png"></p>
+<p><img src="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png"></p>
 <h3 id="开发中分支使用原则与流程"><a href="#开发中分支使用原则与流程" class="headerlink" title="开发中分支使用原则与流程"></a>开发中分支使用原则与流程</h3><ul>
 <li>master (生产) 分支<br>线上分支，主分支，中小规模项目作为线上运行的应用对应的分支;</li>
 <li>develop(开发)分支<br>是从master创建的分支，一般作为开发部门的主要开发分支，如果没有其他并行开发不同期上线 要求，都可以在此版本进行开发，阶段开发完成后，需要是合并到master分支,准备上线。</li>
@@ -2469,8 +2456,8 @@ doc//*.pdf
 <li>hotfix&#x2F;xxxx分支，<br>从master派生的分支，一般作为线上bug修复使用，修复完成后需要合并到master、test、 develop分支。</li>
 <li>还有一些其他分支，在此不再详述，例如test分支(用于代码测试)、pre分支(预上线分支)等 等。</li>
 </ul>
-<p><img src="https://s2.loli.net/2022/07/24/dlD6b3I4m5H1PNs.png"></p>
-
+<p><img src="https://s2.loli.net/2022/07/24/TuCxYwosXHdyLlD.png"></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
     </div>
