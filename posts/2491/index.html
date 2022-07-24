@@ -6,19 +6,20 @@
   <meta name="keywords" content="">
   <meta name="description" content="Hexo安装配置 | zhangxinの随笔">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Git工作流程图 命令如下  clone(克隆): 从远程仓库中克隆代码到本地仓库 checkout (检出):从本地仓库中检出一个仓库分支然后进行修订 add(添加): 在提交前先将代码提交到暂存区 commit(提交): 提交到本地仓库。本地仓库中保存修改的各个历史版本 fetch (抓取) : 从远程库，抓取到本地仓库，不进行任何的合并动作，一般操作比较少。 pull (拉取) : 从远程库">
+<meta name="description" content="查看本地分支git branch 查看当前所在分支，加上-a查看所有 创建本地分支git branch 分支名 切换分支git checkout 分支名 切换分支，git checkout -b 分支名 在一个分支的基础上，创建并切换分支git checkout -b 分支名 origin&#x2F;分支名 拉取新分支-本地没有但是线上有的分支 合并分支（merge）git merge 某分支名称 当前所在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git工作流程图">
-<meta property="og:url" content="http://example.com/posts/f4a4/index.html">
+<meta property="og:title" content="Git分支操作">
+<meta property="og:url" content="http://example.com/posts/c008/index.html">
 <meta property="og:site_name" content="zhangxinの随笔">
-<meta property="og:description" content="Git工作流程图 命令如下  clone(克隆): 从远程仓库中克隆代码到本地仓库 checkout (检出):从本地仓库中检出一个仓库分支然后进行修订 add(添加): 在提交前先将代码提交到暂存区 commit(提交): 提交到本地仓库。本地仓库中保存修改的各个历史版本 fetch (抓取) : 从远程库，抓取到本地仓库，不进行任何的合并动作，一般操作比较少。 pull (拉取) : 从远程库">
+<meta property="og:description" content="查看本地分支git branch 查看当前所在分支，加上-a查看所有 创建本地分支git branch 分支名 切换分支git checkout 分支名 切换分支，git checkout -b 分支名 在一个分支的基础上，创建并切换分支git checkout -b 分支名 origin&#x2F;分支名 拉取新分支-本地没有但是线上有的分支 合并分支（merge）git merge 某分支名称 当前所在">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/24/dGcpN2ZwnzXjst4.png">
-<meta property="article:published_time" content="2022-07-24T07:25:24.000Z">
-<meta property="article:modified_time" content="2022-07-24T07:40:06.315Z">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/TuCxYwosXHdyLlD.png">
+<meta property="article:published_time" content="2022-07-24T07:27:50.000Z">
+<meta property="article:modified_time" content="2022-07-24T07:36:37.716Z">
 <meta property="article:author" content="zx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/24/dGcpN2ZwnzXjst4.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/24/DbjXOrt4UgdELcn.png">
 
 
 <link rel="icon" href="/img/zotero.ico">
@@ -2001,19 +2002,19 @@
         
         
         <a  class="全部文章 Java "
-           href="/posts/4ea0/"
+           href="/posts/9f25/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Java">Java</span>
+            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
         
         <a  class="全部文章 Java "
-           href="/posts/9f25/"
+           href="/posts/4ea0/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《EffectiveJava》读书笔记">《EffectiveJava》读书笔记</span>
+            <span class="post-title" title="Java">Java</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -2397,7 +2398,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-07-24 16:19:40'>2022-07-12 10:55</time>
+            发布时间 : <time class="date" title='最后更新: 2022-07-24 16:26:42'>2022-07-12 10:55</time>
         
     </div>
     <div class="article-meta">
@@ -2529,7 +2530,11 @@ tags:
 ---
 </code></pre>
 <p><code>hexo-theme-3-hexo</code>改动内容把原主题仓库clone到本地，使用对比工具对比</p>
-<h4 id="9-配置git"><a href="#9-配置git" class="headerlink" title="9. 配置git"></a>9. 配置git</h4><p>请参考 <a href="/posts/1910/">git安装配置</a></p>
+<h4 id="9-配置git"><a href="#9-配置git" class="headerlink" title="9. 配置git"></a>9. 配置git</h4><p>请参考 </p>
+<ul>
+<li><a href="/posts/1910/">git安装配置</a></li>
+<li><a href="/posts/2e5a/">Git安装与常用命令</a></li>
+</ul>
 <h4 id="10-备份技巧"><a href="#10-备份技巧" class="headerlink" title="10. 备份技巧"></a>10. 备份技巧</h4><p>把blog目录进行github备份<a href="/posts/75b/">本地项目上传GitHub</a></p>
 <p><a href="/posts/dbd/">为常用指令配置别名</a></p>
 <pre><code class="shell">alias hs=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#39;
