@@ -6,22 +6,19 @@
   <meta name="keywords" content="">
   <meta name="description" content="Git安装与常用命令 | zhangxinの随笔">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="ls&#x2F;ll 查看当前目录 cat 查看文件内容 touch 创建文件 vi vi编辑器(使用vi编辑器是为了方便展示效果，学员可以记事本、editPlus、notPad++等其它编 辑器)  下载与安装下载地址: https:&#x2F;&#x2F;git-scm.com&#x2F;download  下载完成后可以得到如下安装文件: Git-2.20.1-64-bit.exe 双击下载的安装文件来安装Git。安装">
+<meta name="description" content="Git工作流程图 命令如下  clone(克隆): 从远程仓库中克隆代码到本地仓库 checkout (检出):从本地仓库中检出一个仓库分支然后进行修订 add(添加): 在提交前先将代码提交到暂存区 commit(提交): 提交到本地仓库。本地仓库中保存修改的各个历史版本 fetch (抓取) : 从远程库，抓取到本地仓库，不进行任何的合并动作，一般操作比较少。 pull (拉取) : 从远程库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git安装与常用命令">
-<meta property="og:url" content="http://example.com/posts/2e5a/index.html">
+<meta property="og:title" content="Git工作流程图">
+<meta property="og:url" content="http://example.com/posts/f4a4/index.html">
 <meta property="og:site_name" content="zhangxinの随笔">
-<meta property="og:description" content="ls&#x2F;ll 查看当前目录 cat 查看文件内容 touch 创建文件 vi vi编辑器(使用vi编辑器是为了方便展示效果，学员可以记事本、editPlus、notPad++等其它编 辑器)  下载与安装下载地址: https:&#x2F;&#x2F;git-scm.com&#x2F;download  下载完成后可以得到如下安装文件: Git-2.20.1-64-bit.exe 双击下载的安装文件来安装Git。安装">
+<meta property="og:description" content="Git工作流程图 命令如下  clone(克隆): 从远程仓库中克隆代码到本地仓库 checkout (检出):从本地仓库中检出一个仓库分支然后进行修订 add(添加): 在提交前先将代码提交到暂存区 commit(提交): 提交到本地仓库。本地仓库中保存修改的各个历史版本 fetch (抓取) : 从远程库，抓取到本地仓库，不进行任何的合并动作，一般操作比较少。 pull (拉取) : 从远程库">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/Users/zhangxin/Library/Application%20Support/typora-user-images/image-20220724151032727.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/24/ZjbxuwXEfPvnpJO.png">
-<meta property="og:image" content="http://example.com/Users/zhangxin/Library/Application%20Support/typora-user-images/image-20220724151643673.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/24/gXNpCxSRqeJmEaj.png">
-<meta property="article:published_time" content="2022-07-24T07:09:34.000Z">
-<meta property="article:modified_time" content="2022-07-24T07:39:39.640Z">
+<meta property="og:image" content="https://s2.loli.net/2022/07/24/dGcpN2ZwnzXjst4.png">
+<meta property="article:published_time" content="2022-07-24T07:25:24.000Z">
+<meta property="article:modified_time" content="2022-07-24T07:40:06.315Z">
 <meta property="article:author" content="zx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/Users/zhangxin/Library/Application%20Support/typora-user-images/image-20220724151032727.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/07/24/dGcpN2ZwnzXjst4.png">
 
 
 <link rel="icon" href="/img/zotero.ico">
@@ -2030,11 +2027,11 @@
         </a>
         
         
-        <a  class="全部文章 面试题 "
-           href="/posts/6695/"
+        <a  class="全部文章 数据库 "
+           href="/posts/d820/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="数据结构与算法-5-数组">数据结构与算法-5-数组</span>
+            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -2048,11 +2045,11 @@
         </a>
         
         
-        <a  class="全部文章 数据库 "
-           href="/posts/d820/"
+        <a  class="全部文章 面试题 "
+           href="/posts/6695/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="《MySQL必知必会》读书笔记">《MySQL必知必会》读书笔记</span>
+            <span class="post-title" title="数据结构与算法-5-数组">数据结构与算法-5-数组</span>
             <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
         </a>
         
@@ -2076,19 +2073,19 @@
         
         
         <a  class="全部文章 Hexo "
-           href="/posts/3eeb/"
+           href="/posts/2491/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-title" title="Hexo安装配置">Hexo安装配置</span>
             <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
         </a>
         
         
         <a  class="全部文章 Hexo "
-           href="/posts/2491/"
+           href="/posts/3eeb/"
            data-tag=""
            data-author="" >
-            <span class="post-title" title="Hexo安装配置">Hexo安装配置</span>
+            <span class="post-title" title="Hello World">Hello World</span>
             <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
         </a>
         
@@ -2400,7 +2397,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-07-24 15:39:39'>2022-07-24 15:09</time>
+            发布时间 : <time class="date" title='最后更新: 2022-07-24 16:18:48'>2022-07-24 15:09</time>
         
     </div>
     <div class="article-meta">
@@ -2454,10 +2451,10 @@
 <p>Git GUI:Git提供的图形界面工具</p>
 <p>Git Bash:Git提供的命令行工具</p>
 <p>当安装Git后首先要做的事情是设置用户名称和email地址。这是非常重要的，因为每次Git提交都会使用 该用户信息</p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#x78;&#64;&#122;&#120;&#x2e;&#106;&#115;&#x2e;&#99;&#x6f;&#x6f;&#108;">&#x7a;&#x78;&#64;&#122;&#120;&#x2e;&#106;&#115;&#x2e;&#99;&#x6f;&#x6f;&#108;</a>”</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#120;&#64;&#x7a;&#x78;&#46;&#x6a;&#115;&#x2e;&#99;&#x6f;&#111;&#x6c;">&#x7a;&#120;&#64;&#x7a;&#x78;&#46;&#x6a;&#115;&#x2e;&#99;&#x6f;&#111;&#x6c;</a>”</p>
 <p>查看配置信息<br>git config –global user.name<br>git config –global user.email</p>
-<h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a target="_blank" rel="noopener" href="https://zx.js.cool/posts/dbd/">为常用指令配置别名</a></h3><pre><code class="shell">#用于输出git提交日志
-alias git-log=&#39;git log --pretty=oneline --all --graph --abbrev-commit&#39; 
+<h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a href="/posts/dbd/">为常用指令配置别名</a></h3><pre><code class="shell">#用于输出git提交日志
+alias git-log=&#39;git log --pretty=oneline --all --graph --abbrev-commit&#39;
 #用于输出当前目录所有文件及基本信息
 alias ll=&#39;ls -al&#39;
 </code></pre>
@@ -2465,10 +2462,10 @@ alias ll=&#39;ls -al&#39;
 <p>git log –all –pretty&#x3D;oneline –abbrev-commit –graph</p>
 <h3 id="解决GitBash乱码问题"><a href="#解决GitBash乱码问题" class="headerlink" title="解决GitBash乱码问题"></a>解决GitBash乱码问题</h3><p>执行<code>git config --global core.quotepath false</code></p>
 <p>${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行<br><code>export LANG=&quot;zh_CN.UTF-8&quot;</code><br><code>export LC_ALL=&quot;zh_CN.UTF-8&quot;</code></p>
-<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>要使用Git对我们的代码进行版本控制，首先需要获得本地仓库 </p>
-<p>1)在电脑的任意位置创建一个空目录(例如test)作为我们的本地Git仓库 </p>
+<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>要使用Git对我们的代码进行版本控制，首先需要获得本地仓库</p>
+<p>1)在电脑的任意位置创建一个空目录(例如test)作为我们的本地Git仓库</p>
 <p>2)进入这个目录中，点击右键打开Git bash窗口</p>
-<p>3)执行命令git init </p>
+<p>3)执行命令git init</p>
 <p>4)如果创建成功后可在文件夹下看到隐藏的.git目录。</p>
 <p><img src="/Users/zhangxin/Library/Application%20Support/typora-user-images/image-20220724151643673.png" alt="image-20220724151643673"></p>
 <h3 id="基础操作指令"><a href="#基础操作指令" class="headerlink" title="基础操作指令"></a>基础操作指令</h3><p>Git工作目录下对于文件的<strong>修改</strong>(增加、删除、更新)会存在几个状态，这些<strong>修改</strong>的状态会随着我们执行Git 的命令而发生变化。</p>
@@ -2479,24 +2476,24 @@ alias ll=&#39;ls -al&#39;
 <li>git commit (暂存区 –&gt; 本地仓库)</li>
 </ol>
 <h3 id="查看修改的状态（status"><a href="#查看修改的状态（status" class="headerlink" title="查看修改的状态（status)"></a>查看修改的状态（status)</h3><ul>
-<li>作用:查看的修改的状态(暂存区、工作区) </li>
+<li>作用:查看的修改的状态(暂存区、工作区)</li>
 <li>命令形式:git status</li>
 </ul>
 <h3 id="添加工作区到暂存区-add"><a href="#添加工作区到暂存区-add" class="headerlink" title="添加工作区到暂存区(add)"></a>添加工作区到暂存区(add)</h3><ul>
-<li>作用:添加工作区一个或多个文件的修改到暂存区 </li>
+<li>作用:添加工作区一个或多个文件的修改到暂存区</li>
 <li>命令形式:git add 单个文件名|通配符<br>将所有修改加入暂存区:git add .</li>
 </ul>
 <h3 id="提交暂存区到本地仓库-commit"><a href="#提交暂存区到本地仓库-commit" class="headerlink" title="提交暂存区到本地仓库(commit)"></a>提交暂存区到本地仓库(commit)</h3><ul>
-<li>作用:提交暂存区内容到本地仓库的当前分支 </li>
+<li>作用:提交暂存区内容到本地仓库的当前分支</li>
 <li>命令形式:git commit -m ‘注释内容’</li>
 </ul>
 <h3 id="查看提交日志-log"><a href="#查看提交日志-log" class="headerlink" title="查看提交日志(log)"></a>查看提交日志(log)</h3><ul>
-<li>作用:查看提交记录 </li>
+<li>作用:查看提交记录</li>
 <li>命令形式:git log [option]<ul>
 <li>options<ul>
 <li>–all 显示所有分支</li>
-<li>–pretty&#x3D;oneline 将提交信息显示为一行 </li>
-<li>–abbrev-commit 使得输出的commitId更简短 </li>
+<li>–pretty&#x3D;oneline 将提交信息显示为一行</li>
+<li>–abbrev-commit 使得输出的commitId更简短</li>
 <li>–graph 以图的形式显示</li>
 </ul>
 </li>
@@ -2505,10 +2502,10 @@ alias ll=&#39;ls -al&#39;
 </ul>
 <h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ul>
 <li>作用:版本切换</li>
-<li>命令形式:git reset –hard commitID<br>commitID 可以使用 git-log 或 git log 指令查看 </li>
+<li>命令形式:git reset –hard commitID<br>commitID 可以使用 git-log 或 git log 指令查看</li>
 <li>如何查看已经删除的记录?<br>git reflog<br>这个指令可以看到已经删除的提交记录</li>
 </ul>
-<h3 id="添加文件至忽略列表"><a href="#添加文件至忽略列表" class="headerlink" title="添加文件至忽略列表"></a>添加文件至忽略列表</h3><p><code>cd</code> 工作目录下 <code>vim .gitignore</code> </p>
+<h3 id="添加文件至忽略列表"><a href="#添加文件至忽略列表" class="headerlink" title="添加文件至忽略列表"></a>添加文件至忽略列表</h3><p><code>cd</code> 工作目录下 <code>vim .gitignore</code></p>
 <p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动 生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录 中创建一个名为 .gitignore 的文件(文件名称固定)，列出要忽略的文件模式。</p>
 <p>示例</p>
 <pre><code class="shell"># no .a files
