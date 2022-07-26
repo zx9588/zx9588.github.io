@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>macos挂载阿里云盘当做本地盘 | zhangxinの随笔</title>
+  <title>解决使用git遇到的：Enter passphrase for key &#39;/Users/zhangxin/.ssh/id_rsa&#39; | zhangxinの随笔</title>
   <meta name="keywords" content="">
-  <meta name="description" content="macos挂载阿里云盘当做本地盘 | zhangxinの随笔">
+  <meta name="description" content="解决使用git遇到的：Enter passphrase for key &#39;/Users/zhangxin/.ssh/id_rsa&#39; | zhangxinの随笔">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -2406,9 +2406,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-软件安装/macos挂载阿里云盘当做本地盘" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Git/Enter-passphrase问题" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">macos挂载阿里云盘当做本地盘</h1>
+        <h1 class="article-title">解决使用git遇到的：Enter passphrase for key &#39;/Users/zhangxin/.ssh/id_rsa&#39;</h1>
     
     <div class="article-meta">
         
@@ -2418,7 +2418,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="软件安装">软件安装</a>
+            <a  data-rel="Git">Git</a>
             
         </span>
         
@@ -2426,7 +2426,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-07-26 10:40:59'>2022-07-14 17:43</time>
+            发布时间 : <time class="date" title='最后更新: 2022-07-26 10:59:35'>2022-07-26 10:53</time>
         
     </div>
     <div class="article-meta">
@@ -2464,25 +2464,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'></div></p>
-<p>登录<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive">阿里云盘网页版</a> 获取token<br>F12 -&gt; Application -&gt; Storage -&gt; Local Storage -&gt; token -&gt; refresh_token</p>
-<p>方式1 <a target="_blank" rel="noopener" href="https://www.voidking.com/hobby-macos-mount-aliyundrive/">https://www.voidking.com/hobby-macos-mount-aliyundrive/</a></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/zxbu/webdav-aliyundriver">https://github.com/zxbu/webdav-aliyundriver</a><br>jar包下载：<a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iC6fd07xm67g">https://wws.lanzoub.com/iC6fd07xm67g</a><br><code>java -jar webdav-aliyundriver.jar --aliyundrive.refresh-token=&quot;your refreshToken&quot;</code></li>
-</ul>
-<p>方式2 使用docker</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://gitee.com/mirrors/webdav-aliyundriver">https://gitee.com/mirrors/webdav-aliyundriver</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sqsgoodluck/p/16433201.html">https://www.cnblogs.com/sqsgoodluck/p/16433201.html</a><br><code>docker pull outcastveron/webdav-aliyundriver</code></li>
-</ul>
-<pre><code class="shell">  docker run -d --name=webdav-aliyundriver --restart=always -p 8080:8080  -v /etc/localtime:/etc/localtime -v /etc/aliyun-driver/:/etc/aliyun-driver/ -e TZ=&quot;Asia/Shanghai&quot; -e ALIYUNDRIVE_REFRESH_TOKEN=&quot;Token值&quot; -e ALIYUNDRIVE_AUTH_PASSWORD=&quot;password&quot; -e JAVA_OPTS=&quot;-Xmx1g&quot; yuanhaishan/webdav-aliyundriver:v2.4.0
+        <p>创建SSH Key</p>
+<p><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<p>在生成SSH Key时，如果不小心设置了passphrase，使用SSH协议克隆远程仓库时，在每次git pull和git push时都会提示<br><code>Enter passphrase for key &#39;/Users/zhangxiaoxue/.ssh/id_rsa&#39;</code>，<br>每次都要手动输入密码才能继续操作，可以在命令行输入sh-keygen -p进行重新设置，直接回车输入为空，就没有密码了。</p>
+<pre><code class="shell">zhangxiaoxue@MacBook-Pro learn-git % ssh-keygen -p
+Enter file in which the key is (/Users/zhangxiaoxue/.ssh/id_rsa):
+Enter old passphrase:
+Key has comment &#39;sybil3904@163.com&#39;
+Enter new passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved with the new passphrase.
 </code></pre>
-<blockquote>
-<p>&#x2F;etc&#x2F;aliyun-driver&#x2F; 挂载卷自动维护了最新的refreshToken，建议挂载<br>ALIYUNDRIVE_AUTH_PASSWORD 是admin账户的密码，建议修改<br>JAVA_OPTS 可修改最大内存占用，比如 -e JAVA_OPTS&#x3D;”-Xmx512m” 表示最大内存限制为512m</p>
-</blockquote>
-<blockquote>
-<p>参数说明<br>ALIYUNDRIVE_REFRESH_TOKEN        私人token值<br>ALIYUNDRIVE_AUTH_PASSWORD        后续登录所需的密码<br>yuanhaishan&#x2F;webdav-aliyundriver:v2.4.0     docker仓库的地址，zx5253不再开源，此为一个用户备份的镜像<br>-p		端口号，设置时需要避开设备中已存在的服务端口号</p>
-</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
