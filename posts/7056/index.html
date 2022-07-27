@@ -1,1001 +1,508 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
 <head>
-  <meta charset="utf-8">
-  <title>计算机网络 | zhangxinの随笔</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="计算机网络 | zhangxinの随笔">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
-<meta property="og:site_name" content="zhangxinの随笔">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-25T02:58:47.000Z">
-<meta property="article:modified_time" content="2022-07-25T02:58:47.077Z">
-<meta property="article:author" content="zx">
-<meta name="twitter:card" content="summary">
+    <meta charset="utf-8">
+    <meta name="keywords" content="计算机网络, zhangxinの随笔">
+    <meta name="description" content="[toc]
+1.1 请介绍七层网络体系结构。参考回答
+
+为什么分七层
+支持异构网络的互联互通。
+
+七层分别负责的内容（功能）
+OSI 模型把网络通信的工作分为 7 层，从下到上分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-<link rel="icon" href="/img/zotero.ico">
+    
 
-<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+    <title>计算机网络 | zhangxinの随笔</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/zotero.ico">
 
-<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
-
-<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
-<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
-
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="/js/titleTip.js?v=1.1.0" ></script>
-
-<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-
-<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-
-
-
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
-
-<script src="/js/iconfont.js?v=1.1.0" ></script>
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 6.2.0"></head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="">
-  <input class="theme_blog_path" value="">
-  <input id="theme_shortcut" value="true" />
-  <input id="theme_highlight_on" value="true" />
-  <input id="theme_code_copy" value="true" />
-</div>
-
 
 
 <body>
-<aside class="nav">
-    <div class="nav-left">
-        <a href="/"
-   class="avatar_target">
-    <img class="avatar"
-         src="/img/dino.ico"/>
-</a>
-<div class="author">
-    <span>zx</span>
-</div>
-
-<div class="icon">
-    
-        
-            <a title="rss"
-               href="/atom.xml"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-rss"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="github"
-               href="https://github.com/zx20219898"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-github"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="facebook"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-facebook"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-    
-        
-            <a title="instagram"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-instagram"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="reddit"
-               href="https://www.reddit.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-reddit"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="weibo"
-               href="http://weibo.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-weibo"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="jianshu"
-               href="https://www.jianshu.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-jianshu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="zhihu"
-               href="https://www.zhihu.com/people/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-zhihu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="oschina"
-               href="https://my.oschina.net/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-oschina"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="email"
-               href="mailto:1205362172@qq.com"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-email"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="qq"
-               href="http://wpa.qq.com/msgrd?v=3&uin=1205362172&site=qq&menu=yes"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-qq"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="kugou"
-               href="https://www.kugou.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-kugou"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="neteasemusic"
-               href="https://music.163.com/#/my/m/music/playlist?id=5214265361"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-neteasemusic"></use>
-                    </svg>
-                
-            </a>
-        
-    
-</div>
-
-
-
-
-<ul>
-    <li>
-        <div class="all active" data-rel="全部文章">全部文章
-            
-                <small>(61)</small>
-            
-        </div>
-    </li>
-    
-        
-            
-                <li>
-                    <div data-rel="面试题">
-                        
-                        面试题
-                        <small>(38)</small>
-                        
-                    </div>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
                     
-                </li>
-            
-        
-    
-        
-            
-                <li>
-                    <div data-rel="教程">
-                        
-                        教程
-                        <small>(18)</small>
-                        
-                    </div>
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                </li>
+                    <span class="logo-span">zhangxinの随笔</span>
+                </a>
+            </div>
             
-        
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
     
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
 </ul>
-<div class="left-bottom">
-    <div class="menus">
-        
-            
-            
-            
-    </div>
-    <div>
-        
-        <a 
-                                           class="friends">友链</a>
-        
-    </div>
-</div>
-<input type="hidden" id="yelog_site_posts_number" value="61">
 
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
-</div>
 
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        友情链接
-        <i class="iconfont icon-left"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">zhangxinの随笔</div>
+        <div class="logo-desc">
             
-            <li><a target="_blank" href="https://hexo.io">Hexo</a></li>
+            Never really desperate, only the lost of the soul.
             
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
-            
-            <li><a target="_blank" href="https://butterfly.js.org/">Butterfly</a></li>
-            
-            <li><a target="_blank" href="https://blinkfox.github.io/">闪烁之狐</a></li>
-            
-            <li><a target="_blank" href="https://www.eg3.cn/">Meng</a></li>
-            
-            <li><a target="_blank" href="https://www.antmoe.com/categories/">小康博客</a></li>
-            
-            <li><a target="_blank" href="https://vlts.cn/categories/">小嘉的部落格</a></li>
-            
-            <li><a target="_blank" href="https://codeppx.gitee.io/myblog/">Code皮皮虾</a></li>
-            
-            <li><a target="_blank" href="https://www.fangshitao.top/">Wind</a></li>
-            
-            <li><a target="_blank" href="https://www.emoao.com">繁星</a></li>
-            
-            <li><a target="_blank" href="https://12580code.com/">12580code</a></li>
-            
-            <li><a target="_blank" href="https://zzzmh.cn">zzzmh</a></li>
-            
-        </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <div class="right-top">
-        <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
-            <div class="right-title">全部文章</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
-        </div>
-        <div id="search-panel">
-            <i class="iconfont icon-left" data-title="返回"></i>
-            <input id="local-search-input" autocomplete="off"/>
-            <label class="border-line" for="input"></label>
-            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
-            <i class="iconfont icon-tag" data-title="标签"></i>
-        </div>
-        <div id="outline-panel" style="display: none">
-            <div class="right-title">大纲</div>
-            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
         </div>
     </div>
 
-    <div class="tags-list">
-    <input id="tag-search" />
-    <div class="tag-wrapper">
+    <ul class="menu-list mobile-menu-list">
         
-    </div>
-
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zx20219898/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 </div>
 
-    
-    <div id="local-search-result">
-
-    </div>
-    
-    <nav id="title-list-nav">
-        
-        
-        <a id="top" class="全部文章 "
-           href="/posts/10f3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="1. 随手拍">1. 随手拍</span>
-            <span class="post-date" title="2022-07-23 18:56:56">2022/07/23</span>
-        </a>
-        
-        
-        <a id="top" class="全部文章 "
-           href="/posts/2f9/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="2. 快捷键">2. 快捷键</span>
-            <span class="post-date" title="2022-07-15 16:35:00">2022/07/15</span>
-        </a>
-        
-        
-        <a id="top" class="全部文章 "
-           href="/posts/f687/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="3. 在线工具+资源">3. 在线工具+资源</span>
-            <span class="post-date" title="2022-07-22 22:19:00">2022/07/22</span>
-        </a>
-        
-        
-        <a id="top" class="全部文章 "
-           href="/posts/30c3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="4. 网络解决方案">4. 网络解决方案</span>
-            <span class="post-date" title="2022-07-27 09:23:58">2022/07/27</span>
-        </a>
-        
-        
-        <a id="top" class="全部文章 "
-           href="/posts/8b3a/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="5. 书籍收藏">5. 书籍收藏</span>
-            <span class="post-date" title="2022-07-23 10:14:58">2022/07/23</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/15f3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java语言-教程">Java语言-教程</span>
-            <span class="post-date" title="2022-07-27 09:08:17">2022/07/27</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/7c78/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java设计模式-教程">Java设计模式-教程</span>
-            <span class="post-date" title="2022-07-26 22:23:51">2022/07/26</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/1c28/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="MySQL-教程">MySQL-教程</span>
-            <span class="post-date" title="2022-07-26 22:11:55">2022/07/26</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/9e31/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Git-教程">Git-教程</span>
-            <span class="post-date" title="2022-07-26 20:21:12">2022/07/26</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/f5f4/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Homebrew-教程">Homebrew-教程</span>
-            <span class="post-date" title="2022-07-25 15:31:39">2022/07/25</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/3715/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Spring-教程">Spring-教程</span>
-            <span class="post-date" title="2022-07-23 13:23:09">2022/07/23</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/1319/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Linux-教程">Linux-教程</span>
-            <span class="post-date" title="2022-07-23 10:01:22">2022/07/23</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/f7b0/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="SSH工具-教程">SSH工具-教程</span>
-            <span class="post-date" title="2022-07-15 17:05:04">2022/07/15</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/738/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Docker-教程">Docker-教程</span>
-            <span class="post-date" title="2022-07-15 16:50:31">2022/07/15</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/fb3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="阿里云盘-教程">阿里云盘-教程</span>
-            <span class="post-date" title="2022-07-14 17:43:48">2022/07/14</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/dcb7/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Typora-教程">Typora-教程</span>
-            <span class="post-date" title="2022-07-14 16:41:41">2022/07/14</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/62b7/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Tampermonkey-教程">Tampermonkey-教程</span>
-            <span class="post-date" title="2022-07-13 20:56:14">2022/07/13</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/7cbe/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="vpn-教程">vpn-教程</span>
-            <span class="post-date" title="2022-07-12 15:45:37">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/f169/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Parallels-教程">Parallels-教程</span>
-            <span class="post-date" title="2022-07-12 15:42:17">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/1205/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Navicat-教程">Navicat-教程</span>
-            <span class="post-date" title="2022-07-12 13:22:26">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/b524/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="UML">UML</span>
-            <span class="post-date" title="2022-07-12 11:02:08">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/5666/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="场景题">场景题</span>
-            <span class="post-date" title="2022-07-12 11:01:47">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a2d2/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="设计模式">设计模式</span>
-            <span class="post-date" title="2022-07-12 11:01:28">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a013/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-9-高级算法">数据结构与算法-9-高级算法</span>
-            <span class="post-date" title="2022-07-12 10:58:12">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/e885/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-8-队列">数据结构与算法-8-队列</span>
-            <span class="post-date" title="2022-07-12 10:58:05">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/35cc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-7-堆栈">数据结构与算法-7-堆栈</span>
-            <span class="post-date" title="2022-07-12 10:57:41">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/9e5a/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-6-排序">数据结构与算法-6-排序</span>
-            <span class="post-date" title="2022-07-12 10:55:26">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/3879/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Elasticsearch-教程">Elasticsearch-教程</span>
-            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/6695/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-5-数组">数据结构与算法-5-数组</span>
-            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/3e4/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-4-链表">数据结构与算法-4-链表</span>
-            <span class="post-date" title="2022-07-12 10:55:16">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/4d1f/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-3-遍历">数据结构与算法-3-遍历</span>
-            <span class="post-date" title="2022-07-12 10:55:11">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/2491/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hexo-教程">Hexo-教程</span>
-            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/40cc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="PicGo-教程">PicGo-教程</span>
-            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/bf96/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-2-树">数据结构与算法-2-树</span>
-            <span class="post-date" title="2022-07-12 10:55:05">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/30b1/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据结构与算法-1-哈希">数据结构与算法-1-哈希</span>
-            <span class="post-date" title="2022-07-12 10:54:59">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/437/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="操作系统">操作系统</span>
-            <span class="post-date" title="2022-07-12 10:53:44">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/7056/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="计算机网络">计算机网络</span>
-            <span class="post-date" title="2022-07-12 10:53:33">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a3a7/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="分布式">分布式</span>
-            <span class="post-date" title="2022-07-12 10:52:23">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/55df/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="中间件-5-Netty">中间件-5-Netty</span>
-            <span class="post-date" title="2022-07-12 10:51:08">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/9aaa/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="中间件-4-Kafka">中间件-4-Kafka</span>
-            <span class="post-date" title="2022-07-12 10:51:07">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/1740/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="中间件-3-搜索引擎">中间件-3-搜索引擎</span>
-            <span class="post-date" title="2022-07-12 10:51:06">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/8cef/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="中间件-2-消息队列">中间件-2-消息队列</span>
-            <span class="post-date" title="2022-07-12 10:50:51">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/c5c3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="中间件-1-Redis">中间件-1-Redis</span>
-            <span class="post-date" title="2022-07-12 10:50:39">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/f1a6/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-7-Dubbo">web开发-7-Dubbo</span>
-            <span class="post-date" title="2022-07-12 10:49:59">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/e80/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-6-ZooKeeper">web开发-6-ZooKeeper</span>
-            <span class="post-date" title="2022-07-12 10:49:58">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/b0ae/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-5-其他">web开发-5-其他</span>
-            <span class="post-date" title="2022-07-12 10:49:57">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/29a9/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-4-MyBatis">web开发-4-MyBatis</span>
-            <span class="post-date" title="2022-07-12 10:49:56">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/cc91/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-3-SpringMVC">web开发-3-SpringMVC</span>
-            <span class="post-date" title="2022-07-12 10:49:04">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/1a4b/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-2-Spring">web开发-2-Spring</span>
-            <span class="post-date" title="2022-07-12 10:49:03">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/953b/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="web开发-1-SpringBoot">web开发-1-SpringBoot</span>
-            <span class="post-date" title="2022-07-12 10:49:02">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a25f/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据库-6-其他">数据库-6-其他</span>
-            <span class="post-date" title="2022-07-12 10:48:20">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/bbcc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据库-5-优化">数据库-5-优化</span>
-            <span class="post-date" title="2022-07-12 10:48:19">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/162d/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据库-4-锁">数据库-4-锁</span>
-            <span class="post-date" title="2022-07-12 10:48:14">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/6382/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据库-3-事务">数据库-3-事务</span>
-            <span class="post-date" title="2022-07-12 10:46:56">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/7634/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据库-2-索引">数据库-2-索引</span>
-            <span class="post-date" title="2022-07-12 10:46:42">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/3652/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="数据库-1-SQL">数据库-1-SQL</span>
-            <span class="post-date" title="2022-07-12 10:46:32">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/e35d/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java语言-5-JVM">Java语言-5-JVM</span>
-            <span class="post-date" title="2022-07-12 10:34:39">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/4838/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java语言-4-多线程">Java语言-4-多线程</span>
-            <span class="post-date" title="2022-07-12 10:34:21">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/6ef6/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java语言-3-IO">Java语言-3-IO</span>
-            <span class="post-date" title="2022-07-12 10:34:11">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/81f0/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java语言-2-集合类">Java语言-2-集合类</span>
-            <span class="post-date" title="2022-07-12 10:34:00">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/3f44/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Java语言-1-Java基础">Java语言-1-Java基础</span>
-            <span class="post-date" title="2022-07-12 10:33:39">2022/07/12</span>
-        </a>
-        
-        <div id="no-item-tips">
 
         </div>
-    </nav>
-    <div id="outline-list">
-    </div>
-</div>
 
-    </div>
-    <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
-        </div>
-    </div>
-</aside>
-<div id="post">
-    <div class="pjax">
-        <article id="post-面试题/计算机网络" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">计算机网络</h1>
-    
-    <div class="article-meta">
         
-        
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="面试题">面试题</a>
-            
-        </span>
-        
-        
-    </div>
-    <div class="article-meta">
-        
-            发布时间 : <time class="date" title='最后更新: 2022-07-26 10:40:59'>2022-07-12 10:53</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        
-        <span id="busuanzi_container_page_pv">
-            阅读 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E3%80%82"><span class="toc-text">1.1 请介绍七层网络体系结构。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%BA%94%E5%B1%82%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E3%80%82"><span class="toc-text">1.2 请介绍五层网络体系结构。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%8D%8F%E8%AE%AE%E5%90%97%EF%BC%9F%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E9%80%81%E7%BB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%AF%B7%E6%B1%82%EF%BC%8C%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E5%85%B7%E4%BD%93%E7%9A%84%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">1.3 了解网络编程协议吗？客户端发送给服务器的请求，怎么确定具体的协议？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-TCP%E3%80%81HTTP%E3%80%81FTP%E5%88%86%E5%88%AB%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%80%E5%B1%82%EF%BC%9F"><span class="toc-text">1.4 TCP、HTTP、FTP分别属于哪一层？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E8%AE%B2%E4%B8%80%E4%B8%8BTCP-x2F-IP%E5%8D%8F%E8%AE%AE%E3%80%82"><span class="toc-text">1.5 讲一下TCP&#x2F;IP协议。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9ARP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%90%86%E8%A7%A3%E3%80%82"><span class="toc-text">1.6 说一说你对ARP协议的理解。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-IP%E5%8D%8F%E8%AE%AE%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9B%E5%AD%97%E6%AE%B5%EF%BC%9F"><span class="toc-text">1.7 IP协议包含哪些字段？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-%E5%BA%94%E7%94%A8%E5%B1%82%E9%83%BD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">1.8 应用层都包含什么协议？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9-%E5%BA%94%E7%94%A8%E5%B1%82%E6%8A%A5%E6%96%87%E6%80%8E%E4%B9%88%E4%BC%A0%E8%BE%93%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%9F"><span class="toc-text">1.9 应用层报文怎么传输到另一个应用层？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E3%80%82"><span class="toc-text">1.10 介绍一下tcp的三次握手。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-11-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btcp%E7%9A%84%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E3%80%82"><span class="toc-text">1.11 介绍一下tcp的四次挥手。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%9F"><span class="toc-text">1.12 为什么需要四次挥手？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-13-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1ACK%EF%BC%9F"><span class="toc-text">1.13 为什么要有最后一次ACK？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-14-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btcp%E7%B2%98%E5%8C%85%E3%80%81%E6%8B%86%E5%8C%85%E7%9A%84%E6%9C%BA%E5%88%B6%E3%80%82"><span class="toc-text">1.14 介绍一下tcp粘包、拆包的机制。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-15-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BTCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="toc-text">1.15 介绍一下TCP和UDP的区别。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-16-TCP%E5%92%8CUDP%E5%AF%B9%E4%BA%8E%E7%BD%91%E7%BB%9C%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E8%A6%81%E6%B1%82%EF%BC%9F"><span class="toc-text">1.16 TCP和UDP对于网络稳定性有什么要求？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-17-%E5%A6%82%E4%BD%95%E8%AE%A9UDP%E5%8F%AF%E9%9D%A0%E4%B8%80%E4%BA%9B%EF%BC%9F"><span class="toc-text">1.17 如何让UDP可靠一些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-18-TCP%E6%8A%A5%E6%96%87%E9%A6%96%E9%83%A8%E4%B8%AD%E5%BA%8F%E5%8F%B7%E5%8D%A0%E5%A4%9A%E5%B0%91%E5%AD%97%E8%8A%82%EF%BC%9F"><span class="toc-text">1.18 TCP报文首部中序号占多少字节？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-19-TCP%E4%B8%AD%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">1.19 TCP中的缓存有什么作用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-20-%E8%AF%B4%E4%B8%80%E8%AF%B4TCP%E6%98%AF%E6%80%8E%E4%B9%88%E6%8E%A7%E5%88%B6%E6%B5%81%E9%87%8F%E7%9A%84%EF%BC%9F"><span class="toc-text">1.20 说一说TCP是怎么控制流量的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-21-HTTP2-0%E4%B8%ADTCP%E9%98%BB%E5%A1%9E%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">1.21 HTTP2.0中TCP阻塞了怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-22-TCP%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%8F%AF%E9%9D%A0%E6%80%A7%EF%BC%9F"><span class="toc-text">1.22 TCP如何保证可靠性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-23-%E8%AF%B4%E4%B8%80%E8%AF%B4TCP%E9%87%8C%E7%9A%84reset%E7%8A%B6%E6%80%81%E3%80%82"><span class="toc-text">1.23 说一说TCP里的reset状态。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-24-%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8UDP%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%EF%BC%9F"><span class="toc-text">1.24 如何利用UDP实现可靠传输？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-25-%E6%8A%A5%E6%96%87%E4%B9%B1%E5%BA%8F%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">1.25 报文乱序怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-26-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9IP%E5%88%86%E7%B1%BB%E7%9A%84%E4%BA%86%E8%A7%A3%E3%80%82"><span class="toc-text">1.26 说一说你对IP分类的了解。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-27-IP%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E7%B1%BB%EF%BC%9F"><span class="toc-text">1.27 IP为什么要分类？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-28-IPV4%E5%92%8CIPV6%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.28 IPV4和IPV6有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-29-%E8%AF%B4%E4%B8%80%E4%B8%8Bhttp%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="toc-text">1.29 说一下http和https的区别。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-30-https%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E6%B7%B7%E5%90%88%E5%8A%A0%E5%AF%86%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="toc-text">1.30 https为什么采用混合加密机制？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-31-https%E6%94%AF%E6%8C%81%E4%BB%80%E4%B9%88%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="toc-text">1.31 https支持什么加密算法？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-32-%E8%AF%B4%E4%B8%80%E8%AF%B4HTTPS%E7%9A%84%E7%A7%98%E9%92%A5%E4%BA%A4%E6%8D%A2%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.32 说一说HTTPS的秘钥交换过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-33-%E8%AF%B4%E4%B8%80%E8%AF%B4HTTPS%E7%9A%84%E8%AF%81%E4%B9%A6%E8%AE%A4%E8%AF%81%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.33 说一说HTTPS的证书认证过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-34-HTTP%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9%EF%BC%9F"><span class="toc-text">1.34 HTTP请求头中包含什么内容？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-35-HTTP%E6%98%AF%E5%9F%BA%E4%BA%8ETCP%E8%BF%98%E6%98%AFUDP%EF%BC%9F"><span class="toc-text">1.35 HTTP是基于TCP还是UDP？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-36-HTTP1-1%E5%92%8CHTTP2-0%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.36 HTTP1.1和HTTP2.0有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-37-HTTP2-0%E5%92%8CHTTP3-0%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.37 HTTP2.0和HTTP3.0有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-38-%E8%B0%88%E8%B0%88HTTP%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%BC%93%E5%AD%98%E8%BF%87%E6%9C%9F%EF%BC%9F"><span class="toc-text">1.38 谈谈HTTP的缓存机制，服务器如何判断当前缓存过期？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-39-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTP%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E5%92%8C%E7%9F%AD%E8%BF%9E%E6%8E%A5%E3%80%82"><span class="toc-text">1.39 介绍一下HTTP协议中的长连接和短连接。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-40-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTPS%E7%9A%84%E6%B5%81%E7%A8%8B%E3%80%82"><span class="toc-text">1.40 介绍一下HTTPS的流程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-41-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTP%E7%9A%84%E5%A4%B1%E8%B4%A5%E7%A0%81%E3%80%82"><span class="toc-text">1.41 介绍一下HTTP的失败码。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-42-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E7%9F%A5%E9%81%93%E7%9A%84http%E7%8A%B6%E6%80%81%E7%A0%81%E3%80%82"><span class="toc-text">1.42 说一说你知道的http状态码。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-43-301%E5%92%8C302%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.43 301和302有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-44-302%E5%92%8C304%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.44 302和304有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-45-%E8%AF%B7%E6%8F%8F%E8%BF%B0%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.45 请描述一次完整的HTTP请求的过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-46-%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%9F"><span class="toc-text">1.46 什么是重定向？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-47-%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.47 重定向和请求转发有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-48-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BDNS%E5%AF%BB%E5%9D%80%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.48 介绍一下DNS寻址的过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-49-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9TIME-WAIT%E7%9A%84%E7%90%86%E8%A7%A3%E3%80%82"><span class="toc-text">1.49 说一说你对TIME_WAIT的理解。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-50-TIME-WAIT%E3%80%81CLOSE-WAIT%E7%8A%B6%E6%80%81%E5%8F%91%E7%94%9F%E5%9C%A8%E5%93%AA%E4%B8%80%E6%AD%A5%EF%BC%9F"><span class="toc-text">1.50 TIME_WAIT、CLOSE_WAIT状态发生在哪一步？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-51-%E6%9C%89%E5%A4%A7%E9%87%8F%E7%9A%84TIME-WAIT%E7%8A%B6%E6%80%81%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">1.51 有大量的TIME_WAIT状态怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-52-%E8%AF%B7%E4%BB%8B%E7%BB%8Dsocket%E9%80%9A%E4%BF%A1%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%E3%80%82"><span class="toc-text">1.52 请介绍socket通信的具体步骤。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-53-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%80%8E%E4%B9%88%E6%8F%90%E9%AB%98%E5%A4%84%E7%90%86socket%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%80%A7%E8%83%BD%EF%BC%9F"><span class="toc-text">1.53 服务端怎么提高处理socket连接的性能？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-54-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E5%92%8C%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E3%80%82"><span class="toc-text">1.54 介绍一下流量控制和拥塞控制。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-55-%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%90%A6%E6%9C%89%E6%89%80%E4%BA%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">1.55 对路由协议是否有所了解？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-56-%E7%9B%B4%E6%92%AD%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%B0%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">1.56 直播可能需要使用到什么样的协议？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-57-%E8%B0%88%E8%B0%88%E5%8D%95%E5%B7%A5%E3%80%81%E5%8F%8C%E5%B7%A5%E3%80%81%E5%8D%8A%E5%8F%8C%E5%B7%A5%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E3%80%82"><span class="toc-text">1.57 谈谈单工、双工、半双工的通信方式。</span></a></li></ol>
-    
-<style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
-    }
-    .toc-level-6 i,
-    .toc-level-6 ol {
+            <style>
+    .nav-transparent .github-corner {
         display: none !important;
     }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
 </style>
-</div>
+
+<a href="https://github.com/zx20219898/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%83%E5%B1%82%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E3%80%82"><span class="toc-text">1.1 请介绍七层网络体系结构。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%BA%94%E5%B1%82%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E3%80%82"><span class="toc-text">1.2 请介绍五层网络体系结构。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E4%BA%86%E8%A7%A3%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%8D%8F%E8%AE%AE%E5%90%97%EF%BC%9F%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E9%80%81%E7%BB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%AF%B7%E6%B1%82%EF%BC%8C%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E5%85%B7%E4%BD%93%E7%9A%84%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">1.3 了解网络编程协议吗？客户端发送给服务器的请求，怎么确定具体的协议？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-TCP%E3%80%81HTTP%E3%80%81FTP%E5%88%86%E5%88%AB%E5%B1%9E%E4%BA%8E%E5%93%AA%E4%B8%80%E5%B1%82%EF%BC%9F"><span class="toc-text">1.4 TCP、HTTP、FTP分别属于哪一层？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E8%AE%B2%E4%B8%80%E4%B8%8BTCP-x2F-IP%E5%8D%8F%E8%AE%AE%E3%80%82"><span class="toc-text">1.5 讲一下TCP&#x2F;IP协议。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9ARP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%90%86%E8%A7%A3%E3%80%82"><span class="toc-text">1.6 说一说你对ARP协议的理解。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-IP%E5%8D%8F%E8%AE%AE%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9B%E5%AD%97%E6%AE%B5%EF%BC%9F"><span class="toc-text">1.7 IP协议包含哪些字段？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-8-%E5%BA%94%E7%94%A8%E5%B1%82%E9%83%BD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">1.8 应用层都包含什么协议？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-9-%E5%BA%94%E7%94%A8%E5%B1%82%E6%8A%A5%E6%96%87%E6%80%8E%E4%B9%88%E4%BC%A0%E8%BE%93%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%9F"><span class="toc-text">1.9 应用层报文怎么传输到另一个应用层？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-10-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btcp%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E3%80%82"><span class="toc-text">1.10 介绍一下tcp的三次握手。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-11-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btcp%E7%9A%84%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E3%80%82"><span class="toc-text">1.11 介绍一下tcp的四次挥手。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-12-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%9F"><span class="toc-text">1.12 为什么需要四次挥手？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-13-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1ACK%EF%BC%9F"><span class="toc-text">1.13 为什么要有最后一次ACK？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-14-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Btcp%E7%B2%98%E5%8C%85%E3%80%81%E6%8B%86%E5%8C%85%E7%9A%84%E6%9C%BA%E5%88%B6%E3%80%82"><span class="toc-text">1.14 介绍一下tcp粘包、拆包的机制。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-15-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BTCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="toc-text">1.15 介绍一下TCP和UDP的区别。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-16-TCP%E5%92%8CUDP%E5%AF%B9%E4%BA%8E%E7%BD%91%E7%BB%9C%E7%A8%B3%E5%AE%9A%E6%80%A7%E6%9C%89%E4%BB%80%E4%B9%88%E8%A6%81%E6%B1%82%EF%BC%9F"><span class="toc-text">1.16 TCP和UDP对于网络稳定性有什么要求？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-17-%E5%A6%82%E4%BD%95%E8%AE%A9UDP%E5%8F%AF%E9%9D%A0%E4%B8%80%E4%BA%9B%EF%BC%9F"><span class="toc-text">1.17 如何让UDP可靠一些？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-18-TCP%E6%8A%A5%E6%96%87%E9%A6%96%E9%83%A8%E4%B8%AD%E5%BA%8F%E5%8F%B7%E5%8D%A0%E5%A4%9A%E5%B0%91%E5%AD%97%E8%8A%82%EF%BC%9F"><span class="toc-text">1.18 TCP报文首部中序号占多少字节？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-19-TCP%E4%B8%AD%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">1.19 TCP中的缓存有什么作用？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-20-%E8%AF%B4%E4%B8%80%E8%AF%B4TCP%E6%98%AF%E6%80%8E%E4%B9%88%E6%8E%A7%E5%88%B6%E6%B5%81%E9%87%8F%E7%9A%84%EF%BC%9F"><span class="toc-text">1.20 说一说TCP是怎么控制流量的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-21-HTTP2-0%E4%B8%ADTCP%E9%98%BB%E5%A1%9E%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">1.21 HTTP2.0中TCP阻塞了怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-22-TCP%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%8F%AF%E9%9D%A0%E6%80%A7%EF%BC%9F"><span class="toc-text">1.22 TCP如何保证可靠性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-23-%E8%AF%B4%E4%B8%80%E8%AF%B4TCP%E9%87%8C%E7%9A%84reset%E7%8A%B6%E6%80%81%E3%80%82"><span class="toc-text">1.23 说一说TCP里的reset状态。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-24-%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8UDP%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%EF%BC%9F"><span class="toc-text">1.24 如何利用UDP实现可靠传输？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-25-%E6%8A%A5%E6%96%87%E4%B9%B1%E5%BA%8F%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">1.25 报文乱序怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-26-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9IP%E5%88%86%E7%B1%BB%E7%9A%84%E4%BA%86%E8%A7%A3%E3%80%82"><span class="toc-text">1.26 说一说你对IP分类的了解。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-27-IP%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E7%B1%BB%EF%BC%9F"><span class="toc-text">1.27 IP为什么要分类？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-28-IPV4%E5%92%8CIPV6%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.28 IPV4和IPV6有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-29-%E8%AF%B4%E4%B8%80%E4%B8%8Bhttp%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="toc-text">1.29 说一下http和https的区别。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-30-https%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E6%B7%B7%E5%90%88%E5%8A%A0%E5%AF%86%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="toc-text">1.30 https为什么采用混合加密机制？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-31-https%E6%94%AF%E6%8C%81%E4%BB%80%E4%B9%88%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="toc-text">1.31 https支持什么加密算法？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-32-%E8%AF%B4%E4%B8%80%E8%AF%B4HTTPS%E7%9A%84%E7%A7%98%E9%92%A5%E4%BA%A4%E6%8D%A2%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.32 说一说HTTPS的秘钥交换过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-33-%E8%AF%B4%E4%B8%80%E8%AF%B4HTTPS%E7%9A%84%E8%AF%81%E4%B9%A6%E8%AE%A4%E8%AF%81%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.33 说一说HTTPS的证书认证过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-34-HTTP%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9%EF%BC%9F"><span class="toc-text">1.34 HTTP请求头中包含什么内容？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-35-HTTP%E6%98%AF%E5%9F%BA%E4%BA%8ETCP%E8%BF%98%E6%98%AFUDP%EF%BC%9F"><span class="toc-text">1.35 HTTP是基于TCP还是UDP？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-36-HTTP1-1%E5%92%8CHTTP2-0%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.36 HTTP1.1和HTTP2.0有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-37-HTTP2-0%E5%92%8CHTTP3-0%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.37 HTTP2.0和HTTP3.0有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-38-%E8%B0%88%E8%B0%88HTTP%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%BC%93%E5%AD%98%E8%BF%87%E6%9C%9F%EF%BC%9F"><span class="toc-text">1.38 谈谈HTTP的缓存机制，服务器如何判断当前缓存过期？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-39-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTP%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E5%92%8C%E7%9F%AD%E8%BF%9E%E6%8E%A5%E3%80%82"><span class="toc-text">1.39 介绍一下HTTP协议中的长连接和短连接。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-40-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTPS%E7%9A%84%E6%B5%81%E7%A8%8B%E3%80%82"><span class="toc-text">1.40 介绍一下HTTPS的流程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-41-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTP%E7%9A%84%E5%A4%B1%E8%B4%A5%E7%A0%81%E3%80%82"><span class="toc-text">1.41 介绍一下HTTP的失败码。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-42-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E7%9F%A5%E9%81%93%E7%9A%84http%E7%8A%B6%E6%80%81%E7%A0%81%E3%80%82"><span class="toc-text">1.42 说一说你知道的http状态码。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-43-301%E5%92%8C302%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.43 301和302有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-44-302%E5%92%8C304%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.44 302和304有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-45-%E8%AF%B7%E6%8F%8F%E8%BF%B0%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84HTTP%E8%AF%B7%E6%B1%82%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.45 请描述一次完整的HTTP请求的过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-46-%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%9F"><span class="toc-text">1.46 什么是重定向？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-47-%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.47 重定向和请求转发有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-48-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BDNS%E5%AF%BB%E5%9D%80%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">1.48 介绍一下DNS寻址的过程。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-49-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9TIME-WAIT%E7%9A%84%E7%90%86%E8%A7%A3%E3%80%82"><span class="toc-text">1.49 说一说你对TIME_WAIT的理解。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-50-TIME-WAIT%E3%80%81CLOSE-WAIT%E7%8A%B6%E6%80%81%E5%8F%91%E7%94%9F%E5%9C%A8%E5%93%AA%E4%B8%80%E6%AD%A5%EF%BC%9F"><span class="toc-text">1.50 TIME_WAIT、CLOSE_WAIT状态发生在哪一步？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-51-%E6%9C%89%E5%A4%A7%E9%87%8F%E7%9A%84TIME-WAIT%E7%8A%B6%E6%80%81%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">1.51 有大量的TIME_WAIT状态怎么办？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-52-%E8%AF%B7%E4%BB%8B%E7%BB%8Dsocket%E9%80%9A%E4%BF%A1%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%E3%80%82"><span class="toc-text">1.52 请介绍socket通信的具体步骤。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-53-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%80%8E%E4%B9%88%E6%8F%90%E9%AB%98%E5%A4%84%E7%90%86socket%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%80%A7%E8%83%BD%EF%BC%9F"><span class="toc-text">1.53 服务端怎么提高处理socket连接的性能？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-54-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E5%92%8C%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E3%80%82"><span class="toc-text">1.54 介绍一下流量控制和拥塞控制。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-55-%E5%AF%B9%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%90%A6%E6%9C%89%E6%89%80%E4%BA%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">1.55 对路由协议是否有所了解？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-56-%E7%9B%B4%E6%92%AD%E5%8F%AF%E8%83%BD%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%B0%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">1.56 直播可能需要使用到什么样的协议？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-57-%E8%B0%88%E8%B0%88%E5%8D%95%E5%B7%A5%E3%80%81%E5%8F%8C%E5%B7%A5%E3%80%81%E5%8D%8A%E5%8F%8C%E5%B7%A5%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E3%80%82"><span class="toc-text">1.57 谈谈单工、双工、半双工的通信方式。</span></a></li></ol></div></p>
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机网络</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-07-26
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    42.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    152 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>[toc]</p>
 <h4 id="1-1-请介绍七层网络体系结构。"><a href="#1-1-请介绍七层网络体系结构。" class="headerlink" title="1.1 请介绍七层网络体系结构。"></a>1.1 请介绍七层网络体系结构。</h4><p><strong>参考回答</strong></p>
 <ol>
 <li><p>为什么分七层</p>
@@ -1557,14 +1064,12 @@ b. **拥塞控制：**拥塞控制就是防止过多的数据注入到网络中�
 <p>（3）即使关闭套接字也会继续传送输出缓冲区中遗留的数据；</p>
 <p>（4）关闭套接字将丢失输入缓冲区中的数据。</p>
 <p>输入输出缓冲区的默认大小一般都是 8K，可以通过 getsockopt() 函数获取：</p>
-<pre><code>//代码实例（缓冲区大小获取） 
-int servSock = socket(PF_INET, SOCK_STREAM, 0); 
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;代码实例（缓冲区大小获取） 
+int servSock &#x3D; socket(PF_INET, SOCK_STREAM, 0); 
 unsigned optVal; 
-int optLen = sizeof(int); 
+int optLen &#x3D; sizeof(int); 
 getsockopt(servSock, SOL_SOCKET, SO_SNDBUF, (char*)&amp;optVal, &amp;optLen); 
-/*  运行结果：  Buffer length: 8192  */
-</code></pre>
-</li>
+&#x2F;*  运行结果：  Buffer length: 8192  *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h4 id="1-20-说一说TCP是怎么控制流量的？"><a href="#1-20-说一说TCP是怎么控制流量的？" class="headerlink" title="1.20 说一说TCP是怎么控制流量的？"></a>1.20 说一说TCP是怎么控制流量的？</h4><p><strong>参考回答</strong></p>
 <ol>
@@ -1977,9 +1482,9 @@ http1.x采用长连接(Connection:keep-alive)，可以在一个TCP请求上，�
 <p>（3）增加缓存功能，已请求过的内容再次请求时就可直接使用缓存</p>
 </li>
 </ol>
-<pre><code>GET index.html HTTP/1.0  accept: application/html accept-charset: utf-8  accept-encoding: gzip  accept-language: zh-CN
-HTTP/1.0 200 OK  &lt;!DOCTYPE html&gt;  &lt;html&gt;  &lt;head&gt;&lt;/head&gt;  &lt;body&gt;hello world!&lt;/body&gt;  &lt;/html&gt;
-</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">GET index.html HTTP&#x2F;1.0  accept: application&#x2F;html accept-charset: utf-8  accept-encoding: gzip  accept-language: zh-CN
+HTTP&#x2F;1.0 200 OK  &lt;!DOCTYPE html&gt;  &lt;html&gt;  &lt;head&gt;&lt;&#x2F;head&gt;  &lt;body&gt;hello world!&lt;&#x2F;body&gt;  &lt;&#x2F;html&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <pre><code>￼a. accept 解决文件格式问题，是json还是html，浏览器根据不同文件格式来解析文件；
 
 b. accept-charset 解决文件编码问题，告知浏览器如何将字符流解析成字节流；
@@ -2434,75 +1939,75 @@ d. accept-language 解决国际化问题，不同国家请求不同语言的文�
 </li>
 </ol>
 <p><strong>答案解析</strong></p>
-<pre><code class="c">//代码实例（服务器） 
-#include &lt;stdio.h&gt; 
-#include &lt;Winsock2.h&gt; 
-void main() &#123; 
-  WORD wVersionRequested; 
-  WSADATA wsaData;  
-  int err;   
-  wVersionRequested = MAKEWORD( 1, 1 );   
-  err = WSAStartup( wVersionRequested, &amp;wsaData ); 
-  if ( err != 0 ) &#123;  
-    return; 
-  &#125;
-  if ( LOBYTE( wsaData.wVersion ) != 1 ||   
-      HIBYTE( wsaData.wVersion ) != 1 ) &#123;   
-    WSACleanup( ); 
-    return;
-  &#125;
-  SOCKET sockSrv=socket(AF_INET,SOCK_STREAM,0); 
-  SOCKADDR_IN addrSrv; 
-  addrSrv.sin_addr.S_un.S_addr=htonl(INADDR_ANY); 
-  addrSrv.sin_family=AF_INET;
-  addrSrv.sin_port=htons(6000);  
-  bind(sockSrv,(SOCKADDR*)&amp;addrSrv,sizeof(SOCKADDR));  
-  listen(sockSrv,5);    
-  SOCKADDR_IN addrClient; 
-  int len=sizeof(SOCKADDR);  
-  while(1)  &#123;  
-    SOCKET sockConn=accept(sockSrv,(SOCKADDR*)&amp;addrClient,&amp;len); 
-    char sendBuf[50]; 
-    sprintf(sendBuf,&quot;Welcome %s to here!&quot;,inet_ntoa(addrClient.sin_addr));   
-    send(sockConn,sendBuf,strlen(sendBuf)+1,0); 
-    char recvBuf[50];   
-    recv(sockConn,recvBuf,50,0);  
-    printf(&quot;%s\n&quot;,recvBuf); 
-    closesocket(sockConn);  
-  &#125;
-&#125;
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//代码实例（服务器） </span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span> </span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Winsock2.h></span> </span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+  WORD wVersionRequested<span class="token punctuation">;</span> 
+  WSADATA wsaData<span class="token punctuation">;</span>  
+  <span class="token keyword">int</span> err<span class="token punctuation">;</span>   
+  wVersionRequested <span class="token operator">=</span> <span class="token function">MAKEWORD</span><span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>   
+  err <span class="token operator">=</span> <span class="token function">WSAStartup</span><span class="token punctuation">(</span> wVersionRequested<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wsaData <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> err <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  
+    <span class="token keyword">return</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">LOBYTE</span><span class="token punctuation">(</span> wsaData<span class="token punctuation">.</span>wVersion <span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">||</span>   
+      <span class="token function">HIBYTE</span><span class="token punctuation">(</span> wsaData<span class="token punctuation">.</span>wVersion <span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>   
+    <span class="token function">WSACleanup</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  SOCKET sockSrv<span class="token operator">=</span><span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span>SOCK_STREAM<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  SOCKADDR_IN addrSrv<span class="token punctuation">;</span> 
+  addrSrv<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>S_un<span class="token punctuation">.</span>S_addr<span class="token operator">=</span><span class="token function">htonl</span><span class="token punctuation">(</span>INADDR_ANY<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  addrSrv<span class="token punctuation">.</span>sin_family<span class="token operator">=</span>AF_INET<span class="token punctuation">;</span>
+  addrSrv<span class="token punctuation">.</span>sin_port<span class="token operator">=</span><span class="token function">htons</span><span class="token punctuation">(</span><span class="token number">6000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token function">bind</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">,</span><span class="token punctuation">(</span>SOCKADDR<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>addrSrv<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token function">listen</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+  SOCKADDR_IN addrClient<span class="token punctuation">;</span> 
+  <span class="token keyword">int</span> len<span class="token operator">=</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token punctuation">&#123;</span>  
+    SOCKET sockConn<span class="token operator">=</span><span class="token function">accept</span><span class="token punctuation">(</span>sockSrv<span class="token punctuation">,</span><span class="token punctuation">(</span>SOCKADDR<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>addrClient<span class="token punctuation">,</span><span class="token operator">&amp;</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">char</span> sendBuf<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+    <span class="token function">sprintf</span><span class="token punctuation">(</span>sendBuf<span class="token punctuation">,</span><span class="token string">"Welcome %s to here!"</span><span class="token punctuation">,</span><span class="token function">inet_ntoa</span><span class="token punctuation">(</span>addrClient<span class="token punctuation">.</span>sin_addr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+    <span class="token function">send</span><span class="token punctuation">(</span>sockConn<span class="token punctuation">,</span>sendBuf<span class="token punctuation">,</span><span class="token function">strlen</span><span class="token punctuation">(</span>sendBuf<span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">char</span> recvBuf<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   
+    <span class="token function">recv</span><span class="token punctuation">(</span>sockConn<span class="token punctuation">,</span>recvBuf<span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>recvBuf<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token function">closesocket</span><span class="token punctuation">(</span>sockConn<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
 
-//代码实例（客户端）
-#include &lt;stdio.h&gt; 
-#include &lt;Winsock2.h&gt; 
-void main() &#123; 
-  WORD wVersionRequested; 
-  WSADATA wsaData;  
-  int err;  
-  wVersionRequested = MAKEWORD( 1, 1 ); 
-  err = WSAStartup( wVersionRequested, &amp;wsaData ); 
-  if ( err != 0 ) &#123;  
-    return; 
-  &#125;  
-  if ( LOBYTE( wsaData.wVersion ) != 1 ||     
-      HIBYTE( wsaData.wVersion ) != 1 ) &#123;  
-    WSACleanup( ); 
-    return;
-  &#125;  
-  SOCKET sockClient=socket(AF_INET,SOCK_STREAM,0);  
-  SOCKADDR_IN addrSrv; 
-  addrSrv.sin_addr.S_un.S_addr=inet_addr(&quot;127.0.0.1&quot;); 
-  addrSrv.sin_family=AF_INET; 
-  addrSrv.sin_port=htons(6000); 
-  connect(sockClient,(SOCKADDR*)&amp;addrSrv,sizeof(SOCKADDR));  
-  send(sockClient,&quot;hello&quot;,strlen(&quot;hello&quot;)+1,0);  
-  char recvBuf[50];  
-  recv(sockClient,recvBuf,50,0);
-  printf(&quot;%s\n&quot;,recvBuf);
-  closesocket(sockClient); 
-  WSACleanup(); 
-&#125;
-</code></pre>
+<span class="token comment">//代码实例（客户端）</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span> </span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;Winsock2.h></span> </span>
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+  WORD wVersionRequested<span class="token punctuation">;</span> 
+  WSADATA wsaData<span class="token punctuation">;</span>  
+  <span class="token keyword">int</span> err<span class="token punctuation">;</span>  
+  wVersionRequested <span class="token operator">=</span> <span class="token function">MAKEWORD</span><span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  err <span class="token operator">=</span> <span class="token function">WSAStartup</span><span class="token punctuation">(</span> wVersionRequested<span class="token punctuation">,</span> <span class="token operator">&amp;</span>wsaData <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> err <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  
+    <span class="token keyword">return</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">&#125;</span>  
+  <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">LOBYTE</span><span class="token punctuation">(</span> wsaData<span class="token punctuation">.</span>wVersion <span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token operator">||</span>     
+      <span class="token function">HIBYTE</span><span class="token punctuation">(</span> wsaData<span class="token punctuation">.</span>wVersion <span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>  
+    <span class="token function">WSACleanup</span><span class="token punctuation">(</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>  
+  SOCKET sockClient<span class="token operator">=</span><span class="token function">socket</span><span class="token punctuation">(</span>AF_INET<span class="token punctuation">,</span>SOCK_STREAM<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  SOCKADDR_IN addrSrv<span class="token punctuation">;</span> 
+  addrSrv<span class="token punctuation">.</span>sin_addr<span class="token punctuation">.</span>S_un<span class="token punctuation">.</span>S_addr<span class="token operator">=</span><span class="token function">inet_addr</span><span class="token punctuation">(</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  addrSrv<span class="token punctuation">.</span>sin_family<span class="token operator">=</span>AF_INET<span class="token punctuation">;</span> 
+  addrSrv<span class="token punctuation">.</span>sin_port<span class="token operator">=</span><span class="token function">htons</span><span class="token punctuation">(</span><span class="token number">6000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token function">connect</span><span class="token punctuation">(</span>sockClient<span class="token punctuation">,</span><span class="token punctuation">(</span>SOCKADDR<span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>addrSrv<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>SOCKADDR<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token function">send</span><span class="token punctuation">(</span>sockClient<span class="token punctuation">,</span><span class="token string">"hello"</span><span class="token punctuation">,</span><span class="token function">strlen</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  <span class="token keyword">char</span> recvBuf<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+  <span class="token function">recv</span><span class="token punctuation">(</span>sockClient<span class="token punctuation">,</span>recvBuf<span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span>recvBuf<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">closesocket</span><span class="token punctuation">(</span>sockClient<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token function">WSACleanup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h4 id="1-53-服务端怎么提高处理socket连接的性能？"><a href="#1-53-服务端怎么提高处理socket连接的性能？" class="headerlink" title="1.53 服务端怎么提高处理socket连接的性能？"></a>1.53 服务端怎么提高处理socket连接的性能？</h4><p><strong>参考回答</strong></p>
 <p>提高处理socket连接的性能，请遵循以下技巧：</p>
 <ol>
@@ -2678,481 +2183,761 @@ void main() &#123;
 <p>单工、半双工和全双工是电信计算机网络中的三种通信信道。这些通信信道可以提供信息传达的途径。通信信道可以是物理传输介质或通过多路复用介质的逻辑连接。物理传输介质是指能够传播能量波的材料物质，例如数据通信中的导线。并且逻辑连接通常指电路交换连接或分组模式虚拟电路连接，例如无线电信通道。由于通信信道的帮助，信息可以无障碍地传输。</p>
 <p>单工模式一般用在只向一个方向传输数据的场合。例如计算机与打印机之间的通信是单工模式，因为只有计算机向打印机传输数据，而没有相反方向的数据传输。还有在某些通信信道中，如单工无线发送等。</p>
 
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zhangxin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/posts/7056/">http://example.com/posts/7056/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zhangxin</a>
+                    !
+                </span>
+            </div>
+        
     </div>
-</article>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
 
 
 
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
 
-
-
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
 
     
 
-
-
-
-    </div>
-    <div class="copyright">
-        <p class="footer-entry"><span class="miit">
-                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
-                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
-        </span>
-    
-    ©2021-2022 zhangxin
-</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
-
-    </div>
-    <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
-<a class="" id="rocket" ></a>
-
-    </div>
 </div>
 
-</body>
-<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
-
-<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
-
-<script src="/js/script.js?v=1.1.0" ></script>
-<script>
-    var img_resize = 'photoSwipe';
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $("#post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-
-        /*高亮代码块行号*/
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-
-        // PhotoSwipe
-        $('article').each(function(i){
-            $(this).find('img').each(function(){
-                if ($(this).closest('figure').hasClass('article-gallery-img')) {
-                    return;
-                }
-                var alt = this.alt;
-                $(this)
-                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
-                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
-                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
-            });
-        });
-
-        var pswpElement = document.querySelectorAll('.pswp')[0];
-        if (pswpElement) {
-            var gallerySelector = '.article-gallery, article';
-
-            var initPhotoSwipeFromDOM = function(gallerySelector) {
-
-                // parse slide data (url, title, size ...) from DOM elements
-                // (children of gallerySelector)
-                var parseThumbnailElements = function(el) {
-                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
-                        numNodes = thumbElements.length,
-                        items = [],
-                        figureEl,
-                        linkEl,
-                        size,
-                        imgEl,
-                        item;
-
-                    for (var i = 0; i < numNodes; i++) {
-
-                        figureEl = thumbElements[i]; // <figure> element
-
-                        // include only element nodes
-                        if (figureEl.nodeType !== 1) {
-                            continue;
-                        }
-
-                        linkEl = figureEl.children[0]; // <a> element
-                        imgEl = linkEl.children[0]; // <img>
-
-                        size = linkEl.getAttribute('data-size');
-                        size = size && size.split('x');
-
-                        // create slide object
-                        item = {
-                            src: linkEl.getAttribute('href'),
-                            w: size && parseInt(size[0], 10) || imgEl.width,
-                            h: size && parseInt(size[1], 10) || imgEl.height
-                        };
-
-                        if (figureEl.children.length > 1) {
-                            // <figcaption> content
-                            item.title = figureEl.children[1].innerHTML;
-                        }
-
-                        if (linkEl.children.length > 0) {
-                            // <img> thumbnail element, retrieving thumbnail url
-                            item.msrc = linkEl.children[0].getAttribute('src');
-                        }
-
-                        item.el = figureEl; // save link to element for getThumbBoundsFn
-                        items.push(item);
-                    }
-
-                    return items;
-                };
-
-                // find nearest parent element
-                var closest = function closest(el, fn) {
-                    return el && (fn(el) ? el : closest(el.parentNode, fn));
-                };
-
-                // triggers when user clicks on thumbnail
-                var onThumbnailsClick = function(e) {
-                    e = e || window.event;
-
-                    var eTarget = e.target || e.srcElement;
-
-                    // find root element of slide
-                    var clickedListItem = closest(eTarget, function(el) {
-                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
-                    });
-
-                    if (!clickedListItem) {
-                        return;
-                    }
-
-                    if (e.preventDefault) {
-                        e.preventDefault();
-                    } else {
-                        e.returnValue = false;
-                    }
-
-                    // find index of clicked item by looping through all child nodes
-                    // alternatively, you may define index via data- attribute
-                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
-                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
-                        numChildNodes = childNodes.length,
-                        nodeIndex = 0,
-                        index;
-
-                    for (var i = 0; i < numChildNodes; i++) {
-                        if (childNodes[i].nodeType !== 1) {
-                            continue;
-                        }
-
-                        if (childNodes[i] === clickedListItem) {
-                            index = nodeIndex;
-                            break;
-                        }
-                        nodeIndex++;
-                    }
-
-
-
-                    if (index >= 0) {
-                        // open PhotoSwipe if valid index found
-                        openPhotoSwipe(index, clickedGallery);
-                    }
-                    return false;
-                };
-
-                // parse picture index and gallery index from URL (#&pid=1&gid=2)
-                var photoswipeParseHash = function() {
-                    var hash = window.location.hash.substring(1),
-                        params = {};
-
-                    if (hash.length < 5) {
-                        return params;
-                    }
-
-                    var vars = hash.split('&');
-                    for (var i = 0; i < vars.length; i++) {
-                        if (!vars[i]) {
-                            continue;
-                        }
-                        var pair = vars[i].split('=');
-                        if (pair.length < 2) {
-                            continue;
-                        }
-                        params[pair[0]] = pair[1];
-                    }
-
-                    if (params.gid) {
-                        params.gid = parseInt(params.gid, 10);
-                    }
-
-                    return params;
-                };
-
-                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
-                    var pswpElement = document.querySelectorAll('.pswp')[0],
-                        gallery,
-                        options,
-                        items;
-
-                    items = parseThumbnailElements(galleryElement);
-
-                    // define options (if needed)
-                    options = {
-
-                        // define gallery index (for URL)
-                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-                        getThumbBoundsFn: function(index) {
-                            // See Options -> getThumbBoundsFn section of documentation for more info
-                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                                rect = thumbnail.getBoundingClientRect();
-
-                            return {
-                                x: rect.left,
-                                y: rect.top + pageYScroll,
-                                w: rect.width
-                            };
-                        }
-                    };
-
-                    // PhotoSwipe opened from URL
-                    if (fromURL) {
-                        if (options.galleryPIDs) {
-                            // parse real index when custom PIDs are used
-                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-                            for (var j = 0; j < items.length; j++) {
-                                if (items[j].pid == index) {
-                                    options.index = j;
-                                    break;
-                                }
-                            }
-                        } else {
-                            // in URL indexes start from 1
-                            options.index = parseInt(index, 10) - 1;
-                        }
-                    } else {
-                        options.index = parseInt(index, 10);
-                    }
-
-                    // exit if index not found
-                    if (isNaN(options.index)) {
-                        return;
-                    }
-
-                    if (disableAnimation) {
-                        options.showAnimationDuration = 0;
-                    }
-
-                    // Pass data to PhotoSwipe and initialize it
-                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-
-                    gallery.listen('imageLoadComplete', function(index, item) {
-                        var linkEl = item.el.children[0];
-                        var img = item.container.children[0];
-                        if (!linkEl.getAttribute('data-size')) {
-                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
-                            item.w = img.naturalWidth;
-                            item.h = img.naturalHeight;
-                            gallery.invalidateCurrItems();
-                            gallery.updateSize(true);
-                        }
-                    });
-
-                    gallery.init();
-                };
-
-                // loop through all gallery elements and bind events
-                var galleryElements = document.querySelectorAll(gallerySelector);
-
-                for (var i = 0, l = galleryElements.length; i < l; i++) {
-                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
-                    galleryElements[i].onclick = onThumbnailsClick;
-                }
-
-                // Parse URL and open gallery if it contains #&pid=3&gid=1
-                var hashData = photoswipeParseHash();
-                if (hashData.pid && hashData.gid) {
-                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
-                }
-            };
-
-            // execute above function
-            initPhotoSwipeFromDOM(gallerySelector);
-        }
-        
-        
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
     }
 
-    /*打赏页面隐藏与展示*/
-    
-
-</script>
-
-<!--加入行号的高亮代码块样式-->
-
-<!--自定义样式设置-->
-<style>
-    
-    
-    .nav {
-        width: 542px;
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
     }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
 
-    /*列表样式*/
-    
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-    /* 背景图样式 */
-    
-    
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
 
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
 
-    /*引用块样式*/
-    
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
 
-    /*文章列表背景图*/
-    
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
 
-    
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
 </style>
 
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/aliapy.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
         </div>
+    </div>
+</div>
 
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
     </div>
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/437/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="操作系统">
+                        
+                        <span class="card-title">操作系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/a3a7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="分布式">
+                        
+                        <span class="card-title">分布式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
 </div>
 
 
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
-<div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1478101516&auto=1&height=66"></iframe>
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
 </div>
-// <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1386259535&auto=1&height=66"></iframe>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">zhangxin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">427.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="http://beian.miit.gov.cn/" target="_blank">京ICP证030173号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zx20219898" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1205362172@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1205362172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1205362172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
 
 </html>
