@@ -4,13 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="中间件-1-Redis, zhangxinの随笔">
-    <meta name="description" content="[toc]
-1.1 Redis可以用来做什么？参考答案
+    <meta name="keywords" content="四、中间件, zhangxinの随笔">
+    <meta name="description" content="Redis1.1 Redis可以用来做什么？参考答案
 
 Redis最常用来做缓存，是实现分布式缓存的首先中间件；
 Redis可以作为数据库，实现诸如点赞、关注、排行等对性能要求极高的互联网需求；
-Redis可以作为计算工具，能用很小的代价">
+Redis可以作为计算工具，能用很小的代价，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +23,7 @@ Redis可以作为计算工具，能用很小的代价">
 
     
 
-    <title>中间件-1-Redis | zhangxinの随笔</title>
+    <title>四、中间件 | zhangxinの随笔</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/zotero.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -314,12 +313,12 @@ Redis可以作为计算工具，能用很小的代价">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">中间件-1-Redis</h1>
+                    <h1 class="description center-align post-title">四、中间件</h1>
                 </div>
             </div>
         </div>
@@ -456,28 +455,28 @@ Redis可以作为计算工具，能用很小的代价">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-12
+                    2022-07-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-26
+                    2022-07-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    26.5k
+                    47.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    93 分
+                    169 分
                 </div>
                 
 
@@ -500,24 +499,23 @@ Redis可以作为计算工具，能用很小的代价">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<h4 id="1-1-Redis可以用来做什么？"><a href="#1-1-Redis可以用来做什么？" class="headerlink" title="1.1 Redis可以用来做什么？"></a>1.1 Redis可以用来做什么？</h4><p><strong>参考答案</strong></p>
+                <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="1-1-Redis可以用来做什么？"><a href="#1-1-Redis可以用来做什么？" class="headerlink" title="1.1 Redis可以用来做什么？"></a>1.1 Redis可以用来做什么？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>Redis最常用来做缓存，是实现分布式缓存的首先中间件；</li>
 <li>Redis可以作为数据库，实现诸如点赞、关注、排行等对性能要求极高的互联网需求；</li>
 <li>Redis可以作为计算工具，能用很小的代价，统计诸如PV&#x2F;UV、用户在线天数等数据；</li>
 <li>Redis还有很多其他的使用场景，例如：可以实现分布式锁，可以作为消息队列使用。</li>
 </ol>
-<h4 id="1-2-Redis和传统的关系型数据库有什么不同？"><a href="#1-2-Redis和传统的关系型数据库有什么不同？" class="headerlink" title="1.2 Redis和传统的关系型数据库有什么不同？"></a>1.2 Redis和传统的关系型数据库有什么不同？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-2-Redis和传统的关系型数据库有什么不同？"><a href="#1-2-Redis和传统的关系型数据库有什么不同？" class="headerlink" title="1.2 Redis和传统的关系型数据库有什么不同？"></a>1.2 Redis和传统的关系型数据库有什么不同？</h3><p><strong>参考答案</strong></p>
 <p>Redis是一种基于键值对的NoSQL数据库，而键值对的值是由多种数据结构和算法组成的。Redis的数据都存储于内存中，因此它的速度惊人，读写性能可达10万&#x2F;秒，远超关系型数据库。</p>
 <p>关系型数据库是基于二维数据表来存储数据的，它的数据格式更为严谨，并支持关系查询。关系型数据库的数据存储于磁盘上，可以存放海量的数据，但性能远不如Redis。</p>
-<h4 id="1-3-Redis有哪些数据类型？"><a href="#1-3-Redis有哪些数据类型？" class="headerlink" title="1.3 Redis有哪些数据类型？"></a>1.3 Redis有哪些数据类型？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-3-Redis有哪些数据类型？"><a href="#1-3-Redis有哪些数据类型？" class="headerlink" title="1.3 Redis有哪些数据类型？"></a>1.3 Redis有哪些数据类型？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>Redis支持5种核心的数据类型，分别是字符串、哈希、列表、集合、有序集合；</li>
 <li>Redis还提供了Bitmap、HyperLogLog、Geo类型，但这些类型都是基于上述核心数据类型实现的；</li>
 <li>Redis在5.0新增加了Streams数据类型，它是一个功能强大的、支持多播的、可持久化的消息队列。</li>
 </ol>
-<h4 id="1-4-Redis是单线程的，为什么还能这么快？"><a href="#1-4-Redis是单线程的，为什么还能这么快？" class="headerlink" title="1.4 Redis是单线程的，为什么还能这么快？"></a>1.4 Redis是单线程的，为什么还能这么快？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-4-Redis是单线程的，为什么还能这么快？"><a href="#1-4-Redis是单线程的，为什么还能这么快？" class="headerlink" title="1.4 Redis是单线程的，为什么还能这么快？"></a>1.4 Redis是单线程的，为什么还能这么快？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>对服务端程序来说，线程切换和锁通常是性能杀手，而单线程避免了线程切换和竞争所产生的消耗；</li>
 <li>Redis的大部分操作是在内存上完成的，这是它实现高性能的一个重要原因；</li>
@@ -525,9 +523,9 @@ Redis可以作为计算工具，能用很小的代价">
 </ol>
 <p>关于Redis的单线程架构实现，如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/GKJ9R7ivSDyE4Wb.png"></p>
-<h4 id="1-5-Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？"><a href="#1-5-Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？" class="headerlink" title="1.5 Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？"></a>1.5 Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-5-Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？"><a href="#1-5-Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？" class="headerlink" title="1.5 Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？"></a>1.5 Redis在持久化时fork出一个子进程，这时已经有两个进程了，怎么能说是单线程呢？</h3><p><strong>参考答案</strong></p>
 <p>Redis是单线程的，主要是指Redis的网络IO和键值对读写是由一个线程来完成的。而Redis的其他功能，如持久化、异步删除、集群数据同步等，则是依赖其他线程来执行的。所以，说Redis是单线程的只是一种习惯的说法，事实上它的底层不是单线程的。</p>
-<h4 id="1-6-set和zset有什么区别？"><a href="#1-6-set和zset有什么区别？" class="headerlink" title="1.6 set和zset有什么区别？"></a>1.6 set和zset有什么区别？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-6-set和zset有什么区别？"><a href="#1-6-set和zset有什么区别？" class="headerlink" title="1.6 set和zset有什么区别？"></a>1.6 set和zset有什么区别？</h3><p><strong>参考答案</strong></p>
 <p>set：</p>
 <ul>
 <li>集合中的元素是无序、不可重复的，一个集合最多能存储232-1个元素；</li>
@@ -539,9 +537,9 @@ Redis可以作为计算工具，能用很小的代价">
 <li>有序集合会给每个元素设置一个分数，并以此作为排序的依据；</li>
 <li>有序集合不能包含相同的元素，但是不同元素的分数可以相同。</li>
 </ul>
-<h4 id="1-7-说一下Redis中的watch命令"><a href="#1-7-说一下Redis中的watch命令" class="headerlink" title="1.7 说一下Redis中的watch命令"></a>1.7 说一下Redis中的watch命令</h4><p><strong>参考答案</strong></p>
+<h3 id="1-7-说一下Redis中的watch命令"><a href="#1-7-说一下Redis中的watch命令" class="headerlink" title="1.7 说一下Redis中的watch命令"></a>1.7 说一下Redis中的watch命令</h3><p><strong>参考答案</strong></p>
 <p>很多时候，要确保事务中的数据没有被其他客户端修改才执行该事务。Redis提供了watch命令来解决这类问题，这是一种乐观锁的机制。客户端通过watch命令，要求服务器对一个或多个key进行监视，如果在客户端执行事务之前，这些key发生了变化，则服务器将拒绝执行客户端提交的事务，并向它返回一个空值。</p>
-<h4 id="1-8-说说Redis中List结构的相关操作"><a href="#1-8-说说Redis中List结构的相关操作" class="headerlink" title="1.8 说说Redis中List结构的相关操作"></a>1.8 说说Redis中List结构的相关操作</h4><p><strong>参考答案</strong></p>
+<h3 id="1-8-说说Redis中List结构的相关操作"><a href="#1-8-说说Redis中List结构的相关操作" class="headerlink" title="1.8 说说Redis中List结构的相关操作"></a>1.8 说说Redis中List结构的相关操作</h3><p><strong>参考答案</strong></p>
 <p>列表是线性有序的数据结构，它内部的元素是可以重复的，并且一个列表最多能存储2^32-1个元素。列表包含如下的常用命令：</p>
 <ul>
 <li>lpush&#x2F;rpush：从列表的左侧&#x2F;右侧添加数据；</li>
@@ -550,12 +548,12 @@ Redis可以作为计算工具，能用很小的代价">
 <li>lpop&#x2F;rpop：从列表的左侧&#x2F;右侧弹出一个数据；</li>
 <li>blpop&#x2F;brpop：从列表的左侧&#x2F;右侧弹出一个数据，若列表为空则进入阻塞状态。</li>
 </ul>
-<h4 id="1-9-你要如何设计Redis的过期时间？"><a href="#1-9-你要如何设计Redis的过期时间？" class="headerlink" title="1.9 你要如何设计Redis的过期时间？"></a>1.9 你要如何设计Redis的过期时间？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-9-你要如何设计Redis的过期时间？"><a href="#1-9-你要如何设计Redis的过期时间？" class="headerlink" title="1.9 你要如何设计Redis的过期时间？"></a>1.9 你要如何设计Redis的过期时间？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>热点数据不设置过期时间，使其达到“物理”上的永不过期，可以避免缓存击穿问题；</li>
 <li>在设置过期时间时，可以附加一个随机数，避免大量的key同时过期，导致缓存雪崩。</li>
 </ol>
-<h4 id="1-10-Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？"><a href="#1-10-Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？" class="headerlink" title="1.10 Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？"></a>1.10 Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-10-Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？"><a href="#1-10-Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？" class="headerlink" title="1.10 Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？"></a>1.10 Redis中，setnx命令的返回值是什么，如何使用该命令实现分布式锁？</h3><p><strong>参考答案</strong></p>
 <p>setnx命令返回整数值，当返回1时表示设置值成功，当返回0时表示设置值失败（key已存在）。</p>
 <p>一般我们不建议直接使用setnx命令来实现分布式锁，因为为了避免出现死锁，我们要给锁设置一个自动过期时间。而setnx命令和设置过期时间的命令不是原子的，可能加锁成果而设置过期时间失败，依然存在死锁的隐患。对于这种情况，Redis改进了set命令，给它增加了nx选项，启用该选项时set命令的效果就会setnx一样了。</p>
 <p>采用Redis实现分布式锁，就是在Redis里存一份代表锁的数据，通常用字符串即可。采用改进后的setnx命令（即set…nx…命令）实现分布式锁的思路，以及优化的过程如下：</p>
@@ -584,7 +582,7 @@ Redis可以作为计算工具，能用很小的代价">
 <p>按照以上思路，优化后的命令如下：</p>
 <pre class="line-numbers language-none"><code class="language-none"># 加锁 set key random-value nx ex seconds   # 解锁 if redis.call(&quot;get&quot;,KEYS[1]) &#x3D;&#x3D; ARGV[1] then     return redis.call(&quot;del&quot;,KEYS[1]) else     return 0 end<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="1-11-说一说Redis的持久化策略"><a href="#1-11-说一说Redis的持久化策略" class="headerlink" title="1.11 说一说Redis的持久化策略"></a>1.11 说一说Redis的持久化策略</h4><p><strong>参考答案</strong></p>
+<h3 id="1-11-说一说Redis的持久化策略"><a href="#1-11-说一说Redis的持久化策略" class="headerlink" title="1.11 说一说Redis的持久化策略"></a>1.11 说一说Redis的持久化策略</h3><p><strong>参考答案</strong></p>
 <p>Redis支持RDB持久化、AOF持久化、RDB-AOF混合持久化这三种持久化方式。</p>
 <p>RDB：</p>
 <p>RDB(Redis Database)是Redis默认采用的持久化方式，它以快照的形式将进程数据持久化到硬盘中。RDB会创建一个经过压缩的二进制文件，文件以“.rdb”结尾，内部存储了各个数据库的键值对数据等信息。RDB持久化的触发方式有两种：</p>
@@ -646,7 +644,7 @@ Redis可以作为计算工具，能用很小的代价">
 <li>对于重写之后执行的Redis命令，则以协议文本的方式追加到AOF文件的末尾，即RDB数据之后。</li>
 </ul>
 <p>通过使用RDB-AOF混合持久化，用户可以同时获得RDB持久化和AOF持久化的优点，服务器既可以通过AOF文件包含的RDB数据来实现快速的数据恢复操作，又可以通过AOF文件包含的AOF数据来将丢失数据的时间窗口限制在1s之内。</p>
-<h4 id="1-12-如何实现Redis的高可用？"><a href="#1-12-如何实现Redis的高可用？" class="headerlink" title="1.12 如何实现Redis的高可用？"></a>1.12 如何实现Redis的高可用？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-12-如何实现Redis的高可用？"><a href="#1-12-如何实现Redis的高可用？" class="headerlink" title="1.12 如何实现Redis的高可用？"></a>1.12 如何实现Redis的高可用？</h3><p><strong>参考答案</strong></p>
 <p>实现Redis的高可用，主要有哨兵和集群两种方式。</p>
 <p>哨兵：</p>
 <p>Redis Sentinel（哨兵）是一个分布式架构，它包含若干个哨兵节点和数据节点。每个哨兵节点会对数据节点和其余的哨兵节点进行监控，当发现节点不可达时，会对节点做下线标识。如果被标识的是主节点，它就会与其他的哨兵节点进行协商，当多数哨兵节点都认为主节点不可达时，它们便会选举出一个哨兵节点来完成自动故障转移的工作，同时还会将这个变化实时地通知给应用方。整个过程是自动的，不需要人工介入，有效地解决了Redis的高可用问题！</p>
@@ -671,7 +669,7 @@ Redis可以作为计算工具，能用很小的代价">
 </ol>
 <p>Redis集群中数据的分片逻辑如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/nzyDxGhq9LXMI1e.png"></p>
-<h4 id="1-13-Redis的主从同步是如何实现的？"><a href="#1-13-Redis的主从同步是如何实现的？" class="headerlink" title="1.13 Redis的主从同步是如何实现的？"></a>1.13 Redis的主从同步是如何实现的？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-13-Redis的主从同步是如何实现的？"><a href="#1-13-Redis的主从同步是如何实现的？" class="headerlink" title="1.13 Redis的主从同步是如何实现的？"></a>1.13 Redis的主从同步是如何实现的？</h3><p><strong>参考答案</strong></p>
 <p>从2.8版本开始，Redis使用psync命令完成主从数据同步，同步过程分为全量复制和部分复制。全量复制一般用于初次复制的场景，部分复制则用于处理因网络中断等原因造成数据丢失的场景。psync命令需要以下参数的支持：</p>
 <ol>
 <li>复制偏移量：主节点处理写命令后，会把命令长度做累加记录，从节点在接收到写命令后，也会做累加记录；从节点会每秒钟上报一次自身的复制偏移量给主节点，而主节点则会保存从节点的复制偏移量。</li>
@@ -684,9 +682,9 @@ Redis可以作为计算工具，能用很小的代价">
 <p><img src="https://s2.loli.net/2022/07/17/XYLj4fbcQ8USeVd.png"></p>
 <p>部分复制的过程，如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/vpqBcsYXZJ8mOKV.png"></p>
-<h4 id="1-14-Redis为什么存的快，内存断电数据怎么恢复？"><a href="#1-14-Redis为什么存的快，内存断电数据怎么恢复？" class="headerlink" title="1.14 Redis为什么存的快，内存断电数据怎么恢复？"></a>1.14 Redis为什么存的快，内存断电数据怎么恢复？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-14-Redis为什么存的快，内存断电数据怎么恢复？"><a href="#1-14-Redis为什么存的快，内存断电数据怎么恢复？" class="headerlink" title="1.14 Redis为什么存的快，内存断电数据怎么恢复？"></a>1.14 Redis为什么存的快，内存断电数据怎么恢复？</h3><p><strong>参考答案</strong></p>
 <p>Redis存的快是因为它的数据都存放在内存里，并且为了保证数据的安全性，Redis还提供了三种数据的持久化机制，即RDB持久化、AOF持久化、RDB-AOF混合持久化。若服务器断电，那么我们可以利用持久化文件，对数据进行恢复。理论上来说，AOF&#x2F;RDB-AOF持久化可以将丢失数据的窗口控制在1S之内。</p>
-<h4 id="1-15-说一说Redis的缓存淘汰策略"><a href="#1-15-说一说Redis的缓存淘汰策略" class="headerlink" title="1.15 说一说Redis的缓存淘汰策略"></a>1.15 说一说Redis的缓存淘汰策略</h4><p><strong>参考答案</strong></p>
+<h3 id="1-15-说一说Redis的缓存淘汰策略"><a href="#1-15-说一说Redis的缓存淘汰策略" class="headerlink" title="1.15 说一说Redis的缓存淘汰策略"></a>1.15 说一说Redis的缓存淘汰策略</h3><p><strong>参考答案</strong></p>
 <p>当写入数据将导致超出maxmemory限制时，Redis会采用maxmemory-policy所指定的策略进行数据淘汰，该策略一共包含如下8种选项：</p>
 <table>
 <thead>
@@ -745,7 +743,7 @@ Redis可以作为计算工具，能用很小的代价">
 </ul>
 <p>LRU算法的不足之处在于，若一个key很少被访问，只是刚刚偶尔被访问了一次，则它就被认为是热点数据，短时间内不会被淘汰。</p>
 <p>LFU算法正式用于解决上述问题，LFU（Least Frequently Used）是Redis4新增的淘汰策略，它根据key的最近访问频率进行淘汰。LFU在LRU的基础上，为每个数据增加了一个计数器，来统计这个数据的访问次数。当使用LFU策略淘汰数据时，首先会根据数据的访问次数进行筛选，把访问次数最低的数据淘汰出内存。如果两个数据的访问次数相同，LFU再比较这两个数据的访问时间，把访问时间更早的数据淘汰出内存。</p>
-<h4 id="1-16-请介绍一下Redis的过期策略"><a href="#1-16-请介绍一下Redis的过期策略" class="headerlink" title="1.16 请介绍一下Redis的过期策略"></a>1.16 请介绍一下Redis的过期策略</h4><p><strong>参考答案</strong></p>
+<h3 id="1-16-请介绍一下Redis的过期策略"><a href="#1-16-请介绍一下Redis的过期策略" class="headerlink" title="1.16 请介绍一下Redis的过期策略"></a>1.16 请介绍一下Redis的过期策略</h3><p><strong>参考答案</strong></p>
 <p>Redis支持如下两种过期策略：</p>
 <p>惰性删除：客户端访问一个key的时候，Redis会先检查它的过期时间，如果发现过期就立刻删除这个key。</p>
 <p>定期删除：Redis会将设置了过期时间的key放到一个独立的字典中，并对该字典进行每秒10次的过期扫描，</p>
@@ -755,7 +753,7 @@ Redis可以作为计算工具，能用很小的代价">
 <li>删除这20个key中已过期的key；</li>
 <li>如果已过期key的比例超过25%，则重复步骤1。</li>
 </ol>
-<h4 id="1-17-缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？"><a href="#1-17-缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？" class="headerlink" title="1.17 缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？"></a>1.17 缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-17-缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？"><a href="#1-17-缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？" class="headerlink" title="1.17 缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？"></a>1.17 缓存穿透、缓存击穿、缓存雪崩有什么区别，该如何解决？</h3><p><strong>参考答案</strong></p>
 <p>缓存穿透：</p>
 <p>问题描述：</p>
 <p>客户端查询根本不存在的数据，使得请求直达存储层，导致其负载过大，甚至宕机。出现这种情况的原因，可能是业务层误将缓存和库中的数据删除了，也可能是有人恶意攻击，专门访问库中不存在的数据。</p>
@@ -781,7 +779,7 @@ Redis可以作为计算工具，能用很小的代价">
 <li>启用降级和熔断措施：在发生雪崩时，若应用访问的不是核心数据，则直接返回预定义信息&#x2F;空值&#x2F;错误信息。或者在发生雪崩时，对于访问缓存接口的请求，客户端并不会把请求发给Redis，而是直接返回。</li>
 <li>构建高可用的Redis服务：采用哨兵或集群模式，部署多个Redis实例，个别节点宕机，依然可以保持服务的整体可用。</li>
 </ol>
-<h4 id="1-18-如何保证缓存与数据库的双写一致性？"><a href="#1-18-如何保证缓存与数据库的双写一致性？" class="headerlink" title="1.18 如何保证缓存与数据库的双写一致性？"></a>1.18 如何保证缓存与数据库的双写一致性？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-18-如何保证缓存与数据库的双写一致性？"><a href="#1-18-如何保证缓存与数据库的双写一致性？" class="headerlink" title="1.18 如何保证缓存与数据库的双写一致性？"></a>1.18 如何保证缓存与数据库的双写一致性？</h3><p><strong>参考答案</strong></p>
 <p>四种同步策略：</p>
 <p>想要保证缓存与数据库的双写一致，一共有4种方式，即4种同步策略：</p>
 <ol>
@@ -877,7 +875,7 @@ Redis可以作为计算工具，能用很小的代价">
 <p>进程A先删除缓存，再更新主数据库，然后主库将数据同步到从库。而在主从数据库同步之前，可能会有进程B访问了缓存，发现数据不存在，进而它去访问从库获取到旧的数据，然后同步到缓存。这样，最终也会导致缓存与数据库的数据不一致。这个问题的解决方案，依然是采用延时双删的策略，但是在评估延长时间的时候，要考虑到主从数据库同步的时间。</p>
 <p>第二次删除失败了怎么办？</p>
 <p>如果第二次删除依然失败，则可以增加重试的次数，但是这个次数要有限制，当超出一定的次数时，要采取报错、记日志、发邮件提醒等措施。</p>
-<h4 id="1-19-请介绍Redis集群的实现方案"><a href="#1-19-请介绍Redis集群的实现方案" class="headerlink" title="1.19 请介绍Redis集群的实现方案"></a>1.19 请介绍Redis集群的实现方案</h4><p><strong>参考答案</strong></p>
+<h3 id="1-19-请介绍Redis集群的实现方案"><a href="#1-19-请介绍Redis集群的实现方案" class="headerlink" title="1.19 请介绍Redis集群的实现方案"></a>1.19 请介绍Redis集群的实现方案</h3><p><strong>参考答案</strong></p>
 <p>Redis集群的分区方案：</p>
 <p>Redis集群采用虚拟槽分区来实现数据分片，它把所有的键根据哈希函数映射到0-16383整数槽内，计算公式为slot&#x3D;CRC16(key)&amp;16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。虚拟槽分区具有如下特点：</p>
 <ol>
@@ -917,7 +915,7 @@ Redis可以作为计算工具，能用很小的代价">
 <li>如果节点A最后一次收到节点B发送的PONG消息的时间，距离当前时间已经超过了节点A的超时选项设置时长的一半（cluster-node-timeout&#x2F;2），那么节点A也会向节点B发送PING消息，这可以防止节点A因为长时间没有随机选中节点B作为PING消息的发送对象而导致对节点B的信息更新滞后。</li>
 <li>每个消息主要的数据占用：slots槽数组（2KB）和整个集群1&#x2F;10的状态数据（10个节点状态数据约1KB）。</li>
 </ul>
-<h4 id="1-20-说一说Redis集群的分片机制"><a href="#1-20-说一说Redis集群的分片机制" class="headerlink" title="1.20 说一说Redis集群的分片机制"></a>1.20 说一说Redis集群的分片机制</h4><p><strong>参考答案</strong></p>
+<h3 id="1-20-说一说Redis集群的分片机制"><a href="#1-20-说一说Redis集群的分片机制" class="headerlink" title="1.20 说一说Redis集群的分片机制"></a>1.20 说一说Redis集群的分片机制</h3><p><strong>参考答案</strong></p>
 <p>Redis集群采用虚拟槽分区来实现数据分片，它把所有的键根据哈希函数映射到0-16383整数槽内，计算公式为slot&#x3D;CRC16(key)&amp;16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。虚拟槽分区具有如下特点：</p>
 <ol>
 <li>解耦数据和节点之间的关系，简化了节点扩容和收缩的难度；</li>
@@ -926,7 +924,7 @@ Redis可以作为计算工具，能用很小的代价">
 </ol>
 <p>Redis集群中数据的分片逻辑如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/nzyDxGhq9LXMI1e.png"></p>
-<h4 id="1-21-说一说Redis集群的应用和优劣势"><a href="#1-21-说一说Redis集群的应用和优劣势" class="headerlink" title="1.21 说一说Redis集群的应用和优劣势"></a>1.21 说一说Redis集群的应用和优劣势</h4><p><strong>参考答案</strong></p>
+<h3 id="1-21-说一说Redis集群的应用和优劣势"><a href="#1-21-说一说Redis集群的应用和优劣势" class="headerlink" title="1.21 说一说Redis集群的应用和优劣势"></a>1.21 说一说Redis集群的应用和优劣势</h3><p><strong>参考答案</strong></p>
 <p>优势：</p>
 <p>Redis Cluster是Redis的分布式解决方案，在3.0版本正式推出，有效地解决了Redis分布式方面的需求。当遇到单机内存、并发、流量等瓶颈时，可以采用Cluster架构方案达到负载均衡的目的。</p>
 <p>劣势：</p>
@@ -938,7 +936,7 @@ Redis可以作为计算工具，能用很小的代价">
 <li>不支持多数据库空间。单机下的Redis可以支持16个数据库，集群模式下只能使用一个数据库空间，即DB0。</li>
 <li>复制结构只支持一层，从节点只能复制主节点，不支持嵌套树状复制结构。</li>
 </ol>
-<h4 id="1-22-说一说hash类型底层的数据结构"><a href="#1-22-说一说hash类型底层的数据结构" class="headerlink" title="1.22 说一说hash类型底层的数据结构"></a>1.22 说一说hash类型底层的数据结构</h4><p><strong>参考答案</strong></p>
+<h3 id="1-22-说一说hash类型底层的数据结构"><a href="#1-22-说一说hash类型底层的数据结构" class="headerlink" title="1.22 说一说hash类型底层的数据结构"></a>1.22 说一说hash类型底层的数据结构</h3><p><strong>参考答案</strong></p>
 <p>哈希对象有两种编码方案，当同时满足以下条件时，哈希对象采用ziplist编码，否则采用hashtable编码：</p>
 <ul>
 <li>哈希对象保存的键值对数量小于512个；</li>
@@ -1086,7 +1084,7 @@ Redis可以作为计算工具，能用很小的代价">
 <li>新添加的键值对，一律被保存到ht[1]中；</li>
 <li>删除、修改、查找等其他操作，会在两个哈希表上进行，即程序先尝试去ht[0]中访问要操作的数据，若不存在则到ht[1]中访问，再对访问到的数据做相应的处理。</li>
 </ol>
-<h4 id="1-23-介绍一下zset类型底层的数据结构"><a href="#1-23-介绍一下zset类型底层的数据结构" class="headerlink" title="1.23 介绍一下zset类型底层的数据结构"></a>1.23 介绍一下zset类型底层的数据结构</h4><p><strong>参考答案</strong></p>
+<h3 id="1-23-介绍一下zset类型底层的数据结构"><a href="#1-23-介绍一下zset类型底层的数据结构" class="headerlink" title="1.23 介绍一下zset类型底层的数据结构"></a>1.23 介绍一下zset类型底层的数据结构</h3><p><strong>参考答案</strong></p>
 <p>有序集合对象有2种编码方案，当同时满足以下条件时，集合对象采用ziplist编码，否则采用skiplist编码：</p>
 <ul>
 <li>有序集合保存的元素数量不超过128个；</li>
@@ -1252,7 +1250,7 @@ zset;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <p>跳跃表的实现主要涉及2个结构体：zskiplist、zskiplistNode，它们的关系如下图所示：</p>
 <p><img src="https://s2.loli.net/2022/07/17/NedPVT7lWq9ASGx.png"></p>
 <p>其中，蓝色的表格代表zskiplist，红色的表格代表zskiplistNode。zskiplist有指向头尾节点的指针，以及列表的长度，列表中最高的层级。zskiplistNode的头节点是空的，它不存储任何真实的数据，它拥有最高的层级，但这个层级不记录在zskiplist之内。</p>
-<h4 id="1-24-如何利用Redis实现分布式Session？"><a href="#1-24-如何利用Redis实现分布式Session？" class="headerlink" title="1.24 如何利用Redis实现分布式Session？"></a>1.24 如何利用Redis实现分布式Session？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-24-如何利用Redis实现分布式Session？"><a href="#1-24-如何利用Redis实现分布式Session？" class="headerlink" title="1.24 如何利用Redis实现分布式Session？"></a>1.24 如何利用Redis实现分布式Session？</h3><p><strong>参考答案</strong></p>
 <p>在web开发中，我们会把用户的登录信息存储在session里。而session是依赖于cookie的，即服务器创建session时会给它分配一个唯一的ID，并且在响应时创建一个cookie用于存储这个SESSIONID。当客户端收到这个cookie之后，就会自动保存这个SESSIONID，并且在下次访问时自动携带这个SESSIONID，届时服务器就可以通过这个SESSIONID得到与之对应的session，从而识别用户的身。如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/NMmTOFqKP3UtcAR.png"></p>
 <p>现在的互联网应用，基本都是采用分布式部署方式，即将应用程序部署在多台服务器上，并通过nginx做统一的请求分发。而服务器与服务器之间是隔离的，它们的session是不共享的，这就存在session同步的问题了，如下图：</p>
@@ -1264,7 +1262,7 @@ zset;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <p>第一是创建令牌的程序，就是在用户初次访问服务器时，给它创建一个唯一的身份标识，并且使用cookie封装这个标识再发送给客户端。那么当客户端下次再访问服务器时，就会自动携带这个身份标识了，这和SESSIONID的道理是一样的，只是改由我们自己来实现了。另外，在返回令牌之前，我们需要将它存储起来，以便于后续的验证。而这个令牌是不能保存在服务器本地的，因为其他服务器无法访问它。因此，我们可以将其存储在服务器之外的一个地方，那么Redis便是一个理想的场所。</p>
 <p>第二是验证令牌的程序，就是在用户再次访问服务器时，我们获取到了它之前的身份标识，那么我们就要验证一下这个标识是否存在了。验证的过程很简单，我们从Redis中尝试获取一下就可以知道结果。</p>
 <p><img src="https://s2.loli.net/2022/07/17/5fkn6PZsYWR9cLg.png"></p>
-<h4 id="1-25-如何利用Redis实现一个分布式锁？"><a href="#1-25-如何利用Redis实现一个分布式锁？" class="headerlink" title="1.25 如何利用Redis实现一个分布式锁？"></a>1.25 如何利用Redis实现一个分布式锁？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-25-如何利用Redis实现一个分布式锁？"><a href="#1-25-如何利用Redis实现一个分布式锁？" class="headerlink" title="1.25 如何利用Redis实现一个分布式锁？"></a>1.25 如何利用Redis实现一个分布式锁？</h3><p><strong>参考答案</strong></p>
 <p>何时需要分布式锁？</p>
 <p>在分布式的环境下，当多个server并发修改同一个资源时，为了避免竞争就需要使用分布式锁。那为什么不能使用Java自带的锁呢？因为Java中的锁是面向多线程设计的，它只局限于当前的JRE环境。而多个server实际上是多进程，是不同的JRE环境，所以Java自带的锁机制在这个场景下是无效的。</p>
 <p>如何实现分布式锁？</p>
@@ -1313,7 +1311,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 </ul>
 <p>RedLock算法的示意图如下，我们可以自己实现该算法，也可以直接使用Redisson框架。</p>
 <p><img src="https://s2.loli.net/2022/07/17/UaYgVjJfidFS7IN.png"></p>
-<h4 id="1-26-说一说你对布隆过滤器的理解"><a href="#1-26-说一说你对布隆过滤器的理解" class="headerlink" title="1.26 说一说你对布隆过滤器的理解"></a>1.26 说一说你对布隆过滤器的理解</h4><p><strong>参考答案</strong></p>
+<h3 id="1-26-说一说你对布隆过滤器的理解"><a href="#1-26-说一说你对布隆过滤器的理解" class="headerlink" title="1.26 说一说你对布隆过滤器的理解"></a>1.26 说一说你对布隆过滤器的理解</h3><p><strong>参考答案</strong></p>
 <p>布隆过滤器可以用很低的代价，估算出数据是否真实存在。例如：给用户推荐新闻时，要去掉重复的新闻，就可以利用布隆过滤器，判断该新闻是否已经推荐过。</p>
 <p>布隆过滤器的核心包括两部分：</p>
 <ol>
@@ -1329,7 +1327,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 </ul>
 </li>
 </ol>
-<h4 id="1-27-多台Redis抗高并发访问该怎么设计？"><a href="#1-27-多台Redis抗高并发访问该怎么设计？" class="headerlink" title="1.27 多台Redis抗高并发访问该怎么设计？"></a>1.27 多台Redis抗高并发访问该怎么设计？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-27-多台Redis抗高并发访问该怎么设计？"><a href="#1-27-多台Redis抗高并发访问该怎么设计？" class="headerlink" title="1.27 多台Redis抗高并发访问该怎么设计？"></a>1.27 多台Redis抗高并发访问该怎么设计？</h3><p><strong>参考答案</strong></p>
 <p>Redis Cluster是Redis的分布式解决方案，在3.0版本正式推出，有效地解决了Redis分布式方面的需求。当遇到单机内存、并发、流量等瓶颈时，可以采用Cluster架构方案达到负载均衡的目的。</p>
 <p>Redis集群采用虚拟槽分区来实现数据分片，它把所有的键根据哈希函数映射到0-16383整数槽内，计算公式为slot&#x3D;CRC16(key)&amp;16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。虚拟槽分区具有如下特点：</p>
 <ol>
@@ -1339,7 +1337,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 </ol>
 <p>Redis集群中数据的分片逻辑如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/nzyDxGhq9LXMI1e.png"></p>
-<h4 id="1-28-如果并发量超过30万，怎么设计Redis架构？"><a href="#1-28-如果并发量超过30万，怎么设计Redis架构？" class="headerlink" title="1.28 如果并发量超过30万，怎么设计Redis架构？"></a>1.28 如果并发量超过30万，怎么设计Redis架构？</h4><p><strong>参考答案</strong></p>
+<h3 id="1-28-如果并发量超过30万，怎么设计Redis架构？"><a href="#1-28-如果并发量超过30万，怎么设计Redis架构？" class="headerlink" title="1.28 如果并发量超过30万，怎么设计Redis架构？"></a>1.28 如果并发量超过30万，怎么设计Redis架构？</h3><p><strong>参考答案</strong></p>
 <p>Redis Cluster是Redis的分布式解决方案，在3.0版本正式推出，有效地解决了Redis分布式方面的需求。当遇到单机内存、并发、流量等瓶颈时，可以采用Cluster架构方案达到负载均衡的目的。</p>
 <p>Redis集群采用虚拟槽分区来实现数据分片，它把所有的键根据哈希函数映射到0-16383整数槽内，计算公式为slot&#x3D;CRC16(key)&amp;16383，每一个节点负责维护一部分槽以及槽所映射的键值数据。虚拟槽分区具有如下特点：</p>
 <ol>
@@ -1536,6 +1534,254 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <p>5.在一般情况下， 每个 Sentinel 会以每 10 秒一次的频率向它已知的所有Master，Slave发送 INFO 命令</p>
 <p>6.当Master被 Sentinel 标记为客观下线时，Sentinel 向下线的 Master 的所有 Slave 发送 INFO 命令的频率会从 10 秒一次改为每秒一次</p>
 <p>7.若没有足够数量的 Sentinel 同意 Master 已经下线， Master 的客观下线状态就会被移除。若 Master 重新向 Sentinel 的 PING 命令返回有效回复， Master 的主观下线状态就会被移除。</p>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><h3 id="2-1-MQ有什么用？"><a href="#2-1-MQ有什么用？" class="headerlink" title="2.1 MQ有什么用？"></a>2.1 MQ有什么用？</h3><p><strong>参考答案</strong></p>
+<p>消息队列有很多使用场景，比较常见的有3个：解耦、异步、削峰。</p>
+<ol>
+<li>解耦：传统的软件开发模式，各个模块之间相互调用，数据共享，每个模块都要时刻关注其他模块的是否更改或者是否挂掉等等，使用消息队列，可以避免模块之间直接调用，将所需共享的数据放在消息队列中，对于新增业务模块，只要对该类消息感兴趣，即可订阅该类消息，对原有系统和业务没有任何影响，降低了系统各个模块的耦合度，提高了系统的可扩展性。</li>
+<li>异步：消息队列提供了异步处理机制，在很多时候应用不想也不需要立即处理消息，允许应用把一些消息放入消息中间件中，并不立即处理它，在之后需要的时候再慢慢处理。</li>
+<li>削峰：在访问量骤增的场景下，需要保证应用系统的平稳性，但是这样突发流量并不常见，如果以这类峰值的标准而投放资源的话，那无疑是巨大的浪费。使用消息队列能够使关键组件支撑突发访问压力，不会因为突发的超负荷请求而完全崩溃。消息队列的容量可以配置的很大，如果采用磁盘存储消息，则几乎等于“无限”容量，这样一来，高峰期的消息可以被积压起来，在随后的时间内进行平滑的处理完成，而不至于让系统短时间内无法承载而导致崩溃。在电商网站的秒杀抢购这种突发性流量很强的业务场景中，消息队列的强大缓冲能力可以很好的起到削峰作用。</li>
+</ol>
+<h3 id="2-2-说一说生产者与消费者模式"><a href="#2-2-说一说生产者与消费者模式" class="headerlink" title="2.2 说一说生产者与消费者模式"></a>2.2 说一说生产者与消费者模式</h3><p><strong>参考答案</strong></p>
+<p>所谓生产者-消费者问题，实际上主要是包含了两类线程。一种是生产者线程用于生产数据，另一种是消费者线程用于消费数据，为了解耦生产者和消费者的关系，通常会采用共享的数据区域，就像是一个仓库。生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为。而消费者只需要从共享数据区中去获取数据，就不再需要关心生产者的行为。但是，这个共享数据区域中应该具备这样的线程间并发协作的功能：</p>
+<ol>
+<li>如果共享数据区已满的话，阻塞生产者继续生产数据放置入内；</li>
+<li>如果共享数据区为空的话，阻塞消费者继续消费数据。</li>
+</ol>
+<p>在Java语言中，实现生产者消费者问题时，可以采用三种方式：</p>
+<ol>
+<li>使用 Object 的 wait&#x2F;notify 的消息通知机制；</li>
+<li>使用 Lock 的 Condition 的 await&#x2F;signal 的消息通知机制；</li>
+<li>使用 BlockingQueue 实现。</li>
+</ol>
+<h3 id="2-3-消息队列如何保证顺序消费？"><a href="#2-3-消息队列如何保证顺序消费？" class="headerlink" title="2.3 消息队列如何保证顺序消费？"></a>2.3 消息队列如何保证顺序消费？</h3><p><strong>参考答案</strong></p>
+<p>在生产中经常会有一些类似报表系统这样的系统，需要做 MySQL 的 binlog 同步。比如订单系统要同步订单表的数据到大数据部门的 MySQL 库中用于报表统计分析，通常的做法是基于 Canal 这样的中间件去监听订单数据库的 binlog，然后把这些 binlog 发送到 MQ 中，再由消费者从 MQ 中获取 binlog 落地到大数据部门的 MySQL 中。</p>
+<p>在这个过程中，可能会有对某个订单的增删改操作，比如有三条 binlog 执行顺序是增加、修改、删除。消费者愣是换了顺序给执行成删除、修改、增加，这样能行吗？肯定是不行的。不同的消息队列产品，产生消息错乱的原因，以及解决方案是不同的。下面我们以RabbitMQ、Kafka、RocketMQ为例，来说明保证顺序消费的办法。</p>
+<p>RabbitMQ：</p>
+<p>对于 RabbitMQ 来说，导致上面顺序错乱的原因通常是消费者是集群部署，不同的消费者消费到了同一订单的不同的消息。如消费者A执行了增加，消费者B执行了修改，消费者C执行了删除，但是消费者C执行比消费者B快，消费者B又比消费者A快，就会导致消费 binlog 执行到数据库的时候顺序错乱，本该顺序是增加、修改、删除，变成了删除、修改、增加。</p>
+<p>RabbitMQ 的问题是由于不同的消息都发送到了同一个 queue 中，多个消费者都消费同一个 queue 的消息。解决这个问题，我们可以给 RabbitMQ 创建多个 queue，每个消费者固定消费一个 queue 的消息，生产者发送消息的时候，同一个订单号的消息发送到同一个 queue 中，由于同一个 queue 的消息是一定会保证有序的，那么同一个订单号的消息就只会被一个消费者顺序消费，从而保证了消息的顺序性。</p>
+<p>Kafka：</p>
+<p>对于 Kafka 来说，一个 topic 下同一个 partition 中的消息肯定是有序的，生产者在写的时候可以指定一个 key，通过我们会用订单号作为 key，这个 key 对应的消息都会发送到同一个 partition 中，所以消费者消费到的消息也一定是有序的。</p>
+<p>那么为什么 Kafka 还会存在消息错乱的问题呢？问题就出在消费者身上。通常我们消费到同一个 key 的多条消息后，会使用多线程技术去并发处理来提高消息处理速度，否则一条消息的处理需要耗时几十 毫秒，1 秒也就只能处理几十条消息，吞吐量就太低了。而多线程并发处理的话，binlog 执行到数据库的时候就不一定还是原来的顺序了。</p>
+<p>Kafka 从生产者到消费者消费消息这一整个过程其实都是可以保证有序的，导致最终乱序是由于消费者端需要使用多线程并发处理消息来提高吞吐量，比如消费者消费到了消息以后，开启 32 个线程处理消息，每个线程线程处理消息的快慢是不一致的，所以才会导致最终消息有可能不一致。</p>
+<p>所以对于 Kafka 的消息顺序性保证，其实我们只需要保证同一个订单号的消息只被同一个线程处理的就可以了。由此我们可以在线程处理前增加个内存队列，每个线程只负责处理其中一个内存队列的消息，同一个订单号的消息发送到同一个内存队列中即可。</p>
+<p>RocketMQ：</p>
+<p>对于 RocketMQ 来说，每个 Topic 可以指定多个 MessageQueue，当我们写入消息的时候，会把消息均匀地分发到不同的 MessageQueue 中，比如同一个订单号的消息，增加 binlog 写入到 MessageQueue1 中，修改 binlog 写入到 MessageQueue2 中，删除 binlog 写入到 MessageQueue3 中。</p>
+<p>但是当消费者有多台机器的时候，会组成一个 Consumer Group，Consumer Group 中的每台机器都会负责消费一部分 MessageQueue 的消息，所以可能消费者A消费了 MessageQueue1 的消息执行增加操作，消费者B消费了 MessageQueue2 的消息执行修改操作，消费者C消费了 MessageQueue3 的消息执行删除操作，但是此时消费 binlog 执行到数据库的时候就不一定是消费者A先执行了，有可能消费者C先执行删除操作，因为几台消费者是并行执行，是不能够保证他们之间的执行顺序的。</p>
+<p>RocketMQ 的消息乱序是由于同一个订单号的 binlog 进入了不同的 MessageQueue，进而导致一个订单的 binlog 被不同机器上的 Consumer 处理。</p>
+<p>要解决 RocketMQ 的乱序问题，我们只需要想办法让同一个订单的 binlog 进入到同一个 MessageQueue 中就可以了。因为同一个 MessageQueue 内的消息是一定有序的，一个 MessageQueue 中的消息只能交给一个 Consumer 来进行处理，所以 Consumer 消费的时候就一定会是有序的。</p>
+<h3 id="2-4-消息队列如何保证消息不丢？"><a href="#2-4-消息队列如何保证消息不丢？" class="headerlink" title="2.4 消息队列如何保证消息不丢？"></a>2.4 消息队列如何保证消息不丢？</h3><p><strong>参考答案</strong></p>
+<p>丢数据一般分为两种，一种是mq把消息丢了，一种就是消费时将消息丢了。下面从rabbitmq和kafka分别说一下，丢失数据的场景。</p>
+<p>RabbitMQ：</p>
+<p>RabbitMQ丢失消息分为如下几种情况：</p>
+<ol>
+<li><p>生产者丢消息：</p>
+<p>生产者将数据发送到RabbitMQ的时候，可能在传输过程中因为网络等问题而将数据弄丢了。</p>
+</li>
+<li><p>RabbitMQ自己丢消息：</p>
+<p>如果没有开启RabbitMQ的持久化，那么RabbitMQ一旦重启数据就丢了。所以必须开启持久化将消息持久化到磁盘，这样就算RabbitMQ挂了，恢复之后会自动读取之前存储的数据，一般数据不会丢失。除非极其罕见的情况，RabbitMQ还没来得及持久化自己就挂了，这样可能导致一部分数据丢失。</p>
+</li>
+<li><p>消费端丢消息：</p>
+<p>主要是因为消费者消费时，刚消费到还没有处理，结果消费者就挂了，这样你重启之后，RabbitMQ就认为你已经消费过了，然后就丢了数据。</p>
+</li>
+</ol>
+<p>针对上述三种情况，RabbitMQ可以采用如下方式避免消息丢失：</p>
+<ol>
+<li><p>生产者丢消息：</p>
+<ul>
+<li>可以选择使用RabbitMQ提供是事务功能，就是生产者在发送数据之前开启事务，然后发送消息，如果消息没有成功被RabbitMQ接收到，那么生产者会受到异常报错，这时就可以回滚事务，然后尝试重新发送。如果收到了消息，那么就可以提交事务。这种方式有明显的缺点，即RabbitMQ事务开启后，就会变为同步阻塞操作，生产者会阻塞等待是否发送成功，太耗性能会造成吞吐量的下降。</li>
+<li>可以开启confirm模式。在生产者那里设置开启了confirm模式之后，每次写的消息都会分配一个唯一的id，然后如何写入了RabbitMQ之中，RabbitMQ会给你回传一个ack消息，告诉你这个消息发送OK了。如果RabbitMQ没能处理这个消息，会回调你一个nack接口，告诉你这个消息失败了，你可以进行重试。而且你可以结合这个机制知道自己在内存里维护每个消息的id，如果超过一定时间还没接收到这个消息的回调，那么你可以进行重发。</li>
+</ul>
+<p>事务机制是同步的，你提交了一个事物之后会阻塞住，但是confirm机制是异步的，发送消息之后可以接着发送下一个消息，然后RabbitMQ会回调告知成功与否。 一般在生产者这块避免丢失，都是用confirm机制。</p>
+</li>
+<li><p>RabbitMQ自己丢消息：</p>
+<p>设置消息持久化到磁盘，设置持久化有两个步骤：</p>
+<ul>
+<li>创建queue的时候将其设置为持久化的，这样就可以保证RabbitMQ持久化queue的元数据，但是不会持久化queue里面的数据。</li>
+<li>发送消息的时候讲消息的deliveryMode设置为2，这样消息就会被设为持久化方式，此时RabbitMQ就会将消息持久化到磁盘上。 必须要同时开启这两个才可以。</li>
+</ul>
+<p>而且持久化可以跟生产的confirm机制配合起来，只有消息持久化到了磁盘之后，才会通知生产者ack，这样就算是在持久化之前RabbitMQ挂了，数据丢了，生产者收不到ack回调也会进行消息重发。</p>
+</li>
+<li><p>消费端丢消息：</p>
+<p>使用RabbitMQ提供的ack机制，首先关闭RabbitMQ的自动ack，然后每次在确保处理完这个消息之后，在代码里手动调用ack。这样就可以避免消息还没有处理完就ack。</p>
+</li>
+</ol>
+<p>Kafka：</p>
+<p>Kafka丢失消息分为如下几种情况：</p>
+<ol>
+<li><p>生产者丢消息：</p>
+<p>生产者没有设置相应的策略，发送过程中丢失数据。</p>
+</li>
+<li><p>Kafka自己丢消息：</p>
+<p>比较常见的一个场景，就是Kafka的某个broker宕机了，然后重新选举partition的leader时。如果此时follower还没来得及同步数据，leader就挂了，然后某个follower成为了leader，它就少了一部分数据。</p>
+</li>
+<li><p>消费端丢消息：</p>
+<p>消费者消费到了这个数据，然后消费之自动提交了offset，让Kafka知道你已经消费了这个消息，当你准备处理这个消息时，自己挂掉了，那么这条消息就丢了。</p>
+</li>
+</ol>
+<p>针对上述三种情况，Kafka可以采用如下方式避免消息丢失：</p>
+<ol>
+<li><p>生产者丢消息：</p>
+<p>关闭自动提交offset，在自己处理完毕之后手动提交offset，这样就不会丢失数据。</p>
+</li>
+<li><p>Kafka自己丢消息：</p>
+<p>一般要求设置4个参数来保证消息不丢失：</p>
+<ul>
+<li>给topic设置 replication.factor 参数，这个值必须大于1，表示要求每个partition必须至少有2个副本。</li>
+<li>在kafka服务端设置 min.isync.replicas 参数，这个值必须大于1，表示 要求一个leader至少感知到有至少一个follower在跟自己保持联系正常同步数据，这样才能保证leader挂了之后还有一个follower。</li>
+<li>在生产者端设置 acks&#x3D;all ，表示 要求每条每条数据，必须是写入所有replica副本之后，才能认为是写入成功了。</li>
+<li>在生产者端设置 retries&#x3D;MAX (很大的一个值)，表示这个是要求一旦写入事变，就无限重试。</li>
+</ul>
+</li>
+<li><p>消费端丢消息：</p>
+<p>如果按照上面设置了ack&#x3D;all，则一定不会丢失数据，要求是，你的leader接收到消息，所有的follower都同步到了消息之后，才认为本次写成功了。如果没满足这个条件，生产者会自动不断的重试，重试无限次。</p>
+</li>
+</ol>
+<h3 id="2-5-消息队列如何保证不重复消费？"><a href="#2-5-消息队列如何保证不重复消费？" class="headerlink" title="2.5 消息队列如何保证不重复消费？"></a>2.5 消息队列如何保证不重复消费？</h3><p><strong>参考答案</strong></p>
+<p>先大概说一说可能会有哪些重复消费的问题。首先就是比如rabbitmq、rocketmq、kafka，都有可能会出现消费重复消费的问题，正常。因为这问题通常不是mq自己保证的，是给你保证的。然后我们挑一个kafka来举个例子，说说怎么重复消费吧。</p>
+<p>kafka实际上有个offset的概念，就是每个消息写进去，都有一个offset，代表他的序号，然后consumer消费了数据之后，每隔一段时间，会把自己消费过的消息的offset提交一下，代表我已经消费过了，下次我要是重启啥的，你就让我继续从上次消费到的offset来继续消费吧。</p>
+<p>但是凡事总有意外，比如我们之前生产经常遇到的，就是你有时候重启系统，看你怎么重启了，如果碰到点着急的，直接kill进程了，再重启。这会导致consumer有些消息处理了，但是没来得及提交offset，尴尬了。重启之后，少数消息会再次消费一次。</p>
+<p>其实重复消费不可怕，可怕的是你没考虑到重复消费之后，怎么保证幂等性。举个例子,假设你有个系统，消费一条往数据库里插入一条，要是你一个消息重复两次，你不就插入了两条，这数据不就错了？但是你要是消费到第二次的时候，自己判断一下已经消费过了，直接扔了，不就保留了一条数据？</p>
+<p>一条数据重复出现两次，数据库里就只有一条数据，这就保证了系统的幂等性幂等性。通俗点说，就一个数据，或者一个请求，给你重复来多次，你得确保对应的数据是不会改变的，不能出错。</p>
+<p>想要保证不重复消费，其实还要结合业务来思考，这里给几个思路：</p>
+<ol>
+<li>比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update一下。</li>
+<li>比如你是写redis，那没问题了，反正每次都是set，天然幂等性。</li>
+<li>比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的id，类似订单id之类的东西，然后你这里消费到了之后，先根据这个id去比如redis里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个id写redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。</li>
+</ol>
+<p>还有比如基于数据库的唯一键来保证重复数据不会重复插入多条，我们之前线上系统就有这个问题，就是拿到数据的时候，每次重启可能会有重复，因为kafka消费者还没来得及提交offset，重复数据拿到了以后我们插入的时候，因为有唯一键约束了，所以重复数据只会插入报错，不会导致数据库中出现脏数据。</p>
+<h3 id="2-6-MQ处理消息失败了怎么办？"><a href="#2-6-MQ处理消息失败了怎么办？" class="headerlink" title="2.6 MQ处理消息失败了怎么办？"></a>2.6 MQ处理消息失败了怎么办？</h3><p><strong>参考答案</strong></p>
+<p>一般生产环境中，都会在使用MQ的时候设计两个队列：一个是核心业务队列，一个是死信队列。核心业务队列，就是比如专门用来让订单系统发送订单消息的，然后另外一个死信队列就是用来处理异常情况的。</p>
+<p>比如说要是第三方物流系统故障了，此时无法请求，那么仓储系统每次消费到一条订单消息，尝试通知发货和配送，都会遇到对方的接口报错。此时仓储系统就可以把这条消息拒绝访问，或者标志位处理失败！注意，这个步骤很重要。</p>
+<p>一旦标志这条消息处理失败了之后，MQ就会把这条消息转入提前设置好的一个死信队列中。然后你会看到的就是，在第三方物流系统故障期间，所有订单消息全部处理失败，全部会转入死信队列。然后你的仓储系统得专门有一个后台线程，监控第三方物流系统是否正常，能否请求的，不停的监视。一旦发现对方恢复正常，这个后台线程就从死信队列消费出来处理失败的订单，重新执行发货和配送的通知逻辑。死信队列的使用，其实就是MQ在生产实践中非常重要的一环，也就是架构设计必须要考虑的。</p>
+<h3 id="2-7-请介绍消息队列推和拉的使用场景"><a href="#2-7-请介绍消息队列推和拉的使用场景" class="headerlink" title="2.7 请介绍消息队列推和拉的使用场景"></a>2.7 请介绍消息队列推和拉的使用场景</h3><p><strong>参考答案</strong></p>
+<p>推模式：</p>
+<p>推模式是服务器端根据用户需要，由目的、按时将用户感兴趣的信息主动发送到用户的客户端。</p>
+<p>优点：</p>
+<ul>
+<li>对用户要求低，方便用户获取需要的信息；</li>
+<li>及时性好，服务器端及时地向客户端推送更新动态信息，吞吐量大。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不能确保发送成功，推模式采用广播方式，只有服务器端和客户端在同一个频道上，推模式才有效，用户才能接收到信息；</li>
+<li>没有信息状态跟踪，推模式采用开环控制技术，一个信息推送后的状态，比如客户端是否接收等，无从得知；</li>
+<li>针对性较差。推送的信息可能并不能满足客户端的个性化需求。</li>
+</ul>
+<p>拉模式：</p>
+<p>拉模式是客户端主动从服务器端获取信息。</p>
+<p>优点：</p>
+<ul>
+<li>针对性强，能满足客户端的个性化需求；</li>
+<li>信息传输量较小，网络中传输的只是客户端的请求和服务器端对该请求的响应；</li>
+<li>服务器端的任务轻。服务器端只是被动接收查询，对客户端的查询请求做出响应。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>实时性较差，针对于服务器端实时更新的信息，客户端难以获取实时信息；</li>
+<li>对于客户端用户的要求较高，需要对服务器端具有一定的了解。</li>
+</ul>
+<h3 id="2-8-RabbitMQ和Kafka有什么区别？"><a href="#2-8-RabbitMQ和Kafka有什么区别？" class="headerlink" title="2.8 RabbitMQ和Kafka有什么区别？"></a>2.8 RabbitMQ和Kafka有什么区别？</h3><p><strong>参考答案</strong></p>
+<p>在实际生产应用中，通常会使用Kafka作为消息传输的数据管道，RabbitMQ作为交易数据作为数据传输管道，主要的取舍因素则是是否存在丢数据的可能。RabbitMQ在金融场景中经常使用，具有较高的严谨性，数据丢失的可能性更小，同事具备更高的实时性。而Kafka优势主要体现在吞吐量上，虽然可以通过策略实现数据不丢失，但从严谨性角度来讲，大不如RabbitMQ。而且由于Kafka保证每条消息最少送达一次，有较小的概率会出现数据重复发送的情况。详细来说，它们之间主要有如下的区别：</p>
+<ol>
+<li><p>应用场景方面</p>
+<p>RabbitMQ：用于实时的，对可靠性要求较高的消息传递上。</p>
+<p>Kafka：用于处于活跃的流式数据，大数据量的数据处理上。</p>
+</li>
+<li><p>架构模型方面</p>
+<p>RabbitMQ：以broker为中心，有消息的确认机制。</p>
+<p>Kafka：以consumer为中心，没有消息的确认机制。</p>
+</li>
+<li><p>吞吐量方面</p>
+<p>RabbitMQ：支持消息的可靠的传递，支持事务，不支持批量操作，基于存储的可靠性的要求存储可以采用内存或硬盘，吞吐量小。</p>
+<p>Kafka：内部采用消息的批量处理，数据的存储和获取是本地磁盘顺序批量操作，消息处理的效率高，吞吐量高。</p>
+</li>
+<li><p>集群负载均衡方面</p>
+<p>RabbitMQ：本身不支持负载均衡，需要loadbalancer的支持。</p>
+<p>Kafka：采用zookeeper对集群中的broker，consumer进行管理，可以注册topic到zookeeper上，通过zookeeper的协调机制，producer保存对应的topic的broker信息，可以随机或者轮询发送到broker上，producer可以基于语义指定分片，消息发送到broker的某个分片上。</p>
+</li>
+</ol>
+<h3 id="2-9-Kafka为什么速度快？"><a href="#2-9-Kafka为什么速度快？" class="headerlink" title="2.9 Kafka为什么速度快？"></a>2.9 Kafka为什么速度快？</h3><p><strong>参考答案</strong></p>
+<p>Kafka的消息是保存或缓存在磁盘上的，一般认为在磁盘上读写数据是会降低性能的，因为寻址会比较消耗时间，但是实际上，Kafka的特性之一就是高吞吐率。即使是普通的服务器，Kafka也可以轻松支持每秒百万级的写入请求，超过了大部分的消息中间件，这种特性也使得Kafka在日志处理等海量数据场景广泛应用。</p>
+<p>下面从数据写入和读取两方面分析，为什么Kafka速度这么快：</p>
+<p>写入数据：</p>
+<p>Kafka会把收到的消息都写入到硬盘中，它绝对不会丢失数据。为了优化写入速度Kafka采用了两个技术，顺序写入和MMFile 。</p>
+<p>一、顺序写入</p>
+<p>磁盘读写的快慢取决于你怎么使用它，也就是顺序读写或者随机读写。在顺序读写的情况下，磁盘的顺序读写速度和内存持平。因为硬盘是机械结构，每次读写都会寻址-&gt;写入，其中寻址是一个“机械动作”，它是最耗时的。所以硬盘最讨厌随机I&#x2F;O，最喜欢顺序I&#x2F;O。为了提高读写硬盘的速度，Kafka就是使用顺序I&#x2F;O。</p>
+<p>而且Linux对于磁盘的读写优化也比较多，包括read-ahead和write-behind，磁盘缓存等。如果在内存做这些操作的时候，一个是JAVA对象的内存开销很大，另一个是随着堆内存数据的增多，JAVA的GC时间会变得很长，使用磁盘操作有以下几个好处：</p>
+<ol>
+<li>磁盘顺序读写速度超过内存随机读写；</li>
+<li>JVM的GC效率低，内存占用大。使用磁盘可以避免这一问题；</li>
+<li>系统冷启动后，磁盘缓存依然可用。</li>
+</ol>
+<p>下图就展示了Kafka是如何写入数据的， 每一个Partition其实都是一个文件 ，收到消息后Kafka会把数据插入到文件末尾（虚框部分）：</p>
+<p><img src="https://s2.loli.net/2022/07/17/KMn14QrRDiywx7u.webp"></p>
+<p>这种方法有一个缺陷——没有办法删除数据 ，所以Kafka是不会删除数据的，它会把所有的数据都保留下来，每个消费者（Consumer）对每个Topic都有一个offset用来表示读取到了第几条数据 。</p>
+<p><img src="https://s2.loli.net/2022/07/17/LWa5Ghmdi2kMAPp.webp"></p>
+<p>二、Memory Mapped Files</p>
+<p>即便是顺序写入硬盘，硬盘的访问速度还是不可能追上内存。所以Kafka的数据并不是实时的写入硬盘 ，它充分利用了现代操作系统分页存储来利用内存提高I&#x2F;O效率。Memory Mapped Files(后面简称mmap)也被翻译成 内存映射文件，在64位操作系统中一般可以表示20G的数据文件，它的工作原理是直接利用操作系统的Page来实现文件到物理内存的直接映射。完成映射之后你对物理内存的操作会被同步到硬盘上（操作系统在适当的时候）。</p>
+<p>通过mmap，进程像读写硬盘一样读写内存（当然是虚拟机内存），也不必关心内存的大小有虚拟内存为我们兜底。使用这种方式可以获取很大的I&#x2F;O提升，省去了用户空间到内核空间复制的开销（调用文件的read会把数据先放到内核空间的内存中，然后再复制到用户空间的内存中。）</p>
+<p>但也有一个很明显的缺陷——不可靠，写到mmap中的数据并没有被真正的写到硬盘，操作系统会在程序主动调用flush的时候才把数据真正的写到硬盘。Kafka提供了一个参数——producer.type来控制是不是主动flush，如果Kafka写入到mmap之后就立即flush然后再返回Producer叫 同步 (sync)；写入mmap之后立即返回Producer不调用flush叫异步 (async)。</p>
+<p>读取数据：</p>
+<p>一、基于sendfile实现Zero Copy</p>
+<p>传统模式下，当需要对一个文件进行传输的时候，其具体流程细节如下：</p>
+<ul>
+<li>调用read函数，文件数据被copy到内核缓冲区；</li>
+<li>read函数返回，文件数据从内核缓冲区copy到用户缓冲区；</li>
+<li>write函数调用，将文件数据从用户缓冲区copy到内核与socket相关的缓冲区；</li>
+<li>数据从socket缓冲区copy到相关协议引擎。</li>
+</ul>
+<p>以上细节是传统read&#x2F;write方式进行网络文件传输的方式，我们可以看到，在这个过程当中，文件数据实际上是经过了四次copy操作：硬盘-&gt;内核buf-&gt;用户buf-&gt;socket相关缓冲区-&gt;协议引擎。而sendfile系统调用则提供了一种减少以上多次copy，提升文件传输性能的方法。</p>
+<p>在内核版本2.1中，引入了sendfile系统调用，以简化网络上和两个本地文件之间的数据传输。sendfile的引入不仅减少了数据复制，还减少了上下文切换。运行流程如下：</p>
+<ul>
+<li>sendfile系统调用，文件数据被copy至内核缓冲区；</li>
+<li>再从内核缓冲区copy至内核中socket相关的缓冲区；</li>
+<li>最后再socket相关的缓冲区copy到协议引擎。</li>
+</ul>
+<p>相较传统read&#x2F;write方式，2.1版本内核引进的sendfile已经减少了内核缓冲区到user缓冲区，再由user缓冲区到socket相关缓冲区的文件copy，而在内核版本2.4之后，文件描述符结果被改变，sendfile实现了更简单的方式，再次减少了一次copy操作。</p>
+<p>在Apache、Nginx、lighttpd等web服务器当中，都有一项sendfile相关的配置，使用sendfile可以大幅提升文件传输性能。Kafka把所有的消息都存放在一个一个的文件中，当消费者需要数据的时候Kafka直接把文件发送给消费者，配合mmap作为文件读写方式，直接把它传给sendfile。</p>
+<p>二、批量压缩</p>
+<p>在很多情况下，系统的瓶颈不是CPU或磁盘，而是网络IO，对于需要在广域网上的数据中心之间发送消息的数据流水线尤其如此。进行数据压缩会消耗少量的CPU资源,不过对于kafka而言,网络IO更应该需要考虑。</p>
+<ul>
+<li>如果每个消息都压缩，但是压缩率相对很低，所以Kafka使用了批量压缩，即将多个消息一起压缩而不是单个消息压缩；</li>
+<li>Kafka允许使用递归的消息集合，批量的消息可以通过压缩的形式传输并且在日志中也可以保持压缩格式，直到被消费者解压缩；</li>
+<li>Kafka支持多种压缩协议，包括Gzip和Snappy压缩协议。</li>
+</ul>
+<p>总结：</p>
+<p>Kafka速度的秘诀在于，它把所有的消息都变成一个批量的文件，并且进行合理的批量压缩，减少网络IO损耗，通过mmap提高I&#x2F;O速度，写入数据的时候由于单个Partion是末尾添加所以速度最优。读取数据的时候配合sendfile直接暴力输出。</p>
+<h3 id="2-10-RabbitMQ如何保证消息已达？"><a href="#2-10-RabbitMQ如何保证消息已达？" class="headerlink" title="2.10 RabbitMQ如何保证消息已达？"></a>2.10 RabbitMQ如何保证消息已达？</h3><p><strong>参考答案</strong></p>
+<p>RabbitMQ可能丢失消息分为如下几种情况：</p>
+<ol>
+<li><p>生产者丢消息：</p>
+<p>生产者将数据发送到RabbitMQ的时候，可能在传输过程中因为网络等问题而将数据弄丢了。</p>
+</li>
+<li><p>RabbitMQ自己丢消息：</p>
+<p>如果没有开启RabbitMQ的持久化，那么RabbitMQ一旦重启数据就丢了。所以必须开启持久化将消息持久化到磁盘，这样就算RabbitMQ挂了，恢复之后会自动读取之前存储的数据，一般数据不会丢失。除非极其罕见的情况，RabbitMQ还没来得及持久化自己就挂了，这样可能导致一部分数据丢失。</p>
+</li>
+<li><p>消费端丢消息：</p>
+<p>主要是因为消费者消费时，刚消费到还没有处理，结果消费者就挂了，这样你重启之后，RabbitMQ就认为你已经消费过了，然后就丢了数据。</p>
+</li>
+</ol>
+<p>针对上述三种情况，RabbitMQ可以采用如下方式避免消息丢失：</p>
+<ol>
+<li><p>生产者丢消息：</p>
+<ul>
+<li>可以选择使用RabbitMQ提供是事务功能，就是生产者在发送数据之前开启事务，然后发送消息，如果消息没有成功被RabbitMQ接收到，那么生产者会受到异常报错，这时就可以回滚事务，然后尝试重新发送。如果收到了消息，那么就可以提交事务。这种方式有明显的缺点，即RabbitMQ事务开启后，就会变为同步阻塞操作，生产者会阻塞等待是否发送成功，太耗性能会造成吞吐量的下降。</li>
+<li>可以开启confirm模式。在生产者那里设置开启了confirm模式之后，每次写的消息都会分配一个唯一的id，然后如何写入了RabbitMQ之中，RabbitMQ会给你回传一个ack消息，告诉你这个消息发送OK了。如果RabbitMQ没能处理这个消息，会回调你一个nack接口，告诉你这个消息失败了，你可以进行重试。而且你可以结合这个机制知道自己在内存里维护每个消息的id，如果超过一定时间还没接收到这个消息的回调，那么你可以进行重发。</li>
+</ul>
+<p>事务机制是同步的，你提交了一个事物之后会阻塞住，但是confirm机制是异步的，发送消息之后可以接着发送下一个消息，然后RabbitMQ会回调告知成功与否。 一般在生产者这块避免丢失，都是用confirm机制。</p>
+</li>
+<li><p>RabbitMQ自己丢消息：</p>
+<p>设置消息持久化到磁盘，设置持久化有两个步骤：</p>
+<ul>
+<li>创建queue的时候将其设置为持久化的，这样就可以保证RabbitMQ持久化queue的元数据，但是不会持久化queue里面的数据。</li>
+<li>发送消息的时候讲消息的deliveryMode设置为2，这样消息就会被设为持久化方式，此时RabbitMQ就会将消息持久化到磁盘上。 必须要同时开启这两个才可以。</li>
+</ul>
+<p>而且持久化可以跟生产的confirm机制配合起来，只有消息持久化到了磁盘之后，才会通知生产者ack，这样就算是在持久化之前RabbitMQ挂了，数据丢了，生产者收不到ack回调也会进行消息重发。</p>
+</li>
+<li><p>消费端丢消息：</p>
+<p>使用RabbitMQ提供的ack机制，首先关闭RabbitMQ的自动ack，然后每次在确保处理完这个消息之后，在代码里手动调用ack。这样就可以避免消息还没有处理完就ack。</p>
+</li>
+</ol>
 <h2 id="补充：MQ"><a href="#补充：MQ" class="headerlink" title="补充：MQ"></a>补充：MQ</h2><h3 id="MQ是什么"><a href="#MQ是什么" class="headerlink" title="MQ是什么"></a>MQ是什么</h3><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/54152397?sort=created">https://www.zhihu.com/question/54152397?sort=created</a></p>
 <h3 id="简述RabbitMQ的架构设计"><a href="#简述RabbitMQ的架构设计" class="headerlink" title="简述RabbitMQ的架构设计"></a>简述RabbitMQ的架构设计</h3><p><img src="https://s2.loli.net/2022/07/17/FRueWC4bojvs3Zi.png"></p>
 <p>Broker：rabbitmq的服务节点</p>
@@ -1602,6 +1848,369 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DepartmentDao</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Department</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">,</span> <span class="token class-name">JpaSpecificationExecutor</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Department</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+
+
+<h2 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h2><h3 id="3-1-说说ElasticSearch-put的全过程"><a href="#3-1-说说ElasticSearch-put的全过程" class="headerlink" title="3.1 说说ElasticSearch put的全过程"></a>3.1 说说ElasticSearch put的全过程</h3><p><strong>参考答案</strong></p>
+<p>put过程主要分为三个阶段：</p>
+<ol>
+<li><p>协调阶段：</p>
+<p>Client 客户端选择一个 node 发送 put 请求，此时当前节点就是协调节点（coordinating node）。协调节点根据 document 的 id 进行路由，将请求转发给对应的 node。这个 node 上的是 primary shard 。</p>
+</li>
+<li><p>主要阶段：</p>
+<p>对应的 primary shard 处理请求，写入数据 ，然后将数据同步到 replica shard。</p>
+<ul>
+<li>primary shard 会验证传入的数据结构；</li>
+<li>本地执行相关操作；</li>
+<li>将操作转发给 replica shard。</li>
+</ul>
+<p>当数据写入 primary shard 和 replica shard 成功后，路由节点返回响应给 Client。</p>
+</li>
+<li><p>副本阶段：</p>
+<p>每个 replica shard 在转发后，会进行本地操作。</p>
+</li>
+</ol>
+<p>在写操作时，默认情况下，只需要 primary shard 处于活跃状态即可进行操作。在索引设置时可以设置这个属性：index.write.wait_for_active_shards。默认是 1，即 primary shard 写入成功即可返回。 如果设置为 all 则相当于 number_of_replicas+1 就是 primary shard 数量 + replica shard 数量。就是需要等待 primary shard 和 replica shard 都写入成功才算成功。可以通过索引设置动态覆盖此默认设置。</p>
+<h3 id="3-2-说说ElasticSearch的倒排索引"><a href="#3-2-说说ElasticSearch的倒排索引" class="headerlink" title="3.2 说说ElasticSearch的倒排索引"></a>3.2 说说ElasticSearch的倒排索引</h3><p><strong>参考答案</strong></p>
+<p>Elasticsearch 使用一种称为倒排索引的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p>
+<p>例如，假设我们有两个文档，每个文档的 content 域包含如下内容：</p>
+<ol>
+<li>The quick brown fox jumped over the lazy dog</li>
+<li>Quick brown foxes leap over lazy dogs in summer</li>
+</ol>
+<p>为了创建倒排索引，我们首先将每个文档的 content 域拆分成单独的 词（我们称它为 词条 或 tokens），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p>
+<p><img src="https://s2.loli.net/2022/07/17/85VqbenGXS6dKlD.png"></p>
+<p>现在，如果我们想搜索 quick brown ，我们只需要查找包含每个词条的文档：</p>
+<p><img src="https://s2.loli.net/2022/07/17/jAgnwrfbQhdtq13.png"></p>
+<p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单相似性算法 ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p>
+<p>但是，我们目前的倒排索引有一些问题：</p>
+<ul>
+<li>Quick 和 quick 以独立的词条出现，然而用户可能认为它们是相同的词。</li>
+<li>fox 和 foxes 非常相似, 就像 dog 和 dogs ；他们有相同的词根。</li>
+<li>jumped 和 leap, 尽管没有相同的词根，但他们的意思很相近。他们是同义词。</li>
+</ul>
+<p>使用前面的索引搜索 +Quick +fox 不会得到任何匹配文档。（记住，+ 前缀表明这个词必须存在。）只有同时出现 Quick 和 fox 的文档才满足这个查询条件，但是第一个文档包含 quick fox ，第二个文档包含 Quick foxes 。</p>
+<p>我们的用户可以合理的期望两个文档与查询匹配。我们可以做的更好。如果我们将词条规范为标准模式，那么我们可以找到与用户搜索的词条不完全一致，但具有足够相关性的文档。例如：</p>
+<ul>
+<li>Quick 可以小写化为 quick 。</li>
+<li>foxes 可以 <em>词干提取</em> –变为词根的格式– 为 fox 。类似的， dogs 可以为提取为 dog 。</li>
+<li>jumped 和 leap 是同义词，可以索引为相同的单词 jump 。</li>
+</ul>
+<p>现在索引看上去像这样：</p>
+<p><img src="https://s2.loli.net/2022/07/17/kjZ9Sn8mApxFrfo.png"></p>
+<p>这还远远不够。我们搜索 +Quick +fox <em>仍然</em> 会失败，因为在我们的索引中，已经没有 Quick 了。但是，如果我们对搜索的字符串使用与 content 域相同的标准化规则，会变成查询 +quick +fox ，这样两个文档都会匹配！</p>
+<h3 id="3-3-说一说你对solr的了解"><a href="#3-3-说一说你对solr的了解" class="headerlink" title="3.3 说一说你对solr的了解"></a>3.3 说一说你对solr的了解</h3><p><strong>参考答案</strong></p>
+<p>Solr是一个高性能，采用Java，基于Lucene的全文搜索服务器。同时对其进行了扩展，提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展并对查询性能进行了优化，并且提供了一个完善的功能管理界面，是一款非常优秀的全文搜索引擎。</p>
+<h2 id="补充：Kafka"><a href="#补充：Kafka" class="headerlink" title="补充：Kafka"></a>补充：Kafka</h2><p>“你用过消息中间件吗？用过哪些？”</p>
+<p>这是在面试过程中面试官必问的一个问题，但是我真的听过很多人说没用过，也有人说用过但也仅仅知道怎么调用，其他的问题一概不知，在消息中间件在项目中发挥着中流砥柱作用的今天，仅仅知道调用显然是不够的的了，为了能让乡亲们多点底气，今天为大家带来Kafka的高频面试题（kafka我用的比较多）。</p>
+<h3 id="1、为什么要使用-kafka，为什么要使用消息队列？"><a href="#1、为什么要使用-kafka，为什么要使用消息队列？" class="headerlink" title="1、为什么要使用 kafka，为什么要使用消息队列？"></a>1、为什么要使用 kafka，为什么要使用消息队列？</h3><ul>
+<li>缓冲和削峰：上游数据时有突发流量，下游可能扛不住，或者下游没有足够多的机器来保证冗余，kafka在中间可以起到一个缓冲的作用，把消息暂存在kafka中，下游服务就可以按照自己的节奏进行慢慢处理。</li>
+<li>解耦和扩展性：项目开始的时候，并不能确定具体需求。消息队列可以作为一个接口层，解耦重要的业务流程。只需要遵守约定，针对数据编程即可获取扩展能力。</li>
+<li>冗余：可以采用一对多的方式，一个生产者发布消息，可以被多个订阅topic的服务消费到，供多个毫无关联的业务使用。</li>
+<li>健壮性：消息队列可以堆积请求，所以消费端业务即使短时间死掉，也不会影响主要业务的正常进行。</li>
+<li>异步通信：很多时候，用户不想也不需要立即处理消息。消息队列提供了异步处理机制，允许用户把一个消息放入队列，但并不立即处理它。想向队列中放入多少消息就放多少，然后在需要的时候再去处理它们。</li>
+</ul>
+<h3 id="2、Kafka的常用组件有哪些？"><a href="#2、Kafka的常用组件有哪些？" class="headerlink" title="2、Kafka的常用组件有哪些？"></a>2、Kafka的常用组件有哪些？</h3><ul>
+<li>producer：消息的生产者, 自己决定哪个 partions 中生产消息, 两种机制:hash 与 轮询。</li>
+<li>consumer：通过 zookeeper 进行维护消费者偏移量, consumer有自己的消费组,不同组之间维护同一个 topic 数据,互不影响.相同组的不同 consumer消费同一个 topic,这个 topic相同的数据只被消费一次。</li>
+<li>broker：broker 组成 kafka 集群的节点,之间没有主从关系, 依赖 zookeeper进行协调, broker 负责消息的读写与存储, 一个 broker可以管理读个</li>
+<li>partionstopic：一类消息的总称&#x2F;消息队里, topic是由 partions组成, 一个 topic 由多台 server 里的 partions 组成。zookeeper 协调 kafka broker,存储元数据, consumer的 offset+ broker 信息 +topic信息+ partions信息partions 组成 topic 的单元, 每个 topic有副本(创建 topic 指定), 每个 partions 只能有有个 broker管理</li>
+</ul>
+<h3 id="3、数据传输的事物定义有哪三种"><a href="#3、数据传输的事物定义有哪三种" class="headerlink" title="3、数据传输的事物定义有哪三种?"></a>3、数据传输的事物定义有哪三种?</h3><p>数据传输的事务定义通常有以下三种级别：</p>
+<ul>
+<li>最多一次: 消息不会被重复发送，最多被传输一次，但也有可能一次不传输。</li>
+<li>最少一次: 消息不会被漏发送，最少被传输一次，但也有可能被重复传输。</li>
+<li>精确的一次(Exactly once): 不会漏传输也不会重复传输,每个消息都传输被一次而 且仅仅被传输一次，这是大家所期望的。</li>
+</ul>
+<h3 id="4、ZooKeeper在Kafka中的作用是什么？"><a href="#4、ZooKeeper在Kafka中的作用是什么？" class="headerlink" title="4、ZooKeeper在Kafka中的作用是什么？"></a>4、ZooKeeper在Kafka中的作用是什么？</h3><p>Apache Kafka是一个使用Zookeeper构建的分布式系统。虽然，Zookeeper的主要作用是在集群中的不同节点之间建立协调。但是，如果任何节点失败，我们还使用Zookeeper从先前提交的偏移量中恢复，因为它做周期性提交偏移量工作。</p>
+<h3 id="5、没有ZooKeeper可以使用Kafka吗？"><a href="#5、没有ZooKeeper可以使用Kafka吗？" class="headerlink" title="5、没有ZooKeeper可以使用Kafka吗？"></a>5、没有ZooKeeper可以使用Kafka吗？</h3><p>zookeeper 是一个分布式的协调组件，早期版本的kafka用zk做meta信息存储，consumer的消费状态，group的管理以及 offset的值。考虑到zk本身的一些因素以及整个架构较大概率存在单点问题，新版本中逐渐弱化了zookeeper的作用。新的consumer使用了kafka内部的group coordination协议，也减少了对zookeeper的依赖。但是broker依然依赖于ZK，zookeeper 在kafka中还用来选举controller 和 检测broker是否存活等等。</p>
+<h3 id="6、Kafka-判断一个节点是否还活着有那两个条件"><a href="#6、Kafka-判断一个节点是否还活着有那两个条件" class="headerlink" title="6、Kafka 判断一个节点是否还活着有那两个条件?"></a>6、Kafka 判断一个节点是否还活着有那两个条件?</h3><ul>
+<li>节点必须可以维护和 ZooKeeper 的连接，Zookeeper 通过心跳机制检查每个节点的连接。</li>
+<li>如果节点是个 follower,他必须能及时的同步 leader 的写操作，延时不能太久。</li>
+</ul>
+<h3 id="7、解释偏移的作用。"><a href="#7、解释偏移的作用。" class="headerlink" title="7、解释偏移的作用。"></a>7、解释偏移的作用。</h3><p>给分区中的消息提供了一个顺序ID号，我们称之为偏移量。因此，为了唯一地识别分区中的每条消息，我们使用这些偏移量。</p>
+<h3 id="8、producer-是否直接将数据发送到-broker-的-leader-主节点"><a href="#8、producer-是否直接将数据发送到-broker-的-leader-主节点" class="headerlink" title="8、producer 是否直接将数据发送到 broker 的 leader(主节点)?"></a>8、producer 是否直接将数据发送到 broker 的 leader(主节点)?</h3><p>producer 直接将数据发送到 broker 的 leader(主节点)，不需要在多个节点进行分发，为了 帮助 producer 做到这点，所有的 Kafka 节点都可以及时的告知:哪些节点是活动的，目标topic 目标分区的 leader 在哪。这样 producer 就可以直接将消息发送到目的地了。</p>
+<h3 id="9、Kafa-consumer-是否可以消费指定分区消息"><a href="#9、Kafa-consumer-是否可以消费指定分区消息" class="headerlink" title="9、Kafa consumer 是否可以消费指定分区消息?"></a>9、Kafa consumer 是否可以消费指定分区消息?</h3><p>Kafa consumer 消费消息时，向 broker 发出”fetch”请求去消费特定分区的消息，consumer指定消息在日志中的偏移量(offset)，就可以消费从这个位置开始的消息，customer 拥有 了 offset 的控制权，可以向后回滚去重新消费之前的消息，这是很有意义的。</p>
+<h3 id="10、Kafka-存储在硬盘上的消息格式是什么"><a href="#10、Kafka-存储在硬盘上的消息格式是什么" class="headerlink" title="10、Kafka 存储在硬盘上的消息格式是什么?"></a>10、Kafka 存储在硬盘上的消息格式是什么?</h3><p>消息由一个固定长度的头部和可变长度的字节数组组成。头部包含了一个版本号和 CRC32校验码。</p>
+<ul>
+<li>消息长度: 4 bytes (value: 1+4+n)</li>
+<li>版本号: 1 byte</li>
+<li>CRC 校验码: 4 bytes</li>
+<li>具体的消息: n bytes</li>
+</ul>
+<h3 id="11、kafka-follower如何与leader同步数据？"><a href="#11、kafka-follower如何与leader同步数据？" class="headerlink" title="11、kafka follower如何与leader同步数据？"></a>11、kafka follower如何与leader同步数据？</h3><p>Kafka的复制机制既不是完全的同步复制，也不是单纯的异步复制。完全同步复制要求All Alive Follower都复制完，这条消息才会被认为commit，这种复制方式极大的影响了吞吐率。而异步复制方式下，Follower异步的从Leader复制数据，数据只要被Leader写入log就被认为已经commit，这种情况下，如果leader挂掉，会丢失数据，kafka使用ISR的方式很好的均衡了确保数据不丢失以及吞吐率。Follower可以批量的从Leader复制数据，而且Leader充分利用磁盘顺序读以及send file(zero copy)机制，这样极大的提高复制性能，内部批量写磁盘，大幅减少了Follower与Leader的消息量差。</p>
+<h3 id="12、Kafka-高效文件存储设计特点"><a href="#12、Kafka-高效文件存储设计特点" class="headerlink" title="12、Kafka 高效文件存储设计特点:"></a><strong>12、Kafka 高效文件存储设计特点:</strong></h3><ol>
+<li><p>Kafka 把 topic 中一个 parition 大文件分成多个小文件段，通过多个小文件段，就容易定 期清除或删除已经消费完文件，减少磁盘占用。</p>
+</li>
+<li><p>通过索引信息可以快速定位 message 和确定 response 的最大大小。</p>
+</li>
+<li><p>通过 index 元数据全部映射到 memory，可以避免 segment file 的 IO 磁盘操作。</p>
+</li>
+<li><p>通过索引文件稀疏存储，可以大幅降低 index 文件元数据占用空间大小。</p>
+</li>
+</ol>
+<h3 id="13、Kafka-与传统消息系统之间有三个关键区别"><a href="#13、Kafka-与传统消息系统之间有三个关键区别" class="headerlink" title="13、Kafka 与传统消息系统之间有三个关键区别"></a><strong>13、Kafka 与传统消息系统之间有三个关键区别</strong></h3><ul>
+<li>Kafka 持久化日志，这些日志可以被重复读取和无限期保留</li>
+<li>Kafka 是一个分布式系统:它以集群的方式运行，可以灵活伸缩，在内部通过复制数据 提升容错能力和高可用性</li>
+<li>Kafka 支持实时的流式处理</li>
+</ul>
+<h3 id="14、Kafka为什么那么快？"><a href="#14、Kafka为什么那么快？" class="headerlink" title="14、Kafka为什么那么快？"></a><strong>14、Kafka为什么那么快？</strong></h3><ul>
+<li>Cache Filesystem Cache PageCache缓存</li>
+<li>顺序写 由于现代的操作系统提供了预读和写技术，磁盘的顺序写大多数情况下比随机写内存还要快。</li>
+<li>Zero-copy 零拷技术减少拷贝次数</li>
+<li>Batching of Messages 批量量处理。合并小的请求，然后以流的方式进行交互，直顶网络上限。</li>
+<li>Pull 拉模式 使用拉模式进行消息的获取消费，与消费端处理能力相符。</li>
+</ul>
+<h3 id="15、什么情况下一个-broker-会从-isr中踢出去？"><a href="#15、什么情况下一个-broker-会从-isr中踢出去？" class="headerlink" title="15、什么情况下一个 broker 会从 isr中踢出去？"></a><strong>15、什么情况下一个 broker 会从 isr中踢出去？</strong></h3><p>leader会维护一个与其基本保持同步的Replica列表，该列表称为ISR(in-sync Replica)，每个Partition都会有一个ISR，而且是由leader动态维护 ，如果一个follower比一个leader落后太多，或者超过一定时间未发起数据复制请求，则leader将其重ISR中移除 。</p>
+<h3 id="16、kafka-producer如何优化打入速度？"><a href="#16、kafka-producer如何优化打入速度？" class="headerlink" title="16、kafka producer如何优化打入速度？"></a><strong>16、kafka producer如何优化打入速度？</strong></h3><ul>
+<li>增加线程</li>
+<li>提高 batch.size</li>
+<li>增加更多 producer 实例</li>
+<li>增加 partition 数</li>
+<li>设置 acks&#x3D;-1 时，如果延迟增大：可以增大 num.replica.fetchers（follower 同步数据的线程数）来调解；</li>
+<li>跨数据中心的传输：增加 socket 缓冲区设置以及 OS tcp 缓冲区设置。</li>
+</ul>
+<h3 id="17、kafka-producer-打数据，ack-为-0，-1，-1-的时候代表啥（ack机制），-设置-1-的时候，什么情况下，leader-会认为一条消息-commit了？"><a href="#17、kafka-producer-打数据，ack-为-0，-1，-1-的时候代表啥（ack机制），-设置-1-的时候，什么情况下，leader-会认为一条消息-commit了？" class="headerlink" title="17、kafka producer 打数据，ack  为 0， 1， -1 的时候代表啥（ack机制）， 设置 -1 的时候，什么情况下，leader 会认为一条消息 commit了？"></a><strong>17、kafka producer 打数据，ack  为 0， 1， -1 的时候代表啥（ack机制）， 设置 -1 的时候，什么情况下，leader 会认为一条消息 commit了？</strong></h3><ul>
+<li>1（默认） 数据发送到Kafka后，经过leader成功接收消息的的确认，就算是发送成功了。在这种情况下，如果leader宕机了，则会丢失数据。</li>
+<li>0 生产者将数据发送出去就不管了，不去等待任何返回。这种情况下数据传输效率最高，但是数据可靠性确是最低的。</li>
+<li>-1 producer需要等待ISR中的所有follower都确认接收到数据后才算一次发送完成，可靠性最高。当ISR中所有Replica都向Leader发送ACK时，leader才commit，这时候producer才能认为一个请求中的消息都commit了。</li>
+</ul>
+<h3 id="18、Kafka中的消息是否会丢失和重复消费？"><a href="#18、Kafka中的消息是否会丢失和重复消费？" class="headerlink" title="18、Kafka中的消息是否会丢失和重复消费？"></a><strong>18、Kafka中的消息是否会丢失和重复消费？</strong></h3><p>要确定Kafka的消息是否丢失或重复，从两个方面分析入手：<strong>消息发送和消息消费</strong>。</p>
+<p><strong>1、消息发送</strong></p>
+<p>​     <strong>Kafka消息发送有两种方式：****同步（sync）和异步（async）</strong>，默认是同步方式，可通过producer.type属性进行配置。Kafka通过配置request.required.acks属性来确认消息的生产：</p>
+<ul>
+<li>0—表示不进行消息接收是否成功的确认；</li>
+<li>1—表示当Leader接收成功时确认；</li>
+<li>-1—表示Leader和Follower都接收成功时确认；</li>
+</ul>
+<p>综上所述，有6种消息生产的情况，下面分情况来分析消息丢失的场景：</p>
+<p>（1）acks&#x3D;0，不和Kafka集群进行消息接收确认，则当网络异常、缓冲区满了等情况时，消息可能丢失；</p>
+<p>（2）acks&#x3D;1、同步模式下，只有Leader确认接收成功后但挂掉了，副本没有同步，数据可能丢失；</p>
+<p><strong>2、消息消费</strong></p>
+<p><strong>Kafka消息消费有两个consumer接口，Low-level API和High-level API</strong>：</p>
+<ul>
+<li>Low-level API：消费者自己维护offset等值，可以实现对Kafka的完全控制；</li>
+<li>High-level API：封装了对parition和offset的管理，使用简单；</li>
+</ul>
+<p>如果使用高级接口High-level API，可能存在一个问题就是当消息消费者从集群中把消息取出来、并提交了新的消息offset值后，还没来得及消费就挂掉了，那么下次再消费时之前没消费成功的消息就“诡异”的消失了；</p>
+<p><strong>解决办法</strong>：</p>
+<ul>
+<li><p>针对消息丢失：同步模式下，确认机制设置为-1，即让消息写入Leader和Follower之后再确认消息发送成功；异步模式下，为防止缓冲区满，可以在配置文件设置不限制阻塞超时时间，当缓冲区满时让生产者一直处于阻塞状态；</p>
+</li>
+<li><p>针对消息重复：将消息的唯一标识保存到外部介质中，每次消费时判断是否处理过即可。</p>
+<p>消息重复消费及解决参考：<a target="_blank" rel="noopener" href="https://www.javazhiyin.com/22910.html">https://www.javazhiyin.com/22910.html</a></p>
+</li>
+</ul>
+<h3 id="19、为什么Kafka不支持读写分离？"><a href="#19、为什么Kafka不支持读写分离？" class="headerlink" title="19、为什么Kafka不支持读写分离？"></a><strong>19、为什么Kafka不支持读写分离？</strong></h3><p>在 Kafka 中，生产者写入消息、消费者读取消息的操作都是与 leader 副本进行交互的，从 而实现的是一种主写主读的生产消费模型。</p>
+<p>Kafka 并不支持主写从读，因为主写从读有 2 个很明 显的缺点:</p>
+<ol>
+<li>数据一致性问题。数据从主节点转到从节点必然会有一个延时的时间窗口，这个时间 窗口会导致主从节点之间的数据不一致。某一时刻，在主节点和从节点中 A 数据的值都为 X， 之后将主节点中 A 的值修改为 Y，那么在这个变更通知到从节点之前，应用读取从节点中的 A 数据的值并不为最新的 Y，由此便产生了数据不一致的问题。</li>
+<li>延时问题。类似 Redis 这种组件，数据从写入主节点到同步至从节点中的过程需要经 历网络→主节点内存→网络→从节点内存这几个阶段，整个过程会耗费一定的时间。而在 Kafka 中，主从同步会比 Redis 更加耗时，它需要经历网络→主节点内存→主节点磁盘→网络→从节 点内存→从节点磁盘这几个阶段。对延时敏感的应用而言，主写从读的功能并不太适用。</li>
+</ol>
+<h3 id="20、Kafka中是怎么体现消息顺序性的？"><a href="#20、Kafka中是怎么体现消息顺序性的？" class="headerlink" title="20、Kafka中是怎么体现消息顺序性的？"></a><strong>20、Kafka中是怎么体现消息顺序性的？</strong></h3><p>kafka每个partition中的消息在写入时都是有序的，消费时，每个partition只能被每一个group中的一个消费者消费，保证了消费时也是有序的。</p>
+<p>整个topic不保证有序。如果为了保证topic整个有序，那么将partition调整为1.</p>
+<h3 id="21、消费者提交消费位移时提交的是当前消费到的最新消息的offset还是offset-1"><a href="#21、消费者提交消费位移时提交的是当前消费到的最新消息的offset还是offset-1" class="headerlink" title="21、消费者提交消费位移时提交的是当前消费到的最新消息的offset还是offset+1?"></a><strong>21、消费者提交消费位移时提交的是当前消费到的最新消息的offset还是offset+1?</strong></h3><p>offset+1</p>
+<h3 id="22、kafka如何实现延迟队列？"><a href="#22、kafka如何实现延迟队列？" class="headerlink" title="22、kafka如何实现延迟队列？"></a><strong>22、kafka如何实现延迟队列？</strong></h3><p>Kafka并没有使用JDK自带的Timer或者DelayQueue来实现延迟的功能，而是基于时间轮自定义了一个用于实现延迟功能的定时器（SystemTimer）。JDK的Timer和DelayQueue插入和删除操作的平均时间复杂度为O(nlog(n))，并不能满足Kafka的高性能要求，而基于时间轮可以将插入和删除操作的时间复杂度都降为O(1)。时间轮的应用并非Kafka独有，其应用场景还有很多，在Netty、Akka、Quartz、Zookeeper等组件中都存在时间轮的踪影。</p>
+<p>底层使用数组实现，数组中的每个元素可以存放一个TimerTaskList对象。TimerTaskList是一个环形双向链表，在其中的链表项TimerTaskEntry中封装了真正的定时任务TimerTask.</p>
+<p>Kafka中到底是怎么推进时间的呢？Kafka中的定时器借助了JDK中的DelayQueue来协助推进时间轮。具体做法是对于每个使用到的TimerTaskList都会加入到DelayQueue中。Kafka中的TimingWheel专门用来执行插入和删除TimerTaskEntry的操作，而DelayQueue专门负责时间推进的任务。再试想一下，DelayQueue中的第一个超时任务列表的expiration为200ms，第二个超时任务为840ms，这里获取DelayQueue的队头只需要O(1)的时间复杂度。如果采用每秒定时推进，那么获取到第一个超时的任务列表时执行的200次推进中有199次属于“空推进”，而获取到第二个超时任务时有需要执行639次“空推进”，这样会无故空耗机器的性能资源，这里采用DelayQueue来辅助以少量空间换时间，从而做到了“精准推进”。Kafka中的定时器真可谓是“知人善用”，用TimingWheel做最擅长的任务添加和删除操作，而用DelayQueue做最擅长的时间推进工作，相辅相成。</p>
+<blockquote>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013256816/article/details/80697456">https://blog.csdn.net/u013256816/article/details/80697456</a></p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28900249/article/details/90346599">https://blog.csdn.net/qq_28900249/article/details/90346599</a></p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/kx33389/p/11182082.html">https://www.cnblogs.com/kx33389/p/11182082.html</a></p>
+</blockquote>
+<h3 id="kafka怎么处理消息顺序、重复发送、重复消费、消息丢失"><a href="#kafka怎么处理消息顺序、重复发送、重复消费、消息丢失" class="headerlink" title="kafka怎么处理消息顺序、重复发送、重复消费、消息丢失"></a>kafka怎么处理消息顺序、重复发送、重复消费、消息丢失</h3><h3 id="Kafka在什么情况下会出现消息丢失及解决方案？"><a href="#Kafka在什么情况下会出现消息丢失及解决方案？" class="headerlink" title="Kafka在什么情况下会出现消息丢失及解决方案？"></a>Kafka在什么情况下会出现消息丢失及解决方案？</h3><ol>
+<li><p>消息发送</p>
+<blockquote>
+<ol>
+<li>ack&#x3D;0，不重试<br>producer发送消息完，不管结果了，如果发送失败也就丢失了。</li>
+<li>ack&#x3D;1，leader crash<br>producer发送消息完，只等待lead写入成功就返回了，leader crash了，这时follower没来及同步，消 息丢失。</li>
+<li>unclean.leader.election.enable 配置true<br>允许选举ISR以外的副本作为leader,会导致数据丢失，默认为false。producer发送异步消息完，只等待 lead写入成功就返回了，leader crash了，这时ISR中没有follower，leader从OSR中选举，因为OSR 中本来落后于Leader造成消息丢失。</li>
+</ol>
+<p>解决方案：</p>
+<ol>
+<li><p>配置：ack&#x3D;all &#x2F; -1,tries &gt; 1,unclean.leader.election.enable : false producer发送消息完，等待follower同步完再返回，如果异常则重试。副本的数量可能影响吞吐量。</p>
+<p>不允许选举ISR以外的副本作为leader。</p>
+</li>
+<li><p>配置：min.insync.replicas &gt; 1</p>
+<p>副本指定必须确认写操作成功的最小副本数量。如果不能满足这个最小值，则生产者将引发一个异常(要么是 NotEnoughReplicas，要么是NotEnoughReplicasAfterAppend)。<br>min.insync.replicas和ack更大的持久性保证。确保如果大多数副本没有收到写操作，则生产者将引发异 常。</p>
+</li>
+<li><p>失败的offset单独记录<br>producer发送消息，会自动重试，遇到不可恢复异常会抛出，这时可以捕获异常记录到数据库或缓存，进行 单独处理。</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>消费</p>
+<p>先commit再处理消息。如果在处理消息的时候异常了，但是offset 已经提交了，这条消息对于该消费者来 说就是丢失了，再也不会消费到了。</p>
+</li>
+<li><p>broker的刷盘</p>
+<p>减小刷盘间隔</p>
+</li>
+</ol>
+<h3 id="Kafka是pull？push？优劣势分析"><a href="#Kafka是pull？push？优劣势分析" class="headerlink" title="Kafka是pull？push？优劣势分析"></a>Kafka是pull？push？优劣势分析</h3><p>pull模式：</p>
+<ul>
+<li>根据consumer的消费能力进行数据拉取，可以控制速率</li>
+<li>可以批量拉取、也可以单条拉取</li>
+<li>可以设置不同的提交方式，实现不同的传输语义</li>
+</ul>
+<blockquote>
+<p>缺点：如果kafka没有数据，会导致consumer空循环，消耗资源</p>
+<p>解决：通过参数设置，consumer拉取数据为空或者没有达到一定数量时进行阻塞</p>
+</blockquote>
+<p>push模式：不会导致consumer循环等待</p>
+<blockquote>
+<p>优点：不会导致consumer循环等待</p>
+<p>缺点：速率固定、忽略了consumer的消费能力，可能导致拒绝服务或者网络拥塞等情况</p>
+</blockquote>
+<h3 id="Kafka中zk的作用"><a href="#Kafka中zk的作用" class="headerlink" title="Kafka中zk的作用"></a>Kafka中zk的作用</h3><p>&#x2F;brokers&#x2F;ids：临时节点，保存所有broker节点信息，存储broker的物理地址、版本信息、启动时间 等，节点名称为brokerID，broker定时发送心跳到zk，如果断开则该brokerID会被删除</p>
+<p>&#x2F;brokers&#x2F;topics：临时节点，节点保存broker节点下所有的topic信息，每一个topic节点下包含一个固 定的partitions节点，partitions的子节点就是topic的分区，每个分区下保存一个state节点、保存着当 前leader分区和ISR的brokerID，state节点由leader创建，若leader宕机该节点会被删除，直到有新的 leader选举产生、重新生成state节点</p>
+<p>&#x2F;consumers&#x2F;[group_id]&#x2F;owners&#x2F;[topic]&#x2F;[broker_id-partition_id]：维护消费者和分区的注册关系</p>
+<p>&#x2F;consumers&#x2F;[group_id]&#x2F;offsets&#x2F;[topic]&#x2F;[broker_id-partition_id]：分区消息的消费进度Offset</p>
+<p>client通过topic找到topic树下的state节点、获取leader的brokerID，到broker树中找到broker的物理 地址，但是client不会直连zk，而是通过配置的broker获取到zk中的信息</p>
+<h3 id="简述kafka的rebalance机制"><a href="#简述kafka的rebalance机制" class="headerlink" title="简述kafka的rebalance机制"></a>简述kafka的rebalance机制</h3><p>consumer group中的消费者与topic下的partion重新匹配的过程</p>
+<p>何时会产生rebalance：</p>
+<ul>
+<li>consumer group中的成员个数发生变化</li>
+<li>consumer消费超时</li>
+<li>group订阅的topic个数发生变化</li>
+<li>group订阅的topic的分区数发生变化</li>
+</ul>
+<p>coordinator：通常是partition的leader节点所在的broker，负责监控group中consumer的存活， consumer维持到coordinator的心跳，判断consumer的消费超时</p>
+<ul>
+<li>coordinator通过心跳返回通知consumer进行rebalance</li>
+<li>consumer请求coordinator加入组，coordinator选举产生leader consumer</li>
+<li>leader consumer从coordinator获取所有的consumer，发送syncGroup(分配信息)给到 coordinator</li>
+<li>coordinator通过心跳机制将syncGroup下发给consumer</li>
+<li>完成rebalance</li>
+</ul>
+<p>leader consumer监控topic的变化，通知coordinator触发rebalance</p>
+<p>如果C1消费消息超时，触发rebalance，重新分配后、该消息会被其他消费者消费，此时C1消费完成提 交offset、导致错误</p>
+<p>解决：coordinator每次rebalance，会标记一个Generation给到consumer，每次rebalance该 Generation会+1，consumer提交offset时，coordinator会比对Generation，不一致则拒绝提交</p>
+<h3 id="Kafka的性能好在什么地方"><a href="#Kafka的性能好在什么地方" class="headerlink" title="Kafka的性能好在什么地方"></a>Kafka的性能好在什么地方</h3><p>kafka不基于内存，而是硬盘存储，因此消息堆积能力更强</p>
+<p>顺序写：利用磁盘的顺序访问速度可以接近内存，kafka的消息都是append操作，partition是有序的， 节省了磁盘的寻道时间，同时通过批量操作、节省写入次数，partition物理上分为多个segment存储， 方便删除</p>
+<p>传统：</p>
+<ul>
+<li>读取磁盘文件数据到内核缓冲区</li>
+<li>将内核缓冲区的数据copy到用户缓冲区</li>
+<li>将用户缓冲区的数据copy到socket的发送缓冲区</li>
+<li>将socket发送缓冲区中的数据发送到网卡、进行传输</li>
+</ul>
+<p>零拷贝：</p>
+<ul>
+<li>直接将内核缓冲区的数据发送到网卡传输</li>
+<li>使用的是操作系统的指令支持</li>
+</ul>
+<p>kafka不太依赖jvm，主要理由操作系统的pageCache，如果生产消费速率相当，则直接用pageCache 交换数据，不需要经过磁盘IO</p>
+<h2 id="补充：Netty"><a href="#补充：Netty" class="headerlink" title="补充：Netty"></a>补充：Netty</h2><p>Netty 是一款基于 NIO（Nonblocking I&#x2F;O，非阻塞IO）开发的网络通信框架，对比于 BIO（Blocking I&#x2F;O，阻塞IO），他的并发性能得到了很大提高。难能可贵的是，在保证快速和易用性的同时，并没有丧失可维护性和性能等优势。</p>
+<p>Netty 的应用也是比较广泛的，比如阿里巴巴开源的 Dubbo 和 Sofa-Bolt 框架底层网络通讯都是基于 Netty 来实现的。本文将带大家通过netty的高频面试题来了解Netty框架并掌握Netty的一些重要知识点。</p>
+<p><strong>申明：本人对Netty没有过深入了解，只知道一点皮毛，本文的著作权不归本人所有，只是在整理面试系列，故借花献佛，因为不知道文章出处，所以特此说明，如果有幸被原作者看到，感谢您的无心插柳帮助到这么多有需要的人！如果侵权，请联系码之初立即删除，如果有需要转载的朋友，也请附上申明这段话，让我们一起尊重原作者的著作权和知识产权，谢谢配合！</strong></p>
+<p>下面让我们一起来看看Netty的高频面试题。</p>
+<h3 id="1、BIO、NIO-和-AIO-的区别"><a href="#1、BIO、NIO-和-AIO-的区别" class="headerlink" title="1、BIO、NIO 和 AIO 的区别?"></a>1、BIO、NIO 和 AIO 的区别?</h3><p>BIO:一个连接一个线程，客户端有连接请求时服务器端就需要启动一个线程进行处理。线 程开销大。</p>
+<p>伪异步 IO:将请求连接放入线程池，一对多，但线程还是很宝贵的资源。NIO:一个请求一个线程，但客户端发送的连接请求都会注册到多路复用器上，多路复用 器轮询到连接有 I&#x2F;O 请求时才启动一个线程进行处理。AIO:一个有效请求一个线程，客户端的 I&#x2F;O 请求都是由 OS 先完成了再通知服务器应用去 启动线程进行处理，</p>
+<p>BIO 是面向流的，NIO 是面向缓冲区的;BIO 的各种流是阻塞的。而 NIO 是非阻塞的;BIO的 Stream 是单向的，而 NIO 的 channel 是双向的。</p>
+<p>NIO 的特点:事件驱动模型、单线程处理多任务、非阻塞 I&#x2F;O，I&#x2F;O 读写不再阻塞，而是返 回 0、基于 block 的传输比基于流的传输更高效、更高级的 IO 函数 zero-copy、IO 多路复用 大大提高了 java 网络应用的可伸缩性和实用性。基于 Reactor 线程模型。</p>
+<p>在 Reactor 模式中，事件分发器等待某个事件或者可应用或个操作的状态发生，事件分发 器就把这个事件传给事先注册的事件处理函数或者回调函数，由后者来做实际的读写操 作。如在 Reactor 中实现读:注册读就绪事件和相应的事件处理器、事件分发器等待事 件、事件到来，激活分发器，分发器调用事件对应的处理器、事件处理器完成实际的读操 作，处理读到的数据，注册新的事件，然后返还控制权。</p>
+<h3 id="2、NIO-的组成"><a href="#2、NIO-的组成" class="headerlink" title="2、NIO 的组成?"></a>2、NIO 的组成?</h3><p>Buffer:与 Channel 进行交互，数据是从 Channel 读入缓冲区，从缓冲区写入 Channel 中的。</p>
+<p>flip方法 : 反转此缓冲区，将position给limit，然后将position置为0，其实就是切换读 写模式。<br>clear 方法 :清除此缓冲区，将 position 置为 0，把 capacity 的值给 limit。<br>rewind 方法 : 重绕此缓冲区，将 position 置为 0</p>
+<p>DirectByteBuffer 可减少一次系统空间到用户空间的拷贝。但 Buffer 创建和销毁的成本更 高，不可控，通常会用内存池来提高性能。直接缓冲区主要分配给那些易受基础系统的本 机 I&#x2F;O 操作影响的大型、持久的缓冲区。如果数据量比较小的中小应用情况下，可以考虑 使用 heapBuffer，由 JVM 进行管理。</p>
+<p>Channel:表示 IO 源与目标打开的连接，是双向的，但不能直接访问数据，只能与Buffer进行交互。通过源码可知，FileChannel 的 read 方法和 write 方法都导致数据复制了两次!</p>
+<p>Selector 可使一个单独的线程管理多个 Channel，open 方法可创建 Selector，register 方法向 多路复用器器注册通道，可以监听的事件类型:读、写、连接、accept。注册事件后会产 生一个 SelectionKey:它表示 SelectableChannel 和 Selector 之间的注册关系，wakeup 方 法:使尚未返回的第一个选择操作立即返回，唤醒的原因是:注册了新的 channel 或者事 件;channel 关闭，取消注册;优先级更高的事件触发(如定时器事件)，希望及时处理。</p>
+<p>Selector 在 Linux 的实现类是 EPollSelectorImpl，委托给 EPollArrayWrapper 实现，其中三个native 方法是对 epoll 的封装，而 EPollSelectorImpl. implRegister 方法，通过调用 epoll_ctl向 epoll 实例中注册事件，还将注册的文件描述符(fd)与 SelectionKey 的对应关系添加到fdToKey 中，这个 map 维护了文件描述符与 SelectionKey 的映射。</p>
+<p>fdToKey 有时会变得非常大，因为注册到 Selector 上的 Channel 非常多(百万连接);过期 或失效的 Channel 没有及时关闭。fdToKey 总是串行读取的，而读取是在 select 方法中进行 的，该方法是非线程安全的。</p>
+<p>Pipe:两个线程之间的单向数据连接，数据会被写到 sink 通道，从 source 通道读取。</p>
+<p>NIO 的服务端建立过程:Selector.open():打开一个 Selector;ServerSocketChannel.open(): 创建服务端的 Channel;bind():绑定到某个端口上。并配置非阻塞模式;register():注册Channel 和关注的事件到 Selector 上;select()轮询拿到已经就绪的事件。</p>
+<h3 id="3、Netty-的特点"><a href="#3、Netty-的特点" class="headerlink" title="3、Netty 的特点?"></a>3、Netty 的特点?</h3><ul>
+<li>一个高性能、异步事件驱动的 NIO 框架，它提供了对 TCP、UDP 和文件传输的支持</li>
+<li>使用更高效的 socket 底层，对 epoll 空轮询引起的 cpu 占用飙升在内部进行了处理，避免 了直接使用 NIO 的陷阱，简化了 NIO 的处理方式。</li>
+<li>采用多种 decoder&#x2F;encoder 支持，对 TCP 粘包&#x2F;分包进行自动化处理</li>
+<li>可使用接受&#x2F;处理线程池，提高连接效率，对重连、心跳检测的简单支持</li>
+<li>可配置IO线程数、TCP参数， TCP接收和发送缓冲区使用直接内存代替堆内存，通过内存 池的方式循环利用 ByteBuf</li>
+<li>通过引用计数器及时申请释放不再引用的对象，降低了 GC 频率 使用单线程串行化的方式，高效的 Reactor 线程模型</li>
+<li>大量使用了 volitale、使用了 CAS 和原子类、线程安全类的使用、读写锁的使用</li>
+</ul>
+<h3 id="4、Netty-的线程模型"><a href="#4、Netty-的线程模型" class="headerlink" title="4、Netty 的线程模型?"></a>4、Netty 的线程模型?</h3><p>Netty 通过 Reactor 模型基于多路复用器接收并处理用户请求，内部实现了两个线程池，<strong>boss 线程池和 work 线程池</strong>，其中 boss 线程池的线程负责处理请求的 accept 事件，当接收 到 accept 事件的请求时，把对应的 socket 封装到一个 NioSocketChannel 中，并交给 work线程池，其中 work 线程池负责请求的 read 和 write 事件，由对应的 Handler 处理。</p>
+<ul>
+<li><p>单线程模型:所有 I&#x2F;O 操作都由一个线程完成，即多路复用、事件分发和处理都是在一个Reactor 线程上完成的。既要接收客户端的连接请求,向服务端发起连接，又要发送&#x2F;读取请 求或应答&#x2F;响应消息。一个 NIO 线程同时处理成百上千的链路，性能上无法支撑，速度 慢，若线程进入死循环，整个程序不可用，对于高负载、大并发的应用场景不合适。</p>
+</li>
+<li><p>多线程模型:有一个NIO 线程(Acceptor) 只负责监听服务端，接收客户端的TCP 连接 请求;NIO 线程池负责网络IO 的操作，即消息的读取、解码、编码和发送;1 个NIO 线 程可以同时处理N 条链路，但是1 个链路只对应1 个NIO 线程，这是为了防止发生并发 操作问题。但在并发百万客户端连接或需要安全认证时，一个Acceptor 线程可能会存在性 能不足问题。</p>
+</li>
+<li><p>主从多线程模型:Acceptor 线程用于绑定监听端口，接收客户端连接，将 SocketChannel从主线程池的Reactor 线程的多路复用器上移除，重新注册到Sub 线程池的线程上，用于处理 I&#x2F;O 的读写等操作，从而保证 mainReactor 只负责接入认证、握手等操作。</p>
+</li>
+</ul>
+<h3 id="5、TCP-粘包-x2F-拆包的原因及解决方法"><a href="#5、TCP-粘包-x2F-拆包的原因及解决方法" class="headerlink" title="5、TCP 粘包&#x2F;拆包的原因及解决方法?"></a>5、TCP 粘包&#x2F;拆包的原因及解决方法?</h3><p>TCP 是以流的方式来处理数据，一个完整的包可能会被 TCP 拆分成多个包进行发送，也可 能把小的封装成一个大的数据包发送。</p>
+<p><strong>TCP 粘包&#x2F;分包的原因：</strong></p>
+<p>应用程序写入的字节大小大于套接字发送缓冲区的大小，会发生拆包现象，而应用程序写 入数据小于套接字缓冲区大小，网卡将应用多次写入的数据发送到网络上，这将会发生粘 包现象;</p>
+<p>进行 MSS 大小的 TCP 分段，当 TCP 报文长度-TCP 头部长度&gt;MSS 的时候将发生拆包 以太网帧的 payload(净荷)大于 MTU(1500 字节)进行 ip 分片。</p>
+<p><strong>解决方法：</strong></p>
+<p>消息定长:FixedLengthFrameDecoder 类 包尾增加特殊字符分割:行分隔符类:LineBasedFrameDecoder 或自定义分隔符类 :DelimiterBasedFrameDecoder将消息分为消息头和消息体:LengthFieldBasedFrameDecoder 类。分为有头部的拆包与粘 包、长度字段在前且有头部的拆包与粘包、多扩展头部的拆包与粘包。</p>
+<h3 id="6、了解哪几种序列化协议"><a href="#6、了解哪几种序列化协议" class="headerlink" title="6、了解哪几种序列化协议?"></a>6、了解哪几种序列化协议?</h3><p>序列化(编码)是将对象序列化为二进制形式(字节数组)，主要用于网络传输、数据持久 化等;而反序列化(解码)则是将从网络、磁盘等读取的字节数组还原成原始对象，主要 用于网络传输对象的解码，以便完成远程调用。</p>
+<p>影响序列化性能的关键因素:序列化后的码流大小(网络带宽的占用)、序列化的性能 (CPU 资源占用);是否支持跨语言(异构系统的对接和开发语言切换)。</p>
+<ul>
+<li><p>java 默认提供的序列化:无法跨语言、序列化后的码流太大、序列化的性能差</p>
+</li>
+<li><p>XML，优点:人机可读性好，可指定元素或特性的名称。缺点:序列化数据只包含数据本 身以及类的结构，不包括类型标识和程序集信息;只能序列化公共属性和字段;不能序列 化方法;文件庞大，文件格式复杂，传输占带宽。适用场景:当做配置文件存储数据，实 时数据转换。</p>
+</li>
+<li><p>JSON，是一种轻量级的数据交换格式，优点:兼容性高、数据格式比较简单，易于读写、 序列化后数据较小，可扩展性好，兼容性好、与 XML 相比，其协议比较简单，解析速度比 较快。缺点:数据的描述性比 XML 差、不适合性能要求为 ms 级别的情况、额外空间开销 比较大。适用场景(可替代XML):跨防火墙访问、可调式性要求高、基于 Web browser 的 Ajax 请求、传输数据量相对小，实时性要求相对低(例如秒级别)的服务。</p>
+</li>
+<li><p>Fastjson，采用一种“假定有序快速匹配”的算法。优点:接口简单易用、目前 java 语言中 最快的 json 库。缺点:过于注重快，而偏离了“标准”及功能性、代码质量不高，文档不 全。适用场景:协议交互、Web 输出、Android 客户端</p>
+</li>
+<li><p>Thrift，不仅是序列化协议，还是一个 RPC 框架。优点:序列化后的体积小, 速度快、支持 多种语言和丰富的数据类型、对于数据字段的增删具有较强的兼容性、支持二进制压缩编 码。缺点:使用者较少、跨防火墙访问时，不安全、不具有可读性，调试代码时相对困 难、不能与其他传输层协议共同使用(例如 HTTP)、无法支持向持久层直接读写数据，即 不适合做数据持久化序列化协议。适用场景:分布式系统的 RPC 解决方案</p>
+</li>
+<li><p>Avro，Hadoop 的一个子项目，解决了 JSON 的冗长和没有 IDL 的问题。优点:支持丰富的 数据类型、简单的动态语言结合功能、具有自我描述属性、提高了数据解析速度、快速可 压缩的二进制数据形式、可以实现远程过程调用 RPC、支持跨编程语言实现。缺点:对于 习惯于静态类型语言的用户不直观。适用场景:在 Hadoop 中做 Hive、Pig 和 MapReduce的持久化数据格式。</p>
+</li>
+<li><p>Protobuf，将数据结构以.proto 文件进行描述，通过代码生成工具可以生成对应数据结构的POJO 对象和 Protobuf 相关的方法和属性。优点:序列化后码流小，性能高、结构化数据存 储格式(XML JSON 等)、通过标识字段的顺序，可以实现协议的前向兼容、结构化的文档 更容易管理和维护。缺点:需要依赖于工具生成代码、支持的语言相对较少，官方只支持java 、C++ 、python。适用场景:对性能要求高的RPC调用、具有良好的跨防火墙的访问 属性、适合应用层对象的持久化</p>
+</li>
+</ul>
+<p><strong>其它</strong></p>
+<ul>
+<li>protostuff 基于 protobuf 协议，但不需要配置 proto 文件，直接导包即可</li>
+<li>Jboss marshaling 可以直接序列化 java 类， 无须实 java.io.Serializable 接口</li>
+<li>Message pack 一个高效的二进制序列化格式</li>
+<li>Hessian 采用二进制协议的轻量级 remoting onhttp 工具</li>
+<li>kryo 基于 protobuf 协议，只支持 java 语言,需要注册(Registration)，然后序列化 (Output)，反序列化(Input)</li>
+</ul>
+<h3 id="7、如何选择序列化协议"><a href="#7、如何选择序列化协议" class="headerlink" title="7、如何选择序列化协议?"></a>7、如何选择序列化协议?</h3><p><strong>具体场景</strong></p>
+<p>对于公司间的系统调用，如果性能要求在 100ms 以上的服务，基于 XML 的 SOAP 协议是一 个值得考虑的方案。</p>
+<p>基于 Web browser 的 Ajax，以及 Mobile app 与服务端之间的通讯，JSON 协议是首选。对于 性能要求不太高，或者以动态类型语言为主，或者传输数据载荷很小的的运用场景，JSON也是非常不错的选择。</p>
+<p>对于调试环境比较恶劣的场景，采用 JSON 或 XML 能够极大的提高调试效率，降低系统开 发成本。</p>
+<p>当对性能和简洁性有极高要求的场景，Protobuf，Thrift，Avro 之间具有一定的竞争关系。对于 T 级别的数据的持久化应用场景，Protobuf 和 Avro 是首要选择。如果持久化后的数据 存储在 hadoop 子项目里，Avro 会是更好的选择。</p>
+<p>对于持久层非 Hadoop 项目，以静态类型语言为主的应用场景，Protobuf 会更符合静态类 型语言工程师的开发习惯。由于 Avro 的设计理念偏向于动态类型语言，对于动态语言为主 的应用场景，Avro 是更好的选择。</p>
+<p>如果需要提供一个完整的 RPC 解决方案，Thrift 是一个好的选择。如果序列化之后需要支持不同的传输层协议，或者需要跨防火墙访问的高性能场景，Protobuf 可以优先考虑。</p>
+<p>protobuf 的数据类型有多种:bool、double、float、int32、int64、string、bytes、enum、message。protobuf的限定符:required: 必须赋值，不能为空、optional:字段可以赋值，也 可以不赋值、repeated: 该字段可以重复任意次数(包括 0 次)、枚举;只能用指定的常量 集中的一个值作为其值;</p>
+<p>protobuf 的基本规则:每个消息中必须至少留有一个 required 类型的字段、包含 0 个或多 个 optional 类型的字段;repeated 表示的字段可以包含 0 个或多个数据;[1,15]之内的标识 号在编码的时候会占用一个字节(常用)，[16,2047]之内的标识号则占用 2 个字节，标识号 一定不能重复、使用消息类型，也可以将消息嵌套任意多层，可用嵌套消息类型来代替 组。</p>
+<p>protobuf 的消息升级原则:不要更改任何已有的字段的数值标识;不能移除已经存在的required 字段，optional 和 repeated 类型的字段可以被移除，但要保留标号不能被重用。新添加的字段必须是 optional 或 repeated。因为旧版本程序无法读取或写入新增的required 限定符的字段。</p>
+<p>编译器为每一个消息类型生成了一个.java 文件，以及一个特殊的 Builder 类(该类是用来创 建消息类接口的)。如:UserProto.User.Builder builder &#x3D; UserProto.User.newBuilder();builder.build();</p>
+<p>Netty 中的使用:ProtobufVarint32FrameDecoder 是用于处理半包消息的解码类;ProtobufDecoder(UserProto.User.getDefaultInstance())这是创建的 UserProto.java 文件中的解 码类;ProtobufVarint32LengthFieldPrepender 对 protobuf 协议的消息头上加上一个长度为32 的整形字段，用于标志这个消息的长度的类;ProtobufEncoder 是编码类将 StringBuilder 转换为 ByteBuf 类型:copiedBuffer()方法</p>
+<h3 id="8、Netty-的零拷贝实现"><a href="#8、Netty-的零拷贝实现" class="headerlink" title="8、Netty 的零拷贝实现?"></a>8、Netty 的零拷贝实现?</h3><p>Netty 的接收和发送 ByteBuffer 采用 DIRECT BUFFERS，使用堆外直接内存进行 Socket 读 写，不需要进行字节缓冲区的二次拷贝。堆内存多了一次内存拷贝，JVM 会将堆内存Buffer 拷贝一份到直接内存中，然后才写入 Socket 中。ByteBuffer 由 ChannelConfig 分配， 而 ChannelConfig 创建 ByteBufAllocator 默认使用 Direct Buffer</p>
+<p>CompositeByteBuf 类可以将多个 ByteBuf 合并为一个逻辑上的 ByteBuf, 避免了传统通过 内存拷贝的方式将几个小 Buffer 合并成一个大的 Buffer。addComponents 方法将 header与 body 合并为一个逻辑上的 ByteBuf, 这两个 ByteBuf 在 CompositeByteBuf 内部都是单 独存在的, CompositeByteBuf 只是逻辑上是一个整体</p>
+<p>通过 FileRegion 包装的 FileChannel.tranferTo 方法 实现文件传输, 可以直接将文件缓冲区 的数据发送到目标 Channel，避免了传统通过循环 write 方式导致的内存拷贝问题。</p>
+<p>通过 wrap 方法, 我们可以将 byte[] 数组、ByteBuf、ByteBuffer 等包装成一个 Netty ByteBuf 对象, 进而避免了拷贝操作。</p>
+<p>Selector BUG:若 Selector 的轮询结果为空，也没有 wakeup 或新消息处理，则发生空轮 询，CPU 使用率 100%，</p>
+<p>Netty 的解决办法:对 Selector 的 select 操作周期进行统计，每完成一次空的 select 操作进 行一次计数，若在某个周期内连续发生 N 次空轮询，则触发了 epoll 死循环 bug。重建Selector，判断是否是其他线程发起的重建请求，若不是则将原 SocketChannel 从旧的Selector 上去除注册，重新注册到新的 Selector 上，并将原来的 Selector 关闭。</p>
+<h3 id="9、Netty-的高性能表现在哪些方面"><a href="#9、Netty-的高性能表现在哪些方面" class="headerlink" title="9、Netty 的高性能表现在哪些方面?"></a>9、Netty 的高性能表现在哪些方面?</h3><ul>
+<li><p>心跳，对服务端:会定时清除闲置会话 inactive(netty5)，对客户端:用来检测会话是否断 开，是否重来，检测网络延迟，其中 idleStateHandler 类 用来检测会话状态</p>
+</li>
+<li><p>串行无锁化设计，即消息的处理尽可能在同一个线程内完成，期间不进行线程切换，这样 就避免了多线程竞争和同步锁。表面上看，串行化设计似乎 CPU 利用率不高，并发程度不 够。但是，通过调整 NIO 线程池的线程参数，可以同时启动多个串行化的线程并行运行， 这种局部无锁化的串行线程设计相比一个队列-多个工作线程模型性能更优。</p>
+</li>
+<li><p>可靠性，链路有效性检测:链路空闲检测机制，读&#x2F;写空闲超时机制;内存保护机制:通过 内存池重用 ByteBuf;ByteBuf 的解码保护;优雅停机:不再接收新消息、退出前的预处理操 作、资源的释放操作。</p>
+</li>
+<li><p>Netty安全性:支持的安全协议:SSL V2和V3，TLS，SSL单向认证、双向认证和第三方CA认证。</p>
+</li>
+<li><p>高效并发编程的体现:volatile 的大量、正确使用;CAS 和原子类的广泛使用;线程安全容 器的使用;通过读写锁提升并发性能。IO 通信性能三原则:传输(AIO)、协议(Http)、线 程(主从多线程)</p>
+</li>
+<li><p>流量整型的作用(变压器):防止由于上下游网元性能不均衡导致下游网元被压垮，业务流中断;防止由于通信模块接受消息过快，后端业务线程处理不及时导致撑死问题。</p>
+</li>
+<li><p>TCP 参数配置:SO_RCVBUF 和 SO_SNDBUF:通常建议值为 128K 或者 256K;SO_TCPNODELAY:NAGLE 算法通过将缓冲区内的小封包自动相连，组成较大的封包，阻止 大量小封包的发送阻塞网络，从而提高网络应用效率。但是对于时延敏感的应用场景需要 关闭该优化算法;</p>
+</li>
+</ul>
+<h3 id="10、NIOEventLoopGroup-源码"><a href="#10、NIOEventLoopGroup-源码" class="headerlink" title="10、NIOEventLoopGroup 源码?"></a>10、NIOEventLoopGroup 源码?</h3><p>NioEventLoopGroup(其实是 MultithreadEventExecutorGroup) 内部维护一个类型为EventExecutor children [], 默认大小是处理器核数 * 2, 这样就构成了一个线程池，初始化EventExecutor 时 NioEventLoopGroup 重载 newChild 方法，所以 children 元素的实际类型为NioEventLoop。</p>
+<p>线程启动时调用 SingleThreadEventExecutor 的构造方法，执行 NioEventLoop 类的 run 方 法，首先会调用 hasTasks()方法判断当前 taskQueue 是否有元素。如果 taskQueue 中有元 素，执行 selectNow() 方法，最终执行 selector.selectNow()，该方法会立即返回。如果taskQueue 没有元素，执行 select(oldWakenUp) 方法</p>
+<p>select ( oldWakenUp) 方法解决了 Nio 中的 bug，selectCnt 用来记录 selector.select 方法的 执行次数和标识是否执行过 selector.selectNow()，若触发了 epoll 的空轮询 bug，则会反复 执行selector.select(timeoutMillis)，变量selectCnt 会逐渐变大，当selectCnt 达到阈值(默 认 512)，则执行 rebuildSelector 方法，进行 selector 重建，解决 cpu 占用 100%的 bug。</p>
+<p>rebuildSelector方法先通过openSelector方法创建一个新的selector。然后将old selector的selectionKey 执行 cancel。最后将 old selector 的 channel 重新注册到新的 selector 中。rebuild 后，需要重新执行方法 selectNow，检查是否有已 ready 的 selectionKey。</p>
+<p>接下来调用 processSelectedKeys 方法(处理 I&#x2F;O 任务)，当 selectedKeys !&#x3D; null 时，调用processSelectedKeysOptimized方法，迭代 selectedKeys 获取就绪的 IO 事件的selectkey存 放在数组 selectedKeys 中, 然后为每个事件都调用 processSelectedKey 来处理它，processSelectedKey 中分别处理 OP_READ;OP_WRITE;OP_CONNECT 事件。</p>
+<p>最后调用 runAllTasks 方法(非 IO 任务)，该方法首先会调用 fetchFromScheduledTaskQueue方法，把 scheduledTaskQueue 中已经超过延迟执行时间的任务移到 taskQueue 中等待被执 行，然后依次从 taskQueue 中取任务执行，每执行 64 个任务，进行耗时检查，如果已执行 时间超过预先设定的执行时间，则停止执行非 IO 任务，避免非 IO 任务太多，影响 IO 任务 的执行。</p>
+<p>每个 NioEventLoop 对应一个线程和一个 Selector，NioServerSocketChannel 会主动注册到某 一个 NioEventLoop 的 Selector 上，NioEventLoop 负责事件轮询。</p>
+<p>Outbound 事件都是请求事件, 发起者是 Channel，处理者是 unsafe，通过 Outbound 事 件进行通知，传播方向是 tail到head。Inbound 事件发起者是 unsafe，事件的处理者是Channel, 是通知事件，传播方向是从头到尾。</p>
+<p>内存管理机制，首先会预申请一大块内存 Arena，Arena 由许多 Chunk 组成，而每个 Chunk默认由 2048 个 page 组成。Chunk 通过 AVL 树的形式组织 Page，每个叶子节点表示一个Page，而中间节点表示内存区域，节点自己记录它在整个 Arena 中的偏移地址。当区域被 分配出去后，中间节点上的标记位会被标记，这样就表示这个中间节点以下的所有节点都 已被分配了。大于 8k 的内存分配在 poolChunkList 中，而 PoolSubpage 用于分配小于 8k 的 内存，它会把一个 page 分割成多段，进行内存分配。</p>
+<p>ByteBuf 的特点:支持自动扩容(4M)，保证 put 方法不会抛出异常、通过内置的复合缓冲 类型，实现零拷贝(zero-copy);不需要调用 flip()来切换读&#x2F;写模式，读取和写入索引分开;方法链;引用计数基于 AtomicIntegerFieldUpdater 用于内存回收;PooledByteBuf 采用 二叉树来实现一个内存池，集中管理内存的分配和释放，不用每次使用都新建一个缓冲区 对象。UnpooledHeapByteBuf 每次都会新建一个缓冲区对象。</p>
 
                 
             </div>
@@ -1841,13 +2450,13 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/8cef/">
+                <a href="/posts/953b/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="中间件-2-消息队列">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="三、web开发">
                         
-                        <span class="card-title">中间件-2-消息队列</span>
+                        <span class="card-title">三、web开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1858,7 +2467,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-28
                         </span>
                         <span class="publish-author">
                             
@@ -1882,13 +2491,13 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/f1a6/">
+                <a href="/posts/30c3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="web开发-7-Dubbo">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="4. 网络解决方案">
                         
-                        <span class="card-title">web开发-7-Dubbo</span>
+                        <span class="card-title">4. 网络解决方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1899,16 +2508,12 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            zhangxin
                             
                         </span>
                     </div>
@@ -2106,7 +2711,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">427.2k</span>
+                        class="white-color">426.8k</span>
             
             
             
