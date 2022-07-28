@@ -919,11 +919,11 @@ Linux环境编程：从应用到内核 (Linux-Un">
 <li>查看shell <code>echo $0</code> 如果你的 shell 是zsh，则配置文件为.zshrc，如果是-bash 则为.bashrc</li>
 <li><code>cd ~/.zshrc</code> 如果没有此文件，直接vi新增 <code>vi .zshrc</code> <code>i</code> 粘贴  <code>：wq</code></li>
 </ol>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">hs</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">hs</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span>
 <span class="token builtin class-name">alias</span> <span class="token assign-left variable">hd</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d'</span>
 <span class="token builtin class-name">alias</span> <span class="token assign-left variable">hds</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; hexo s'</span>
 <span class="token builtin class-name">alias</span> <span class="token assign-left variable">hdd</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m "update" &amp;&amp; git push -f'</span>
-<span class="token builtin class-name">alias</span> git-log<span class="token operator">=</span><span class="token string">'git log --pretty=oneline --all --graph --abbrev-commit'</span></code></pre>
+<span class="token builtin class-name">alias</span> git-log<span class="token operator">=</span><span class="token string">'git log --pretty=oneline --all --graph --abbrev-commit'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="3">
 <li>执行<code>source ~/.zshrc</code>生效</li>

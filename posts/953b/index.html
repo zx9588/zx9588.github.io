@@ -544,7 +544,7 @@
 <li>监听器发送通知。</li>
 </ul>
 <p>当然，除了上述核心操作，run方法运行过程中还涉及启动时长统计、异常报告、启动日志、异常处理等辅助操作。比较完整的流程，可以参考如下源代码：</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">ConfigurableApplicationContext</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">ConfigurableApplicationContext</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 创建StopWatch对象，用于统计run方法启动时长。     </span>
     <span class="token class-name">StopWatch</span> stopWatch <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StopWatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// 启动统计     </span>
@@ -601,7 +601,7 @@
         <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">IllegalStateException</span><span class="token punctuation">(</span>ex<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> context<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="1-4-Spring-Boot项目是如何导入包的？"><a href="#1-4-Spring-Boot项目是如何导入包的？" class="headerlink" title="1.4 Spring Boot项目是如何导入包的？"></a>1.4 Spring Boot项目是如何导入包的？</h3><p><strong>参考答案</strong></p>
 <p>通过Spring Boot Starter导入包。</p>
@@ -730,12 +730,12 @@
 <li>initializeBean：调用spring xml中的init 方法。</li>
 </ol>
 <p>从上面讲述的单例bean初始化步骤我们可以知道，循环依赖主要发生在第一步、第二步。也就是构造器循环依赖和field循环依赖。 Spring为了解决单例的循环依赖问题，使用了三级缓存。</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/** Cache of singleton objects: bean name –> bean instance */</span> 
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/** Cache of singleton objects: bean name –> bean instance */</span> 
 <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Map</span> singletonObjects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentHashMap</span><span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 <span class="token comment">/** Cache of singleton factories: bean name –> ObjectFactory */</span> 
 <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Map</span><span class="token operator">></span> singletonFactories <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 <span class="token comment">/** Cache of early singleton objects: bean name –> bean instance */</span> 
-<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Map</span> earlySingletonObjects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Map</span> earlySingletonObjects <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这三级缓存的作用分别是：</p>
 <ul>
@@ -744,7 +744,7 @@
 <li>singletonObjects：完成初始化的单例对象的cache（一级缓存）。</li>
 </ul>
 <p>我们在创建bean的时候，会首先从cache中获取这个bean，这个缓存就是sigletonObjects。主要的调用方法是：</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token class-name">Object</span> <span class="token function">getSingleton</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">,</span> <span class="token keyword">boolean</span> allowEarlyReference<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>     
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token class-name">Object</span> <span class="token function">getSingleton</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">,</span> <span class="token keyword">boolean</span> allowEarlyReference<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>     
   <span class="token class-name">Object</span> singletonObject <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>     
   <span class="token comment">//isSingletonCurrentlyInCreation()判断当前单例bean是否正在创建中     </span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>singletonObject <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token function">isSingletonCurrentlyInCreation</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    
@@ -764,15 +764,15 @@
     <span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>singletonObject <span class="token operator">!=</span> NULL_OBJECT <span class="token operator">?</span> singletonObject <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token punctuation">&#125;</span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>从上面三级缓存的分析，我们可以知道，Spring解决循环依赖的诀窍就在于singletonFactories这个三级cache。这个cache的类型是ObjectFactory，定义如下：</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ObjectFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>  
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ObjectFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>  
   <span class="token class-name">T</span> <span class="token function">getObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">BeansException</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>这个接口在AbstractBeanFactory里实现，并在核心方法doCreateBean（）引用下面的方法：</p>
-<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">addSingletonFactory</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">,</span> <span class="token class-name">ObjectFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> singletonFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>     
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">addSingletonFactory</span><span class="token punctuation">(</span><span class="token class-name">String</span> beanName<span class="token punctuation">,</span> <span class="token class-name">ObjectFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> singletonFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>     
   <span class="token class-name">Assert</span><span class="token punctuation">.</span><span class="token function">notNull</span><span class="token punctuation">(</span>singletonFactory<span class="token punctuation">,</span> <span class="token string">"Singleton factory must not be null"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
   <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>     
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>singletonObjects<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>      
@@ -781,7 +781,7 @@
       <span class="token keyword">this</span><span class="token punctuation">.</span>registeredSingletons<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>beanName<span class="token punctuation">)</span><span class="token punctuation">;</span>     
     <span class="token punctuation">&#125;</span>     
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这段代码发生在createBeanInstance之后，populateBean（）之前，也就是说单例对象此时已经被创建出来(调用了构造器)。这个对象已经被生产出来了，此时将这个对象提前曝光出来，让大家使用。</p>
 <p>这样做有什么好处呢？让我们来分析一下“A的某个field或者setter依赖了B的实例对象，同时B的某个field或者setter依赖了A的实例对象”这种循环依赖的情况。A首先完成了初始化的第一步，并且将自己提前曝光到singletonFactories中，此时进行初始化的第二步，发现自己依赖对象B，此时就尝试去get(B)，发现B还没有被create，所以走create流程，B在初始化第一步的时候发现自己依赖了对象A，于是尝试get(A)，尝试一级缓存singletonObjects(肯定没有，因为A还没初始化完全)，尝试二级缓存earlySingletonObjects（也没有），尝试三级缓存singletonFactories，由于A通过ObjectFactory将自己提前曝光了，所以B能够通过ObjectFactory.getObject拿到A对象(虽然A还没有初始化完全，但是总比没有好呀)，B拿到A对象后顺利完成了初始化阶段1、2、3，完全初始化之后将自己放入到一级缓存singletonObjects中。此时返回A中，A此时能拿到B的对象顺利完成自己的初始化阶段2、3，最终A也完成了初始化，进去了一级缓存singletonObjects中，而且更加幸运的是，由于B拿到了A的对象引用，所以B现在hold住的A对象完成了初始化。</p>
@@ -1012,7 +1012,7 @@
 <p>二级缓存存在于SqlSessionFactory 的生命周期中，即它是SqlSessionFactory级别的缓存。若想使用二级缓存，需要在如下两处进行配置。</p>
 <p>在MyBatis 的全局配置settings 中有一个参数cacheEnabled，这个参数是二级缓存的全局开关，默认值是true ，初始状态为启用状态。</p>
 <p>MyBatis 的二级缓存是和命名空间绑定的，即二级缓存需要配置在Mapper.xml 映射文件中。在保证二级缓存的全局配置开启的情况下，给Mapper.xml 开启二级缓存只需要在Mapper. xml 中添加如下代码：</p>
-<pre class="language-none"><code class="language-none">&lt;cache &#x2F;&gt;</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">&lt;cache &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>二级缓存具有如下效果：</p>
 <ul>
@@ -1336,7 +1336,7 @@
 <h4 id="第一种分布式锁"><a href="#第一种分布式锁" class="headerlink" title="第一种分布式锁"></a>第一种分布式锁</h4><h4 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h4><p>第一种实现是利用的zk的临时节点, 在争抢锁的时候,所有的客户端都尝试创建一个临时节点(代表锁住的资源),只有一个客户端会创建成功,创建成功的客户端得到锁,其它的客户端则监听(利用zk的watch)该节点的状态改变并且进入阻塞,节点改变后 zk server 会通知剩下的客户端,剩下的客户端停止阻塞并且重新争抢锁.</p>
 <p>zk中有持久节点和临时节点,为什么使用临时节点呢?</p>
 <p>如果使用的是持久节点,则这个节点在客户端下线后,依旧会一直存在,不会自动删除,导致 <code>其它客户端一直无法争抢到锁</code> .如果使用的是临时节点的话, <code>在客户端下线后zk会删除与其相关的临时节点,这样其它客户端就能重新争抢锁</code> .</p>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre class="language-none"><code class="language-none">@Override
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre class="line-numbers language-none"><code class="language-none">@Override
     public void lock() &#123;
         &#x2F;&#x2F; 如果获取不到锁，阻塞等待
         if (!tryLock()) &#123;
@@ -1391,14 +1391,14 @@
         &#x2F;&#x2F; 取消监听消息
         client.unsubscribeDataChanges(lockPath, listener);
     &#125;
-    </code></pre>
+    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h4><p>实现简单,但是会有 <code>羊群效应</code> ,节点的删除都会通知所有的客户端,并且所有的客户端会 <code>取消监听 + 重新一起争夺锁 + 争夺失败 + 再次开启监听</code> ,如此循环,资源耗费多,并且这种耗费是可以避免的,那么如何避免呢?就是下面第二种的 <code>改进版分布式锁</code> .</p>
 <h4 id="第二种分布式锁"><a href="#第二种分布式锁" class="headerlink" title="第二种分布式锁"></a>第二种分布式锁</h4><p>这一种分布式锁的实现是利用zk的临时顺序节点,每一个客户端在争夺锁的时候都由zk分配一个顺序号(sequence),客户端则按照这个顺序去获取锁.</p>
 <p>具体流程</p>
 <p>lock跟前面的一样,不过lockPath(锁住的资源)是一个持久节点,客户端在该持久节点下面创建临时顺序节点,获取到顺序号后,根据自己是否是最小的顺序号来获取锁,顺序号最小则获取锁,序号不为最小则监听(watch)前一个顺序号,当前一个顺序号被删除的时候表明锁被释放了,则会通知下一个客户端.</p>
 <h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><p>下面贴出跟第一种实现不同的代码</p>
-<pre class="language-none"><code class="language-none">&#x2F;**
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;**
      * 尝试加锁
      *
      * @return
@@ -1459,7 +1459,7 @@
 
         &#x2F;&#x2F; 醒来后,表明前一个临时节点已经被删除,此时客户端可以获取锁 &amp;&amp; 取消watcher监听
         client.unsubscribeDataChanges(this.beforePath, listener);
-    &#125;</code></pre>
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="总结一下-1"><a href="#总结一下-1" class="headerlink" title="总结一下"></a>总结一下</h4><p>实现比第一种复杂一点,但是更加的合理,少做了很多不必要的操作,只唤醒了后面一个客户端.</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>由zk自身的设计,zk不适合高并发写,需要在使用zk分布式锁前先做一定过滤操作,先过滤掉部分请求,再进行锁争夺.</p>
@@ -1584,7 +1584,7 @@
 <ul>
 <li></li>
 </ul>
-<pre class="language-none"><code class="language-none">private static final Protocol protocol &#x3D; ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">private static final Protocol protocol &#x3D; ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>Dubbo里有很多这种代码。这也是一种工厂模式，只是实现类的获取采用了JDK SPI的机制。这么实现的优点是可扩展性强，想要扩展实现，只需要在classpath下增加个文件就可以了，代码零侵入。另外，像上面的Adaptive实现，可以做到调用时动态决定调用哪个实现，但是由于这种实现采用了动态代理，会造成代码调试比较麻烦，需要分析出实际调用的实现类。</p>
 <p><strong>装饰器模式</strong></p>
@@ -1592,7 +1592,7 @@
 <ul>
 <li></li>
 </ul>
-<pre class="language-none"><code class="language-none">EchoFilter -&gt; ClassLoaderFilter -&gt; GenericFilter -&gt; ContextFilter -&gt; ExecuteLimitFilter -&gt; TraceFilter -&gt; TimeoutFilter -&gt; MonitorFilter -&gt; ExceptionFilter</code></pre>
+<pre class="line-numbers language-none"><code class="language-none">EchoFilter -&gt; ClassLoaderFilter -&gt; GenericFilter -&gt; ContextFilter -&gt; ExecuteLimitFilter -&gt; TraceFilter -&gt; TimeoutFilter -&gt; MonitorFilter -&gt; ExceptionFilter<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 

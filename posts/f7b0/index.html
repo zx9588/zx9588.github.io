@@ -529,14 +529,14 @@ https://cloud.tencent.com/document/product/1207/44573https://cloud.tencent.com/d
 <p>生成的密钥自动下载后放在桌面</p>
 <h3 id="腾讯云服务器环境配置"><a href="#腾讯云服务器环境配置" class="headerlink" title="腾讯云服务器环境配置"></a>腾讯云服务器环境配置</h3><p>下载docker-centos7.6系统</p>
 <p>配置docker云镜像加速</p>
-<pre class="language-sh" data-language="sh"><code class="language-sh">sudo mkdir -p &#x2F;etc&#x2F;docker
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sudo mkdir -p &#x2F;etc&#x2F;docker
 sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json &lt;&lt;-&#39;EOF&#39;
 &#123;
   &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;bhhj3hr0.mirror.aliyuncs.com&quot;]
 &#125;
 EOF
 sudo systemctl daemon-reload
-sudo systemctl restart docker</code></pre>
+sudo systemctl restart docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
