@@ -563,7 +563,7 @@ Git版本控制管理第2版">
 <p>当安装Git后首先要做的事情是设置用户名称和email地址。这是非常重要的，因为每次Git提交都会使用 该用户信息</p>
 <h4 id="MacOS版本"><a href="#MacOS版本" class="headerlink" title="MacOS版本"></a>MacOS版本</h4><p>先安装homebrew：<a href="/posts/f5f4/">Homebrew安装配置</a></p>
 <p>安装git参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45406712/article/details/122283177">https://blog.csdn.net/weixin_45406712/article/details/122283177</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装git</span>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装git</span>
 brew <span class="token function">install</span> <span class="token function">git</span>
 
 <span class="token comment"># 是否成功</span>
@@ -589,11 +589,11 @@ ssh-keygen -t rsa
 <span class="token comment"># 查看公钥</span>
 <span class="token function">cat</span> .ssh/id_rsa.pub  //使用cat命令查看生成的密钥
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
 <p>复制，打开github  ，点自己头像 &gt;&gt; settings &gt;&gt; SSH and GPG keys &gt;&gt;New SSH key</p>
 <p><strong>配置token</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">可以 把token直接添加远程仓库链接中，这样就可以避免同一个仓库每次提交代码都要输入token了：
+<pre class="language-bash" data-language="bash"><code class="language-bash">可以 把token直接添加远程仓库链接中，这样就可以避免同一个仓库每次提交代码都要输入token了：
 
 <span class="token function">git</span> remote set-url origin https://<span class="token operator">&lt;</span>your_token<span class="token operator">></span>@github.com/<span class="token operator">&lt;</span>USERNAME<span class="token operator">></span>/<span class="token operator">&lt;</span>REPO<span class="token operator">></span>.git
 <span class="token operator">&lt;</span>your_token<span class="token operator">></span>：换成你自己得到的token
@@ -604,22 +604,22 @@ ssh-keygen -t rsa
 <span class="token function">git</span> remote <span class="token function">add</span> origin https://zx20219898:<span class="token operator">&lt;</span>你的token<span class="token operator">></span>@github.com/zx20219898/zx20219898.github.io.git
 
 <span class="token comment"># 以后</span>
-<span class="token function">git</span> remote set-url origin https://<span class="token operator">&lt;</span>你的token<span class="token operator">></span>@github.com/zx20219898/zx20219898.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">git</span> remote set-url origin https://<span class="token operator">&lt;</span>你的token<span class="token operator">></span>@github.com/zx20219898/zx20219898.github.io.git</code></pre>
 
 <p><strong>git用token代替密码</strong></p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global core.autocrlf false
+<pre class="language-none"><code class="language-none">git config --global core.autocrlf false
 
-git config --global credential.helper osxkeychain<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+git config --global credential.helper osxkeychain</code></pre>
 
 <p>然后下次输入一次密码（用token代替）即可永久保存</p>
 <h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>–system 全系统<br>–global 当前用户<br>–local 当前项目</p>
-<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#x78;&#64;&#x7a;&#120;&#46;&#x6a;&#115;&#46;&#99;&#x6f;&#x6f;&#108;">&#x7a;&#x78;&#64;&#x7a;&#120;&#46;&#x6a;&#115;&#46;&#99;&#x6f;&#x6f;&#108;</a>”</p>
+<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#x78;&#x40;&#122;&#120;&#46;&#106;&#115;&#x2e;&#99;&#x6f;&#x6f;&#x6c;">&#x7a;&#x78;&#x40;&#122;&#120;&#46;&#106;&#115;&#x2e;&#99;&#x6f;&#x6f;&#x6c;</a>”</p>
 <p>查看配置信息<br>git config –global user.name<br>git config –global user.email</p>
 <p>删除配置信息<br>git config –global –unset user.name</p>
-<h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a href="/posts/dbd/">为常用指令配置别名</a></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用于输出git提交日志</span>
+<h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a href="/posts/dbd/">为常用指令配置别名</a></h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用于输出git提交日志</span>
 <span class="token builtin class-name">alias</span> git-log<span class="token operator">=</span><span class="token string">'git log --pretty=oneline --all --graph --abbrev-commit'</span>
 <span class="token comment">#用于输出当前目录所有文件及基本信息</span>
-<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ll</span><span class="token operator">=</span><span class="token string">'ls -al'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">ll</span><span class="token operator">=</span><span class="token string">'ls -al'</span></code></pre>
 
 <p>命令形式:git log [option]<br>options<br>–all 显示所有分支<br>–pretty&#x3D;oneline 将提交信息显示为一行<br>–abbrev-commit 使得输出的commitId更简短<br>–graph 以图的形式显示</p>
 <p>git log –all –pretty&#x3D;oneline –abbrev-commit –graph</p>
@@ -671,7 +671,7 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 <h3 id="添加文件至忽略列表"><a href="#添加文件至忽略列表" class="headerlink" title="添加文件至忽略列表"></a>添加文件至忽略列表</h3><p><code>cd</code> 工作目录下 <code>vim .gitignore</code></p>
 <p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动 生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录 中创建一个名为 .gitignore 的文件(文件名称固定)，列出要忽略的文件模式。</p>
 <p>示例</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># no .a files</span>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># no .a files</span>
 *.a
 <span class="token comment"># but do track lib.a, even though you're ignoring .a files above</span>
 <span class="token operator">!</span>lib.a
@@ -684,7 +684,7 @@ doc/*.txt
 <span class="token comment"># ignore all .pdf files in the doc/ directory</span>
 doc//*.pdf
 doc/**/*.pdf
-<span class="token comment"># 忽略任意级别目录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 忽略任意级别目录</span></code></pre>
 
 <h2 id="Git操作远程仓库"><a href="#Git操作远程仓库" class="headerlink" title="Git操作远程仓库"></a>Git操作远程仓库</h2><h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p><code>ssh-keygen -t rsa</code> 生成SSH公钥</p>
 <p><code>cat ~/.ssh/id_rsa.pub</code> 获取公钥</p>
@@ -741,12 +741,12 @@ doc/**/*.pdf
 <h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><p><code>git checkout 分支名</code> 切换分支，<br><code>git checkout -b 分支名</code> 在一个分支的基础上，创建并切换分支<br><code>git checkout -b 分支名 origin/分支名</code> 拉取新分支-本地没有但是线上有的分支</p>
 <h3 id="合并分支（merge）"><a href="#合并分支（merge）" class="headerlink" title="合并分支（merge）"></a>合并分支（merge）</h3><p><code>git merge 某分支名称</code> 某分支 合并入 当前分支</p>
 <p>hotfix 合并入 master</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> checkout master
+<pre class="language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> checkout master
 $ <span class="token function">git</span> merge hotfix
 Updating f42c576<span class="token punctuation">..</span>3a0874c
 Fast-forward
   index.html <span class="token operator">|</span> <span class="token number">2</span> ++
-  <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">2</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token number">1</span> <span class="token function">file</span> changed, <span class="token number">2</span> insertions<span class="token punctuation">(</span>+<span class="token punctuation">)</span></code></pre>
 
 <p>fast-forward：快进，git merge 默认此模式，会丢失分支信息<br><code>git merge --no--ff 分支名 </code> 不使用快进</p>
 <h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><p><code>git branch -d 分支名</code> 删除分支时，需要做各种检查<br><code>git branch -D 分支名</code> 不做任何检查 强制删除</p>
@@ -827,13 +827,13 @@ Fast-forward
 <h2 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h2><h3 id="解决使用git遇到的：Enter-passphrase-for-key-‘-x2F-Users-x2F-zhangxin-x2F-ssh-x2F-id-rsa’"><a href="#解决使用git遇到的：Enter-passphrase-for-key-‘-x2F-Users-x2F-zhangxin-x2F-ssh-x2F-id-rsa’" class="headerlink" title="解决使用git遇到的：Enter passphrase for key ‘&#x2F;Users&#x2F;zhangxin&#x2F;.ssh&#x2F;id_rsa’"></a>解决使用git遇到的：Enter passphrase for key ‘&#x2F;Users&#x2F;zhangxin&#x2F;.ssh&#x2F;id_rsa’</h3><p>创建SSH Key</p>
 <p><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
 <p>在生成SSH Key时，如果不小心设置了passphrase，使用SSH协议克隆远程仓库时，在每次git pull和git push时都会提示<code>Enter passphrase for key &#39;/Users/zhangxiaoxue/.ssh/id_rsa&#39;</code>，每次都要手动输入密码才能继续操作，可以在命令行输入sh-keygen -p进行重新设置，直接回车输入为空，就没有密码了。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zhangxiaoxue@MacBook-Pro learn-git % ssh-keygen -p
+<pre class="language-bash" data-language="bash"><code class="language-bash">zhangxiaoxue@MacBook-Pro learn-git % ssh-keygen -p
 Enter <span class="token function">file</span> <span class="token keyword">in</span> <span class="token function">which</span> the key is <span class="token punctuation">(</span>/Users/zhangxiaoxue/.ssh/id_rsa<span class="token punctuation">)</span>:
 Enter old passphrase:
 Key has comment <span class="token string">'sybil3904@163.com'</span>
 Enter new passphrase <span class="token punctuation">(</span>empty <span class="token keyword">for</span> no passphrase<span class="token punctuation">)</span>:
 Enter same passphrase again:
-Your identification has been saved with the new passphrase.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+Your identification has been saved with the new passphrase.</code></pre>
 
                 
             </div>

@@ -545,7 +545,7 @@
 <h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="TreeMap和TreeSet在排序时如何比较元素？Collections工具类中的sort-方法如何比较元素？"><a href="#TreeMap和TreeSet在排序时如何比较元素？Collections工具类中的sort-方法如何比较元素？" class="headerlink" title="TreeMap和TreeSet在排序时如何比较元素？Collections工具类中的sort()方法如何比较元素？"></a>TreeMap和TreeSet在排序时如何比较元素？Collections工具类中的sort()方法如何比较元素？</h3><p>考察点：Tree</p>
 <p>参考回答：</p>
 <p>TreeSet要求存放的对象所属的类必须实现<strong>Comparable</strong>接口，该接口提供了比较元素的**compareTo()**方法，当插入元素时会回调该方法比较元素的大小。TreeMap要求存放的键值对映射的键必须实现Comparable接口从而根据键对元素进行排序。Collections工具类的sort方法有两种重载的形式，第一种要求传入的待排序容器中存放的对象比较实现Comparable接口以实现元素的比较；第二种不强制性的要求容器中的元素必须可比较，但是要求传入第二个参数，参数是Comparator接口的子类型（需要重写compare方法实现元素的比较），相当于一个临时定义的排序规则，其实就是通过接口注入比较元素大小的算法，也是对回调模式的应用（Java中对函数式编程的支持）。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span>
 <span class="token class-name">Student</span> <span class="token keyword">implements</span> <span class="token class-name">Comparable</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
      <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>        <span class="token comment">// 姓名</span>
      <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>            <span class="token comment">// 年龄</span>
@@ -602,11 +602,11 @@
  <span class="token comment">//      Student [name=Hao LUO, age=33]</span>
  <span class="token comment">//      Student [name=Bruce LEE, age=60]</span>
      <span class="token punctuation">&#125;</span>
- <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="如何打印二叉树每层的节点？"><a href="#如何打印二叉树每层的节点？" class="headerlink" title="如何打印二叉树每层的节点？"></a>如何打印二叉树每层的节点？</h3><p>考察点：二叉树</p>
 <p><strong>注意</strong>：面试中一般写核心代码，另外就是可以问一下面试是输出ArrayList还是int数组。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * Definition for a binary tree node.
  * public class TreeNode &#123;
  *     int val;
@@ -648,14 +648,14 @@
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="如何知道二叉树的深度？"><a href="#如何知道二叉树的深度？" class="headerlink" title="如何知道二叉树的深度？"></a>如何知道二叉树的深度？</h3><p>考察点：二叉树</p>
 <p>参考回答：</p>
 <p>求二叉树的深度方式有两种，递归以及非递归。(出自<strong>剑指offer</strong>)</p>
 <p>①递归实现：</p>
 <p>为了求树的深度，可以先求其左子树的深度和右子树的深度，可以用递归实现，递归的出口就是节点为空。返回值为0；</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/**
 public class TreeNode &#123;
     int val = 0;
     TreeNode left = null;
@@ -675,11 +675,11 @@ public class TreeNode &#123;
         <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token class-name">TreeDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>left<span class="token operator">></span>right<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>left<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <p>②非递归实现：</p>
 <p>利用层次遍历的算法，将每一层的所有节点放入队列中，在将每一层节点的左右子节点存入放入到队列中，用一个变量记录树的高度即可。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token class-name">TreeDepth</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span> 
@@ -702,10 +702,10 @@ public class TreeNode &#123;
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> height<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="二叉树任意两个节点之间路径的最大长度"><a href="#二叉树任意两个节点之间路径的最大长度" class="headerlink" title="二叉树任意两个节点之间路径的最大长度"></a>二叉树任意两个节点之间路径的最大长度</h3><p>考察点：树</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">maxDist</span><span class="token punctuation">(</span><span class="token class-name">Tree</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token function">maxDist</span><span class="token punctuation">(</span><span class="token class-name">Tree</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
     <span class="token comment">//如果树是空的，则返回0  </span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> NULL<span class="token punctuation">)</span> 
         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> 
@@ -721,10 +721,10 @@ public class TreeNode &#123;
     <span class="token punctuation">&#125;</span> 
 
     <span class="token keyword">return</span> root<span class="token operator">-></span>rm <span class="token operator">></span> root<span class="token operator">-></span>lm <span class="token operator">?</span>root<span class="token operator">-></span>rm <span class="token operator">:</span> root<span class="token operator">-></span>lm<span class="token punctuation">;</span> 
-<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span>  </code></pre>
 
 <h3 id="算法题：二叉树层序遍历，进一步提问：要求每层打印出一个换行符"><a href="#算法题：二叉树层序遍历，进一步提问：要求每层打印出一个换行符" class="headerlink" title="算法题：二叉树层序遍历，进一步提问：要求每层打印出一个换行符"></a>算法题：二叉树层序遍历，进一步提问：要求每层打印出一个换行符</h3><p>考察点：二叉树</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span>
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token function">levelOrder</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
            <span class="token comment">// 存最终结果</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -752,11 +752,11 @@ public class TreeNode &#123;
              result<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="怎么求一个二叉树的深度-手撕代码"><a href="#怎么求一个二叉树的深度-手撕代码" class="headerlink" title="怎么求一个二叉树的深度?手撕代码?"></a>怎么求一个二叉树的深度?手撕代码?</h3><p>考察点：二叉树</p>
 <p>类似上面求二叉树的深度的题，这里给出递归的方式。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token class-name">TreeDepth</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span> 
             <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -764,7 +764,7 @@ public class TreeNode &#123;
         <span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token class-name">TreeDepth</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token punctuation">(</span>left<span class="token operator">></span>right<span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>left<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="请你说一下，B-树和B-树？"><a href="#请你说一下，B-树和B-树？" class="headerlink" title="请你说一下，B+树和B-树？"></a>请你说一下，B+树和B-树？</h3><p>考察点：树</p>
 <p>参考回答：</p>
@@ -816,7 +816,7 @@ public class TreeNode &#123;
 <p>②如果进行频繁插入和删除操作，会导致速度很慢。</p>
 <h3 id="有一个链表，奇数位升序偶数位降序，如何将链表变成升序"><a href="#有一个链表，奇数位升序偶数位降序，如何将链表变成升序" class="headerlink" title="有一个链表，奇数位升序偶数位降序，如何将链表变成升序"></a>有一个链表，奇数位升序偶数位降序，如何将链表变成升序</h3><p>考察点：链表</p>
 <p>思路：将链表按照奇偶数位分成两个链表head1和head2，如1-&gt;6-&gt;3-&gt;4-&gt;5-&gt;2，得到1-&gt;3-&gt;5和6-&gt;4-&gt;2两个链表，将6-&gt;4-&gt;2反转得到2-&gt;4-&gt;6，在将两个链表合并。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span>
 <span class="token class-name">OddIncreaseEvenDecrease</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">/**
      * 按照奇偶位拆分成两个链表
@@ -910,10 +910,10 @@ public class TreeNode &#123;
         <span class="token keyword">return</span> head<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="随机链表的复制"><a href="#随机链表的复制" class="headerlink" title="随机链表的复制"></a>随机链表的复制</h3><p>考察点：链表</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">RandomListNode</span> <span class="token function">copyRandomList</span><span class="token punctuation">(</span><span class="token class-name">RandomListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">RandomListNode</span> <span class="token function">copyRandomList</span><span class="token punctuation">(</span><span class="token class-name">RandomListNode</span> head<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 
     <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -948,10 +948,10 @@ public class TreeNode &#123;
     <span class="token punctuation">&#125;</span>
 
     <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="如何反转单链表"><a href="#如何反转单链表" class="headerlink" title="如何反转单链表"></a>如何反转单链表</h3><p>考察点：链表</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Node</span> <span class="token function">reverseList</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Node</span> <span class="token function">reverseList</span><span class="token punctuation">(</span><span class="token class-name">ListNode</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token class-name">ListNode</span> pre <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
     <span class="token class-name">ListNode</span> next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
     <span class="token keyword">while</span><span class="token punctuation">(</span>head <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -961,10 +961,10 @@ public class TreeNode &#123;
         head <span class="token operator">=</span> next<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="写一个算法，可以将一个二维数组顺时针旋转90度，说一下思路。"><a href="#写一个算法，可以将一个二维数组顺时针旋转90度，说一下思路。" class="headerlink" title="写一个算法，可以将一个二维数组顺时针旋转90度，说一下思路。"></a>写一个算法，可以将一个二维数组顺时针旋转90度，说一下思路。</h3><p>考察点：数组</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span> matrix<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> n <span class="token operator">=</span> matrix<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
         <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
@@ -976,21 +976,21 @@ public class TreeNode &#123;
                 matrix<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token operator">-</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="一个数组，除一个元素外其它都是两两相等，求那个元素"><a href="#一个数组，除一个元素外其它都是两两相等，求那个元素" class="headerlink" title="一个数组，除一个元素外其它都是两两相等，求那个元素?"></a>一个数组，除一个元素外其它都是两两相等，求那个元素?</h3><p>考察点：数组</p>
 <p>解法：位运算，数组中的全部元素的异或运算结果即为数组中只出现一次的数字。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">find1From2</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">find1From2</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> len <span class="token operator">=</span> a<span class="token punctuation">.</span>length<span class="token punctuation">,</span> result <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
             result <span class="token operator">=</span> result <span class="token operator">^</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="找出数组中和为S的一对组合，找出一组就行"><a href="#找出数组中和为S的一对组合，找出一组就行" class="headerlink" title="找出数组中和为S的一对组合，找出一组就行"></a>找出数组中和为S的一对组合，找出一组就行</h3><p>考察点：数组</p>
 <p>解法：两数之和经典题，找到一组即可返回，使用HashMap即可。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
         map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1004,10 +1004,10 @@ public class TreeNode &#123;
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="求一个数组中连续子向量的最大和"><a href="#求一个数组中连续子向量的最大和" class="headerlink" title="求一个数组中连续子向量的最大和"></a>求一个数组中连续子向量的最大和</h3><p>考察点：数组</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">maxSubArray</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         <span class="token keyword">int</span> maxSum <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MIN_VALUE<span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>nums <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> nums<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -1021,11 +1021,11 @@ public class TreeNode &#123;
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> maxSum<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="寻找一数组中前K个最大的数"><a href="#寻找一数组中前K个最大的数" class="headerlink" title="寻找一数组中前K个最大的数"></a>寻找一数组中前K个最大的数</h3><p>考察点：数组</p>
 <p>解法：考场排序，可以用堆排序，也可以用快排，面试的时候看面试官怎么要求。这里给出快排的解法，自己也可以尝试其他的方法。</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findKthLargest</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findKthLargest</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">||</span> nums <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
@@ -1064,10 +1064,10 @@ public class TreeNode &#123;
     <span class="token keyword">int</span> tmp <span class="token operator">=</span> nums<span class="token punctuation">[</span>n1<span class="token punctuation">]</span><span class="token punctuation">;</span>
     nums<span class="token punctuation">[</span>n1<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>n2<span class="token punctuation">]</span><span class="token punctuation">;</span>
     nums<span class="token punctuation">[</span>n2<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="用java写一个冒泡排序？"><a href="#用java写一个冒泡排序？" class="headerlink" title="用java写一个冒泡排序？"></a>用java写一个冒泡排序？</h3><p>考察点：冒泡排序</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> result <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
     <span class="token keyword">int</span> temp<span class="token punctuation">;</span>
     <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"----冒泡排序前顺序----"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1090,7 +1090,7 @@ public class TreeNode &#123;
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
 <h3 id="介绍一下，排序都有哪几种方法？请列举出来。"><a href="#介绍一下，排序都有哪几种方法？请列举出来。" class="headerlink" title="介绍一下，排序都有哪几种方法？请列举出来。"></a>介绍一下，排序都有哪几种方法？请列举出来。</h3><p>考察点：排序</p>
 <p>参考回答：</p>
@@ -1129,7 +1129,7 @@ public class TreeNode &#123;
 <p>而右边的j下标一直往左走（当a[j] &gt; a[center_index]时）。</p>
 <p>如果i和j都走不动了，i &lt;&#x3D; j, 交换a[i]和a[j],重复上面的过程，直到i&gt;j。交换a[j]和a[center_index]，完成一趟快速排序。</p>
 <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><h3 id="二叉树-Z-字型遍历"><a href="#二叉树-Z-字型遍历" class="headerlink" title="二叉树 Z 字型遍历"></a>二叉树 Z 字型遍历</h3><p>考察点：遍历</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token operator">*</span></span><span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ArrayList</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token class-name">Print</span><span class="token punctuation">(</span><span class="token class-name">TreeNode</span> pRoot<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ArrayList</span><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span><span class="token punctuation">></span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1160,10 +1160,10 @@ public class TreeNode &#123;
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> result<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="编程题：写一个函数，找到一个文件夹下所有文件，包括子文件夹"><a href="#编程题：写一个函数，找到一个文件夹下所有文件，包括子文件夹" class="headerlink" title="编程题：写一个函数，找到一个文件夹下所有文件，包括子文件夹"></a>编程题：写一个函数，找到一个文件夹下所有文件，包括子文件夹</h3><p>考察点：遍历</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">File</span></span><span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Counter2</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token comment">//取得目标目录</span>
@@ -1188,7 +1188,7 @@ public class TreeNode &#123;
             <span class="token punctuation">&#125;</span>
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><h3 id="请你解释一下，内存中的栈-stack-、堆-heap-和静态区-static-area-的用法。"><a href="#请你解释一下，内存中的栈-stack-、堆-heap-和静态区-static-area-的用法。" class="headerlink" title="请你解释一下，内存中的栈(stack)、堆(heap) 和静态区(static area) 的用法。"></a>请你解释一下，内存中的栈(stack)、堆(heap) 和静态区(static area) 的用法。</h3><p>考察点：堆栈</p>
 <p><strong>参考回答：</strong></p>
@@ -1282,7 +1282,7 @@ public class TreeNode &#123;
 </ul>
 <p><strong>Design and implement a data structure for Least Frequently Used (LFU) cache. It should support the following operations: get and put. get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1. put(key, value) - Set or insert the value if the key is not already present. When the cache reaches its capacity, it should invalidate the least frequently used item before inserting a new item. For the purpose of this problem, when there is a tie (i.e., two or more keys that have the same frequency), the least recently used key would be evicted. Could you do both operations in O(1) time complexity?</strong></p>
 <p>考察点：LFU Cache</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LFUCache</span> <span class="token punctuation">&#123;</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LFUCache</span> <span class="token punctuation">&#123;</span>
 <span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">&#123;</span>
     <span class="token keyword">int</span> value<span class="token punctuation">;</span>
     <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> set<span class="token punctuation">;</span>
@@ -1385,7 +1385,7 @@ public class TreeNode &#123;
         <span class="token function">deleteNode</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
                 
             </div>

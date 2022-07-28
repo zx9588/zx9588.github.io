@@ -574,7 +574,7 @@ MySQL技术内幕InnoDB存储引擎-有附录
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8ddEzG-NzzFD35ehvbER7A">面试相关：面试官最爱的MySQL连环问</a></li>
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1VCC3i6ZCk7sb9kVRZ1czQ">面试相关：如何实现丝滑的数据库扩容</a></li>
 </ul>
-<h2 id="MyBatis批量操作"><a href="#MyBatis批量操作" class="headerlink" title="MyBatis批量操作"></a>MyBatis批量操作</h2><h3 id="分批插入"><a href="#分批插入" class="headerlink" title="分批插入"></a>分批插入</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//分批插入，一次插入的大小</span>
+<h2 id="MyBatis批量操作"><a href="#MyBatis批量操作" class="headerlink" title="MyBatis批量操作"></a>MyBatis批量操作</h2><h3 id="分批插入"><a href="#分批插入" class="headerlink" title="分批插入"></a>分批插入</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">//分批插入，一次插入的大小</span>
 <span class="token keyword">int</span> limit <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> listSize <span class="token operator">=</span> userList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ConsoleUserSyncVO</span><span class="token punctuation">></span></span> newList <span class="token operator">=</span> <span class="token class-name">Lists</span><span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -588,7 +588,7 @@ MySQL技术内幕InnoDB存储引擎-有附录
         <span class="token comment">//每次批量操作后,清空载体list,等待下次的数据填入</span>
         newList<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <h3 id="mybatis批量更新数据三种方法效率对比"><a href="#mybatis批量更新数据三种方法效率对比" class="headerlink" title="mybatis批量更新数据三种方法效率对比"></a>mybatis批量更新数据三种方法效率对比</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/q957967519/article/details/88669552">原作链接</a></p>
 <p>实现方式有三种</p>
@@ -597,7 +597,7 @@ MySQL技术内幕InnoDB存储引擎-有附录
 <li>用mysql的case when 条件判断变相的进行批量更新</li>
 <li>用ON DUPLICATE KEY UPDATE进行批量更新</li>
 </ul>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 批量更新第一种方法，通过接收传进来的参数list进行循环着组装sql --></span>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 批量更新第一种方法，通过接收传进来的参数list进行循环着组装sql --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>update</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>updateBatch<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>java.util.List<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>foreach</span> <span class="token attr-name">collection</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>list<span class="token punctuation">"</span></span> <span class="token attr-name">item</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token attr-name">index</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>index<span class="token punctuation">"</span></span> <span class="token attr-name">open</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">close</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">separator</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>;<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     update standard_relation
@@ -677,9 +677,9 @@ MySQL技术内幕InnoDB存储引擎-有附录
   gmt_created = VALUES(gmt_created),
   gmt_modified = VALUES(gmt_modified),
   relation_desc = VALUES(relation_desc)
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span></code></pre>
 
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
 <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateStandardRelations</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">StandardRelation</span><span class="token punctuation">></span></span> list<span class="token operator">=</span>standardRelationMapper<span class="token punctuation">.</span><span class="token function">selectByStandardUuid</span><span class="token punctuation">(</span><span class="token string">"xiemingjieupdate"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">StandardRelation</span> tmp<span class="token operator">:</span>list<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -690,7 +690,7 @@ MySQL技术内幕InnoDB存储引擎-有附录
   standardRelationManager<span class="token punctuation">.</span><span class="token function">updateBatch</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">long</span> end<span class="token operator">=</span><span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">currentTimeMillis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"当前的批量更新的方法用时"</span><span class="token operator">+</span><span class="token punctuation">(</span>end<span class="token operator">-</span>begin<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"ms"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span></code></pre>
 
 <p><img src="https://s2.loli.net/2022/07/24/eyZaX6Yuh8rV1Rm.png"></p>
 <p>sql语句for循环效率其实相当高的，因为它仅仅有一个循环体，只不过最后update语句比较多，量大了就有可能造成sql阻塞。</p>
@@ -699,12 +699,12 @@ MySQL技术内幕InnoDB存储引擎-有附录
 <p><img src="https://s2.loli.net/2022/07/24/QaH6kjMVWPieG2N.png"></p>
 <p>根据效率，安全方面综合考虑，选择适合的很重要。</p>
 <h2 id="MySQL-explain-详解"><a href="#MySQL-explain-详解" class="headerlink" title="MySQL-explain-详解"></a>MySQL-explain-详解</h2><p><code>explain select * from servers;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+---------+------+---------------+------+---------+------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+---------+------+---------------+------+---------+------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table   <span class="token operator">|</span> <span class="token builtin class-name">type</span> <span class="token operator">|</span> possible_keys <span class="token operator">|</span> key  <span class="token operator">|</span> key_len <span class="token operator">|</span> ref  <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+-------------+---------+------+---------------+------+---------+------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> SIMPLE      <span class="token operator">|</span> servers <span class="token operator">|</span> ALL  <span class="token operator">|</span> NULL          <span class="token operator">|</span> NULL <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span> NULL  <span class="token operator">|</span>
 +----+-------------+---------+------+---------------+------+---------+------+------+-------+
-row <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.03</span> sec<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+row <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.03</span> sec<span class="token punctuation">)</span></code></pre>
 
 <p><strong>expain出来的信息有10列</strong></p>
 <ul>
@@ -726,57 +726,57 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 <li>id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行</li>
 </ol>
 <p><code>explain select * from (select * from ( select * from t3 where id=123) a) b;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table      <span class="token operator">|</span> <span class="token builtin class-name">type</span>   <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref  <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY     <span class="token operator">|</span> <span class="token operator">&lt;</span>derived<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">|</span> system <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> DERIVED     <span class="token operator">|</span> <span class="token operator">&lt;</span>derived<span class="token operator"><span class="token file-descriptor important">3</span>></span> <span class="token operator">|</span> system <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">3</span> <span class="token operator">|</span> DERIVED     <span class="token operator">|</span> t3         <span class="token operator">|</span> const  <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span>      <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
-+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+</code></pre>
 
 <p>很显然这条SQL是从里向外的执行,就是从id&#x3D;3 向上执行.</p>
 <h3 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h3><ol>
 <li><p><strong>SIMPLE</strong></p>
 <p>最简单的select(不使用UNION或子查询等) 例如:</p>
 <p><code>explain select * from t3 where id=123;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table <span class="token operator">|</span> <span class="token builtin class-name">type</span>  <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref   <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> SIMPLE      <span class="token operator">|</span> t3    <span class="token operator">|</span> const <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> const <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
-+----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------+</code></pre>
 </li>
 <li><p><strong>PRIMARY</strong></p>
 <p>最外层的select，主查询，例如：</p>
 <p><code>explain select * from (select * from t3 where id=123) a ;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table      <span class="token operator">|</span> <span class="token builtin class-name">type</span>   <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref  <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY     <span class="token operator">|</span> <span class="token operator">&lt;</span>derived<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">|</span> system <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> DERIVED     <span class="token operator">|</span> t3         <span class="token operator">|</span> const  <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span>      <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
-+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+</code></pre>
 </li>
 <li><p><strong>UNION</strong></p>
 <p>UNION中的第二个或后面的select语句，例如：</p>
 <p><code>explain select * from t3 where id=123 union all select * from t3 ;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type  <span class="token operator">|</span> table      <span class="token operator">|</span> <span class="token builtin class-name">type</span>  <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref   <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY      <span class="token operator">|</span> t3         <span class="token operator">|</span> const <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> const <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> UNION        <span class="token operator">|</span> t3         <span class="token operator">|</span> ALL   <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL  <span class="token operator">|</span> <span class="token number">1000</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>NULL <span class="token operator">|</span> UNION RESULT <span class="token operator">|</span> <span class="token operator">&lt;</span>union1,<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">|</span> ALL   <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL  <span class="token operator">|</span> NULL <span class="token operator">|</span>       <span class="token operator">|</span>
-+----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+--------------+------------+-------+-------------------+---------+---------+-------+------+-------+</code></pre>
 </li>
 <li><p><strong>DEPENDENT UNION</strong></p>
 <p>UNION中的第二个或后面的select语句，取决于外面的查询，例如：</p>
 <p><code>explain select * from t3 where id in (select id from t3 where id=123 union all select id from t3) ;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type        <span class="token operator">|</span> table      <span class="token operator">|</span> <span class="token builtin class-name">type</span>   <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref   <span class="token operator">|</span> rows <span class="token operator">|</span> Extra                    <span class="token operator">|</span>
 +----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY            <span class="token operator">|</span> t3         <span class="token operator">|</span> ALL    <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL  <span class="token operator">|</span> <span class="token number">1000</span> <span class="token operator">|</span> Using where              <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> DEPENDENT SUBQUERY <span class="token operator">|</span> t3         <span class="token operator">|</span> const  <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> const <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span> Using index              <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">3</span> <span class="token operator">|</span> DEPENDENT UNION    <span class="token operator">|</span> t3         <span class="token operator">|</span> eq_ref <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> func  <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span> Using where<span class="token punctuation">;</span> Using index <span class="token operator">|</span>
 <span class="token operator">|</span>NULL <span class="token operator">|</span> UNION RESULT       <span class="token operator">|</span> <span class="token operator">&lt;</span>union2,<span class="token operator"><span class="token file-descriptor important">3</span>></span> <span class="token operator">|</span> ALL    <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL  <span class="token operator">|</span> NULL <span class="token operator">|</span>                          <span class="token operator">|</span>
-+----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+--------------------+------------+--------+-------------------+---------+---------+-------+------+--------------------------+</code></pre>
 </li>
 <li><p><strong>UNION RESULT</strong></p>
 <p>UNION的结果，union语句中第二个select开始后面所有select</p>
@@ -784,32 +784,32 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 <li><p><strong>SUBQUERY</strong></p>
 <p>非最外层的select，在子查询中第一个select，例如：</p>
 <p><code>explain select * from t3 where id = (select id from t3 where id=123 ) ;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table <span class="token operator">|</span> <span class="token builtin class-name">type</span>  <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref   <span class="token operator">|</span> rows <span class="token operator">|</span> Extra       <span class="token operator">|</span>
 +----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY     <span class="token operator">|</span> t3    <span class="token operator">|</span> const <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> const <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>             <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> SUBQUERY    <span class="token operator">|</span> t3    <span class="token operator">|</span> const <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span>       <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span> Using index <span class="token operator">|</span>
-+----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+-------------+-------+-------+-------------------+---------+---------+-------+------+-------------+</code></pre>
 </li>
 <li><p><strong>DEPENDENT SUBQUERY</strong></p>
 <p>子查询中的第一个select，取决于外面的查询，例如：</p>
 <p><code>explain select id from t3 where id in (select id from t3 where id=123 )  ;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type        <span class="token operator">|</span> table <span class="token operator">|</span> <span class="token builtin class-name">type</span>  <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref   <span class="token operator">|</span> rows <span class="token operator">|</span> Extra                    <span class="token operator">|</span>
 +----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY            <span class="token operator">|</span> t3    <span class="token operator">|</span> index <span class="token operator">|</span> NULL              <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> NULL  <span class="token operator">|</span> <span class="token number">1000</span> <span class="token operator">|</span> Using where<span class="token punctuation">;</span> Using index <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> DEPENDENT SUBQUERY <span class="token operator">|</span> t3    <span class="token operator">|</span> const <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span> const <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span> Using index              <span class="token operator">|</span>
-+----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+--------------------+-------+-------+-------------------+---------+---------+-------+------+--------------------------+</code></pre>
 </li>
 <li><p><strong>DERIVED</strong></p>
 <p>派生表的select(from子句的子查询)</p>
 <p><code>explain select * from (select * from t3 where id=123) a ;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table      <span class="token operator">|</span> <span class="token builtin class-name">type</span>   <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref  <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY     <span class="token operator">|</span> <span class="token operator">&lt;</span>derived<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">|</span> system <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> DERIVED     <span class="token operator">|</span> t3         <span class="token operator">|</span> const  <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span>      <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
-+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+</code></pre>
 </li>
 <li><p>UNCACHEABLE SUBQUERY</p>
 <p>一个子查询的结果不能被缓存，必须重新评估外链接的第一行</p>
@@ -817,13 +817,13 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 </ol>
 <h3 id="table"><a href="#table" class="headerlink" title="table"></a>table</h3><p>代表表名。有时不是真实的表名,看到的是&lt;derived**X**&gt;(数字X是第几步执行的结果)</p>
 <p><code>explain select * from (select * from ( select * from t3 where id=123) a) b;</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
+<pre class="language-bash" data-language="bash"><code class="language-bash">+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span> <span class="token function">id</span> <span class="token operator">|</span> select_type <span class="token operator">|</span> table      <span class="token operator">|</span> <span class="token builtin class-name">type</span>   <span class="token operator">|</span> possible_keys     <span class="token operator">|</span> key     <span class="token operator">|</span> key_len <span class="token operator">|</span> ref  <span class="token operator">|</span> rows <span class="token operator">|</span> Extra <span class="token operator">|</span>
 +----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+
 <span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span> PRIMARY     <span class="token operator">|</span> <span class="token operator">&lt;</span>derived<span class="token operator"><span class="token file-descriptor important">2</span>></span> <span class="token operator">|</span> system <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">2</span> <span class="token operator">|</span> DERIVED     <span class="token operator">|</span> <span class="token operator">&lt;</span>derived<span class="token operator"><span class="token file-descriptor important">3</span>></span> <span class="token operator">|</span> system <span class="token operator">|</span> NULL              <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL    <span class="token operator">|</span> NULL <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
 <span class="token operator">|</span>  <span class="token number">3</span> <span class="token operator">|</span> DERIVED     <span class="token operator">|</span> t3         <span class="token operator">|</span> const  <span class="token operator">|</span> PRIMARY,idx_t3_id <span class="token operator">|</span> PRIMARY <span class="token operator">|</span> <span class="token number">4</span>       <span class="token operator">|</span>      <span class="token operator">|</span>    <span class="token number">1</span> <span class="token operator">|</span>       <span class="token operator">|</span>
-+----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
++----+-------------+------------+--------+-------------------+---------+---------+------+------+-------+</code></pre>
 
 <h3 id="type-非常重要"><a href="#type-非常重要" class="headerlink" title="type(非常重要)"></a>type(非常重要)</h3><p>使用了哪种类别，是否使用索引.</p>
 <p>const、eq_reg、ref、range、indexhe、ALL（从左到右，性能从好到差）</p>
@@ -851,8 +851,8 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 <li><p>Using temporary：表示MySQL需要使用临时表来存储结果集，常见于排序和分组查询，常见 group by ; order by</p>
 </li>
 <li><p>Using filesort：当Query中包含 order by 操作，而且无法利用索引完成的排序操作称为“文件排序”</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 测试Extra的filesort</span>
-<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">order</span> <span class="token keyword">by</span> name<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 测试Extra的filesort</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">order</span> <span class="token keyword">by</span> name<span class="token punctuation">;</span></code></pre>
 </li>
 <li><p>Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。</p>
 </li>
@@ -861,11 +861,11 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 <li><p>Select tables optimized away：这个值意味着仅通过使用索引，优化器可能仅从聚合函数结果中返回一行</p>
 </li>
 <li><p>No tables used：Query语句中使用from dual 或不含任何from子句</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- explain select now() from dual;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- explain select now() from dual;</span></code></pre></li>
 </ul>
 <p><strong>总结：</strong><br>• EXPLAIN不会告诉你关于触发器、存储过程的信息或用户自定义函数对查询的影响情况<br>• EXPLAIN不考虑各种Cache<br>• EXPLAIN不能显示MySQL在执行查询时所作的优化工作<br>• 部分统计信息是估算的，并非精确值<br>• EXPALIN只能解释SELECT操作，其他操作要重写为SELECT后查看执行计划。**</p>
 <p>通过收集统计信息不可能存在结果</p>
-<h2 id="sql示例"><a href="#sql示例" class="headerlink" title="sql示例"></a>sql示例</h2><h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SET</span> NAMES utf8mb4<span class="token punctuation">;</span>
+<h2 id="sql示例"><a href="#sql示例" class="headerlink" title="sql示例"></a>sql示例</h2><h3 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h3><pre class="language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SET</span> NAMES utf8mb4<span class="token punctuation">;</span>
 <span class="token keyword">SET</span> FOREIGN_KEY_CHECKS <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
 <span class="token comment">-- ----------------------------</span>
@@ -915,7 +915,7 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>t_trans_submit<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1541453950169444353</span><span class="token punctuation">,</span> <span class="token string">'8080808080'</span><span class="token punctuation">,</span> <span class="token string">'1122334455667799'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'北京新天地科技股份有限公司'</span><span class="token punctuation">,</span> <span class="token string">'1000'</span><span class="token punctuation">,</span> <span class="token string">'1122334455667788'</span><span class="token punctuation">,</span> <span class="token string">'北京新天地科技股份有限公司'</span><span class="token punctuation">,</span> <span class="token string">'1000'</span><span class="token punctuation">,</span> <span class="token string">'100000'</span><span class="token punctuation">,</span> <span class="token string">'转账用途'</span><span class="token punctuation">,</span> <span class="token string">'13170030905'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'转账方式'</span><span class="token punctuation">,</span> <span class="token string">'转账大写金额'</span><span class="token punctuation">,</span> <span class="token string">'附言'</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token string">'备注'</span><span class="token punctuation">,</span> <span class="token string">'预约处理'</span><span class="token punctuation">,</span> <span class="token string">'预约时间'</span><span class="token punctuation">,</span> <span class="token string">'2025-12-12'</span><span class="token punctuation">,</span> <span class="token string">'13170030905'</span><span class="token punctuation">,</span> <span class="token string">'1656346235206'</span><span class="token punctuation">,</span> <span class="token string">'2022-06-28 12:10:35'</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>t_trans_submit<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1541611347942412289</span><span class="token punctuation">,</span> <span class="token string">'8080808080'</span><span class="token punctuation">,</span> <span class="token string">'1122334455667799'</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">,</span> <span class="token string">'北京新天地科技股份有限公司'</span><span class="token punctuation">,</span> <span class="token string">'1000'</span><span class="token punctuation">,</span> <span class="token string">'1122334455667788'</span><span class="token punctuation">,</span> <span class="token string">'北京新天地科技股份有限公司'</span><span class="token punctuation">,</span> <span class="token string">'1000'</span><span class="token punctuation">,</span> <span class="token string">'100000'</span><span class="token punctuation">,</span> <span class="token string">'转账用途'</span><span class="token punctuation">,</span> <span class="token string">'13170030905'</span><span class="token punctuation">,</span> <span class="token string">'2'</span><span class="token punctuation">,</span> <span class="token string">'转账方式'</span><span class="token punctuation">,</span> <span class="token string">'转账大写金额'</span><span class="token punctuation">,</span> <span class="token string">'附言'</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span> <span class="token string">'备注'</span><span class="token punctuation">,</span> <span class="token string">'预约处理'</span><span class="token punctuation">,</span> <span class="token string">'预约时间'</span><span class="token punctuation">,</span> <span class="token string">'2025-12-12'</span><span class="token punctuation">,</span> <span class="token string">'13170030905'</span><span class="token punctuation">,</span> <span class="token string">'1656383761745'</span><span class="token punctuation">,</span> <span class="token string">'2022-06-28 02:36:01'</span><span class="token punctuation">,</span> <span class="token boolean">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">SET</span> FOREIGN_KEY_CHECKS <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">SET</span> FOREIGN_KEY_CHECKS <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></code></pre>
 
 <h2 id="《MySQL必知必会》读书笔记"><a href="#《MySQL必知必会》读书笔记" class="headerlink" title="《MySQL必知必会》读书笔记"></a>《MySQL必知必会》读书笔记</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/alex_my/article/details/72357498">MySQL必知必会</a></li>
@@ -923,50 +923,50 @@ row <span class="token keyword">in</span> <span class="token builtin class-name"
 </ul>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p><code>SHOW DATABASES;</code><br><code>SHOW TABLES;</code><br><code>SHOW COLUMNS FROM table;</code><br><code>SHOW STATUS;</code><br><code>SHOW CREATE DATABASE database;</code><br><code>SHOW CREATE TABLE table;</code></p>
 <p><code>ALTER TABLE vendors ADD vend_phone CHAR(20) COMMENT &#39;手机&#39;;</code> – 新增列<br><code>ALTER TABLE vendors DROP COLUMN vend_phone;</code> – 删除列<br><code>DROP TABLE vendors</code> – 删除整个表<br><code>TRUNCATE TABLE...</code> – TRUNCATE TABLE语句，删除原来的表，并重新创建一个表。比DELETE删除所有行更快。<br><code>RENAME TABLE tab1 TO tab2;</code> – 重命名表<br><code>ALTER TABLE orderitems ADD CONSTRAINT fk_orderitems_orders FOREIGN KEY (order_num) REFERENCES orders(orderr_num);</code>– ALTER TABLE 定义外键</p>
-<h3 id="DISTINCT和GROUP-BY"><a href="#DISTINCT和GROUP-BY" class="headerlink" title="DISTINCT和GROUP BY"></a>DISTINCT和GROUP BY</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT DISTINCT &#96;role_id&#96; FROM user;
-SELECT &#96;role_id&#96; FROM user GROUP BY &#96;role_id&#96;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="DISTINCT和GROUP-BY"><a href="#DISTINCT和GROUP-BY" class="headerlink" title="DISTINCT和GROUP BY"></a>DISTINCT和GROUP BY</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT DISTINCT &#96;role_id&#96; FROM user;
+SELECT &#96;role_id&#96; FROM user GROUP BY &#96;role_id&#96;;</code></pre>
 
 <p>二者都可以达到去重的效果。</p>
 <p>DISTINCT把列中的全部内容存储到内存中，可以理解为一个hash，最后的到hash中的key就可以得到结果。比较耗内存。</p>
 <p>GROUP BY先将列排序，然后去重。排序比较耗时间。</p>
-<h3 id="LIMIT操作符"><a href="#LIMIT操作符" class="headerlink" title="LIMIT操作符"></a>LIMIT操作符</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT &#96;role_id&#96; FROM user LIMIT 5 OFFSET 3;
-SELECT &#96;role_id&#96; FROM user LIMIT 3, 5;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="LIMIT操作符"><a href="#LIMIT操作符" class="headerlink" title="LIMIT操作符"></a>LIMIT操作符</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT &#96;role_id&#96; FROM user LIMIT 5 OFFSET 3;
+SELECT &#96;role_id&#96; FROM user LIMIT 3, 5;</code></pre>
 
-<h3 id="LIKE操作符"><a href="#LIKE操作符" class="headerlink" title="LIKE操作符"></a>LIKE操作符</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT * FROM user WHERE name LIKE &#39;t%&#39;;
+<h3 id="LIKE操作符"><a href="#LIKE操作符" class="headerlink" title="LIKE操作符"></a>LIKE操作符</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT * FROM user WHERE name LIKE &#39;t%&#39;;
 SELECT * FROM user WHERE name LIKE &#39;%t%&#39;;
 SELECT * FROM user WHERE name LIKE &#39;a%e&#39;;
 SELECT * FROM user WHERE name LIKE &#39;t_&#39;;    -- t1, t2
-SELECT * FROM user WHERE name LIKE &#39;t__&#39;;   -- t123, t34<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+SELECT * FROM user WHERE name LIKE &#39;t__&#39;;   -- t123, t34</code></pre>
 
 <p>以上两句都是模糊匹配用户名以t开头。</p>
 <p>%: 匹配任意0个或者多个字符。</p>
 <p><code>_</code>:一个<code>_</code>匹配1个任意字符，且必须有一个。</p>
-<h3 id="正则基本字符匹配"><a href="#正则基本字符匹配" class="headerlink" title="正则基本字符匹配"></a>正则基本字符匹配</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;t&#39;;    -- t, t1, t2
-SELECT name FROM user WHERE name REGEXP &#39;t.&#39;;   -- t1, t2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="正则基本字符匹配"><a href="#正则基本字符匹配" class="headerlink" title="正则基本字符匹配"></a>正则基本字符匹配</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;t&#39;;    -- t, t1, t2
+SELECT name FROM user WHERE name REGEXP &#39;t.&#39;;   -- t1, t2</code></pre>
 
 <p><code>.</code>表示匹配任意一个字符。</p>
 <p>LIKE和REGEXP区别:</p>
 <p>LIKE 要求整个列匹配(使用通配符除外), REGEXP只要列中某个片段匹配即可。</p>
 <p>假设有用户名为s123。则以下例子中, LIKE没有得到结果。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name LIKE &#39;s1&#39;;     -- 没有结果
-SELECT name FROM user WHERE name REGEXP &#39;s1&#39;;   -- s123<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name LIKE &#39;s1&#39;;     -- 没有结果
+SELECT name FROM user WHERE name REGEXP &#39;s1&#39;;   -- s123</code></pre>
 
-<h3 id="OR匹配"><a href="#OR匹配" class="headerlink" title="OR匹配"></a>OR匹配</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s1|s2&#39; ORDER BY name; -- s123, s2, s234<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="OR匹配"><a href="#OR匹配" class="headerlink" title="OR匹配"></a>OR匹配</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s1|s2&#39; ORDER BY name; -- s123, s2, s234</code></pre>
 
 <p>使用|功能上类似于SELECT中的OR语句。多个OR语句可以使用正则表达式替代，更简洁。</p>
-<h3 id="匹配几个字符之一"><a href="#匹配几个字符之一" class="headerlink" title="匹配几个字符之一"></a>匹配几个字符之一</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s[1238]&#39; ORDER BY name;  -- s123, s2, s234, s89<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="匹配几个字符之一"><a href="#匹配几个字符之一" class="headerlink" title="匹配几个字符之一"></a>匹配几个字符之一</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s[1238]&#39; ORDER BY name;  -- s123, s2, s234, s89</code></pre>
 
 <p>相当于</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s1|s2|s3|s8&#39; ORDER BY name;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s1|s2|s3|s8&#39; ORDER BY name;</code></pre>
 
 <p>也可以添加^，来匹配除指定以外的内容</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s[^1238]&#39; ORDER BY name;  -- s4, s5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s[^1238]&#39; ORDER BY name;  -- s4, s5</code></pre>
 
-<h3 id="匹配范围"><a href="#匹配范围" class="headerlink" title="匹配范围"></a>匹配范围</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s[1-8]&#39; ORDER BY name;  -- s123, s2, s89..
-SELECT name FROM user WHERE name REGEXP &#39;[a-z][1-8]&#39; ORDER BY name;  -- a1, b2, c3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="匹配范围"><a href="#匹配范围" class="headerlink" title="匹配范围"></a>匹配范围</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s[1-8]&#39; ORDER BY name;  -- s123, s2, s89..
+SELECT name FROM user WHERE name REGEXP &#39;[a-z][1-8]&#39; ORDER BY name;  -- a1, b2, c3</code></pre>
 
 <h3 id="匹配特殊字符"><a href="#匹配特殊字符" class="headerlink" title="匹配特殊字符"></a>匹配特殊字符</h3><p>为了匹配特殊字符，必须用\为前导。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s\\-&#39; ORDER BY name;  -- s-5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;s\\-&#39; ORDER BY name;  -- s-5</code></pre>
 
 <p><code>\\</code>也用来引用具有特殊含义的字符</p>
 <table>
@@ -1056,7 +1056,7 @@ SELECT name FROM user WHERE name REGEXP &#39;[a-z][1-8]&#39; ORDER BY name;  -- 
 <td>任意十六进制数字 ([a-fA-F0-9])</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;[[:alpha:]]1&#39; ORDER BY name; -- h1, m1, s123<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;[[:alpha:]]1&#39; ORDER BY name; -- h1, m1, s123</code></pre>
 
 <h3 id="匹配多个实例"><a href="#匹配多个实例" class="headerlink" title="匹配多个实例"></a>匹配多个实例</h3><table>
 <thead>
@@ -1090,9 +1090,9 @@ SELECT name FROM user WHERE name REGEXP &#39;[a-z][1-8]&#39; ORDER BY name;  -- 
 <td>匹配数目范围, m 不超过255</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;[[:digit:]]&#123;4&#125;&#39; ORDER BY name; -- s4444, 21111<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;[[:digit:]]&#123;4&#125;&#39; ORDER BY name; -- s4444, 21111</code></pre>
 
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;\\([0-9] sticks?\\)&#39; ORDER BY name; -- 1 stick, 4 sticks  （s后的？使s可选）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT name FROM user WHERE name REGEXP &#39;\\([0-9] sticks?\\)&#39; ORDER BY name; -- 1 stick, 4 sticks  （s后的？使s可选）</code></pre>
 
 <h3 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h3><table>
 <thead>
@@ -1119,22 +1119,22 @@ SELECT name FROM user WHERE name REGEXP &#39;[a-z][1-8]&#39; ORDER BY name;  -- 
 </tr>
 </tbody></table>
 <p>示例1：假设要找到以字母开头的用户名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT  name FROM user WHERE name REGEXP &#39;[a-zA-Z]&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT  name FROM user WHERE name REGEXP &#39;[a-zA-Z]&#39;;</code></pre>
 
 <p>以上语句将会在文本任意位置进行查找匹配，并不符合以字母开头这依规定. 这里可以使用<code>^</code></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT  name FROM user WHERE name REGEXP &#39;^[a-zA-Z]&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT  name FROM user WHERE name REGEXP &#39;^[a-zA-Z]&#39;;</code></pre>
 
 <p><code>^</code>的双重用途 ^有两种用法，在集合中（用 [ 和 ] 定义），用它来否定该集合，否则，用来指串的开始处。</p>
-<h3 id="简单的正则表达式测试"><a href="#简单的正则表达式测试" class="headerlink" title="简单的正则表达式测试"></a>简单的正则表达式测试</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT &#39;hello&#39; REGEXP &#39;[0-9]&#39;; -- 返回0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="简单的正则表达式测试"><a href="#简单的正则表达式测试" class="headerlink" title="简单的正则表达式测试"></a>简单的正则表达式测试</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT &#39;hello&#39; REGEXP &#39;[0-9]&#39;; -- 返回0</code></pre>
 
 <h3 id="拼接-CONCAT"><a href="#拼接-CONCAT" class="headerlink" title="拼接 CONCAT"></a>拼接 CONCAT</h3><p>表中含有id, name字段，应用程序需要这样的格式 name(id)</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(name, &#39;(&#39;, id, &#39;)&#39;) FROM user LIMIT 1;   -- s123 (1000001)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(name, &#39;(&#39;, id, &#39;)&#39;) FROM user LIMIT 1;   -- s123 (1000001)</code></pre>
 
 <p>RTRIM()函数去掉了值右边的所有空格。其余有LTRIM(), TRIM()</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(RTRIM(name), &#39;(&#39;, id, &#39;)&#39;) FROM user LIMIT 1;   -- s123(1000001)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(RTRIM(name), &#39;(&#39;, id, &#39;)&#39;) FROM user LIMIT 1;   -- s123(1000001)</code></pre>
 
-<h3 id="MySQL算术运算符-x2F"><a href="#MySQL算术运算符-x2F" class="headerlink" title="MySQL算术运算符(+ - * &#x2F;)"></a>MySQL算术运算符(+ - * &#x2F;)</h3><h3 id="测试计算"><a href="#测试计算" class="headerlink" title="测试计算"></a>测试计算</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT Trim(&#39; abc &#39;);
-SELECT Now();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="MySQL算术运算符-x2F"><a href="#MySQL算术运算符-x2F" class="headerlink" title="MySQL算术运算符(+ - * &#x2F;)"></a>MySQL算术运算符(+ - * &#x2F;)</h3><h3 id="测试计算"><a href="#测试计算" class="headerlink" title="测试计算"></a>测试计算</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT Trim(&#39; abc &#39;);
+SELECT Now();</code></pre>
 
 <h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><table>
 <thead>
@@ -1588,11 +1588,11 @@ SELECT Now();<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <td>05:01:23 AM</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">DATE_ADD<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">INTERVAL</span> expr <span class="token keyword">type</span><span class="token punctuation">)</span> 函数向日期添加指定的时间间隔。
-DATE_SUB<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">INTERVAL</span> expr <span class="token keyword">type</span><span class="token punctuation">)</span> 函数向日期减少指定的时间间隔。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-sql" data-language="sql"><code class="language-sql">DATE_ADD<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">INTERVAL</span> expr <span class="token keyword">type</span><span class="token punctuation">)</span> 函数向日期添加指定的时间间隔。
+DATE_SUB<span class="token punctuation">(</span><span class="token keyword">date</span><span class="token punctuation">,</span><span class="token keyword">INTERVAL</span> expr <span class="token keyword">type</span><span class="token punctuation">)</span> 函数向日期减少指定的时间间隔。</code></pre>
 
 <p>type的值可以为:</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">MICROSECOND
+<pre class="language-sql" data-language="sql"><code class="language-sql">MICROSECOND
 <span class="token keyword">SECOND</span>
 <span class="token keyword">MINUTE</span>
 <span class="token keyword">HOUR</span>
@@ -1616,11 +1616,11 @@ YEAR_MONTH
 <span class="token keyword">set</span> <span class="token variable">@dt</span> <span class="token operator">=</span> <span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">select</span> date_add<span class="token punctuation">(</span><span class="token variable">@dt</span><span class="token punctuation">,</span> <span class="token keyword">interval</span> <span class="token number">1</span> <span class="token keyword">day</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">-</span> 加<span class="token number">1</span>天
 <span class="token keyword">UPDATE</span> <span class="token keyword">comment</span> c <span class="token keyword">set</span> c<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token operator">=</span> DATE_ADD<span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token keyword">time</span><span class="token punctuation">,</span> <span class="token keyword">INTERVAL</span> <span class="token number">7</span> <span class="token keyword">DAY</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-<span class="token keyword">UPDATE</span> <span class="token keyword">comment</span> c <span class="token keyword">set</span> c<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token operator">=</span> DATE_SUB<span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token keyword">time</span><span class="token punctuation">,</span> <span class="token keyword">INTERVAL</span> <span class="token number">1</span> <span class="token keyword">MONTH</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">UPDATE</span> <span class="token keyword">comment</span> c <span class="token keyword">set</span> c<span class="token punctuation">.</span><span class="token keyword">time</span> <span class="token operator">=</span> DATE_SUB<span class="token punctuation">(</span>c<span class="token punctuation">.</span><span class="token keyword">time</span><span class="token punctuation">,</span> <span class="token keyword">INTERVAL</span> <span class="token number">1</span> <span class="token keyword">MONTH</span><span class="token punctuation">)</span></code></pre>
 
 <p>案例实践：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT * FROM orders WHERE Date(order_date)&#x3D;&#39;2022-02-26&#39;;
-SELECT * FROM orders WHERE Year(order_date)&#x3D;2022 AND Month(order_date)&#x3D;9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT * FROM orders WHERE Date(order_date)&#x3D;&#39;2022-02-26&#39;;
+SELECT * FROM orders WHERE Year(order_date)&#x3D;2022 AND Month(order_date)&#x3D;9</code></pre>
 
 <h3 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h3><table>
 <thead>
@@ -1795,11 +1795,11 @@ SELECT * FROM orders WHERE Year(order_date)&#x3D;2022 AND Month(order_date)&#x3D
 </tr>
 </tbody></table>
 <h3 id="条件判断函数"><a href="#条件判断函数" class="headerlink" title="条件判断函数"></a>条件判断函数</h3><p>IF (expr, v1, v2);</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT IF (1 &gt; 0, &#39;Y&#39;, &#39;N&#39;);	-- Y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT IF (1 &gt; 0, &#39;Y&#39;, &#39;N&#39;);	-- Y</code></pre>
 
 <p>IFNULL(v1, v2);</p>
 <p>如果v1不为NULL, 返回v1，否则返回v2</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT IFNULL(&#39;a&#39;, &#39;b&#39;);	-- a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT IFNULL(&#39;a&#39;, &#39;b&#39;);	-- a</code></pre>
 
 <h3 id="系统信息函数"><a href="#系统信息函数" class="headerlink" title="系统信息函数"></a>系统信息函数</h3><table>
 <thead>
@@ -1881,20 +1881,20 @@ SELECT * FROM orders WHERE Year(order_date)&#x3D;2022 AND Month(order_date)&#x3D
 <td>返回某列值之和</td>
 </tr>
 </tbody></table>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT SUM(price*quantity) AS total_price FROM orderitems;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT SUM(price*quantity) AS total_price FROM orderitems;</code></pre>
 
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT AVG(DISTINCT prod_price) AS avg_price FROM products;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT AVG(DISTINCT prod_price) AS avg_price FROM products;</code></pre>
 
 <h3 id="数据分组"><a href="#数据分组" class="headerlink" title="数据分组"></a>数据分组</h3><p>假设要获取用户的充值次数，最低充值额度，最高充值额度，平均充值额度，可以用以下命令:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, 
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, 
 COUNT(*) AS num, 
 MIN(money) as min_money, 
 MAX(money) as max_money, 
 AVG(money) AS avg_money 
-FROM user_pay;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+FROM user_pay;</code></pre>
 
 <p>以上得出的是总的信息，如果要获取每个用户的这些信息，就可以使用分组了。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
 role_id, 
 COUNT(*) AS num, 
 MIN(money) as min_money, 
@@ -1902,11 +1902,11 @@ MAX(money) as max_money,
 AVG(money) AS avg_money 
 FROM user_pay 
 GROUP BY role_id 
-ORDER BY num;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ORDER BY num;</code></pre>
 
 <p>需要注意的是，GROUP BY 必须出现在 WHERE 之后，ORDER BY 之前</p>
 <p>可以使用WITH ROLLUP得到汇总的值</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
 role_id, 
 COUNT(*) AS num, 
 MIN(money) as min_money, 
@@ -1914,20 +1914,20 @@ MAX(money) as max_money,
 AVG(money) AS avg_money 
 FROM user_pay 
 GROUP BY role_id 
-WITH ROLLUP;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+WITH ROLLUP;</code></pre>
 
 <p>以上在在结果的最后，会附上总的结果。</p>
 <h3 id="分组过滤HAVING"><a href="#分组过滤HAVING" class="headerlink" title="分组过滤HAVING"></a>分组过滤HAVING</h3><p>假设只需要得到充值2次(包含)以上用户的数据，则需要使用HAVING来过滤。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, 
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, 
 COUNT(*) AS num, 
 FROM user_pay 
 GROUP BY role_id 
 HAVING num &gt;&#x3D; 2 
-ORDER BY num;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ORDER BY num;</code></pre>
 
 <p>注意HAVING跟GROUP BY后面。</p>
 <p>也可以同时使用WHERE和HAVING。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, 
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, 
 COUNT(*) AS num, 
 MIN(money) as min_money, 
 MAX(money) as max_money, 
@@ -1936,40 +1936,40 @@ FROM user_pay
 WHERE time &gt;&#x3D; 1483200000 
 GROUP BY role_id 
 HAVING num &gt;&#x3D; 2 
-ORDER BY num;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ORDER BY num;</code></pre>
 
 <p>以上通过WHERE新增了条件，2017年以来充值的。</p>
 <p>当sql_mode为ONLY_FULL_GROUP_BY需要注意</p>
 <p>查看sql_mode值</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT @@sql_mode;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT @@sql_mode;</code></pre>
 
 <p>结果</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</code></pre>
 
 <p>在sql_mode&#x3D;ONLY_FULL_GROUP_BY的模式下，以下句子报错</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, money FROM user_pay GROUP BY role_id;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, money FROM user_pay GROUP BY role_id;</code></pre>
 
 <p>错误: <code>SELECT list is not in GROUP BY clause and contains nonaggregated column ...</code><br>**<code>表中的列</code>**，出现在SELECT中时，也得出现在GROUP BY中。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, money FROM user_pay GROUP BY role_id, money;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT role_id, money FROM user_pay GROUP BY role_id, money;</code></pre>
 
-<h3 id="SELECT字句顺序"><a href="#SELECT字句顺序" class="headerlink" title="SELECT字句顺序"></a>SELECT字句顺序</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT &gt; FROM &gt; WHERE &gt; GROUP BY &gt; HAVING &gt; ORDER BY &gt; LIMIT<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="SELECT字句顺序"><a href="#SELECT字句顺序" class="headerlink" title="SELECT字句顺序"></a>SELECT字句顺序</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT &gt; FROM &gt; WHERE &gt; GROUP BY &gt; HAVING &gt; ORDER BY &gt; LIMIT</code></pre>
 
-<h3 id="做为计算字段使用子查询"><a href="#做为计算字段使用子查询" class="headerlink" title="做为计算字段使用子查询"></a>做为计算字段使用子查询</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT  
+<h3 id="做为计算字段使用子查询"><a href="#做为计算字段使用子查询" class="headerlink" title="做为计算字段使用子查询"></a>做为计算字段使用子查询</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SELECT  
 role_id,
 name,
 (SELECT COUNT(*)
 FROM user_pay
 WHERE user_pay.role_id &#x3D; user.role_id) AS recharge_count
 FROM user
-LIMIT 10;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+LIMIT 10;</code></pre>
 
 <p>ANSI SQL规范首选INNER JOIN。代替没有关键字的联结</p>
 <p>INSERT 和 INTO 之间添加关键字LOW_PRIORITY,降低优先级</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">INSERT LOW_PRIORITY ITNO <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">INSERT LOW_PRIORITY ITNO </code></pre>
 
 <p>单条INSERT语句处理多个插入比使用多条INSERT语句快</p>
 <p>IGNORE关键字，即使发生错误，也继续进行更新</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">UPDATE IGNORE customers...<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">UPDATE IGNORE customers...</code></pre>
 
 <p>SELECT last_insert_id() 返回最后一个自增id</p>
 <p>MySQL 不允许使用函数作为默认值</p>
@@ -1978,40 +1978,40 @@ LIMIT 10;<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <p>MEMORY在功能等同于MyISAM，但由于数据存储在内存中，速度很快（特别适合临时表）</p>
 <p>MyISAM是一个性能极高的引擎，它支持全文本搜索，但不支持事务处理。</p>
 <p><a target="_blank" rel="noopener" href="http://dev.mysql.com/doc/refman/5.0/en/storage_engines.html">http://dev.mysql.com/doc/refman/5.0/en/storage_engines.html</a></p>
-<h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE OR REPLACE VIEW user_pay_info AS
+<h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">CREATE OR REPLACE VIEW user_pay_info AS
 SELECT b.role_id, 
 b.name, 
 SUM(a.money) AS total_money
 FROM user_pay a
 RIGHT JOIN user b
 ON a.role_id &#x3D; b.role_id
-GROUP BY b.role_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+GROUP BY b.role_id;</code></pre>
 
 <p>创建一个视图，该视图从用户表(user), 用户充值表(user_pay)获取用户基本信息，总充值额度。</p>
-<h3 id="创建存储过程CREATE-PROCEDURE"><a href="#创建存储过程CREATE-PROCEDURE" class="headerlink" title="创建存储过程CREATE PROCEDURE"></a>创建存储过程CREATE PROCEDURE</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE PROCEDURE user_pay_total()
+<h3 id="创建存储过程CREATE-PROCEDURE"><a href="#创建存储过程CREATE-PROCEDURE" class="headerlink" title="创建存储过程CREATE PROCEDURE"></a>创建存储过程CREATE PROCEDURE</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">CREATE PROCEDURE user_pay_total()
 BEGIN
 SELECT role_id, SUM(money) AS total_recharge
 FROM user_pay
 GROUP BY role_id;
-END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+END</code></pre>
 
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">DELIMITER &#x2F;&#x2F;
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">DELIMITER &#x2F;&#x2F;
 CREATE PROCEDURE user_pay_total()
 BEGIN
 SELECT role_id, SUM(money) AS total_recharge
 FROM user_pay
 GROUP BY role_id;
 END &#x2F;&#x2F;
-DELIMITER ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+DELIMITER ;</code></pre>
 
 <p>以上DELIMITER告诉命令行工具，使用<code>//</code>做为分隔符。最后一句恢复回<code>;</code>做为分隔符。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CALL user_pay_total(); -- 使用存储过程 CALL
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CALL user_pay_total(); -- 使用存储过程 CALL
 DROP PROCEDURE user_pay_total; -- 删除存储过程 DROP
-DROP PROCEDURE IF EXISTS user_pay_total;-- 删除（建议使用）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+DROP PROCEDURE IF EXISTS user_pay_total;-- 删除（建议使用）</code></pre>
 
 <h3 id="存储过程使用参数"><a href="#存储过程使用参数" class="headerlink" title="存储过程使用参数"></a>存储过程使用参数</h3><p>参数可以用IN, OUT, INOUT修饰。</p>
 <p><font color="#f0f"><b>例1：</b></font></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE PROCEDURE productpricing(
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CREATE PROCEDURE productpricing(
     OUT p1 DECIMAL(8,2),
     OUT ph DECIMAL(8,2),
     OUT pa DECIMAL(8,2)
@@ -2026,17 +2026,17 @@ BEGIN
 	SELECT AVG(prod_price)
 	INTO pa
 	FROM products;
-END;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+END;</code></pre>
 
 <p>使用：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CALL productpricing(@pricelow,
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CALL productpricing(@pricelow,
                     @pricehigh,
                     @priceaverage);
 SELECT @priceaverage;
-SELECT @pricelow, @pricehigh, @priceaverage;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+SELECT @pricelow, @pricehigh, @priceaverage;</code></pre>
 
 <p><font color="#f0f"><b>例2：</b></font></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE PROCEDURE ordertotal(
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CREATE PROCEDURE ordertotal(
     IN onumber INT,
     OUT ototal DECIMAL(8,2)
 )
@@ -2045,13 +2045,13 @@ BEGIN
 	FROM orderitems
 	WHERE order_num &#x3D; onmber
 	INTO ototal;
-END;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+END;</code></pre>
 
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CALL ordertotal(2005,@total);
-SELECT @total<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CALL ordertotal(2005,@total);
+SELECT @total</code></pre>
 
 <h3 id="建立智能存储过程案例"><a href="#建立智能存储过程案例" class="headerlink" title="建立智能存储过程案例"></a>建立智能存储过程案例</h3><p>你现在需要获得与以前一样的订单合计，但是，需要对合计增加营业税，不过，只是针对某些顾客(或许是你所在的城市的那些顾客)。那么，你需要做<br>1）获得合计(与以前一样)；<br>2）把营业税有条件的添加到合计中；<br>3）返回合计(带或不带税)；</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- Name：ordertotal
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">-- Name：ordertotal
 -- Parameters： onumber &#x3D; order number
 --              taxable &#x3D; 0 if not taxable,1 if taxable
 --              ototal &#x3D; order total variable
@@ -2076,18 +2076,18 @@ BEGIN
     END IF;
  	-- And finally ,save to out variable
  	SELECT total INTO ototal;
-END;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+END;</code></pre>
 
 <p>使用：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CALL ordertotal（20005, 0, @total);
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CALL ordertotal（20005, 0, @total);
 SELECT @total;
 
 CALL ordertotal（20006, 1, @total);
-SELECT @total;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+SELECT @total;</code></pre>
 
-<h3 id="检测存储过程"><a href="#检测存储过程" class="headerlink" title="检测存储过程"></a>检测存储过程</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SHOW CREATE PROCEDURE user_pay_info;
+<h3 id="检测存储过程"><a href="#检测存储过程" class="headerlink" title="检测存储过程"></a>检测存储过程</h3><pre class="language-mysql" data-language="mysql"><code class="language-mysql">SHOW CREATE PROCEDURE user_pay_info;
 
-SHOW PROCEDURE STATUS LIKE &#39;ordertotal&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+SHOW PROCEDURE STATUS LIKE &#39;ordertotal&#39;;</code></pre>
 
 <h2 id="《高性能MySQL》读书笔记"><a href="#《高性能MySQL》读书笔记" class="headerlink" title="《高性能MySQL》读书笔记"></a>《高性能MySQL》读书笔记</h2><p><img src="https://s2.loli.net/2022/07/18/m6RkpfBMVv8sQzW.png"></p>
 <p><img src="https://s2.loli.net/2022/07/18/UI5uP9wrA7MOfQZ.png"></p>

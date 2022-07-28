@@ -584,10 +584,10 @@ Hexo博客安装（基于npm&amp;#x2F">
 <p>就是建立了一个名叫‘blog’的文件夹，这个名字可以随便改</p>
 <p>然后输入<code>cd blog/</code>，进入这个文件夹</p>
 <p>输入<code>pwd</code>，就可以查看blog的路径</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">sh-3.2# mkdir blog
+<pre class="language-sh" data-language="sh"><code class="language-sh">sh-3.2# mkdir blog
 sh-3.2# cd blog&#x2F;
 sh-3.2# pwd
-&#x2F;Users&#x2F;zhangxin&#x2F;blog <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+&#x2F;Users&#x2F;zhangxin&#x2F;blog </code></pre>
 
 <h3 id="4-初始化生成博客"><a href="#4-初始化生成博客" class="headerlink" title="4. 初始化生成博客"></a>4. 初始化生成博客</h3><p>输入<code>sudo hexo init</code>，当出现Start blogging with Hexo！就代表下载完成</p>
 <h3 id="5-启动博客"><a href="#5-启动博客" class="headerlink" title="5. 启动博客"></a>5. 启动博客</h3><p>输入 <code>hexo s</code></p>
@@ -601,10 +601,10 @@ sh-3.2# pwd
 <p>这是用户部署个人博客的GitHub仓库的命名要求</p>
 <p>Mac终端输入 <code>cnpm install --save hexo-deployer-git</code>下载git的插件</p>
 <p>再设置：vim _config.yml中的最底部，设置Deployment</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
   <span class="token key atrule">type</span><span class="token punctuation">:</span> git
   <span class="token key atrule">repo</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/zx20219898/zx20219898.github.io.git
-  <span class="token key atrule">branch</span><span class="token punctuation">:</span> main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">branch</span><span class="token punctuation">:</span> main</code></pre>
 
 <p>再hexo d就可以了</p>
 <p>现在你就可以通过你gtihub的名字 + .github.io来访问<br>比如我的博客: <a target="_blank" rel="noopener" href="https://zx20219898.github.io/">https://zx20219898.github.io/</a></p>
@@ -618,7 +618,7 @@ sh-3.2# pwd
 </blockquote>
 <p><code>/Users/zhangxin/blog/themes</code>目录下<code>git clone git@github.com:yelog/hexo-theme-3-hexo.git</code></p>
 <p>hexo根目录下的_config.yml修改</p>
-<pre class="line-numbers language-YAML" data-language="YAML"><code class="language-YAML">theme: hexo-theme-3-hexo
+<pre class="language-YAML" data-language="YAML"><code class="language-YAML">theme: hexo-theme-3-hexo
 
 title: zhangxinの随笔
 
@@ -648,15 +648,15 @@ img_resize: photoSwipe
 # 可选值：
 # default: 默认(自己写的简单的放大)
 # photoSwipe: 使用photoSwipe插件
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
 <p>设置模板，blog根目录 <code>scaffolds/post.md</code>替换为, 这样<code>hexo new 文章名</code> 时可以自动带上内容</p>
-<pre class="line-numbers language-none"><code class="language-none">---
+<pre class="language-none"><code class="language-none">---
 title: &#123;&#123; title &#125;&#125;
 date: &#123;&#123; date &#125;&#125;
 categories:
 tags:
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+---</code></pre>
 
 <p><code>hexo-theme-3-hexo</code>改动内容把原主题仓库clone到本地，使用对比工具对比</p>
 <h4 id="文章置顶功能"><a href="#文章置顶功能" class="headerlink" title="文章置顶功能"></a><a target="_blank" rel="noopener" href="https://yelog.org/2017/02/24/hexo-top-sort/">文章置顶功能</a></h4><p>直接加入 <code>top: 1</code> 即可</p>
@@ -664,35 +664,35 @@ tags:
 <li><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></li>
 </ul>
 <h4 id="添加博客看板娘"><a href="#添加博客看板娘" class="headerlink" title="添加博客看板娘"></a><a target="_blank" rel="noopener" href="https://blog.17lai.site/posts/4a2050e2/#%E6%B7%BB%E5%8A%A0%E5%8D%9A%E5%AE%A2%E7%9C%8B%E6%9D%BF%E5%A8%98">添加博客看板娘</a></h4><h2 id="使用-jsDelivr-加速静态文件"><a href="#使用-jsDelivr-加速静态文件" class="headerlink" title="使用 jsDelivr 加速静态文件"></a>使用 jsDelivr 加速静态文件</h2><p>在配置文件中找到 <code>main_css</code> 、<code>main</code>、<code>utils</code>、<code>local_search\algolia_js</code>、<code>translate</code>，默认是采用本地加载，我们也可以使用 <code>jsDelivr</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">CDN</span><span class="token punctuation">:</span>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">CDN</span><span class="token punctuation">:</span>
   <span class="token key atrule">main_css</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/zx20219898/zx20219898.github.io/css/index.css
   <span class="token key atrule">main</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/zx20219898/zx20219898.github.io/js/main.js
   <span class="token key atrule">utils</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/zx20219898/zx20219898.github.io/js/utils.js
   <span class="token key atrule">local_search</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/zx20219898/zx20219898.github.io/js/search/local<span class="token punctuation">-</span>search.js
-  <span class="token key atrule">algolia_js</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/zx20219898/zx20219898.github.io/js/search/algolia.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">algolia_js</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/zx20219898/zx20219898.github.io/js/search/algolia.js</code></pre>
 
 <h2 id="备份技巧"><a href="#备份技巧" class="headerlink" title="备份技巧"></a>备份技巧</h2><p>把blog目录进行github备份<a href="/posts/75b/">本地项目上传GitHub</a></p>
 <p><a href="/posts/dbd/">为常用指令配置别名</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">hs</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">hs</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span>
 <span class="token builtin class-name">alias</span> <span class="token assign-left variable">hd</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d'</span>
 <span class="token builtin class-name">alias</span> <span class="token assign-left variable">hds</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; hexo s'</span>
-<span class="token builtin class-name">alias</span> <span class="token assign-left variable">hdd</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m "update" &amp;&amp; git push -f'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">hdd</span><span class="token operator">=</span><span class="token string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; git commit -m "update" &amp;&amp; git push -f'</span></code></pre>
 
-<h2 id="丝带"><a href="#丝带" class="headerlink" title="丝带"></a><a target="_blank" rel="noopener" href="https://github.com/hustcc/ribbon.js">丝带</a></h2><h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new postName       <span class="token comment">#新建文章 在source/_posts 下生成</span>
+<h2 id="丝带"><a href="#丝带" class="headerlink" title="丝带"></a><a target="_blank" rel="noopener" href="https://github.com/hustcc/ribbon.js">丝带</a></h2><h2 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo new postName       <span class="token comment">#新建文章 在source/_posts 下生成</span>
 hexo new page pageName  <span class="token comment">#新建页面 在source/pageName 下生成</span>
 hexo deploy             <span class="token comment">#将.deploy目录部署到GitHub 简写指令：hexo d </span>
 hexo generate           <span class="token comment">#生成静态页面至public目录 简写指令：hexo g </span>
 hexo server             <span class="token comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）简写指令hexo s </span>
-hexo clean              <span class="token comment">#清除所有静态页面和缓存数据</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hexo clean              <span class="token comment">#清除所有静态页面和缓存数据</span></code></pre>
 
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo d 
+<pre class="language-bash" data-language="bash"><code class="language-bash">hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo d 
 hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo s
-hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo d <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit -m <span class="token string">"update"</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> push -f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="token operator">&amp;&amp;</span> hexo d <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> commit -m <span class="token string">"update"</span> <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> push -f</code></pre>
 
 <h2 id="又拍云CDN加速"><a href="#又拍云CDN加速" class="headerlink" title="又拍云CDN加速"></a>又拍云CDN加速</h2><p>参考文章：<a target="_blank" rel="noopener" href="https://blog.imzjw.cn/posts/hexocdn">https://blog.imzjw.cn/posts/hexocdn</a></p>
 <p>首先注册<a target="_blank" rel="noopener" href="https://console.upyun.com/register/">又拍云</a>，实名认证成功之后再申请加入<a target="_blank" rel="noopener" href="https://www.upyun.com/league">又拍云联盟</a></p>
 <p>第二步那个页脚 LOGO，如果你是 Butterfly 主题的话，可以直接在主题的配置文件找到 <code>custom_text</code> 并加入以下代码</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">custom_text</span><span class="token punctuation">:</span> &lt;a href="https<span class="token punctuation">:</span>//www.upyun.com/<span class="token punctuation">?</span>utm_source=lianmeng<span class="token important">&amp;utm_medium=referral"</span> target="_blank" rel="noopener nofollow"<span class="token punctuation">></span>&lt;img style="position<span class="token punctuation">:</span>relative;top<span class="token punctuation">:</span><span class="token punctuation">-</span>2.5px;" src="https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/caibhh/CDN/img/blog/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.webp" align="absmiddle" width="60px" height="30px"<span class="token punctuation">></span>提供加速服务&lt;/a<span class="token punctuation">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">custom_text</span><span class="token punctuation">:</span> &lt;a href="https<span class="token punctuation">:</span>//www.upyun.com/<span class="token punctuation">?</span>utm_source=lianmeng<span class="token important">&amp;utm_medium=referral"</span> target="_blank" rel="noopener nofollow"<span class="token punctuation">></span>&lt;img style="position<span class="token punctuation">:</span>relative;top<span class="token punctuation">:</span><span class="token punctuation">-</span>2.5px;" src="https<span class="token punctuation">:</span>//cdn.jsdelivr.net/gh/caibhh/CDN/img/blog/%E5%8F%88%E6%8B%8D%E4%BA%91_logo5.webp" align="absmiddle" width="60px" height="30px"<span class="token punctuation">></span>提供加速服务&lt;/a<span class="token punctuation">></span></code></pre>
 
 <p>数天过后会有邮件通知你成功加入又拍云联盟，67￥ &#x2F; 年的代金券也发放下来了，接着我们就开始创建一个 CDN 服务</p>
 <p>进入 <a target="_blank" rel="noopener" href="https://console.upyun.com/services/cdn/">CDN 服务管理</a>，点击创建服务！</p>
@@ -729,12 +729,12 @@ hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="to
 <li><a target="_blank" rel="noopener" href="https://github.com/18121259693/dino">小恐龙快跑</a></li>
 </ul>
 <h2 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h2><p>本主题中还使用到了 <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">hexo-generator-search</a> 的 Hexo 插件来做内容搜索，安装命令如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-search --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">npm install hexo-generator-search --save</code></pre>
 
 <p>在 Hexo 根目录下的 <code>_config.yml</code> 文件中，新增以下的配置项：</p>
-<pre class="line-numbers language-none"><code class="language-none">search:
+<pre class="language-none"><code class="language-none">search:
   path: search.xml
-  field: post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+  field: post</code></pre>
 
 <h2 id="如何免费申请js-cool二级域名"><a href="#如何免费申请js-cool二级域名" class="headerlink" title="如何免费申请js.cool二级域名"></a>如何免费申请js.cool二级域名</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://js.org/">https://js.org</a></li>
@@ -750,10 +750,10 @@ hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="to
 </ul>
 <p>终端输入<br><code>npm install hexo-abbrlink --save</code></p>
 <p>_config.yml配置</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink/
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink/
 <span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
   <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc16
-  <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex</code></pre>
                 
             </div>
             <hr/>
