@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="七、操作系统-面试题, zhangxinの随笔">
-    <meta name="description" content="操作系统（1）1.1 Linux里如何查看一个想知道的进程？参考回答
+    <meta name="description" content="1.1 Linux里如何查看一个想知道的进程？参考回答
 查看进程运行状态的指令：ps命令。“ps -aux | grep PID”，用来查看某PID进程状态
 答案解析
-&amp;#x2F;&amp;#x2F;ps使用示例 &amp;#x2F;&amp;#x2">
+&amp;#x2F;&amp;#x2F;ps使用示例 &amp;#x2F;&amp;#x2F;显示当前所">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -529,7 +529,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="操作系统（1）"><a href="#操作系统（1）" class="headerlink" title="操作系统（1）"></a>操作系统（1）</h2><h3 id="1-1-Linux里如何查看一个想知道的进程？"><a href="#1-1-Linux里如何查看一个想知道的进程？" class="headerlink" title="1.1 Linux里如何查看一个想知道的进程？"></a>1.1 Linux里如何查看一个想知道的进程？</h3><p>参考回答</p>
+                <h3 id="1-1-Linux里如何查看一个想知道的进程？"><a href="#1-1-Linux里如何查看一个想知道的进程？" class="headerlink" title="1.1 Linux里如何查看一个想知道的进程？"></a>1.1 Linux里如何查看一个想知道的进程？</h3><p>参考回答</p>
 <p>查看进程运行状态的指令：ps命令。“ps -aux | grep PID”，用来查看某PID进程状态</p>
 <p>答案解析</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;ps使用示例 &#x2F;&#x2F;显示当前所有进程   ps -A   
@@ -970,7 +970,7 @@ LAST_ACK：等待所有分组死掉<span aria-hidden="true" class="line-numbers-
 <p>1044136 cached — 缓冲的交换区总量</p>
 </li>
 </ol>
-<h2 id="操作系统（2）"><a href="#操作系统（2）" class="headerlink" title="操作系统（2）"></a>操作系统（2）</h2><h3 id="1-11-Linux中，如何通过端口查进程，如何通过进程查端口？"><a href="#1-11-Linux中，如何通过端口查进程，如何通过进程查端口？" class="headerlink" title="1.11 Linux中，如何通过端口查进程，如何通过进程查端口？"></a>1.11 Linux中，如何通过端口查进程，如何通过进程查端口？</h3><p>参考回答</p>
+<h3 id="1-11-Linux中，如何通过端口查进程，如何通过进程查端口？"><a href="#1-11-Linux中，如何通过端口查进程，如何通过进程查端口？" class="headerlink" title="1.11 Linux中，如何通过端口查进程，如何通过进程查端口？"></a>1.11 Linux中，如何通过端口查进程，如何通过进程查端口？</h3><p>参考回答</p>
 <ol>
 <li><p>linux下通过进程名查看其占用端口： （1）先查看进程pid</p>
 <pre class="line-numbers language-none"><code class="language-none">ps -ef | grep 进程名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -1577,7 +1577,7 @@ int main () &#123;
 2
 received signal: 15, quit.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="操作系统（3）"><a href="#操作系统（3）" class="headerlink" title="操作系统（3）"></a>操作系统（3）</h2><h3 id="1-21-请介绍线程之间的通信方式。"><a href="#1-21-请介绍线程之间的通信方式。" class="headerlink" title="1.21 请介绍线程之间的通信方式。"></a>1.21 请介绍线程之间的通信方式。</h3><p>参考回答</p>
+<h3 id="1-21-请介绍线程之间的通信方式。"><a href="#1-21-请介绍线程之间的通信方式。" class="headerlink" title="1.21 请介绍线程之间的通信方式。"></a>1.21 请介绍线程之间的通信方式。</h3><p>参考回答</p>
 <ol>
 <li>锁机制：包括互斥锁、条件变量、读写锁互斥锁提供了以排他方式防止数据结构被并发修改的方法。读写锁允许多个线程同时读共享数据，而对写操作是互斥的。条件变量可以以原子的方式阻塞进程，直到某个特定条件为真为止。对条件的测试是在互斥锁的保护下进行的。条件变量始终与互斥锁一起使用。</li>
 <li>信号量机制(Semaphore)：包括无名线程信号量和命名线程信号量</li>
@@ -1891,7 +1891,7 @@ return 0;
 </ul>
 <h3 id="1-30-说一说你对悲观锁的理解。"><a href="#1-30-说一说你对悲观锁的理解。" class="headerlink" title="1.30 说一说你对悲观锁的理解。"></a>1.30 说一说你对悲观锁的理解。</h3><p>参考回答</p>
 <p>悲观锁总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁（共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程）。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。</p>
-<h2 id="操作系统（4）"><a href="#操作系统（4）" class="headerlink" title="操作系统（4）"></a>操作系统（4）</h2><h3 id="1-31-说一说你对乐观锁的理解。"><a href="#1-31-说一说你对乐观锁的理解。" class="headerlink" title="1.31 说一说你对乐观锁的理解。"></a>1.31 说一说你对乐观锁的理解。</h3><p>参考回答</p>
+<h3 id="1-31-说一说你对乐观锁的理解。"><a href="#1-31-说一说你对乐观锁的理解。" class="headerlink" title="1.31 说一说你对乐观锁的理解。"></a>1.31 说一说你对乐观锁的理解。</h3><p>参考回答</p>
 <p>乐观锁总是假设最好的情况，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号机制和CAS算法实现。乐观锁适用于多读的应用类型，这样可以提高吞吐量，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。</p>
 <h3 id="1-32-CAS在什么地方用到过吗？"><a href="#1-32-CAS在什么地方用到过吗？" class="headerlink" title="1.32 CAS在什么地方用到过吗？"></a>1.32 CAS在什么地方用到过吗？</h3><p>参考回答</p>
 <ul>
@@ -2056,7 +2056,7 @@ return 0;
 <p>网关就是一个网络连接到另一个网络的“关口”。 按照不同的分类标准，网关也有很多种。TCP&#x2F;IP协议里的网关是最常用的，在这里我们所讲的“网关”均指TCP&#x2F; IP协议下的网关。</p>
 <p>网关实质上是一个网络通向其他网络的IP地址。比如有网络A和网络B，网络A的IP地址范围为“192.168.1.1<del>192. 168.1.254”，子网掩码为255.255.255.0；网络B的IP地址范围为“192.168.2.1</del>192. 168.2.254”，子网掩码为255.255.255.0。在没有路由器的情况下，两个网络之间是不能进行TCP&#x2F;IP通信的，即使是两个网络连接在同一台交换机（或集线器）上，TCP&#x2F;IP协议也会根据子网掩码（255.255.255.0）判定两个网络中的主机处在不同的网络里。而要实现这两个网络之间的通信，则必须通过网关。</p>
 <p>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。网络B向网络A转发数据包的过程也是如此。而要实现这两个网络之间的通信，则必须通过网关。如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。网络B向网络A转发数据包的过程也是如此 所以说，只有设置好网关的IP地址，TCP&#x2F;IP协议才能实现不同网络之间的相互通信。那么这个IP地址是哪台机器的IP地址呢？网关的IP地址是具有路由功能的设备的IP地址，具有路由功能的设备有路由器、启用了路由协议的服务器（实质上相当于一台路由器）、代理服务器（也相当于一台路由器）。</p>
-<h2 id="操作系统（5）"><a href="#操作系统（5）" class="headerlink" title="操作系统（5）"></a>操作系统（5）</h2><h3 id="1-41-说说IP如何寻址？"><a href="#1-41-说说IP如何寻址？" class="headerlink" title="1.41 说说IP如何寻址？"></a>1.41 说说IP如何寻址？</h3><p>参考回答</p>
+<h3 id="1-41-说说IP如何寻址？"><a href="#1-41-说说IP如何寻址？" class="headerlink" title="1.41 说说IP如何寻址？"></a>1.41 说说IP如何寻址？</h3><p>参考回答</p>
 <p>IP寻址包括本地网络寻址和非本地网络寻址两部分</p>
 <ol>
 <li><p>本地网络寻址</p>
@@ -2246,7 +2246,7 @@ $ sudo update-rc.d -f test remove<span aria-hidden="true" class="line-numbers-ro
 <li>mmap和分页文件操作的区别</li>
 </ol>
 <p>区别在于分页文件操作在进程访存时是需要先查询页面缓存 (page cache) 的，若发生缺页中断，需要通过inode定位文件磁盘地址，先把缺失文件复制到page cache，再从page cache复制到内存中，才能进行访问。这样访存需要经过两次文件复制，写操作也是一样。总结来说，常规文件操作为了提高读写效率和保护磁盘，使用了页缓存机制。这样造成读文件时需要先将文件页从磁盘拷贝到页缓存中，由于页缓存处在内核空间，不能被用户进程直接寻址，所以还需要将页缓存中数据页再次拷贝到内存对应的用户空间中。但mmap的优势在于，把磁盘文件与进程虚拟地址做了映射，这样可以跳过page cache，只使用一次数据拷贝。</p>
-<h2 id="操作系统（6）"><a href="#操作系统（6）" class="headerlink" title="操作系统（6）"></a>操作系统（6）</h2><h3 id="1-51-谈谈虚拟内存模型。"><a href="#1-51-谈谈虚拟内存模型。" class="headerlink" title="1.51 谈谈虚拟内存模型。"></a>1.51 谈谈虚拟内存模型。</h3><p>参考回答</p>
+<h3 id="1-51-谈谈虚拟内存模型。"><a href="#1-51-谈谈虚拟内存模型。" class="headerlink" title="1.51 谈谈虚拟内存模型。"></a>1.51 谈谈虚拟内存模型。</h3><p>参考回答</p>
 <p>虚拟内存分成五大区，分别为栈区、堆区、全局区（静态区）、文字常量区（常量存储区）、程序代码区。五大区特性如下：</p>
 <ol>
 <li>栈区（stack）： 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。</li>
@@ -2924,8 +2924,8 @@ $ sudo update-rc.d -f test remove<span aria-hidden="true" class="line-numbers-ro
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('1'),
-            headingSelector: 'h1, h2, h3, h4'
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
         });
 
         // Set scroll toc fixed.

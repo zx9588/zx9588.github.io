@@ -3478,8 +3478,6 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
 <h3 id="43、java-中的线程池是如何实现的"><a href="#43、java-中的线程池是如何实现的" class="headerlink" title="43、java 中的线程池是如何实现的?"></a><strong>43、java 中的线程池是如何实现的?</strong></h3><ul>
 <li>在 java 中，所谓的线程池中的“线程”，其实是被抽象为了一个静态 内部类 Worker，它基于 AQS 实现，存放在线程池的HashSet<Worker> workers 成员变量中;</li>
 <li>而需要执行的任务则存放在成员变量 workQueue(BlockingQueue<Runnable> workQueue)中。这样，整个线程池实现的基本思想就是:从 workQueue 中不断取出 需要执行的任务，放在 Workers 中进行处理。</li>
@@ -4469,8 +4467,8 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('1'),
-            headingSelector: 'h1, h2, h3, h4'
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3'
         });
 
         // Set scroll toc fixed.
