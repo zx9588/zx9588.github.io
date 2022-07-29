@@ -471,62 +471,9 @@
 </header>
 
     
-<style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
-        cursor: pointer;
-        z-index: 100;
-    }
-
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
-    }
-
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
-    }
-
-    #prev-cover i {
-        margin-right: 3px;
-    }
-
-    #next-cover i {
-        margin-left: 3px;
-    }
-
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .carousel-control i {
-        color: #fff;
-        font-size: 2.4rem;
-    }
-</style>
-
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-        <div id="prev-cover" class="left waves-effect carousel-control">
-            <i class="icon fa fa-angle-left"></i>
-        </div>
-        <div id="next-cover" class="right waves-effect carousel-control">
-            <i class="icon fa fa-angle-right"></i>
-        </div>
-    
-
-    <div class="carousel-item  white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -577,249 +524,12 @@
 </script>
 
 
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-                    <a href="https://github.com/zx20219898/zx20219898.github.io" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/zx20219898" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1205362172@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1205362172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1205362172" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
     </div>
-
-    
-        
-
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('https://s2.loli.net/2022/07/28/RdOY2aIZKfTbJny.png');">
-<!--                  style="background-image: url('https://s2.loli.net/2022/07/28/RdOY2aIZKfTbJny.png');"> -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">在线工具/资源</div>
-                            <div class="description center-align">
-                                
-                                    开发辅助工具、画图工具、在线办公工具、可视化/格式化工具、在线生成器、正则表达式工具、设计制作类工具、在线编解码工具、在线转换工具、文档笔记工具、写作辅助工具、图床工具、网络工具、在线素材工具、编程学习网、在线教程和文档...
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/posts/f687/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-    
 </div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 5000);
-        };
-        autoCarousel();
-        
-
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
-
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
-        
-    });
-</script>
-
 
 
 <main class="content">
 
-    
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-
-
-<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
-
-<div class="row">
-
-    
-    
-    <div class="col s12 m6" >
-        
-             <div class="post-card" style="background-image: url('https://s2.loli.net/2022/07/28/reElH3MLxDoWnKw.png')">
-        
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="category">教程</a>
-                        
-                    
-                </div>
-                <a href="/posts/738/">
-                    <h3 class="post-title">Docker-教程</h3>
-                </a>
-                <p class="post-description">
-                    
-                        Docker-相关书籍
-Docker技术入门与实战
-第一本Docker书
-
-Docker-资源网站
-Docker 官方主页: https:/
-                    
-                </p>
-                <a href="/posts/738/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
-        
-             <div class="post-card" style="background-image: url('https://s2.loli.net/2022/07/27/omnpZetMyIArTzE.jpg')">
-        
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="category">教程</a>
-                        
-                    
-                </div>
-                <a href="/posts/9e31/">
-                    <h3 class="post-title">Git-教程</h3>
-                </a>
-                <p class="post-description">
-                    
-                        Git相关书籍
-Git基础.xmind
-Pro Git 第二版（中文版）(推荐)Pro Git-中文-2（不推荐）
-Git权威指南
-GitH
-                    
-                </p>
-                <a href="/posts/9e31/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-
-</div>
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
     
 
     
@@ -831,31 +541,37 @@ GitH
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/3f44/">
+                    <a href="/posts/738/">
                         <div class="card-image">
                             
-                            <img src="https://s2.loli.net/2022/07/28/hR5JtGCYkFeOqyB.png" class="responsive-img" alt="一、Java语言-面试题">
+                            <img src="https://s2.loli.net/2022/07/28/reElH3MLxDoWnKw.png" class="responsive-img" alt="Docker-教程">
                             
-                            <span class="card-title">一、Java语言-面试题</span>
+                            <span class="card-title">Docker-教程</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Java基础、集合类、IO、多线程、JVM
+                                Docker-相关书籍
+Docker技术入门与实战
+第一本Docker书
+
+Docker-资源网站
+Docker 官方主页: https://www.docker.com
+Docker 官方博客: https://blog.docker.c
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-15
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                                <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
                                 </a>
                                 
                                 
@@ -866,16 +582,12 @@ GitH
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
+                        <a href="/tags/Docker/">
+                            <span class="chip bg-color">Docker</span>
                         </a>
                         
-                        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                            <span class="chip bg-color">面试题</span>
-                        </a>
-                        
-                        <a href="/tags/Java%E8%AF%AD%E8%A8%80-%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                            <span class="chip bg-color">Java语言-面试题</span>
+                        <a href="/tags/Nacos/">
+                            <span class="chip bg-color">Nacos</span>
                         </a>
                         
                     </div>
@@ -887,76 +599,30 @@ GitH
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/d4c1/">
+                    <a href="/posts/2f9/">
                         <div class="card-image">
                             
+                            <img src="https://s2.loli.net/2022/07/28/JuK45zFnLOINDxb.png" class="responsive-img" alt="快捷键">
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="无语！Jenkins 也宣布弃用 Java 8。。">
-                            
-                            <span class="card-title">无语！Jenkins 也宣布弃用 Java 8。。</span>
+                            <span class="card-title">快捷键</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                开源 Devops 工具 Jenkins 宣布：从 6 月 28 日发布的 Jenkins 2.357 和即将发布的 9 月 LTS 版本开始，Jenkins 最低需要 Java 11。
-
-Jenkins 最初称为 Hudson ，是一款老
+                                Mac快捷键显示隐藏文件快捷键：Command + Shift + .
+Home键&#x3D;Fn+左方向、End键&#x3D;Fn+右方向、PageUP&#x3D;Fn+上方向、PageDOWN&#x3D;Fn+下方向、向前Delete&
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-15
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E9%B1%BC%E5%A1%98/" class="post-category">
-                                    鱼塘
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/3652/">
-                        <div class="card-image">
-                            
-                            <img src="https://s2.loli.net/2022/07/28/GxghTJHD4EAtWZk.png" class="responsive-img" alt="二、数据库-面试题">
-                            
-                            <span class="card-title">二、数据库-面试题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                SQL、索引、事务、锁、优化
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                zhangxin
                                 
                             </span>
                         </div>
@@ -965,12 +631,20 @@ Jenkins 最初称为 Hudson ，是一款老
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
+                        <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+                            <span class="chip bg-color">快捷键</span>
                         </a>
                         
-                        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                            <span class="chip bg-color">面试题</span>
+                        <a href="/tags/Mac-OS/">
+                            <span class="chip bg-color">Mac OS</span>
+                        </a>
+                        
+                        <a href="/tags/Safari/">
+                            <span class="chip bg-color">Safari</span>
+                        </a>
+                        
+                        <a href="/tags/IntelliJ-IDEA/">
+                            <span class="chip bg-color">IntelliJ IDEA</span>
                         </a>
                         
                     </div>
@@ -982,33 +656,31 @@ Jenkins 最初称为 Hudson ，是一款老
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/7a93/">
+                    <a href="/posts/fb3/">
                         <div class="card-image">
                             
+                            <img src="https://s2.loli.net/2022/07/28/gaOrTefS1Uz67X2.png" class="responsive-img" alt="阿里云盘-教程">
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="监控神器：Prometheus 轻松入门，真香！">
-                            
-                            <span class="card-title">监控神器：Prometheus 轻松入门，真香！</span>
+                            <span class="card-title">阿里云盘-教程</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                导语 ：Prometheus是一个开源的完整监控解决方案，本文将从指标抓取到查询及可视化展示，以及最后的监控告警，对Prometheus做一个基本的认识。
-一、简介Prometheus是古希腊神话里泰坦族的一名神明，名字的意思是“先见之明”
+                                macos挂载阿里云盘当做本地盘登录阿里云盘网页版 获取tokenF12 -&gt; Application -&gt; Storage -&gt; Local Storage -&gt; token -&gt; refresh_token
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-14
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E9%B1%BC%E5%A1%98/" class="post-category">
-                                    鱼塘
+                                <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
                                 </a>
                                 
                                 
@@ -1024,31 +696,37 @@ Jenkins 最初称为 Hudson ，是一款老
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/953b/">
+                    <a href="/posts/dcb7/">
                         <div class="card-image">
                             
-                            <img src="https://s2.loli.net/2022/07/28/obnONkldhuC2f1X.png" class="responsive-img" alt="三、web开发-面试题">
+                            <img src="https://s2.loli.net/2022/07/28/K23aI1heYvBEL5G.png" class="responsive-img" alt="Typora-教程">
                             
-                            <span class="card-title">三、web开发-面试题</span>
+                            <span class="card-title">Typora-教程</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Spring、SpringMVC、SpringBoot、MyBatis、ZooKeeper、Dubbo
+                                Typora-网络经验
+RGB颜色对照表：
+https://bj.96weixin.com/tools/rgb
+http://xh.5156edu.com/page/z1015m9220j18754.html
+
+
+Typora中的emoji
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-14
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
-                                    面试题
+                                <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
                                 </a>
                                 
                                 
@@ -1057,17 +735,46 @@ Jenkins 最初称为 Hudson ，是一款老
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Java/">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                            <span class="chip bg-color">面试题</span>
-                        </a>
-                        
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/62b7/">
+                        <div class="card-image">
+                            
+                            <img src="https://s2.loli.net/2022/07/28/5nZmDvM1RULiTpG.png" class="responsive-img" alt="Tampermonkey-教程">
+                            
+                            <span class="card-title">Tampermonkey-教程</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Tampermonkey For Mac油猴Safari浏览器插件工具 V4.10.6108下载：https://wws.lanzoub.com/iaZ8Z07shule
+windows版本：https://wws.lanzoub.com/
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
+
                     
                 </div>
             </div>
@@ -1076,33 +783,35 @@ Jenkins 最初称为 Hudson ，是一款老
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/posts/d710/">
+                    <a href="/posts/7cbe/">
                         <div class="card-image">
                             
-                            <img src="https://s2.loli.net/2022/07/28/bmM9tHuszkOPrRN.png" class="responsive-img" alt="你还在用for循环遍历list吗？">
+                            <img src="https://s2.loli.net/2022/07/28/POZyv2tiSjX4Lr8.png" class="responsive-img" alt="vpn-教程">
                             
-                            <span class="card-title">你还在用for循环遍历list吗？</span>
+                            <span class="card-title">vpn-教程</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                简介Java 8 API添加了一个新的抽象称为流Stream，可以让你以一种声明的方式处理数据。
-Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式来提供一种对 Java 集合运算和表达的高阶抽象。
-这种风格将要处理的元素
+                                
+for mac
+Windows版本
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-12
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E9%B1%BC%E5%A1%98/" class="post-category">
-                                    鱼塘
+                                <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
                                 </a>
                                 
                                 
@@ -1125,17 +834,18 @@ Stream 使用一种类似用 SQL 语句从数据库查询数据的直观方式�
     <div class="row">
         <div class="col s6 m4 l4">
             
-            <a class="left btn-floating btn-large disabled">
+            <a href="/page/4/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-left"></i>
             </a>
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 6</div>
+            <div class="center-align b-text-gray">5 / 6</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a href="/page/2/"
+            <a href="/page/6/"
                class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-right"></i>
             </a>
