@@ -601,6 +601,10 @@ Git版本控制管理第2版">
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/IDEA/">
+                                <span class="chip bg-color">IDEA</span>
+                            </a>
+                        
                             <a href="/tags/Git/">
                                 <span class="chip bg-color">Git</span>
                             </a>
@@ -633,21 +637,21 @@ Git版本控制管理第2版">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-29
+                    2022-07-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    4.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    15 分
+                    16 分
                 </div>
                 
 
@@ -678,6 +682,10 @@ Git版本控制管理第2版">
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iVUJD08f9qwb">从 0 开始学习 GitHub 系列.pdf</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/io26X08f9vsh">Git版本控制管理第2版(美)罗力格.pdf</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iiG4k085dohi">Git讲义</a></li>
+</ul>
+<h2 id="Git网络经验"><a href="#Git网络经验" class="headerlink" title="Git网络经验"></a>Git网络经验</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MU4y1Y7h5?p=1&vd_source=c57311942d38847adc4597a126bba185">黑马程序员Git全套教程，完整的git项目管理工具教程，一套精通git</a> 配套讲义：<a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iiG4k085dohi">Git讲义</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1y4411a7Nn?p=1&vd_source=c57311942d38847adc4597a126bba185">git视频教程（进阶篇）</a></li>
 </ul>
 <h2 id="Git工作流程图"><a href="#Git工作流程图" class="headerlink" title="Git工作流程图"></a>Git工作流程图</h2><p><img src="https://s2.loli.net/2022/07/24/dGcpN2ZwnzXjst4.png" alt="Git工作流程图"></p>
 <p>命令如下</p>
@@ -759,7 +767,7 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 
 <p>然后下次输入一次密码（用token代替）即可永久保存</p>
 <h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>–system 全系统<br>–global 当前用户<br>–local 当前项目</p>
-<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#122;&#120;&#x40;&#122;&#x78;&#x2e;&#x6a;&#x73;&#46;&#x63;&#111;&#x6f;&#108;">&#122;&#120;&#x40;&#122;&#x78;&#x2e;&#x6a;&#x73;&#46;&#x63;&#111;&#x6f;&#108;</a>”</p>
+<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#x78;&#64;&#x7a;&#x78;&#46;&#x6a;&#x73;&#46;&#99;&#111;&#111;&#x6c;">&#x7a;&#x78;&#64;&#x7a;&#x78;&#46;&#x6a;&#x73;&#46;&#99;&#111;&#111;&#x6c;</a>”</p>
 <p>查看配置信息<br>git config –global user.name<br>git config –global user.email</p>
 <p>删除配置信息<br>git config –global –unset user.name</p>
 <h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a href="/posts/dbd/">为常用指令配置别名</a></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用于输出git提交日志</span>
@@ -817,6 +825,12 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 <p><code>git reset --hard HEAD^^</code> 回退2次</p>
 <p><code>git reset --hard HEAD～n</code> 回退n次</p>
 <p><code>git reset --hard har &lt;commitID&gt;</code> 回退具体版本 </p>
+<hr>
+<p><code>git checkout commitID</code>  版本穿越（游离状态）</p>
+<ol>
+<li>修改后，必须提交</li>
+<li>现在是个创建分支的好时机</li>
+</ol>
 <h3 id="添加文件至忽略列表"><a href="#添加文件至忽略列表" class="headerlink" title="添加文件至忽略列表"></a>添加文件至忽略列表</h3><p><code>cd</code> 工作目录下 <code>vim .gitignore</code></p>
 <p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动 生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录 中创建一个名为 .gitignore 的文件(文件名称固定)，列出要忽略的文件模式。</p>
 <p>示例</p>
@@ -846,6 +860,8 @@ doc/**/*.pdf
 <li>仓库路径，从远端服务器获取此URL</li>
 <li>例如: <code>git remote add origin git@github.com:zx20219898/blog.git</code></li>
 </ul>
+<hr>
+<p>某个场景：</p>
 <p>由于我的仓库主分支为main，所以修改本地分支也为main,<code>git branch -m main</code></p>
 <p>本地分支关联远端分支：<code>git branch --set-upstream-to=origin/main main</code></p>
 <p>报错：fatal: 当前分支 main 没有对应的上游分支。<br><code>git push --set-upstream origin main</code></p>
@@ -959,7 +975,7 @@ Fast-forward
 </ul>
 <p><img src="https://s2.loli.net/2022/07/24/E3M5L1fYH6URl4J.png" alt="image-20220724173754121"></p>
 <h3 id="附-IDEA集成GitBash作为Terminal"><a href="#附-IDEA集成GitBash作为Terminal" class="headerlink" title="附:IDEA集成GitBash作为Terminal"></a>附:IDEA集成GitBash作为Terminal</h3><p><img src="https://s2.loli.net/2022/07/24/fXCQKpMqeLuGia7.png" alt="image-20220724173952126"></p>
-<h2 id="Git其他命令"><a href="#Git其他命令" class="headerlink" title="Git其他命令"></a>Git其他命令</h2><ul>
+<h2 id="Git其他操作"><a href="#Git其他操作" class="headerlink" title="Git其他操作"></a>Git其他操作</h2><ul>
 <li><code>git rm --cached</code>  暂存区 &#x3D;》 工作区</li>
 <li><code>history</code> 查看历史命令记录</li>
 <li><code>vimdiff online/B/xxx.json online/A/xxx.json</code> diff, 查看两个文件的不同之处</li>
@@ -969,7 +985,7 @@ Fast-forward
 <hr>
 <p>git rm 后悔</p>
 <ol>
-<li><code>git reset HEAD &lt;文件名&gt;</code></li>
+<li><code>git reset HEAD &lt;文件名&gt;</code> </li>
 <li><code>git checkout -- &lt;文件名&gt;</code>  (注意–后面的空格)</li>
 </ol>
 <p><code>rm -rf &lt;文件名&gt;</code> 删除到工作区</p>
@@ -977,8 +993,46 @@ Fast-forward
 <p><code>git commit --amend -m &#39;111&#39;</code> 修正最近一次的commit说明</p>
 <p><img src="https://s2.loli.net/2022/07/25/8B4A1REITNCl92z.png" alt="image-20220725224638267"></p>
 <hr>
-<p><code>checkout</code> 放弃工作区</p>
+<p><code>checkout</code> 会放弃工作区</p>
 <hr>
+<p><code>git branch -m master master</code> 重命名</p>
+<hr>
+<p>保存现场：<code>git stash</code>、<code>git stash save &lt;记录名&gt;</code>  </p>
+<ol>
+<li>建议（规范）：在功能未开发完毕前，不要commit</li>
+<li>规定（必须）：在没有commit之前，不要checkout切换分支（不在同一个commit阶段）</li>
+</ol>
+<p>还原现场(默认还原最近一次） ：</p>
+<ul>
+<li><code>git stash pop</code> (将原来保存的删除，用于还原内容)</li>
+<li><code>git stash apply</code>(还原内容，不删除原保存的内容，加上<code>git stash apply stash&#123;0&#125;</code>还原指定现场)<ul>
+<li>手工删除：<code>git stash drop stash@&#123;0&#125;</code></li>
+</ul>
+</li>
+</ul>
+<p><code>git stash list</code> 查看临时文件  </p>
+<p><img src="https://s2.loli.net/2022/07/29/EceZnChTQNHVLzr.png"></p>
+<hr>
+<p><code>git tag v1.0</code> 给当前版本打标签</p>
+<p><code>git tag</code> 查看当前标签 </p>
+<p><code>git tag -d v1.0</code>  删除标签</p>
+<p><code>git tag -a v2.0 -m &#39;release Tag&#39;</code></p>
+<hr>
+<p><code>git blame 1.txt</code> 追责</p>
+<p><img src="https://s2.loli.net/2022/07/30/g4LVMu5ZJzTf9ev.png" alt="image-20220730002155682"></p>
+<hr>
+<p><code>diff</code> 比较文件本身 Linux命令的对比</p>
+<p><code>git diff</code> 比较暂存区和工作区（注意先后顺序）</p>
+<ul>
+<li><code>-</code> 原文件 </li>
+<li><code>+</code> 对比的文件 </li>
+<li><code>5，3</code> 从第5行开始，比较3行</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/07/30/AsVTZW9hESlwM54.png" alt="image-20220730082720204"></p>
+<p><img src="https://s2.loli.net/2022/07/30/8zSZYp5hQjcbxen.png" alt="image-20220730083830495"></p>
+<p><code>git diff &lt;commitID&gt;</code> 比较 本地仓库 和 工作区 </p>
+<p><code>git diff --cached &lt;commitID&gt;</code> 比较 本地仓库 和 暂存区</p>
+<p><code>git diff --cached HEAD</code> head指向的本地仓库 和 暂存区</p>
 <h2 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h2><h3 id="解决使用git遇到的：Enter-passphrase-for-key-‘-x2F-Users-x2F-zhangxin-x2F-ssh-x2F-id-rsa’"><a href="#解决使用git遇到的：Enter-passphrase-for-key-‘-x2F-Users-x2F-zhangxin-x2F-ssh-x2F-id-rsa’" class="headerlink" title="解决使用git遇到的：Enter passphrase for key ‘&#x2F;Users&#x2F;zhangxin&#x2F;.ssh&#x2F;id_rsa’"></a>解决使用git遇到的：Enter passphrase for key ‘&#x2F;Users&#x2F;zhangxin&#x2F;.ssh&#x2F;id_rsa’</h3><p>创建SSH Key</p>
 <p><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
 <p>在生成SSH Key时，如果不小心设置了passphrase，使用SSH协议克隆远程仓库时，在每次git pull和git push时都会提示<code>Enter passphrase for key &#39;/Users/zhangxiaoxue/.ssh/id_rsa&#39;</code>，每次都要手动输入密码才能继续操作，可以在命令行输入sh-keygen -p进行重新设置，直接回车输入为空，就没有密码了。</p>
@@ -1052,6 +1106,10 @@ Your identification has been saved with the new passphrase.<span aria-hidden="tr
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
+                            
+                                <a href="/tags/IDEA/">
+                                    <span class="chip bg-color">IDEA</span>
+                                </a>
                             
                                 <a href="/tags/Git/">
                                     <span class="chip bg-color">Git</span>
@@ -1513,7 +1571,7 @@ Your identification has been saved with the new passphrase.<span aria-hidden="tr
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">433.3k</span>
+                        class="white-color">433.7k</span>
             
             
             
