@@ -12,8 +12,8 @@ Maven权威指南_中文完整版清晰.pdf
 Maven实战.pdf
 Maven应用实战.pdf
 
-Meavn-网络经验
-黑马程序员Maven全套教程，maven项目">
+Meavn-资源
+黑马程序员Maven全套教程，maven项目管理">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -751,14 +751,14 @@ Meavn-网络经验
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    79
+                    479
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -788,10 +788,123 @@ Meavn-网络经验
 <li>Maven实战.pdf</li>
 <li>Maven应用实战.pdf</li>
 </ul>
-<h2 id="Meavn-网络经验"><a href="#Meavn-网络经验" class="headerlink" title="Meavn-网络经验"></a>Meavn-网络经验</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ah411S7ZE?p=1&vd_source=c57311942d38847adc4597a126bba185">黑马程序员Maven全套教程，maven项目管理从基础到高级，Java项目开发必会管理工具maven</a> <a href="">讲义</a></li>
-<li></li>
+<h2 id="Meavn-资源"><a href="#Meavn-资源" class="headerlink" title="Meavn-资源"></a>Meavn-资源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ah411S7ZE?p=1&vd_source=c57311942d38847adc4597a126bba185">黑马程序员Maven全套教程，maven项目管理从基础到高级，Java项目开发必会管理工具maven</a> <ul>
+<li>资料（PPT、安装包、代码等）<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Z8csgq4phdUtqkwq81fqMg">https://pan.baidu.com/s/1Z8csgq4phdUtqkwq81fqMg</a><br>提取码：ewh9</li>
 </ul>
+</li>
+<li>官网：<a target="_blank" rel="noopener" href="http://maven.apache.org/">http://maven.apache.org/</a></li>
+<li>下载地址：<a target="_blank" rel="noopener" href="http://maven.apache.org/download.cgi">http://maven.apache.org/download.cgi</a></li>
+<li><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></li>
+<li>maven坐标查询：<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com</a></li>
+</ul>
+<p><img src="https://s2.loli.net/2022/07/30/dcat8TrsouFAI2w.png" alt="image-20220730173022044"></p>
+<p>阿里云镜像仓库</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>aliyunmaven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>*<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>阿里云公共仓库<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>https://maven.aliyun.com/repository/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="https://s2.loli.net/2022/07/30/jNzaml9M2geKsTJ.png" alt="Java工程 与 web工程" style="zoom: 50%;" />
+
+<p>src同目录下创建pom.xml</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">></span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.itheima<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>project-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>jar<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>4.12<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Maven 构建命令</p>
+<ul>
+<li><p><code>mvn compile</code> # 编译</p>
+</li>
+<li><p><code>mvn clean</code> # 清理</p>
+</li>
+<li><p><code>mvn test</code> # 测试</p>
+</li>
+<li><p><code>mvn package</code> # 打包</p>
+</li>
+<li><p><code>mvn install</code> # 安装到本地仓库</p>
+</li>
+</ul>
+<p>插件创建maven工程</p>
+<ul>
+<li>创建工程</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn archetype:generate 
+    -DgroupId<span class="token operator">=</span><span class="token punctuation">&#123;</span>project-packaging<span class="token punctuation">&#125;</span> 
+    -DartifactId<span class="token operator">=</span><span class="token punctuation">&#123;</span>project-name<span class="token punctuation">&#125;</span> 
+    -DarchetypeArtifactId<span class="token operator">=</span>maven-archetype-quickstart 
+    -DinteractiveMode<span class="token operator">=</span>false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>创建Java工程</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn archetype:generate 
+    -DgroupId<span class="token operator">=</span>com.itheima 
+    -DartifactId<span class="token operator">=</span>java-project 
+    -DarchetypeArtifactId<span class="token operator">=</span>maven-archetype-quickstart 
+    -Dversion<span class="token operator">=</span><span class="token number">0.0</span>.1-snapshot 
+    -DinteractiveMode<span class="token operator">=</span>false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>创建web工程</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mvn archetype:generate 
+    -DgroupId<span class="token operator">=</span>com.itheima 
+    -DartifactId<span class="token operator">=</span>web-project 
+    -DarchetypeArtifactId<span class="token operator">=</span>maven-archetype-webapp 
+    -Dversion<span class="token operator">=</span><span class="token number">0.0</span>.1-snapshot
+    -DinteractiveMode<span class="token operator">=</span>false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2022/07/30/T6HhJIKbmqyzSu5.png" alt="img"></p>
+<p>Tomcat7插件</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.tomcat.maven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>tomcat7-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>port</span><span class="token punctuation">></span></span>80<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>port</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><span class="token punctuation">></span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span> 
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2022/07/30/IuOMaYlpCQ9WkA7.png" alt="image-20220730192925423"></p>
+<h2 id="Maven排除依赖和可选依赖"><a href="#Maven排除依赖和可选依赖" class="headerlink" title="Maven排除依赖和可选依赖"></a>Maven排除依赖和可选依赖</h2><p><img src="https://s2.loli.net/2022/07/30/xbI4hypiQzSlFtR.png" alt="image-20220730193153778"></p>
+<p><img src="https://s2.loli.net/2022/07/30/3Ze159oSiIbrHOT.png" alt="image-20220730193822989"></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/maven2/exclusion-option.html">Maven排除依赖和可选依赖</a></li>
+</ul>
+<h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><p><img src="https://s2.loli.net/2022/07/30/iXZwqg7WRFpVDmk.png" alt="image-20220730194320170"></p>
+<p><img src="https://s2.loli.net/2022/07/30/uh5NiHoLD2Cfr31.png" alt="image-20220730194932344"></p>
+<h2 id="生命周期与插件"><a href="#生命周期与插件" class="headerlink" title="生命周期与插件"></a>生命周期与插件</h2><p><strong>生命周期</strong></p>
+<p><img src="https://s2.loli.net/2022/07/30/9pwEkvCtyTB4OUs.png" alt="image-20220730200410743"></p>
+<p><img src="https://s2.loli.net/2022/07/30/CPIMDbhSNH7rlpX.png" alt="image-20220730195211582"></p>
+<p><img src="https://s2.loli.net/2022/07/30/yZPsHfEXNTJjUmb.png" alt="image-20220730195318713"></p>
+<p><img src="https://s2.loli.net/2022/07/30/5R7z1o3NsTLpEml.png" alt="image-20220730195356534"></p>
+<p><strong>插件</strong></p>
+<p><img src="https://s2.loli.net/2022/07/30/TXKfbuWEvnwzor7.png" alt="image-20220730200500379"></p>
+<h2 id="分模块开发与设计"><a href="#分模块开发与设计" class="headerlink" title="分模块开发与设计"></a>分模块开发与设计</h2><p><img src="https://s2.loli.net/2022/07/30/qhrH29cLbMBK5ZR.png" alt="image-20220730201547634"></p>
+<p><img src="https://s2.loli.net/2022/07/30/4VF71AeOmnps9Nr.png" alt="image-20220730203204821"></p>
+<p><img src="https://s2.loli.net/2022/07/30/yPGp59FrkfO3wNH.png" alt="image-20220730203309802"></p>
+<p><img src="https://s2.loli.net/2022/07/30/A28LiBM5aG7lU1Z.png"></p>
+<p><img src="https://s2.loli.net/2022/07/30/bSXFr3J4uM6lyGc.png" alt="image-20220730203323303"></p>
+<p><img src="https://s2.loli.net/2022/07/30/tg2BPIsFGLAEo9x.png" alt="image-20220730203335918"></p>
 
                 
             </div>
@@ -1303,7 +1416,7 @@ Meavn-网络经验
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">443.1k</span>
+                        class="white-color">443.5k</span>
             
             
             
