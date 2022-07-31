@@ -925,14 +925,14 @@ Docker开源书.pdf
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-15
+                    2021-11-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-31
+                    2022-08-01
                 </div>
                 
 
@@ -1194,11 +1194,11 @@ sudo systemctl restart docker<span aria-hidden="true" class="line-numbers-rows">
 </tbody></table>
 <h3 id="Dockerfile-案例"><a href="#Dockerfile-案例" class="headerlink" title="Dockerfile 案例"></a>Dockerfile 案例</h3><p><strong>案例一</strong></p>
 <p>需求：自定义centos7镜像。要求： 1. 默认登录路径为 &#x2F;usr 2. 可以使用vim</p>
-<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#x68;&#x65;&#105;&#x6d;&#x61;&#64;&#x69;&#x74;&#x63;&#x61;&#115;&#116;&#46;&#99;&#110;">&#x69;&#116;&#x68;&#x65;&#105;&#x6d;&#x61;&#64;&#x69;&#x74;&#x63;&#x61;&#115;&#116;&#46;&#99;&#110;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#104;&#101;&#105;&#x6d;&#x61;&#64;&#x69;&#x74;&#99;&#97;&#115;&#116;&#x2e;&#99;&#x6e;">&#x69;&#116;&#104;&#101;&#105;&#x6d;&#x61;&#64;&#x69;&#x74;&#99;&#97;&#115;&#116;&#x2e;&#99;&#x6e;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
 <p><strong>案例二</strong></p>
 <p>需求：定义dockerfile，发布springboot项目</p>
 <p>实现步骤：</p>
-<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#105;&#116;&#x68;&#x65;&#x69;&#109;&#97;&#x40;&#x69;&#116;&#99;&#97;&#x73;&#x74;&#46;&#99;&#x6e;">&#105;&#116;&#x68;&#x65;&#x69;&#109;&#97;&#x40;&#x69;&#116;&#99;&#97;&#x73;&#x74;&#46;&#99;&#x6e;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
+<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#x68;&#x65;&#x69;&#x6d;&#x61;&#x40;&#105;&#x74;&#x63;&#x61;&#115;&#116;&#46;&#x63;&#110;">&#x69;&#116;&#x68;&#x65;&#x69;&#x6d;&#x61;&#x40;&#105;&#x74;&#x63;&#x61;&#115;&#116;&#46;&#x63;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
 <pre class="line-numbers language-docker" data-language="docker"><code class="language-docker"><span class="token instruction"><span class="token keyword">FROM</span> java:8</span>
 <span class="token instruction"><span class="token keyword">MAINTAINER</span> zhangxin &lt;1205362172@qq.com></span>
 <span class="token instruction"><span class="token keyword">ADD</span> springboot.jar app.jar</span>
@@ -2298,7 +2298,7 @@ com.alibaba.nacos.api.exception.NacosException: failed to req API:&#x2F;nacos&#x
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-15
                         </span>
                         <span class="publish-author">
                             
@@ -2322,12 +2322,12 @@ com.alibaba.nacos.api.exception.NacosException: failed to req API:&#x2F;nacos&#x
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/2f9/">
+                <a href="/posts/fb3/">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/31/ucJ1GzUDraLZvd5.png" class="responsive-img" alt="快捷键">
+                        <img src="https://s2.loli.net/2022/07/31/dAYcPaDUZTWrB8g.png" class="responsive-img" alt="阿里云盘-教程">
                         
-                        <span class="card-title">快捷键</span>
+                        <span class="card-title">阿里云盘-教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2338,35 +2338,19 @@ com.alibaba.nacos.api.exception.NacosException: failed to req API:&#x2F;nacos&#x
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-14
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            zhangxin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
+                                </a>
+                            
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-                        <span class="chip bg-color">快捷键</span>
-                    </a>
-                    
-                    <a href="/tags/macOS/">
-                        <span class="chip bg-color">macOS</span>
-                    </a>
-                    
-                    <a href="/tags/Safari/">
-                        <span class="chip bg-color">Safari</span>
-                    </a>
-                    
-                    <a href="/tags/IDEA/">
-                        <span class="chip bg-color">IDEA</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -2549,11 +2533,11 @@ com.alibaba.nacos.api.exception.NacosException: failed to req API:&#x2F;nacos&#x
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2021-2022</span>
             
             <a href="/about" target="_blank">zhangxin</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -2582,6 +2566,60 @@ com.alibaba.nacos.api.exception.NacosException: failed to req API:&#x2F;nacos&#x
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "17";
+                        var startHour = "15";
+                        var startMinute = "28";
+                        var startSecond = "57";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
