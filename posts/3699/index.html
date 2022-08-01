@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: IDEA, zx&#39;s blog">
-    <meta name="description" content="zx&#39;s blog">
+    <meta name="keywords" content="【摸鱼文】资源预测数字模型搭建思路分享, zx&#39;s blog">
+    <meta name="description" content="
+业务背景资源预测是项目管理过程中的一个环节，即通过搭建合适的数据模型，对未来的项目人力资源投入情况进行有效预测，可以更加精准的完成项目资源规划并能及时发现问题进行相关调整。
+﻿
+难题和痛点
+PM排期时没有有效数据支撑资源使用情况，每次排期">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +23,7 @@
 
     
 
-    <title>标签: IDEA | zx&#39;s blog</title>
+    <title>【摸鱼文】资源预测数字模型搭建思路分享 | zx&#39;s blog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/zotero.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -763,314 +767,764 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                zx&#39;s blog
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">【摸鱼文】资源预测数字模型搭建思路分享</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%91%B8%E9%B1%BC/" class="post-category">
+                                摸鱼
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    4 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="https://s2.loli.net/2022/08/01/rx7qLM2RtpyeHVT.jpg" alt="图片"></p>
+<h1 id="业务背景"><a href="#业务背景" class="headerlink" title="业务背景"></a>业务背景</h1><p>资源预测是项目管理过程中的一个环节，即通过搭建合适的数据模型，对未来的项目人力资源投入情况进行有效预测，可以更加精准的完成项目资源规划并能及时发现问题进行相关调整。</p>
+<p>﻿</p>
+<h1 id="难题和痛点"><a href="#难题和痛点" class="headerlink" title="难题和痛点"></a>难题和痛点</h1><ul>
+<li><p>PM排期时没有有效数据支撑资源使用情况，每次排期都需要找各个研发团队TL沟通，会产生很大的沟通成本。</p>
+</li>
+<li><p>线下维护项目资源投入信息会产生很多工作量，为研发团队和PM造成额外的管理成本。</p>
+</li>
+<li><p>手工维护会导致各团队标准不统一，无法进行大规模推广。</p>
+</li>
+</ul>
+<p>﻿</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><strong>【中心思想】通过日常项目管理流程，即可达到资源预测的目的，不给项目管理过程增加额外负担。</strong></p>
+<h2 id="3-1基本要求"><a href="#3-1基本要求" class="headerlink" title="3.1基本要求"></a>3.1基本要求</h2><p><img src="https://s2.loli.net/2022/08/01/Y4UmZ268dtayrFw.png" alt="图片"></p>
+<h2 id="3-2具体步骤"><a href="#3-2具体步骤" class="headerlink" title="3.2具体步骤"></a>3.2具体步骤</h2><ul>
+<li><p>活动1：构思效果——搭建数据模型——（直接&#x2F;数据加工）——建立数据源</p>
+</li>
+<li><p>在前面3.1章节中提到的报表，即是想要的效果。</p>
+</li>
+<li><p>参数和基础功能即为数据模型即为数据源，很明显这些数据源无法直接应用到效果展示，因此需要进行数据加工。</p>
+</li>
+<li><p>活动2：先通过简单工具建立Demo，确认可行性，并对照使用过程逐步进行优化</p>
+</li>
+<li><p>我选择通过Excel进行Demo处理，详情可见文末《PMO-资源预测_模板》。</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/08/01/aF8R4rAP2NYo1Zm.png" alt="图片"></p>
+<ul>
+<li>活动3：利用现有平台和工具实现线上化<ul>
+<li>在确认数据结果稳定、可靠的前提下，就可以开始规划工具线上化，毕竟Excel处理数据量较大时会非常卡顿。</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>功能</th>
+<th>Demo：《PMO-资源预测_模板》</th>
+<th>线上工具</th>
+<th>图例展示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基础功能</td>
+<td>项目总轴</td>
+<td>sheet：输入-项目计划</td>
+<td>宜搭-项目总轴管理页面</td>
+<td><img src="https://s2.loli.net/2022/08/01/f3vrNCG9UwuX6yK.png" alt="图片"></td>
+</tr>
+<tr>
+<td>基础功能</td>
+<td>项目成员投入</td>
+<td>sheet：输入-资源项目投入“A-F列”sheet：参数-人员角色</td>
+<td>宜搭-项目成员投入管理页面</td>
+<td><img src="https://s2.loli.net/2022/08/01/byMTlq1wBg6RzsO.png" alt="图片"></td>
+</tr>
+<tr>
+<td>参数</td>
+<td>角色阶段投入比例</td>
+<td>sheet：参数-阶段投入</td>
+<td>宜搭-角色阶段投入比例管理页面</td>
+<td><img src="https://s2.loli.net/2022/08/01/bDSGR3wPMJZc2FE.png" alt="图片"></td>
+</tr>
+<tr>
+<td>参数</td>
+<td>工作日历表</td>
+<td>sheet：参数-未来30天60天sheet：参数-节假日</td>
+<td>宜搭-日历表管理页面（全年工作日）</td>
+<td><img src="https://s2.loli.net/2022/08/01/oabvw2M8RfxFiHJ.png" alt="图片"></td>
+</tr>
+<tr>
+<td>数据加工</td>
+<td>项目成员预测投入明细</td>
+<td>sheet：输入-资源项目投入“G-EN列”</td>
+<td>Dataworks-resource_forecast（周期任务T+1日更新）</td>
+<td>逻辑同Excel一致，宜搭数据清洗到opds一般需要T+1到3个小时，数据加工可手动出发任务，也可通过周期性任务T+1日更新。</td>
+</tr>
+<tr>
+<td>报表</td>
+<td>组织现状预测</td>
+<td>sheet：报表-组织现状及实际投入</td>
+<td>Deepinsight-预测投入分析</td>
+<td><img src="https://s2.loli.net/2022/08/01/oE9DXZF6Khbv7MJ.png" alt="图片"></td>
+</tr>
+<tr>
+<td>报表</td>
+<td>项目投入预测</td>
+<td>按项目维度进行资源投入预测，并能按角色身份和部门进行归集。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>报表</td>
+<td>资源预测排期参考</td>
+<td>按人的维度以时间轴的方式进行工作饱和度预测，用于提供排期参考。可根据规划战役、员工类型、角色身份、花名、日期区间进行查询。</td>
+<td>Deepinsight-资源预测排期参考</td>
+<td><img src="https://s2.loli.net/2022/08/01/nmQMul1a9KLxPrY.png" alt="图片"></td>
+</tr>
+</tbody></table>
+<h1 id="业务成果"><a href="#业务成果" class="headerlink" title="业务成果"></a>业务成果</h1><ul>
+<li><p>PM排期时能提供有效数据支撑可用资源查询。</p>
+</li>
+<li><p>减少研发、测试管理投入成本，通过日常项目管理流程（项目总轴和项目成员投入）只需要两步，即可达到资源预测的目标。【使用过程中逐渐发现优化点，目前正在设计更加简便的预测模型，争取做到无感预测】</p>
+</li>
+<li><p>建立更科学的、体系化的数据预测模型，加强数字化管理基础能力、为资源投入偏差提供分析参考。</p>
+</li>
+</ul>
+<h1 id="数字化管理的规划和思考"><a href="#数字化管理的规划和思考" class="headerlink" title="数字化管理的规划和思考"></a>数字化管理的规划和思考</h1><ul>
+<li><p>数据源和加工的基础数据模型，在设计时，要素和维度要考虑充分，这样可以方便后期进行二次加工。</p>
+</li>
+<li><p>尽量选择符合日常工作习惯的线上工具，可以向工具研发组提需求，也可以自行学习研发。因为本人是PM，因此总结了一套适合非研发同学使用的资料。</p>
+</li>
+<li><p>从日常工作中发现痛点，总结规律和方法，通过小范围验证，进而提炼标准和流程，最终实现数字化管理动作。</p>
+</li>
+<li><p>每个数字背后，都是真实的项目和人，关键在于怎么应用这些数字。</p>
+</li>
+<li><p>如果是为了汇报，生搬硬套凑出来，参与的同学都会怀疑这些数字的意义；如果遇到问题，TL和PM该反馈的反馈，该上升的上升，不能为了凑而凑，辩证的执行。</p>
+</li>
+<li><p>如果把数字化管理，与业产研月会、需求排序、需求排期等结合，并用于分析定位和辅助决策，将会非常有价值，且属于日常管理一部分。</p>
+</li>
+</ul>
+<p><strong>《PMO-资源预测_模板》：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/547637165">https://zhuanlan.zhihu.com/p/547637165</a></strong></p>
+<p>来源：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bHD_NALDwoXW9QsQtlKdVw">https://mp.weixin.qq.com/s/bHD_NALDwoXW9QsQtlKdVw</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zhangxin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zx.js.cool/posts/3699/">https://zx.js.cool/posts/3699/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zhangxin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://s2.loli.net/2022/07/28/5rimvxcklPEFtg8.png" class="reward-img" alt="支付宝打赏二维码">
+<!--                         <img src="https://s2.loli.net/2022/07/28/5rimvxcklPEFtg8.png" class="reward-img" alt="支付宝打赏二维码"> -->
+                    </div>
+                    <div id="wechat">
+                        <img src="https://s2.loli.net/2022/07/28/TlPfcM7A1mz96jx.jpg" class="reward-img" alt="微信打赏二维码">
+<!--                         <img src="https://s2.loli.net/2022/07/28/TlPfcM7A1mz96jx.jpg" class="reward-img" alt="微信打赏二维码"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
-
-    </div>
-</div>
-
-<main class="content">
-
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/%E4%B9%A6%E7%B1%8D/" title="书籍: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="书籍" style="background-color: #F9EBEA;">书籍
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="快捷键: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="快捷键" style="background-color: #F5EEF8;">快捷键
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/macOS/" title="macOS: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="macOS" style="background-color: #D5F5E3;">macOS
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Safari/" title="Safari: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Safari" style="background-color: #E8F8F5;">Safari
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/IDEA/" title="IDEA: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="IDEA" style="background-color: #FEF9E7;">IDEA
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" title="代码重构: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="代码重构" style="background-color: #F8F9F9;">代码重构
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="单元测试: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="单元测试" style="background-color: #82E0AA;">单元测试
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Java/" title="Java: 15">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Java" style="background-color: #D7BDE2;">Java
-                        <span class="tag-length">15</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="面试题: 11">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="面试题" style="background-color: #A3E4D7;">面试题
-                        <span class="tag-length">11</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="操作系统" style="background-color: #85C1E9;">操作系统
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" title="分布式: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="分布式" style="background-color: #F8C471;">分布式
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Docker/" title="Docker: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Docker" style="background-color: #F9E79F;">Docker
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Nacos/" title="Nacos: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Nacos" style="background-color: #A3E4D7;">Nacos
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Elasticsearch/" title="Elasticsearch: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Elasticsearch" style="background-color: #85C1E9;">Elasticsearch
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Git/" title="Git: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Git" style="background-color: #F9E79F;">Git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Hexo/" title="Hexo: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Hexo" style="background-color: #E8F8F5;">Hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Homebrew/" title="Homebrew: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Homebrew" style="background-color: #F8C471;">Homebrew
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="设计模式" style="background-color: #85C1E9;">设计模式
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/UML/" title="UML: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="UML" style="background-color: #FFF;">UML
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" title="软件设计: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="软件设计" style="background-color: #E8F8F5;">软件设计
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
+            
         </div>
     </div>
-</div>
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="快捷键, macOS, Safari, IDEA" data-aos="fade-up">
-                <div class="card">
-                    <a href="/posts/2f9/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://s2.loli.net/2022/07/31/ucJ1GzUDraLZvd5.png" class="responsive-img" alt="快捷键">
-                            
-                            <span class="card-title">快捷键</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                zhangxin
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="IDEA, Git" data-aos="fade-up">
-                <div class="card">
-                    <a href="/posts/9e31/">
-                        <div class="card-image tag-image">
+            <div class="card">
+                <a href="/posts/3699/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="【摸鱼文】资源预测数字模型搭建思路分享">
+                        
+                        <span class="card-title">【摸鱼文】资源预测数字模型搭建思路分享</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
                             
-                            <img src="https://s2.loli.net/2022/07/27/omnpZetMyIArTzE.jpg" class="responsive-img" alt="Git-教程">
-                            
-                            <span class="card-title">Git-教程</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
+                        
+                    </div>
+                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-01
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
-                                教程
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%91%B8%E9%B1%BC/" class="post-category">
+                                    摸鱼
                                 </a>
-                                
-                                
-                            </span>
-                        </div>
+                            
+                            
+                        </span>
                     </div>
                 </div>
+
+                
             </div>
-            
         </div>
-    </article>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/55b4/">
+                    <div class="card-image">
+                        
+                        <img src="https://s2.loli.net/2022/07/31/tUewbjrLiEh6VIy.png" class="responsive-img" alt="【摸鱼文】代码重构：面向单元测试">
+                        
+                        <span class="card-title">【摸鱼文】代码重构：面向单元测试</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%91%B8%E9%B1%BC/" class="post-category">
+                                    摸鱼
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/">
+                        <span class="chip bg-color">代码重构</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">单元测试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h1, h2, h3'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 
