@@ -901,12 +901,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                 <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -974,7 +974,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="1-1-Redis可以用来做什么？"><a href="#1-1-Redis可以用来做什么？" class="headerlink" title="1.1 Redis可以用来做什么？"></a>1.1 Redis可以用来做什么？</h3><p><strong>参考答案</strong></p>
+                <h1 id="中间件-面试题"><a href="#中间件-面试题" class="headerlink" title="中间件-面试题"></a>中间件-面试题</h1><h2 id="1-Redis"><a href="#1-Redis" class="headerlink" title="1. Redis"></a>1. Redis</h2><h3 id="1-1-Redis可以用来做什么？"><a href="#1-1-Redis可以用来做什么？" class="headerlink" title="1.1 Redis可以用来做什么？"></a>1.1 Redis可以用来做什么？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>Redis最常用来做缓存，是实现分布式缓存的首先中间件；</li>
 <li>Redis可以作为数据库，实现诸如点赞、关注、排行等对性能要求极高的互联网需求；</li>
@@ -1822,194 +1822,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 </ol>
 <p>Redis集群中数据的分片逻辑如下图：</p>
 <p><img src="https://s2.loli.net/2022/07/17/nzyDxGhq9LXMI1e.png"></p>
-<h2 id="补充：Redis"><a href="#补充：Redis" class="headerlink" title="补充：Redis"></a>补充：Redis</h2><p>Redis，全称：Remote Dictionary Server，是一个基于内存的高性能key-value数据库，是应用服务提高效率和性能必不可少的一部分，因为当前大部分的应用都离不开Redis。</p>
-<h3 id="如何解决Redis缓存与MySQL的数据一致性问题？"><a href="#如何解决Redis缓存与MySQL的数据一致性问题？" class="headerlink" title="如何解决Redis缓存与MySQL的数据一致性问题？"></a>如何解决Redis缓存与MySQL的数据一致性问题？</h3><p>第一种读：我们先从缓存中读取数据，若命中直接返回，否则查询数据库并将数据加入缓存中返回。</p>
-<p>第二种写：我们有2中情况：</p>
-<ol>
-<li>先更新数据库再更新（删除）缓存</li>
-<li>先更新（删除）缓存再更新数据库。</li>
-</ol>
-<p>分析第一种情况：如果都是正常，一切都没问题，若更新数据库失败，直接抛出异常，若更新数据库成功，更新（删除）缓存失败，则会导致数据不一致。</p>
-<p>解决方案：1. 增加锁，保证原子性 2. 将更新删除失败的key放入消息队列，再次消费，会有短暂的消失不一样。</p>
-<p>分析第二种情况：正常情况下，删除缓存成功，更新数据库成功。异常情况下，删除缓存失败，抛异常，删除缓存成功，更新数据库失败，再次读取还是老数据，数据一致。</p>
-<p>上述方案感觉完美解决了数据一致性问题，其实不然，高并发下也有问题：A删除缓存成功，B查询数据，缓存没命中，读取数据库老数据，缓存老数据，A更新数据库成功，后面再查询都是老数据。</p>
-<p>解决方案：将删除缓存，更新数据库，查询数据做成串行化保证数据</p>
-<ol start="3">
-<li>使用canal订阅binlog日志</li>
-</ol>
-<h3 id="1、什么是-Redis-简述它的优缺点"><a href="#1、什么是-Redis-简述它的优缺点" class="headerlink" title="1、什么是 Redis?简述它的优缺点?"></a>1、什么是 Redis?简述它的优缺点?</h3><p>Remote Dictionary.Server，本质上是一个 Key-Value 类型的内存数据库，很像memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘 上进行保存。</p>
-<p>因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10 万次读写操作，是已知性能最快的Key-Value DB。</p>
-<p>Redis 的出色之处不仅仅是性能，Redis 最大的魅力是支持保存多种数据结构，此外单个 value 的最大限制是 1GB，不像 memcached 只能保存 1MB 的数据，因此 Redis 可以用来实现很多有用的功能。比方说用他的 List 来做 FIFO 双向链表，实现一个轻量级的高性能消息队列服务，用他的 Set 可以做高 性能的 tag 系统等等。</p>
-<p>另外 Redis 也可以对存入的 Key-Value 设置 expire 时间，因此也可以被当作一 个功能加强版的memcached 来用。</p>
-<p>Redis 的主要缺点是数据库容量受到物理内存的限制，不能用作海量数据的高性能 读写，因此 Redis 适合的场景主要局限在较小数据量的高性能操作和运算上。</p>
-<h3 id="2、使用redis的好处"><a href="#2、使用redis的好处" class="headerlink" title="2、使用redis的好处"></a>2、使用redis的好处</h3><ul>
-<li>速度快，因为数据存在内存中，类似于HashMap，HashMap的优势就是查找和操作的时间复杂度都是O(1)。</li>
-<li>支持丰富数据类型，支持string，list，set，sorted set，hash</li>
-<li>支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行。</li>
-<li>丰富的特性：可用于缓存，消息，按key设置过期时间，过期后将会自动删除。</li>
-</ul>
-<h3 id="3、Redis支持哪几种数据类型？"><a href="#3、Redis支持哪几种数据类型？" class="headerlink" title="3、Redis支持哪几种数据类型？"></a>3、Redis支持哪几种数据类型？</h3><p>答：Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</p>
-<p>还有一些数据结构如HyperLogLog、Geo、Pub&#x2F;Sub等，我们也最好知道，另外像Redis Module，像BloomFilter，RedisSearch，Redis-ML等，能有个印象，哪怕知其然不知其所以然也比听都没听过好点。</p>
-<h3 id="4、Redis有哪几种淘汰策略？"><a href="#4、Redis有哪几种淘汰策略？" class="headerlink" title="4、Redis有哪几种淘汰策略？"></a>4、Redis有哪几种淘汰策略？</h3><p>Redis的内存淘汰策略是指在Redis的用于缓存的内存不足时，怎么处理需要新写入且需要申请额外空间的数据。</p>
-<ul>
-<li>no-eviction：当内存不足以容纳新写入数据时，新写入操作会报错。</li>
-<li>allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key。</li>
-<li>allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key。</li>
-<li>volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key。</li>
-<li>volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key。</li>
-<li>volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。</li>
-</ul>
-<p>注意这里的6种机制，volatile和allkeys规定了是对已设置过期时间的数据集淘汰数据还是从全部数据集淘汰数据，后面的lru、ttl以及random是三种不同的淘汰策略，再加上一种no-enviction永不回收的策略。</p>
-<p>使用策略规则：</p>
-<ol>
-<li>如果数据呈现幂律分布，也就是一部分数据访问频率高，一部分数据访问频率低，则使用allkeys-lru</li>
-<li>如果数据呈现平等分布，也就是所有的数据访问频率都相同，则使用allkeys-random</li>
-</ol>
-<h3 id="5、为什么-Redis-需要把所有数据放到内存中"><a href="#5、为什么-Redis-需要把所有数据放到内存中" class="headerlink" title="5、为什么 Redis 需要把所有数据放到内存中?"></a>5、为什么 Redis 需要把所有数据放到内存中?</h3><p>答：Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。所以 redis 具有快速和数据持久化的特征，如果不将数据放在内存中，磁盘 I&#x2F;O 速度会严重影响 redis 的 性能。</p>
-<p>在内存越来越便宜的今天，redis 将会越来越受欢迎， 如果设置了最大使用的内存，则数据已有记录数达到内存限值后不能继续插入新值。</p>
-<h3 id="6、Redis-有哪些适合的场景"><a href="#6、Redis-有哪些适合的场景" class="headerlink" title="6、Redis 有哪些适合的场景?"></a>6、Redis 有哪些适合的场景?</h3><p><strong>(1)会话缓存(Session Cache)</strong></p>
-<p>最常用的一种使用 Redis 的情景是会话缓存(sessioncache)，用 Redis 缓存会话比其他存储(如Memcached)的优势在于:Redis 提供持久化。当维护一个不是严格要求一致性的缓存时，如果用户的 购物车信息全部丢失，大部分人都会不高兴的，现在，他们还会这样吗?<br>幸运的是，随着 Redis 这些年的改进，很容易找到怎么恰当的使用 Redis 来缓存会话的文档。甚至广为 人知的商业平台 Magento 也提供 Redis 的插件。<br><strong>(2)全页缓存(FPC)</strong></p>
-<p>除基本的会话 token 之外，Redis 还提供很简便的 FPC 平台。回到一致性问题，即使重启了 Redis 实 例，因为有磁盘的持久化，用户也不会看到页面加载速度的下降，这是一个极大改进，类似 PHP 本地FPC。</p>
-<p>再次以 Magento 为例，Magento 提供一个插件来使用 Redis 作为全页缓存后端。此外，对 WordPress 的用户来说，Pantheon 有一个非常好的插件 wp-redis，这个插件能帮助你以最快 速度加载你曾浏览过的页面。<br><strong>(3)队列</strong></p>
-<p>Reids 在内存存储引擎领域的一大优点是提供 list 和 set 操作，这使得 Redis 能作为一个很好的消息队列平台来使用。Redis 作为队列使用的操作，就类似于本地程序语言(如 Python)对 list 的 push&#x2F;pop操作。</p>
-<p>如果你快速的在 Google 中搜索“Redis queues”，你马上就能找到大量的开源项目，这些项目的目的 就是利用 Redis 创建非常好的后端工具，以满足各种队列需求。例如，Celery 有一个后台就是使用Redis 作为 broker，你可以从这里去查看。<br><strong>(4)排行榜&#x2F;计数器</strong></p>
-<p>Redis 在内存中对数字进行递增或递减的操作实现的非常好。集合(Set)和有序集合(SortedSet)也使 得我们在执行这些操作的时候变的非常简单，Redis 只是正好提供了这两种数据结构。所以，我们要从排序集合中获取到排名最靠前的 10 个用户–我们称之为“user_scores”，我们只需要像 下面一样执行即可: 当然，这是假定你是根据你用户的分数做递增的排序。如果你想返回用户及用户的分数，你需要这样执 行:</p>
-<p>ZRANGE user_scores 0 10 WITHSCORES</p>
-<p>Agora Games 就是一个很好的例子，用 Ruby 实现的，它的排行榜就是使用 Redis 来存储数据的，你可 以在这里看到。<br><strong>(5)发布&#x2F;订阅</strong></p>
-<p>最后(但肯定不是最不重要的)是 Redis 的发布&#x2F;订阅功能。发布&#x2F;订阅的使用场景确实非常多。我已看见 人们在社交网络连接中使用，还可作为基于发布&#x2F;订阅的脚本触发器，甚至用 Redis 的发布&#x2F;订阅功能来建 立聊天系统!</p>
-<h3 id="7、说说-Redis-哈希槽的概念"><a href="#7、说说-Redis-哈希槽的概念" class="headerlink" title="7、说说 Redis 哈希槽的概念?"></a>7、说说 Redis 哈希槽的概念?</h3><p>Redis 集群没有使用一致性 hash,而是引入了哈希槽的概念，Redis 集群有 16384 个哈希槽，每个 key 通 过 CRC16 校验后对 16384 取模来决定放置哪个槽，集群的每个节点负责一部分 hash 槽。</p>
-<h3 id="8、Redis-集群的主从复制模型是怎样的"><a href="#8、Redis-集群的主从复制模型是怎样的" class="headerlink" title="8、Redis 集群的主从复制模型是怎样的?"></a>8、Redis 集群的主从复制模型是怎样的?</h3><p>为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型,每个节点都会有 N-1 个复制品。</p>
-<h3 id="9、Redis-集群会有写操作丢失吗-为什么"><a href="#9、Redis-集群会有写操作丢失吗-为什么" class="headerlink" title="9、Redis 集群会有写操作丢失吗?为什么?"></a>9、Redis 集群会有写操作丢失吗?为什么?</h3><p>Redis 并不能保证数据的强一致性，这意味这在实际中集群在特定的条件下可能会丢失写操作。</p>
-<h3 id="10、Redis-集群之间是如何复制的"><a href="#10、Redis-集群之间是如何复制的" class="headerlink" title="10、Redis 集群之间是如何复制的?"></a>10、Redis 集群之间是如何复制的?</h3><p>答：异步复制</p>
-<h3 id="11、Redis-中的管道有什么用"><a href="#11、Redis-中的管道有什么用" class="headerlink" title="11、Redis 中的管道有什么用?"></a>11、Redis 中的管道有什么用?</h3><p>一次请求&#x2F;响应服务器能实现处理新的请求即使旧的请求还未被响应，这样就可以将多个命令发送到服务 器，而不用等待回复，最后在一个步骤中读取该答复。这就是管道(pipelining)，是一种几十年来广泛使用的技术。例如许多 POP3 协议已经实现支持这个功 能，大大加快了从服务器下载新邮件的过程。</p>
-<h3 id="12、怎么理解-Redis-事务"><a href="#12、怎么理解-Redis-事务" class="headerlink" title="12、怎么理解 Redis 事务?"></a>12、怎么理解 Redis 事务?</h3><ul>
-<li><p>事务是一个单独的隔离操作:事务中的所有命令都会序列化、按顺序地执行，事务在执行的过程中，不会 被其他客户端发送来的命令请求所打断。</p>
-</li>
-<li><p>事务是一个原子操作:事务中的命令要么全部被执行，要么全部都不执行。</p>
-</li>
-</ul>
-<h3 id="13、Redis-事务相关的命令有哪几个"><a href="#13、Redis-事务相关的命令有哪几个" class="headerlink" title="13、Redis 事务相关的命令有哪几个?"></a>13、Redis 事务相关的命令有哪几个?</h3><p>MULTI、EXEC、DISCARD、WATCH</p>
-<h3 id="14、Redis-key-的过期时间和永久有效分别怎么设置"><a href="#14、Redis-key-的过期时间和永久有效分别怎么设置" class="headerlink" title="14、Redis key 的过期时间和永久有效分别怎么设置?"></a>14、Redis key 的过期时间和永久有效分别怎么设置?</h3><p>EXPIRE 和 PERSIST 命令</p>
-<h3 id="15、Redis-如何做内存优化"><a href="#15、Redis-如何做内存优化" class="headerlink" title="15、Redis 如何做内存优化?"></a>15、Redis 如何做内存优化?</h3><p>尽可能使用散列表(hashes)，散列表(是说散列表里面存储的数少)使用的内存非常小，所以你应该 尽可能的将你的数据模型抽象到一个散列表里面。</p>
-<p>比如你的 web 系统中有一个用户对象，不要为这个用户的名称，姓氏，邮箱，密码设置单独的 key,而是 应该把这个用户的所有信息存储到一张散列表里面。</p>
-<h3 id="16、Redis-回收进程如何工作的"><a href="#16、Redis-回收进程如何工作的" class="headerlink" title="16、Redis 回收进程如何工作的?"></a>16、Redis 回收进程如何工作的?</h3><p>一个客户端运行了新的命令，添加了新的数据。Redi 检查内存使用情况，如果大于 maxmemory 的限制, 则根据设定好的策略进行回收。一个新的命令被执行，等等。所以我们不断地穿越内存限制的边界，通过不断达到边界然后不断地回收回到边界以下。如果一个命令的结果导致大量内存被使用(例如很大的集合的交集保存到一个新的键)，不用多久内存限 制就会被这个内存使用量超越。</p>
-<h3 id="17、Redis集群最大节点个数是多少？"><a href="#17、Redis集群最大节点个数是多少？" class="headerlink" title="17、Redis集群最大节点个数是多少？"></a>17、Redis集群最大节点个数是多少？</h3><p>答：16384个。</p>
-<h3 id="18、Redis集群如何选择数据库？"><a href="#18、Redis集群如何选择数据库？" class="headerlink" title="18、Redis集群如何选择数据库？"></a>18、Redis集群如何选择数据库？</h3><p>答：Redis集群目前无法做数据库选择，默认在0数据库。</p>
-<h3 id="19、都有哪些办法可以降低Redis的内存使用情况呢？"><a href="#19、都有哪些办法可以降低Redis的内存使用情况呢？" class="headerlink" title="19、都有哪些办法可以降低Redis的内存使用情况呢？"></a>19、都有哪些办法可以降低Redis的内存使用情况呢？</h3><p>答：如果你使用的是32位的Redis实例，可以好好利用Hash,list,sorted set,set等集合类型数据，因为通常情况下很多小的Key-Value可以用更紧凑的方式存放到一起。</p>
-<h3 id="20、Redis的内存用完了会发生什么？"><a href="#20、Redis的内存用完了会发生什么？" class="headerlink" title="20、Redis的内存用完了会发生什么？"></a>20、Redis的内存用完了会发生什么？</h3><p>答：如果达到设置的上限，Redis的写命令会返回错误信息（但是读命令还可以正常返回。）或者你可以将Redis当缓存来使用配置淘汰机制，当Redis达到内存上限时会冲刷掉旧的内容。</p>
-<h3 id="21、一个Redis实例最多能存放多少的keys？List、Set、Sorted-Set他们最多能存放多少元素？"><a href="#21、一个Redis实例最多能存放多少的keys？List、Set、Sorted-Set他们最多能存放多少元素？" class="headerlink" title="21、一个Redis实例最多能存放多少的keys？List、Set、Sorted Set他们最多能存放多少元素？"></a>21、一个Redis实例最多能存放多少的keys？List、Set、Sorted Set他们最多能存放多少元素？</h3><p>答：理论上Redis可以处理多达232的keys，并且在实际中进行了测试，每个实例至少存放了2亿5千万的keys。我们正在测试一些较大的值。任何list、set、和sorted set都可以放232个元素。换句话说，Redis的存储极限是系统中的可用内存值。</p>
-<h3 id="22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？"><a href="#22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？" class="headerlink" title="22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？"></a>22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？</h3><p>答：使用keys指令可以扫出指定模式的key列表。</p>
-<h3 id="23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？"><a href="#23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？" class="headerlink" title="23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？"></a>23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？</h3><p>答：redis的单线程的。keys指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长。</p>
-<h3 id="24、如果有大量的key需要设置同一时间过期，一般需要注意什么？"><a href="#24、如果有大量的key需要设置同一时间过期，一般需要注意什么？" class="headerlink" title="24、如果有大量的key需要设置同一时间过期，一般需要注意什么？"></a>24、如果有大量的key需要设置同一时间过期，一般需要注意什么？</h3><p>答：如果大量的key过期时间设置的过于集中，到过期的那个时间点，redis可能会出现短暂的卡顿现象。一般需要在时间上加一个随机值，使得过期时间分散一些。</p>
-<h3 id="25、Redis-集群方案应该怎么做？都有哪些方案？"><a href="#25、Redis-集群方案应该怎么做？都有哪些方案？" class="headerlink" title="25、Redis 集群方案应该怎么做？都有哪些方案？"></a>25、Redis 集群方案应该怎么做？都有哪些方案？</h3><ul>
-<li>codis：目前用的最多的集群方案，基本和 twemproxy 一致的效果，但它支持在节点数量改变情况下，旧节点数据可恢复到新 hash 节点。</li>
-<li>redis cluster3.0 自带的集群，特点在于他的分布式算法不是一致性 hash，而是 hash 槽的概念，以及自身支持节点设置从节点。具体看官方文档介绍。</li>
-<li>在业务代码层实现，起几个毫无关联的 redis 实例，在代码层，对 key 进行 hash 计算，然后去对应的redis 实例操作数据。这种方式对 hash 层代码要求比较高，考虑部分包括，节点失效后的替代算法方案，数据震荡后的自动脚本恢复，实例的监控，等等。</li>
-</ul>
-<h3 id="26、使用过-Redis-分布式锁么，它是怎么实现的"><a href="#26、使用过-Redis-分布式锁么，它是怎么实现的" class="headerlink" title="26、使用过 Redis 分布式锁么，它是怎么实现的?"></a>26、使用过 Redis 分布式锁么，它是怎么实现的?</h3><p>答：先拿 setnx 来争抢锁，抢到之后，再用 expire 给锁加一个过期时间防止锁忘记了释放。</p>
-<h3 id="27、如果在-setnx-之后执行-expire-之前进程意外-crash-或者要重启维护了，那会怎么样"><a href="#27、如果在-setnx-之后执行-expire-之前进程意外-crash-或者要重启维护了，那会怎么样" class="headerlink" title="27、如果在 setnx 之后执行 expire 之前进程意外 crash 或者要重启维护了，那会怎么样?"></a>27、如果在 setnx 之后执行 expire 之前进程意外 crash 或者要重启维护了，那会怎么样?</h3><p>答：set 指令有非常复杂的参数，这个应该是可以同时把 setnx 和 expire 合成一条指令来用的!</p>
-<h3 id="28、使用过-Redis-做异步队列么，你是怎么用的-有什么缺点"><a href="#28、使用过-Redis-做异步队列么，你是怎么用的-有什么缺点" class="headerlink" title="28、使用过 Redis 做异步队列么，你是怎么用的?有什么缺点?"></a>28、使用过 Redis 做异步队列么，你是怎么用的?有什么缺点?</h3><p>一般使用 list 结构作为队列，rpush 生产消息，lpop 消费消息。当 lpop 没有消息的时候，要适当 sleep 一会再重试。</p>
-<p>缺点:在消费者下线的情况下，生产的消息会丢失，得使用专业的消息队列如 rabbitmq 等。</p>
-<p><strong>能不能生产一次消费多次呢?</strong></p>
-<p>使用 pub&#x2F;sub 主题订阅者模式，可以实现 1:N 的消息队列。</p>
-<h3 id="29、缓存穿透、缓存击穿、缓存雪崩解决方案"><a href="#29、缓存穿透、缓存击穿、缓存雪崩解决方案" class="headerlink" title="29、缓存穿透、缓存击穿、缓存雪崩解决方案?"></a>29、缓存穿透、缓存击穿、缓存雪崩解决方案?</h3><p>**缓存穿透:**指查询一个一定不存在的数据，如果从存储层查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到 DB 去查询，可能导致 DB 挂掉。</p>
-<p>解决方案:</p>
-<p>1.查询返回的数据为空，仍把这个空结果进行缓存，但过期时间会比较短;</p>
-<p>2.布 隆过滤器:将所有可能存在的数据哈希到一个足够大的 bitmap 中，一个一定不存在的数据 会被这个 bitmap 拦截掉，从而避免了对 DB 的查询。</p>
-<p>**缓存击穿:**对于设置了过期时间的 key，缓存在某个时间点过期的时候，恰好这时间点对 这个 Key 有大量的并发请求过来，这些请求发现缓存过期一般都会从后端 DB 加载数据并 回设到缓存，这个时候大并发的请求可能会瞬间把 DB 压垮。</p>
-<p>解决方案:</p>
-<p>1.使用互斥锁:当缓存失效时，不立即去load db，先使用如Redis的setnx去设 置一个互斥锁，当操作成功返回时再进行load db的操作并回设缓存，否则重试get缓存的 方法。</p>
-<p>2.永远不过期:物理不过期，但逻辑过期(后台异步线程去刷新)。</p>
-<p>**缓存雪崩:**设置缓存时采用了相同的过期时间，导致缓存在某一时刻同时失效，请求全部 转发到 DB，DB 瞬时压力过重雪崩。与缓存击穿的区别:雪崩是很多 key，击穿是某一个key 缓存。</p>
-<p>解决方案:</p>
-<p>将缓存失效时间分散开，比如可以在原有的失效时间基础上增加一个随机值， 比如 1-5 分钟随机，这样每一个缓存的过期时间的重复率就会降低，就很难引发集体失效 的事件。</p>
-<h3 id="30、为什么redis单线程还是那么快？"><a href="#30、为什么redis单线程还是那么快？" class="headerlink" title="30、为什么redis单线程还是那么快？"></a>30、为什么redis单线程还是那么快？</h3><p>答：redis利用队列技术将并发访问变为串行访问，消除了传统数据库串行控制的开销。</p>
-<h3 id="31、使用-redis-如何设计分布式锁-说一下实现思路-使用-zk-可以吗-如何实现-这两种有什-么区别"><a href="#31、使用-redis-如何设计分布式锁-说一下实现思路-使用-zk-可以吗-如何实现-这两种有什-么区别" class="headerlink" title="31、使用 redis 如何设计分布式锁?说一下实现思路?使用 zk 可以吗?如何实现?这两种有什 么区别?"></a>31、使用 redis 如何设计分布式锁?说一下实现思路?使用 zk 可以吗?如何实现?这两种有什 么区别?</h3><p><strong>redis:</strong></p>
-<ol>
-<li>线程 A setnx(上锁的对象,超时时的时间戳 t1)，如果返回 true，获得锁。</li>
-<li>线程 B 用 get 获取 t1,与当前时间戳比较,判断是是否超时,没超时 false,若超时执行第 3 步。</li>
-<li>计算新的超时时间 t2,使用 getset 命令返回 t3(该值可能其他线程已经修改过),如果t1&#x3D;&#x3D;t3，获得锁，如果 t1!&#x3D;t3 说明锁被其他线程获取了。4.获取锁后，处理完业务逻辑，再去判断锁是否超时，如果没超时删除锁，如果已超时， 不用处理(防止删除其他线程的锁)。</li>
-</ol>
-<p><strong>zk:</strong></p>
-<ol>
-<li><p>客户端对某个方法加锁时，在 zk 上的与该方法对应的指定节点的目录下，生成一个唯一 的瞬时有序节点 node1。</p>
-</li>
-<li><p>客户端获取该路径下所有已经创建的子节点，如果发现自己创建的 node1 的序号是最小 的，就认为这个客户端获得了锁。</p>
-</li>
-<li><p>如果发现 node1 不是最小的，则监听比自己创建节点序号小的最大的节点，进入等待。</p>
-</li>
-<li><p>获取锁后，处理完逻辑，删除自己创建的 node1 即可。</p>
-</li>
-</ol>
-<p><strong>区别：</strong>zk 性能差一些，开销大，实现简单。</p>
-<h3 id="32、知道-redis-的持久化吗-底层如何实现的-有什么优点缺点"><a href="#32、知道-redis-的持久化吗-底层如何实现的-有什么优点缺点" class="headerlink" title="32、知道 redis 的持久化吗?底层如何实现的?有什么优点缺点?"></a>32、知道 redis 的持久化吗?底层如何实现的?有什么优点缺点?</h3><ul>
-<li><p>RDB(Redis DataBase:在不同的时间点将 redis 的数据生成的快照同步到磁盘等介质上):内存 到硬盘的快照，定期更新。缺点:耗时，耗性能(fork+io 操作)，易丢失数据。<br>AOF(Append Only File:将redis所执行过的所有指令都记录下来，在下次redis重启时，只 需要执行指令就可以了):写日志。缺点:体积大，恢复速度慢。</p>
-</li>
-<li><p>bgsave 做镜像全量持久化，aof 做增量持久化。因为 bgsave 会消耗比较长的时间，不够实 时，在停机的时候会导致大量的数据丢失，需要 aof 来配合，在 redis 实例重启时，优先使 用 aof 来恢复内存的状态，如果没有 aof 日志，就会使用 rdb 文件来恢复。Redis 会定期做aof 重写，压缩 aof 文件日志大小。Redis4.0 之后有了混合持久化的功能，将 bgsave 的全量 和 aof 的增量做了融合处理，这样既保证了恢复的效率又兼顾了数据的安全性。bgsave 的 原理，fork 和 cow, fork 是指 redis 通过创建子进程来进行 bgsave 操作，cow 指的是 copy on write，子进程创建后，父子进程共享数据段，父进程继续提供读写服务，写脏的页面数据 会逐渐和子进程分离开来。</p>
-</li>
-</ul>
-<h3 id="33、redis-过期策略都有哪些-LRU-算法知道吗-写一下-java-代码实现"><a href="#33、redis-过期策略都有哪些-LRU-算法知道吗-写一下-java-代码实现" class="headerlink" title="33、redis 过期策略都有哪些?LRU 算法知道吗?写一下 java 代码实现?"></a>33、redis 过期策略都有哪些?LRU 算法知道吗?写一下 java 代码实现?</h3><p><strong>过期策略:</strong></p>
-<ol>
-<li>定时过期(一 key 一定时器)。</li>
-<li>惰性过期:只有使用 key 时才判断 key 是否已过期，过期则清除。</li>
-<li>定期过期:前两者折中。</li>
-</ol>
-<p><strong>LRU:</strong></p>
-<p>new LinkedHashMap&lt;K, V&gt;(capacity, DEFAULT_LOAD_FACTORY, true);<br>&#x2F;&#x2F;第三个参数置为 true，代表 linkedlist 按访问顺序排序，可作为 LRU 缓存;设为 false 代表 按插入顺序排序，可作为 FIFO 缓存</p>
-<p><strong>LRU 算法实现:</strong></p>
-<p>1.通过双向链表来实现，新数据插入到链表头部;</p>
-<p>2.每当缓存命中(即缓存 数据被访问)，则将数据移到链表头部;</p>
-<p>3.当链表满的时候，将链表尾部的数据丢弃。</p>
-<p>LinkedHashMap:HashMap 和双向链表合二为一即是 LinkedHashMap。HashMap 是无序 的，LinkedHashMap 通过维护一个额外的双向链表保证了迭代顺序。该迭代顺序可以是插 入顺序(默认)，也可以是访问顺序。</p>
-<h3 id="34、缓存与数据库不一致怎么办？"><a href="#34、缓存与数据库不一致怎么办？" class="headerlink" title="34、缓存与数据库不一致怎么办？"></a>34、缓存与数据库不一致怎么办？</h3><p>答：假设采用的主存分离，读写分离的数据库，</p>
-<p>如果一个线程 A 先删除缓存数据，然后将数据写入到主库当中，这个时候，主库和从库同 步没有完成，线程 B 从缓存当中读取数据失败，从从库当中读取到旧数据，然后更新至缓 存，这个时候，缓存当中的就是旧的数据。</p>
-<p>发生上述不一致的原因在于，主从库数据不一致问题，加入了缓存之后，主从不一致的时间被拉长了。</p>
-<p>处理思路:在从库有数据更新之后，将缓存当中的数据也同时进行更新，即当从库发生了</p>
-<p>数据更新之后，向缓存发出删除，淘汰这段时间写入的旧数据。</p>
-<h3 id="35、主从数据库不一致如何解决？"><a href="#35、主从数据库不一致如何解决？" class="headerlink" title="35、主从数据库不一致如何解决？"></a>35、主从数据库不一致如何解决？</h3><p>场景描述，对于主从库，读写分离，如果主从库更新同步有时差，就会导致主从库数据的不一致，解决方法：</p>
-<ol>
-<li>忽略这个数据不一致，在数据一致性要求不高的业务下，未必需要时时一致性。</li>
-<li>强制读主库，使用一个高可用的主库，数据库读写都在主库，添加一个缓存，提升数据读取的性能。</li>
-<li>选择性读主库，添加一个缓存，用来记录必须读主库的数据，将哪个库，哪个表，哪个 主键，作为缓存的 key,设置缓存失效的时间为主从库同步的时间，如果缓存当中有这个数 据，直接读取主库，如果缓存当中没有这个主键，就到对应的从库中读取。</li>
-</ol>
-<h3 id="36、Redis-常见的性能问题和解决方案"><a href="#36、Redis-常见的性能问题和解决方案" class="headerlink" title="36、Redis 常见的性能问题和解决方案"></a>36、Redis 常见的性能问题和解决方案</h3><ol>
-<li>master 最好不要做持久化工作，如 RDB 内存快照和 AOF 日志文件。</li>
-<li>如果数据比较重要，某个 slave 开启 AOF 备份，策略设置成每秒同步一次。</li>
-<li>为了主从复制的速度和连接的稳定性，master 和 Slave 最好在一个局域网内。</li>
-<li>尽量避免在压力大得主库上增加从库5、主从复制不要采用网状结构，尽量是线性结构，Master&lt;–Slave1&lt;—-Slave2 ….</li>
-</ol>
-<h3 id="37、为什么要做Redis分区？"><a href="#37、为什么要做Redis分区？" class="headerlink" title="37、为什么要做Redis分区？"></a>37、为什么要做Redis分区？</h3><p>答：分区可以让Redis管理更大的内存，Redis将可以使用所有机器的内存。如果没有分区，你最多只能使用一台机器的内存。分区使Redis的计算能力通过简单地增加计算机得到成倍提升,Redis的网络带宽也会随着计算机和网卡的增加而成倍增长。</p>
-<h3 id="38、你知道有哪些Redis分区实现方案？"><a href="#38、你知道有哪些Redis分区实现方案？" class="headerlink" title="38、你知道有哪些Redis分区实现方案？"></a>38、你知道有哪些Redis分区实现方案？</h3><p>答：客户端分区就是在客户端就已经决定数据会被存储到哪个redis节点或者从哪个redis节点读取。大多数客户端已经实现了客户端分区。</p>
-<ol>
-<li>代理分区意味着客户端将请求发送给代理，然后代理决定去哪个节点写数据或者读数据。代理根据分区规则决定请求哪些Redis实例，然后根据Redis的响应结果返回给客户端。redis和memcached的一种代理实现就是Twemproxy</li>
-<li>查询路由(Query routing) 的意思是客户端随机地请求任意一个redis实例，然后由Redis将请求转发给正确的Redis节点。Redis Cluster实现了一种混合形式的查询路由，但并不是直接将请求从一个redis节点转发到另一个redis节点，而是在客户端的帮助下直接redirected到正确的redis节点。</li>
-</ol>
-<h3 id="39、Redis分区有什么缺点？"><a href="#39、Redis分区有什么缺点？" class="headerlink" title="39、Redis分区有什么缺点？"></a>39、Redis分区有什么缺点？</h3><p>涉及多个key的操作通常不会被支持。例如你不能对两个集合求交集，因为他们可能被存储到不同的Redis实例（实际上这种情况也有办法，但是不能直接使用交集指令）。</p>
-<p>同时操作多个key,则不能使用Redis事务。</p>
-<p>分区使用的粒度是key，不能使用一个非常长的排序key存储一个数据集（The partitioning granularity is the key, so it is not possible to shard a dataset with a single huge key like a very big sorted set）。</p>
-<p>当使用分区的时候，数据处理会非常复杂，例如为了备份你必须从不同的Redis实例和主机同时收集RDB &#x2F; AOF文件。</p>
-<p>分区时动态扩容或缩容可能非常复杂。Redis集群在运行时增加或者删除Redis节点，能做到最大程度对用户透明地数据再平衡，但其他一些客户端分区或者代理分区方法则不支持这种特性。然而，有一种预分片的技术也可以较好的解决这个问题。</p>
-<h3 id="40、Redis持久化数据和缓存怎么做扩容？"><a href="#40、Redis持久化数据和缓存怎么做扩容？" class="headerlink" title="40、Redis持久化数据和缓存怎么做扩容？"></a>40、Redis持久化数据和缓存怎么做扩容？</h3><p>答：如果Redis被当做缓存使用，使用一致性哈希实现动态扩容缩容。</p>
-<p>如果Redis被当做一个持久化存储使用，必须使用固定的keys-to-nodes映射关系，节点的数量一旦确定不能变化。否则的话(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。</p>
-<h3 id="41、redis的并发竞争问题如何解决"><a href="#41、redis的并发竞争问题如何解决" class="headerlink" title="41、redis的并发竞争问题如何解决?"></a>41、redis的并发竞争问题如何解决?</h3><p>答：Redis为单进程单线程模式，采用队列模式将并发访问变为串行访问。Redis本身没有锁的概念，Redis对于多个客户端连接并不存在竞争，但是在Jedis客户端对Redis进行并发访问时会发生连接超时、数据转换错误、阻塞、客户端关闭连接等问题，这些问题均是由于客户端连接混乱造成。</p>
-<p>对此有2种解决方法：</p>
-<p>1.客户端角度，为保证每个客户端间正常有序与Redis进行通信，对连接进行池化，同时对客户端读写Redis操作采用内部锁synchronized。</p>
-<p>2.服务器角度，利用setnx实现锁。</p>
-<p><strong>注：</strong>对于第一种，需要应用程序自己处理资源的同步，可以使用的方法比较通俗，可以使用synchronized也可以使用lock；第二种需要用到Redis的setnx命令，但是需要注意一些问题。</p>
-<h3 id="42、简述redis的哨兵模式"><a href="#42、简述redis的哨兵模式" class="headerlink" title="42、简述redis的哨兵模式"></a>42、简述redis的哨兵模式</h3><p>答：哨兵是对redis进行实时的监控，主要有两个功能。</p>
-<ul>
-<li>监测主数据库和从数据库是否正常运行。</li>
-<li>当主数据库出现故障的时候，可以自动将一个从数据库转换为主数据库，实现自动切换。</li>
-</ul>
-<h3 id="43、redis的哨兵的监控机制是怎样的？"><a href="#43、redis的哨兵的监控机制是怎样的？" class="headerlink" title="43、redis的哨兵的监控机制是怎样的？"></a>43、redis的哨兵的监控机制是怎样的？</h3><p>答：哨兵监控也是有集群的，会有多个哨兵进行监控，当判断发生故障的哨兵达到一定数量的时候才进行修复。一个健壮的部署至少需要三个哨兵实例。</p>
-<p>1.每个Sentinel以每秒钟一次的频率向它所知的Master，Slave以及其他 Sentinel 实例发送一个 PING 命令</p>
-<p>2.如果一个实例（instance）距离最后一次有效回复 PING 命令的时间超过 down-after-milliseconds 选项所指定的值， 则这个实例会被 Sentinel 标记为主观下线。</p>
-<p>3.如果一个Master被标记为主观下线，则正在监视这个Master的所有 Sentinel 要以每秒一次的频率确认Master的确进入了主观下线状态。</p>
-<p>4.当有足够数量的 Sentinel（大于等于配置文件指定的值）在指定的时间范围内确认Master的确进入了主观下线状态， 则Master会被标记为客观下线</p>
-<p>5.在一般情况下， 每个 Sentinel 会以每 10 秒一次的频率向它已知的所有Master，Slave发送 INFO 命令</p>
-<p>6.当Master被 Sentinel 标记为客观下线时，Sentinel 向下线的 Master 的所有 Slave 发送 INFO 命令的频率会从 10 秒一次改为每秒一次</p>
-<p>7.若没有足够数量的 Sentinel 同意 Master 已经下线， Master 的客观下线状态就会被移除。若 Master 重新向 Sentinel 的 PING 命令返回有效回复， Master 的主观下线状态就会被移除。</p>
-<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><h3 id="2-1-MQ有什么用？"><a href="#2-1-MQ有什么用？" class="headerlink" title="2.1 MQ有什么用？"></a>2.1 MQ有什么用？</h3><p><strong>参考答案</strong></p>
+<h2 id="2-消息队列"><a href="#2-消息队列" class="headerlink" title="2. 消息队列"></a>2. 消息队列</h2><h3 id="2-1-MQ有什么用？"><a href="#2-1-MQ有什么用？" class="headerlink" title="2.1 MQ有什么用？"></a>2.1 MQ有什么用？</h3><p><strong>参考答案</strong></p>
 <p>消息队列有很多使用场景，比较常见的有3个：解耦、异步、削峰。</p>
 <ol>
 <li>解耦：传统的软件开发模式，各个模块之间相互调用，数据共享，每个模块都要时刻关注其他模块的是否更改或者是否挂掉等等，使用消息队列，可以避免模块之间直接调用，将所需共享的数据放在消息队列中，对于新增业务模块，只要对该类消息感兴趣，即可订阅该类消息，对原有系统和业务没有任何影响，降低了系统各个模块的耦合度，提高了系统的可扩展性。</li>
@@ -2257,6 +2070,243 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <p>使用RabbitMQ提供的ack机制，首先关闭RabbitMQ的自动ack，然后每次在确保处理完这个消息之后，在代码里手动调用ack。这样就可以避免消息还没有处理完就ack。</p>
 </li>
 </ol>
+<h2 id="3-搜索引擎"><a href="#3-搜索引擎" class="headerlink" title="3. 搜索引擎"></a>3. 搜索引擎</h2><h3 id="3-1-说说ElasticSearch-put的全过程"><a href="#3-1-说说ElasticSearch-put的全过程" class="headerlink" title="3.1 说说ElasticSearch put的全过程"></a>3.1 说说ElasticSearch put的全过程</h3><p><strong>参考答案</strong></p>
+<p>put过程主要分为三个阶段：</p>
+<ol>
+<li><p>协调阶段：</p>
+<p>Client 客户端选择一个 node 发送 put 请求，此时当前节点就是协调节点（coordinating node）。协调节点根据 document 的 id 进行路由，将请求转发给对应的 node。这个 node 上的是 primary shard 。</p>
+</li>
+<li><p>主要阶段：</p>
+<p>对应的 primary shard 处理请求，写入数据 ，然后将数据同步到 replica shard。</p>
+<ul>
+<li>primary shard 会验证传入的数据结构；</li>
+<li>本地执行相关操作；</li>
+<li>将操作转发给 replica shard。</li>
+</ul>
+<p>当数据写入 primary shard 和 replica shard 成功后，路由节点返回响应给 Client。</p>
+</li>
+<li><p>副本阶段：</p>
+<p>每个 replica shard 在转发后，会进行本地操作。</p>
+</li>
+</ol>
+<p>在写操作时，默认情况下，只需要 primary shard 处于活跃状态即可进行操作。在索引设置时可以设置这个属性：index.write.wait_for_active_shards。默认是 1，即 primary shard 写入成功即可返回。 如果设置为 all 则相当于 number_of_replicas+1 就是 primary shard 数量 + replica shard 数量。就是需要等待 primary shard 和 replica shard 都写入成功才算成功。可以通过索引设置动态覆盖此默认设置。</p>
+<h3 id="3-2-说说ElasticSearch的倒排索引"><a href="#3-2-说说ElasticSearch的倒排索引" class="headerlink" title="3.2 说说ElasticSearch的倒排索引"></a>3.2 说说ElasticSearch的倒排索引</h3><p><strong>参考答案</strong></p>
+<p>Elasticsearch 使用一种称为倒排索引的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p>
+<p>例如，假设我们有两个文档，每个文档的 content 域包含如下内容：</p>
+<ol>
+<li>The quick brown fox jumped over the lazy dog</li>
+<li>Quick brown foxes leap over lazy dogs in summer</li>
+</ol>
+<p>为了创建倒排索引，我们首先将每个文档的 content 域拆分成单独的 词（我们称它为 词条 或 tokens），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p>
+<p><img src="https://s2.loli.net/2022/07/17/85VqbenGXS6dKlD.png"></p>
+<p>现在，如果我们想搜索 quick brown ，我们只需要查找包含每个词条的文档：</p>
+<p><img src="https://s2.loli.net/2022/07/17/jAgnwrfbQhdtq13.png"></p>
+<p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单相似性算法 ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p>
+<p>但是，我们目前的倒排索引有一些问题：</p>
+<ul>
+<li>Quick 和 quick 以独立的词条出现，然而用户可能认为它们是相同的词。</li>
+<li>fox 和 foxes 非常相似, 就像 dog 和 dogs ；他们有相同的词根。</li>
+<li>jumped 和 leap, 尽管没有相同的词根，但他们的意思很相近。他们是同义词。</li>
+</ul>
+<p>使用前面的索引搜索 +Quick +fox 不会得到任何匹配文档。（记住，+ 前缀表明这个词必须存在。）只有同时出现 Quick 和 fox 的文档才满足这个查询条件，但是第一个文档包含 quick fox ，第二个文档包含 Quick foxes 。</p>
+<p>我们的用户可以合理的期望两个文档与查询匹配。我们可以做的更好。如果我们将词条规范为标准模式，那么我们可以找到与用户搜索的词条不完全一致，但具有足够相关性的文档。例如：</p>
+<ul>
+<li>Quick 可以小写化为 quick 。</li>
+<li>foxes 可以 <em>词干提取</em> –变为词根的格式– 为 fox 。类似的， dogs 可以为提取为 dog 。</li>
+<li>jumped 和 leap 是同义词，可以索引为相同的单词 jump 。</li>
+</ul>
+<p>现在索引看上去像这样：</p>
+<p><img src="https://s2.loli.net/2022/07/17/kjZ9Sn8mApxFrfo.png"></p>
+<p>这还远远不够。我们搜索 +Quick +fox <em>仍然</em> 会失败，因为在我们的索引中，已经没有 Quick 了。但是，如果我们对搜索的字符串使用与 content 域相同的标准化规则，会变成查询 +quick +fox ，这样两个文档都会匹配！</p>
+<h3 id="3-3-说一说你对solr的了解"><a href="#3-3-说一说你对solr的了解" class="headerlink" title="3.3 说一说你对solr的了解"></a>3.3 说一说你对solr的了解</h3><p><strong>参考答案</strong></p>
+<p>Solr是一个高性能，采用Java，基于Lucene的全文搜索服务器。同时对其进行了扩展，提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展并对查询性能进行了优化，并且提供了一个完善的功能管理界面，是一款非常优秀的全文搜索引擎。</p>
+<h2 id="补充：Redis"><a href="#补充：Redis" class="headerlink" title="补充：Redis"></a>补充：Redis</h2><p>Redis，全称：Remote Dictionary Server，是一个基于内存的高性能key-value数据库，是应用服务提高效率和性能必不可少的一部分，因为当前大部分的应用都离不开Redis。</p>
+<h3 id="如何解决Redis缓存与MySQL的数据一致性问题？"><a href="#如何解决Redis缓存与MySQL的数据一致性问题？" class="headerlink" title="如何解决Redis缓存与MySQL的数据一致性问题？"></a>如何解决Redis缓存与MySQL的数据一致性问题？</h3><p>第一种读：我们先从缓存中读取数据，若命中直接返回，否则查询数据库并将数据加入缓存中返回。</p>
+<p>第二种写：我们有2中情况：</p>
+<ol>
+<li>先更新数据库再更新（删除）缓存</li>
+<li>先更新（删除）缓存再更新数据库。</li>
+</ol>
+<p>分析第一种情况：如果都是正常，一切都没问题，若更新数据库失败，直接抛出异常，若更新数据库成功，更新（删除）缓存失败，则会导致数据不一致。</p>
+<p>解决方案：1. 增加锁，保证原子性 2. 将更新删除失败的key放入消息队列，再次消费，会有短暂的消失不一样。</p>
+<p>分析第二种情况：正常情况下，删除缓存成功，更新数据库成功。异常情况下，删除缓存失败，抛异常，删除缓存成功，更新数据库失败，再次读取还是老数据，数据一致。</p>
+<p>上述方案感觉完美解决了数据一致性问题，其实不然，高并发下也有问题：A删除缓存成功，B查询数据，缓存没命中，读取数据库老数据，缓存老数据，A更新数据库成功，后面再查询都是老数据。</p>
+<p>解决方案：将删除缓存，更新数据库，查询数据做成串行化保证数据</p>
+<ol start="3">
+<li>使用canal订阅binlog日志</li>
+</ol>
+<h3 id="1、什么是-Redis-简述它的优缺点"><a href="#1、什么是-Redis-简述它的优缺点" class="headerlink" title="1、什么是 Redis?简述它的优缺点?"></a>1、什么是 Redis?简述它的优缺点?</h3><p>Remote Dictionary.Server，本质上是一个 Key-Value 类型的内存数据库，很像memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据 flush 到硬盘 上进行保存。</p>
+<p>因为是纯内存操作，Redis 的性能非常出色，每秒可以处理超过 10 万次读写操作，是已知性能最快的Key-Value DB。</p>
+<p>Redis 的出色之处不仅仅是性能，Redis 最大的魅力是支持保存多种数据结构，此外单个 value 的最大限制是 1GB，不像 memcached 只能保存 1MB 的数据，因此 Redis 可以用来实现很多有用的功能。比方说用他的 List 来做 FIFO 双向链表，实现一个轻量级的高性能消息队列服务，用他的 Set 可以做高 性能的 tag 系统等等。</p>
+<p>另外 Redis 也可以对存入的 Key-Value 设置 expire 时间，因此也可以被当作一 个功能加强版的memcached 来用。</p>
+<p>Redis 的主要缺点是数据库容量受到物理内存的限制，不能用作海量数据的高性能 读写，因此 Redis 适合的场景主要局限在较小数据量的高性能操作和运算上。</p>
+<h3 id="2、使用redis的好处"><a href="#2、使用redis的好处" class="headerlink" title="2、使用redis的好处"></a>2、使用redis的好处</h3><ul>
+<li>速度快，因为数据存在内存中，类似于HashMap，HashMap的优势就是查找和操作的时间复杂度都是O(1)。</li>
+<li>支持丰富数据类型，支持string，list，set，sorted set，hash</li>
+<li>支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行。</li>
+<li>丰富的特性：可用于缓存，消息，按key设置过期时间，过期后将会自动删除。</li>
+</ul>
+<h3 id="3、Redis支持哪几种数据类型？"><a href="#3、Redis支持哪几种数据类型？" class="headerlink" title="3、Redis支持哪几种数据类型？"></a>3、Redis支持哪几种数据类型？</h3><p>答：Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</p>
+<p>还有一些数据结构如HyperLogLog、Geo、Pub&#x2F;Sub等，我们也最好知道，另外像Redis Module，像BloomFilter，RedisSearch，Redis-ML等，能有个印象，哪怕知其然不知其所以然也比听都没听过好点。</p>
+<h3 id="4、Redis有哪几种淘汰策略？"><a href="#4、Redis有哪几种淘汰策略？" class="headerlink" title="4、Redis有哪几种淘汰策略？"></a>4、Redis有哪几种淘汰策略？</h3><p>Redis的内存淘汰策略是指在Redis的用于缓存的内存不足时，怎么处理需要新写入且需要申请额外空间的数据。</p>
+<ul>
+<li>no-eviction：当内存不足以容纳新写入数据时，新写入操作会报错。</li>
+<li>allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key。</li>
+<li>allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key。</li>
+<li>volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key。</li>
+<li>volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key。</li>
+<li>volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。</li>
+</ul>
+<p>注意这里的6种机制，volatile和allkeys规定了是对已设置过期时间的数据集淘汰数据还是从全部数据集淘汰数据，后面的lru、ttl以及random是三种不同的淘汰策略，再加上一种no-enviction永不回收的策略。</p>
+<p>使用策略规则：</p>
+<ol>
+<li>如果数据呈现幂律分布，也就是一部分数据访问频率高，一部分数据访问频率低，则使用allkeys-lru</li>
+<li>如果数据呈现平等分布，也就是所有的数据访问频率都相同，则使用allkeys-random</li>
+</ol>
+<h3 id="5、为什么-Redis-需要把所有数据放到内存中"><a href="#5、为什么-Redis-需要把所有数据放到内存中" class="headerlink" title="5、为什么 Redis 需要把所有数据放到内存中?"></a>5、为什么 Redis 需要把所有数据放到内存中?</h3><p>答：Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入磁盘。所以 redis 具有快速和数据持久化的特征，如果不将数据放在内存中，磁盘 I&#x2F;O 速度会严重影响 redis 的 性能。</p>
+<p>在内存越来越便宜的今天，redis 将会越来越受欢迎， 如果设置了最大使用的内存，则数据已有记录数达到内存限值后不能继续插入新值。</p>
+<h3 id="6、Redis-有哪些适合的场景"><a href="#6、Redis-有哪些适合的场景" class="headerlink" title="6、Redis 有哪些适合的场景?"></a>6、Redis 有哪些适合的场景?</h3><p><strong>(1)会话缓存(Session Cache)</strong></p>
+<p>最常用的一种使用 Redis 的情景是会话缓存(sessioncache)，用 Redis 缓存会话比其他存储(如Memcached)的优势在于:Redis 提供持久化。当维护一个不是严格要求一致性的缓存时，如果用户的 购物车信息全部丢失，大部分人都会不高兴的，现在，他们还会这样吗?<br>幸运的是，随着 Redis 这些年的改进，很容易找到怎么恰当的使用 Redis 来缓存会话的文档。甚至广为 人知的商业平台 Magento 也提供 Redis 的插件。<br><strong>(2)全页缓存(FPC)</strong></p>
+<p>除基本的会话 token 之外，Redis 还提供很简便的 FPC 平台。回到一致性问题，即使重启了 Redis 实 例，因为有磁盘的持久化，用户也不会看到页面加载速度的下降，这是一个极大改进，类似 PHP 本地FPC。</p>
+<p>再次以 Magento 为例，Magento 提供一个插件来使用 Redis 作为全页缓存后端。此外，对 WordPress 的用户来说，Pantheon 有一个非常好的插件 wp-redis，这个插件能帮助你以最快 速度加载你曾浏览过的页面。<br><strong>(3)队列</strong></p>
+<p>Reids 在内存存储引擎领域的一大优点是提供 list 和 set 操作，这使得 Redis 能作为一个很好的消息队列平台来使用。Redis 作为队列使用的操作，就类似于本地程序语言(如 Python)对 list 的 push&#x2F;pop操作。</p>
+<p>如果你快速的在 Google 中搜索“Redis queues”，你马上就能找到大量的开源项目，这些项目的目的 就是利用 Redis 创建非常好的后端工具，以满足各种队列需求。例如，Celery 有一个后台就是使用Redis 作为 broker，你可以从这里去查看。<br><strong>(4)排行榜&#x2F;计数器</strong></p>
+<p>Redis 在内存中对数字进行递增或递减的操作实现的非常好。集合(Set)和有序集合(SortedSet)也使 得我们在执行这些操作的时候变的非常简单，Redis 只是正好提供了这两种数据结构。所以，我们要从排序集合中获取到排名最靠前的 10 个用户–我们称之为“user_scores”，我们只需要像 下面一样执行即可: 当然，这是假定你是根据你用户的分数做递增的排序。如果你想返回用户及用户的分数，你需要这样执 行:</p>
+<p>ZRANGE user_scores 0 10 WITHSCORES</p>
+<p>Agora Games 就是一个很好的例子，用 Ruby 实现的，它的排行榜就是使用 Redis 来存储数据的，你可 以在这里看到。<br><strong>(5)发布&#x2F;订阅</strong></p>
+<p>最后(但肯定不是最不重要的)是 Redis 的发布&#x2F;订阅功能。发布&#x2F;订阅的使用场景确实非常多。我已看见 人们在社交网络连接中使用，还可作为基于发布&#x2F;订阅的脚本触发器，甚至用 Redis 的发布&#x2F;订阅功能来建 立聊天系统!</p>
+<h3 id="7、说说-Redis-哈希槽的概念"><a href="#7、说说-Redis-哈希槽的概念" class="headerlink" title="7、说说 Redis 哈希槽的概念?"></a>7、说说 Redis 哈希槽的概念?</h3><p>Redis 集群没有使用一致性 hash,而是引入了哈希槽的概念，Redis 集群有 16384 个哈希槽，每个 key 通 过 CRC16 校验后对 16384 取模来决定放置哪个槽，集群的每个节点负责一部分 hash 槽。</p>
+<h3 id="8、Redis-集群的主从复制模型是怎样的"><a href="#8、Redis-集群的主从复制模型是怎样的" class="headerlink" title="8、Redis 集群的主从复制模型是怎样的?"></a>8、Redis 集群的主从复制模型是怎样的?</h3><p>为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型,每个节点都会有 N-1 个复制品。</p>
+<h3 id="9、Redis-集群会有写操作丢失吗-为什么"><a href="#9、Redis-集群会有写操作丢失吗-为什么" class="headerlink" title="9、Redis 集群会有写操作丢失吗?为什么?"></a>9、Redis 集群会有写操作丢失吗?为什么?</h3><p>Redis 并不能保证数据的强一致性，这意味这在实际中集群在特定的条件下可能会丢失写操作。</p>
+<h3 id="10、Redis-集群之间是如何复制的"><a href="#10、Redis-集群之间是如何复制的" class="headerlink" title="10、Redis 集群之间是如何复制的?"></a>10、Redis 集群之间是如何复制的?</h3><p>答：异步复制</p>
+<h3 id="11、Redis-中的管道有什么用"><a href="#11、Redis-中的管道有什么用" class="headerlink" title="11、Redis 中的管道有什么用?"></a>11、Redis 中的管道有什么用?</h3><p>一次请求&#x2F;响应服务器能实现处理新的请求即使旧的请求还未被响应，这样就可以将多个命令发送到服务 器，而不用等待回复，最后在一个步骤中读取该答复。这就是管道(pipelining)，是一种几十年来广泛使用的技术。例如许多 POP3 协议已经实现支持这个功 能，大大加快了从服务器下载新邮件的过程。</p>
+<h3 id="12、怎么理解-Redis-事务"><a href="#12、怎么理解-Redis-事务" class="headerlink" title="12、怎么理解 Redis 事务?"></a>12、怎么理解 Redis 事务?</h3><ul>
+<li><p>事务是一个单独的隔离操作:事务中的所有命令都会序列化、按顺序地执行，事务在执行的过程中，不会 被其他客户端发送来的命令请求所打断。</p>
+</li>
+<li><p>事务是一个原子操作:事务中的命令要么全部被执行，要么全部都不执行。</p>
+</li>
+</ul>
+<h3 id="13、Redis-事务相关的命令有哪几个"><a href="#13、Redis-事务相关的命令有哪几个" class="headerlink" title="13、Redis 事务相关的命令有哪几个?"></a>13、Redis 事务相关的命令有哪几个?</h3><p>MULTI、EXEC、DISCARD、WATCH</p>
+<h3 id="14、Redis-key-的过期时间和永久有效分别怎么设置"><a href="#14、Redis-key-的过期时间和永久有效分别怎么设置" class="headerlink" title="14、Redis key 的过期时间和永久有效分别怎么设置?"></a>14、Redis key 的过期时间和永久有效分别怎么设置?</h3><p>EXPIRE 和 PERSIST 命令</p>
+<h3 id="15、Redis-如何做内存优化"><a href="#15、Redis-如何做内存优化" class="headerlink" title="15、Redis 如何做内存优化?"></a>15、Redis 如何做内存优化?</h3><p>尽可能使用散列表(hashes)，散列表(是说散列表里面存储的数少)使用的内存非常小，所以你应该 尽可能的将你的数据模型抽象到一个散列表里面。</p>
+<p>比如你的 web 系统中有一个用户对象，不要为这个用户的名称，姓氏，邮箱，密码设置单独的 key,而是 应该把这个用户的所有信息存储到一张散列表里面。</p>
+<h3 id="16、Redis-回收进程如何工作的"><a href="#16、Redis-回收进程如何工作的" class="headerlink" title="16、Redis 回收进程如何工作的?"></a>16、Redis 回收进程如何工作的?</h3><p>一个客户端运行了新的命令，添加了新的数据。Redi 检查内存使用情况，如果大于 maxmemory 的限制, 则根据设定好的策略进行回收。一个新的命令被执行，等等。所以我们不断地穿越内存限制的边界，通过不断达到边界然后不断地回收回到边界以下。如果一个命令的结果导致大量内存被使用(例如很大的集合的交集保存到一个新的键)，不用多久内存限 制就会被这个内存使用量超越。</p>
+<h3 id="17、Redis集群最大节点个数是多少？"><a href="#17、Redis集群最大节点个数是多少？" class="headerlink" title="17、Redis集群最大节点个数是多少？"></a>17、Redis集群最大节点个数是多少？</h3><p>答：16384个。</p>
+<h3 id="18、Redis集群如何选择数据库？"><a href="#18、Redis集群如何选择数据库？" class="headerlink" title="18、Redis集群如何选择数据库？"></a>18、Redis集群如何选择数据库？</h3><p>答：Redis集群目前无法做数据库选择，默认在0数据库。</p>
+<h3 id="19、都有哪些办法可以降低Redis的内存使用情况呢？"><a href="#19、都有哪些办法可以降低Redis的内存使用情况呢？" class="headerlink" title="19、都有哪些办法可以降低Redis的内存使用情况呢？"></a>19、都有哪些办法可以降低Redis的内存使用情况呢？</h3><p>答：如果你使用的是32位的Redis实例，可以好好利用Hash,list,sorted set,set等集合类型数据，因为通常情况下很多小的Key-Value可以用更紧凑的方式存放到一起。</p>
+<h3 id="20、Redis的内存用完了会发生什么？"><a href="#20、Redis的内存用完了会发生什么？" class="headerlink" title="20、Redis的内存用完了会发生什么？"></a>20、Redis的内存用完了会发生什么？</h3><p>答：如果达到设置的上限，Redis的写命令会返回错误信息（但是读命令还可以正常返回。）或者你可以将Redis当缓存来使用配置淘汰机制，当Redis达到内存上限时会冲刷掉旧的内容。</p>
+<h3 id="21、一个Redis实例最多能存放多少的keys？List、Set、Sorted-Set他们最多能存放多少元素？"><a href="#21、一个Redis实例最多能存放多少的keys？List、Set、Sorted-Set他们最多能存放多少元素？" class="headerlink" title="21、一个Redis实例最多能存放多少的keys？List、Set、Sorted Set他们最多能存放多少元素？"></a>21、一个Redis实例最多能存放多少的keys？List、Set、Sorted Set他们最多能存放多少元素？</h3><p>答：理论上Redis可以处理多达232的keys，并且在实际中进行了测试，每个实例至少存放了2亿5千万的keys。我们正在测试一些较大的值。任何list、set、和sorted set都可以放232个元素。换句话说，Redis的存储极限是系统中的可用内存值。</p>
+<h3 id="22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？"><a href="#22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？" class="headerlink" title="22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？"></a>22、假如Redis里面有1亿个key，其中有10w个key是以某个固定的已知的前缀开头的，如果将它们全部找出来？</h3><p>答：使用keys指令可以扫出指定模式的key列表。</p>
+<h3 id="23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？"><a href="#23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？" class="headerlink" title="23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？"></a>23、如果这个redis正在给线上的业务提供服务，那使用keys指令会有什么问题？</h3><p>答：redis的单线程的。keys指令会导致线程阻塞一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用scan指令，scan指令可以无阻塞的提取出指定模式的key列表，但是会有一定的重复概率，在客户端做一次去重就可以了，但是整体所花费的时间会比直接用keys指令长。</p>
+<h3 id="24、如果有大量的key需要设置同一时间过期，一般需要注意什么？"><a href="#24、如果有大量的key需要设置同一时间过期，一般需要注意什么？" class="headerlink" title="24、如果有大量的key需要设置同一时间过期，一般需要注意什么？"></a>24、如果有大量的key需要设置同一时间过期，一般需要注意什么？</h3><p>答：如果大量的key过期时间设置的过于集中，到过期的那个时间点，redis可能会出现短暂的卡顿现象。一般需要在时间上加一个随机值，使得过期时间分散一些。</p>
+<h3 id="25、Redis-集群方案应该怎么做？都有哪些方案？"><a href="#25、Redis-集群方案应该怎么做？都有哪些方案？" class="headerlink" title="25、Redis 集群方案应该怎么做？都有哪些方案？"></a>25、Redis 集群方案应该怎么做？都有哪些方案？</h3><ul>
+<li>codis：目前用的最多的集群方案，基本和 twemproxy 一致的效果，但它支持在节点数量改变情况下，旧节点数据可恢复到新 hash 节点。</li>
+<li>redis cluster3.0 自带的集群，特点在于他的分布式算法不是一致性 hash，而是 hash 槽的概念，以及自身支持节点设置从节点。具体看官方文档介绍。</li>
+<li>在业务代码层实现，起几个毫无关联的 redis 实例，在代码层，对 key 进行 hash 计算，然后去对应的redis 实例操作数据。这种方式对 hash 层代码要求比较高，考虑部分包括，节点失效后的替代算法方案，数据震荡后的自动脚本恢复，实例的监控，等等。</li>
+</ul>
+<h3 id="26、使用过-Redis-分布式锁么，它是怎么实现的"><a href="#26、使用过-Redis-分布式锁么，它是怎么实现的" class="headerlink" title="26、使用过 Redis 分布式锁么，它是怎么实现的?"></a>26、使用过 Redis 分布式锁么，它是怎么实现的?</h3><p>答：先拿 setnx 来争抢锁，抢到之后，再用 expire 给锁加一个过期时间防止锁忘记了释放。</p>
+<h3 id="27、如果在-setnx-之后执行-expire-之前进程意外-crash-或者要重启维护了，那会怎么样"><a href="#27、如果在-setnx-之后执行-expire-之前进程意外-crash-或者要重启维护了，那会怎么样" class="headerlink" title="27、如果在 setnx 之后执行 expire 之前进程意外 crash 或者要重启维护了，那会怎么样?"></a>27、如果在 setnx 之后执行 expire 之前进程意外 crash 或者要重启维护了，那会怎么样?</h3><p>答：set 指令有非常复杂的参数，这个应该是可以同时把 setnx 和 expire 合成一条指令来用的!</p>
+<h3 id="28、使用过-Redis-做异步队列么，你是怎么用的-有什么缺点"><a href="#28、使用过-Redis-做异步队列么，你是怎么用的-有什么缺点" class="headerlink" title="28、使用过 Redis 做异步队列么，你是怎么用的?有什么缺点?"></a>28、使用过 Redis 做异步队列么，你是怎么用的?有什么缺点?</h3><p>一般使用 list 结构作为队列，rpush 生产消息，lpop 消费消息。当 lpop 没有消息的时候，要适当 sleep 一会再重试。</p>
+<p>缺点:在消费者下线的情况下，生产的消息会丢失，得使用专业的消息队列如 rabbitmq 等。</p>
+<p><strong>能不能生产一次消费多次呢?</strong></p>
+<p>使用 pub&#x2F;sub 主题订阅者模式，可以实现 1:N 的消息队列。</p>
+<h3 id="29、缓存穿透、缓存击穿、缓存雪崩解决方案"><a href="#29、缓存穿透、缓存击穿、缓存雪崩解决方案" class="headerlink" title="29、缓存穿透、缓存击穿、缓存雪崩解决方案?"></a>29、缓存穿透、缓存击穿、缓存雪崩解决方案?</h3><p>**缓存穿透:**指查询一个一定不存在的数据，如果从存储层查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到 DB 去查询，可能导致 DB 挂掉。</p>
+<p>解决方案:</p>
+<p>1.查询返回的数据为空，仍把这个空结果进行缓存，但过期时间会比较短;</p>
+<p>2.布 隆过滤器:将所有可能存在的数据哈希到一个足够大的 bitmap 中，一个一定不存在的数据 会被这个 bitmap 拦截掉，从而避免了对 DB 的查询。</p>
+<p>**缓存击穿:**对于设置了过期时间的 key，缓存在某个时间点过期的时候，恰好这时间点对 这个 Key 有大量的并发请求过来，这些请求发现缓存过期一般都会从后端 DB 加载数据并 回设到缓存，这个时候大并发的请求可能会瞬间把 DB 压垮。</p>
+<p>解决方案:</p>
+<p>1.使用互斥锁:当缓存失效时，不立即去load db，先使用如Redis的setnx去设 置一个互斥锁，当操作成功返回时再进行load db的操作并回设缓存，否则重试get缓存的 方法。</p>
+<p>2.永远不过期:物理不过期，但逻辑过期(后台异步线程去刷新)。</p>
+<p>**缓存雪崩:**设置缓存时采用了相同的过期时间，导致缓存在某一时刻同时失效，请求全部 转发到 DB，DB 瞬时压力过重雪崩。与缓存击穿的区别:雪崩是很多 key，击穿是某一个key 缓存。</p>
+<p>解决方案:</p>
+<p>将缓存失效时间分散开，比如可以在原有的失效时间基础上增加一个随机值， 比如 1-5 分钟随机，这样每一个缓存的过期时间的重复率就会降低，就很难引发集体失效 的事件。</p>
+<h3 id="30、为什么redis单线程还是那么快？"><a href="#30、为什么redis单线程还是那么快？" class="headerlink" title="30、为什么redis单线程还是那么快？"></a>30、为什么redis单线程还是那么快？</h3><p>答：redis利用队列技术将并发访问变为串行访问，消除了传统数据库串行控制的开销。</p>
+<h3 id="31、使用-redis-如何设计分布式锁-说一下实现思路-使用-zk-可以吗-如何实现-这两种有什-么区别"><a href="#31、使用-redis-如何设计分布式锁-说一下实现思路-使用-zk-可以吗-如何实现-这两种有什-么区别" class="headerlink" title="31、使用 redis 如何设计分布式锁?说一下实现思路?使用 zk 可以吗?如何实现?这两种有什 么区别?"></a>31、使用 redis 如何设计分布式锁?说一下实现思路?使用 zk 可以吗?如何实现?这两种有什 么区别?</h3><p><strong>redis:</strong></p>
+<ol>
+<li>线程 A setnx(上锁的对象,超时时的时间戳 t1)，如果返回 true，获得锁。</li>
+<li>线程 B 用 get 获取 t1,与当前时间戳比较,判断是是否超时,没超时 false,若超时执行第 3 步。</li>
+<li>计算新的超时时间 t2,使用 getset 命令返回 t3(该值可能其他线程已经修改过),如果t1&#x3D;&#x3D;t3，获得锁，如果 t1!&#x3D;t3 说明锁被其他线程获取了。4.获取锁后，处理完业务逻辑，再去判断锁是否超时，如果没超时删除锁，如果已超时， 不用处理(防止删除其他线程的锁)。</li>
+</ol>
+<p><strong>zk:</strong></p>
+<ol>
+<li><p>客户端对某个方法加锁时，在 zk 上的与该方法对应的指定节点的目录下，生成一个唯一 的瞬时有序节点 node1。</p>
+</li>
+<li><p>客户端获取该路径下所有已经创建的子节点，如果发现自己创建的 node1 的序号是最小 的，就认为这个客户端获得了锁。</p>
+</li>
+<li><p>如果发现 node1 不是最小的，则监听比自己创建节点序号小的最大的节点，进入等待。</p>
+</li>
+<li><p>获取锁后，处理完逻辑，删除自己创建的 node1 即可。</p>
+</li>
+</ol>
+<p><strong>区别：</strong>zk 性能差一些，开销大，实现简单。</p>
+<h3 id="32、知道-redis-的持久化吗-底层如何实现的-有什么优点缺点"><a href="#32、知道-redis-的持久化吗-底层如何实现的-有什么优点缺点" class="headerlink" title="32、知道 redis 的持久化吗?底层如何实现的?有什么优点缺点?"></a>32、知道 redis 的持久化吗?底层如何实现的?有什么优点缺点?</h3><ul>
+<li><p>RDB(Redis DataBase:在不同的时间点将 redis 的数据生成的快照同步到磁盘等介质上):内存 到硬盘的快照，定期更新。缺点:耗时，耗性能(fork+io 操作)，易丢失数据。<br>AOF(Append Only File:将redis所执行过的所有指令都记录下来，在下次redis重启时，只 需要执行指令就可以了):写日志。缺点:体积大，恢复速度慢。</p>
+</li>
+<li><p>bgsave 做镜像全量持久化，aof 做增量持久化。因为 bgsave 会消耗比较长的时间，不够实 时，在停机的时候会导致大量的数据丢失，需要 aof 来配合，在 redis 实例重启时，优先使 用 aof 来恢复内存的状态，如果没有 aof 日志，就会使用 rdb 文件来恢复。Redis 会定期做aof 重写，压缩 aof 文件日志大小。Redis4.0 之后有了混合持久化的功能，将 bgsave 的全量 和 aof 的增量做了融合处理，这样既保证了恢复的效率又兼顾了数据的安全性。bgsave 的 原理，fork 和 cow, fork 是指 redis 通过创建子进程来进行 bgsave 操作，cow 指的是 copy on write，子进程创建后，父子进程共享数据段，父进程继续提供读写服务，写脏的页面数据 会逐渐和子进程分离开来。</p>
+</li>
+</ul>
+<h3 id="33、redis-过期策略都有哪些-LRU-算法知道吗-写一下-java-代码实现"><a href="#33、redis-过期策略都有哪些-LRU-算法知道吗-写一下-java-代码实现" class="headerlink" title="33、redis 过期策略都有哪些?LRU 算法知道吗?写一下 java 代码实现?"></a>33、redis 过期策略都有哪些?LRU 算法知道吗?写一下 java 代码实现?</h3><p><strong>过期策略:</strong></p>
+<ol>
+<li>定时过期(一 key 一定时器)。</li>
+<li>惰性过期:只有使用 key 时才判断 key 是否已过期，过期则清除。</li>
+<li>定期过期:前两者折中。</li>
+</ol>
+<p><strong>LRU:</strong></p>
+<p>new LinkedHashMap&lt;K, V&gt;(capacity, DEFAULT_LOAD_FACTORY, true);<br>&#x2F;&#x2F;第三个参数置为 true，代表 linkedlist 按访问顺序排序，可作为 LRU 缓存;设为 false 代表 按插入顺序排序，可作为 FIFO 缓存</p>
+<p><strong>LRU 算法实现:</strong></p>
+<p>1.通过双向链表来实现，新数据插入到链表头部;</p>
+<p>2.每当缓存命中(即缓存 数据被访问)，则将数据移到链表头部;</p>
+<p>3.当链表满的时候，将链表尾部的数据丢弃。</p>
+<p>LinkedHashMap:HashMap 和双向链表合二为一即是 LinkedHashMap。HashMap 是无序 的，LinkedHashMap 通过维护一个额外的双向链表保证了迭代顺序。该迭代顺序可以是插 入顺序(默认)，也可以是访问顺序。</p>
+<h3 id="34、缓存与数据库不一致怎么办？"><a href="#34、缓存与数据库不一致怎么办？" class="headerlink" title="34、缓存与数据库不一致怎么办？"></a>34、缓存与数据库不一致怎么办？</h3><p>答：假设采用的主存分离，读写分离的数据库，</p>
+<p>如果一个线程 A 先删除缓存数据，然后将数据写入到主库当中，这个时候，主库和从库同 步没有完成，线程 B 从缓存当中读取数据失败，从从库当中读取到旧数据，然后更新至缓 存，这个时候，缓存当中的就是旧的数据。</p>
+<p>发生上述不一致的原因在于，主从库数据不一致问题，加入了缓存之后，主从不一致的时间被拉长了。</p>
+<p>处理思路:在从库有数据更新之后，将缓存当中的数据也同时进行更新，即当从库发生了</p>
+<p>数据更新之后，向缓存发出删除，淘汰这段时间写入的旧数据。</p>
+<h3 id="35、主从数据库不一致如何解决？"><a href="#35、主从数据库不一致如何解决？" class="headerlink" title="35、主从数据库不一致如何解决？"></a>35、主从数据库不一致如何解决？</h3><p>场景描述，对于主从库，读写分离，如果主从库更新同步有时差，就会导致主从库数据的不一致，解决方法：</p>
+<ol>
+<li>忽略这个数据不一致，在数据一致性要求不高的业务下，未必需要时时一致性。</li>
+<li>强制读主库，使用一个高可用的主库，数据库读写都在主库，添加一个缓存，提升数据读取的性能。</li>
+<li>选择性读主库，添加一个缓存，用来记录必须读主库的数据，将哪个库，哪个表，哪个 主键，作为缓存的 key,设置缓存失效的时间为主从库同步的时间，如果缓存当中有这个数 据，直接读取主库，如果缓存当中没有这个主键，就到对应的从库中读取。</li>
+</ol>
+<h3 id="36、Redis-常见的性能问题和解决方案"><a href="#36、Redis-常见的性能问题和解决方案" class="headerlink" title="36、Redis 常见的性能问题和解决方案"></a>36、Redis 常见的性能问题和解决方案</h3><ol>
+<li>master 最好不要做持久化工作，如 RDB 内存快照和 AOF 日志文件。</li>
+<li>如果数据比较重要，某个 slave 开启 AOF 备份，策略设置成每秒同步一次。</li>
+<li>为了主从复制的速度和连接的稳定性，master 和 Slave 最好在一个局域网内。</li>
+<li>尽量避免在压力大得主库上增加从库5、主从复制不要采用网状结构，尽量是线性结构，Master&lt;–Slave1&lt;—-Slave2 ….</li>
+</ol>
+<h3 id="37、为什么要做Redis分区？"><a href="#37、为什么要做Redis分区？" class="headerlink" title="37、为什么要做Redis分区？"></a>37、为什么要做Redis分区？</h3><p>答：分区可以让Redis管理更大的内存，Redis将可以使用所有机器的内存。如果没有分区，你最多只能使用一台机器的内存。分区使Redis的计算能力通过简单地增加计算机得到成倍提升,Redis的网络带宽也会随着计算机和网卡的增加而成倍增长。</p>
+<h3 id="38、你知道有哪些Redis分区实现方案？"><a href="#38、你知道有哪些Redis分区实现方案？" class="headerlink" title="38、你知道有哪些Redis分区实现方案？"></a>38、你知道有哪些Redis分区实现方案？</h3><p>答：客户端分区就是在客户端就已经决定数据会被存储到哪个redis节点或者从哪个redis节点读取。大多数客户端已经实现了客户端分区。</p>
+<ol>
+<li>代理分区意味着客户端将请求发送给代理，然后代理决定去哪个节点写数据或者读数据。代理根据分区规则决定请求哪些Redis实例，然后根据Redis的响应结果返回给客户端。redis和memcached的一种代理实现就是Twemproxy</li>
+<li>查询路由(Query routing) 的意思是客户端随机地请求任意一个redis实例，然后由Redis将请求转发给正确的Redis节点。Redis Cluster实现了一种混合形式的查询路由，但并不是直接将请求从一个redis节点转发到另一个redis节点，而是在客户端的帮助下直接redirected到正确的redis节点。</li>
+</ol>
+<h3 id="39、Redis分区有什么缺点？"><a href="#39、Redis分区有什么缺点？" class="headerlink" title="39、Redis分区有什么缺点？"></a>39、Redis分区有什么缺点？</h3><p>涉及多个key的操作通常不会被支持。例如你不能对两个集合求交集，因为他们可能被存储到不同的Redis实例（实际上这种情况也有办法，但是不能直接使用交集指令）。</p>
+<p>同时操作多个key,则不能使用Redis事务。</p>
+<p>分区使用的粒度是key，不能使用一个非常长的排序key存储一个数据集（The partitioning granularity is the key, so it is not possible to shard a dataset with a single huge key like a very big sorted set）。</p>
+<p>当使用分区的时候，数据处理会非常复杂，例如为了备份你必须从不同的Redis实例和主机同时收集RDB &#x2F; AOF文件。</p>
+<p>分区时动态扩容或缩容可能非常复杂。Redis集群在运行时增加或者删除Redis节点，能做到最大程度对用户透明地数据再平衡，但其他一些客户端分区或者代理分区方法则不支持这种特性。然而，有一种预分片的技术也可以较好的解决这个问题。</p>
+<h3 id="40、Redis持久化数据和缓存怎么做扩容？"><a href="#40、Redis持久化数据和缓存怎么做扩容？" class="headerlink" title="40、Redis持久化数据和缓存怎么做扩容？"></a>40、Redis持久化数据和缓存怎么做扩容？</h3><p>答：如果Redis被当做缓存使用，使用一致性哈希实现动态扩容缩容。</p>
+<p>如果Redis被当做一个持久化存储使用，必须使用固定的keys-to-nodes映射关系，节点的数量一旦确定不能变化。否则的话(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。</p>
+<h3 id="41、redis的并发竞争问题如何解决"><a href="#41、redis的并发竞争问题如何解决" class="headerlink" title="41、redis的并发竞争问题如何解决?"></a>41、redis的并发竞争问题如何解决?</h3><p>答：Redis为单进程单线程模式，采用队列模式将并发访问变为串行访问。Redis本身没有锁的概念，Redis对于多个客户端连接并不存在竞争，但是在Jedis客户端对Redis进行并发访问时会发生连接超时、数据转换错误、阻塞、客户端关闭连接等问题，这些问题均是由于客户端连接混乱造成。</p>
+<p>对此有2种解决方法：</p>
+<p>1.客户端角度，为保证每个客户端间正常有序与Redis进行通信，对连接进行池化，同时对客户端读写Redis操作采用内部锁synchronized。</p>
+<p>2.服务器角度，利用setnx实现锁。</p>
+<p><strong>注：</strong>对于第一种，需要应用程序自己处理资源的同步，可以使用的方法比较通俗，可以使用synchronized也可以使用lock；第二种需要用到Redis的setnx命令，但是需要注意一些问题。</p>
+<h3 id="42、简述redis的哨兵模式"><a href="#42、简述redis的哨兵模式" class="headerlink" title="42、简述redis的哨兵模式"></a>42、简述redis的哨兵模式</h3><p>答：哨兵是对redis进行实时的监控，主要有两个功能。</p>
+<ul>
+<li>监测主数据库和从数据库是否正常运行。</li>
+<li>当主数据库出现故障的时候，可以自动将一个从数据库转换为主数据库，实现自动切换。</li>
+</ul>
+<h3 id="43、redis的哨兵的监控机制是怎样的？"><a href="#43、redis的哨兵的监控机制是怎样的？" class="headerlink" title="43、redis的哨兵的监控机制是怎样的？"></a>43、redis的哨兵的监控机制是怎样的？</h3><p>答：哨兵监控也是有集群的，会有多个哨兵进行监控，当判断发生故障的哨兵达到一定数量的时候才进行修复。一个健壮的部署至少需要三个哨兵实例。</p>
+<p>1.每个Sentinel以每秒钟一次的频率向它所知的Master，Slave以及其他 Sentinel 实例发送一个 PING 命令</p>
+<p>2.如果一个实例（instance）距离最后一次有效回复 PING 命令的时间超过 down-after-milliseconds 选项所指定的值， 则这个实例会被 Sentinel 标记为主观下线。</p>
+<p>3.如果一个Master被标记为主观下线，则正在监视这个Master的所有 Sentinel 要以每秒一次的频率确认Master的确进入了主观下线状态。</p>
+<p>4.当有足够数量的 Sentinel（大于等于配置文件指定的值）在指定的时间范围内确认Master的确进入了主观下线状态， 则Master会被标记为客观下线</p>
+<p>5.在一般情况下， 每个 Sentinel 会以每 10 秒一次的频率向它已知的所有Master，Slave发送 INFO 命令</p>
+<p>6.当Master被 Sentinel 标记为客观下线时，Sentinel 向下线的 Master 的所有 Slave 发送 INFO 命令的频率会从 10 秒一次改为每秒一次</p>
+<p>7.若没有足够数量的 Sentinel 同意 Master 已经下线， Master 的客观下线状态就会被移除。若 Master 重新向 Sentinel 的 PING 命令返回有效回复， Master 的主观下线状态就会被移除。</p>
 <h2 id="补充：MQ"><a href="#补充：MQ" class="headerlink" title="补充：MQ"></a>补充：MQ</h2><h3 id="MQ是什么"><a href="#MQ是什么" class="headerlink" title="MQ是什么"></a>MQ是什么</h3><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/%E9%9D%A2%E8%AF%95%E9%A2%98/54152397?sort=created">https://www.zhihu.com/面试题/54152397?sort=created</a></p>
 <h3 id="简述RabbitMQ的架构设计"><a href="#简述RabbitMQ的架构设计" class="headerlink" title="简述RabbitMQ的架构设计"></a>简述RabbitMQ的架构设计</h3><p><img src="https://s2.loli.net/2022/07/17/FRueWC4bojvs3Zi.png"></p>
 <p>Broker：rabbitmq的服务节点</p>
@@ -2323,56 +2373,6 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DepartmentDao</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Department</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">,</span> <span class="token class-name">JpaSpecificationExecutor</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Department</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h2><h3 id="3-1-说说ElasticSearch-put的全过程"><a href="#3-1-说说ElasticSearch-put的全过程" class="headerlink" title="3.1 说说ElasticSearch put的全过程"></a>3.1 说说ElasticSearch put的全过程</h3><p><strong>参考答案</strong></p>
-<p>put过程主要分为三个阶段：</p>
-<ol>
-<li><p>协调阶段：</p>
-<p>Client 客户端选择一个 node 发送 put 请求，此时当前节点就是协调节点（coordinating node）。协调节点根据 document 的 id 进行路由，将请求转发给对应的 node。这个 node 上的是 primary shard 。</p>
-</li>
-<li><p>主要阶段：</p>
-<p>对应的 primary shard 处理请求，写入数据 ，然后将数据同步到 replica shard。</p>
-<ul>
-<li>primary shard 会验证传入的数据结构；</li>
-<li>本地执行相关操作；</li>
-<li>将操作转发给 replica shard。</li>
-</ul>
-<p>当数据写入 primary shard 和 replica shard 成功后，路由节点返回响应给 Client。</p>
-</li>
-<li><p>副本阶段：</p>
-<p>每个 replica shard 在转发后，会进行本地操作。</p>
-</li>
-</ol>
-<p>在写操作时，默认情况下，只需要 primary shard 处于活跃状态即可进行操作。在索引设置时可以设置这个属性：index.write.wait_for_active_shards。默认是 1，即 primary shard 写入成功即可返回。 如果设置为 all 则相当于 number_of_replicas+1 就是 primary shard 数量 + replica shard 数量。就是需要等待 primary shard 和 replica shard 都写入成功才算成功。可以通过索引设置动态覆盖此默认设置。</p>
-<h3 id="3-2-说说ElasticSearch的倒排索引"><a href="#3-2-说说ElasticSearch的倒排索引" class="headerlink" title="3.2 说说ElasticSearch的倒排索引"></a>3.2 说说ElasticSearch的倒排索引</h3><p><strong>参考答案</strong></p>
-<p>Elasticsearch 使用一种称为倒排索引的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p>
-<p>例如，假设我们有两个文档，每个文档的 content 域包含如下内容：</p>
-<ol>
-<li>The quick brown fox jumped over the lazy dog</li>
-<li>Quick brown foxes leap over lazy dogs in summer</li>
-</ol>
-<p>为了创建倒排索引，我们首先将每个文档的 content 域拆分成单独的 词（我们称它为 词条 或 tokens），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/85VqbenGXS6dKlD.png"></p>
-<p>现在，如果我们想搜索 quick brown ，我们只需要查找包含每个词条的文档：</p>
-<p><img src="https://s2.loli.net/2022/07/17/jAgnwrfbQhdtq13.png"></p>
-<p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单相似性算法 ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p>
-<p>但是，我们目前的倒排索引有一些问题：</p>
-<ul>
-<li>Quick 和 quick 以独立的词条出现，然而用户可能认为它们是相同的词。</li>
-<li>fox 和 foxes 非常相似, 就像 dog 和 dogs ；他们有相同的词根。</li>
-<li>jumped 和 leap, 尽管没有相同的词根，但他们的意思很相近。他们是同义词。</li>
-</ul>
-<p>使用前面的索引搜索 +Quick +fox 不会得到任何匹配文档。（记住，+ 前缀表明这个词必须存在。）只有同时出现 Quick 和 fox 的文档才满足这个查询条件，但是第一个文档包含 quick fox ，第二个文档包含 Quick foxes 。</p>
-<p>我们的用户可以合理的期望两个文档与查询匹配。我们可以做的更好。如果我们将词条规范为标准模式，那么我们可以找到与用户搜索的词条不完全一致，但具有足够相关性的文档。例如：</p>
-<ul>
-<li>Quick 可以小写化为 quick 。</li>
-<li>foxes 可以 <em>词干提取</em> –变为词根的格式– 为 fox 。类似的， dogs 可以为提取为 dog 。</li>
-<li>jumped 和 leap 是同义词，可以索引为相同的单词 jump 。</li>
-</ul>
-<p>现在索引看上去像这样：</p>
-<p><img src="https://s2.loli.net/2022/07/17/kjZ9Sn8mApxFrfo.png"></p>
-<p>这还远远不够。我们搜索 +Quick +fox <em>仍然</em> 会失败，因为在我们的索引中，已经没有 Quick 了。但是，如果我们对搜索的字符串使用与 content 域相同的标准化规则，会变成查询 +quick +fox ，这样两个文档都会匹配！</p>
-<h3 id="3-3-说一说你对solr的了解"><a href="#3-3-说一说你对solr的了解" class="headerlink" title="3.3 说一说你对solr的了解"></a>3.3 说一说你对solr的了解</h3><p><strong>参考答案</strong></p>
-<p>Solr是一个高性能，采用Java，基于Lucene的全文搜索服务器。同时对其进行了扩展，提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展并对查询性能进行了优化，并且提供了一个完善的功能管理界面，是一款非常优秀的全文搜索引擎。</p>
 <h2 id="补充：Kafka"><a href="#补充：Kafka" class="headerlink" title="补充：Kafka"></a>补充：Kafka</h2><p>“你用过消息中间件吗？用过哪些？”</p>
 <p>这是在面试过程中面试官必问的一个问题，但是我真的听过很多人说没用过，也有人说用过但也仅仅知道怎么调用，其他的问题一概不知，在消息中间件在项目中发挥着中流砥柱作用的今天，仅仅知道调用显然是不够的的了，为了能让乡亲们多点底气，今天为大家带来Kafka的高频面试题（kafka我用的比较多）。</p>
 <h3 id="1、为什么要使用-kafka，为什么要使用消息队列？"><a href="#1、为什么要使用-kafka，为什么要使用消息队列？" class="headerlink" title="1、为什么要使用 kafka，为什么要使用消息队列？"></a>1、为什么要使用 kafka，为什么要使用消息队列？</h3><ul>
@@ -2748,12 +2748,12 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                     <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -3241,12 +3241,12 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                         <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -3294,12 +3294,12 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                         <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                     <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
@@ -3368,7 +3368,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('2'),
-            headingSelector: 'h1, h2, h3'
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // Set scroll toc fixed.
@@ -3500,7 +3500,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.8k</span>
+                        class="white-color">449.9k</span>
             
             
             

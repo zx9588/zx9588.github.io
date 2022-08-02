@@ -901,12 +901,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                 <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -951,7 +951,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    343 分
+                    344 分
                 </div>
                 
 
@@ -974,7 +974,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><h3 id="1-1-为什么Java代码可以实现一次编写、到处运行？"><a href="#1-1-为什么Java代码可以实现一次编写、到处运行？" class="headerlink" title="1.1 为什么Java代码可以实现一次编写、到处运行？"></a>1.1 为什么Java代码可以实现一次编写、到处运行？</h3><p><strong>参考答案</strong></p>
+                <h1 id="Java语言-面试题"><a href="#Java语言-面试题" class="headerlink" title="Java语言-面试题"></a>Java语言-面试题</h1><h2 id="1-Java基础"><a href="#1-Java基础" class="headerlink" title="1. Java基础"></a>1. Java基础</h2><h3 id="1-1-为什么Java代码可以实现一次编写、到处运行？"><a href="#1-1-为什么Java代码可以实现一次编写、到处运行？" class="headerlink" title="1.1 为什么Java代码可以实现一次编写、到处运行？"></a>1.1 为什么Java代码可以实现一次编写、到处运行？</h3><p><strong>参考答案</strong></p>
 <p>JVM（Java虚拟机）是Java跨平台的关键。</p>
 <p>在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。</p>
 <p>同一份Java源代码在不同的平台上运行，它不需要做任何的改变，并且只需要编译一次。而编译好的字节码，是通过JVM这个中间的“桥梁”实现跨平台的，JVM是与平台相关的软件，它能将统一的字节码翻译成该平台的机器码。</p>
@@ -2127,7 +2127,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p>因为 java 数组变量是引用类型的变量，所以上述几行初始化语句执行后，三个数组在内存中的分配情况如下图所 示:</p>
 <p><img src="https://s2.loli.net/2022/07/17/2UWedZ6FS1XsfJo.webp"></p>
 <p>由上图可知，静态初始化方式，程序员虽然没有指定数组长度，但是系统已经自动帮我们给分配了，而动态初始化 方式，程序员虽然没有显示的指定初始化值，但是因为 java 数组是引用类型的变量，所以系统也为每个元素分配 了初始化值 null<br>，当然不同类型的初始化值也是不一样的，假设是基本类型int类型，那么为系统分配的初始化值 也是对应的默认值0。</p>
-<h2 id="集合类"><a href="#集合类" class="headerlink" title="集合类"></a>集合类</h2><h3 id="2-1-Java中有哪些容器（集合类）？"><a href="#2-1-Java中有哪些容器（集合类）？" class="headerlink" title="2.1 Java中有哪些容器（集合类）？"></a>2.1 Java中有哪些容器（集合类）？</h3><p><strong>参考答案</strong></p>
+<h2 id="2-集合类"><a href="#2-集合类" class="headerlink" title="2. 集合类"></a>2. 集合类</h2><h3 id="2-1-Java中有哪些容器（集合类）？"><a href="#2-1-Java中有哪些容器（集合类）？" class="headerlink" title="2.1 Java中有哪些容器（集合类）？"></a>2.1 Java中有哪些容器（集合类）？</h3><p><strong>参考答案</strong></p>
 <p>Java中的集合类主要由Collection和Map这两个接口派生而出，其中Collection接口又派生出三个子接口，分别是Set、List、Queue。所有的Java集合类，都是Set、List、Queue、Map这四个接口的实现类，这四个接口将集合分成了四大类，其中</p>
 <ul>
 <li>Set代表无序的，元素不可重复的集合；</li>
@@ -2591,7 +2591,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p>深拷贝(深复制)和浅拷贝(浅复制)是两个比较通用的概念，尤其在C++语言中，若不弄懂，则会在delete的时候出问 题，但是我们在这幸好用的是java。虽然java自动管理对象的回收，但对于深拷贝(深复制)和浅拷贝(浅复制)，我们 还是要给予足够的重视，因为有时这两个概念往往会给我们带来不小的困惑。</p>
 <p>浅拷贝是指拷贝对象时仅仅拷贝对象本身(包括对象中的基本变量)，而不拷贝对象包含的引用指向的对象。深拷 贝不仅拷贝对象本身，而且拷贝对象包含的引用指向的所有对象。举例来说更加清楚:对象 A1 中包含对 B1 的引 用， B1 中包含对 C1 的引用。浅拷贝 A1 得到 A2 ， A2 中依然包含对 B1 的引用， B1 中依然包含对 C1 的引 用。深拷贝则是对浅拷贝的递归，深拷贝 A1 得到 A2 ， A2 中包含对 B2 ( B1 的 copy )的引用， B2 中包含 对 C2 ( C1 的 copy )的引用。</p>
 <p>若不对clone()方法进行改写，则调用此方法得到的对象即为浅拷贝 。</p>
-<h2 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h2><h3 id="3-1-介绍一下Java中的IO流"><a href="#3-1-介绍一下Java中的IO流" class="headerlink" title="3.1 介绍一下Java中的IO流"></a>3.1 介绍一下Java中的IO流</h3><p><strong>参考答案</strong></p>
+<h2 id="3-IO"><a href="#3-IO" class="headerlink" title="3. IO"></a>3. IO</h2><h3 id="3-1-介绍一下Java中的IO流"><a href="#3-1-介绍一下Java中的IO流" class="headerlink" title="3.1 介绍一下Java中的IO流"></a>3.1 介绍一下Java中的IO流</h3><p><strong>参考答案</strong></p>
 <p>IO（Input Output）用于实现对数据的输入与输出操作，Java把不同的输入&#x2F;输出源（键盘、文件、网络等）抽象表述为流（Stream）。流是从起源到接收的有序数据，有了它程序就可以采用同一方式访问不同的输入&#x2F;输出源。</p>
 <ul>
 <li>按照数据流向，可以将流分为输入流和输出流，其中输入流只能读取数据、不能写入数据，而输出流只能写入数据、不能读取数据。</li>
@@ -2672,7 +2672,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <h3 id="3-7-如果不用JSON工具，该如何实现对实体类的序列化？"><a href="#3-7-如果不用JSON工具，该如何实现对实体类的序列化？" class="headerlink" title="3.7 如果不用JSON工具，该如何实现对实体类的序列化？"></a>3.7 如果不用JSON工具，该如何实现对实体类的序列化？</h3><p><strong>参考答案</strong></p>
 <p>可以使用Java原生的序列化机制，但是效率比较低一些，适合小项目；</p>
 <p>可以使用其他的一些第三方类库，比如Protobuf、Thrift、Avro等。</p>
-<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="4-1-创建线程有哪几种方式？"><a href="#4-1-创建线程有哪几种方式？" class="headerlink" title="4.1 创建线程有哪几种方式？"></a>4.1 创建线程有哪几种方式？</h3><p><strong>参考答案</strong></p>
+<h2 id="4-多线程"><a href="#4-多线程" class="headerlink" title="4. 多线程"></a>4. 多线程</h2><h3 id="4-1-创建线程有哪几种方式？"><a href="#4-1-创建线程有哪几种方式？" class="headerlink" title="4.1 创建线程有哪几种方式？"></a>4.1 创建线程有哪几种方式？</h3><p><strong>参考答案</strong></p>
 <p>创建线程有三种方式，分别是继承Thread类、实现Runnable接口、实现Callable接口。</p>
 <p>通过继承Thread类来创建并启动线程的步骤如下：</p>
 <ol>
@@ -3953,7 +3953,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>参考资料：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/sgh1023/p/10297322.html">https://www.cnblogs.com/sgh1023/p/10297322.html</a></p>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011780616/article/details/95339236">https://blog.csdn.net/u011780616/article/details/95339236</a></p>
 </blockquote>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="5-1-JVM包含哪几部分？"><a href="#5-1-JVM包含哪几部分？" class="headerlink" title="5.1 JVM包含哪几部分？"></a>5.1 JVM包含哪几部分？</h3><p><strong>参考答案</strong></p>
+<h2 id="5-JVM"><a href="#5-JVM" class="headerlink" title="5. JVM"></a>5. JVM</h2><h3 id="5-1-JVM包含哪几部分？"><a href="#5-1-JVM包含哪几部分？" class="headerlink" title="5.1 JVM包含哪几部分？"></a>5.1 JVM包含哪几部分？</h3><p><strong>参考答案</strong></p>
 <p>JVM 主要由四大部分组成：ClassLoader（类加载器），Runtime Data Area（运行时数据区，内存分区），Execution Engine（执行引擎），Native Interface（本地库接口），下图可以大致描述 JVM 的结构。</p>
 <p><img src="https://s2.loli.net/2022/07/17/q5ghbEjWmypXNv4.jpg"></p>
 <p>JVM 是执行 Java 程序的虚拟计算机系统，那我们来看看执行过程：首先需要准备好编译好的 Java 字节码文件（即class文件），计算机要运行程序需要先通过一定方式（类加载器）将 class 文件加载到内存中（运行时数据区），但是字节码文件是JVM定义的一套指令集规范，并不能直接交给底层操作系统去执行，因此需要特定的命令解释器（执行引擎）将字节码翻译成特定的操作系统指令集交给 CPU 去执行，这个过程中会需要调用到一些不同语言为 Java 提供的接口（例如驱动、地图制作等），这就用到了本地 Native 接口（本地库接口）。</p>
@@ -4606,12 +4606,12 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                     <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -5212,7 +5212,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('2'),
-            headingSelector: 'h1, h2, h3'
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // Set scroll toc fixed.
@@ -5344,7 +5344,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.8k</span>
+                        class="white-color">449.9k</span>
             
             
             

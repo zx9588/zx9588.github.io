@@ -901,12 +901,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                 <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -944,7 +944,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    26.1k
+                    26.2k
                 </div>
                 
 
@@ -974,7 +974,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="1-1-介绍一下数据库分页"><a href="#1-1-介绍一下数据库分页" class="headerlink" title="1.1 介绍一下数据库分页"></a>1.1 介绍一下数据库分页</h3><p><strong>参考答案</strong></p>
+                <h1 id="数据库-面试题"><a href="#数据库-面试题" class="headerlink" title="数据库-面试题"></a>数据库-面试题</h1><h2 id="1-SQL"><a href="#1-SQL" class="headerlink" title="1. SQL"></a>1. SQL</h2><h3 id="1-1-介绍一下数据库分页"><a href="#1-1-介绍一下数据库分页" class="headerlink" title="1.1 介绍一下数据库分页"></a>1.1 介绍一下数据库分页</h3><p><strong>参考答案</strong></p>
 <p>MySQL的分页语法：</p>
 <p>在MySQL中，SELECT语句默认返回所有匹配的行，它们可能是指定表中的每个行。为了返回第一行或前几行，可使用LIMIT子句，以实现分页查询。LIMIT子句的语法如下：</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 在所有的查询结果中，返回前5行记录。 </span>
@@ -1119,7 +1119,7 @@ FROM tb_score  GROUP BY userid<span aria-hidden="true" class="line-numbers-rows"
 <p>WHERE是一个约束声明，使用WHERE约束来自数据库的数据，WHERE是在结果返回之前起作用的，WHERE中不能使用聚合函数。</p>
 <p>HAVING是一个过滤声明，是在查询返回结果集以后对查询结果进行的过滤操作，在HAVING中可以使用聚合函数。另一方面，HAVING子句中不能使用除了分组字段和聚合函数之外的其他字段。</p>
 <p>从性能的角度来说，HAVING子句中如果使用了分组字段作为过滤条件，应该替换成WHERE子句。因为WHERE可以在执行分组操作和计算聚合函数之前过滤掉不需要的数据，性能会更好。</p>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="2-1-说一说你对MySQL索引的理解"><a href="#2-1-说一说你对MySQL索引的理解" class="headerlink" title="2.1 说一说你对MySQL索引的理解"></a>2.1 说一说你对MySQL索引的理解</h3><p><strong>参考答案</strong></p>
+<h2 id="2-索引"><a href="#2-索引" class="headerlink" title="2. 索引"></a>2. 索引</h2><h3 id="2-1-说一说你对MySQL索引的理解"><a href="#2-1-说一说你对MySQL索引的理解" class="headerlink" title="2.1 说一说你对MySQL索引的理解"></a>2.1 说一说你对MySQL索引的理解</h3><p><strong>参考答案</strong></p>
 <p>索引是一个单独的、存储在磁盘上的数据库结构，包含着对数据表里所有记录的引用指针。使用索引可以快速找出在某个或多个列中有一特定值的行，所有MySQL列类型都可以被索引，对相关列使用索引是提高查询操作速度的最佳途径。</p>
 <p>索引是在存储引擎中实现的，因此，每种存储引擎的索引都不一定完全相同，并且每种存储引擎也不一定支持所有索引类型。MySQL中索引的存储类型有两种，即BTREE和HASH，具体和表的存储引擎相关。MyISAM和InnoDB存储引擎只支持BTREE索引；MEMORY&#x2F;HEAP存储引擎可以支持HASH和BTREE索引。</p>
 <p>索引的优点主要有以下几条：</p>
@@ -1371,7 +1371,7 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
 <p>在MySQL中模糊查询 mobile like ‘%8765’，这种情况是不能使用 mobile 上的索引的，那么如果需要根据手机号码后四位进行模糊查询，可以用一下方法进行改造。</p>
 <p>我们可以加入冗余列（MySQL5.7之后加入了虚拟列，使用虚拟列更合适，思路相同），比如 mobile_reverse，内部存储为 mobile 的倒叙文本，如 mobile为17312345678，那么 mobile_reverse 存储 87654321371，为 mobile_reverse 列建立索引，查询中使用语句 mobile_reverse like reverse(’%5678’) 即可。</p>
 <p>reverse 是 MySQL 中的反转函数，这条语句相当于 mobile_reverse like ‘8765%’ ，这种语句是可以使用索引的。</p>
-<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="3-1-说一说你对数据库事务的了解"><a href="#3-1-说一说你对数据库事务的了解" class="headerlink" title="3.1 说一说你对数据库事务的了解"></a>3.1 说一说你对数据库事务的了解</h3><p><strong>参考答案</strong></p>
+<h2 id="3-事务"><a href="#3-事务" class="headerlink" title="3. 事务"></a>3. 事务</h2><h3 id="3-1-说一说你对数据库事务的了解"><a href="#3-1-说一说你对数据库事务的了解" class="headerlink" title="3.1 说一说你对数据库事务的了解"></a>3.1 说一说你对数据库事务的了解</h3><p><strong>参考答案</strong></p>
 <p>事务可由一条非常简单的SQL语句组成，也可以由一组复杂的SQL语句组成。在事务中的操作，要么都执行修改，要么都不执行，这就是事务的目的，也是事务模型区别于文件系统的重要特征之一。</p>
 <p>事务需遵循ACID四个特性：</p>
 <ul>
@@ -1543,7 +1543,7 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
 <li>ROLLBACK：要使用这个语句的最简形式，只需发出ROLLBACK。同样地，也可以写为ROLLBACK WORK，但是二者几乎是等价的。回滚会结束用户的事务，并撤销正在进行的所有未提交的修改。</li>
 <li>ROLLBACK TO [SAVEPOINT] identifier ：这个语句与SAVEPOINT命令一起使用。可以把事务回滚到标记点，而不回滚在此标记点之前的任何工作。</li>
 </ul>
-<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h3 id="4-1-了解数据库的锁吗？"><a href="#4-1-了解数据库的锁吗？" class="headerlink" title="4.1 了解数据库的锁吗？"></a>4.1 了解数据库的锁吗？</h3><p><strong>参考答案</strong></p>
+<h2 id="4-锁"><a href="#4-锁" class="headerlink" title="4. 锁"></a>4. 锁</h2><h3 id="4-1-了解数据库的锁吗？"><a href="#4-1-了解数据库的锁吗？" class="headerlink" title="4.1 了解数据库的锁吗？"></a>4.1 了解数据库的锁吗？</h3><p><strong>参考答案</strong></p>
 <p>锁是数据库系统区别于文件系统的一个关键特性，锁机制用于管理对共享资源的并发访问。下面我们以MySQL数据库的InnoDB引擎为例，来说明锁的一些特点。</p>
 <p>锁的类型：</p>
 <p>InnoDB存储引擎实现了如下两种标准的行级锁：</p>
@@ -1653,7 +1653,7 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
 <p>当一个事务试图对整个表进行加排它锁之前，首先需要获得这个表的意向排它锁。</p>
 </li>
 </ul>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><h3 id="5-1-说一说你对数据库优化的理解"><a href="#5-1-说一说你对数据库优化的理解" class="headerlink" title="5.1 说一说你对数据库优化的理解"></a>5.1 说一说你对数据库优化的理解</h3><p><strong>参考答案</strong></p>
+<h2 id="5-优化"><a href="#5-优化" class="headerlink" title="5. 优化"></a>5. 优化</h2><h3 id="5-1-说一说你对数据库优化的理解"><a href="#5-1-说一说你对数据库优化的理解" class="headerlink" title="5.1 说一说你对数据库优化的理解"></a>5.1 说一说你对数据库优化的理解</h3><p><strong>参考答案</strong></p>
 <p>MySQL数据库优化是多方面的，原则是减少系统的瓶颈，减少资源的占用，增加系统的反应速度。例如，通过优化文件系统，提高磁盘I\O的读写速度；通过优化操作系统调度策略，提高MySQL在高负荷情况下的负载能力；优化表结构、索引、查询语句等使查询响应更快。</p>
 <p>针对查询，我们可以通过使用索引、使用连接代替子查询的方式来提高查询速度。</p>
 <p>针对慢查询，我们可以通过分析慢查询日志，来发现引起慢查询的原因，从而有针对性的进行优化。</p>
@@ -1891,7 +1891,7 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
 <td align="left">使用某些聚合函数来访问存在索引的某个字段时，优化器会通过索引直接一次定位到所需要的数据行完成整个查询，例如MIN()\MAX()，这种也是比较好的结果之一。</td>
 </tr>
 </tbody></table>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="6-1-介绍一下数据库设计的三大范式"><a href="#6-1-介绍一下数据库设计的三大范式" class="headerlink" title="6.1 介绍一下数据库设计的三大范式"></a>6.1 介绍一下数据库设计的三大范式</h3><p><strong>参考答案</strong></p>
+<h2 id="6-其他"><a href="#6-其他" class="headerlink" title="6. 其他"></a>6. 其他</h2><h3 id="6-1-介绍一下数据库设计的三大范式"><a href="#6-1-介绍一下数据库设计的三大范式" class="headerlink" title="6.1 介绍一下数据库设计的三大范式"></a>6.1 介绍一下数据库设计的三大范式</h3><p><strong>参考答案</strong></p>
 <p>目前关系数据库有六种范式，一般来说，数据库只需满足第三范式(3NF）就行了。</p>
 <p>第一范式（1NF）：</p>
 <p>是指在关系模型中，对于添加的一个规范要求，所有的域都应该是原子性的，即数据库表的每一列都是不可分割的原子数据项，而不能是集合，数组，记录等非原子数据项。</p>
@@ -2035,12 +2035,12 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                     <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -2625,7 +2625,7 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('2'),
-            headingSelector: 'h1, h2, h3'
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // Set scroll toc fixed.
@@ -2757,7 +2757,7 @@ alter index indexname rebuild online;<span aria-hidden="true" class="line-number
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.8k</span>
+                        class="white-color">449.9k</span>
             
             
             

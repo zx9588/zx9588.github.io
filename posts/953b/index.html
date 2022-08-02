@@ -901,12 +901,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                 <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                     </div>
@@ -974,7 +974,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><h3 id="1-1-说说你对Spring-Boot的理解"><a href="#1-1-说说你对Spring-Boot的理解" class="headerlink" title="1.1 说说你对Spring Boot的理解"></a>1.1 说说你对Spring Boot的理解</h3><p><strong>参考答案</strong></p>
+                <h1 id="web开发-面试题"><a href="#web开发-面试题" class="headerlink" title="web开发-面试题"></a>web开发-面试题</h1><h2 id="1-SpringBoot"><a href="#1-SpringBoot" class="headerlink" title="1. SpringBoot"></a>1. SpringBoot</h2><h3 id="1-1-说说你对Spring-Boot的理解"><a href="#1-1-说说你对Spring-Boot的理解" class="headerlink" title="1.1 说说你对Spring Boot的理解"></a>1.1 说说你对Spring Boot的理解</h3><p><strong>参考答案</strong></p>
 <p>从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置。Spring Boot使用“习惯优于配置”的理念让你的项目快速地运行起来，使用Spring<br>Boot很容易创建一个能独立运行、准生产级别、基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。</p>
 <p>简而言之，Spring Boot本身并不提供Spring的核心功能，而是作为Spring的脚手架框架，以达到快速构建项目、预置三方配置、开箱即用的目的。Spring Boot有如下的优点：</p>
 <ul>
@@ -1093,7 +1093,7 @@
 <li>@ConditionalOnSingleCandidate：当指定的Bean在容器中只有一个或者有多个但是指定了首选的Bean时。</li>
 <li>@ConditionalOnWebApplication：在项目是一个Web项目的条件下。</li>
 </ul>
-<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="2-1-请你说说Spring的核心是什么"><a href="#2-1-请你说说Spring的核心是什么" class="headerlink" title="2.1 请你说说Spring的核心是什么"></a>2.1 请你说说Spring的核心是什么</h3><p><strong>参考答案</strong></p>
+<h2 id="2-Spring"><a href="#2-Spring" class="headerlink" title="2. Spring"></a>2. Spring</h2><h3 id="2-1-请你说说Spring的核心是什么"><a href="#2-1-请你说说Spring的核心是什么" class="headerlink" title="2.1 请你说说Spring的核心是什么"></a>2.1 请你说说Spring的核心是什么</h3><p><strong>参考答案</strong></p>
 <p>Spring框架包含众多模块，如Core、Testing、Data Access、Web Servlet等，其中Core是整个Spring框架的核心模块。Core模块提供了IoC容器、AOP功能、数据绑定、类型转换等一系列的基础功能，而这些功能以及其他模块的功能都是建立在IoC和AOP之上的，所以IoC和AOP是Spring框架的核心。</p>
 <p>IoC（Inversion of Control）是控制反转的意思，这是一种面向对象编程的设计思想。在不采用这种思想的情况下，我们需要自己维护对象与对象之间的依赖关系，很容易造成对象之间的耦合度过高，在一个大型的项目中这十分的不利于代码的维护。IoC则可以解决这种问题，它可以帮我们维护对象与对象之间的依赖关系，降低对象之间的耦合度。</p>
 <p>说到IoC就不得不说DI（Dependency Injection），DI是依赖注入的意思，它是IoC实现的实现方式，就是说IoC是通过DI来实现的。由于IoC这个词汇比较抽象而DI却更直观，所以很多时候我们就用DI来代替它，在很多时候我们简单地将IoC和DI划等号，这是一种习惯。而实现依赖注入的关键是IoC容器，它的本质就是一个工厂。</p>
@@ -1342,7 +1342,7 @@
 <p>另外，在@Transactional注解上，我们可以使用isolation属性声明事务的隔离级别，使用propagation属性声明事务的传播机制。</p>
 <h3 id="2-19-说一说你对声明式事务的理解"><a href="#2-19-说一说你对声明式事务的理解" class="headerlink" title="2.19 说一说你对声明式事务的理解"></a>2.19 说一说你对声明式事务的理解</h3><p><strong>参考答案</strong></p>
 <p>Spring事务管理的亮点在于声明式事务管理，它允许我们通过声明的方式，在IoC配置中指定事务的边界和事务属性，Spring会自动在指定的事务边界上应用事务属性。相对于编程式事务来说，这种方式十分的方便，只需要在需要做事务管理的方法上，增加@Transactional注解，以声明事务特征即可。</p>
-<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><h3 id="3-1-什么是MVC？"><a href="#3-1-什么是MVC？" class="headerlink" title="3.1 什么是MVC？"></a>3.1 什么是MVC？</h3><p><strong>参考答案</strong></p>
+<h2 id="3-SpringMVC"><a href="#3-SpringMVC" class="headerlink" title="3. SpringMVC"></a>3. SpringMVC</h2><h3 id="3-1-什么是MVC？"><a href="#3-1-什么是MVC？" class="headerlink" title="3.1 什么是MVC？"></a>3.1 什么是MVC？</h3><p><strong>参考答案</strong></p>
 <p>MVC是一种设计模式，在这种模式下软件被分为三层，即Model（模型）、View（视图）、Controller（控制器）。Model代表的是数据，View代表的是用户界面，Controller代表的是数据的处理逻辑，它是Model和View这两层的桥梁。将软件分层的好处是，可以将对象之间的耦合度降低，便于代码的维护。</p>
 <h3 id="3-2-DAO层是做什么的？"><a href="#3-2-DAO层是做什么的？" class="headerlink" title="3.2 DAO层是做什么的？"></a>3.2 DAO层是做什么的？</h3><p><strong>参考答案</strong></p>
 <p>DAO是Data Access Object的缩写，即数据访问对象，在项目中它通常作为独立的一层，专门用于访问数据库。这一层的具体实现技术有很多，常用的有Spring JDBC、Hibernate、JPA、MyBatis等，在Spring框架下无论采用哪一种技术访问数据库，它的编程模式都是统一的。</p>
@@ -1405,7 +1405,7 @@
 <p>如果是对Controller记性拦截，则可以使用Spring MVC的拦截器。</p>
 <p>如果是对所有的请求（如访问静态资源的请求）进行拦截，则可以使用Filter。</p>
 <p>如果是对除了Controller之外的其他Bean的请求进行拦截，则可以使用Spring AOP。</p>
-<h2 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h2><h3 id="4-1-谈谈MyBatis和JPA的区别"><a href="#4-1-谈谈MyBatis和JPA的区别" class="headerlink" title="4.1 谈谈MyBatis和JPA的区别"></a>4.1 谈谈MyBatis和JPA的区别</h3><p><strong>参考答案</strong></p>
+<h2 id="4-MyBatis"><a href="#4-MyBatis" class="headerlink" title="4. MyBatis"></a>4. MyBatis</h2><h3 id="4-1-谈谈MyBatis和JPA的区别"><a href="#4-1-谈谈MyBatis和JPA的区别" class="headerlink" title="4.1 谈谈MyBatis和JPA的区别"></a>4.1 谈谈MyBatis和JPA的区别</h3><p><strong>参考答案</strong></p>
 <p>ORM映射不同：</p>
 <p>MyBatis是半自动的ORM框架，提供数据库与结果集的映射；</p>
 <p>JPA（默认采用Hibernate实现）是全自动的ORM框架，提供对象与数据库的映射。</p>
@@ -1479,7 +1479,7 @@
 <li>缓存会存储集合或对象（无论查询方法返回什么类型的值）的1024 个引用。</li>
 <li>缓存会被视为read&#x2F;write（可读／可写）的，意味着对象检索不是共享的，而且可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。</li>
 </ul>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="5-1-cookie和session的区别是什么？"><a href="#5-1-cookie和session的区别是什么？" class="headerlink" title="5.1 cookie和session的区别是什么？"></a>5.1 cookie和session的区别是什么？</h3><p><strong>参考答案</strong></p>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><h3 id="5-1-cookie和session的区别是什么？"><a href="#5-1-cookie和session的区别是什么？" class="headerlink" title="5.1 cookie和session的区别是什么？"></a>5.1 cookie和session的区别是什么？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>存储位置不同：cookie存放于客户端；session存放于服务端。</li>
 <li>存储容量不同：单个cookie保存的数据&lt;&#x3D;4KB，一个站点最多保存20个cookie；而session并没有上限。</li>
@@ -2169,12 +2169,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                                     <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                         </div>
@@ -2702,12 +2702,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                         <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                 </div>
@@ -2772,7 +2772,7 @@
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('2'),
-            headingSelector: 'h1, h2, h3'
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // Set scroll toc fixed.
@@ -2904,7 +2904,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.8k</span>
+                        class="white-color">449.9k</span>
             
             
             
