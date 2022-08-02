@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="九、设计模式-面试题, zx&#39;s blog">
-    <meta name="description" content="设计模式-面试题1.1 说一说设计模式的六大原则参考答案
+    <meta name="description" content="1.1 说一说设计模式的六大原则参考答案
 单一职责原则
 一个类，应当只有一个引起它变化的原因；即一个类应该只有一个职责。
-就一个类而言，应该只专注于做一件事和仅有一个引起变化的原因，这就是所谓的单一职责原则。该原则提出了对对">
+就一个类而言，应该只专注于做一件事和仅有一个引起变化的原因，这就是所谓的单一职责原则。该原则提出了对对象职责的一种理想">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -842,9 +842,15 @@
         list-style: none;
     }
 
+    /*#toc-content {*/
+    /*    padding-bottom: 30px;*/
+    /*    overflow: auto;*/
+    /*}*/
+
     #toc-content {
         padding-bottom: 30px;
-        overflow: auto;
+        height: calc(100vh - 250px);
+        overflow: scroll;
     }
 
     #toc-content ol {
@@ -904,12 +910,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                <span class="chip bg-color">面试题</span>
-                            </a>
-                        
                             <a href="/tags/Java/">
                                 <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
                             </a>
                         
                     </div>
@@ -947,7 +953,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.1k
+                    10k
                 </div>
                 
 
@@ -977,7 +983,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="设计模式-面试题"><a href="#设计模式-面试题" class="headerlink" title="设计模式-面试题"></a>设计模式-面试题</h3><h4 id="1-1-说一说设计模式的六大原则"><a href="#1-1-说一说设计模式的六大原则" class="headerlink" title="1.1 说一说设计模式的六大原则"></a>1.1 说一说设计模式的六大原则</h4><p><strong>参考答案</strong></p>
+                <h4 id="1-1-说一说设计模式的六大原则"><a href="#1-1-说一说设计模式的六大原则" class="headerlink" title="1.1 说一说设计模式的六大原则"></a>1.1 说一说设计模式的六大原则</h4><p><strong>参考答案</strong></p>
 <p>单一职责原则</p>
 <p>一个类，应当只有一个引起它变化的原因；即一个类应该只有一个职责。</p>
 <p>就一个类而言，应该只专注于做一件事和仅有一个引起变化的原因，这就是所谓的单一职责原则。该原则提出了对对象职责的一种理想期望，对象不应该承担太多职责，正如人不应该一心分为二用。唯有专注，才能保证对象的高内聚；唯有单一，才能保证对象的细粒度。对象的高内聚与细粒度有利于对象的重用。一个庞大的对象承担了太多的职责，当客户端需要该对象的某一个职责时，就不得不将所有的职责都包含进来，从而造成冗余代码。</p>
@@ -1838,12 +1844,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                    <span class="chip bg-color">面试题</span>
-                                </a>
-                            
                                 <a href="/tags/Java/">
                                     <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
                                 </a>
                             
                         </div>
@@ -2371,12 +2377,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">面试题</span>
-                    </a>
-                    
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
                     </a>
                     
                 </div>
@@ -2426,11 +2432,11 @@
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
 
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
@@ -2573,7 +2579,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.9k</span>
+                        class="white-color">450.3k</span>
             
             
             

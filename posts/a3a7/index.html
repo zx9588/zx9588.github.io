@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="五、分布式-面试题, zx&#39;s blog">
-    <meta name="description" content="分布式-面试题1.1 什么是CAP原则？参考答案
-CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时">
+    <meta name="description" content="1.1 什么是CAP原则？参考答案
+CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -840,9 +840,15 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
         list-style: none;
     }
 
+    /*#toc-content {*/
+    /*    padding-bottom: 30px;*/
+    /*    overflow: auto;*/
+    /*}*/
+
     #toc-content {
         padding-bottom: 30px;
-        overflow: auto;
+        height: calc(100vh - 250px);
+        overflow: scroll;
     }
 
     #toc-content ol {
@@ -902,12 +908,12 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                <span class="chip bg-color">面试题</span>
-                            </a>
-                        
                             <a href="/tags/Java/">
                                 <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
                             </a>
                         
                             <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
@@ -979,7 +985,7 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="分布式-面试题"><a href="#分布式-面试题" class="headerlink" title="分布式-面试题"></a>分布式-面试题</h3><h4 id="1-1-什么是CAP原则？"><a href="#1-1-什么是CAP原则？" class="headerlink" title="1.1 什么是CAP原则？"></a>1.1 什么是CAP原则？</h4><p><strong>参考答案</strong></p>
+                <h4 id="1-1-什么是CAP原则？"><a href="#1-1-什么是CAP原则？" class="headerlink" title="1.1 什么是CAP原则？"></a>1.1 什么是CAP原则？</h4><p><strong>参考答案</strong></p>
 <p>CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两个，三者不可兼得。</p>
 <ul>
 <li><p>Consistency (一致性)：</p>
@@ -1374,12 +1380,12 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                                    <span class="chip bg-color">面试题</span>
-                                </a>
-                            
                                 <a href="/tags/Java/">
                                     <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
                                 </a>
                             
                                 <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
@@ -1871,12 +1877,12 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">面试题</span>
-                    </a>
-                    
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
                     </a>
                     
                 </div>
@@ -1924,12 +1930,12 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">面试题</span>
-                    </a>
-                    
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
                     </a>
                     
                 </div>
@@ -1979,11 +1985,11 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
 
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
@@ -2126,7 +2132,7 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.9k</span>
+                        class="white-color">450.3k</span>
             
             
             

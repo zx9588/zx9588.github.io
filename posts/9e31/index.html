@@ -844,9 +844,15 @@ GitHub入门与实践完整版.pdf
         list-style: none;
     }
 
+    /*#toc-content {*/
+    /*    padding-bottom: 30px;*/
+    /*    overflow: auto;*/
+    /*}*/
+
     #toc-content {
         padding-bottom: 30px;
-        overflow: auto;
+        height: calc(100vh - 250px);
+        overflow: scroll;
     }
 
     #toc-content ol {
@@ -942,7 +948,7 @@ GitHub入门与实践完整版.pdf
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-02
                 </div>
                 
 
@@ -991,6 +997,7 @@ GitHub入门与实践完整版.pdf
 <h2 id="Git-资源"><a href="#Git-资源" class="headerlink" title="Git-资源"></a>Git-资源</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MU4y1Y7h5?p=1&vd_source=c57311942d38847adc4597a126bba185">黑马程序员Git全套教程，完整的git项目管理工具教程，一套精通git</a> 配套讲义：<a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iiG4k085dohi">Git讲义</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1y4411a7Nn?p=1&vd_source=c57311942d38847adc4597a126bba185">git视频教程（进阶篇）</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Git中文教程</a></li>
 </ul>
 <h2 id="Git工作流程图"><a href="#Git工作流程图" class="headerlink" title="Git工作流程图"></a>Git工作流程图</h2><p><img src="https://s2.loli.net/2022/07/24/dGcpN2ZwnzXjst4.png" alt="Git工作流程图"></p>
 <p>命令如下</p>
@@ -1072,7 +1079,7 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 
 <p>然后下次输入一次密码（用token代替）即可永久保存</p>
 <h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>–system 全系统<br>–global 当前用户<br>–local 当前项目</p>
-<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#122;&#x78;&#64;&#122;&#120;&#x2e;&#x6a;&#115;&#46;&#99;&#111;&#111;&#x6c;">&#122;&#x78;&#64;&#122;&#120;&#x2e;&#x6a;&#115;&#46;&#99;&#111;&#111;&#x6c;</a>”</p>
+<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#120;&#64;&#x7a;&#120;&#46;&#106;&#x73;&#x2e;&#99;&#x6f;&#111;&#108;">&#x7a;&#120;&#64;&#x7a;&#120;&#46;&#106;&#x73;&#x2e;&#99;&#x6f;&#111;&#108;</a>”</p>
 <p>查看配置信息<br>git config –global user.name<br>git config –global user.email</p>
 <p>删除配置信息<br>git config –global –unset user.name</p>
 <h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a href="/posts/dbd/">为常用指令配置别名</a></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用于输出git提交日志</span>
@@ -2110,11 +2117,11 @@ Your identification has been saved with the new passphrase.<span aria-hidden="tr
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
 
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
@@ -2257,7 +2264,7 @@ Your identification has been saved with the new passphrase.<span aria-hidden="tr
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.9k</span>
+                        class="white-color">450.3k</span>
             
             
             

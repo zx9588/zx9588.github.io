@@ -845,9 +845,15 @@ MySQL技术内幕InnoDB存储引擎-有附录
         list-style: none;
     }
 
+    /*#toc-content {*/
+    /*    padding-bottom: 30px;*/
+    /*    overflow: auto;*/
+    /*}*/
+
     #toc-content {
         padding-bottom: 30px;
-        overflow: auto;
+        height: calc(100vh - 250px);
+        overflow: scroll;
     }
 
     #toc-content ol {
@@ -935,7 +941,7 @@ MySQL技术内幕InnoDB存储引擎-有附录
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-02
                 </div>
                 
 
@@ -1010,37 +1016,69 @@ MySQL技术内幕InnoDB存储引擎-有附录
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i2HJ808rjnfi">SQL学习指南.pdf</a></li>
 <li></li>
 </ul>
-<h2 id="数据库-amp-MySQL-博文收藏"><a href="#数据库-amp-MySQL-博文收藏" class="headerlink" title="数据库&amp;MySQL-博文收藏"></a>数据库&amp;MySQL-博文收藏</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/OnGaqyUpB58pC2rqqzIzgw">原理探究：详解一条SQL的执行过程</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/36Jaj79Y8BxFoDB3Bwe7mg">原理探究：MySQL的数据存在磁盘上到底长什么样</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/WMuxdG3ymNMWWDk1XhLwZQ">原理探究：数据库索引到底是什么</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/d7Zfat2fP6IX5DMKKtEIjQ">原理探究：为什么MySQL索引要用B+ tree</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-mOOchaXx_pKI6qWhohEnA">原理探究：为什么用了索引，SQL查询还是慢</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4K3borSZXt-yc5t5UJnJpQ">原理探究：数据库索引的原理和使用准则</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/iBnav_WPrX5vjR-NbdNeQg">原理探究：为什么你写的SQL那么慢</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/lyAFcnZIoyhACw78Nf9xQg">原理探究：count(1)和count(*)到底哪个效率高</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7vN9Nf20NGnvLKALHw_O1Q">原理探究：为什么阿里规定超过三张表禁止join</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aPVs9Jrk07KsXcXdPOpx5A">原理研究：什么是MySQL索引下推？</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yflzIQFiNa3tDJm7U9P8ig">原理探究：为什么大公司后台数据库都要搞分库分表？</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/QBeyJz2gVq1p7wBxcY1Gfw">原理探究：MySQL不会丢失数据的奥秘就藏在这里</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/CCLsmKSsodtkz4iX84Cdig">原理探究：MySQL主从复制那些事儿</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/caBYeVtZvNzbSs4q-6710Q">实践应用：常见的SQL错误（不当）写法例析</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hl11JYMwl30FsDVZ40CLVQ">实践应用：SQL优化的几个角度</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hE2uKE2ffNCmeHLRn2KSTQ">实践应用：数据库、数据表设计规范例析</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jl0j-T6XldN6Nq-jYoQ-gA">实践应用：梳理开发中常用的SQL优化途径</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SPgtpfgv6bz2AfPa1CYYeQ">实践应用：先更新数据库还是先更新缓存？</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/EplL3kBx5vOXGDhDOP8NjQ">实践应用：百亿级数据分表后如何分页查</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/mnZT0Z5L6Hi6gRgEO1C9tg">实践应用：什么是SQL注入攻击</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4K3borSZXt-yc5t5UJnJpQ">实践应用：用对这些场景下的数据库索引，领导说我有点东西</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/MA7FVeJDMg8WDJABiBWpBA">实践应用：一个遗留项目的SQL优化实战录</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/UYZZkrbAetgnPUjGa71fJA">实践应用：误删数据库后该如何恢复</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/eQKphrkPeN_-EcWIxETz9Q">实践应用：如何科学根治慢SQL？</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/MLvJsJuFAHHcllqvk1nVRQ">面试相关：面试官最爱的数据库索引连环问</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aBboeqEphejICklAKLqS2Q">面试相关：30道保底的MySQL数据库面试题集合</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/WqM5mhnLOqZhcdzPLeWh5w">面试相关：数据库自增ID用完了会怎样</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/RDOKLnG7P1j5Ehu3EyrsCQ">面试相关：如何保证缓存和数据库的一致性问题？</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8ddEzG-NzzFD35ehvbER7A">面试相关：面试官最爱的MySQL连环问</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1VCC3i6ZCk7sb9kVRZ1czQ">面试相关：如何实现丝滑的数据库扩容</a></li>
+<h2 id="数据库-amp-MySQL-资源"><a href="#数据库-amp-MySQL-资源" class="headerlink" title="数据库&amp;MySQL-资源"></a>数据库&amp;MySQL-资源</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://highperfmysql.com/">高性能MySQL官网</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/OnGaqyUpB58pC2rqqzIzgw">原理探究：详解一条SQL的执行过程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/36Jaj79Y8BxFoDB3Bwe7mg">原理探究：MySQL的数据存在磁盘上到底长什么样</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/WMuxdG3ymNMWWDk1XhLwZQ">原理探究：数据库索引到底是什么</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/d7Zfat2fP6IX5DMKKtEIjQ">原理探究：为什么MySQL索引要用B+ tree</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-mOOchaXx_pKI6qWhohEnA">原理探究：为什么用了索引，SQL查询还是慢</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4K3borSZXt-yc5t5UJnJpQ">原理探究：数据库索引的原理和使用准则</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/iBnav_WPrX5vjR-NbdNeQg">原理探究：为什么你写的SQL那么慢</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/lyAFcnZIoyhACw78Nf9xQg">原理探究：count(1)和count(*)到底哪个效率高</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/7vN9Nf20NGnvLKALHw_O1Q">原理探究：为什么阿里规定超过三张表禁止join</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aPVs9Jrk07KsXcXdPOpx5A">原理研究：什么是MySQL索引下推？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yflzIQFiNa3tDJm7U9P8ig">原理探究：为什么大公司后台数据库都要搞分库分表？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/QBeyJz2gVq1p7wBxcY1Gfw">原理探究：MySQL不会丢失数据的奥秘就藏在这里</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/CCLsmKSsodtkz4iX84Cdig">原理探究：MySQL主从复制那些事儿</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/caBYeVtZvNzbSs4q-6710Q">实践应用：常见的SQL错误（不当）写法例析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hl11JYMwl30FsDVZ40CLVQ">实践应用：SQL优化的几个角度</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/hE2uKE2ffNCmeHLRn2KSTQ">实践应用：数据库、数据表设计规范例析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jl0j-T6XldN6Nq-jYoQ-gA">实践应用：梳理开发中常用的SQL优化途径</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SPgtpfgv6bz2AfPa1CYYeQ">实践应用：先更新数据库还是先更新缓存？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/EplL3kBx5vOXGDhDOP8NjQ">实践应用：百亿级数据分表后如何分页查</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/mnZT0Z5L6Hi6gRgEO1C9tg">实践应用：什么是SQL注入攻击</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4K3borSZXt-yc5t5UJnJpQ">实践应用：用对这些场景下的数据库索引，领导说我有点东西</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/MA7FVeJDMg8WDJABiBWpBA">实践应用：一个遗留项目的SQL优化实战录</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/UYZZkrbAetgnPUjGa71fJA">实践应用：误删数据库后该如何恢复</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/eQKphrkPeN_-EcWIxETz9Q">实践应用：如何科学根治慢SQL？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/MLvJsJuFAHHcllqvk1nVRQ">面试相关：面试官最爱的数据库索引连环问</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aBboeqEphejICklAKLqS2Q">面试相关：30道保底的MySQL数据库面试题集合</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/WqM5mhnLOqZhcdzPLeWh5w">面试相关：数据库自增ID用完了会怎样</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/RDOKLnG7P1j5Ehu3EyrsCQ">面试相关：如何保证缓存和数据库的一致性问题？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8ddEzG-NzzFD35ehvbER7A">面试相关：面试官最爱的MySQL连环问</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/1VCC3i6ZCk7sb9kVRZ1czQ">面试相关：如何实现丝滑的数据库扩容</a></p>
+</li>
 </ul>
 <h2 id="MyBatis批量操作"><a href="#MyBatis批量操作" class="headerlink" title="MyBatis批量操作"></a>MyBatis批量操作</h2><h3 id="分批插入"><a href="#分批插入" class="headerlink" title="分批插入"></a>分批插入</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//分批插入，一次插入的大小</span>
 <span class="token keyword">int</span> limit <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>
@@ -3117,9 +3155,9 @@ SHOW PROCEDURE STATUS LIKE &#39;ordertotal&#39;;<span aria-hidden="true" class="
                 <a href="/posts/3715/">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/28/TsdyfD8HilR9zZ6.png" class="responsive-img" alt="Spring-教程">
+                        <img src="https://s2.loli.net/2022/07/28/TsdyfD8HilR9zZ6.png" class="responsive-img" alt="Spring家族-教程">
                         
-                        <span class="card-title">Spring-教程</span>
+                        <span class="card-title">Spring家族-教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -3190,11 +3228,11 @@ SHOW PROCEDURE STATUS LIKE &#39;ordertotal&#39;;<span aria-hidden="true" class="
 
 <!-- TOC 悬浮按钮. -->
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
 
 
 <script src="/libs/tocbot/tocbot.min.js"></script>
@@ -3337,7 +3375,7 @@ SHOW PROCEDURE STATUS LIKE &#39;ordertotal&#39;;<span aria-hidden="true" class="
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">449.9k</span>
+                        class="white-color">450.3k</span>
             
             
             
