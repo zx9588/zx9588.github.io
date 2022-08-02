@@ -7,11 +7,10 @@
     <meta name="keywords" content="Git-教程, zx&#39;s blog">
     <meta name="description" content="Git相关书籍
 Git基础.xmind
-Pro Git 第二版（中文版）(推荐)Pro Git-中文-2（不推荐）
+Pro Git 第二版（中文版）-电子版(不推荐)Pro Git中文PDF版-第2版-高清扫描（推荐）
 Git权威指南
 GitHub入门与实践完整版.pdf
-从 0 开始学习 GitHub 系列.pdf
-Git版本控制管理第2版">
+从 0 开始学习 GitHub 系列.pd">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -937,14 +936,14 @@ Git版本控制管理第2版">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.2k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    22 分
                 </div>
                 
 
@@ -969,7 +968,7 @@ Git版本控制管理第2版">
             <div id="articleContent">
                 <h2 id="Git相关书籍"><a href="#Git相关书籍" class="headerlink" title="Git相关书籍"></a>Git相关书籍</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ifqkb089sggd">Git基础.xmind</a></li>
-<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iBK7i08d067a">Pro Git 第二版（中文版）(推荐)</a><br><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iTPdu08a4vnc">Pro Git-中文-2（不推荐）</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iBK7i08d067a">Pro Git 第二版（中文版）-电子版(不推荐)</a><br><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iTPdu08a4vnc">Pro Git中文PDF版-第2版-高清扫描（推荐）</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i8niC08a4uoh">Git权威指南</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iDFWW08f9wqb">GitHub入门与实践完整版.pdf</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iVUJD08f9qwb">从 0 开始学习 GitHub 系列.pdf</a></li>
@@ -1060,7 +1059,7 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 
 <p>然后下次输入一次密码（用token代替）即可永久保存</p>
 <h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>–system 全系统<br>–global 当前用户<br>–local 当前项目</p>
-<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#122;&#120;&#x40;&#122;&#120;&#x2e;&#106;&#115;&#46;&#x63;&#111;&#111;&#108;">&#122;&#120;&#x40;&#122;&#120;&#x2e;&#106;&#115;&#46;&#x63;&#111;&#111;&#108;</a>”</p>
+<p>设置用户信息<br>git config –global user.name “zhangxin”<br>git config –global user.email “<a href="mailto:&#x7a;&#120;&#x40;&#x7a;&#x78;&#x2e;&#106;&#x73;&#x2e;&#99;&#x6f;&#x6f;&#x6c;">&#x7a;&#120;&#x40;&#x7a;&#x78;&#x2e;&#106;&#x73;&#x2e;&#99;&#x6f;&#x6f;&#x6c;</a>”</p>
 <p>查看配置信息<br>git config –global user.name<br>git config –global user.email</p>
 <p>删除配置信息<br>git config –global –unset user.name</p>
 <h3 id="为常用指令配置别名"><a href="#为常用指令配置别名" class="headerlink" title="为常用指令配置别名"></a><a href="/posts/dbd/">为常用指令配置别名</a></h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#用于输出git提交日志</span>
@@ -1089,6 +1088,111 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 <li>作用:查看的修改的状态(暂存区、工作区)</li>
 <li>命令形式:git status</li>
 </ul>
+<hr>
+<p>状态简览<br> <code>git status</code> 命令的输出十分详细，但其用语有些繁琐。如果你使用 <code>git status -s</code> 命令或<br> <code>git status --short</code> 命令，你将得到一种更为紧凑的格式输出。运行 <code>git status -s</code> ，状态报</p>
+<p>告输出如下:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> status -s
+ M README
+MM Rakefile
+A  lib/git.rb
+M  lib/simplegit.rb
+?? LICENSE.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。</p>
+<p>你可能注意到了 M 有两个可放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。</p>
+<p>例如，上面的状态报告显示: README 文件在工作区被修改了但是还没有将修改后的文件放入暂存区, lib&#x2F;simplegit.rb 文件被修改了并将修改后的文件放入了暂存区。</p>
+<p>而 Rakefile 在工作区被修改并提交到暂存区后又在工作区中被修改了，所以在暂存区和工作区都有该文件被修改了的记录。</p>
+<hr>
+<h3 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h3><p><code>diff</code> 比较文件本身 Linux命令的对比</p>
+<p><code>git diff</code> 比较暂存区和工作区（注意先后顺序）</p>
+<ul>
+<li><code>-</code> 原文件 </li>
+<li><code>+</code> 对比的文件 </li>
+<li><code>5，3</code> 从第5行开始，比较3行</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/07/30/AsVTZW9hESlwM54.png" alt="image-20220730082720204"></p>
+<p><img src="https://s2.loli.net/2022/07/30/8zSZYp5hQjcbxen.png" alt="image-20220730083830495"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">diff</span>
+  <span class="token function">diff</span> --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+  index 8ebb991<span class="token punctuation">..</span>643e24f <span class="token number">100644</span>
+  --- a/CONTRIBUTING.md
+  +++ b/CONTRIBUTING.md
+  @@ -65,7 +65,8 @@ branch directly, things can get messy.
+   Please include a <span class="token function">nice</span> description of your changes when you submit your
+  PR<span class="token punctuation">;</span>
+   <span class="token keyword">if</span> we have to <span class="token builtin class-name">read</span> the whole <span class="token function">diff</span> to figure out why you<span class="token string">'re contributing
+   in the first place, you'</span>re <span class="token function">less</span> likely to get feedback and have your
+  change
+  -merged in.
+  +merged in. Also, <span class="token function">split</span> your changes into comprehensive chunks <span class="token keyword">if</span> your
+  patch is
+  +longer than a dozen lines.
+   If you are starting to work on a particular area, feel <span class="token function">free</span> to submit a
+  PR
+   that highlights your work <span class="token keyword">in</span> progress <span class="token punctuation">(</span>and note <span class="token keyword">in</span> the PR title that it's<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>git diff &lt;commitID&gt;</code> 比较 本地仓库 和 工作区 </p>
+<p><code>git diff --cached &lt;commitID&gt;</code> 比较 本地仓库 和 暂存区</p>
+<p><code>git diff --cached HEAD</code> head指向的本地仓库 和 暂存区</p>
+<p>若要查看已暂存的将要添加到下次提交里的内容，可以用 git diff –staged 命令。 这条命令将比对已暂存 文件与最后一次提交的文件差异(–staged和–cached是同义词)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">diff</span> --staged
+<span class="token function">diff</span> --git a/README b/README
+new <span class="token function">file</span> mode <span class="token number">100644</span>
+index 0000000<span class="token punctuation">..</span>03902a1
+--- /dev/null
++++ b/README
+@@ -0,0 +1 @@
++My Project<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<p>请注意，git diff 本身只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动。 所以有时候你一下子暂 存了所有更新过的文件，运行git diff后却什么也没有，就是这个原因。</p>
+<p>像之前说的，暂存CONTRIBUTING.md后再编辑，可以使用git status查看已被暂存的修改或未被暂存的修 改。 如果我们的环境(终端输出)看起来如下:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">add</span> CONTRIBUTING.md
+  $ <span class="token builtin class-name">echo</span> <span class="token string">'# test line'</span> <span class="token operator">>></span> CONTRIBUTING.md
+  $ <span class="token function">git</span> status
+  On branch master
+  Your branch is up-to-date with <span class="token string">'origin/master'</span><span class="token builtin class-name">.</span>
+  Changes to be committed:
+    <span class="token punctuation">(</span>use <span class="token string">"git reset HEAD &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+      modified:   CONTRIBUTING.md
+  Changes not staged <span class="token keyword">for</span> commit:
+    <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>
+    <span class="token punctuation">(</span>use <span class="token string">"git checkout -- &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working
+  directory<span class="token punctuation">)</span>
+      modified:   CONTRIBUTING.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在运行git diff看暂存前后的变化:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> <span class="token function">diff</span>
+  <span class="token function">diff</span> --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+  index 643e24f<span class="token punctuation">..</span>87f08c8 <span class="token number">100644</span>
+  --- a/CONTRIBUTING.md
+  +++ b/CONTRIBUTING.md
+  @@ -119,3 +119,4 @@ at the
+   <span class="token comment">## Starter Projects</span>
+   See our <span class="token punctuation">[</span>projects
+  list<span class="token punctuation">]</span><span class="token punctuation">(</span>https://github.com/libgit2/libgit2/blob/development/PROJECTS.md<span class="token punctuation">)</span>.
+  +<span class="token comment"># test line</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后用git diff –cached查看已经暂存起来的变化(–staged和–cached是同义词):</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> $ <span class="token function">git</span> <span class="token function">diff</span> --cached
+<span class="token function">diff</span> --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 8ebb991<span class="token punctuation">..</span>643e24f <span class="token number">100644</span>
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -65,7 +65,8 @@ branch directly, things can get messy.
+ Please include a <span class="token function">nice</span> description of your changes when you submit your
+PR<span class="token punctuation">;</span>
+ <span class="token keyword">if</span> we have to <span class="token builtin class-name">read</span> the whole <span class="token function">diff</span> to figure out why you<span class="token string">'re contributing
+ in the first place, you'</span>re <span class="token function">less</span> likely to get feedback and have your
+change
+-merged in.
++merged in. Also, <span class="token function">split</span> your changes into comprehensive chunks <span class="token keyword">if</span> your
+patch is
++longer than a dozen lines.
+ If you are starting to work on a particular area, feel <span class="token function">free</span> to submit a
+PR
+ that highlights your work <span class="token keyword">in</span> progress <span class="token punctuation">(</span>and note <span class="token keyword">in</span> the PR title that it's<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="添加工作区到暂存区-add"><a href="#添加工作区到暂存区-add" class="headerlink" title="添加工作区到暂存区(add)"></a>添加工作区到暂存区(add)</h3><ul>
 <li>作用:添加工作区一个或多个文件的修改到暂存区</li>
 <li>命令形式:git add 单个文件名|通配符<br>将所有修改加入暂存区:git add .</li>
@@ -1097,8 +1201,9 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 <h3 id="提交暂存区到本地仓库-commit"><a href="#提交暂存区到本地仓库-commit" class="headerlink" title="提交暂存区到本地仓库(commit)"></a>提交暂存区到本地仓库(commit)</h3><ul>
 <li>作用:提交暂存区内容到本地仓库的当前分支</li>
 <li>命令形式:git commit -m ‘注释内容’</li>
+<li><code>git commit -a -m &#39;added new benchmarks&#39;</code>给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存 起来一并提交，从而跳过git add步骤.</li>
 </ul>
-<h3 id="查看提交日志-log"><a href="#查看提交日志-log" class="headerlink" title="查看提交日志(log)"></a>查看提交日志(log)</h3><ul>
+<h3 id="查看提交日志-git-log"><a href="#查看提交日志-git-log" class="headerlink" title="查看提交日志(git log)"></a>查看提交日志(git log)</h3><ul>
 <li>作用:查看提交记录</li>
 <li>命令形式:git log [option]<ul>
 <li>options<ul>
@@ -1128,30 +1233,52 @@ git config --global credential.helper osxkeychain<span aria-hidden="true" class=
 <h3 id="添加文件至忽略列表"><a href="#添加文件至忽略列表" class="headerlink" title="添加文件至忽略列表"></a>添加文件至忽略列表</h3><p><code>cd</code> 工作目录下 <code>vim .gitignore</code></p>
 <p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动 生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录 中创建一个名为 .gitignore 的文件(文件名称固定)，列出要忽略的文件模式。</p>
 <p>示例</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># no .a files</span>
-*.a
-<span class="token comment"># but do track lib.a, even though you're ignoring .a files above</span>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> <span class="token comment"># 忽略所有的 .a 文件 </span>
+ *.a
+<span class="token comment"># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件 </span>
 <span class="token operator">!</span>lib.a
-<span class="token comment"># only ignore the TODO file in the current directory, not subdir/TODO</span>
+<span class="token comment"># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO </span>
 /TODO
-<span class="token comment"># ignore all files in the build/ directory</span>
+<span class="token comment"># 忽略任何目录下名为 build 的文件夹 </span>
 build/
-<span class="token comment"># ignore doc/notes.txt, but not doc/server/arch.txt</span>
+<span class="token comment"># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt </span>
 doc/*.txt
-<span class="token comment"># ignore all .pdf files in the doc/ directory</span>
-doc//*.pdf
-doc/**/*.pdf
-<span class="token comment"># 忽略任意级别目录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment"># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件 </span>
+doc/**/*.pdf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>GitHub 有一个十分详细的针对数十种项目及语言的 .gitignore 文件列表， 你可以在 <a target="_blank" rel="noopener" href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 找到它。</p>
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>从工作区中移除：</p>
+<ol>
+<li><p><code>rm 1.md</code></p>
+</li>
+<li><p>然后再运行<code>git rm 1.md</code>记录此次移除文件的操作</p>
+</li>
+<li><p>下一次提交时，该文件就不再纳入版本管理了。</p>
+</li>
+</ol>
+<p>如果要删除之前修改过或已经放到暂存区的文件，则必须使用 强制删除选项 <code>-f</code></p>
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><p><code>$ git mv file_from file_to</code></p>
+<p>其实，运行git mv就相当于运行了下面三条命令:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">mv</span> README.md README
+$ <span class="token function">git</span> <span class="token function">rm</span> README.md
+$ <span class="token function">git</span> <span class="token function">add</span> README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Git操作远程仓库"><a href="#Git操作远程仓库" class="headerlink" title="Git操作远程仓库"></a>Git操作远程仓库</h2><h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p><code>ssh-keygen -t rsa</code> 生成SSH公钥</p>
 <p><code>cat ~/.ssh/id_rsa.pub</code> 获取公钥</p>
 <p>Github -&gt; settings -&gt; SSH and GPG keys -&gt; New SSH Key 添加上<strong>公钥</strong></p>
 <p><code>ssh -T git@gitee.com</code> 验证是否配置成功</p>
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>此操作是先初始化本地库<code>git init</code>，然后与已创建的远程库进行对接。</p>
-<p><code>git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</code></p>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>此操作需要先初始化本地库<code>git init</code>，然后与已创建的远程库进行对接。</p>
+<p><code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程 Git 仓库，同时指定一个方便 使用的简写:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote
+origin
+$ <span class="token function">git</span> remote <span class="token function">add</span> pb https://github.com/paulboone/ticgit
+$ <span class="token function">git</span> remote -v
+origin  https://github.com/schacon/ticgit <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
+origin  https://github.com/schacon/ticgit <span class="token punctuation">(</span>push<span class="token punctuation">)</span>
+pb  https://github.com/paulboone/ticgit <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
+pb  https://github.com/paulboone/ticgit <span class="token punctuation">(</span>push<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li>远端名称，默认是origin，取决于远端服务器设置</li>
-<li>仓库路径，从远端服务器获取此URL</li>
 <li>例如: <code>git remote add origin git@github.com:zx20219898/blog.git</code></li>
 </ul>
 <hr>
@@ -1269,11 +1396,13 @@ Fast-forward
 </ul>
 <p><img src="https://s2.loli.net/2022/07/24/E3M5L1fYH6URl4J.png" alt="image-20220724173754121"></p>
 <h3 id="附-IDEA集成GitBash作为Terminal"><a href="#附-IDEA集成GitBash作为Terminal" class="headerlink" title="附:IDEA集成GitBash作为Terminal"></a>附:IDEA集成GitBash作为Terminal</h3><p><img src="https://s2.loli.net/2022/07/24/fXCQKpMqeLuGia7.png" alt="image-20220724173952126"></p>
-<h2 id="Git其他操作"><a href="#Git其他操作" class="headerlink" title="Git其他操作"></a>Git其他操作</h2><ul>
-<li><code>git rm --cached</code>  暂存区 &#x3D;》 工作区</li>
-<li><code>history</code> 查看历史命令记录</li>
-<li><code>vimdiff online/B/xxx.json online/A/xxx.json</code> diff, 查看两个文件的不同之处</li>
+<h2 id="Git其他操作"><a href="#Git其他操作" class="headerlink" title="Git其他操作"></a>Git其他操作</h2><p>我们想把文件从 Git 仓库中删除(亦即从暂存区域移除)，但仍然希望保留在当前工作目录 中。使用 –cached 选项:</p>
+<ul>
+<li><code>git rm --cached README</code>  暂存区 &#x3D;》 工作区。</li>
+<li>git rm命令后面可以列出文件或者目录的名字，也可以使用glob模式。比如: <code>git rm log/\*.log</code></li>
 </ul>
+<hr>
+<p><code>history</code> 查看历史命令记录</p>
 <hr>
 <p>删除已提交的文件<br><code>git rm &lt;文件名&gt;</code><br>删除后，文件被放入暂存区<br><code>git commit -m &#39;111&#39;</code></p>
 <hr>
@@ -1315,20 +1444,6 @@ Fast-forward
 <p><code>git blame 1.txt</code> 追责</p>
 <p><img src="https://s2.loli.net/2022/07/30/g4LVMu5ZJzTf9ev.png" alt="image-20220730002155682"></p>
 <hr>
-<p><code>diff</code> 比较文件本身 Linux命令的对比</p>
-<p><code>git diff</code> 比较暂存区和工作区（注意先后顺序）</p>
-<ul>
-<li><code>-</code> 原文件 </li>
-<li><code>+</code> 对比的文件 </li>
-<li><code>5，3</code> 从第5行开始，比较3行</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/07/30/AsVTZW9hESlwM54.png" alt="image-20220730082720204"></p>
-<p><img src="https://s2.loli.net/2022/07/30/8zSZYp5hQjcbxen.png" alt="image-20220730083830495"></p>
-<p><code>git diff &lt;commitID&gt;</code> 比较 本地仓库 和 工作区 </p>
-<p><code>git diff --cached &lt;commitID&gt;</code> 比较 本地仓库 和 暂存区</p>
-<p><code>git diff --cached HEAD</code> head指向的本地仓库 和 暂存区</p>
-<hr>
-<p><img src="/Users/zhangxin/Library/Application%20Support/typora-user-images/image-20220801142802306.png" alt="image-20220801142802306"></p>
 <h2 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h2><h3 id="解决使用git遇到的：Enter-passphrase-for-key-‘-x2F-Users-x2F-zhangxin-x2F-ssh-x2F-id-rsa’"><a href="#解决使用git遇到的：Enter-passphrase-for-key-‘-x2F-Users-x2F-zhangxin-x2F-ssh-x2F-id-rsa’" class="headerlink" title="解决使用git遇到的：Enter passphrase for key ‘&#x2F;Users&#x2F;zhangxin&#x2F;.ssh&#x2F;id_rsa’"></a>解决使用git遇到的：Enter passphrase for key ‘&#x2F;Users&#x2F;zhangxin&#x2F;.ssh&#x2F;id_rsa’</h3><p>创建SSH Key</p>
 <p><code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
 <p>在生成SSH Key时，如果不小心设置了passphrase，使用SSH协议克隆远程仓库时，在每次git pull和git push时都会提示<code>Enter passphrase for key &#39;/Users/zhangxiaoxue/.ssh/id_rsa&#39;</code>，每次都要手动输入密码才能继续操作，可以在命令行输入sh-keygen -p进行重新设置，直接回车输入为空，就没有密码了。</p>
@@ -2129,7 +2244,7 @@ Your identification has been saved with the new passphrase.<span aria-hidden="tr
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">447k</span>
+                        class="white-color">448.2k</span>
             
             
             
