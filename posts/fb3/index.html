@@ -5,10 +5,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="阿里云盘-教程, zx&#39;s blog">
-    <meta name="description" content="阿里云盘-资源
-阿里云盘网页版
+    <meta name="description" content="
+阿里云盘网页版 
+macos挂载阿里云盘当做本地盘
+mac挂载阿里云盘
+MAC中借助docker将阿里云盘挂载到本地 
+jar包资源
+webdav-aliyundriver
 
-macos挂载阿里云盘当做本地盘登录阿里云盘网页版 获取tokenF12 -&amp;gt; Application -&amp;gt; Storage -&amp;gt; Local Storage -&amp;gt; token -&amp;">
+java -jar webdav-aliyundriver-2">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -932,14 +937,14 @@ macos挂载阿里云盘当做本地盘登录阿里云盘网页版 获取tokenF12
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    281
+                    58
                 </div>
                 
 
@@ -969,27 +974,17 @@ macos挂载阿里云盘当做本地盘登录阿里云盘网页版 获取tokenF12
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="阿里云盘-资源"><a href="#阿里云盘-资源" class="headerlink" title="阿里云盘-资源"></a>阿里云盘-资源</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive">阿里云盘网页版</a></li>
+                <ul>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive">阿里云盘网页版</a> </li>
+<li><a target="_blank" rel="noopener" href="https://www.voidking.com/hobby-macos-mount-aliyundrive/">macos挂载阿里云盘当做本地盘</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhao_888CSDN/article/details/120021843">mac挂载阿里云盘</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sqsgoodluck/p/16433201.html">MAC中借助docker将阿里云盘挂载到本地 </a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iC6fd07xm67g">jar包资源</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/mirrors/webdav-aliyundriver">webdav-aliyundriver</a></li>
 </ul>
-<h3 id="macos挂载阿里云盘当做本地盘"><a href="#macos挂载阿里云盘当做本地盘" class="headerlink" title="macos挂载阿里云盘当做本地盘"></a>macos挂载阿里云盘当做本地盘</h3><p>登录<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/drive">阿里云盘网页版</a> 获取token<br>F12 -&gt; Application -&gt; Storage -&gt; Local Storage -&gt; token -&gt; refresh_token</p>
-<p>方式1 <a target="_blank" rel="noopener" href="https://www.voidking.com/hobby-macos-mount-aliyundrive/">https://www.voidking.com/hobby-macos-mount-aliyundrive/</a></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/zxbu/webdav-aliyundriver">https://github.com/zxbu/webdav-aliyundriver</a><br>jar包下载：<a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iC6fd07xm67g">https://wws.lanzoub.com/iC6fd07xm67g</a><br><code>java -jar webdav-aliyundriver.jar --aliyundrive.refresh-token=&quot;your refreshToken&quot;</code></li>
-</ul>
-<p>方式2 使用docker</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://gitee.com/mirrors/webdav-aliyundriver">https://gitee.com/mirrors/webdav-aliyundriver</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sqsgoodluck/p/16433201.html">https://www.cnblogs.com/sqsgoodluck/p/16433201.html</a><br><code>docker pull outcastveron/webdav-aliyundriver</code></li>
-</ul>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -d --name<span class="token operator">=</span>webdav-aliyundriver --restart<span class="token operator">=</span>always -p <span class="token number">8080</span>:8080  -v /etc/localtime:/etc/localtime -v /etc/aliyun-driver/:/etc/aliyun-driver/ -e <span class="token assign-left variable">TZ</span><span class="token operator">=</span><span class="token string">"Asia/Shanghai"</span> -e <span class="token assign-left variable">ALIYUNDRIVE_REFRESH_TOKEN</span><span class="token operator">=</span><span class="token string">"Token值"</span> -e <span class="token assign-left variable">ALIYUNDRIVE_AUTH_PASSWORD</span><span class="token operator">=</span><span class="token string">"password"</span> -e <span class="token assign-left variable">JAVA_OPTS</span><span class="token operator">=</span><span class="token string">"-Xmx1g"</span> yuanhaishan/webdav-aliyundriver:v2.4.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -jar webdav-aliyundriver-2.4.0.jar --aliyundrive.refresh-token<span class="token operator">=</span><span class="token string">"a514eb3614474a54a55a8f04b0f8395f"</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<blockquote>
-<p>&#x2F;etc&#x2F;aliyun-driver&#x2F; 挂载卷自动维护了最新的refreshToken，建议挂载<br>ALIYUNDRIVE_AUTH_PASSWORD 是admin账户的密码，建议修改<br>JAVA_OPTS 可修改最大内存占用，比如 -e JAVA_OPTS&#x3D;”-Xmx512m” 表示最大内存限制为512m</p>
-</blockquote>
-<blockquote>
-<p>参数说明<br>ALIYUNDRIVE_REFRESH_TOKEN        私人token值<br>ALIYUNDRIVE_AUTH_PASSWORD        后续登录所需的密码<br>yuanhaishan&#x2F;webdav-aliyundriver:v2.4.0     docker仓库的地址，zx5253不再开源，此为一个用户备份的镜像<br>-p		端口号，设置时需要避开设备中已存在的服务端口号</p>
-</blockquote>
 
                 
             </div>
@@ -1780,7 +1775,7 @@ macos挂载阿里云盘当做本地盘登录阿里云盘网页版 获取tokenF12
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">450k</span>
+                        class="white-color">449.8k</span>
             
             
             
@@ -1901,6 +1896,10 @@ macos挂载阿里云盘当做本地盘登录阿里云盘网页版 获取tokenF12
 
 <div class="progress-bar"></div>
 
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 1;">
+    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=80 height=86 src="//music.163.com/outchain/player?type=2&id=29844519&auto=1&height=66"></iframe>
+</div>
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
