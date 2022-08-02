@@ -771,6 +771,19 @@ Jav">
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -4266,7 +4279,8 @@ UTF-8编码中，1个中文字符一般占3个字节。<span aria-hidden="true" 
                 <a href="/posts/3f44/">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/28/hR5JtGCYkFeOqyB.png" class="responsive-img" alt="一、Java语言-面试题">
+                        
+                        <img src="https://s2.loli.net/2022/08/02/Wfumb3vE85YMDVJ.png" class="responsive-img" alt="一、Java语言-面试题">
                         
                         <span class="card-title">一、Java语言-面试题</span>
                     </div>
@@ -4528,7 +4542,7 @@ UTF-8编码中，1个中文字符一般占3个字节。<span aria-hidden="true" 
                    type="playlist"
                    id="503838841"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'

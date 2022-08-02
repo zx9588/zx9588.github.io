@@ -765,10 +765,23 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.loli.net/2022/07/31/W2j615tF7TZpEkx.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.loli.net/2022/08/02/fHrZiF97mQRqMsN.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -929,7 +942,7 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-02
                 </div>
                 
 
@@ -1827,7 +1840,8 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                 <a href="/posts/c5c3/">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/28/7awukJIgtAPeCSM.png" class="responsive-img" alt="四、中间件-面试题">
+                        
+                        <img src="https://s2.loli.net/2022/08/02/6SJVLv7zg85bRYG.png" class="responsive-img" alt="四、中间件-面试题">
                         
                         <span class="card-title">四、中间件-面试题</span>
                     </div>
@@ -1879,7 +1893,8 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                 <a href="/posts/7056/">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/31/WTzKp69CAmg1jsc.jpg" class="responsive-img" alt="六、计算机网络-面试题">
+                        
+                        <img src="https://s2.loli.net/2022/08/02/bgXW2fkF6ezBiYK.png" class="responsive-img" alt="六、计算机网络-面试题">
                         
                         <span class="card-title">六、计算机网络-面试题</span>
                     </div>
@@ -2081,7 +2096,7 @@ CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（
                    type="playlist"
                    id="503838841"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'

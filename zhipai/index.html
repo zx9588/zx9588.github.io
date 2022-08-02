@@ -764,10 +764,23 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.loli.net/2022/08/02/6LGea2hrVI4Cc78.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1958,7 +1971,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="https://s2.loli.net/2022/08/02/6LGea2hrVI4Cc78.png" class="responsive-img" alt="">
                         
                         <span class="card-title"></span>
                     </div>
@@ -1996,7 +2009,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="https://s2.loli.net/2022/08/02/6LGea2hrVI4Cc78.png" class="responsive-img" alt="">
                         
                         <span class="card-title"></span>
                     </div>
@@ -2183,7 +2196,7 @@
                    type="playlist"
                    id="503838841"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'

@@ -769,6 +769,19 @@ https://baijiahao.ba">
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1489,7 +1502,8 @@ https://baijiahao.ba">
                 <a href="/posts/437/">
                     <div class="card-image">
                         
-                        <img src="https://s2.loli.net/2022/07/31/N1EMzpVFTgqJxj4.png" class="responsive-img" alt="七、操作系统-面试题">
+                        
+                        <img src="https://s2.loli.net/2022/08/02/3Fyl61UxDwOuKMR.png" class="responsive-img" alt="七、操作系统-面试题">
                         
                         <span class="card-title">七、操作系统-面试题</span>
                     </div>
@@ -1735,7 +1749,7 @@ https://baijiahao.ba">
                    type="playlist"
                    id="503838841"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
