@@ -943,14 +943,14 @@ Spri">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-02
+                    2022-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
@@ -1109,11 +1109,11 @@ Spri">
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span>
        <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
-       <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!--bean标签标示配置bean
     	id属性标示给bean起名字
     	class属性表示给bean定义类型
-	--></span>
+	  --></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bookDao<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.itheima.dao.impl.BookDaoImpl<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bookService<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.itheima.service.impl.BookServiceImpl<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -1121,13 +1121,38 @@ Spri">
         <span class="token comment">&lt;!--property标签表示配置当前bean的属性
         		name属性表示配置哪一个具体的属性
         		ref属性表示参照哪一个bean
-		--></span>
+		    --></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bookDao<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bookDao<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://s2.loli.net/2022/08/02/9JVZLFKX16WS4fe.png" alt="image-20220802230808122"></p>
+<h3 id="bean"><a href="#bean" class="headerlink" title="bean"></a>bean</h3><h4 id="bean别名配置"><a href="#bean别名配置" class="headerlink" title="bean别名配置"></a>bean别名配置</h4><p><img src="https://s2.loli.net/2022/08/03/q9g2mn1wKrvW3Nu.png" alt="image-20220803201347368"></p>
+<h4 id="bean作用范围配置"><a href="#bean作用范围配置" class="headerlink" title="bean作用范围配置"></a>bean作用范围配置</h4><p><img src="https://s2.loli.net/2022/08/03/ItDj3N1HpvBzAkX.png" alt="image-20220803202429827"></p>
+<h4 id="bean作用范围说明"><a href="#bean作用范围说明" class="headerlink" title="bean作用范围说明"></a>bean作用范围说明</h4><p><img src="https://s2.loli.net/2022/08/03/EFqeZIUuJdmBD5j.png" alt="image-20220803212644296"></p>
+<h4 id="实例化bean的三种方式"><a href="#实例化bean的三种方式" class="headerlink" title="实例化bean的三种方式"></a>实例化bean的三种方式</h4><p>1.构造方法 2.静态工厂 3.实例工厂</p>
+<p><img src="https://s2.loli.net/2022/08/03/FhJEyLwaHUT7ASt.png" alt="image-20220803203938555"></p>
+<p><img src="https://s2.loli.net/2022/08/03/bhudfHSPotp4Jr2.png" alt="image-20220803212502589"></p>
+<p><img src="https://s2.loli.net/2022/08/03/fFMlCtjVqPNu6rB.png" alt="image-20220803213254834"></p>
+<p>实例工厂改良：（实现FactoryBean）</p>
+<p><img src="https://s2.loli.net/2022/08/03/dOjFeZfAQrCboHX.png" alt=" "></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserDaoFactoryBean</span> <span class="token keyword">implements</span> <span class="token class-name">FactoryBean</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">UserDao</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">//代替原始实例工厂中创建对象的方法</span>
+  <span class="token keyword">public</span> <span class="token class-name">UserDao</span> <span class="token function">getObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">UserDaoImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">//返回所创建类的Class对象</span>
+  <span class="token keyword">public</span> <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> <span class="token function">getObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token class-name">UserDao</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">// 默认为true，单例，可以不重写</span>
+  <span class="token keyword">default</span> <span class="token keyword">boolean</span> <span class="token function">isSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userDao<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.itheima.factory.UserDaoFactoryBean<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 
                 
             </div>
@@ -1919,7 +1944,7 @@ Spri">
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">450.4k</span>
+                        class="white-color">451.6k</span>
             
             
             
