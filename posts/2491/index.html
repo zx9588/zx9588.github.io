@@ -963,7 +963,7 @@ na">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.2k
                 </div>
                 
 
@@ -1026,6 +1026,7 @@ na">
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/106278206">hexo（matery）背景、滚动条优化+增加点击跳评论</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/issues/234">目录能否支持下滑动?现在目录过长就看不到下面，没法下滑</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40634846/article/details/109673421">取消hexo的matery主题的背景图遮罩颜色</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wwru.cn/134.html">把Hexo博客部署到服务器</a></li>
 </ul>
 <h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_51216553/article/details/118958664">参考1</a></li>
@@ -1219,6 +1220,26 @@ hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="to
 <span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
   <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc16
   <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="docker运行hexo镜像"><a href="#docker运行hexo镜像" class="headerlink" title="docker运行hexo镜像"></a>docker运行hexo镜像</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.17lai.site/posts/40300608/#Hexo-Docker%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%94%A8%E7%AF%87">docker环境使用篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/r/taskbjorn/hexo">https://hub.docker.com/r/taskbjorn/hexo</a></li>
+<li><a href="https://zx.js.cool/posts/738/#Docker%E9%83%A8%E7%BD%B2hexo">Docker部署hexo</a></li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull taskbjorn/hexo
+
+<span class="token function">docker</span> volume create my_hexo_data
+<span class="token function">docker</span> run -it -f-name my_hexo_container -p <span class="token number">4000</span>:4000 -v my_hexo_data:/home/hexo/.hexo taskbjorn/hexo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>数据卷位置：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes</p>
+<p>换服务器时搬运</p>
+</blockquote>
+<p>进入容器内部:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it my_hexo_container <span class="token function">sh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>exit：退出容器</p>
+
                 
             </div>
             <hr/>
@@ -2025,7 +2046,7 @@ hexo clean <span class="token operator">&amp;&amp;</span> hexo g <span class="to
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">451.9k</span>
+                        class="white-color">452k</span>
             
             
             
