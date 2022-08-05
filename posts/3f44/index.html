@@ -1,167 +1,181 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>一、Java语言-面试题 | zx&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1. Java基础1.1 为什么Java代码可以实现一次编写、到处运行？参考答案 JVM（Java虚拟机）是Java跨平台的关键。 在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。 同一份Java源代码在不同的平台上运行，它不需要">
+    
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh-CN">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>一、Java语言-面试题 | zx&#39;s blog</title>
+<meta name="author" content="zhangxin">
+<meta name="copyright" content="zhangxin">
+
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="keywords" content="Java,面试题">
+
+
+
+
+<meta name="description" content="1. Java基础1.1 为什么Java代码可以实现一次编写、到处运行？参考答案 JVM（Java虚拟机）是Java跨平台的关键。 在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。 同一份Java源代码在不同的平台上运行，它不需要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一、Java语言-面试题">
-<meta property="og:url" content="https://zx.js.cool/posts/3f44/index.html">
+<meta property="og:url" content="https://zx.js.cool/posts/3f44/">
 <meta property="og:site_name" content="zx&#39;s blog">
 <meta property="og:description" content="1. Java基础1.1 为什么Java代码可以实现一次编写、到处运行？参考答案 JVM（Java虚拟机）是Java跨平台的关键。 在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。 同一份Java源代码在不同的平台上运行，它不需要">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ciWpk6JxXjNtFYg.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/8DhLBqUPw9Clzex.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NcqugQ2r5sZKIlb.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/UKuYB3JGEWRfrH4.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/2UWedZ6FS1XsfJo.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/u4asUZbMTYxQiq7.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/MD7cNpEbzGugeFk.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3sglnAbuEaHJKiC.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/VnlY2xtOd3zAmJi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/gD1RHNMcWCXFabI.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/qx4mgiWSr5N32Pu.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/N1YR69ujBGOyqLM.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/kQIMDgjfzXLY4mV.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/KO8Bl5dsqa34eFN.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/UWbDgmEnQ4hT8P9.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NwsmJcPtKeoHB97.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/h6meZCliXGHVnkP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3bomTwGsxMHUjDL.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/oWBA2c3yHTUurwx.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hsdamuEQfXZ8pwY.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/4lPWDRCQHSq3Zeo.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/tYZEXxQ4cHUpbOM.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/28HOEyCiD1h4KIm.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/TvKInQG8xobLECX.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3Dkxg2KGJr1ehVS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/HwAQ7J5BUgLGtrm.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/gJ3Tk8b1rE9xBRF.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/YrkRmnqOBQTw6ha.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/c74zqaIpUKbFBHi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/YXZcP6vbyTCkIDr.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/DG4jsi7QeEVltJO.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/i3MGR97oO6FNgIu.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3KgOGYtar7JACsy.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Cd73KsFXVaMcLQl.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/fxBUgyhnY3G7si2.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/q5ghbEjWmypXNv4.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NufPtgYGL79oDsF.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/lEbMONjxWL8iTzV.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/g1aPhDYSoc5RvTH.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/TsmE2xf9ackWSq1.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/QMSqX5faTJ1K8mZ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/eYuhM7kCJDBj1KS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/p3foZeHJU1mtiSW.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/OwsUJDaZ7ozbPmE.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/j1y4QGXtNkng3a7.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/jePr2nxXsca6MiZ.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/sWc47QPMkfrIEpw.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/5EMxgRXvP9kCjTp.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/rt9EdbUPIQ5jeW8.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/auqvLOBjyXeghlt.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/2Kvd9ySYmGlbtFR.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/rX5IkTFxlH6jdUn.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/Gmcv7VtysPz1BJ8.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/LY4qF2stCpOHPBR.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/qi14PmyzJWgvcfn.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/siJmuKF2lyhMpD8.webp">
+<meta property="og:image" content="https://zx.js.cool/img/logo.gif">
 <meta property="article:published_time" content="2022-03-02T02:33:39.000Z">
 <meta property="article:modified_time" content="2022-08-03T08:23:56.108Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png">
-  
-    <link rel="alternate" href="/atom.xml" title="zx's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://zx.js.cool/img/logo.gif">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<script src="/js/utlis.js"></script>
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
+
+
+
+
+<script src="/third-party/js/prefetch-page.js"></script>
+<script>
   
+  addEventListener('load', function() {
+    prefetch({"delay":1000,"threshold":25})
+  })
+  
+</script>
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">zx&#39;s blog</a>
-      </h1>
+     
+    
+
+<script>
+  var $config = {
+      CDN: {
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
+      },
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">zx&#39;s blog</a>
-        </h2>
       
+      codeBlockExpand: {
+        enable: true,
+        height: 400,
+        scrollTop: 200
+      }
+      
+    }
+</script>
+
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">zx's blog</a>
+      
+      <ul class="menu">
+         
+        
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
         
-          <a class="main-nav-link" href="/">Home</a>
+    </ul>
+  </div>
+</nav>
+
+
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/logo.gif" alt="zhangxin" class="author-avatar">
+            <div class="author-name">
+                zhangxin
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            zx&#39;s blog
+        </p>
+        <div class="header-icon">
+            
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>一、Java语言-面试题</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-03-02 |
+        </span>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-08-05
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">95.9k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>344分钟</span>
         
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zx.js.cool"></form>
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-面试题/一、Java语言" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/posts/3f44/" class="article-date">
-  <time class="dt-published" datetime="2022-03-02T02:33:39.000Z" itemprop="datePublished">2022-03-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      一、Java语言-面试题
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Java基础"><a href="#1-Java基础" class="headerlink" title="1. Java基础"></a>1. Java基础</h2><h3 id="1-1-为什么Java代码可以实现一次编写、到处运行？"><a href="#1-1-为什么Java代码可以实现一次编写、到处运行？" class="headerlink" title="1.1 为什么Java代码可以实现一次编写、到处运行？"></a>1.1 为什么Java代码可以实现一次编写、到处运行？</h3><p><strong>参考答案</strong></p>
+  <div class="post-content">
+    <h2 id="1-Java基础"><a href="#1-Java基础" class="headerlink" title="1. Java基础"></a>1. Java基础</h2><h3 id="1-1-为什么Java代码可以实现一次编写、到处运行？"><a href="#1-1-为什么Java代码可以实现一次编写、到处运行？" class="headerlink" title="1.1 为什么Java代码可以实现一次编写、到处运行？"></a>1.1 为什么Java代码可以实现一次编写、到处运行？</h3><p><strong>参考答案</strong></p>
 <p>JVM（Java虚拟机）是Java跨平台的关键。</p>
 <p>在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。</p>
 <p>同一份Java源代码在不同的平台上运行，它不需要做任何的改变，并且只需要编译一次。而编译好的字节码，是通过JVM这个中间的“桥梁”实现跨平台的，JVM是与平台相关的软件，它能将统一的字节码翻译成该平台的机器码。</p>
@@ -190,7 +204,7 @@
 <li>public：该类可以被任意包下，任意的类所访问。</li>
 </ul>
 <p><strong>补充</strong></p>
-<p><img src="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png"></p>
 <h3 id="1-4-介绍一下Java的数据类型"><a href="#1-4-介绍一下Java的数据类型" class="headerlink" title="1.4 介绍一下Java的数据类型"></a>1.4 介绍一下Java的数据类型</h3><p><strong>参考答案</strong></p>
 <p>Java数据类型包括基本数据类型和引用数据类型两大类。</p>
 <p>基本数据类型有8个，可以分为4个小类，分别是整数类型（byte&#x2F;short&#x2F;int&#x2F;long）、浮点类型（float&#x2F;double）、字符类型（char）、布尔类型（boolean）。其中，4个整数类型中，int类型最为常用。2个浮点类型中，double最为常用。另外，在这8个基本类型当中，除了布尔类型之外的其他7个类型，都可以看做是数字类型，它们相互之间可以进行类型转换。</p>
@@ -579,7 +593,7 @@
 <li>接口和抽象类都可以包含抽象方法，实现接口或继承抽象类的普通子类都必须实现这些抽象方法。</li>
 </ul>
 <p><strong>补充</strong></p>
-<p><img src="https://s2.loli.net/2022/07/17/ciWpk6JxXjNtFYg.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/ciWpk6JxXjNtFYg.png"></p>
 <p>设计目的区别</p>
 <ul>
 <li>接口的设计目的：只约束行为有无， 但不限制实现。</li>
@@ -651,7 +665,7 @@
 <p>Error是错误，一般是指与虚拟机相关的问题，如系统崩溃、虚拟机错误、动态链接失败等，这种错误无法恢复或不可能捕获，将导致应用程序中断。通常应用程序无法处理这些错误，因此应用程序不应该试图使用catch块来捕获Error对象。在定义方法时，也无须在其throws子句中声明该方法可能抛出Error及其任何子类。</p>
 <p>Exception是异常，它被分为两大类，分别是Checked异常和Runtime异常。所有的RuntimeException类及其子类的实例被称为Runtime异常；不是RuntimeException类及其子类的异常实例则被称为Checked异常。Java认为Checked异常都是可以被处理（修复）的异常，所以Java程序必须显式处理Checked异常。如果程序没有处理Checked异常，该程序在编译时就会发生错误，无法通过编译。Runtime异常则更加灵活，Runtime异常无须显式声明抛出，如果程序需要捕获Runtime异常，也可以使用try…catch块来实现。</p>
 <p><strong>补充</strong></p>
-<p><img src="https://s2.loli.net/2022/07/17/8DhLBqUPw9Clzex.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/8DhLBqUPw9Clzex.png"></p>
 <p>迭代器遍历没有此元素异常：NoSuchElementException。 数字转换异常： NumberFormatException。</p>
 <p><strong>异常的产生默认的处理过程解析</strong></p>
 <p>目标：异常的产生默认的处理过程解析。(自动处理的过程！)<br>（1）默认会在出现异常的代码那里自动的创建一个异常对象：ArithmeticException。 （2）异常会从方法中出现的点这里抛出给调用者，调用者最终抛出给JVM虚拟机。 （3）虚拟机接收到异常对象后，先在控制台直接输出异常栈信息数据。<br>（4）直接从当前执行的异常点干掉当前程序。 （5）后续代码没有机会执行了，因为程序已经死亡。</p>
@@ -727,11 +741,11 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>异常分类以及处理机制</strong></p>
-<p><img src="https://s2.loli.net/2022/07/17/NcqugQ2r5sZKIlb.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/NcqugQ2r5sZKIlb.jpg"></p>
 <p>java标准库内建了一些通用的异常，这些类以Throwable为顶层父类。Throwable又派生出Error类和Exception类。</p>
 <p>错误:Error类以及他的子类的实例，代表了JVM本身的错误。错误不能被程序员通过代码处理，Error很少出现。因此，程序员应该关注Exception为父类的分支下的各种异常类。</p>
 <p>异常:Exception以及他的子类，代表程序运行时发送的各种不期望发生的事件。可以被java异常处理机制使用， 是异常处理的核心。</p>
-<p><img src="https://s2.loli.net/2022/07/17/UKuYB3JGEWRfrH4.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/UKuYB3JGEWRfrH4.webp"></p>
 <p>总体上我们根据 javac 对异常的处理要求，将异常类分为二类。</p>
 <p>非检查异常（ unckecked exception ）</p>
 <blockquote>
@@ -1312,7 +1326,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span>cars<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>因为 java 数组变量是引用类型的变量，所以上述几行初始化语句执行后，三个数组在内存中的分配情况如下图所 示:</p>
-<p><img src="https://s2.loli.net/2022/07/17/2UWedZ6FS1XsfJo.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/2UWedZ6FS1XsfJo.webp"></p>
 <p>由上图可知，静态初始化方式，程序员虽然没有指定数组长度，但是系统已经自动帮我们给分配了，而动态初始化 方式，程序员虽然没有显示的指定初始化值，但是因为 java 数组是引用类型的变量，所以系统也为每个元素分配 了初始化值 null<br>，当然不同类型的初始化值也是不一样的，假设是基本类型int类型，那么为系统分配的初始化值 也是对应的默认值0。</p>
 <h2 id="2-集合类"><a href="#2-集合类" class="headerlink" title="2. 集合类"></a>2. 集合类</h2><h3 id="2-1-Java中有哪些容器（集合类）？"><a href="#2-1-Java中有哪些容器（集合类）？" class="headerlink" title="2.1 Java中有哪些容器（集合类）？"></a>2.1 Java中有哪些容器（集合类）？</h3><p><strong>参考答案</strong></p>
 <p>Java中的集合类主要由Collection和Map这两个接口派生而出，其中Collection接口又派生出三个子接口，分别是Set、List、Queue。所有的Java集合类，都是Set、List、Queue、Map这四个接口的实现类，这四个接口将集合分成了四大类，其中</p>
@@ -1325,9 +1339,9 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p>这些接口拥有众多的实现类，其中最常用的实现类有HashSet、TreeSet、ArrayList、LinkedList、ArrayDeque、HashMap、TreeMap等。</p>
 <p><strong>扩展阅读</strong></p>
 <p>Collection体系的继承树：</p>
-<p><img src="https://s2.loli.net/2022/07/17/u4asUZbMTYxQiq7.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/u4asUZbMTYxQiq7.jpg"></p>
 <p>Map体系的继承树：</p>
-<p><img src="https://s2.loli.net/2022/07/17/MD7cNpEbzGugeFk.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/MD7cNpEbzGugeFk.jpg"></p>
 <p><em>注：紫色框体代表接口，其中加粗的是代表四类集合的接口。蓝色框体代表实现类，其中有阴影的是常用实现类。</em></p>
 <h3 id="2-2-Java中的容器，线程安全和线程不安全的分别有哪些？"><a href="#2-2-Java中的容器，线程安全和线程不安全的分别有哪些？" class="headerlink" title="2.2 Java中的容器，线程安全和线程不安全的分别有哪些？"></a>2.2 Java中的容器，线程安全和线程不安全的分别有哪些？</h3><p><strong>参考答案</strong></p>
 <p>java.util包下的集合类大部分都是线程不安全的，例如我们常用的HashSet、TreeSet、ArrayList、LinkedList、ArrayDeque、HashMap、TreeMap，这些都是线程不安全的集合类，但是它们的优点是性能好。如果需要使用线程安全的集合类，则可以使用Collections工具类提供的synchronizedXxx()方法，将这些集合类包装成线程安全的集合类。</p>
@@ -1343,7 +1357,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ul>
 <p><strong>扩展阅读</strong></p>
 <p>java.util.concurrent包下线程安全的集合类的体系结构：</p>
-<p><img src="https://s2.loli.net/2022/07/17/3sglnAbuEaHJKiC.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/3sglnAbuEaHJKiC.jpg"></p>
 <h3 id="2-3-Map接口有哪些实现类？"><a href="#2-3-Map接口有哪些实现类？" class="headerlink" title="2.3 Map接口有哪些实现类？"></a>2.3 Map接口有哪些实现类？</h3><p><strong>参考答案</strong></p>
 <p>Map接口有很多实现类，其中比较常用的有HashMap、LinkedHashMap、TreeMap、ConcurrentHashMap。</p>
 <p>对于不需要排序的场景，优先考虑使用HashMap，因为它是性能最好的Map实现。如果需要保证线程安全，则可以使用ConcurrentHashMap。它的性能好于Hashtable，因为它在put时采用分段锁&#x2F;CAS的加锁机制，而不是像Hashtable那样，无论是put还是get都做同步处理。</p>
@@ -1371,7 +1385,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ol>
 <p><strong>扩展阅读</strong></p>
 <p>HashMap添加数据的详细过程，如下图：</p>
-<p><img src="https://s2.loli.net/2022/07/17/VnlY2xtOd3zAmJi.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/VnlY2xtOd3zAmJi.png"></p>
 <h3 id="2-5-如何得到一个线程安全的Map？"><a href="#2-5-如何得到一个线程安全的Map？" class="headerlink" title="2.5 如何得到一个线程安全的Map？"></a>2.5 如何得到一个线程安全的Map？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li>使用Collections工具类，将线程不安全的Map包装成线程安全的Map；</li>
@@ -1389,7 +1403,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p>JDK8中的HashMap，是基于数组+链表+红黑树来实现的，它的底层维护一个Node数组。当链表的存储的数据个数大于等于8的时候，不再采用链表存储，而采用了红黑树存储结构。这么做主要是在查询的时间复杂度上进行优化，链表为O(N)，而红黑树一直是O(logN)，可以大大的提高查找性能。</p>
 <p><strong>补充</strong></p>
 <p>HashMap结构图</p>
-<p><img src="https://s2.loli.net/2022/07/17/gD1RHNMcWCXFabI.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/gD1RHNMcWCXFabI.png"></p>
 <p>在 JDK1.7 及之前的版本中， HashMap 又叫散列链表：基于一个数组以及多个链表的实现，hash值冲突的时候， 就将对应节点以链表的形式存储。</p>
 <p>其下基于 JDK1.7.0_80 与 JDK1.8.0_66 做的分析</p>
 <p>JDK1.7中</p>
@@ -1428,11 +1442,11 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ol>
 <p><strong>扩展阅读</strong></p>
 <p>例如我们从16扩展为32时，具体的变化如下所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/qx4mgiWSr5N32Pu.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/qx4mgiWSr5N32Pu.png"></p>
 <p>因此元素在重新计算hash之后，因为n变为2倍，那么n-1的mask范围在高位多1bit(红色)，因此新的index就会发生这样的变化：</p>
-<p><img src="https://s2.loli.net/2022/07/17/N1YR69ujBGOyqLM.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/N1YR69ujBGOyqLM.png"></p>
 <p>因此，我们在扩充HashMap的时候，不需要重新计算hash，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”。可以看看下图为16扩充为32的resize示意图：</p>
-<p><img src="https://s2.loli.net/2022/07/17/kQIMDgjfzXLY4mV.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/kQIMDgjfzXLY4mV.png"></p>
 <p>这个设计确实非常的巧妙，既省去了重新计算hash值的时间，而且同时，由于新增的1bit是0还是1可以认为是随机的，因此resize的过程，均匀的把之前的冲突的节点分散到新的bucket了。</p>
 <p><strong>补充：HashMap的扩容过程</strong></p>
 <p>当向容器添加元素的时候，会判断当前容器的元素个数，如果大于等于阈值(yu)—即当前数组的长度乘以加载因子的值的时候，就要自动扩容啦。</p>
@@ -1456,9 +1470,9 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p><strong>补充</strong></p>
 <p>如果有两个线程A和B，都进行插入数据，刚好这两条不同的数据经过哈希计算后得到的哈希码是一样的，且该位 置还没有其他的数据。所以这两个线程都会进入我在上面标记为1的代码中。假设一种情况，线程A通过if判断，该 位置没有哈希冲突，进入了if语句，还没有进行数据插入，这时候 CPU 就把资源让给了线程B，线程A停在了if语句 里面，线程B判断该位置没有哈希冲突(线程A的数据还没插入)，也进入了if语句，线程B执行完后，轮到线程A执 行，现在线程A直接在该位置插入而不用再判断。这时候，你会发现线程A把线程B插入的数据给覆盖了。发生了线 程不安全情况。本来在 HashMap 中，发生哈希冲突是可以用链表法或者红黑树来解决的，但是在多线程中，可能 就直接给覆盖了。</p>
 <p>上面所说的是一个图来解释可能更加直观。如下面所示，两个线程在同一个位置添加数据，后面添加的数据就覆盖住了前面添加的。</p>
-<p><img src="https://s2.loli.net/2022/07/18/KO8Bl5dsqa34eFN.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/KO8Bl5dsqa34eFN.webp"></p>
 <p>如果上述插入是插入到链表上，如两个线程都在遍历到最后一个节点，都要在最后添加一个数据，那么后面添加数据的线程就会把前面添加的数据给覆盖住。则</p>
-<p><img src="https://s2.loli.net/2022/07/18/UWbDgmEnQ4hT8P9.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/UWbDgmEnQ4hT8P9.webp"></p>
 <p>在扩容的时候也可能会导致数据不一致，因为扩容是从一个数组拷贝到另外一个数组。</p>
 <h3 id="2-13-HashMap如何实现线程安全？"><a href="#2-13-HashMap如何实现线程安全？" class="headerlink" title="2.13 HashMap如何实现线程安全？"></a>2.13 HashMap如何实现线程安全？</h3><p><strong>参考答案</strong></p>
 <ol>
@@ -1494,10 +1508,10 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <h3 id="2-17-介绍一下ConcurrentHashMap是怎么实现的？"><a href="#2-17-介绍一下ConcurrentHashMap是怎么实现的？" class="headerlink" title="2.17 介绍一下ConcurrentHashMap是怎么实现的？"></a>2.17 介绍一下ConcurrentHashMap是怎么实现的？</h3><p><strong>参考答案</strong></p>
 <p>JDK 1.7中的实现：</p>
 <p>在 jdk 1.7 中，ConcurrentHashMap 是由 Segment 数据结构和 HashEntry 数组结构构成，采取分段锁来保证安全性。Segment 是 ReentrantLock 重入锁，在 ConcurrentHashMap 中扮演锁的角色，HashEntry 则用于存储键值对数据。一个 ConcurrentHashMap 里包含一个 Segment 数组，一个 Segment 里包含一个 HashEntry 数组，Segment 的结构和 HashMap 类似，是一个数组和链表结构。</p>
-<p><img src="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png"></p>
 <p>JDK 1.8中的实现：</p>
 <p>JDK1.8 的实现已经摒弃了 Segment 的概念，而是直接用 Node 数组+链表+红黑树的数据结构来实现，并发控制使用 Synchronized 和 CAS 来操作，整个看起来就像是优化过且线程安全的 HashMap，虽然在 JDK1.8 中还能看到 Segment 的数据结构，但是已经简化了属性，只是为了兼容旧版本。</p>
-<p><img src="https://s2.loli.net/2022/07/17/NwsmJcPtKeoHB97.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/NwsmJcPtKeoHB97.png"></p>
 <p><strong>补充</strong></p>
 <p>jdk7</p>
 <blockquote>
@@ -1681,13 +1695,13 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p>await操作：</p>
 <p>我们发现ArrayBlockingQueue并没有使用Object.wait，而是使用的Condition.await，这是为什么呢？Condition对象可以提供和Object的wait和notify一样的行为，但是后者必须先获取synchronized这个内置的monitor锁才能调用，而Condition则必须先获取ReentrantLock。这两种方式在阻塞等待时都会将相应的锁释放掉，但是Condition的等待可以中断，这是二者唯一的区别。</p>
 <p>我们先来看一下Condition的await函数，await函数的流程大致如下图所示。await函数主要有三个步骤，一是调用addConditionWaiter函数，在condition wait queue队列中添加一个节点，代表当前线程在等待一个消息。然后调用fullyRelease函数，将持有的锁释放掉，调用的是AQS的函数。最后一直调用isOnSyncQueue函数判断节点是否被转移到sync queue队列上，也就是AQS中等待获取锁的队列。如果没有，则进入阻塞状态，如果已经在队列上，则调用acquireQueued函数重新获取锁。</p>
-<p><img src="https://s2.loli.net/2022/07/17/h6meZCliXGHVnkP.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/h6meZCliXGHVnkP.png"></p>
 <p>signal操作：</p>
 <p>signal函数将condition wait queue队列中队首的线程节点转移等待获取锁的sync queue队列中。这样的话，await函数中调用isOnSyncQueue函数就会返回true，导致await函数进入最后一步重新获取锁的状态。</p>
 <p>我们这里来详细解析一下condition wait queue和sync queue两个队列的设计原理。condition wait queue是等待消息的队列，因为阻塞队列为空而进入阻塞状态的take函数操作就是在等待阻塞队列不为空的消息。而sync queue队列则是等待获取锁的队列，take函数获得了消息，就可以运行了，但是它还必须等待获取锁之后才能真正进行运行状态。</p>
 <p>signal函数其实就做了一件事情，就是不断尝试调用transferForSignal函数，将condition wait queue队首的一个节点转移到sync queue队列中，直到转移成功。因为一次转移成功，就代表这个消息被成功通知到了等待消息的节点。</p>
 <p>signal函数的示意图如下所示。</p>
-<p><img src="https://s2.loli.net/2022/07/17/3bomTwGsxMHUjDL.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/3bomTwGsxMHUjDL.png"></p>
 <h3 id="2-32-Stream（不是IOStream）有哪些方法？"><a href="#2-32-Stream（不是IOStream）有哪些方法？" class="headerlink" title="2.32 Stream（不是IOStream）有哪些方法？"></a>2.32 Stream（不是IOStream）有哪些方法？</h3><p><strong>参考答案</strong></p>
 <p>Stream提供了大量的方法进行聚集操作，这些方法既可以是“中间的”，也可以是“末端的”。</p>
 <ul>
@@ -1787,7 +1801,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <li>按照处理功能，可以将流分为节点流和处理流，其中节点流可以直接从&#x2F;向一个特定的IO设备（磁盘、网络等）读&#x2F;写数据，也称为低级流，而处理流是对节点流的连接或封装，用于简化数据读&#x2F;写功能或提高效率，也称为高级流。</li>
 </ul>
 <p>Java提供了大量的类来支持IO操作，下表给大家整理了其中比较常用的一些类。其中，黑色字体的是抽象基类，其他所有的类都继承自它们。红色字体的是节点流，蓝色字体的是处理流。</p>
-<p><img src="https://s2.loli.net/2022/07/17/oWBA2c3yHTUurwx.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/oWBA2c3yHTUurwx.png"></p>
 <p>根据命名很容易理解各个流的作用：</p>
 <ul>
 <li>以File开头的文件流用于访问文件；</li>
@@ -1818,10 +1832,10 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <li>limit：在写模式下，Buffer的limit表示最多能往Buffer里写多少数据，此时limit等于capacity。当切换Buffer到读模式时， limit表示你最多能读到多少数据，此时limit会被设置成写模式下的position值。</li>
 </ul>
 <p>三个属性之间的关系，如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/hsdamuEQfXZ8pwY.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/hsdamuEQfXZ8pwY.png"></p>
 <p>Selector允许单线程处理多个 Channel，如果你的应用打开了多个连接（通道），但每个连接的流量都很低，使用Selector就会很方便。要使用Selector，得向Selector注册Channel，然后调用它的select()方法。这个方法会一直阻塞到某个注册的通道有事件就绪。一旦这个方法返回，线程就可以处理这些事件，事件例如有新连接进来，数据接收等。</p>
 <p>这是在一个单线程中使用一个Selector处理3个Channel的图示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/4lPWDRCQHSq3Zeo.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/4lPWDRCQHSq3Zeo.png"></p>
 <p><strong>扩展阅读</strong></p>
 <p>Java NIO根据操作系统不同， 针对NIO中的Selector有不同的实现：</p>
 <ul>
@@ -1963,7 +1977,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ul>
 <p><strong>扩展阅读</strong></p>
 <p>线程5种状态的转换关系，如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/tYZEXxQ4cHUpbOM.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/tYZEXxQ4cHUpbOM.png"></p>
 <h3 id="4-6-如何实现线程同步？"><a href="#4-6-如何实现线程同步？" class="headerlink" title="4.6 如何实现线程同步？"></a>4.6 如何实现线程同步？</h3><p><strong>参考答案</strong></p>
 <ol>
 <li><p>同步方法</p>
@@ -2065,7 +2079,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <p>在同步队列中，还存在2中模式，分别是独占模式和共享模式，这两种模式的区别就在于AQS在唤醒线程节点的时候是不是传递唤醒，这两种模式分别对应独占锁和共享锁。</p>
 <p>AQS是一个抽象类，所以不能直接实例化，当我们需要实现一个自定义锁的时候可以去继承AQS然后重写获取锁的方式和释放锁的方式还有管理state，而ReentrantLock就是通过重写了AQS的tryAcquire和tryRelease方法实现的lock和unlock。</p>
 <p>ReentrantLock 结构如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/28HOEyCiD1h4KIm.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/28HOEyCiD1h4KIm.png"></p>
 <p>首先ReentrantLock 实现了 Lock 接口，然后有3个内部类，其中Sync内部类继承自AQS，另外的两个内部类继承自Sync，这两个类分别是用来公平锁和非公平锁的。通过Sync重写的方法tryAcquire、tryRelease可以知道，ReentrantLock实现的是AQS的独占模式，也就是独占锁，这个锁是悲观锁。</p>
 <h3 id="4-17-如果不使用synchronized和Lock，如何保证线程安全？"><a href="#4-17-如果不使用synchronized和Lock，如何保证线程安全？" class="headerlink" title="4.17 如果不使用synchronized和Lock，如何保证线程安全？"></a>4.17 如果不使用synchronized和Lock，如何保证线程安全？</h3><p><strong>参考答案</strong></p>
 <ol>
@@ -2088,7 +2102,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <h3 id="4-19-公平锁与非公平锁是怎么实现的？"><a href="#4-19-公平锁与非公平锁是怎么实现的？" class="headerlink" title="4.19 公平锁与非公平锁是怎么实现的？"></a>4.19 公平锁与非公平锁是怎么实现的？</h3><p><strong>参考答案</strong></p>
 <p>在Java中实现锁的方式有两种，一种是使用Java自带的关键字synchronized对相应的类或者方法以及代码块进行加锁，另一种是ReentrantLock，前者只能是非公平锁，而后者是默认非公平但可实现公平的一把锁。</p>
 <p>ReentrantLock是基于其内部类FairSync(公平锁)和NonFairSync(非公平锁)实现的，并且它的实现依赖于Java同步器框架AbstractQueuedSynchronizer（AQS），AQS使用一个整形的volatile变量state来维护同步状态，这个volatile变量是实现ReentrantLock的关键。我们来看一下ReentrantLock的类图：</p>
-<p><img src="https://s2.loli.net/2022/07/17/TvKInQG8xobLECX.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/TvKInQG8xobLECX.jpg"></p>
 <p>ReentrantLock 的公平锁和非公平锁都委托了 AbstractQueuedSynchronizer#acquire 去请求获取。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">acquire</span><span class="token punctuation">(</span><span class="token keyword">int</span> arg<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>     
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">tryAcquire</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">acquireQueued</span><span class="token punctuation">(</span><span class="token function">addWaiter</span><span class="token punctuation">(</span><span class="token class-name">Node</span><span class="token punctuation">.</span>EXCLUSIVE<span class="token punctuation">)</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">selfInterrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
@@ -2131,7 +2145,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ul>
 <h3 id="4-20-了解Java中的锁升级吗？"><a href="#4-20-了解Java中的锁升级吗？" class="headerlink" title="4.20 了解Java中的锁升级吗？"></a>4.20 了解Java中的锁升级吗？</h3><p><strong>参考答案</strong></p>
 <p>JDK 1.6之前，synchronized 还是一个重量级锁，是一个效率比较低下的锁。但是在JDK 1.6后，JVM为了提高锁的获取与释放效率对synchronized 进行了优化，引入了偏向锁和轻量级锁 ，从此以后锁的状态就有了四种：无锁、偏向锁、轻量级锁、重量级锁。并且四种状态会随着竞争的情况逐渐升级，而且是不可逆的过程，即不可降级，这四种锁的级别由低到高依次是：无锁、偏向锁，轻量级锁，重量级锁。如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/3Dkxg2KGJr1ehVS.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/3Dkxg2KGJr1ehVS.png"></p>
 <ol>
 <li><p>无锁</p>
 <p>无锁是指没有对资源进行锁定，所有的线程都能访问并修改同一个资源，但同时只有一个线程能修改成功。无锁的特点是修改操作会在循环内进行，线程会不断的尝试修改共享资源。如果没有冲突就修改成功并退出，否则就会继续循环尝试。如果有多个线程修改同一个值，必定会有一个线程能修改成功，而其他修改失败的线程会不断重试直到修改成功。</p>
@@ -2166,9 +2180,9 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ul>
 <p>那么，synchronized 具体是存在对象头哪里呢？答案是：存在锁对象的对象头的Mark Word中，那么MarkWord在对象头中到底长什么样，它到底存储了什么呢？</p>
 <p>在32位的虚拟机中：</p>
-<p><img src="https://s2.loli.net/2022/07/17/HwAQ7J5BUgLGtrm.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/HwAQ7J5BUgLGtrm.png"></p>
 <p>在64位的虚拟机中：</p>
-<p><img src="https://s2.loli.net/2022/07/17/gJ3Tk8b1rE9xBRF.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/gJ3Tk8b1rE9xBRF.png"></p>
 <p>下面我们以 32位虚拟机为例，来看一下其 Mark Word 的字节具体是如何分配的：</p>
 <ul>
 <li>无锁 ：对象头开辟 25bit 的空间用来存储对象的 hashcode ，4bit 用于存放对象分代年龄，1bit 用来存放是否偏向锁的标识位，2bit 用来存放锁标识位为01。</li>
@@ -2211,7 +2225,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ol>
 <p>在某些情况下我们可以将锁分解技术进一步扩展为一组独立对象上的锁进行分解，这称为分段锁。其实说的简单一点就是：容器里有多把锁，每一把锁用于锁容器其中一部分数据，那么当多线程访问容器里不同数据段的数据时，线程间就不会存在锁竞争，从而可以有效的提高并发访问效率，这就是ConcurrentHashMap所使用的锁分段技术，首先将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问。</p>
 <p>如下图，ConcurrentHashMap使用Segment数据结构，将数据分成一段一段的存储，然后给每一段数据配一把锁，当一个线程占用锁访问其中一个段数据的时候，其他段的数据也能被其他线程访问，能够实现真正的并发访问。所以说，ConcurrentHashMap在并发情况下，不仅保证了线程安全，而且提高了性能。</p>
-<p><img src="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png"></p>
 <h3 id="4-23-说说你对读写锁的了解"><a href="#4-23-说说你对读写锁的了解" class="headerlink" title="4.23 说说你对读写锁的了解"></a>4.23 说说你对读写锁的了解</h3><p><strong>参考答案</strong></p>
 <p>与传统锁不同的是读写锁的规则是可以共享读，但只能一个写，总结起来为：读读不互斥、读写互斥、写写互斥，而一般的独占锁是：读读互斥、读写互斥、写写互斥，而场景中往往读远远大于写，读写锁就是为了这种优化而创建出来的一种机制。 注意是读远远大于写，一般情况下独占锁的效率低来源于高并发下对临界区的激烈竞争导致线程上下文切换。因此当并发不是很高的情况下，读写锁由于需要额外维护读锁的状态，可能还不如独占锁的效率高。因此需要根据实际情况选择使用。</p>
 <p>在Java中ReadWriteLock的主要实现为ReentrantReadWriteLock，其提供了以下特性：</p>
@@ -2292,7 +2306,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 <li>CountDownLatch使用state表示计数次数，state大于0，表示需要加入到同步等待队列并阻塞，直到state等于0，才会逐一唤醒等待队列里的线程。</li>
 </ul>
 <p>AQS通过内置的FIFO(first-in-first-out)同步队列来控制获取共享资源的线程。CLH队列是FIFO的双端双向队列，AQS的同步机制就是依靠这个CLH队列完成的。队列的每个节点，都有前驱节点指针和后继节点指针。如下图：</p>
-<p><img src="https://s2.loli.net/2022/07/17/YrkRmnqOBQTw6ha.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/YrkRmnqOBQTw6ha.png"></p>
 <h3 id="4-28-LongAdder解决了什么问题，它是如何实现的？"><a href="#4-28-LongAdder解决了什么问题，它是如何实现的？" class="headerlink" title="4.28 LongAdder解决了什么问题，它是如何实现的？"></a>4.28 LongAdder解决了什么问题，它是如何实现的？</h3><p><strong>参考答案</strong></p>
 <p>高并发下计数，一般最先想到的应该是AtomicLong&#x2F;AtomicInt，AtmoicXXX使用硬件级别的指令 CAS 来更新计数器的值，这样可以避免加锁，机器直接支持的指令，效率也很高。但是AtomicXXX中的 CAS 操作在出现线程竞争时，失败的线程会白白地循环一次，在并发很大的情况下，因为每次CAS都只有一个线程能成功，竞争失败的线程会非常多。失败次数越多，循环次数就越多，很多线程的CAS操作越来越接近 自旋锁（spin lock）。计数操作本来是一个很简单的操作，实际需要耗费的cpu时间应该是越少越好，AtomicXXX在高并发计数时，大量的cpu时间都浪费会在 自旋 上了，这很浪费，也降低了实际的计数效率。</p>
 <p>LongAdder是jdk8新增的用于并发环境的计数器，目的是为了在高并发情况下，代替AtomicLong&#x2F;AtomicInt，成为一个用于高并发情况下的高效的通用计数器。说LongAdder比在高并发时比AtomicLong更高效，这么说有什么依据呢？LongAdder是根据锁分段来实现的，它里面维护一组按需分配的计数单元，并发计数时，不同的线程可以在不同的计数单元上进行计数，这样减少了线程竞争，提高了并发效率。本质上是用空间换时间的思想，不过在实际高并发情况中消耗的空间可以忽略不计。</p>
@@ -2367,7 +2381,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </ul>
 <h3 id="4-32-介绍一下线程池的工作流程"><a href="#4-32-介绍一下线程池的工作流程" class="headerlink" title="4.32 介绍一下线程池的工作流程"></a>4.32 介绍一下线程池的工作流程</h3><p><strong>参考答案</strong></p>
 <p>线程池的工作流程如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/c74zqaIpUKbFBHi.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/c74zqaIpUKbFBHi.png"></p>
 <ol>
 <li>判断核心线程池是否已满，没满则创建一个新的工作线程来执行任务。</li>
 <li>判断任务队列是否已满，没满则将新提交的任务添加在工作队列。</li>
@@ -2390,7 +2404,7 @@ in<span class="token punctuation">.</span><span class="token function">show</spa
 </li>
 </ol>
 <p>下图为线程池的状态转换过程：</p>
-<p><img src="https://s2.loli.net/2022/07/17/YXZcP6vbyTCkIDr.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/YXZcP6vbyTCkIDr.png"></p>
 <h3 id="4-34-谈谈线程池的拒绝策略"><a href="#4-34-谈谈线程池的拒绝策略" class="headerlink" title="4.34 谈谈线程池的拒绝策略"></a>4.34 谈谈线程池的拒绝策略</h3><p><strong>参考答案</strong></p>
 <p>当线程池的任务缓存队列已满并且线程池中的线程数目达到maximumPoolSize，如果还有任务到来就会采取任务拒绝策略，通常有以下四种策略：</p>
 <ol>
@@ -2657,18 +2671,18 @@ bool flag <span class="token operator">=</span> <span class="token boolean">fals
 </li>
 </ol>
 <p>java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种不同状态的其中一个状态（图源《java 并发编程艺术》4.1.4 节）。</p>
-<p><img src="https://s2.loli.net/2022/07/17/DG4jsi7QeEVltJO.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/DG4jsi7QeEVltJO.webp"></p>
 <p>线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换。java 线程状态变迁如下图所示（图源《java 并发编程艺术》4.1.4 节）：</p>
-<p><img src="https://s2.loli.net/2022/07/17/i3MGR97oO6FNgIu.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/i3MGR97oO6FNgIu.webp"></p>
 <p>由上图可以看出：线程创建之后它将处于 NEW（新建） 状态，调用 start() 方法后开始运行，线程这时候处于 READY（可运行） 状态。可运行状态的线程获得了 CPU 时间片（timeslice）后就处于 RUNNING（运行） 状态。</p>
 <blockquote>
 <p>操作系统隐藏 java 虚拟机（JVM）中的 RUNNABLE 和 RUNNING 状态，它只能看到 RUNNABLE 状态（图源：HowToDoInjava：java Thread Life Cycle and Thread States），所以 java 系统一般将这两个状态统称为 RUNNABLE（运行中） 状态 。</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/07/17/3KgOGYtar7JACsy.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/3KgOGYtar7JACsy.webp"></p>
 <p>当线程执行 wait()方法之后，线程进入 <strong>WAITING（等待）</strong>状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，而 TIME_WAITING(超时等待) 状态相当于在等待状态的基础上增加了超时限制，比如通过 sleep（long millis）方法或 wait（long millis）方法可以将 java 线程置于 TIMED WAITING 状态。当超时时间到达后 java 线程将会返回到 RUNNABLE 状态。当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 BLOCKED（阻塞） 状态。线程在执行 Runnable 的run()方法之后将会进入到 TERMINATED（终止） 状态。</p>
 <h3 id="什么是线程死锁"><a href="#什么是线程死锁" class="headerlink" title="什么是线程死锁?"></a>什么是线程死锁?</h3><p>多个线程同时被阻塞，它们中的一个或者全部都在等待某个资源被释放。由于线程被无限期地阻塞，因此程序不可能正常终止。</p>
 <p>如下图所示，线程 A 持有资源 2，线程 B 持有资源 1，他们同时都想申请对方的资源，所以这两个线程就会互相等待而进入死锁状态。</p>
-<p><img src="https://s2.loli.net/2022/07/17/Cd73KsFXVaMcLQl.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/Cd73KsFXVaMcLQl.webp"></p>
 <p>下面通过一个例子来说明线程死锁,代码模拟了上图的死锁的情况 (代码来源于《并发编程之美》)：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeadLockDemo</span> <span class="token punctuation">&#123;</span>   
     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> resource1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//资源 1   </span>
@@ -2830,7 +2844,7 @@ bool flag <span class="token operator">=</span> <span class="token boolean">fals
 </ul>
 </li>
 </ol>
-<p><img src="https://s2.loli.net/2022/07/17/fxBUgyhnY3G7si2.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/fxBUgyhnY3G7si2.png"></p>
 <h3 id="java内存模型是什么？"><a href="#java内存模型是什么？" class="headerlink" title="java内存模型是什么？"></a>java内存模型是什么？</h3><p>java内存模型规定和指引java程序在不同的内存架构、CPU和操作系统间有确定性地行为。它在多线程的情况下尤其重要。java内存模型对一个线程所做的变动能被其它线程可见提供了保证，它们之间是先行发生关系。这个关系定义了一些规则让程序员在并发编程时思路更清晰。比如，先行发生关系确保了：</p>
 <ul>
 <li>线程内的代码能够按先后顺序执行，这被称为程序次序规则。</li>
@@ -3143,7 +3157,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 </blockquote>
 <h2 id="5-JVM"><a href="#5-JVM" class="headerlink" title="5. JVM"></a>5. JVM</h2><h3 id="5-1-JVM包含哪几部分？"><a href="#5-1-JVM包含哪几部分？" class="headerlink" title="5.1 JVM包含哪几部分？"></a>5.1 JVM包含哪几部分？</h3><p><strong>参考答案</strong></p>
 <p>JVM 主要由四大部分组成：ClassLoader（类加载器），Runtime Data Area（运行时数据区，内存分区），Execution Engine（执行引擎），Native Interface（本地库接口），下图可以大致描述 JVM 的结构。</p>
-<p><img src="https://s2.loli.net/2022/07/17/q5ghbEjWmypXNv4.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/q5ghbEjWmypXNv4.jpg"></p>
 <p>JVM 是执行 Java 程序的虚拟计算机系统，那我们来看看执行过程：首先需要准备好编译好的 Java 字节码文件（即class文件），计算机要运行程序需要先通过一定方式（类加载器）将 class 文件加载到内存中（运行时数据区），但是字节码文件是JVM定义的一套指令集规范，并不能直接交给底层操作系统去执行，因此需要特定的命令解释器（执行引擎）将字节码翻译成特定的操作系统指令集交给 CPU 去执行，这个过程中会需要调用到一些不同语言为 Java 提供的接口（例如驱动、地图制作等），这就用到了本地 Native 接口（本地库接口）。</p>
 <ul>
 <li>ClassLoader：负责加载字节码文件即 class 文件，class 文件在文件开头有特定的文件标示，并且 ClassLoader 只负责class 文件的加载，至于它是否可以运行，则由 Execution Engine 决定。</li>
@@ -3176,7 +3190,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 </ol>
 <h3 id="5-3-Java程序是怎么运行的？"><a href="#5-3-Java程序是怎么运行的？" class="headerlink" title="5.3 Java程序是怎么运行的？"></a>5.3 Java程序是怎么运行的？</h3><p><strong>参考答案</strong></p>
 <p>概括来说，写好的 Java 源代码文件经过 Java 编译器编译成字节码文件后，通过类加载器加载到内存中，才能被实例化，然后到 Java 虚拟机中解释执行，最后通过操作系统操作 CPU 执行获取结果。如下图：</p>
-<p><img src="https://s2.loli.net/2022/07/17/NufPtgYGL79oDsF.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/NufPtgYGL79oDsF.jpg"></p>
 <h3 id="5-4-本地方法栈有什么用？"><a href="#5-4-本地方法栈有什么用？" class="headerlink" title="5.4 本地方法栈有什么用？"></a>5.4 本地方法栈有什么用？</h3><p><strong>参考答案</strong></p>
 <p>本地方法栈（Native Method Stacks）与虚拟机栈所发挥的作用是非常相似的，其区别只是虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则是为虚拟机使用到的本地（Native）方法服务。</p>
 <p>《Java虚拟机规范》对本地方法栈中方法使用的语言、使用方式与数据结构并没有任何强制规定，因此具体的虚拟机可以根据需要自由实现它，甚至有的Java虚拟机（譬如Hot-Spot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。与虚拟机栈一样，本地方法栈也会在栈深度溢出或者栈扩展失败时分别抛出StackOverflowError和OutOfMemoryError异常。</p>
@@ -3188,7 +3202,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是本地（Native）方法，这个计数器值则应为空（Undefined）。此内存区域是唯一一个在《Java虚拟机规范》中没有规定任何OutOfMemoryError情况的区域。</p>
 <h3 id="5-6-说一说Java的内存分布情况"><a href="#5-6-说一说Java的内存分布情况" class="headerlink" title="5.6 说一说Java的内存分布情况"></a>5.6 说一说Java的内存分布情况</h3><p><strong>参考答案</strong></p>
 <p>Java虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而一直存在，有些区域则是依赖用户线程的启动和结束而建立和销毁。根据《Java虚拟机规范》的规定，Java虚拟机所管理的内存将会包括以下几个运行时数据区域。</p>
-<p><img src="https://s2.loli.net/2022/07/17/lEbMONjxWL8iTzV.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/lEbMONjxWL8iTzV.jpg"></p>
 <ol>
 <li><p>程序计数器</p>
 <p>程序计数器（Program Counter Register）是一块较小的内存空间，它可以看作是当前线程所执行的字节码的行号指示器。在Java虚拟机的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
@@ -3250,10 +3264,10 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 </li>
 </ol>
 <p>上述3个处理过程里，执行插入式注解时又可能会产生新的符号，如果有新的符号产生，就必须转回到之前的解析、填充符号表的过程中重新处理这些新符号，从总体来看，三者之间的关系与交互顺序如图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/17/g1aPhDYSoc5RvTH.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/g1aPhDYSoc5RvTH.jpg"></p>
 <h3 id="5-10-介绍一下类加载的过程"><a href="#5-10-介绍一下类加载的过程" class="headerlink" title="5.10 介绍一下类加载的过程"></a>5.10 介绍一下类加载的过程</h3><p><strong>参考答案</strong></p>
 <p>一个类型从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期将会经历加载（Loading）、验证（Verification）、准备（Preparation）、解析（Resolution）、初始化（Initialization）、使用（Using）和卸载（Unloading）七个阶段，其中验证、准备、解析三个部分统称为连接（Linking）。这七个阶段的发生顺序如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/17/TsmE2xf9ackWSq1.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/TsmE2xf9ackWSq1.jpg"></p>
 <p>在上述七个阶段中，包括了类加载的全过程，即加载、验证、准备、解析和初始化这五个阶段。</p>
 <p>一、加载</p>
 <p>“加载”（Loading）阶段是整个“类加载”（Class Loading）过程中的一个阶段，在加载阶段，Java虚拟机需要完成以下三件事情：</p>
@@ -3295,9 +3309,9 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <li><init>()方法中的代码执行顺序为：父类变量初始化、父类代码块、父类构造器、子类变量初始化、子类代码块、子类构造器。</li>
 </ul>
 <p>静态变量、静态代码块、普通变量、普通代码块、构造器的执行顺序如下图：</p>
-<p><img src="https://s2.loli.net/2022/07/17/QMSqX5faTJ1K8mZ.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/QMSqX5faTJ1K8mZ.png"></p>
 <p>具有父类的子类的实例化顺序如下：</p>
-<p><img src="https://s2.loli.net/2022/07/17/eYuhM7kCJDBj1KS.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/eYuhM7kCJDBj1KS.png"></p>
 <p><strong>扩展阅读</strong></p>
 <p>Java是一门面向对象的编程语言，Java程序运行过程中无时无刻都有对象被创建出来。在语言层面上，创建对象通常（例外：复制、反序列化）仅仅是一个new关键字而已，而在虚拟机中，对象（文中讨论的对象限于普通Java对象，不包括数组和Class对象等）的创建又是怎样一个过程呢？</p>
 <p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
@@ -3331,7 +3345,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <li>应用程序类加载器（Application Class Loader）：这个类加载器由sun.misc.Launcher$AppClassLoader来实现。由于应用程序类加载器是ClassLoader类中的getSystem-ClassLoader()方法的返回值，所以有些场合中也称它为“系统类加载器”。它负责加载用户类路径（ClassPath）上所有的类库，开发者同样可以直接在代码中使用这个类加载器。如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。</li>
 </ul>
 <p>这些类加载器之间的协作关系“通常”会如下图所示，图中展示的各种类加载器之间的层次关系被称为类加载器的“双亲委派模型（Parents Delegation Model）”。双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器。不过这里类加载器之间的父子关系一般不是以继承（Inheritance）的关系来实现的，而是通常使用组合（Composition）关系来复用父加载器的代码。</p>
-<p><img src="https://s2.loli.net/2022/07/17/p3foZeHJU1mtiSW.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/p3foZeHJU1mtiSW.jpg"></p>
 <p>双亲委派模型的工作过程是：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到最顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去完成加载。</p>
 <p>使用双亲委派模型来组织类加载器之间的关系，一个显而易见的好处就是Java中的类随着它的类加载器一起具备了一种带有优先级的层次关系。例如类java.lang.Object，它存放在rt.jar之中，无论哪一个类加载器要加载这个类，最终都是委派给处于模型最顶端的启动类加载器进行加载，因此Object类在程序的各种类加载器环境中都能够保证是同一个类。反之，如果没有使用双亲委派模型，都由各个类加载器自行去加载的话，如果用户自己也编写了一个名为java.lang.Object的类，并放在程序的ClassPath中，那系统中就会出现多个不同的Object类，Java类型体系中最基础的行为也就无从保证，应用程序将会变得一片混乱。</p>
 <p><strong>扩展阅读</strong></p>
@@ -3373,7 +3387,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>这段代码的逻辑清晰易懂：先检查请求加载的类型是否已经被加载过，若没有则调用父加载器的loadClass()方法，若父加载器为空则默认使用启动类加载器作为父加载器。假如父类加载器加载失败，抛出ClassNotFoundException异常的话，才调用自己的findClass()方法尝试进行加载。</p>
 <p><strong>补充：类加载器双亲委派模型机制</strong></p>
 <p>当一个类收到了类加载请求时，不会自己先去加载这个类，而是将其委派给父类，由父类去加载，如果此时父类不能加载，反馈给子类，由子类去完成类的加载。</p>
-<p><img src="https://s2.loli.net/2022/07/17/OwsUJDaZ7ozbPmE.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/OwsUJDaZ7ozbPmE.png"></p>
 <p>双亲委派模型的好处</p>
 <ul>
 <li>主要是为了安全性，避免用户自己编写的类动态替换 java的一些核心类，比如 String。</li>
@@ -3410,7 +3424,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>可达性分析算法：</p>
 <p>当前主流的商用程序语言的内存管理子系统，都是通过可达性分析（Reachability Analysis）算法来判定对象是否存活的。这个算法的基本思路就是通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”（Reference Chain），如果某个对象到GC Roots间没有任何引用链相连，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</p>
 <p>如下图所示，对象object 5、object 6、object 7虽然互有关联，但是它们到GC Roots是不可达的，因此它们将会被判定为可回收的对象。</p>
-<p><img src="https://s2.loli.net/2022/07/18/j1y4QGXtNkng3a7.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/j1y4QGXtNkng3a7.jpg"></p>
 <p>在Java技术体系里面，固定可作为GC Roots的对象包括以下几种：</p>
 <ul>
 <li>在虚拟机栈（栈帧中的本地变量表）中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。</li>
@@ -3440,15 +3454,15 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p><strong>标记-清除算法</strong>：</p>
 <p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法，如它的名字一样，算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象。</p>
 <p>它的主要缺点有两个：第一个是执行效率不稳定，如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。标记-清除算法的执行过程如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/18/jePr2nxXsca6MiZ.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/jePr2nxXsca6MiZ.jpg"></p>
 <p><strong>标记-复制算法</strong>：</p>
 <p>为了解决标记-清除算法面对大量可回收对象时执行效率低的问题，1969年Fenichel提出了一种称为“半区复制”（Semispace Copying）的垃圾收集算法，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销，但对于多数对象都是可回收的情况，算法需要复制的就是占少数的存活对象，而且每次都是针对整个半区进行内存回收，分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可。这样实现简单，运行高效，不过其缺陷也显而易见，这种复制回收算法的代价是将可用内存缩小为了原来的一半，空间浪费未免太多了一点。标记-复制算法的执行过程如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/18/sWc47QPMkfrIEpw.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/sWc47QPMkfrIEpw.jpg"></p>
 <p>在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间，每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1，也即每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。当然，98%的对象可被回收仅仅是“普通场景”下测得的数据，任何人都没有办法百分百保证每次回收都只有不多于10%的对象存活，因此Appel式回收还有一个充当罕见情况的“逃生门”的安全设计，当Survivor空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域（实际上大多就是老年代）进行分配担保（Handle Promotion）。</p>
 <p><strong>标记-整理算法</strong>：</p>
 <p>标记-复制算法在对象存活率较高时就要进行较多的复制操作，效率将会降低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。</p>
 <p>针对老年代对象的存亡特征，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法，其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存，“标记-整理”算法的示意图如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/18/5EMxgRXvP9kCjTp.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/5EMxgRXvP9kCjTp.jpg"></p>
 <h3 id="5-16-请介绍一下分代回收机制"><a href="#5-16-请介绍一下分代回收机制" class="headerlink" title="5.16 请介绍一下分代回收机制"></a>5.16 请介绍一下分代回收机制</h3><p><strong>参考答案</strong></p>
 <p>当前商业虚拟机的垃圾收集器，大多数都遵循了“分代收集”（GenerationalCollection）[插图]的理论进行设计，分代收集名为理论，实质是一套符合大多数程序运行实际情况的经验法则，它建立在两个分代假说之上：</p>
 <ol>
@@ -3507,7 +3521,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>可达性分析算法：</p>
 <p>当前主流的商用程序语言的内存管理子系统，都是通过可达性分析（Reachability Analysis）算法来判定对象是否存活的。这个算法的基本思路就是通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”（Reference Chain），如果某个对象到GC Roots间没有任何引用链相连，或者用图论的话来说就是从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</p>
 <p>如下图所示，对象object 5、object 6、object 7虽然互有关联，但是它们到GC Roots是不可达的，因此它们将会被判定为可回收的对象。</p>
-<p><img src="https://s2.loli.net/2022/07/19/rt9EdbUPIQ5jeW8.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/rt9EdbUPIQ5jeW8.jpg"></p>
 <p>在Java技术体系里面，固定可作为GC Roots的对象包括以下几种：</p>
 <ul>
 <li>在虚拟机栈（栈帧中的本地变量表）中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。</li>
@@ -3534,22 +3548,22 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>标记-清除算法：</p>
 <p>最早出现也是最基础的垃圾收集算法是“标记-清除”（Mark-Sweep）算法，如它的名字一样，算法分为“标记”和“清除”两个阶段：首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象。</p>
 <p>它的主要缺点有两个：第一个是执行效率不稳定，如果Java堆中包含大量对象，而且其中大部分是需要被回收的，这时必须进行大量标记和清除的动作，导致标记和清除两个过程的执行效率都随对象数量增长而降低；第二个是内存空间的碎片化问题，标记、清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致当以后在程序运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。标记-清除算法的执行过程如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/19/auqvLOBjyXeghlt.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/auqvLOBjyXeghlt.jpg"></p>
 <p>标记-复制算法：</p>
 <p>为了解决标记-清除算法面对大量可回收对象时执行效率低的问题，1969年Fenichel提出了一种称为“半区复制”（Semispace Copying）的垃圾收集算法，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。如果内存中多数对象都是存活的，这种算法将会产生大量的内存间复制的开销，但对于多数对象都是可回收的情况，算法需要复制的就是占少数的存活对象，而且每次都是针对整个半区进行内存回收，分配内存时也就不用考虑有空间碎片的复杂情况，只要移动堆顶指针，按顺序分配即可。这样实现简单，运行高效，不过其缺陷也显而易见，这种复制回收算法的代价是将可用内存缩小为了原来的一半，空间浪费未免太多了一点。标记-复制算法的执行过程如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/19/2Kvd9ySYmGlbtFR.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/2Kvd9ySYmGlbtFR.jpg"></p>
 <p>在1989年，Andrew Appel针对具备“朝生夕灭”特点的对象，提出了一种更优化的半区复制分代策略，现在称为“Appel式回收”。Appel式回收的具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间，每次分配内存只使用Eden和其中一块Survivor。发生垃圾搜集时，将Eden和Survivor中仍然存活的对象一次性复制到另外一块Survivor空间上，然后直接清理掉Eden和已用过的那块Survivor空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8∶1，也即每次新生代中可用内存空间为整个新生代容量的90%（Eden的80%加上一个Survivor的10%），只有一个Survivor空间，即10%的新生代是会被“浪费”的。当然，98%的对象可被回收仅仅是“普通场景”下测得的数据，任何人都没有办法百分百保证每次回收都只有不多于10%的对象存活，因此Appel式回收还有一个充当罕见情况的“逃生门”的安全设计，当Survivor空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域（实际上大多就是老年代）进行分配担保（Handle Promotion）。</p>
 <p>标记-整理算法：</p>
 <p>标记-复制算法在对象存活率较高时就要进行较多的复制操作，效率将会降低。更关键的是，如果不想浪费50%的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。</p>
 <p>针对老年代对象的存亡特征，1974年Edward Lueders提出了另外一种有针对性的“标记-整理”（Mark-Compact）算法，其中的标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向内存空间一端移动，然后直接清理掉边界以外的内存，“标记-整理”算法的示意图如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/19/rX5IkTFxlH6jdUn.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/rX5IkTFxlH6jdUn.jpg"></p>
 <h3 id="5-26-为什么新生代和老年代要采用不同的回收算法？"><a href="#5-26-为什么新生代和老年代要采用不同的回收算法？" class="headerlink" title="5.26 为什么新生代和老年代要采用不同的回收算法？"></a>5.26 为什么新生代和老年代要采用不同的回收算法？</h3><p><strong>参考答案</strong></p>
 <p>如果一个区域中大多数对象都是朝生夕灭，难以熬过垃圾收集过程的话，那么把它们集中放在一起，每次回收时只关注如何保留少量存活而不是去标记那些大量将要被回收的对象，就能以较低代价回收到大量的空间。如果剩下的都是难以消亡的对象，那把它们集中放在一块，虚拟机便可以使用较低的频率来回收这个区域，这就同时兼顾了垃圾收集的时间开销和内存的空间有效利用。</p>
 <h3 id="5-27-请介绍G1垃圾收集器"><a href="#5-27-请介绍G1垃圾收集器" class="headerlink" title="5.27 请介绍G1垃圾收集器"></a>5.27 请介绍G1垃圾收集器</h3><p><strong>参考答案</strong></p>
 <p>G1（Garbage First）是一款主要面向服务端应用的垃圾收集器，JDK 9发布之日，G1宣告取代ParallelScavenge加Parallel Old组合，成为服务端模式下的默认垃圾收集器，而CMS则沦落至被声明为不推荐使用（Deprecate）的收集器。G1收集器是垃圾收集器技术发展历史上的里程碑式的成果，它开创了收集器面向局部收集的设计思路和基于Region的内存布局形式。</p>
 <p>虽然G1也仍是遵循分代收集理论设计的，但其堆内存的布局与其他收集器有非常明显的差异：G1不再坚持固定大小以及固定数量的分代区域划分，而是把连续的Java堆划分为多个大小相等的独立区域（Region），每一个Region都可以根据需要，扮演新生代的Eden空间、Survivor空间，或者老年代空间。收集器能够对扮演不同角色的Region采用不同的策略去处理，这样无论是新创建的对象还是已经存活了一段时间、熬过多次收集的旧对象都能获取很好的收集效果。</p>
 <p>Region中还有一类特殊的Humongous区域，专门用来存储大对象。G1认为只要大小超过了一个Region容量一半的对象即可判定为大对象。每个Region的大小可以通过参数 -XX：G1HeapRegionSize 设定，取值范围为1MB～32MB，且应为2的N次幂。而对于那些超过了整个Region容量的超级大对象，将会被存放在N个连续的Humongous Region 之中，G1的大多数行为都把 Humongous Region 作为老年代的一部分来进行看待，如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/19/Gmcv7VtysPz1BJ8.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/Gmcv7VtysPz1BJ8.jpg"></p>
 <p>虽然G1仍然保留新生代和老年代的概念，但新生代和老年代不再是固定的了，它们都是一系列区域（不需要连续）的动态集合。G1收集器之所以能建立可预测的停顿时间模型，是因为它将Region作为单次回收的最小单元，即每次收集到的内存空间都是Region大小的整数倍，这样可以有计划地避免在整个Java堆中进行全区域的垃圾收集。更具体的处理思路是让G1收集器去跟踪各个Region里面的垃圾堆积的“价值”大小，价值即回收所获得的空间大小以及回收所需时间的经验值，然后在后台维护一个优先级列表，每次根据用户设定允许的收集停顿时间（使用参数-XX：MaxGCPauseMillis指定，默认值是200毫秒），优先处理回收价值收益最大的那些Region，这也就是“Garbage First”名字的由来。这种使用Region划分内存空间，以及具有优先级的区域回收方式，保证了G1收集器在有限的时间内获取尽可能高的收集效率。</p>
 <h3 id="5-28-请介绍CMS垃圾收集器"><a href="#5-28-请介绍CMS垃圾收集器" class="headerlink" title="5.28 请介绍CMS垃圾收集器"></a>5.28 请介绍CMS垃圾收集器</h3><p><strong>参考答案</strong></p>
 <p>CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器。从名字上就可以看出CMS收集器是基于标记-清除算法实现的，它的运作过程分为四个步骤，包括：</p>
@@ -3561,7 +3575,7 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 </ol>
 <p>其中初始标记、重新标记这两个步骤仍然需要“Stop The World”。初始标记仅仅只是标记一下GC Roots能直接关联到的对象，速度很快；并发标记阶段就是从GC Roots的直接关联对象开始遍历整个对象图的过程，这个过程耗时较长但是不需要停顿用户线程，可以与垃圾收集线程一起并发运行；而重新标记阶段则是为了修正并发标记期间，因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间通常会比初始标记阶段稍长一些，但也远比并发标记阶段的时间短；最后是并发清除阶段，清理删除掉标记阶段判断的已经死亡的对象，由于不需要移动存活对象，所以这个阶段也是可以与用户线程同时并发的。</p>
 <p>由于在整个过程中耗时最长的并发标记和并发清除阶段中，垃圾收集器线程都可以与用户线程一起工作，所以从总体上来说，CMS收集器的内存回收过程是与用户线程一起并发执行的。通过下图可以比较清楚地看到CMS收集器的运作步骤中并发和需要停顿的阶段。</p>
-<p><img src="https://s2.loli.net/2022/07/19/LY4qF2stCpOHPBR.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/LY4qF2stCpOHPBR.jpg"></p>
 <p>CMS收集器还远达不到完美的程度，它至少有以下三个明显的缺点：</p>
 <p>首先，CMS收集器对处理器资源非常敏感。在并发阶段，它虽然不会导致用户线程停顿，但却会因为占用了一部分线程（或者说处理器的计算能力）而导致应用程序变慢，降低总吞吐量。</p>
 <p>然后，由于CMS收集器无法处理“浮动垃圾”（Floating Garbage），有可能出现“Con-current Mode Failure”失败进而导致另一次完全“Stop TheWorld”的Full GC的产生。</p>
@@ -3724,164 +3738,317 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 <p>有两种基本的定位方式：</p>
 <ol>
 <li><p><strong>句柄访问</strong>（间接）：在java堆中划分一块内存作为句柄池（即一个句柄列表），reference中存储的就是对象在句柄池中的地址，得到了句柄池的地址就可以知道对象的实例数据和类型数据的位置。</p>
-<p><img src="https://s2.loli.net/2022/07/19/qi14PmyzJWgvcfn.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/qi14PmyzJWgvcfn.webp"></p>
 </li>
 <li><p><strong>直接指针访问</strong>（直接）：reference中存储的直接就是对象的实例数据的地址，而实例数据中自己有一个指针存储对象类型数据的地址（方法区中），不需要reference来存储。</p>
-<p><img src="https://s2.loli.net/2022/07/19/siJmuKF2lyhMpD8.webp"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/19/siJmuKF2lyhMpD8.webp"></p>
 </li>
 </ol>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zx.js.cool/posts/3f44/" data-id="cl6gmmq96004kplsrbujhf5pf" data-title="一、Java语言-面试题" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+  </div>
+   
+   
 
-    </footer>
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:me@imlete.cn" >MengD(萌典)</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="https://zx.js.cool/posts/3f44/" >https://zx.js.cool/posts/3f44/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="https://zx.js.cool/posts/3f44/" target="_blank" >Hexo-Theme-MengD(萌典)</a>
+              ！</span>
+      </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/posts/2491/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Hexo-教程
-        
-      </div>
-    </a>
-  
-  
-    <a href="/posts/15f3/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Java语言-教程</div>
-    </a>
-  
-</nav>
 
-  
+
+
+<div class="pagination-post">
+    
+    <a href="/posts/2491/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>Hexo-教程</div>
+      <div class="prev-desc">Hexo-资源
+Hexo
+闪烁之狐
+夜法之书-博客
+叶落阁
+Butterfly
+Akilarの糖果屋
+小冰博客
+小康博客
+小嘉的部落格
+Code皮皮虾
+Wind
+MuJin’s Blog
+繁星
+...</div>
+    </a>
+    
+    
+    <a href="/posts/15f3/">
+      <div class="next-title">Java语言-教程<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">Java语言-相关书籍
+Effective-Java-中文-第2版
+Effective-Java-中文-第3版
+Java 8实战
+Java并发编程的艺术
+Java核心技术-卷1-原书-第10版
+...</div>
+    </a>
+    
+</div>
+
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://unpkg.com/discuss@latest/dist/discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://unpkg.com/discuss@latest/dist/discuss.js","serverURLs":null}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
+
 </article>
+ 
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%91%B8%E9%B1%BC/">摸鱼</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nacos/" rel="tag">Nacos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostMan/" rel="tag">PostMan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http%E8%AF%B7%E6%B1%82/" rel="tag">http请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" rel="tag">代码重构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" rel="tag">打工人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%9F%E6%88%BF/" rel="tag">租房</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag">软件设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Nacos/" style="font-size: 10px;">Nacos</a> <a href="/tags/PostMan/" style="font-size: 10px;">PostMan</a> <a href="/tags/Safari/" style="font-size: 10px;">Safari</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/http%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">http请求</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 10px;">书籍</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" style="font-size: 10px;">代码重构</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" style="font-size: 10px;">打工人</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%9F%E6%88%BF/" style="font-size: 10px;">租房</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件设计</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 16.67px;">面试题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/posts/78c8/">PostMan-教程</a>
-          </li>
-        
-          <li>
-            <a href="/posts/aeb0/">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</a>
-          </li>
-        
-          <li>
-            <a href="/posts/4e88/">租房淡季VS租房旺季：一年中什么时候租房最合适？</a>
-          </li>
-        
-          <li>
-            <a href="/posts/7265/">太爽了，纯注解开发模式简直就是Spring中的Spring！</a>
-          </li>
-        
-          <li>
-            <a href="/posts/3699/">资源预测数字模型搭建思路分享</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 zhangxin<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Java%E5%9F%BA%E7%A1%80"><span class="toc-text">1. Java基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%BA%E4%BB%80%E4%B9%88Java%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%BC%96%E5%86%99%E3%80%81%E5%88%B0%E5%A4%84%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="toc-text">1.1 为什么Java代码可以实现一次编写、到处运行？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%B8%80%E4%B8%AAJava%E6%96%87%E4%BB%B6%E9%87%8C%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%90%97%EF%BC%88%E4%B8%8D%E5%90%AB%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="toc-text">1.2 一个Java文件里可以有多个类吗（不含内部类）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">1.3 说一说你对Java访问权限的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.4 介绍一下Java的数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-int%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-text">1.5 int类型的数据范围是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.6 请介绍全局变量和局部变量的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">1.7 请介绍一下实例变量的默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-%E4%B8%BA%E5%95%A5%E8%A6%81%E6%9C%89%E5%8C%85%E8%A3%85%E7%B1%BB%EF%BC%9F"><span class="toc-text">1.8 为啥要有包装类？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-%E8%AF%B4%E4%B8%80%E8%AF%B4%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E3%80%81%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">1.9 说一说自动装箱、自动拆箱的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-%E5%A6%82%E4%BD%95%E5%AF%B9Integer%E5%92%8CDouble%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89%EF%BC%9F"><span class="toc-text">1.10 如何对Integer和Double类型判断相等？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-11-int%E5%92%8CInteger%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BA%8C%E8%80%85%E5%9C%A8%E5%81%9A-x3D-x3D-%E8%BF%90%E7%AE%97%E6%97%B6%E4%BC%9A%E5%BE%97%E5%88%B0%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%9C%EF%BC%9F"><span class="toc-text">1.11 int和Integer有什么区别，二者在做&#x3D;&#x3D;运算时会得到什么结果？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-12-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.12 说一说你对面向对象的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.13 面向对象的三大特征是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%BB%A7%E6%89%BF"><span class="toc-text">补充：继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-14-%E5%B0%81%E8%A3%85%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%B0%81%E8%A3%85%EF%BC%9F"><span class="toc-text">1.14 封装的目的是什么，为什么要有封装？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-15-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%A4%9A%E6%80%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.15 说一说你对多态的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-16-Java%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">1.16 Java中的多态是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-17-Java%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E7%BB%A7%E6%89%BF%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%A4%9A%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">1.17 Java为什么是单继承，为什么不能多继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-18-%E8%AF%B4%E4%B8%80%E8%AF%B4%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.18 说一说重写与重载的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-19-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E8%83%BD%E4%B8%8D%E8%83%BD%E9%87%8D%E5%86%99%EF%BC%9F"><span class="toc-text">1.19 构造方法能不能重写？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-20-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BObject%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">1.20 介绍一下Object类中的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-21-%E8%AF%B4%E4%B8%80%E8%AF%B4hashCode-%E5%92%8Cequals-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">1.21 说一说hashCode()和equals()的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashCode-%E5%92%8Cequals-%EF%BC%9F"><span class="toc-text">1.22 为什么要重写hashCode()和equals()？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-23-x3D-x3D-%E5%92%8Cequals-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.23 &#x3D;&#x3D;和equals()有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-24-String%E7%B1%BB%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">1.24 String类有哪些方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-25-String%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F"><span class="toc-text">1.25 String可以被继承吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-26-%E8%AF%B4%E4%B8%80%E8%AF%B4String%E5%92%8CStringBuffer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">1.26 说一说String和StringBuffer有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-27-%E8%AF%B4%E4%B8%80%E8%AF%B4StringBuffer%E5%92%8CStringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">1.27 说一说StringBuffer和StringBuilder有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-28-%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%EF%BC%8Cnew%E5%92%8C%E2%80%9D%E2%80%9D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">1.28 使用字符串时，new和””推荐使用哪种方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-29-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.29 说一说你对字符串拼接的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-30-%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0%E7%9A%84%E5%BA%95%E5%B1%82%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">1.30 两个字符串相加的底层是如何实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-31-String-a-x3D-%E2%80%9Cabc%E2%80%9D-%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E8%BF%87%E7%A8%8B%E4%BC%9A%E5%88%9B%E5%BB%BA%E4%BB%80%E4%B9%88%EF%BC%8C%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">1.31 String a &#x3D; “abc”; ，说一下这个过程会创建什么，放在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-32-new-String-%E2%80%9Cabc%E2%80%9D-%E6%98%AF%E5%8E%BB%E4%BA%86%E5%93%AA%E9%87%8C%EF%BC%8C%E4%BB%85%E4%BB%85%E6%98%AF%E5%9C%A8%E5%A0%86%E9%87%8C%E9%9D%A2%E5%90%97%EF%BC%9F"><span class="toc-text">1.32 new String(“abc”) 是去了哪里，仅仅是在堆里面吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-33-%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.33 接口和抽象类有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-34-%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%9C%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%90%97%EF%BC%9F"><span class="toc-text">1.34 接口中可以有构造函数吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-35-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.35 谈谈你对面向接口编程的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-36-%E9%81%87%E5%88%B0%E8%BF%87%E5%BC%82%E5%B8%B8%E5%90%97%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-text">1.36 遇到过异常吗，如何处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-37-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6"><span class="toc-text">1.37 说一说Java的异常机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-38-%E8%AF%B7%E4%BB%8B%E7%BB%8DJava%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8E%A5%E5%8F%A3"><span class="toc-text">1.38 请介绍Java的异常接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-39-finally%E6%98%AF%E6%97%A0%E6%9D%A1%E4%BB%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">1.39 finally是无条件执行的吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-40-%E5%9C%A8finally%E4%B8%ADreturn%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.40 在finally中return会发生什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-41-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9static%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.41 说一说你对static关键字的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-42-static%E4%BF%AE%E9%A5%B0%E7%9A%84%E7%B1%BB%E8%83%BD%E4%B8%8D%E8%83%BD%E8%A2%AB%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">1.42 static修饰的类能不能被继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-43-static%E5%92%8Cfinal%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.43 static和final有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Afinalize"><span class="toc-text">补充：finalize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-44-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.44 说一说你对泛型的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-45-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4"><span class="toc-text">1.45 介绍一下泛型擦除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-46-List-lt-super-T-gt-%E5%92%8CList-lt-extends-T-gt-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.46 List&lt;? super T&gt;和List&lt;? extends T&gt;有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-47-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.47 说一说你对Java反射机制的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Ajava%E8%8E%B7%E5%8F%96%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">补充：java获取反射的三种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-48-Java%E5%8F%8D%E5%B0%84%E5%9C%A8%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">1.48 Java反射在实际项目中有哪些应用场景？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-49-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">1.49 说一说Java的四种引用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">补充：内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%95%B0%E7%BB%84%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%88%86%E9%85%8D"><span class="toc-text">补充：数组在内存中的分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9B%86%E5%90%88%E7%B1%BB"><span class="toc-text">2. 集合类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Java%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%B9%E5%99%A8%EF%BC%88%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="toc-text">2.1 Java中有哪些容器（集合类）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Java%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%92%8C%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%88%86%E5%88%AB%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">2.2 Java中的容器，线程安全和线程不安全的分别有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Map%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%9E%E7%8E%B0%E7%B1%BB%EF%BC%9F"><span class="toc-text">2.3 Map接口有哪些实现类？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8BMap-put%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">2.4 描述一下Map put的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84Map%EF%BC%9F"><span class="toc-text">2.5 如何得到一个线程安全的Map？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-HashMap%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-text">2.6 HashMap有什么特点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-JDK7%E5%92%8CJDK8%E4%B8%AD%E7%9A%84HashMap%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.7 JDK7和JDK8中的HashMap有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHashMap%E5%BA%95%E5%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">2.8 介绍一下HashMap底层的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHashMap%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="toc-text">2.9 介绍一下HashMap的扩容机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-HashMap%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8%E6%98%AF%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%9F"><span class="toc-text">2.10 HashMap中的循环链表是如何产生的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-HashMap%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E7%BA%A2%E9%BB%91%E6%A0%91%E8%80%8C%E4%B8%8D%E7%94%A8B%E6%A0%91%EF%BC%9F"><span class="toc-text">2.11 HashMap为什么用红黑树而不用B树？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-HashMap%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">2.12 HashMap为什么线程不安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-13-HashMap%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">2.13 HashMap如何实现线程安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-14-HashMap%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="toc-text">2.14 HashMap是如何解决哈希冲突的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-15-%E8%AF%B4%E4%B8%80%E8%AF%B4HashMap%E5%92%8CHashTable%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2.15 说一说HashMap和HashTable的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-16-HashMap%E4%B8%8EConcurrentHashMap%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.16 HashMap与ConcurrentHashMap有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-17-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BConcurrentHashMap%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">2.17 介绍一下ConcurrentHashMap是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-18-ConcurrentHashMap%E6%98%AF%E6%80%8E%E4%B9%88%E5%88%86%E6%AE%B5%E5%88%86%E7%BB%84%E7%9A%84%EF%BC%9F"><span class="toc-text">2.18 ConcurrentHashMap是怎么分段分组的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-19-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9LinkedHashMap%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.19 说一说你对LinkedHashMap的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-20-%E8%AF%B7%E4%BB%8B%E7%BB%8DLinkedHashMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-text">2.20 请介绍LinkedHashMap的底层原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-21-%E8%AF%B7%E4%BB%8B%E7%BB%8DTreeMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-text">2.21 请介绍TreeMap的底层原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-22-Map%E5%92%8CSet%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.22 Map和Set有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-23-List%E5%92%8CSet%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.23 List和Set有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-24-ArrayList%E5%92%8CLinkedList%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.24 ArrayList和LinkedList有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AArrayList%E3%80%81Vector%E3%80%81LinkedList-%E7%9A%84%E5%AD%98%E5%82%A8%E6%80%A7%E8%83%BD%E5%92%8C%E7%89%B9%E6%80%A7"><span class="toc-text">补充：ArrayList、Vector、LinkedList 的存储性能和特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-25-%E6%9C%89%E5%93%AA%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84List%EF%BC%9F"><span class="toc-text">2.25 有哪些线程安全的List？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-26-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BArrayList%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-text">2.26 介绍一下ArrayList的数据结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-27-%E8%B0%88%E8%B0%88CopyOnWriteArrayList%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">2.27 谈谈CopyOnWriteArrayList的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-28-%E8%AF%B4%E4%B8%80%E8%AF%B4TreeSet%E5%92%8CHashSet%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2.28 说一说TreeSet和HashSet的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-29-%E8%AF%B4%E4%B8%80%E8%AF%B4HashSet%E7%9A%84%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-text">2.29 说一说HashSet的底层结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AHashSet%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84"><span class="toc-text">补充：HashSet是如何保证不重复的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-30-BlockingQueue%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-text">2.30 BlockingQueue中有哪些方法，为什么这样设计？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-31-BlockingQueue%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">2.31 BlockingQueue是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-32-Stream%EF%BC%88%E4%B8%8D%E6%98%AFIOStream%EF%BC%89%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">2.32 Stream（不是IOStream）有哪些方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AArrays-sort-%E5%92%8C-Collections-sort"><span class="toc-text">补充：Arrays.sort 和 Collections.sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ACloneable%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">补充：Cloneable接口实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IO"><span class="toc-text">3. IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E4%B8%AD%E7%9A%84IO%E6%B5%81"><span class="toc-text">3.1 介绍一下Java中的IO流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%80%8E%E4%B9%88%E7%94%A8%E6%B5%81%E6%89%93%E5%BC%80%E4%B8%80%E4%B8%AA%E5%A4%A7%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-text">3.2 怎么用流打开一个大文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%AF%B4%E8%AF%B4NIO%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">3.3 说说NIO的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">3.4 介绍一下Java的序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Serializable%E6%8E%A5%E5%8F%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9A%E4%B9%89serialVersionUID%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="toc-text">3.5 Serializable接口为什么需要定义serialVersionUID变量？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%99%A4%E4%BA%86Java%E8%87%AA%E5%B8%A6%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B9%8B%E5%A4%96%EF%BC%8C%E4%BD%A0%E8%BF%98%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%E5%BA%8F%E5%88%97%E5%8C%96%E5%B7%A5%E5%85%B7%EF%BC%9F"><span class="toc-text">3.6 除了Java自带的序列化之外，你还了解哪些序列化工具？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E5%A6%82%E6%9E%9C%E4%B8%8D%E7%94%A8JSON%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%AF%A5%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="toc-text">3.7 如果不用JSON工具，该如何实现对实体类的序列化？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">4. 多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">4.1 创建线程有哪几种方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%AF%B4%E8%AF%B4Thread%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">4.2 说说Thread类的常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-run-%E5%92%8Cstart-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">4.3 run()和start()有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%A4%8D%E5%90%AF%E5%8A%A8%EF%BC%8C%E4%BC%9A%E6%9C%89%E4%BB%80%E4%B9%88%E5%90%8E%E6%9E%9C%EF%BC%9F"><span class="toc-text">4.4 线程是否可以重复启动，会有什么后果？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">4.5 介绍一下线程的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-text">4.6 如何实现线程同步？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-text">4.7 说一说Java多线程之间的通信方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B8%AD%E7%9A%84wait%E5%92%8Cnotify"><span class="toc-text">4.8 说一说Java同步机制中的wait和notify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E8%AF%B4%E4%B8%80%E8%AF%B4sleep-%E5%92%8Cwait-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.9 说一说sleep()和wait()的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E8%AF%B4%E4%B8%80%E8%AF%B4notify-%E3%80%81notifyAll-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.10 说一说notify()、notifyAll()的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AD%90%E7%BA%BF%E7%A8%8B%E5%85%88%E6%89%A7%E8%A1%8C%EF%BC%8C%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%86%8D%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="toc-text">4.11 如何实现子线程先执行，主线程再执行？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E9%98%BB%E5%A1%9E%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">4.12 阻塞线程的方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E8%AF%B4%E4%B8%80%E8%AF%B4synchronized%E4%B8%8ELock%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.13 说一说synchronized与Lock的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14-%E8%AF%B4%E4%B8%80%E8%AF%B4synchronized%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">4.14 说一说synchronized的底层实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15-synchronized%E5%8F%AF%E4%BB%A5%E4%BF%AE%E9%A5%B0%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E5%90%97%EF%BC%9F"><span class="toc-text">4.15 synchronized可以修饰静态方法和静态代码块吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-16-%E8%B0%88%E8%B0%88ReentrantLock%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">4.16 谈谈ReentrantLock的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-17-%E5%A6%82%E6%9E%9C%E4%B8%8D%E4%BD%BF%E7%94%A8synchronized%E5%92%8CLock%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">4.17 如果不使用synchronized和Lock，如何保证线程安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-18-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E4%B8%AD%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.18 说一说Java中乐观锁和悲观锁的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-19-%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">4.19 公平锁与非公平锁是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-20-%E4%BA%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84%E9%94%81%E5%8D%87%E7%BA%A7%E5%90%97%EF%BC%9F"><span class="toc-text">4.20 了解Java中的锁升级吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-21-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5%E9%94%81%EF%BC%88mutex%EF%BC%89%EF%BC%9F"><span class="toc-text">4.21 如何实现互斥锁（mutex）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-22-%E5%88%86%E6%AE%B5%E9%94%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">4.22 分段锁是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-23-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E8%AF%BB%E5%86%99%E9%94%81%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">4.23 说说你对读写锁的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-24-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-text">4.24 volatile关键字有什么用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-25-%E8%B0%88%E8%B0%88volatile%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">4.25 谈谈volatile的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-26-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9JUC%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">4.26 说说你对JUC的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-27-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9AQS%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">4.27 说说你对AQS的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-28-LongAdder%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E5%AE%83%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">4.28 LongAdder解决了什么问题，它是如何实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-29-%E4%BB%8B%E7%BB%8D%E4%B8%8BThreadLocal%E5%92%8C%E5%AE%83%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">4.29 介绍下ThreadLocal和它的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-30-%E8%AF%B7%E4%BB%8B%E7%BB%8DThreadLocal%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8C%E5%AE%83%E6%98%AF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86hash%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="toc-text">4.30 请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-31-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">4.31 介绍一下线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-32-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">4.32 介绍一下线程池的工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-33-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="toc-text">4.33 线程池都有哪些状态？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-34-%E8%B0%88%E8%B0%88%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="toc-text">4.34 谈谈线程池的拒绝策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-35-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E9%98%9F%E5%88%97%E5%A4%A7%E5%B0%8F%E4%BD%A0%E9%80%9A%E5%B8%B8%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%EF%BC%9F"><span class="toc-text">4.35 线程池的队列大小你通常怎么设置？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-36-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%82%E6%95%B0%EF%BC%8C%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">4.36 线程池有哪些参数，各个参数的作用是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B"><span class="toc-text">线程和进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">实现多线程的方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-text">并发的三大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8Runnable%E8%BF%98%E6%98%AFThread%EF%BC%9F"><span class="toc-text">用Runnable还是Thread？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-%E7%B1%BB%E4%B8%AD%E7%9A%84start-%E5%92%8C-run"><span class="toc-text">Thread 类中的start() 和 run()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep-%E5%92%8C-wait"><span class="toc-text">sleep() 和 wait()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E3%80%81%E5%B9%B6%E8%A1%8C%E3%80%81%E4%B8%B2%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">并发、并行、串行的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E7%8A%B6%E6%80%81"><span class="toc-text">说说线程的生命周期和状态?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="toc-text">什么是线程死锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%844%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-text">死锁的4个必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="toc-text">如何避免线程死锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81%EF%BC%8C%E6%B4%BB%E9%94%81%EF%BC%9F"><span class="toc-text">什么是死锁，活锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%ADCyclicBarrier-%E5%92%8C-CountDownLatch%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">java中CyclicBarrier 和 CountDownLatch有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E4%B8%8E%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">java中的同步集合与并发集合有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E5%A6%82%E4%BD%95%E5%9C%A8java%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%BA%BF%E7%A8%8B%E5%A0%86%E6%A0%88%EF%BC%9F"><span class="toc-text">你如何在java中获取线程堆栈？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ava%E4%B8%ADConcurrentHashMap%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BA%A6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">ava中ConcurrentHashMap的并发度是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E4%B8%8E%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F-1"><span class="toc-text">java中的同步集合与并发集合有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对守护线程的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread%E7%B1%BB%E4%B8%AD%E7%9A%84yield%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">Thread类中的yield方法有什么作用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对线程安全的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFThreadLocal%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="toc-text">什么是ThreadLocal变量？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal%E5%8E%9F%E7%90%86%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">ThreadLocal原理和使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">java内存模型是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84volatile-%E5%8F%98%E9%87%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">java中的volatile 变量是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-%E5%8F%98%E9%87%8F%E5%92%8C-atomic-%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">volatile 变量和 atomic 变量有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%ADRunnable%E5%92%8CCallable%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">java中Runnable和Callable有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%E9%87%8A%E6%94%BE%E9%94%81%EF%BC%8C%E5%93%AA%E4%BA%9B%E4%B8%8D%E9%87%8A%E6%94%BE%E9%94%81%EF%BC%9F"><span class="toc-text">哪些操作释放锁，哪些不释放锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="toc-text">如何正确的终止线程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interrupt-interrupted-isInterrupted-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">interrupt(), interrupted(), isInterrupted()的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized%E7%9A%84%E9%94%81%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">synchronized的锁对象是哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile%E5%92%8Csynchronized%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">volatile和synchronized的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE"><span class="toc-text">什么是缓存一致性协议?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronized%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81Lock%EF%BC%8C%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">Synchronized关键字、Lock，并解释它们之间的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatile%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%86%85%E5%AD%98%E5%8F%AF%E8%A7%81%E6%80%A7%EF%BC%9F"><span class="toc-text">Volatile如何保证内存可见性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E4%BB%80%E4%B9%88%E6%98%AF%E7%AB%9E%E6%80%81%E6%9D%A1%E4%BB%B6%EF%BC%9F"><span class="toc-text">java中什么是竞态条件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88wait-notify-%E5%92%8C-notifyAll%E8%BF%99%E4%BA%9B%E6%96%B9%E6%B3%95%E4%B8%8D%E5%9C%A8thread%E7%B1%BB%E9%87%8C%E9%9D%A2%EF%BC%9F"><span class="toc-text">为什么wait, notify 和 notifyAll这些方法不在thread类里面？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E3%80%81java%E4%B8%ADsynchronized-%E5%92%8C-ReentrantLock-%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">32、java中synchronized 和 ReentrantLock 有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E3%80%81Synchronized-%E7%94%A8%E8%BF%87%E5%90%97%EF%BC%8C%E5%85%B6%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">33、Synchronized 用过吗，其原理是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34%E3%80%81%E4%B8%8A%E9%9D%A2%E6%8F%90%E5%88%B0%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%81%EF%BC%8C%E8%BF%99%E4%B8%AA%E2%80%9C%E9%94%81%E2%80%9D%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%81"><span class="toc-text">34、上面提到获取对象的锁，这个“锁”到底是什么?如何确定对象的锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E6%80%A7%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-text">35、什么是可重入性，为什么说 Synchronized 是可重入锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36%E3%80%81JVM-%E5%AF%B9-java-%E7%9A%84%E5%8E%9F%E7%94%9F%E9%94%81%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="toc-text">36、JVM 对 java 的原生锁做了哪些优化?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-text">37、为什么说 Synchronized 是非公平锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E4%B8%80%E4%B8%AA%E6%82%B2%E8%A7%82%E9%94%81-%E4%B9%90%E8%A7%82%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86-%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88-%E4%BB%80%E4%B9%88%E6%98%AF-CAS%EF%BC%8C%E5%AE%83%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E6%80%A7"><span class="toc-text">38、为什么说 Synchronized 是一个悲观锁?乐观锁的实现原理 又是什么?什么是 CAS，它有什么特性?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39%E3%80%81%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%80%E5%AE%9A%E5%B0%B1%E6%98%AF%E5%A5%BD%E7%9A%84%E5%90%97"><span class="toc-text">39、乐观锁一定就是好的吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#40%E3%80%81%E8%B0%88%E4%B8%80%E8%B0%88AQS%E6%A1%86%E6%9E%B6%E3%80%82"><span class="toc-text">40、谈一谈AQS框架。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41%E3%80%81ReentrantLock-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%87%8D%E5%85%A5%E6%80%A7%E7%9A%84"><span class="toc-text">41、ReentrantLock 是如何实现可重入性的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42%E3%80%81java%E4%B8%ADSemaphore%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">42、java中Semaphore是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43%E3%80%81java-%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="toc-text">43、java 中的线程池是如何实现的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%98%AF%E6%80%8E%E4%B9%88%E5%88%9B%E5%BB%BA%E7%9A%84-%E6%98%AF%E4%B8%80%E5%BC%80%E5%A7%8B%E5%B0%B1%E9%9A%8F%E7%9D%80%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%90%AF%E5%8A%A8%E5%88%9B%E5%BB%BA%E5%A5%BD%E7%9A%84%E5%90%97"><span class="toc-text">44、线程池中的线程是怎么创建的?是一开始就随着线程池的启动创建好的吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#45%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%EF%BC%9F-%E5%A6%82%E4%BD%95%E5%8F%91%E7%8E%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E7%AB%9E%E4%BA%89%EF%BC%9F"><span class="toc-text">45、什么是竞争条件？****如何发现和解决竞争？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46%E3%80%81%E5%BE%88%E5%A4%9A%E4%BA%BA%E9%83%BD%E8%AF%B4%E8%A6%81%E6%85%8E%E7%94%A8-ThreadLocal%EF%BC%8C%E8%B0%88%E8%B0%88%E4%BD%A0%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E4%BD%BF%E7%94%A8ThreadLocal-%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="toc-text">46、很多人都说要慎用 ThreadLocal，谈谈你的理解，使用ThreadLocal 需要注意些什么?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JVM"><span class="toc-text">5. JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-JVM%E5%8C%85%E5%90%AB%E5%93%AA%E5%87%A0%E9%83%A8%E5%88%86%EF%BC%9F"><span class="toc-text">5.1 JVM包含哪几部分？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-JVM%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="toc-text">5.2 JVM是如何运行的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-Java%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="toc-text">5.3 Java程序是怎么运行的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-text">5.4 本地方法栈有什么用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%B2%A1%E6%9C%89%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-text">5.5 没有程序计数器会怎么样？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5"><span class="toc-text">5.6 说一说Java的内存分布情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E7%B1%BB%E5%AD%98%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">5.7 类存放在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%AD%98%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">5.8 局部变量存放在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-text">5.9 介绍一下Java代码的编译过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">5.10 介绍一下类加载的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">5.11 介绍一下对象的实例化过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%AE%80%E8%BF%B0%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="toc-text">补充：简述对象创建方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-12-%E5%85%83%E7%A9%BA%E9%97%B4%E5%9C%A8%E6%A0%88%E5%86%85%E8%BF%98%E6%98%AF%E6%A0%88%E5%A4%96%EF%BC%9F"><span class="toc-text">5.12 元空间在栈内还是栈外？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-13-%E8%B0%88%E8%B0%88JVM%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.13 谈谈JVM的类加载器，以及双亲委派模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-14-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6%E4%BC%9A%E8%A2%AB%E7%A0%B4%E5%9D%8F%E5%90%97%EF%BC%9F"><span class="toc-text">5.14 双亲委派机制会被破坏吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-15-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">5.15 介绍一下Java的垃圾回收机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-16-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%88%86%E4%BB%A3%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">5.16 请介绍一下分代回收机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-17-JVM%E4%B8%AD%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84GC%E6%B5%81%E7%A8%8B%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-text">5.17 JVM中一次完整的GC流程是怎样的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-18-Full-GC%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">5.18 Full GC会导致什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-19-JVM%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A7%A6%E5%8F%91GC%EF%BC%8C%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91FullGC%E7%9A%84%E6%AC%A1%E6%95%B0%EF%BC%9F"><span class="toc-text">5.19 JVM什么时候触发GC，如何减少FullGC的次数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-20-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%8F%AF%E5%9B%9E%E6%94%B6%E7%9A%84%EF%BC%9F"><span class="toc-text">5.20 如何确定对象是可回收的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-21-%E5%AF%B9%E8%B1%A1%E5%A6%82%E4%BD%95%E6%99%8B%E5%8D%87%E5%88%B0%E8%80%81%E5%B9%B4%E4%BB%A3%EF%BC%9F"><span class="toc-text">5.21 对象如何晋升到老年代？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%80%81%E5%B9%B4%E4%BB%A3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E6%A0%87%E8%AE%B0%E5%A4%8D%E5%88%B6%EF%BC%9F"><span class="toc-text">5.22 为什么老年代不能使用标记复制？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-23-%E6%96%B0%E7%94%9F%E4%BB%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%B8%BAEden%E5%92%8CSurvivor%EF%BC%8C%E5%AE%83%E4%BB%AC%E7%9A%84%E6%AF%94%E4%BE%8B%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-text">5.23 新生代为什么要分为Eden和Survivor，它们的比例是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-24-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AASurvivor%E5%8C%BA%E5%9F%9F%EF%BC%9F"><span class="toc-text">5.24 为什么要设置两个Survivor区域？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-25-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9GC%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%86%E8%A7%A3%E3%80%82"><span class="toc-text">5.25 说一说你对GC算法的了解。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-26-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%B0%E7%94%9F%E4%BB%A3%E5%92%8C%E8%80%81%E5%B9%B4%E4%BB%A3%E8%A6%81%E9%87%87%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="toc-text">5.26 为什么新生代和老年代要采用不同的回收算法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-27-%E8%AF%B7%E4%BB%8B%E7%BB%8DG1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">5.27 请介绍G1垃圾收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-28-%E8%AF%B7%E4%BB%8B%E7%BB%8DCMS%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">5.28 请介绍CMS垃圾收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-29-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%92%8C%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">5.29 内存泄漏和内存溢出有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-30-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">5.30 什么是内存泄漏，怎么解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-31-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">5.31 什么是内存溢出，怎么解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-32-%E5%93%AA%E4%BA%9B%E5%8C%BA%E5%9F%9F%E4%BC%9AOOM%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A6%E5%8F%91OOM%EF%BC%9F"><span class="toc-text">5.32 哪些区域会OOM，怎么触发OOM？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AMinor-GC-%E5%92%8CMajor-GC%E3%80%81Full-GC"><span class="toc-text">补充：Minor GC 和Major GC、Full GC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%A0%86%E9%87%8C%E9%9D%A2%E7%9A%84%E5%88%86%E5%8C%BA-Eden%EF%BC%8Csurvival-from-to-%EF%BC%8C%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-text">补充：堆里面的分区:Eden，survival (from+ to)，老年代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ASafePoint-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">补充：SafePoint 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AGC-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">补充：GC 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B-JVM-%E5%8A%A0%E8%BD%BD-class-%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%9F%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-text">补充：描述一下 JVM 加载 class 文件的原理机制?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="toc-text">补充：对象的内存布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="toc-text">补充：对象的访问定位</span></a></li></ol></li></ol>
+      </div>
     </div>
   </div>
-</footer>
 
+
+        </main>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <section id="rightside">
+    <div class="rightside-item">
+
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+
+
+         
+         
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+
+
+        
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
     
 
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+<footer class="footer" id="footer">
+  <div class="copyright">
+    &copy; 2020 - 2022
+    <i class="fas fa-fan"></i>
+    zhangxin
   </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">我相信我可以，但我一直在路上，所以我有无限的可能！！</div>
+</footer>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <script src="/js/main.js"></script>
+    
+
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+
+
+
+<script src="/js/lazyload.js"></script>
+
+
+
+
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+  document.addEventListener('pjax:success', loadCardLink)
+</script>
+
+
+
+
+
+    
+<script>
+  mengd.getScript('/third-party/js/pjax.js', LoadPjax)
+
+  function LoadPjax() {
+    window.pjax = new Pjax({
+      selectors: [
+        'head title',
+        'head meta[name="keywords"]',
+        'head meta[name="description"]',
+        'main',
+        '#rightside'
+      ],
+      cacheBust: false
+    });
+  }
+
+  // 清除时间
+  var timer = null;
+  // 执行进度条
+  function ProgressStart() {
+    const className = 'pjax-progress';
+    var dom = mengd.$query('.' + className);
+    // 设置初始进度
+    var progress = 10;
+    // 创建进度条 及 css样式
+    if (!dom) {
+      dom = document.createElement('div');
+      dom.className = className;
+      document.body.prepend(dom);
+    }
+    // 定义随机数最大值最小值
+    var max = 10,
+      mini = 3;
+    var result = max - mini;
+    // 清除
+    clearInterval(timer);
+    // 0.5秒内累加进度
+    timer = setInterval(function() {
+      // 随机数
+      var num = parseInt(Math.random() * result);
+      var randomResult = num + mini;
+      // 累加
+      progress += randomResult
+      // 当进度达到95%时停止
+      if (progress > 95) progress = 95
+
+      dom.style.width = progress + '%';
+    }, 500)
+  }
+  // 加载进度条加载完毕
+  function ProgressFinish() {
+    clearInterval(timer);
+    // 页面加载完毕后进度100% 并在0.7秒后删除
+    var progress = mengd.$query('.pjax-progress')
+    progress.style.width = '100%';
+    timer = setTimeout(function() {
+      progress.parentNode.removeChild(progress)
+    }, 700);
+  }
+
+  // 开始 PJAX 执行的函数
+  document.addEventListener('pjax:send', function() {
+    // 执行进度条
+    ProgressStart()
+  });
+  // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+  document.addEventListener('pjax:complete', function() {
+    // 加载进度条加载完毕
+    ProgressFinish()
+  });
+
+  document.addEventListener('pjax:success', function () {
+
+    // 执行所有方法
+    exeAllFn()
+
+    
+    // 图片懒加载
+    ImgLazyLoad('body img[data-src]', 'data-src')
+    
+
+    
+    
+    prefetch({"delay":1000,"threshold":25})
+    
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+  })
+
+  // Pjax请求错误时，跳转到404页面
+  document.addEventListener('pjax:error', (err) => {
+    if (err.request.status === 404) pjax.loadUrl('/404.html')
+  })
+</script>
+
+
 </body>
+
 </html>

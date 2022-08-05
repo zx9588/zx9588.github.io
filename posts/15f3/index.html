@@ -1,138 +1,180 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Java语言-教程 | zx&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Java语言-相关书籍 Effective-Java-中文-第2版 Effective-Java-中文-第3版 Java 8实战 Java并发编程的艺术 Java核心技术-卷1-原书-第10版 Java核心技术-卷2-原书-第10版 Java编程思想-中文版-第4版 JAVA编程思想-英文版-第4版 Spring实战-中文-第4版 Java开发实战经典 Head First Java 中文高清版.">
+    
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh-CN">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>Java语言-教程 | zx&#39;s blog</title>
+<meta name="author" content="zhangxin">
+<meta name="copyright" content="zhangxin">
+
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="keywords" content="Java">
+
+
+
+
+<meta name="description" content="Java语言-相关书籍 Effective-Java-中文-第2版 Effective-Java-中文-第3版 Java 8实战 Java并发编程的艺术 Java核心技术-卷1-原书-第10版 Java核心技术-卷2-原书-第10版 Java编程思想-中文版-第4版 JAVA编程思想-英文版-第4版 Spring实战-中文-第4版 Java开发实战经典 Head First Java 中文高清版.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java语言-教程">
-<meta property="og:url" content="https://zx.js.cool/posts/15f3/index.html">
+<meta property="og:url" content="https://zx.js.cool/posts/15f3/">
 <meta property="og:site_name" content="zx&#39;s blog">
 <meta property="og:description" content="Java语言-相关书籍 Effective-Java-中文-第2版 Effective-Java-中文-第3版 Java 8实战 Java并发编程的艺术 Java核心技术-卷1-原书-第10版 Java核心技术-卷2-原书-第10版 Java编程思想-中文版-第4版 JAVA编程思想-英文版-第4版 Spring实战-中文-第4版 Java开发实战经典 Head First Java 中文高清版.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/08/03/pTgKha6XDAdWtPi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/03/Wi54nkP2yBFTGg9.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/03/h5lXFaGjK1v6sVe.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/03/guRtiBbJ1lhxQ46.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/03/h2YyvkEWNis7Q9d.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/PBY9HosCwbIcTRJ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/KeUng68tYM2aFTP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/tmh48PFvlQBUYf3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/YVxkfgTzs4pMrLe.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/n24WPdNuHI1QEq5.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/SjXTcDYzgCN4h68.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/o8dCWP7MISzKOXH.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/5ExvG4yYID8jX3m.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/kyiIO35lP8hwvZm.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/6QqXPYNilb9He2m.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/ysuvbngSD1FN3oK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/9Ooap7CUu4hgLFs.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/1f8iKn9zHBGwLDF.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/s7bfQUlhmLi5FP8.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/QUHmKwsgcpOy7eG.gif">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ZTGKogfRHed9ptX.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/jsre6JMXnNFPxA4.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/IJkfUWFdMBwxaXP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/LRjD1lwq5JNd4ng.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/PEdTkpC4BgOXFMo.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/EtzlwCHueA4VQsj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/u3YWKby7BkzNtT4.gif">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/u3YWKby7BkzNtT4.gif">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/mwno64WMVuHyiBr.gif">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/P4MKTotLfHehNyz.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/T7cMt6dj4RAiZ5W.png">
+<meta property="og:image" content="https://zx.js.cool/img/logo.gif">
 <meta property="article:published_time" content="2022-02-27T01:08:17.000Z">
 <meta property="article:modified_time" content="2022-08-05T03:04:22.666Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/08/03/pTgKha6XDAdWtPi.png">
-  
-    <link rel="alternate" href="/atom.xml" title="zx's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://zx.js.cool/img/logo.gif">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<script src="/js/utlis.js"></script>
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
+
+
+
+
+<script src="/third-party/js/prefetch-page.js"></script>
+<script>
   
+  addEventListener('load', function() {
+    prefetch({"delay":1000,"threshold":25})
+  })
+  
+</script>
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">zx&#39;s blog</a>
-      </h1>
+     
+    
+
+<script>
+  var $config = {
+      CDN: {
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
+      },
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">zx&#39;s blog</a>
-        </h2>
       
+      codeBlockExpand: {
+        enable: true,
+        height: 400,
+        scrollTop: 200
+      }
+      
+    }
+</script>
+
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">zx's blog</a>
+      
+      <ul class="menu">
+         
+        
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
         
-          <a class="main-nav-link" href="/">Home</a>
+    </ul>
+  </div>
+</nav>
+
+
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/logo.gif" alt="zhangxin" class="author-avatar">
+            <div class="author-name">
+                zhangxin
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            zx&#39;s blog
+        </p>
+        <div class="header-icon">
+            
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>Java语言-教程</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-02-27 |
+        </span>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-08-05
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">23.3k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>101分钟</span>
         
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zx.js.cool"></form>
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-教程/Java语言-教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/posts/15f3/" class="article-date">
-  <time class="dt-published" datetime="2022-02-27T01:08:17.000Z" itemprop="datePublished">2022-02-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Java语言-教程
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Java语言-相关书籍"><a href="#Java语言-相关书籍" class="headerlink" title="Java语言-相关书籍"></a>Java语言-相关书籍</h2><ul>
+  <div class="post-content">
+    <h2 id="Java语言-相关书籍"><a href="#Java语言-相关书籍" class="headerlink" title="Java语言-相关书籍"></a>Java语言-相关书籍</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i3Lib08a6v7i">Effective-Java-中文-第2版</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/idG6p08a6vhi">Effective-Java-中文-第3版</a></li>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iIGdW08a6w9g">Java 8实战</a></li>
@@ -234,7 +276,7 @@
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIyNDE1NTA4OQ==&action=getalbum&album_id=1318989330031017985&subscene=159&subscene=190&scenenote=https://mp.weixin.qq.com/s?__biz=MzIyNDE1NTA4OQ==&mid=2651090032&idx=1&sn=3187a9f48576f740b35fa6a751d46a59&chksm=f3e388cec49401d8eeeaaa4672ad63707bf942143313db7155c5786af9e8dd13a225e495df12&cur_album_id=1318989330031017985&scene=190%23rd&nolastread=1#wechat_redirect">高级程序员面试专辑</a></li>
 </ul>
 <h2 id="Java开发环境配置"><a href="#Java开发环境配置" class="headerlink" title="Java开发环境配置"></a>Java开发环境配置</h2><h3 id="macOS平台"><a href="#macOS平台" class="headerlink" title="macOS平台"></a>macOS平台</h3><h4 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h4><p>进入<a target="_blank" rel="noopener" href="https://www.azul.com/downloads/?package=jdk#download-openjdk">azul.com</a> 选择版本：arm架构的.dmg文件</p>
-<p><img src="https://s2.loli.net/2022/08/03/pTgKha6XDAdWtPi.png" alt="image-20220803101922724"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/08/03/pTgKha6XDAdWtPi.png" alt="image-20220803101922724"></p>
 <p>下载打开双击安装，终端输入<code>java -version</code> 即可完成</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zhangxin@ZhangdeMacBook-Air ~ % java -version
 openjdk version <span class="token string">"18.0.1"</span> <span class="token number">2022</span>-04-19
@@ -274,17 +316,17 @@ OpenJDK <span class="token number">64</span>-Bit Server VM Zulu18.30+11-CA <span
 <span class="token function">rm</span> -rf Application<span class="token punctuation">\</span> Support/IntelliJIdeaxxx/
 <span class="token function">rm</span> -rf Caches/IntelliJIdeaxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="idea配置mean"><a href="#idea配置mean" class="headerlink" title="idea配置mean"></a>idea配置mean</h4><p><img src="https://s2.loli.net/2022/08/03/Wi54nkP2yBFTGg9.png" alt="image-20220803110906035"></p>
-<p><img src="https://s2.loli.net/2022/08/03/h5lXFaGjK1v6sVe.png" alt="image-20220803111045002">settings文件</p>
+<h4 id="idea配置mean"><a href="#idea配置mean" class="headerlink" title="idea配置mean"></a>idea配置mean</h4><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/08/03/Wi54nkP2yBFTGg9.png" alt="image-20220803110906035"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/08/03/h5lXFaGjK1v6sVe.png" alt="image-20220803111045002">settings文件</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iDjij07rx3bc">https://wws.lanzoub.com/iDjij07rx3bc</a> OR <a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ikUeP07rx3ab">https://wws.lanzoub.com/ikUeP07rx3ab</a></li>
 </ul>
 <p><code>/Users/zhangxin</code>下<code>command+shift+.</code>后打开<code>.m2</code>放入settings文件。</p>
 <p>虽然全局设置了，但是老项目还是会自带设置，在作为meaven项目load之前，需要二次修改确认。<strong>（踩过大坑）</strong></p>
 <h4 id="idea选择jdk"><a href="#idea选择jdk" class="headerlink" title="idea选择jdk"></a>idea选择jdk</h4><p><code>command + ；</code></p>
-<p><img src="https://s2.loli.net/2022/08/03/guRtiBbJ1lhxQ46.png" alt="image-20220803111632669"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/08/03/guRtiBbJ1lhxQ46.png" alt="image-20220803111632669"></p>
 <p>项目选择</p>
-<p><img src="https://s2.loli.net/2022/08/03/h2YyvkEWNis7Q9d.png" alt="image-20220803111747386"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/08/03/h2YyvkEWNis7Q9d.png" alt="image-20220803111747386"></p>
 <h4 id="解决：idea卸载重新安装打不开"><a href="#解决：idea卸载重新安装打不开" class="headerlink" title="解决：idea卸载重新安装打不开"></a>解决：idea卸载重新安装打不开</h4><pre class="line-numbers language-none"><code class="language-none">cd &#x2F;Users&#x2F;zhangxin&#x2F;Library&#x2F;Application\ Support&#x2F;JetBrains&#x2F;
 找到你的Idea版本进入
 vim idea.vmoptions
@@ -293,33 +335,33 @@ vim idea.vmoptions
 
 
 
-<h3 id="Windows平台"><a href="#Windows平台" class="headerlink" title="Windows平台"></a>Windows平台</h3><h4 id="安装idea"><a href="#安装idea" class="headerlink" title="安装idea"></a>安装idea</h4><p><img src="https://s2.loli.net/2022/07/18/PBY9HosCwbIcTRJ.png" alt="img"></p>
-<p>随便输入一个邮箱，获取30天<br><img src="https://s2.loli.net/2022/07/18/KeUng68tYM2aFTP.png" alt="img"></p>
-<p>任意打开一个项目后，解压得到jar包（30天），拖入idea.<br><img src="https://s2.loli.net/2022/07/18/tmh48PFvlQBUYf3.png" alt="img"></p>
-<p><img src="https://s2.loli.net/2022/07/18/YVxkfgTzs4pMrLe.png"></p>
-<h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h4><p>默认安装路径<br><img src="https://s2.loli.net/2022/07/18/n24WPdNuHI1QEq5.png" alt="img"></p>
-<h4 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h4><p>下载得到的maven压缩包解压到C:\Program Files下<br><img src="https://s2.loli.net/2022/07/18/SjXTcDYzgCN4h68.png" alt="img"></p>
+<h3 id="Windows平台"><a href="#Windows平台" class="headerlink" title="Windows平台"></a>Windows平台</h3><h4 id="安装idea"><a href="#安装idea" class="headerlink" title="安装idea"></a>安装idea</h4><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/PBY9HosCwbIcTRJ.png" alt="img"></p>
+<p>随便输入一个邮箱，获取30天<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/KeUng68tYM2aFTP.png" alt="img"></p>
+<p>任意打开一个项目后，解压得到jar包（30天），拖入idea.<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/tmh48PFvlQBUYf3.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/YVxkfgTzs4pMrLe.png"></p>
+<h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h4><p>默认安装路径<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/n24WPdNuHI1QEq5.png" alt="img"></p>
+<h4 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h4><p>下载得到的maven压缩包解压到C:\Program Files下<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/SjXTcDYzgCN4h68.png" alt="img"></p>
 <blockquote>
 <p>资源下载<br><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/b0cap2akf">https://wws.lanzoub.com/b0cap2akf</a><br>密码:e7fk</p>
 </blockquote>
 <h4 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h4><ul>
-<li><p>C:\Program Files\JetBrains\IntelliJ IDEA 2021.2\bin;<br><img src="https://s2.loli.net/2022/07/18/o8dCWP7MISzKOXH.png" alt="img"></p>
+<li><p>C:\Program Files\JetBrains\IntelliJ IDEA 2021.2\bin;<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/o8dCWP7MISzKOXH.png" alt="img"></p>
 </li>
-<li><p>CLASSPATH %JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar<br><img src="https://s2.loli.net/2022/07/18/5ExvG4yYID8jX3m.png" alt="img"></p>
+<li><p>CLASSPATH %JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/5ExvG4yYID8jX3m.png" alt="img"></p>
 </li>
 <li><p>JAVA_HOME C:\Program Files\Java\jre1.8.0_291</p>
 </li>
-<li><p>MAVEN_HOME C:\Program Files\apache-maven-3.5.2<br><img src="https://s2.loli.net/2022/07/18/kyiIO35lP8hwvZm.png" alt="img"><br><strong>path</strong></p>
+<li><p>MAVEN_HOME C:\Program Files\apache-maven-3.5.2<br><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/kyiIO35lP8hwvZm.png" alt="img"><br><strong>path</strong></p>
 </li>
 <li><p>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</p>
 </li>
 <li><p>%MAVEN_HOME%\bin</p>
 </li>
-<li><p><img src="https://s2.loli.net/2022/07/18/6QqXPYNilb9He2m.png" alt="img"></p>
+<li><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/6QqXPYNilb9He2m.png" alt="img"></p>
 </li>
 </ul>
-<p><img src="https://s2.loli.net/2022/07/18/ysuvbngSD1FN3oK.png"></p>
-<p><img src="https://s2.loli.net/2022/07/18/9Ooap7CUu4hgLFs.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/ysuvbngSD1FN3oK.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/9Ooap7CUu4hgLFs.png" alt="img"></p>
 <h4 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h4><p><code>java -version</code></p>
 <p><code>man -v</code></p>
 <h2 id="《EffectiveJava》读书笔记"><a href="#《EffectiveJava》读书笔记" class="headerlink" title="《EffectiveJava》读书笔记"></a>《EffectiveJava》读书笔记</h2><h3 id="1-创建和销毁对象"><a href="#1-创建和销毁对象" class="headerlink" title="1. 创建和销毁对象"></a>1. 创建和销毁对象</h3><h4 id="考虑使用静态工厂方法替代构造方法"><a href="#考虑使用静态工厂方法替代构造方法" class="headerlink" title="考虑使用静态工厂方法替代构造方法"></a>考虑使用静态工厂方法替代构造方法</h4><ol>
@@ -738,8 +780,8 @@ ColorPoint p3 &#x3D; new ColorPoint(1, 2, Color.BLUE);<span aria-hidden="true" c
 </ol>
 <p>未完待续。。。</p>
 <h3 id="3-类和接口"><a href="#3-类和接口" class="headerlink" title="3. 类和接口"></a>3. 类和接口</h3><h4 id="使类和成员的可访问性最小化"><a href="#使类和成员的可访问性最小化" class="headerlink" title="使类和成员的可访问性最小化"></a>使类和成员的可访问性最小化</h4><p><strong>尽可能地使每个类或者成员不被外界访问</strong><br><strong>公有类的实例域决不能是公有的</strong></p>
-<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p><img src="https://s2.loli.net/2022/07/17/1f8iKn9zHBGwLDF.png"></p>
-<p><img src="https://s2.loli.net/2022/07/17/s7bfQUlhmLi5FP8.png"></p>
+<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/1f8iKn9zHBGwLDF.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/s7bfQUlhmLi5FP8.png"></p>
 <h3 id="BufferedInputStream字节缓冲输入流"><a href="#BufferedInputStream字节缓冲输入流" class="headerlink" title="BufferedInputStream字节缓冲输入流"></a>BufferedInputStream字节缓冲输入流</h3><ul>
 <li><p>可以把低级的字节输入流包装成一个高级的缓冲字节输入流管道，从而提高字节输入流读数据的性能。</p>
 </li>
@@ -973,8 +1015,8 @@ ps<span class="token punctuation">.</span><span class="token function">write</sp
 <span class="token operator">--</span> b<span class="token punctuation">.</span>使用反斜杠： \\
 <span class="token operator">--</span> c<span class="token punctuation">.</span>使用分隔符API<span class="token operator">:</span><span class="token class-name">File</span><span class="token punctuation">.</span>separator<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><p><img src="https://s2.loli.net/2022/07/17/QUHmKwsgcpOy7eG.gif"></p>
-<p><img src="https://s2.loli.net/2022/07/17/ZTGKogfRHed9ptX.png"></p>
+<h2 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h2><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/QUHmKwsgcpOy7eG.gif"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/ZTGKogfRHed9ptX.png"></p>
 <h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set系列集合：添加的元素是无序（底层采用了哈希表存储元素），不重复，无索引的。<br>无序，不可重复，最多允许有一个Null元素对象，取元素时只能用Iterator接口取得所有元 素，在逐一遍历各个元素。元素在set中的位置是有该元素的 HashCode 决定的，其位置其实是固定的（加入Set 的 Object 必须定义 equals ()方法）。<br>迭代方法：迭代器 foreach lambda<br>查询慢，增删快（因为增删不会引起元素位置改变 ）</p>
 <ul>
 <li>HashSet:添加的元素是无序，不重复，无索引的。</li>
@@ -1999,7 +2041,7 @@ f(1) &#x3D; 1
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h2><p><img src="https://s2.loli.net/2022/07/18/jsre6JMXnNFPxA4.jpg"></p>
+<h2 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h2><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/jsre6JMXnNFPxA4.jpg"></p>
 <table>
 <thead>
 <tr>
@@ -2078,16 +2120,16 @@ f(1) &#x3D; 1
   <span class="token key atrule">pattern</span><span class="token punctuation">:</span>
   <span class="token key atrule">console</span><span class="token punctuation">:</span> <span class="token string">"%d %clr(%p) --- [%16t] %clr(%-40.40c)&#123;cyan&#125; : %m %n"</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://s2.loli.net/2022/07/18/IJkfUWFdMBwxaXP.png"></p>
-<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p><img src="https://s2.loli.net/2022/07/18/LRjD1lwq5JNd4ng.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/IJkfUWFdMBwxaXP.png"></p>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/LRjD1lwq5JNd4ng.jpg"></p>
 <p>在上图中，我们可以看到当 n 很小时，函数之间不易区分，很难说谁处于主导地位，但是当 n 增大时，我们就能看到很明显的区别，谁是老大一目了然：</p>
 <p>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n)</p>
 <blockquote>
 <p>出处：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chenguanghan123/article/details/83478259">https://blog.csdn.net/chenguanghan123/article/details/83478259</a></p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/07/18/PEdTkpC4BgOXFMo.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/PEdTkpC4BgOXFMo.png"></p>
 <p>如果ax&#x3D;N（a&gt;0，且a≠1），那么数x叫做以a为底N的对数，记作x&#x3D;logaN，读作以a为底N的对数，其中a叫做对数的底数，N叫做真数。</p>
-<p><img src="https://s2.loli.net/2022/07/18/EtzlwCHueA4VQsj.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/EtzlwCHueA4VQsj.png"></p>
 <blockquote>
 <p>出处：<a target="_blank" rel="noopener" href="https://blog.csdn.net/ted_cs/article/details/82881831">https://blog.csdn.net/ted_cs/article/details/82881831</a></p>
 </blockquote>
@@ -2257,7 +2299,7 @@ lists<span class="token punctuation">.</span><span class="token function">add</s
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="Java算法"><a href="#Java算法" class="headerlink" title="Java算法"></a>Java算法</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="https://s2.loli.net/2022/07/18/u3YWKby7BkzNtT4.gif"></p>
+<h2 id="Java算法"><a href="#Java算法" class="headerlink" title="Java算法"></a>Java算法</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/u3YWKby7BkzNtT4.gif"></p>
 <pre class="line-numbers language-none"><code class="language-none">冒泡排序的核心算法思想:
 int[] arr &#x3D; new int[] &#123;55, 22, 99, 88&#125;;
 思想：每次从数组的第一个位置开始两两比较。把较大的元素与较小的元素进行层层交换。
@@ -2284,7 +2326,7 @@ int[] arr &#x3D; new int[] &#123;55, 22, 99, 88&#125;;
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="️选择排序"><a href="#️选择排序" class="headerlink" title="️选择排序"></a>️选择排序</h3><p><img src="https://s2.loli.net/2022/07/18/u3YWKby7BkzNtT4.gif"></p>
+<h3 id="️选择排序"><a href="#️选择排序" class="headerlink" title="️选择排序"></a>️选择排序</h3><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/u3YWKby7BkzNtT4.gif"></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>itheima<span class="token punctuation">.</span></span>_10排序算法冒泡_选择_排序<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span></span><span class="token punctuation">;</span>
@@ -2387,7 +2429,7 @@ int[] arr &#x3D; new int[] &#123;55, 22, 99, 88&#125;;
 
 
 
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://s2.loli.net/2022/07/18/mwno64WMVuHyiBr.gif"></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/mwno64WMVuHyiBr.gif"></p>
 <h3 id="雪花算法"><a href="#雪花算法" class="headerlink" title="雪花算法"></a>雪花算法</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//雪花算法代码实现</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IdWorker</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）</span>
@@ -2926,160 +2968,304 @@ UTF-8编码中，1个中文字符一般占3个字节。<span aria-hidden="true" 
 <h3 id="JDK-JRE-JVM"><a href="#JDK-JRE-JVM" class="headerlink" title="JDK JRE JVM"></a>JDK JRE JVM</h3><p>JDK：java Develpment Kit java 开发工具</p>
 <p>JRE：java Runtime Environment java运行时环境</p>
 <p>JVM：java Virtual Machine java 虚拟机</p>
-<p><img src="https://s2.loli.net/2022/07/18/P4MKTotLfHehNyz.png"></p>
-<p><img src="https://s2.loli.net/2022/07/18/T7cMt6dj4RAiZ5W.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/P4MKTotLfHehNyz.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/18/T7cMt6dj4RAiZ5W.png"></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zx.js.cool/posts/15f3/" data-id="cl6gmmq8w001pplsr410b3hxj" data-title="Java语言-教程" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+  </div>
+   
+   
 
-    </footer>
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:me@imlete.cn" >MengD(萌典)</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="https://zx.js.cool/posts/15f3/" >https://zx.js.cool/posts/15f3/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="https://zx.js.cool/posts/15f3/" target="_blank" >Hexo-Theme-MengD(萌典)</a>
+              ！</span>
+      </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/posts/3f44/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          一、Java语言-面试题
-        
-      </div>
-    </a>
-  
-  
-    <a href="/posts/7c78/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Java设计模式-教程</div>
-    </a>
-  
-</nav>
 
-  
+
+
+<div class="pagination-post">
+    
+    <a href="/posts/3f44/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>一、Java语言-面试题</div>
+      <div class="prev-desc">1. Java基础1.1 为什么Java代码可以实现一次编写、到处运行？参考答案
+JVM（Java虚拟机）是Java跨平台的关键。
+在程序运行前，Java源代码（.java）需要经过编译器编译成...</div>
+    </a>
+    
+    
+    <a href="/posts/7c78/">
+      <div class="next-title">Java设计模式-教程<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">设计模式-相关书籍
+图解设计模式
+设计模式之禅（第2版）-第5版
+Head First设计模式(高清版)
+设计模式面试专题
+23种设计模式知识要点
+大话设计模式
+图解设计模式
+研磨设计模式
+Ja...</div>
+    </a>
+    
+</div>
+
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://unpkg.com/discuss@latest/dist/discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://unpkg.com/discuss@latest/dist/discuss.js","serverURLs":null}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
+
 </article>
+ 
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%91%B8%E9%B1%BC/">摸鱼</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nacos/" rel="tag">Nacos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostMan/" rel="tag">PostMan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http%E8%AF%B7%E6%B1%82/" rel="tag">http请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" rel="tag">代码重构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" rel="tag">打工人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%9F%E6%88%BF/" rel="tag">租房</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag">软件设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Nacos/" style="font-size: 10px;">Nacos</a> <a href="/tags/PostMan/" style="font-size: 10px;">PostMan</a> <a href="/tags/Safari/" style="font-size: 10px;">Safari</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/http%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">http请求</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 10px;">书籍</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" style="font-size: 10px;">代码重构</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" style="font-size: 10px;">打工人</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%9F%E6%88%BF/" style="font-size: 10px;">租房</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件设计</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 16.67px;">面试题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/posts/78c8/">PostMan-教程</a>
-          </li>
-        
-          <li>
-            <a href="/posts/aeb0/">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</a>
-          </li>
-        
-          <li>
-            <a href="/posts/4e88/">租房淡季VS租房旺季：一年中什么时候租房最合适？</a>
-          </li>
-        
-          <li>
-            <a href="/posts/7265/">太爽了，纯注解开发模式简直就是Spring中的Spring！</a>
-          </li>
-        
-          <li>
-            <a href="/posts/3699/">资源预测数字模型搭建思路分享</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 zhangxin<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E8%AF%AD%E8%A8%80-%E7%9B%B8%E5%85%B3%E4%B9%A6%E7%B1%8D"><span class="toc-text">Java语言-相关书籍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E8%AF%AD%E8%A8%80-%E8%B5%84%E6%BA%90"><span class="toc-text">Java语言-资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E9%9D%A2%E8%AF%95"><span class="toc-text">Java面试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">Java开发环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS%E5%B9%B3%E5%8F%B0"><span class="toc-text">macOS平台</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jdk"><span class="toc-text">安装jdk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mac%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC"><span class="toc-text">Mac切换jdk版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mac%E4%B8%AD%E5%8D%B8%E8%BD%BD%E5%AE%89%E8%A3%85%E5%A4%9A%E4%BD%99%E7%9A%84jdk"><span class="toc-text">mac中卸载安装多余的jdk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#idea%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3"><span class="toc-text">idea安装破解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#idea%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD"><span class="toc-text">idea完全卸载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#idea%E9%85%8D%E7%BD%AEmean"><span class="toc-text">idea配置mean</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#idea%E9%80%89%E6%8B%A9jdk"><span class="toc-text">idea选择jdk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%EF%BC%9Aidea%E5%8D%B8%E8%BD%BD%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%E6%89%93%E4%B8%8D%E5%BC%80"><span class="toc-text">解决：idea卸载重新安装打不开</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E5%B9%B3%E5%8F%B0"><span class="toc-text">Windows平台</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85idea"><span class="toc-text">安装idea</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85JDK"><span class="toc-text">安装JDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85maven"><span class="toc-text">安装maven</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="toc-text">环境变量配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5"><span class="toc-text">检查</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8AEffectiveJava%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0"><span class="toc-text">《EffectiveJava》读书笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1"><span class="toc-text">1. 创建和销毁对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%9B%BF%E4%BB%A3%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-text">考虑使用静态工厂方法替代构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E5%A4%9A%E4%B8%AA%E6%9E%84%E9%80%A0%E5%99%A8%E5%8F%82%E6%95%B0%E6%97%B6%E8%A6%81%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8%E6%9E%84%E5%BB%BA%E5%99%A8"><span class="toc-text">遇到多个构造器参数时要考虑使用构建器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E7%A7%81%E6%9C%89%E6%9E%84%E9%80%A0%E5%99%A8%E6%88%96%E8%80%85%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E5%BC%BA%E5%8C%96Singleton%E5%B1%9E%E6%80%A7"><span class="toc-text">用私有构造器或者枚举类型强化Singleton属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%A7%81%E6%9C%89%E6%9E%84%E9%80%A0%E5%99%A8%E5%BC%BA%E5%8C%96%E4%B8%8D%E5%8F%AF%E5%AE%9E%E4%BE%8B%E5%8C%96%E7%9A%84%E8%83%BD%E5%8A%9B"><span class="toc-text">通过私有构造器强化不可实例化的能力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%9D%A5%E5%BC%95%E7%94%A8%E8%B5%84%E6%BA%90"><span class="toc-text">优先考虑依赖注入来引用资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E5%88%9B%E5%BB%BA%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-text">避免创建不必要的对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E8%BF%87%E6%9C%9F%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%BC%95%E7%94%A8"><span class="toc-text">消除过期的对象引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E7%BB%88%E7%BB%93%E6%96%B9%E6%B3%95%E5%92%8C%E6%B8%85%E9%99%A4%E6%96%B9%E6%B3%95"><span class="toc-text">避免使用终结方法和清除方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#try-with-resources%E4%BC%98%E5%85%88%E4%BA%8Etry-finally"><span class="toc-text">try-with-resources优先于try-finally</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2. 对于所有对象都通用的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A6%86%E7%9B%96equals%E6%97%B6%E8%AF%B7%E9%81%B5%E5%AE%88%E9%80%9A%E7%94%A8%E7%BA%A6%E5%AE%9A"><span class="toc-text">覆盖equals时请遵守通用约定</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="toc-text">3. 类和接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%B1%BB%E5%92%8C%E6%88%90%E5%91%98%E7%9A%84%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7%E6%9C%80%E5%B0%8F%E5%8C%96"><span class="toc-text">使类和成员的可访问性最小化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO%E6%B5%81"><span class="toc-text">IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedInputStream%E5%AD%97%E8%8A%82%E7%BC%93%E5%86%B2%E8%BE%93%E5%85%A5%E6%B5%81"><span class="toc-text">BufferedInputStream字节缓冲输入流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedOutputStream%E5%AD%97%E8%8A%82%E7%BC%93%E5%86%B2%E8%BE%93%E5%87%BA%E6%B5%81"><span class="toc-text">BufferedOutputStream字节缓冲输出流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileReader%E6%96%87%E4%BB%B6%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E6%B5%81"><span class="toc-text">FileReader文件字符输入流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileWriter%E6%96%87%E4%BB%B6%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E6%B5%81"><span class="toc-text">FileWriter文件字符输出流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedReader%E5%AD%97%E7%AC%A6%E7%BC%93%E5%86%B2%E8%BE%93%E5%85%A5%E6%B5%81"><span class="toc-text">BufferedReader字符缓冲输入流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BufferedWriter%E5%AD%97%E7%AC%A6%E7%BC%93%E5%86%B2%E8%BE%93%E5%87%BA%E6%B5%81"><span class="toc-text">BufferedWriter字符缓冲输出流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%B5%81-InputStreamReader%E5%AD%97%E7%AC%A6%E8%BE%93%E5%85%A5%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="toc-text">IO流-InputStreamReader字符输入转换流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%B5%81-OutputStreamWriter%E5%AD%97%E7%AC%A6%E8%BE%93%E5%87%BA%E8%BD%AC%E6%8D%A2%E6%B5%81"><span class="toc-text">IO流-OutputStreamWriter字符输出转换流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%B5%81-ObjectOutputStream%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%81%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%AD%97%E8%8A%82%E8%BE%93%E5%87%BA%E6%B5%81%EF%BC%89"><span class="toc-text">IO流-ObjectOutputStream对象序列化流（对象字节输出流）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%B5%81-ObjectInputStream%E5%AF%B9%E8%B1%A1%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%88%E5%AF%B9%E8%B1%A1%E5%AD%97%E8%8A%82%E8%BE%93%E5%85%A5%E6%B5%81%EF%BC%89"><span class="toc-text">IO流-ObjectInputStream对象反序列化（对象字节输入流）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E6%B5%81-PrintStream-x2F-PrintWriter%E6%89%93%E5%8D%B0%E6%B5%81"><span class="toc-text">IO流-PrintStream &#x2F; PrintWriter打印流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%EF%BC%9A%E6%8A%8A%E3%80%8A%E5%87%BA%E5%B8%88%E8%A1%A8%E3%80%8B%E7%9A%84%E6%96%87%E7%AB%A0%E9%A1%BA%E5%BA%8F%E8%BF%9B%E8%A1%8C%E6%81%A2%E5%A4%8D%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6%E4%B8%AD%EF%BC%81%EF%BC%81"><span class="toc-text">需求：把《出师表》的文章顺序进行恢复到一个新文件中！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-io-File"><span class="toc-text">java.io.File</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E9%9B%86%E5%90%88"><span class="toc-text">Java集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API"><span class="toc-text">API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">集合的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%A7%8D%E7%B1%BB"><span class="toc-text">常见的数据结构种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedList"><span class="toc-text">LinkedList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedHashSet"><span class="toc-text">LinkedHashSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">集合的使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeSet"><span class="toc-text">TreeSet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection%E6%8E%92%E5%BA%8F"><span class="toc-text">Collection排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Collections-Util"><span class="toc-text">Collections Util</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#args"><span class="toc-text">args</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91"><span class="toc-text">斗地主游戏的案例开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map"><span class="toc-text">Map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-1"><span class="toc-text">API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="toc-text">遍历方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B"><span class="toc-text">存储自定义类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedHashMap"><span class="toc-text">LinkedHashMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeMap"><span class="toc-text">TreeMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Properties"><span class="toc-text">Properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%82%EF%BC%88%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%89"><span class="toc-text">输出一个字符串中每个字符出现的次数。（经典面试题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91-Map%E9%9B%86%E5%90%88%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-text">斗地主游戏的案例开发-Map集合实现。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91"><span class="toc-text">图书管理系统的开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92"><span class="toc-text">递归</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="toc-text">日志级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">时间复杂度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java8"><span class="toc-text">Java8</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream%E6%B5%81"><span class="toc-text">Stream流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">Lambda表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="toc-text">方法引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">Java定时任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-text">Java正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E7%AE%97%E6%B3%95"><span class="toc-text">Java算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8F%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-text">️选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8F%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-text">️二分查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95"><span class="toc-text">雪花算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">Java工具类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BigDicimal%E7%B1%BB"><span class="toc-text">BigDicimal类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System%E7%B3%BB%E7%BB%9F%E7%B1%BB"><span class="toc-text">System系统类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-lang-Math"><span class="toc-text">java.lang.Math</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-time-LocalDateTime"><span class="toc-text">java.time.LocalDateTime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%B8%8FSimpleDateFormat"><span class="toc-text">️SimpleDateFormat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text">并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">多线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">线程的创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-text">线程同步_同步代码块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86-x2F-%E7%BC%96%E7%A0%81%E9%9B%86"><span class="toc-text">字符集&#x2F;编码集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other"><span class="toc-text">Other</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ResultFul"><span class="toc-text">ResultFul</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK-JRE-JVM"><span class="toc-text">JDK JRE JVM</span></a></li></ol></li></ol>
+      </div>
     </div>
   </div>
-</footer>
 
+
+        </main>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <section id="rightside">
+    <div class="rightside-item">
+
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+
+
+         
+         
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+
+
+        
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
     
 
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+<footer class="footer" id="footer">
+  <div class="copyright">
+    &copy; 2020 - 2022
+    <i class="fas fa-fan"></i>
+    zhangxin
   </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">我相信我可以，但我一直在路上，所以我有无限的可能！！</div>
+</footer>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <script src="/js/main.js"></script>
+    
+
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+
+
+
+<script src="/js/lazyload.js"></script>
+
+
+
+
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+  document.addEventListener('pjax:success', loadCardLink)
+</script>
+
+
+
+
+
+    
+<script>
+  mengd.getScript('/third-party/js/pjax.js', LoadPjax)
+
+  function LoadPjax() {
+    window.pjax = new Pjax({
+      selectors: [
+        'head title',
+        'head meta[name="keywords"]',
+        'head meta[name="description"]',
+        'main',
+        '#rightside'
+      ],
+      cacheBust: false
+    });
+  }
+
+  // 清除时间
+  var timer = null;
+  // 执行进度条
+  function ProgressStart() {
+    const className = 'pjax-progress';
+    var dom = mengd.$query('.' + className);
+    // 设置初始进度
+    var progress = 10;
+    // 创建进度条 及 css样式
+    if (!dom) {
+      dom = document.createElement('div');
+      dom.className = className;
+      document.body.prepend(dom);
+    }
+    // 定义随机数最大值最小值
+    var max = 10,
+      mini = 3;
+    var result = max - mini;
+    // 清除
+    clearInterval(timer);
+    // 0.5秒内累加进度
+    timer = setInterval(function() {
+      // 随机数
+      var num = parseInt(Math.random() * result);
+      var randomResult = num + mini;
+      // 累加
+      progress += randomResult
+      // 当进度达到95%时停止
+      if (progress > 95) progress = 95
+
+      dom.style.width = progress + '%';
+    }, 500)
+  }
+  // 加载进度条加载完毕
+  function ProgressFinish() {
+    clearInterval(timer);
+    // 页面加载完毕后进度100% 并在0.7秒后删除
+    var progress = mengd.$query('.pjax-progress')
+    progress.style.width = '100%';
+    timer = setTimeout(function() {
+      progress.parentNode.removeChild(progress)
+    }, 700);
+  }
+
+  // 开始 PJAX 执行的函数
+  document.addEventListener('pjax:send', function() {
+    // 执行进度条
+    ProgressStart()
+  });
+  // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+  document.addEventListener('pjax:complete', function() {
+    // 加载进度条加载完毕
+    ProgressFinish()
+  });
+
+  document.addEventListener('pjax:success', function () {
+
+    // 执行所有方法
+    exeAllFn()
+
+    
+    // 图片懒加载
+    ImgLazyLoad('body img[data-src]', 'data-src')
+    
+
+    
+    
+    prefetch({"delay":1000,"threshold":25})
+    
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+  })
+
+  // Pjax请求错误时，跳转到404页面
+  document.addEventListener('pjax:error', (err) => {
+    if (err.request.status === 404) pjax.loadUrl('/404.html')
+  })
+</script>
+
+
 </body>
+
 </html>

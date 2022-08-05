@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>五、分布式-面试题 | zx&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1.1 什么是CAP原则？参考答案 CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两个，三者不可兼得。  Consistency (一致性)： “all nodes see the same data at the same time”，即更新">
+    
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh-CN">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>五、分布式-面试题 | zx&#39;s blog</title>
+<meta name="author" content="zhangxin">
+<meta name="copyright" content="zhangxin">
+
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="keywords" content="Java,面试题,分布式">
+
+
+
+
+<meta name="description" content="1.1 什么是CAP原则？参考答案 CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两个，三者不可兼得。  Consistency (一致性)： “all nodes see the same data at the same time”，即更新">
 <meta property="og:type" content="article">
 <meta property="og:title" content="五、分布式-面试题">
-<meta property="og:url" content="https://zx.js.cool/posts/a3a7/index.html">
+<meta property="og:url" content="https://zx.js.cool/posts/a3a7/">
 <meta property="og:site_name" content="zx&#39;s blog">
 <meta property="og:description" content="1.1 什么是CAP原则？参考答案 CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两个，三者不可兼得。  Consistency (一致性)： “all nodes see the same data at the same time”，即更新">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Q7eLSvksP52jguH.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/qIFjR67kzZyQ5VS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/npA6IBJT2dtoahD.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ZT9J8YMlp4eXnSL.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/PA354GdVnKwfveb.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/GBYs3mkFqEj9rMn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Ech4gyo9wBuf7NW.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/mDidMnbWVS7GB4f.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hwCJF2VDAHNfeQZ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/yr5mokJGLgKphbT.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/MWDNXPSgO7iFqB5.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Aq5pHE38wP2u1hF.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Ytegv4zUcldEL1x.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/SFl4cgZGTYIwjhP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/lVcanRZGt63hP7y.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/1kfpNqRXSiB6YWw.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/1kfpNqRXSiB6YWw.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/dZ2MkoPqYLjHctw.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/QydVcWTF4PJErm1.png">
+<meta property="og:image" content="https://zx.js.cool/img/logo.gif">
 <meta property="article:published_time" content="2021-12-26T02:52:23.000Z">
 <meta property="article:modified_time" content="2022-08-02T09:05:11.882Z">
 <meta property="article:author" content="zhangxin">
@@ -39,90 +36,147 @@
 <meta property="article:tag" content="面试题">
 <meta property="article:tag" content="分布式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/17/Q7eLSvksP52jguH.png">
-  
-    <link rel="alternate" href="/atom.xml" title="zx's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://zx.js.cool/img/logo.gif">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<script src="/js/utlis.js"></script>
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
+
+
+
+
+<script src="/third-party/js/prefetch-page.js"></script>
+<script>
   
+  addEventListener('load', function() {
+    prefetch({"delay":1000,"threshold":25})
+  })
+  
+</script>
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">zx&#39;s blog</a>
-      </h1>
+     
+    
+
+<script>
+  var $config = {
+      CDN: {
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
+      },
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">zx&#39;s blog</a>
-        </h2>
       
+      codeBlockExpand: {
+        enable: true,
+        height: 400,
+        scrollTop: 200
+      }
+      
+    }
+</script>
+
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">zx's blog</a>
+      
+      <ul class="menu">
+         
+        
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
         
-          <a class="main-nav-link" href="/">Home</a>
+    </ul>
+  </div>
+</nav>
+
+
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/logo.gif" alt="zhangxin" class="author-avatar">
+            <div class="author-name">
+                zhangxin
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            zx&#39;s blog
+        </p>
+        <div class="header-icon">
+            
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>五、分布式-面试题</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2021-12-26 |
+        </span>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-08-05
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">14.7k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>50分钟</span>
         
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zx.js.cool"></form>
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-面试题/五、分布式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/posts/a3a7/" class="article-date">
-  <time class="dt-published" datetime="2021-12-26T02:52:23.000Z" itemprop="datePublished">2021-12-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      五、分布式-面试题
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="1-1-什么是CAP原则？"><a href="#1-1-什么是CAP原则？" class="headerlink" title="1.1 什么是CAP原则？"></a>1.1 什么是CAP原则？</h4><p><strong>参考答案</strong></p>
+  <div class="post-content">
+    <h4 id="1-1-什么是CAP原则？"><a href="#1-1-什么是CAP原则？" class="headerlink" title="1.1 什么是CAP原则？"></a>1.1 什么是CAP原则？</h4><p><strong>参考答案</strong></p>
 <p>CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两个，三者不可兼得。</p>
 <ul>
 <li><p>Consistency (一致性)：</p>
@@ -161,7 +215,7 @@
 <li><p>平均响应时间：最常用，但是缺陷很明显，对于慢请求不敏感。比如1万次请求，其中9900次是1ms，100次是100ms，则平均响应时间为1.99ms，虽然平均耗时仅增加了0.99ms，但是1%请求的响应时间已经增加了100倍。</p>
 </li>
 <li><p>TP90、TP99等分位值：将响应时间按照从小到大排序，TP90表示排在第90分位的响应时间， 分位值越大，对慢请求越敏感。</p>
-<p><img src="https://s2.loli.net/2022/07/17/Q7eLSvksP52jguH.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/Q7eLSvksP52jguH.png" alt="img"></p>
 </li>
 <li><p>吞吐量：和响应时间呈反比，比如响应时间是1ms，则吞吐量为每秒1000次。</p>
 </li>
@@ -169,7 +223,7 @@
 <p>通常，设定性能目标时会兼顾吞吐量和响应时间，比如这样表述：在每秒1万次请求下，AVG控制在50ms以下，TP99控制在100ms以下。对于高并发系统，AVG和TP分位值必须同时要考虑。另外，从用户体验角度来看，200毫秒被认为是第一个分界点，用户感觉不到延迟，1秒是第二个分界点，用户能感受到延迟，但是可以接受。因此，对于一个健康的高并发系统，TP99应该控制在200毫秒以内，TP999或者TP9999应该控制在1秒以内。</p>
 <p>2.2.2 可用性指标</p>
 <p>高可用性是指系统具有较高的无故障运行能力，可用性 &#x3D; 平均故障时间 &#x2F; 系统总运行时间，一般使用几个9来描述系统的可用性。</p>
-<p><img src="https://s2.loli.net/2022/07/17/qIFjR67kzZyQ5VS.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/qIFjR67kzZyQ5VS.png" alt="img"></p>
 <p>对于高并发系统来说，最基本的要求是：保证3个9或者4个9。原因很简单，如果你只能做到2个9，意味着有1%的故障时间，像一些大公司每年动辄千亿以上的GMV或者收入，1%就是10亿级别的业务影响。</p>
 <p>2.2.3 可扩展性指标</p>
 <p>面对突发流量，不可能临时改造架构，最快的方式就是增加机器来线性提高系统的处理能力。</p>
@@ -191,7 +245,7 @@
 <p>因为单机性能总会存在极限，所以最终还需要引入横向扩展，通过集群部署以进一步提高并发处理能力，又包括以下2个方向：</p>
 <ol>
 <li><p>做好分层架构：这是横向扩展的提前，因为高并发系统往往业务复杂，通过分层处理可以简化复杂问题，更容易做到横向扩展。</p>
-<p><img src="https://s2.loli.net/2022/07/17/npA6IBJT2dtoahD.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/npA6IBJT2dtoahD.png" alt="img"></p>
 <p>上面这种图是互联网最常见的分层架构，当然真实的高并发系统架构会在此基础上进一步完善。比如会做动静分离并引入CDN，反向代理层可以是LVS+Nginx，Web层可以是统一的API网关，业务服务层可进一步按垂直业务做微服务化，存储层可以是各种异构数据库。</p>
 </li>
 <li><p>各层进行水平扩展：无状态水平扩容，有状态做分片路由。业务集群通常能设计成无状态的，而数据库和缓存往往是有状态的，因此需要设计分区键做好存储分片，当然也可以通过主从同步、读写分离的方案提升读性能。</p>
@@ -242,24 +296,24 @@
 <p>分布式存储是一个大的概念，其包含的种类繁多，除了传统意义上的分布式文件系统、分布式块存储和分布式对象存储外，还包括分布式数据库和分布式缓存等。下面我们探讨一下分布式文件系统等传统意义上的存储架构，实现这种存储架构主要有三种通用的形式，其它存储架构也基本上基于上述架构，并没有太大的变化。</p>
 <p>中间控制节点架构（HDFS）</p>
 <p>分布式存储最早是由谷歌提出的，其目的是通过廉价的服务器来提供使用与大规模，高并发场景下的Web访问问题。下图是谷歌分布式存储（HDFS）的简化的模型。在该系统的整个架构中将服务器分为两种类型，一种名为namenode，这种类型的节点负责管理管理数据（元数据），另外一种名为datanode，这种类型的服务器负责实际数据的管理。</p>
-<p><img src="https://s2.loli.net/2022/07/17/ZT9J8YMlp4eXnSL.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/ZT9J8YMlp4eXnSL.png" alt="img"></p>
 <p>上图分布式存储中，如果客户端需要从某个文件读取数据，首先从namenode获取该文件的位置（具体在哪个datanode），然后从该位置获取具体的数据。在该架构中namenode通常是主备部署，而datanode则是由大量节点构成一个集群。由于元数据的访问频度和访问量相对数据都要小很多，因此namenode通常不会成为性能瓶颈，而datanode集群可以分散客户端的请求。因此，通过这种分布式存储架构可以通过横向扩展datanode的数量来增加承载能力，也即实现了动态横向扩展的能力。</p>
 <p>完全无中心架构—计算模式（Ceph）</p>
 <p>下图是Ceph存储系统的架构，在该架构中与HDFS不同的地方在于该架构中没有中心节点。客户端是通过一个设备映射关系计算出来其写入数据的位置，这样客户端可以直接与存储节点通信，从而避免中心节点的性能瓶颈。</p>
-<p><img src="https://s2.loli.net/2022/07/17/PA354GdVnKwfveb.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/PA354GdVnKwfveb.png" alt="img"></p>
 <p>在Ceph存储系统架构中核心组件有Mon服务、OSD服务和MDS服务等。对于块存储类型只需要Mon服务、OSD服务和客户端的软件即可。其中Mon服务用于维护存储系统的硬件逻辑关系，主要是服务器和硬盘等在线信息。Mon服务通过集群的方式保证其服务的可用性。OSD服务用于实现对磁盘的管理，实现真正的数据读写，通常一个磁盘对应一个OSD服务。 客户端访问存储的大致流程是，客户端在启动后会首先从Mon服务拉取存储资源布局信息，然后根据该布局信息和写入数据的名称等信息计算出期望数据的位置（包含具体的物理服务器信息和磁盘信息），然后该位置信息直接通信，读取或者写入数据。</p>
 <p>完全无中心架构—一致性哈希（Swift）</p>
 <p>与Ceph的通过计算方式获得数据位置的方式不同，另外一种方式是通过一致性哈希的方式获得数据位置。一致性哈希的方式就是将设备做成一个哈希环，然后根据数据名称计算出的哈希值映射到哈希环的某个位置，从而实现数据的定位。</p>
-<p><img src="https://s2.loli.net/2022/07/17/GBYs3mkFqEj9rMn.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/GBYs3mkFqEj9rMn.png" alt="img"></p>
 <p>上图是一致性哈希的基本原理，为了绘制简单，本文以一个服务器上的一个磁盘为例进行介绍。为了保证数据分配的均匀性及出现设备故障时数据迁移的均匀性，一致性哈希将磁盘划分为比较多的虚拟分区，每个虚拟分区是哈希环上的一个节点。整个环是一个从0到32位最大值的一个区间，并且首尾相接。当计算出数据（或者数据名称）的哈希值后，必然落到哈希环的某个区间，然后以顺时针，必然能够找到一个节点。那么，这个节点就是存储数据的位置。 Swift存储的整个数据定位算法就是基于上述一致性哈希实现的。在Swift对象存储中，通过账户名&#x2F;容器名&#x2F;对象名三个名称组成一个位置的标识，通过该唯一标识可以计算出一个整型数来。而在存储设备方面，Swift构建一个虚拟分区表，表的大小在创建集群是确定（通常为几十万），这个表其实就是一个数组。这样，根据上面计算的整数值，以及这个数组，通过一致性哈希算法就可以确定该整数在数组的位置。而数组中的每项内容是数据3个副本（也可以是其它副本数量）的设备信息（包含服务器和磁盘等信息）。也就是经过上述计算，可以确定一个数据存储的具体位置。这样，Swift就可以将请求重新定向到该设备进行处理。</p>
-<p><img src="https://s2.loli.net/2022/07/17/Ech4gyo9wBuf7NW.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/Ech4gyo9wBuf7NW.png" alt="img"></p>
 <p>上述计算过程是在一个名为Proxy的服务中进行的，该服务可以集群化部署。因此可以分摊请求的负载，不会成为性能瓶颈。</p>
 <h4 id="1-4-说一说你对分布式事务的了解"><a href="#1-4-说一说你对分布式事务的了解" class="headerlink" title="1.4 说一说你对分布式事务的了解"></a>1.4 说一说你对分布式事务的了解</h4><p><strong>参考答案</strong></p>
 <p>分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性。</p>
 <p>要实现分布式事务，有如下几种常见的解决方案：</p>
 <p>2PC</p>
 <p>说到2PC就不得不聊数据库分布式事务中的 XA Transactions。</p>
-<p><img src="https://s2.loli.net/2022/07/17/mDidMnbWVS7GB4f.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/mDidMnbWVS7GB4f.png" alt="img"></p>
 <p>如上图，在XA协议中分为两阶段：</p>
 <p>第一阶段：事务管理器要求每个涉及到事务的数据库预提交(precommit)此操作，并反映是否可以提交。</p>
 <p>第二阶段：事务协调器要求每个数据库提交数据，或者回滚数据。</p>
@@ -295,7 +349,7 @@
 </ul>
 <p>本地消息表</p>
 <p>本地消息表这个方案最初是ebay提出的，此方案的核心是将需要分布式处理的任务通过消息日志的方式来异步执行。消息日志可以存储到本地文本、数据库或消息队列，再通过业务规则自动或人工发起重试。人工重试更多的是应用于支付场景，通过对账系统对事后问题的处理。</p>
-<p><img src="https://s2.loli.net/2022/07/17/hwCJF2VDAHNfeQZ.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/hwCJF2VDAHNfeQZ.png" alt="img"></p>
 <p>对于本地消息队列来说核心是把大事务转变为小事务，还是举上面用100元去买一瓶水的例子：</p>
 <ol>
 <li>当你扣钱的时候，你需要在你扣钱的服务器上新增加一个本地消息表，你需要把你扣钱和写入减去水的库存到本地消息表放入同一个事务(依靠数据库本地事务保证一致性。</li>
@@ -306,13 +360,13 @@
 <p>本地消息队列是BASE理论，是最终一致模型，适用于对一致性要求不高的场景，实现这个模型时需要注意重试的幂等。</p>
 <p>MQ事务</p>
 <p>在RocketMQ中实现了分布式事务，实际上其实是对本地消息表的一个封装，将本地消息表移动到了MQ内部，下面简单介绍一下MQ事务。</p>
-<p><img src="https://s2.loli.net/2022/07/17/yr5mokJGLgKphbT.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/yr5mokJGLgKphbT.png" alt="img"></p>
 <p>基本流程如下：</p>
 <p>第一阶段Prepared消息，会拿到消息的地址。</p>
 <p>第二阶段执行本地事务。</p>
 <p>第三阶段通过第一阶段拿到的地址去访问消息，并修改状态。消息接受者就能使用这个消息。</p>
 <p>如果确认消息失败，在RocketMq Broker中提供了定时扫描没有更新状态的消息，如果有消息没有得到确认，会向消息发送者发送消息，来判断是否提交，在rocketmq中是以listener的形式给发送者，用来处理。</p>
-<p><img src="https://s2.loli.net/2022/07/17/MWDNXPSgO7iFqB5.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/MWDNXPSgO7iFqB5.png" alt="img"></p>
 <p>如果消费超时，则需要一直重试，消息接收端需要保证幂等。如果消息消费失败，这个就需要人工进行处理，因为这个概率较低，如果为了这种小概率时间而设计这个复杂的流程反而得不偿失。</p>
 <p>Saga事务</p>
 <p>Saga是30年前一篇数据库伦理提到的一个概念。其核心思想是将长事务拆分为多个本地短事务，由Saga事务协调器协调，如果正常结束那就正常完成，如果某个步骤失败，则根据相反顺序一次调用补偿操作。 Saga的组成：</p>
@@ -342,7 +396,7 @@
 <li><p>准备阶段：协调者向参与者发起指令，参与者评估自己的状态，如果参与者评估指令可以完成，则会写redo或者undo日志（Write-Ahead Log的一种），然后锁定资源，执行操作，但是并不提交。</p>
 </li>
 <li><p>提交阶段：如果每个参与者明确返回准备成功，也就是预留资源和执行操作成功，则协调者向参与者发起提交指令，参与者提交资源变更的事务，释放锁定的资源；如果任何一个参与者明确返回准备失败，也就是预留资源或者执行操作失败，则协调者向参与者发起中止指令，参与者取消已经变更的事务，执行undo日志，释放锁定的资源。两阶段提交协议的成功场景如下图所示。</p>
-<p><img src="https://s2.loli.net/2022/07/17/Aq5pHE38wP2u1hF.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/Aq5pHE38wP2u1hF.png" alt="img"></p>
 <p>我们看到两阶段提交协议在准备阶段锁定资源，这是一个重量级的操作，能保证强一致性，但是实现起来复杂、成本较高、不够灵活，更重要的是它有如下致命的问题。</p>
 </li>
 <li><p>阻塞：从上面的描述来看，对于任何一次指令都必须收到明确的响应，才会继续进行下一步，否则处于阻塞状态，占用的资源被一直锁定，不会被释放。</p>
@@ -361,7 +415,7 @@
 <li>提交阶段：如果每个参与者在准备阶段返回准备成功，也就是说预留资源和执行操作成功，则协调者向参与者发起提交指令，参与者提交资源变更的事务，释放锁定的资源；如果任何参与者返回准备失败，也就是说预留资源或者执行操作失败，则协调者向参与者发起中止指令，参与者取消已经变更的事务，执行 undo 日志，释放锁定的资源，这里的逻辑与两阶段提交协议的提交阶段一致。</li>
 </ul>
 <p>三阶段提交协议的成功场景示意图如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/Ytegv4zUcldEL1x.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/Ytegv4zUcldEL1x.png" alt="img"></p>
 <p>三阶段提交协议与两阶段提交协议主要有以下两个不同点：</p>
 <ul>
 <li>增加了一个询问阶段，询问阶段可以确保尽可能早地发现无法执行操作而需要中止的行为，但是它并不能发现所有这种行为，只会减少这种情况的发生。</li>
@@ -375,7 +429,7 @@
 <p>从TCC的逻辑上看，可以说TCC是简化版的三阶段提交协议，解决了两阶段提交协议的阻塞问题，但是没有解决极端情况下会出现不一致和脑裂的问题。然而，TCC通过自动化补偿手段，将需要人工处理的不一致情况降到最少，也是一种非常有用的解决方案。某著名的互联网公司在内部的一些中间件上实现了TCC模式。</p>
 <p>我们给出一个使用TCC的实际案例，在秒杀的场景中，用户发起下订单请求，应用层先查询库存，确认商品库存还有余量，则锁定库存，此时订单状态为待支付，然后指引用户去支付，由于某种原因用户支付失败或者支付超时，则系统会自动将锁定的库存解锁以供其他用户秒杀。</p>
 <p>TCC协议的使用场景如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/SFl4cgZGTYIwjhP.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/SFl4cgZGTYIwjhP.png" alt="img"></p>
 <p>在大规模、高并发服务化系统中，一个功能被拆分成多个具有单一功能的子功能，一个流程会有多个系统的多个单一功能的服务组合实现，如果使用两阶段提交协议和三阶段提交协议，则确实能解决系统间的一致性问题。除了这两个协议的自身问题，其实现也比较复杂、成本比较高，最重要的是性能不好，相比来看，TCC协议更简单且更容易实现，但是TCC协议由于每个事务都需要执行Try，再执行Confirm，略显臃肿，因此，现实系统的底线是仅仅需要达到最终一致性，而不需要实现专业的、复杂的一致性协议。实现最终一致性有一些非常有效、简单的模式，下面就介绍这些模式及其应用场景。</p>
 <p>查询模式</p>
 <p>任何服务操作都需要提供一个查询接口，用来向外部输出操作执行的状态。服务操作的使用方可以通过查询接口得知服务操作执行的状态，然后根据不同的状态来做不同的处理操作。</p>
@@ -387,7 +441,7 @@
 <p>异步确保模式是补偿模式的一个典型案例，经常应用到使用方对响应时间要求不太高的场景中，通常把这类操作从主流程中摘除，通过异步的方式进行处理，处理后把结果通过通知系统通知给使用方。这个方案的最大好处是能够对高并发流量进行消峰，例如：电商系统中的物流、配送，以及支付系统中的计费、入账等。</p>
 <p>在实践中将要执行的异步操作封装后持久入库，然后通过定时捞取未完成的任务进行补偿操作来实现异步确保模式，只要定时系统足够健壮，则任何任务最终都会被成功执行。</p>
 <p>异步确保模式如下图所示：</p>
-<p><img src="https://s2.loli.net/2022/07/17/lVcanRZGt63hP7y.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/lVcanRZGt63hP7y.png" alt="img"></p>
 <p>定期校对模式</p>
 <p>系统在没有达到一致之前，系统间的状态是不一致的，甚至是混乱的，需要通过补偿操作来达到最终一致性的目的，但是如何来发现需要补偿的操作呢？</p>
 <p>在操作主流程中的系统间执行校对操作，可以在事后异步地批量校对操作的状态，如果发现不一致的操作，则进行补偿，补偿操作与补偿模式中的补偿操作是一致的。</p>
@@ -410,21 +464,21 @@
 <p>在分布式系统中，单点问题是一个比较常见的问题，对于单点问题可以分为有状态服务的单点问题和无状态服务的单点问题。</p>
 <p>无状态服务的单点问题</p>
 <p>对于无状态的服务，单点问题的解决比较简单，因为服务是无状态的，所以服务节点很容易进行平行扩展。比如，在分布式系统中，为了降低各进程通信的网络结构的复杂度，我们会增加一个代理节点，专门做消息的转发，其他的业务进行直接和代理节点进行通信，类似一个星型的网络结构。</p>
-<p><img src="https://s2.loli.net/2022/07/17/1kfpNqRXSiB6YWw.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/1kfpNqRXSiB6YWw.png"></p>
 <p>参考上面两个图，图中proxy是一个消息转发代理，业务进程中的消息都会经过该代理，这也是比较场景的一个架构。在上图中，只有一个proxy，如果该节点挂了，那么所有的业务进程之间都无法进行通信。由于proxy是无状态的服务，所以很容易想到第二个图中的解决方案，增加一个proxy节点，两个proxy节点是对等的。增加新节点后，业务进程需要与两个Proxy之间增加一个心跳的机制，业务进程在发送消息的时候根据proxy的状态，选择一个可用的proxy进行消息的传递。从负载均衡的角度来看，如果两个proxy都是存活状态的话，业务进程应当随机选择一个proxy。</p>
 <p>那么该解决方案中会存在什么问题呢？主要存在的问题是消息的顺序性问题。一般来说，业务的消息都是发送、应答，再发送、再应答这样的顺序进行的，在业务中可以保证消息的顺序性。但是，在实际的应用中，会出现这样一个情况：在业务进程1中，有个业务需要给业务进程3发送消息A和消息B，根据业务的特性，消息A必须要在消息B之前到达。如果业务进程1在发送消息A的时候选择了proxy1，在发送消息B的时候选择了proxy2，那么在分布式环境中，我们并不能确保先发送的消息A一定就能比后发送的消息B先到达业务进程3。那么怎么解决这个问题？其实方案也比较简单，对于这类对消息顺序有要求的业务，我们可以指定对应的proxy进行发送，比如消息A和消息B都是使用proxy1进行发送，这样就可以保证消息A比消息B先到达业务进程3。</p>
 <p>整体来说，对于无状态的服务的单点问题的解决方案还是比较简单的，只要增加对应的服务节点即可。</p>
 <p>有状态服务的单点问题</p>
 <p>相对无状态服务的单点问题，有状态服务的单点问题就复杂多了。如果在架构中，有个节点是单点的，并且该节点是有状态的服务，那么首先要考虑的是该节点是否可以去状态，如果可以，则优先选择去除状态的方案（比如说把状态存储到后端的可靠DB中，可能存在性能的损耗），然后就退化成了一个无状态服务的单点问题了，这就可以参考上一方案了。 但是，并不是所有的服务都是可以去状态的，比如说对于一些业务它只能在一个节点中进行处理，如果在不同的节点中处理的话可能会造成状态的不一致，这类型的业务是无法去除状态的。对于这种无法去除状态的单点的问题的解决方案也是有多种，但是越完善的方案实现起来就越复杂，不过整体的思路都是采用主备的方式。</p>
-<p><img src="https://s2.loli.net/2022/07/17/1kfpNqRXSiB6YWw.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/1kfpNqRXSiB6YWw.png"></p>
 <p>第一个方案就是就是增加一个备用节点，备用节点和业务进程也可以进行通信，但是所有的业务消息都发往Master节点进行处理。Master节点和Slave节点之间采用ping的方式进行通信。Slave节点会定时发送ping包给Master节点，Master节点收到后会响应一个Ack包。当Slave节点发现Master节点没有响应的时候，就会认为Master节点挂了，然后把自己升级为Master节点，并且通知业务进程把消息转发给自己。该方案看起来也是挺完美的，好像不存在什么问题，Slave升级为Master后所有的业务消息都会发给它。但是，如果在Master内部有一些自己的业务逻辑，比如说随机生成一些业务数据，并且定时存档。那么当Master和Slave之间的网络出现问题的时候，Slave会认为Master挂了，就会升级为Master，同样会执行Master的相应的业务逻辑，同样也会生成一些业务数据回写到DB。但是，其实Master是没有挂的，它同样也在运行对应的业务逻辑（即使业务进程的消息没有发给旧的Master了），这样就会出现两个Master进行写同一份数据了，造成数据的混乱。所以说，该方案并不是一个很好的方案。</p>
 <p>那怎么解决可能会出现多个Master的问题？换个角度看，该问题其实就是怎么去裁决哪个节点是Master的问题。</p>
 <p>方案一：引入第三方的服务进行裁决。</p>
 <p>我们可以引入ZooKeeper，由ZooKeeper进行裁决。同样，我们启动两个主节点，“节点A”和节点B。它们启动之后向ZooKeeper去注册一个节点，假设节点A注册的节点为master001，节点B注册的节点为master002，注册完成后进行选举，编号小的节点为真正的主节点。那么，通过这种方式就完成了对两个Master进程的调度。</p>
-<p><img src="https://s2.loli.net/2022/07/17/dZ2MkoPqYLjHctw.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/dZ2MkoPqYLjHctw.png" alt="img"></p>
 <p>方案二： 通过选举算法和租约的方式实现Master的选举。</p>
 <p>对于方案一的缺点主要要多维护一套ZooKeeper的服务，如果原本业务上并没有部署该服务的话，要增加该服务的维护也是比较麻烦的事情。这个时候我们可以在业务进程中加入Master的选举方案。目前有比较成熟的选举算法，比如Paxos和Raft。然后再配合租约机制，就可以实现Master的选举，并且确保当前只有一个Master的方案。但是，这些选举算法理解起来并不是那么地容易，要实现一套完善的方案也是挺难的。所以不建议重复造轮子，业内有很多成熟的框架或者组件可以使用，比如微信的PhxPaxos。</p>
-<p><img src="https://s2.loli.net/2022/07/17/QydVcWTF4PJErm1.png" alt="img"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/QydVcWTF4PJErm1.png" alt="img"></p>
 <p>比如上图的方案中，三个节点其实都是对等的，通过选举算法确定一个Master。为了确保任何时候都只能存在一个Matster，需要加入租约的机制。一个节点成为Master后，Master和非Master节点都会进行计时，在超过租约时间后，三个节点后可以发起“我要成为Master”的请求，进行重新选举。由于三个节点都是对等的，任意一个都可以成为Master，也就是说租期过后，有可能会出现Master切换的情况，所以为了避免Master的频繁切换，Master节点需要比另外两个节点先发起自己要成为Master的请求（续租），告诉其他两个节点我要继续成为Master，然后另外两个节点收到请求后会进行应答，正常情况下另外两个节点会同意该请求。关键点就是，在租约过期之前，非Master节点不能发起“我要成为Master”的请求，这样就可以解决Master频繁切换的问题。</p>
 <h4 id="1-7-HTTP和RPC有什么区别？"><a href="#1-7-HTTP和RPC有什么区别？" class="headerlink" title="1.7 HTTP和RPC有什么区别？"></a>1.7 HTTP和RPC有什么区别？</h4><p><strong>参考答案</strong></p>
 <p>传输协议</p>
@@ -454,157 +508,299 @@
 </ul>
 <p>总之，RPC主要用于公司内部的服务调用，性能消耗低，传输效率高，服务治理方便。HTTP主要用于对外的异构环境，浏览器接口调用，APP接口调用，第三方接口调用等。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zx.js.cool/posts/a3a7/" data-id="cl6gmmq950049plsr83bwcdlc" data-title="五、分布式-面试题" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+  </div>
+   
+   
 
-    </footer>
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:me@imlete.cn" >MengD(萌典)</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="https://zx.js.cool/posts/a3a7/" >https://zx.js.cool/posts/a3a7/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="https://zx.js.cool/posts/a3a7/" target="_blank" >Hexo-Theme-MengD(萌典)</a>
+              ！</span>
+      </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/posts/c5c3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          四、中间件-面试题
-        
-      </div>
-    </a>
-  
-  
-    <a href="/posts/7056/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">六、计算机网络-面试题</div>
-    </a>
-  
-</nav>
 
-  
+
+
+<div class="pagination-post">
+    
+    <a href="/posts/c5c3/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>四、中间件-面试题</div>
+      <div class="prev-desc">1. Redis1.1 Redis可以用来做什么？参考答案
+
+Redis最常用来做缓存，是实现分布式缓存的首先中间件；
+Redis可以作为数据库，实现诸如点赞、关注、排行等对性能要求极高的互联网...</div>
+    </a>
+    
+    
+    <a href="/posts/7056/">
+      <div class="next-title">六、计算机网络-面试题<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">1.1 请介绍七层网络体系结构。参考回答
+
+为什么分七层
+支持异构网络的互联互通。
+
+七层分别负责的内容（功能）
+OSI 模型把网络通信的工作分为 7 层，从下到上分别是物理层、数据链路层、网络...</div>
+    </a>
+    
+</div>
+
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://unpkg.com/discuss@latest/dist/discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://unpkg.com/discuss@latest/dist/discuss.js","serverURLs":null}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
+
 </article>
+ 
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%91%B8%E9%B1%BC/">摸鱼</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nacos/" rel="tag">Nacos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostMan/" rel="tag">PostMan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http%E8%AF%B7%E6%B1%82/" rel="tag">http请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" rel="tag">代码重构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" rel="tag">打工人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%9F%E6%88%BF/" rel="tag">租房</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag">软件设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Nacos/" style="font-size: 10px;">Nacos</a> <a href="/tags/PostMan/" style="font-size: 10px;">PostMan</a> <a href="/tags/Safari/" style="font-size: 10px;">Safari</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/http%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">http请求</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 10px;">书籍</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" style="font-size: 10px;">代码重构</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" style="font-size: 10px;">打工人</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%9F%E6%88%BF/" style="font-size: 10px;">租房</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件设计</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 16.67px;">面试题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/posts/78c8/">PostMan-教程</a>
-          </li>
-        
-          <li>
-            <a href="/posts/aeb0/">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</a>
-          </li>
-        
-          <li>
-            <a href="/posts/4e88/">租房淡季VS租房旺季：一年中什么时候租房最合适？</a>
-          </li>
-        
-          <li>
-            <a href="/posts/7265/">太爽了，纯注解开发模式简直就是Spring中的Spring！</a>
-          </li>
-        
-          <li>
-            <a href="/posts/3699/">资源预测数字模型搭建思路分享</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 zhangxin<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFCAP%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="toc-text">1.1 什么是CAP原则？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.2 说一说你对高并发的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%EF%BC%9F"><span class="toc-text">1.3 如何实现分布式存储？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">1.4 说一说你对分布式事务的了解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F"><span class="toc-text">1.5 分布式系统如何保证最终一致性？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84%E5%8D%95%E7%82%B9%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">1.6 谈谈你对分布式的单点问题的了解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-7-HTTP%E5%92%8CRPC%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.7 HTTP和RPC有什么区别？</span></a></li></ol>
+      </div>
     </div>
   </div>
-</footer>
 
+
+        </main>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <section id="rightside">
+    <div class="rightside-item">
+
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+
+
+         
+         
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+
+
+        
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
     
 
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+<footer class="footer" id="footer">
+  <div class="copyright">
+    &copy; 2020 - 2022
+    <i class="fas fa-fan"></i>
+    zhangxin
   </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">我相信我可以，但我一直在路上，所以我有无限的可能！！</div>
+</footer>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <script src="/js/main.js"></script>
+    
+
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+
+
+
+<script src="/js/lazyload.js"></script>
+
+
+
+
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+  document.addEventListener('pjax:success', loadCardLink)
+</script>
+
+
+
+
+
+    
+<script>
+  mengd.getScript('/third-party/js/pjax.js', LoadPjax)
+
+  function LoadPjax() {
+    window.pjax = new Pjax({
+      selectors: [
+        'head title',
+        'head meta[name="keywords"]',
+        'head meta[name="description"]',
+        'main',
+        '#rightside'
+      ],
+      cacheBust: false
+    });
+  }
+
+  // 清除时间
+  var timer = null;
+  // 执行进度条
+  function ProgressStart() {
+    const className = 'pjax-progress';
+    var dom = mengd.$query('.' + className);
+    // 设置初始进度
+    var progress = 10;
+    // 创建进度条 及 css样式
+    if (!dom) {
+      dom = document.createElement('div');
+      dom.className = className;
+      document.body.prepend(dom);
+    }
+    // 定义随机数最大值最小值
+    var max = 10,
+      mini = 3;
+    var result = max - mini;
+    // 清除
+    clearInterval(timer);
+    // 0.5秒内累加进度
+    timer = setInterval(function() {
+      // 随机数
+      var num = parseInt(Math.random() * result);
+      var randomResult = num + mini;
+      // 累加
+      progress += randomResult
+      // 当进度达到95%时停止
+      if (progress > 95) progress = 95
+
+      dom.style.width = progress + '%';
+    }, 500)
+  }
+  // 加载进度条加载完毕
+  function ProgressFinish() {
+    clearInterval(timer);
+    // 页面加载完毕后进度100% 并在0.7秒后删除
+    var progress = mengd.$query('.pjax-progress')
+    progress.style.width = '100%';
+    timer = setTimeout(function() {
+      progress.parentNode.removeChild(progress)
+    }, 700);
+  }
+
+  // 开始 PJAX 执行的函数
+  document.addEventListener('pjax:send', function() {
+    // 执行进度条
+    ProgressStart()
+  });
+  // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+  document.addEventListener('pjax:complete', function() {
+    // 加载进度条加载完毕
+    ProgressFinish()
+  });
+
+  document.addEventListener('pjax:success', function () {
+
+    // 执行所有方法
+    exeAllFn()
+
+    
+    // 图片懒加载
+    ImgLazyLoad('body img[data-src]', 'data-src')
+    
+
+    
+    
+    prefetch({"delay":1000,"threshold":25})
+    
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+  })
+
+  // Pjax请求错误时，跳转到404页面
+  document.addEventListener('pjax:error', (err) => {
+    if (err.request.status === 404) pjax.loadUrl('/404.html')
+  })
+</script>
+
+
 </body>
+
 </html>

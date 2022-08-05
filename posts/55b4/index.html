@@ -1,120 +1,182 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>代码重构：面向单元测试 | zx&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="原创 杜沁园(悬衡) 阿里开发者 2022-07-29 09:00 发表于北京  重构代码时，我们常常纠结于这样的问题：  需要进一步抽象吗？会不会导致过度设计？  如果需要进一步抽象的话，如何进行抽象呢？有什么通用的步骤或者法则吗？   单元测试是我们常用的验证代码正确性的工具，但是如果只用来验证正确性的话，那就是真是 “大炮打蚊子”–大材小用，它还可以帮助我们评判代码的抽象程度与设计水平。本文">
+    
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh-CN">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>代码重构：面向单元测试 | zx&#39;s blog</title>
+<meta name="author" content="zhangxin">
+<meta name="copyright" content="zhangxin">
+
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="keywords" content="代码重构,单元测试">
+
+
+
+
+<meta name="description" content="原创 杜沁园(悬衡) 阿里开发者 2022-07-29 09:00 发表于北京  重构代码时，我们常常纠结于这样的问题：  需要进一步抽象吗？会不会导致过度设计？  如果需要进一步抽象的话，如何进行抽象呢？有什么通用的步骤或者法则吗？   单元测试是我们常用的验证代码正确性的工具，但是如果只用来验证正确性的话，那就是真是 “大炮打蚊子”–大材小用，它还可以帮助我们评判代码的抽象程度与设计水平。本文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="代码重构：面向单元测试">
-<meta property="og:url" content="https://zx.js.cool/posts/55b4/index.html">
+<meta property="og:url" content="https://zx.js.cool/posts/55b4/">
 <meta property="og:site_name" content="zx&#39;s blog">
 <meta property="og:description" content="原创 杜沁园(悬衡) 阿里开发者 2022-07-29 09:00 发表于北京  重构代码时，我们常常纠结于这样的问题：  需要进一步抽象吗？会不会导致过度设计？  如果需要进一步抽象的话，如何进行抽象呢？有什么通用的步骤或者法则吗？   单元测试是我们常用的验证代码正确性的工具，但是如果只用来验证正确性的话，那就是真是 “大炮打蚊子”–大材小用，它还可以帮助我们评判代码的抽象程度与设计水平。本文">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/1M73zdVZYKBfURW.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/BWFl7fSCOAz1KRN.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/GEtyYXCRWbpAg32.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/LXfVsAPwJQmhejn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/vh1QG2ay4n9sSji.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/rylmzu2SiqbwjkF.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/3g6xhpi4Y7ZnPEI.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/Akf1Wn2brLjIzeG.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/NpitnYaul7JsUmk.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/VeI956Rmt3YCZbB.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/30/PDBw6tONzsARTdv.png">
+<meta property="og:image" content="https://zx.js.cool/img/logo.gif">
 <meta property="article:published_time" content="2022-07-30T05:12:52.000Z">
 <meta property="article:modified_time" content="2022-08-02T04:11:10.593Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="代码重构">
 <meta property="article:tag" content="单元测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/30/1M73zdVZYKBfURW.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="zx's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://zx.js.cool/img/logo.gif">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<script src="/js/utlis.js"></script>
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
+
+
+
+
+<script src="/third-party/js/prefetch-page.js"></script>
+<script>
   
+  addEventListener('load', function() {
+    prefetch({"delay":1000,"threshold":25})
+  })
+  
+</script>
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">zx&#39;s blog</a>
-      </h1>
+     
+    
+
+<script>
+  var $config = {
+      CDN: {
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
+      },
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">zx&#39;s blog</a>
-        </h2>
       
+      codeBlockExpand: {
+        enable: true,
+        height: 400,
+        scrollTop: 200
+      }
+      
+    }
+</script>
+
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">zx's blog</a>
+      
+      <ul class="menu">
+         
+        
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
         
-          <a class="main-nav-link" href="/">Home</a>
+    </ul>
+  </div>
+</nav>
+
+
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/logo.gif" alt="zhangxin" class="author-avatar">
+            <div class="author-name">
+                zhangxin
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            zx&#39;s blog
+        </p>
+        <div class="header-icon">
+            
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>代码重构：面向单元测试</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-07-30 |
+        </span>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-08-05
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">7k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>25分钟</span>
         
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zx.js.cool"></form>
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-摸鱼/代码重构：面向单元测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/posts/55b4/" class="article-date">
-  <time class="dt-published" datetime="2022-07-30T05:12:52.000Z" itemprop="datePublished">2022-07-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%91%B8%E9%B1%BC/">摸鱼</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      代码重构：面向单元测试
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>原创 杜沁园(悬衡) 阿里开发者 <em>2022-07-29 09:00</em> <em>发表于北京</em></p>
-<p><img src="https://s2.loli.net/2022/07/30/1M73zdVZYKBfURW.jpg" alt="图片"></p>
+  <div class="post-content">
+    <p>原创 杜沁园(悬衡) 阿里开发者 <em>2022-07-29 09:00</em> <em>发表于北京</em></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/1M73zdVZYKBfURW.jpg" alt="图片"></p>
 <p>重构代码时，我们常常纠结于这样的问题：</p>
 <ul>
 <li><p>需要进一步抽象吗？会不会导致过度设计？</p>
@@ -191,7 +253,7 @@
 <p>1、可以在本地设计完备的测试用例，称之为 <strong>完全覆盖的单元测试；</strong></p>
 <p><strong>2、只要完全覆盖的单元测试用例全部正确运行，那么这一段逻辑肯定是没有问题的；</strong></p>
 <p>第 1 点常会令人感到难以置信，但事实比想象的简单，假设有这样一个分段函数：</p>
-<p><img src="https://s2.loli.net/2022/07/30/BWFl7fSCOAz1KRN.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/BWFl7fSCOAz1KRN.png" alt="图片"></p>
 <p>f(x) 看起来有无限的定义域，我们永远无法穷举所有可能的输入。但是再仔细想想，我们并不需要穷举，其实只要下面几个用例可以通过，那么就可以确保这个函数是没有问题的：</p>
 <ul>
 <li><p>&lt;-50</p>
@@ -457,10 +519,10 @@
 <p>上一章所描述的重构过程本质上就是一个在探索中不断扩大测试边界的过程。但是单元测试的边界是不可能无限扩大的，因为实际的工程中必然有大量的不可测试部分，比如 RPC 调用，发消息，根据当前时间做计算等等，它们必然得在某个地方传入测试边界，而这一部分就是不可测试的。</p>
 <p>理想的测试边界应该是这样的，系统中所有核心复杂的逻辑全部包含在了边界内部，然后边界外都是不包含逻辑的，非常简单的代码，比如就是一行接口调用。这样任何对于系统的改动都可以在单元测试中就得到快速且充分的验证，集成测试时只需要简单测试下即可，如果出现问题，一定是对外部接口的理解有误，而不是系统内部改错了。</p>
 <p>清晰的单元测试边界划分有利于构建更加稳定的系统核心代码，因为我们在推进测试边界的过程中会不断地将副作用从核心代码中剥离出去，最终会得到一个完整且可测试的核心，就如同下图的对比一样：</p>
-<p><img src="https://s2.loli.net/2022/07/30/GEtyYXCRWbpAg32.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/GEtyYXCRWbpAg32.png" alt="图片"></p>
 <h2 id="重构的工作流"><a href="#重构的工作流" class="headerlink" title="重构的工作流"></a>重构的工作流</h2><p>好代码从来都不是一蹴而就的，都是先写一个大概，然后逐渐迭代和重构的，从这个角度来说，重构别人的代码和写新代码没有很大的区别。</p>
 <p>从上面的内容中，我们可以总结出一个简单的重构工作流：</p>
-<p><img src="https://s2.loli.net/2022/07/30/LXfVsAPwJQmhejn.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/LXfVsAPwJQmhejn.png" alt="图片"></p>
 <p>按照这个方法，就能够逐步迭代出一套优雅且可测试的代码，即使因为时间问题没有迭代到理想的测试边界，也会拥有一套大部分可测试的代码，后人可以在前人用例的基础上，继续扩大测试边界。</p>
 <h2 id="过度设计"><a href="#过度设计" class="headerlink" title="过度设计"></a>过度设计</h2><p>最后再谈一谈过度设计的问题。</p>
 <p>按照本文的方法是不可能出现过度设计的问题，过度设计一般发生在为了设计而设计，生搬硬套设计模式的场合，但是本文的所有设计都有一个明确的目的–提升代码的“可测试性”，所有的技巧都是在过程中无意使用的，不存在生硬的问题。</p>
@@ -486,7 +548,7 @@
 <p>因此本文的工作流将顺序做了一些调整，先写代码，然后再不断地重构代码适配单元测试，扩大系统的测试边界。</p>
 <p>不过从更广义的 TDD 思想上来说，这篇文章的总体思路和 TDD 是差不多的，或者标题也可以改叫做 “TDD 实践”。</p>
 <h2 id="业务实例-导出系统重构"><a href="#业务实例-导出系统重构" class="headerlink" title="业务实例 - 导出系统重构"></a>业务实例 - 导出系统重构</h2><p>钉钉审批的导出系统是一个专门负责将审批单批量导出成 Excel 的系统：</p>
-<p><img src="https://s2.loli.net/2022/07/30/vh1QG2ay4n9sSji.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/vh1QG2ay4n9sSji.png" alt="图片"></p>
 <p>大概步骤如下：</p>
 <ul>
 <li>启动一个线程，在内存中异步生成 Excel</li>
@@ -494,19 +556,19 @@
 <li>发消息给用户</li>
 </ul>
 <p>钉钉审批导出系统比常规导出系统要更加复杂一些，因为它的表单结构并不是固定的。而用户可以通过设计器灵活配置：</p>
-<p><img src="https://s2.loli.net/2022/07/30/rylmzu2SiqbwjkF.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/rylmzu2SiqbwjkF.png" alt="图片"></p>
 <p>从上面可以看出单个审批单还具有复杂的内部结构，比如明细，关联表单等等，而且还能相互嵌套，因此逻辑很十分复杂。</p>
 <p>我接手导出系统的时候，已经维护两年了，没有任何测试用例，代码中导出都是类似 patchXxx 的方法，可见在两年的岁月中，被打了不少补丁。系统虽然总体能用，但是有很多小 bug，基本上遇到边界情况就会出现一个 bug（边界情况比如明细里只有一个控件，明细里有关联表单，而关联表单里又有明细等等）。代码完全不可测试，完成的逻辑被 Spring Bean 隔离成一小块，一小块，就像下图一样：</p>
-<p><img src="https://s2.loli.net/2022/07/30/3g6xhpi4Y7ZnPEI.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/3g6xhpi4Y7ZnPEI.png" alt="图片"></p>
 <p>我决定将这些代码重构，不能让它继续荼毒后人，但是面对一团乱麻的代码完全不知道如何下手（以下贴图仅仅是为了让大家感受下当时的心情，不用仔细看）：</p>
-<p><img src="https://s2.loli.net/2022/07/30/Akf1Wn2brLjIzeG.png" alt="图片"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/Akf1Wn2brLjIzeG.png" alt="图片"></p>
 <p>我决定用本文的工作流对代码进行重新梳理。</p>
 <p><strong>确定测试边界</strong></p>
 <p>首先需要确定哪些部分是单元测试可以覆盖到的，哪些部分是不需要覆盖到的，靠集成测试保证的。</p>
 <p>经过分析，我认为导出系统的核心功能，就是根据表单配置和表单数据生成 excel 文件：</p>
-<p><img src="https://s2.loli.net/2022/07/30/NpitnYaul7JsUmk.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/NpitnYaul7JsUmk.png"></p>
 <p>这部分也是最核心，逻辑也最复杂的部分，因此我将这一部分作为我的测试边界，而其他部分，比如上传，发工作通知消息等放在边界之外：</p>
-<p><img src="https://s2.loli.net/2022/07/30/VeI956Rmt3YCZbB.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/VeI956Rmt3YCZbB.png"></p>
 <p>图中 “表单配置” 是一个数据，而 “表单数据” 其实是一个函数，因为导出过程中会不断批量分页地去查询数据。</p>
 <p><strong>不断迭代，扩大测试边界到理想状态</strong></p>
 <p>我迭代的过程如下：</p>
@@ -564,7 +626,7 @@
 
 <p>其中 LocalDataService，LocalStatusStore 分别是内存中的数据服务，和状态变更服务实现，用于进行单元测试。assertExcelContent 是我用 poi 写的一个工具方法，用于测试内存中的 excel 文件是否符合预期。所有边界的用例都可以直接在本地测试和沉淀用例。</p>
 <p>最终的代码结构大约如下（经过简化）：</p>
-<p><img src="https://s2.loli.net/2022/07/30/PDBw6tONzsARTdv.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/30/PDBw6tONzsARTdv.png"></p>
 <p>虽然到现在为止我的目的都是提升代码的可测试性，但是实际上我一不小心也提升了代码的拓展性，在完全没有相关产品需求的情况下：</p>
 <ul>
 <li><p>通过 DataService 的抽象，系统可以支持多种数据源导出，比如来自搜索，或者来自 db 的，只要传入不同的 DataService 实现即可，完全不需要改动和性逻辑；</p>
@@ -579,157 +641,298 @@
 <p>最后，单元测试也是对人有强依赖的技术，侧重于前期预防，没有任何办法量化一个人单元测试的质量如何，效果如何，这一切都是出于工程自己内心的“工匠精神” 以及对代码的敬畏，相信读到最后的你，也一定有着一颗工匠的心吧。</p>
 <hr>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zx.js.cool/posts/55b4/" data-id="cl6gmmq8s000splsrc1y9fj4e" data-title="代码重构：面向单元测试" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" rel="tag">代码重构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li></ul>
+  </div>
+   
+   
 
-    </footer>
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:me@imlete.cn" >MengD(萌典)</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="https://zx.js.cool/posts/55b4/" >https://zx.js.cool/posts/55b4/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="https://zx.js.cool/posts/55b4/" target="_blank" >Hexo-Theme-MengD(萌典)</a>
+              ！</span>
+      </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/posts/3699/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          资源预测数字模型搭建思路分享
-        
-      </div>
-    </a>
-  
-  
-    <a href="/posts/8d59/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Java8新特性及使用</div>
-    </a>
-  
-</nav>
 
-  
+
+
+<div class="pagination-post">
+    
+    <a href="/posts/3699/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>资源预测数字模型搭建思路分享</div>
+      <div class="prev-desc">
+业务背景资源预测是项目管理过程中的一个环节，即通过搭建合适的数据模型，对未来的项目人力资源投入情况进行有效预测，可以更加精准的完成项目资源规划并能及时发现问题进行相关调整。
+﻿
+难题和痛点
+P...</div>
+    </a>
+    
+    
+    <a href="/posts/8d59/">
+      <div class="next-title">Java8新特性及使用<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">
+Java8新特性及使用（一）
+Java8新特性及使用(二)
+
+</div>
+    </a>
+    
+</div>
+
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://unpkg.com/discuss@latest/dist/discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://unpkg.com/discuss@latest/dist/discuss.js","serverURLs":null}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
+
 </article>
+ 
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%91%B8%E9%B1%BC/">摸鱼</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nacos/" rel="tag">Nacos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostMan/" rel="tag">PostMan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http%E8%AF%B7%E6%B1%82/" rel="tag">http请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" rel="tag">代码重构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" rel="tag">打工人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%9F%E6%88%BF/" rel="tag">租房</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag">软件设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Nacos/" style="font-size: 10px;">Nacos</a> <a href="/tags/PostMan/" style="font-size: 10px;">PostMan</a> <a href="/tags/Safari/" style="font-size: 10px;">Safari</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/http%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">http请求</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 10px;">书籍</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" style="font-size: 10px;">代码重构</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" style="font-size: 10px;">打工人</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%9F%E6%88%BF/" style="font-size: 10px;">租房</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件设计</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 16.67px;">面试题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/posts/78c8/">PostMan-教程</a>
-          </li>
-        
-          <li>
-            <a href="/posts/aeb0/">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</a>
-          </li>
-        
-          <li>
-            <a href="/posts/4e88/">租房淡季VS租房旺季：一年中什么时候租房最合适？</a>
-          </li>
-        
-          <li>
-            <a href="/posts/7265/">太爽了，纯注解开发模式简直就是Spring中的Spring！</a>
-          </li>
-        
-          <li>
-            <a href="/posts/3699/">资源预测数字模型搭建思路分享</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 zhangxin<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-text">不可测试的代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E6%B5%8B%E8%AF%95%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">可测试意味着什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%8D%95%E6%B5%8B%E7%9A%84%E9%87%8D%E6%9E%84"><span class="toc-text">面向单测的重构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%BD%AE%E9%87%8D%E6%9E%84"><span class="toc-text">第一轮重构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%BD%AE%E9%87%8D%E6%9E%84"><span class="toc-text">第二轮重构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BE%B9%E7%95%8C"><span class="toc-text">单元测试的边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-text">重构的工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E5%BA%A6%E8%AE%BE%E8%AE%A1"><span class="toc-text">过度设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C-TDD-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">和 TDD 的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E5%AE%9E%E4%BE%8B-%E5%AF%BC%E5%87%BA%E7%B3%BB%E7%BB%9F%E9%87%8D%E6%9E%84"><span class="toc-text">业务实例 - 导出系统重构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">单元测试的局限性</span></a></li></ol>
+      </div>
     </div>
   </div>
-</footer>
 
+
+        </main>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <section id="rightside">
+    <div class="rightside-item">
+
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+
+
+         
+         
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+
+
+        
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
     
 
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+<footer class="footer" id="footer">
+  <div class="copyright">
+    &copy; 2020 - 2022
+    <i class="fas fa-fan"></i>
+    zhangxin
   </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">我相信我可以，但我一直在路上，所以我有无限的可能！！</div>
+</footer>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <script src="/js/main.js"></script>
+    
+
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+
+
+
+<script src="/js/lazyload.js"></script>
+
+
+
+
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+  document.addEventListener('pjax:success', loadCardLink)
+</script>
+
+
+
+
+
+    
+<script>
+  mengd.getScript('/third-party/js/pjax.js', LoadPjax)
+
+  function LoadPjax() {
+    window.pjax = new Pjax({
+      selectors: [
+        'head title',
+        'head meta[name="keywords"]',
+        'head meta[name="description"]',
+        'main',
+        '#rightside'
+      ],
+      cacheBust: false
+    });
+  }
+
+  // 清除时间
+  var timer = null;
+  // 执行进度条
+  function ProgressStart() {
+    const className = 'pjax-progress';
+    var dom = mengd.$query('.' + className);
+    // 设置初始进度
+    var progress = 10;
+    // 创建进度条 及 css样式
+    if (!dom) {
+      dom = document.createElement('div');
+      dom.className = className;
+      document.body.prepend(dom);
+    }
+    // 定义随机数最大值最小值
+    var max = 10,
+      mini = 3;
+    var result = max - mini;
+    // 清除
+    clearInterval(timer);
+    // 0.5秒内累加进度
+    timer = setInterval(function() {
+      // 随机数
+      var num = parseInt(Math.random() * result);
+      var randomResult = num + mini;
+      // 累加
+      progress += randomResult
+      // 当进度达到95%时停止
+      if (progress > 95) progress = 95
+
+      dom.style.width = progress + '%';
+    }, 500)
+  }
+  // 加载进度条加载完毕
+  function ProgressFinish() {
+    clearInterval(timer);
+    // 页面加载完毕后进度100% 并在0.7秒后删除
+    var progress = mengd.$query('.pjax-progress')
+    progress.style.width = '100%';
+    timer = setTimeout(function() {
+      progress.parentNode.removeChild(progress)
+    }, 700);
+  }
+
+  // 开始 PJAX 执行的函数
+  document.addEventListener('pjax:send', function() {
+    // 执行进度条
+    ProgressStart()
+  });
+  // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+  document.addEventListener('pjax:complete', function() {
+    // 加载进度条加载完毕
+    ProgressFinish()
+  });
+
+  document.addEventListener('pjax:success', function () {
+
+    // 执行所有方法
+    exeAllFn()
+
+    
+    // 图片懒加载
+    ImgLazyLoad('body img[data-src]', 'data-src')
+    
+
+    
+    
+    prefetch({"delay":1000,"threshold":25})
+    
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+  })
+
+  // Pjax请求错误时，跳转到404页面
+  document.addEventListener('pjax:error', (err) => {
+    if (err.request.status === 404) pjax.loadUrl('/404.html')
+  })
+</script>
+
+
 </body>
+
 </html>

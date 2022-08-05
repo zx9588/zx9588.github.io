@@ -1,114 +1,181 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>八、数据结构与算法-面试题 | zx&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="哈希请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？考察点：JAVA哈希表 参考回答： Java中的HashMap使用hashCode()和equals()方法来确定键值对的索引，当根据键获取值的时候也会用到这两个方法。如果没有正确的实现这两个方法，两个不同的键可能会有相同的hash值，因此，可能会被集合认为是相等的。而且，这两个方法也用来发现重复元素。所以这两个方">
+    
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh-CN">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>八、数据结构与算法-面试题 | zx&#39;s blog</title>
+<meta name="author" content="zhangxin">
+<meta name="copyright" content="zhangxin">
+
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="keywords" content="Java,面试题">
+
+
+
+
+<meta name="description" content="哈希请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？考察点：JAVA哈希表 参考回答： Java中的HashMap使用hashCode()和equals()方法来确定键值对的索引，当根据键获取值的时候也会用到这两个方法。如果没有正确的实现这两个方法，两个不同的键可能会有相同的hash值，因此，可能会被集合认为是相等的。而且，这两个方法也用来发现重复元素。所以这两个方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="八、数据结构与算法-面试题">
-<meta property="og:url" content="https://zx.js.cool/posts/a013/index.html">
+<meta property="og:url" content="https://zx.js.cool/posts/a013/">
 <meta property="og:site_name" content="zx&#39;s blog">
 <meta property="og:description" content="哈希请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？考察点：JAVA哈希表 参考回答： Java中的HashMap使用hashCode()和equals()方法来确定键值对的索引，当根据键获取值的时候也会用到这两个方法。如果没有正确的实现这两个方法，两个不同的键可能会有相同的hash值，因此，可能会被集合认为是相等的。而且，这两个方法也用来发现重复元素。所以这两个方">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NOdCfvRPWb4Qo1V.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/txkOVwqoWr2Ty3Y.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/XzA32dCuZeOYB7q.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/XFlPSINdfT7A53w.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/4aHyusLVq6Opzc5.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hDQufjMnw9ET2Fz.png">
+<meta property="og:image" content="https://zx.js.cool/img/logo.gif">
 <meta property="article:published_time" content="2021-11-17T02:58:12.000Z">
 <meta property="article:modified_time" content="2022-08-02T09:05:11.858Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/17/NOdCfvRPWb4Qo1V.jpg">
-  
-    <link rel="alternate" href="/atom.xml" title="zx's blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="https://zx.js.cool/img/logo.gif">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<script src="/js/utlis.js"></script>
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
+
+
+
+
+<script src="/third-party/js/prefetch-page.js"></script>
+<script>
   
+  addEventListener('load', function() {
+    prefetch({"delay":1000,"threshold":25})
+  })
+  
+</script>
+
 <meta name="generator" content="Hexo 6.2.0"></head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">zx&#39;s blog</a>
-      </h1>
+     
+    
+
+<script>
+  var $config = {
+      CDN: {
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
+      },
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">zx&#39;s blog</a>
-        </h2>
       
+      codeBlockExpand: {
+        enable: true,
+        height: 400,
+        scrollTop: 200
+      }
+      
+    }
+</script>
+
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">zx's blog</a>
+      
+      <ul class="menu">
+         
+        
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
         
-          <a class="main-nav-link" href="/">Home</a>
+    </ul>
+  </div>
+</nav>
+
+
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/logo.gif" alt="zhangxin" class="author-avatar">
+            <div class="author-name">
+                zhangxin
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            zx&#39;s blog
+        </p>
+        <div class="header-icon">
+            
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>八、数据结构与算法-面试题</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2021-11-17 |
+        </span>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-08-05
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">9.3k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>38分钟</span>
         
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zx.js.cool"></form>
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-面试题/八、数据结构与算法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/posts/a013/" class="article-date">
-  <time class="dt-published" datetime="2021-11-17T02:58:12.000Z" itemprop="datePublished">2021-11-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      八、数据结构与算法-面试题
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h2><h3 id="请谈一谈，hashCode-和equals-方法的重要性体现在什么地方？"><a href="#请谈一谈，hashCode-和equals-方法的重要性体现在什么地方？" class="headerlink" title="请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？"></a>请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？</h3><p>考察点：JAVA哈希表</p>
+  <div class="post-content">
+    <h2 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h2><h3 id="请谈一谈，hashCode-和equals-方法的重要性体现在什么地方？"><a href="#请谈一谈，hashCode-和equals-方法的重要性体现在什么地方？" class="headerlink" title="请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？"></a>请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？</h3><p>考察点：JAVA哈希表</p>
 <p>参考回答：</p>
 <p>Java中的HashMap使用hashCode()和equals()方法来确定键值对的索引，当根据键获取值的时候也会用到这两个方法。如果没有正确的实现这两个方法，两个不同的键可能会有相同的hash值，因此，可能会被集合认为是相等的。而且，这两个方法也用来发现重复元素。所以这两个方法的实现对HashMap的精确性和正确性是至关重要的。</p>
 <h3 id="请说一说，Java中的HashMap的工作原理是什么？"><a href="#请说一说，Java中的HashMap的工作原理是什么？" class="headerlink" title="请说一说，Java中的HashMap的工作原理是什么？"></a>请说一说，Java中的HashMap的工作原理是什么？</h3><p>考察点：JAVA哈希表</p>
@@ -377,19 +444,19 @@ public class TreeNode &#123;
 </ol>
 </blockquote>
 <p>时间复杂度为O（logn）</p>
-<p><img src="https://s2.loli.net/2022/07/17/NOdCfvRPWb4Qo1V.jpg"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/NOdCfvRPWb4Qo1V.jpg"></p>
 <p><strong>B-tree （B树）</strong>：多路搜索树</p>
 <p>文件系统和数据库的索引都是存在硬盘上的，并且如果数据量大的话，不一定能一次性加载到内存中。</p>
 <p>如果在内存中，红黑树比B树效率更高，但是涉及到磁盘操作，B树就更优了。</p>
-<p><img src="https://s2.loli.net/2022/07/17/txkOVwqoWr2Ty3Y.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/txkOVwqoWr2Ty3Y.png"></p>
 <blockquote>
 <p>B-tree 利⽤了磁盘块的特性进⾏构建的树。每个磁盘块⼀个节点，每个节点包含了很多关键字。把树的节点关键字增多后树的层级⽐原来的⼆叉树少了，减少数据查找的次数和复杂度。</p>
 <p>B-tree巧妙利⽤了磁盘预读原理，将⼀个节点的⼤⼩设为等于⼀个⻚（每⻚为4K），这样每个节点只需要⼀次I&#x2F;O就可以完全载 ⼊。</p>
 <p>B-tree 的数据可以存在任何节点中。</p>
 </blockquote>
 <p><strong>B+tree</strong></p>
-<p><img src="https://s2.loli.net/2022/07/17/XzA32dCuZeOYB7q.png"></p>
-<p><img src="https://s2.loli.net/2022/07/17/XFlPSINdfT7A53w.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/XzA32dCuZeOYB7q.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/XFlPSINdfT7A53w.png"></p>
 <blockquote>
 <p>B+tree 是 B-tree 的变种，B+tree 数据只存储在叶⼦节点中。这样在B树的基础上每个节点存储的关键字数更多，树的层级更少 所以查询数据更快，所有指关键字指针都存在叶⼦节点，所以每次查找的次数都相同所以查询速度更稳定;</p>
 </blockquote>
@@ -703,7 +770,7 @@ public class TreeNode &#123;
 <p>（1）最大堆调整（Max-Heapify）：将堆的末端子节点作调整，使得子节点永远小于父节点。</p>
 <p>（2）创建最大堆（Build-Max-Heap）：将堆所有数据重新排序，使其成为最大堆。</p>
 <p>（3）堆排序（Heap-Sort）：移除位在第一个数据的根节点，并做最大堆调整的递归运算</p>
-<p><img src="https://s2.loli.net/2022/07/17/4aHyusLVq6Opzc5.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/4aHyusLVq6Opzc5.png"></p>
 <h3 id="谈一谈，如何得到一个数据流中的中位数？"><a href="#谈一谈，如何得到一个数据流中的中位数？" class="headerlink" title="谈一谈，如何得到一个数据流中的中位数？"></a>谈一谈，如何得到一个数据流中的中位数？</h3><p>考察点：排序</p>
 <p>参考回答：</p>
 <p>数据是从一个数据流中读出来的，数据的数目随着时间的变化而增加。如果用一个数据容器来保存从流中读出来的数据，当有新的数据流中读出来时，这些数据就插入到数据容器中。</p>
@@ -714,7 +781,7 @@ public class TreeNode &#123;
 <p>因此可以用如下思路来解决这个问题：用一个最大堆实现左边的数据容器，用最小堆实现右边的数据容器。往堆中插入一个数据的时间效率是 O(logn)。由于只需 O(1)时间就可以得到位于堆顶的数据，因此得到中位数的时间效率是 O(1)。</p>
 <h3 id="你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？"><a href="#你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？" class="headerlink" title="你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？"></a>你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？</h3><p>考察点：快排</p>
 <p>参考回答：</p>
-<p><img src="https://s2.loli.net/2022/07/17/hDQufjMnw9ET2Fz.png"></p>
+<p><img src="/img/load.gif" data-src="https://s2.loli.net/2022/07/17/hDQufjMnw9ET2Fz.png"></p>
 <p>快排：快速排序有两个方向，左边的i下标一直往右走（当条件a[i] &lt;&#x3D; a[center_index]时），其中center_index是中枢元素的数组下标，一般取为数组第0个元素。</p>
 <p>而右边的j下标一直往左走（当a[j] &gt; a[center_index]时）。</p>
 <p>如果i和j都走不动了，i &lt;&#x3D; j, 交换a[i]和a[j],重复上面的过程，直到i&gt;j。交换a[j]和a[center_index]，完成一趟快速排序。</p>
@@ -977,157 +1044,298 @@ public class TreeNode &#123;
     <span class="token keyword">return</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zx.js.cool/posts/a013/" data-id="cl6gmmq940048plsr16rs8lc7" data-title="八、数据结构与算法-面试题" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+  </div>
+   
+   
 
-    </footer>
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:me@imlete.cn" >MengD(萌典)</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="https://zx.js.cool/posts/a013/" >https://zx.js.cool/posts/a013/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="https://zx.js.cool/posts/a013/" target="_blank" >Hexo-Theme-MengD(萌典)</a>
+              ！</span>
+      </div>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/posts/3715/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          Spring家族-教程
-        
-      </div>
-    </a>
-  
-  
-    <a href="/posts/f7b0/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">SSH工具-教程</div>
-    </a>
-  
-</nav>
 
-  
+
+
+<div class="pagination-post">
+    
+    <a href="/posts/3715/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>Spring家族-教程</div>
+      <div class="prev-desc">Spring-相关书籍
+Spring 3.x企业应用开发实战（高清版）
+Spring技术内幕（第2版）
+Spring源码深度解析
+Spring学习思维笔记.xmind
+Spring面试专题
+Sp...</div>
+    </a>
+    
+    
+    <a href="/posts/f7b0/">
+      <div class="next-title">SSH工具-教程<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">http://www.hostbuf.com
+ssh连接云服务器
+https://cloud.tencent.com/document/product/1207/44573https://clo...</div>
+    </a>
+    
+</div>
+
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://unpkg.com/discuss@latest/dist/discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://unpkg.com/discuss@latest/dist/discuss.js","serverURLs":null}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
+
 </article>
+ 
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%91%B8%E9%B1%BC/">摸鱼</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/" rel="tag">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nacos/" rel="tag">Nacos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PostMan/" rel="tag">PostMan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http%E8%AF%B7%E6%B1%82/" rel="tag">http请求</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/" rel="tag">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B9%A6%E7%B1%8D/" rel="tag">书籍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" rel="tag">代码重构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag">快捷键</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" rel="tag">打工人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%9F%E6%88%BF/" rel="tag">租房</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" rel="tag">软件设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 10px;">Docker</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Homebrew/" style="font-size: 10px;">Homebrew</a> <a href="/tags/IDEA/" style="font-size: 13.33px;">IDEA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Nacos/" style="font-size: 10px;">Nacos</a> <a href="/tags/PostMan/" style="font-size: 10px;">PostMan</a> <a href="/tags/Safari/" style="font-size: 10px;">Safari</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/http%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">http请求</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/%E4%B9%A6%E7%B1%8D/" style="font-size: 10px;">书籍</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/" style="font-size: 10px;">代码重构</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 10px;">分布式</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 10px;">快捷键</a> <a href="/tags/%E6%89%93%E5%B7%A5%E4%BA%BA/" style="font-size: 10px;">打工人</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a> <a href="/tags/%E7%A7%9F%E6%88%BF/" style="font-size: 10px;">租房</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">软件设计</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 16.67px;">面试题</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">一月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/posts/78c8/">PostMan-教程</a>
-          </li>
-        
-          <li>
-            <a href="/posts/aeb0/">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</a>
-          </li>
-        
-          <li>
-            <a href="/posts/4e88/">租房淡季VS租房旺季：一年中什么时候租房最合适？</a>
-          </li>
-        
-          <li>
-            <a href="/posts/7265/">太爽了，纯注解开发模式简直就是Spring中的Spring！</a>
-          </li>
-        
-          <li>
-            <a href="/posts/3699/">资源预测数字模型搭建思路分享</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 zhangxin<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C"><span class="toc-text">哈希</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E8%B0%88%E4%B8%80%E8%B0%88%EF%BC%8ChashCode-%E5%92%8Cequals-%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E4%BD%93%E7%8E%B0%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%B0%E6%96%B9%EF%BC%9F"><span class="toc-text">请谈一谈，hashCode() 和equals() 方法的重要性体现在什么地方？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E8%AF%B4%E4%B8%80%E8%AF%B4%EF%BC%8CJava%E4%B8%AD%E7%9A%84HashMap%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">请说一说，Java中的HashMap的工作原理是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AFhashmap"><span class="toc-text">介绍一下，什么是hashmap?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B2%E4%B8%80%E8%AE%B2%EF%BC%8C%E5%A6%82%E4%BD%95%E6%9E%84%E9%80%A0%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E3%80%82"><span class="toc-text">讲一讲，如何构造一致性哈希算法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E9%97%AE%EF%BC%8CObject%E4%BD%9C%E4%B8%BAHashMap%E7%9A%84key%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%AF%B9Object%E6%9C%89%E4%BB%80%E4%B9%88%E8%A6%81%E6%B1%82%E5%90%97%EF%BC%9F"><span class="toc-text">请问，Object作为HashMap的key的话，对Object有什么要求吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E9%97%AE-HashSet-%E5%AD%98%E7%9A%84%E6%95%B0%E6%98%AF%E6%9C%89%E5%BA%8F%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">请问 HashSet 存的数是有序的吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91"><span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeMap%E5%92%8CTreeSet%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%97%B6%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E5%85%83%E7%B4%A0%EF%BC%9FCollections%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%B8%AD%E7%9A%84sort-%E6%96%B9%E6%B3%95%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="toc-text">TreeMap和TreeSet在排序时如何比较元素？Collections工具类中的sort()方法如何比较元素？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91%E6%AF%8F%E5%B1%82%E7%9A%84%E8%8A%82%E7%82%B9%EF%BC%9F"><span class="toc-text">如何打印二叉树每层的节点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%9F%A5%E9%81%93%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6%EF%BC%9F"><span class="toc-text">如何知道二叉树的深度？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%BB%BB%E6%84%8F%E4%B8%A4%E4%B8%AA%E8%8A%82%E7%82%B9%E4%B9%8B%E9%97%B4%E8%B7%AF%E5%BE%84%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6"><span class="toc-text">二叉树任意两个节点之间路径的最大长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86%EF%BC%8C%E8%BF%9B%E4%B8%80%E6%AD%A5%E6%8F%90%E9%97%AE%EF%BC%9A%E8%A6%81%E6%B1%82%E6%AF%8F%E5%B1%82%E6%89%93%E5%8D%B0%E5%87%BA%E4%B8%80%E4%B8%AA%E6%8D%A2%E8%A1%8C%E7%AC%A6"><span class="toc-text">算法题：二叉树层序遍历，进一步提问：要求每层打印出一个换行符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E6%B1%82%E4%B8%80%E4%B8%AA%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6-%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81"><span class="toc-text">怎么求一个二叉树的深度?手撕代码?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E4%BD%A0%E8%AF%B4%E4%B8%80%E4%B8%8B%EF%BC%8CB-%E6%A0%91%E5%92%8CB-%E6%A0%91%EF%BC%9F"><span class="toc-text">请你说一下，B+树和B-树？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91-x2F-B%E6%A0%91-x2F-B-%E6%A0%91-x2F-%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="toc-text">补充：二叉树&#x2F;B树&#x2F;B+树&#x2F;红黑树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E6%9C%89%E4%B8%80%E4%B8%AA%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%EF%BC%8C%E8%B0%88%E4%B8%80%E8%B0%88%EF%BC%8C%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%98%AF%E5%90%A6%E5%87%BA%E7%8E%B0%E4%BA%86%E7%8E%AF"><span class="toc-text">现在有一个单向链表，谈一谈，如何判断链表中是否出现了环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%88%E4%B8%80%E8%B0%88%EF%BC%8Cbucket%E5%A6%82%E6%9E%9C%E7%94%A8%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%EF%BC%8C%E5%AE%83%E7%9A%84%E7%BC%BA%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">谈一谈，bucket如果用链表存储，它的缺点是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E4%B8%80%E4%B8%AA%E9%93%BE%E8%A1%A8%EF%BC%8C%E5%A5%87%E6%95%B0%E4%BD%8D%E5%8D%87%E5%BA%8F%E5%81%B6%E6%95%B0%E4%BD%8D%E9%99%8D%E5%BA%8F%EF%BC%8C%E5%A6%82%E4%BD%95%E5%B0%86%E9%93%BE%E8%A1%A8%E5%8F%98%E6%88%90%E5%8D%87%E5%BA%8F"><span class="toc-text">有一个链表，奇数位升序偶数位降序，如何将链表变成升序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="toc-text">随机链表的复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%8D%E8%BD%AC%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-text">如何反转单链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%97%E6%B3%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%B0%86%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E6%97%B6%E9%92%88%E6%97%8B%E8%BD%AC90%E5%BA%A6%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E6%80%9D%E8%B7%AF%E3%80%82"><span class="toc-text">写一个算法，可以将一个二维数组顺时针旋转90度，说一下思路。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%EF%BC%8C%E9%99%A4%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E5%A4%96%E5%85%B6%E5%AE%83%E9%83%BD%E6%98%AF%E4%B8%A4%E4%B8%A4%E7%9B%B8%E7%AD%89%EF%BC%8C%E6%B1%82%E9%82%A3%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-text">一个数组，除一个元素外其它都是两两相等，求那个元素?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%80%E5%AF%B9%E7%BB%84%E5%90%88%EF%BC%8C%E6%89%BE%E5%87%BA%E4%B8%80%E7%BB%84%E5%B0%B1%E8%A1%8C"><span class="toc-text">找出数组中和为S的一对组合，找出一组就行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%AD%E8%BF%9E%E7%BB%AD%E5%AD%90%E5%90%91%E9%87%8F%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C"><span class="toc-text">求一个数组中连续子向量的最大和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E4%B8%80%E6%95%B0%E7%BB%84%E4%B8%AD%E5%89%8DK%E4%B8%AA%E6%9C%80%E5%A4%A7%E7%9A%84%E6%95%B0"><span class="toc-text">寻找一数组中前K个最大的数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8java%E5%86%99%E4%B8%80%E4%B8%AA%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%9F"><span class="toc-text">用java写一个冒泡排序？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%EF%BC%8C%E6%8E%92%E5%BA%8F%E9%83%BD%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9F%E8%AF%B7%E5%88%97%E4%B8%BE%E5%87%BA%E6%9D%A5%E3%80%82"><span class="toc-text">介绍一下，排序都有哪几种方法？请列举出来。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8D%E4%B8%80%E4%B8%8B%EF%BC%8C%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">绍一下，归并排序的原理是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%EF%BC%8C%E5%A0%86%E6%8E%92%E5%BA%8F%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">介绍一下，堆排序的原理是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%88%E4%B8%80%E8%B0%88%EF%BC%8C%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0%EF%BC%9F"><span class="toc-text">谈一谈，如何得到一个数据流中的中位数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E7%9F%A5%E9%81%93%E5%93%AA%E4%BA%9B%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%8C%E8%BF%99%E4%BA%9B%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E5%88%AB%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%8C%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E5%BF%AB%E6%8E%92%EF%BC%9F"><span class="toc-text">你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-text">遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91-Z-%E5%AD%97%E5%9E%8B%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树 Z 字型遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E9%A2%98%EF%BC%9A%E5%86%99%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%EF%BC%8C%E6%89%BE%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%AD%90%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">编程题：写一个函数，找到一个文件夹下所有文件，包括子文件夹</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%E6%A0%88"><span class="toc-text">堆栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E4%BD%A0%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%EF%BC%8C%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E6%A0%88-stack-%E3%80%81%E5%A0%86-heap-%E5%92%8C%E9%9D%99%E6%80%81%E5%8C%BA-static-area-%E7%9A%84%E7%94%A8%E6%B3%95%E3%80%82"><span class="toc-text">请你解释一下，内存中的栈(stack)、堆(heap) 和静态区(static area) 的用法。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E4%B8%80%E8%AF%B4%EF%BC%8Cheap%E5%92%8Cstack%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%E3%80%82"><span class="toc-text">说一说，heap和stack有什么区别。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%EF%BC%8C%E5%A0%86%E4%B8%8E%E6%A0%88%E7%9A%84%E4%B8%8D%E5%90%8C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">介绍一下，堆与栈的不同是什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97-Priority-Queue-%EF%BC%9F"><span class="toc-text">什么是Java优先级队列(Priority Queue)？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95"><span class="toc-text">高级算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E4%BD%A0%E8%AE%B2%E8%AE%B2LRU%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">请你讲讲LRU算法的实现原理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E8%AE%A1%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="toc-text">为什么要设计后缀表达式，有什么好处？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E4%BD%A0%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E7%AE%97%E6%B3%95%EF%BC%8C%E7%94%A8%E6%9D%A5%E5%8E%8B%E7%BC%A9%E4%B8%80%E6%AE%B5URL%EF%BC%9F"><span class="toc-text">请你设计一个算法，用来压缩一段URL？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%88%E4%B8%80%E8%B0%88%EF%BC%8Cid%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80%E4%B8%94%E8%87%AA%E5%A2%9E%EF%BC%8C%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-text">谈一谈，id全局唯一且自增，如何实现？</span></a></li></ol></li></ol>
+      </div>
     </div>
   </div>
-</footer>
 
+
+        </main>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <section id="rightside">
+    <div class="rightside-item">
+
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+
+
+         
+         
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+
+
+        
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
     
 
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
+<footer class="footer" id="footer">
+  <div class="copyright">
+    &copy; 2020 - 2022
+    <i class="fas fa-fan"></i>
+    zhangxin
   </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">我相信我可以，但我一直在路上，所以我有无限的可能！！</div>
+</footer>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <script src="/js/main.js"></script>
+    
+
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+
+
+
+<script src="/js/lazyload.js"></script>
+
+
+
+
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+  document.addEventListener('pjax:success', loadCardLink)
+</script>
+
+
+
+
+
+    
+<script>
+  mengd.getScript('/third-party/js/pjax.js', LoadPjax)
+
+  function LoadPjax() {
+    window.pjax = new Pjax({
+      selectors: [
+        'head title',
+        'head meta[name="keywords"]',
+        'head meta[name="description"]',
+        'main',
+        '#rightside'
+      ],
+      cacheBust: false
+    });
+  }
+
+  // 清除时间
+  var timer = null;
+  // 执行进度条
+  function ProgressStart() {
+    const className = 'pjax-progress';
+    var dom = mengd.$query('.' + className);
+    // 设置初始进度
+    var progress = 10;
+    // 创建进度条 及 css样式
+    if (!dom) {
+      dom = document.createElement('div');
+      dom.className = className;
+      document.body.prepend(dom);
+    }
+    // 定义随机数最大值最小值
+    var max = 10,
+      mini = 3;
+    var result = max - mini;
+    // 清除
+    clearInterval(timer);
+    // 0.5秒内累加进度
+    timer = setInterval(function() {
+      // 随机数
+      var num = parseInt(Math.random() * result);
+      var randomResult = num + mini;
+      // 累加
+      progress += randomResult
+      // 当进度达到95%时停止
+      if (progress > 95) progress = 95
+
+      dom.style.width = progress + '%';
+    }, 500)
+  }
+  // 加载进度条加载完毕
+  function ProgressFinish() {
+    clearInterval(timer);
+    // 页面加载完毕后进度100% 并在0.7秒后删除
+    var progress = mengd.$query('.pjax-progress')
+    progress.style.width = '100%';
+    timer = setTimeout(function() {
+      progress.parentNode.removeChild(progress)
+    }, 700);
+  }
+
+  // 开始 PJAX 执行的函数
+  document.addEventListener('pjax:send', function() {
+    // 执行进度条
+    ProgressStart()
+  });
+  // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+  document.addEventListener('pjax:complete', function() {
+    // 加载进度条加载完毕
+    ProgressFinish()
+  });
+
+  document.addEventListener('pjax:success', function () {
+
+    // 执行所有方法
+    exeAllFn()
+
+    
+    // 图片懒加载
+    ImgLazyLoad('body img[data-src]', 'data-src')
+    
+
+    
+    
+    prefetch({"delay":1000,"threshold":25})
+    
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+  })
+
+  // Pjax请求错误时，跳转到404页面
+  document.addEventListener('pjax:error', (err) => {
+    if (err.request.status === 404) pjax.loadUrl('/404.html')
+  })
+</script>
+
+
 </body>
+
 </html>
