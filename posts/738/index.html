@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Docker相关的所有知识点合集">
@@ -445,11 +445,11 @@
 </tbody></table>
 <h3 id="Dockerfile-案例"><a href="#Dockerfile-案例" class="headerlink" title="Dockerfile 案例"></a>Dockerfile 案例</h3><p><strong>案例一</strong></p>
 <p>需求：自定义centos7镜像。要求： 1. 默认登录路径为 &#x2F;usr 2. 可以使用vim</p>
-<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#x74;&#x68;&#101;&#105;&#x6d;&#97;&#64;&#105;&#x74;&#99;&#97;&#115;&#116;&#46;&#x63;&#x6e;">&#x69;&#x74;&#x68;&#101;&#105;&#x6d;&#97;&#64;&#105;&#x74;&#99;&#97;&#115;&#116;&#46;&#x63;&#x6e;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#x68;&#101;&#105;&#109;&#97;&#64;&#x69;&#x74;&#x63;&#x61;&#115;&#116;&#x2e;&#x63;&#110;">&#x69;&#116;&#x68;&#101;&#105;&#109;&#97;&#64;&#x69;&#x74;&#x63;&#x61;&#115;&#116;&#x2e;&#x63;&#110;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
 <p><strong>案例二</strong></p>
 <p>需求：定义dockerfile，发布springboot项目</p>
 <p>实现步骤：</p>
-<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#104;&#101;&#105;&#x6d;&#x61;&#64;&#x69;&#x74;&#99;&#97;&#x73;&#x74;&#46;&#99;&#110;">&#x69;&#116;&#104;&#101;&#105;&#x6d;&#x61;&#64;&#x69;&#x74;&#99;&#97;&#x73;&#x74;&#46;&#99;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
+<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#105;&#x74;&#104;&#x65;&#x69;&#109;&#x61;&#64;&#x69;&#x74;&#99;&#x61;&#115;&#116;&#46;&#x63;&#110;">&#105;&#x74;&#104;&#x65;&#x69;&#109;&#x61;&#64;&#x69;&#x74;&#99;&#x61;&#115;&#116;&#46;&#x63;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
 <figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> java:<span class="number">8</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> zhangxin &lt;<span class="number">1205362172</span>@qq.com&gt;</span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> springboot.jar app.jar</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> java–jar app.jar</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -f ./springboot_dockerfile -t app . </span><br></pre></td></tr></table></figure>
@@ -458,7 +458,7 @@
 <h3 id="安装Docker-Compose"><a href="#安装Docker-Compose" class="headerlink" title="安装Docker Compose"></a>安装Docker Compose</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。</span> </span><br><span class="line">curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置文件可执行权限</span> </span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本信息</span> </span><br><span class="line">docker-compose -version</span><br><span class="line"></span><br><span class="line">1、换源：</span><br><span class="line">curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">2、更改权限：</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">3、查看版本：</span><br><span class="line">docker-compose --version</span><br><span class="line"></span><br><span class="line">4. 创建软链</span><br><span class="line">ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
 
 <p>如果下载速度较慢，或者下载失败，可以使用课前资料提供的docker-compose文件：</p>
-<p><img src="/../assets/mkbldeLMjas6NFR.png"></p>
+<p><img data-src="/../assets/mkbldeLMjas6NFR.png"></p>
 <p>上传到<code>/usr/local/bin/</code>目录也可以。</p>
 <p><strong>Base自动补全命令</strong>：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 补全命令</span></span><br><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
@@ -502,7 +502,7 @@
 <p><code>docker network create common-network</code> 创建自定义网络(用于容器之间的通信 common-network 是网络名称 可改)</p>
 <p><code>docker network ls</code> 查看网络</p>
 <p><code>docker network rm  名称</code> 删除自定义网络</p>
-<p><img src="/../assets/xMAvJHYPugjBQT4.png"></p>
+<p><img data-src="/../assets/xMAvJHYPugjBQT4.png"></p>
 <h3 id="Docker部署CentOS"><a href="#Docker部署CentOS" class="headerlink" title="Docker部署CentOS"></a>Docker部署CentOS</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir ~/centos/root</span><br><span class="line">cd ~/centos</span><br><span class="line"></span><br><span class="line">docker run -id \</span><br><span class="line">--name=centos \</span><br><span class="line">-p 12345:12345 \</span><br><span class="line">-v $PWD/root:/root \</span><br><span class="line">centos</span><br></pre></td></tr></table></figure>
 
 <h3 id="Docker部署MySQL"><a href="#Docker部署MySQL" class="headerlink" title="Docker部署MySQL"></a>Docker部署MySQL</h3><ol>
@@ -525,7 +525,7 @@
 <li><p>进入容器，操作mysql<br><code>docker exec -it mysql /bin/bash</code><br><code>mysql -uroot -proot</code></p>
 </li>
 <li><p>使用外部机器连接容器中的mysql</p>
-<p><img src="/../assets/q9iZ2cL6B8anUtG.png"></p>
+<p><img data-src="/../assets/q9iZ2cL6B8anUtG.png"></p>
 </li>
 </ol>
 <h3 id="Docker部署Nginx"><a href="#Docker部署Nginx" class="headerlink" title="Docker部署Nginx"></a>Docker部署Nginx</h3><ul>
@@ -553,7 +553,7 @@
 </ul>
 </li>
 <li><p>使用外部机器访问nginx</p>
-<p><img src="/../assets/cI4jmzVTPtnEK1C.png"></p>
+<p><img data-src="/../assets/cI4jmzVTPtnEK1C.png"></p>
 </li>
 </ol>
 <h3 id="Docker部署Tomcat"><a href="#Docker部署Tomcat" class="headerlink" title="Docker部署Tomcat"></a>Docker部署Tomcat</h3><ol>
@@ -569,7 +569,7 @@
 </ul>
 </li>
 <li><p>使用外部机器访问tomcat</p>
-<p><img src="/../assets/gPnX8rxjEspyNvZ.png"></p>
+<p><img data-src="/../assets/gPnX8rxjEspyNvZ.png"></p>
 </li>
 </ol>
 <h3 id="Docker部署Redis"><a href="#Docker部署Redis" class="headerlink" title="Docker部署Redis"></a>Docker部署Redis</h3><ol>
@@ -701,12 +701,12 @@
 <li><p>查看网络容器</p>
 <p><code>docker network inspect common-network</code></p>
 <p>这个时候mysql容器和nacos容器的网络就注册到了我们创建的那个网络里面了</p>
-<p><img src="/../assets/BOU6IJNSCwQV8vE.png"></p>
+<p><img data-src="/../assets/BOU6IJNSCwQV8vE.png"></p>
 </li>
 <li><p>进入nacos容器内部 修改一下配置</p>
 <p><code>docker exec -it nacos bash</code> 进入容器命令</p>
 <p><code>vim conf/application.properties</code> 修改配置文件</p>
-<p><img src="/../assets/7Lwr9HiIc64XNfG.png"></p>
+<p><img data-src="/../assets/7Lwr9HiIc64XNfG.png"></p>
 <p><strong>也可以从其他地方获取：</strong></p>
 <p>复制nacos配置目录到宿主机（或从其他地方复制需要application.properties、cluster.conf）</p>
 <p><code>docker cp 1d8a4a767027:/home/nacos/conf /zx/nacos</code></p>
@@ -716,7 +716,7 @@
 <p><code>http://ip:8848/nacos/index.html</code><br><code>nacos/nacos(用户名密码)</code></p>
 </li>
 <li><p>添加的配置信息可在数据库中下面那张表中看到</p>
-<p><img src="/../assets/FcHlojMBP4iyZVn.png"></p>
+<p><img data-src="/../assets/FcHlojMBP4iyZVn.png"></p>
 </li>
 </ol>
 <h3 id="Docker部署Nacos集群"><a href="#Docker部署Nacos集群" class="headerlink" title="Docker部署Nacos集群"></a>Docker部署Nacos集群</h3><p>(先执行完上面的nacos单容器)</p>
@@ -986,6 +986,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 

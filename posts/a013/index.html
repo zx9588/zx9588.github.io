@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="哈希、树、链表、数组、排序、遍历、堆栈">
@@ -323,19 +323,19 @@
 </ol>
 </blockquote>
 <p>时间复杂度为O（logn）</p>
-<p><img src="/../assets/NOdCfvRPWb4Qo1V.jpg"></p>
+<p><img data-src="/../assets/NOdCfvRPWb4Qo1V.jpg"></p>
 <p><strong>B-tree （B树）</strong>：多路搜索树</p>
 <p>文件系统和数据库的索引都是存在硬盘上的，并且如果数据量大的话，不一定能一次性加载到内存中。</p>
 <p>如果在内存中，红黑树比B树效率更高，但是涉及到磁盘操作，B树就更优了。</p>
-<p><img src="/../assets/txkOVwqoWr2Ty3Y.png"></p>
+<p><img data-src="/../assets/txkOVwqoWr2Ty3Y.png"></p>
 <blockquote>
 <p>B-tree 利⽤了磁盘块的特性进⾏构建的树。每个磁盘块⼀个节点，每个节点包含了很多关键字。把树的节点关键字增多后树的层级⽐原来的⼆叉树少了，减少数据查找的次数和复杂度。</p>
 <p>B-tree巧妙利⽤了磁盘预读原理，将⼀个节点的⼤⼩设为等于⼀个⻚（每⻚为4K），这样每个节点只需要⼀次I&#x2F;O就可以完全载 ⼊。</p>
 <p>B-tree 的数据可以存在任何节点中。</p>
 </blockquote>
 <p><strong>B+tree</strong></p>
-<p><img src="/../assets/XzA32dCuZeOYB7q.png"></p>
-<p><img src="/../assets/XFlPSINdfT7A53w.png"></p>
+<p><img data-src="/../assets/XzA32dCuZeOYB7q.png"></p>
+<p><img data-src="/../assets/XFlPSINdfT7A53w.png"></p>
 <blockquote>
 <p>B+tree 是 B-tree 的变种，B+tree 数据只存储在叶⼦节点中。这样在B树的基础上每个节点存储的关键字数更多，树的层级更少 所以查询数据更快，所有指关键字指针都存在叶⼦节点，所以每次查找的次数都相同所以查询速度更稳定;</p>
 </blockquote>
@@ -402,7 +402,7 @@
 <p>（1）最大堆调整（Max-Heapify）：将堆的末端子节点作调整，使得子节点永远小于父节点。</p>
 <p>（2）创建最大堆（Build-Max-Heap）：将堆所有数据重新排序，使其成为最大堆。</p>
 <p>（3）堆排序（Heap-Sort）：移除位在第一个数据的根节点，并做最大堆调整的递归运算</p>
-<p><img src="/../assets/4aHyusLVq6Opzc5.png"></p>
+<p><img data-src="/../assets/4aHyusLVq6Opzc5.png"></p>
 <h3 id="谈一谈，如何得到一个数据流中的中位数？"><a href="#谈一谈，如何得到一个数据流中的中位数？" class="headerlink" title="谈一谈，如何得到一个数据流中的中位数？"></a>谈一谈，如何得到一个数据流中的中位数？</h3><p>考察点：排序</p>
 <p>参考回答：</p>
 <p>数据是从一个数据流中读出来的，数据的数目随着时间的变化而增加。如果用一个数据容器来保存从流中读出来的数据，当有新的数据流中读出来时，这些数据就插入到数据容器中。</p>
@@ -413,7 +413,7 @@
 <p>因此可以用如下思路来解决这个问题：用一个最大堆实现左边的数据容器，用最小堆实现右边的数据容器。往堆中插入一个数据的时间效率是 O(logn)。由于只需 O(1)时间就可以得到位于堆顶的数据，因此得到中位数的时间效率是 O(1)。</p>
 <h3 id="你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？"><a href="#你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？" class="headerlink" title="你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？"></a>你知道哪些排序算法，这些算法的时间复杂度分别是多少，解释一下快排？</h3><p>考察点：快排</p>
 <p>参考回答：</p>
-<p><img src="/../assets/hDQufjMnw9ET2Fz.png"></p>
+<p><img data-src="/../assets/hDQufjMnw9ET2Fz.png"></p>
 <p>快排：快速排序有两个方向，左边的i下标一直往右走（当条件a[i] &lt;&#x3D; a[center_index]时），其中center_index是中枢元素的数组下标，一般取为数组第0个元素。</p>
 <p>而右边的j下标一直往左走（当a[j] &gt; a[center_index]时）。</p>
 <p>如果i和j都走不动了，i &lt;&#x3D; j, 交换a[i]和a[j],重复上面的过程，直到i&gt;j。交换a[j]和a[center_index]，完成一趟快速排序。</p>
@@ -698,6 +698,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 

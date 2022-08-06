@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Maven相关的所有知识点合集">
@@ -304,11 +304,11 @@
 <li><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/">https://repo1.maven.org/maven2/</a></li>
 <li>maven坐标查询：<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com</a></li>
 </ul>
-<p><img src="/../assets/dcat8TrsouFAI2w.png" alt="image-20220730173022044"></p>
+<p><img data-src="/../assets/dcat8TrsouFAI2w.png" alt="image-20220730173022044"></p>
 <p>阿里云镜像仓库</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<img src="../assets/jNzaml9M2geKsTJ.png" alt="Java工程 与 web工程" style="zoom: 50%;" />
+<img data-src="../assets/jNzaml9M2geKsTJ.png" alt="Java工程 与 web工程" style="zoom: 50%;" />
 
 <p>src同目录下创建pom.xml</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>project-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span> <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -342,59 +342,59 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mvn archetype:generate </span><br><span class="line">    -DgroupId=com.itheima </span><br><span class="line">    -DartifactId=web-project </span><br><span class="line">    -DarchetypeArtifactId=maven-archetype-webapp </span><br><span class="line">    -Dversion=0.0.1-snapshot</span><br><span class="line">    -DinteractiveMode=false</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../assets/T6HhJIKbmqyzSu5.png" alt="img"></p>
+<p><img data-src="/../assets/T6HhJIKbmqyzSu5.png" alt="img"></p>
 <p>Tomcat7插件</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat7-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">port</span>&gt;</span>80<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">path</span>&gt;</span>/<span class="tag">&lt;/<span class="name">path</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/../assets/IuOMaYlpCQ9WkA7.png" alt="image-20220730192925423"></p>
-<h2 id="Maven排除依赖和可选依赖"><a href="#Maven排除依赖和可选依赖" class="headerlink" title="Maven排除依赖和可选依赖"></a>Maven排除依赖和可选依赖</h2><p><img src="/../assets/xbI4hypiQzSlFtR.png" alt="image-20220730193153778"></p>
-<p><img src="/../assets/3Ze159oSiIbrHOT.png" alt="image-20220730193822989"></p>
+<p><img data-src="/../assets/IuOMaYlpCQ9WkA7.png" alt="image-20220730192925423"></p>
+<h2 id="Maven排除依赖和可选依赖"><a href="#Maven排除依赖和可选依赖" class="headerlink" title="Maven排除依赖和可选依赖"></a>Maven排除依赖和可选依赖</h2><p><img data-src="/../assets/xbI4hypiQzSlFtR.png" alt="image-20220730193153778"></p>
+<p><img data-src="/../assets/3Ze159oSiIbrHOT.png" alt="image-20220730193822989"></p>
 <ul>
 <li>[Maven排除依赖和可选依赖]<a target="_blank" rel="noopener" href="http://c.biancheng.net/maven2/exclusion-option.html">http://c.biancheng.net/maven2/exclusion-option.html</a>)</li>
 </ul>
-<h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><p><img src="/../assets/iXZwqg7WRFpVDmk.png" alt="image-20220730194320170"></p>
-<p><img src="/../assets/uh5NiHoLD2Cfr31.png" alt="image-20220730194932344"></p>
+<h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><p><img data-src="/../assets/iXZwqg7WRFpVDmk.png" alt="image-20220730194320170"></p>
+<p><img data-src="/../assets/uh5NiHoLD2Cfr31.png" alt="image-20220730194932344"></p>
 <h2 id="生命周期与插件"><a href="#生命周期与插件" class="headerlink" title="生命周期与插件"></a>生命周期与插件</h2><p><strong>生命周期</strong></p>
-<p><img src="/../assets/9pwEkvCtyTB4OUs.png" alt="image-20220730200410743"></p>
-<p><img src="/../assets/CPIMDbhSNH7rlpX.png" alt="image-20220730195211582"></p>
-<p><img src="/../assets/yZPsHfEXNTJjUmb.png" alt="image-20220730195318713"></p>
-<p><img src="/../assets/5R7z1o3NsTLpEml.png" alt="image-20220730195356534"></p>
+<p><img data-src="/../assets/9pwEkvCtyTB4OUs.png" alt="image-20220730200410743"></p>
+<p><img data-src="/../assets/CPIMDbhSNH7rlpX.png" alt="image-20220730195211582"></p>
+<p><img data-src="/../assets/yZPsHfEXNTJjUmb.png" alt="image-20220730195318713"></p>
+<p><img data-src="/../assets/5R7z1o3NsTLpEml.png" alt="image-20220730195356534"></p>
 <p><strong>插件</strong></p>
-<p><img src="/../assets/TXKfbuWEvnwzor7.png" alt="image-20220730200500379"></p>
-<h2 id="分模块开发与设计"><a href="#分模块开发与设计" class="headerlink" title="分模块开发与设计"></a>分模块开发与设计</h2><p><img src="/../assets/qhrH29cLbMBK5ZR.png" alt="image-20220730201547634"></p>
-<p><img src="/../assets/4VF71AeOmnps9Nr.png" alt="image-20220730203204821"></p>
-<p><img src="/../assets/yPGp59FrkfO3wNH.png" alt="image-20220730203309802"></p>
-<p><img src="/../assets/A28LiBM5aG7lU1Z.png"></p>
-<p><img src="/../assets/bSXFr3J4uM6lyGc.png" alt="image-20220730203323303"></p>
-<p><img src="/../assets/tg2BPIsFGLAEo9x.png" alt="image-20220730203335918"></p>
-<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p><img src="/../assets/lgG7EAvFzoHa9by.png" alt="image-20220731214102793"></p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p><img src="/../assets/ypUsNJO6dqjFhtH.png" alt="image-20220731214245296"></p>
-<p><img src="/../assets/ZdlkfzM6bP7jotD.png" alt="image-20220731214533749"></p>
-<p><img src="/../assets/Jdaob3E8ZQptqYc.png" alt="image-20220731214559746"></p>
-<p><img src="/../assets/AsHwcIXNbgDCK9l.png" alt="image-20220731214618350"></p>
-<p><img src="/../assets/wARXOINaohYLTuc.png" alt="image-20220731214635574"></p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p><img src="/../assets/4uB5cnq6Edjxb3Q.png" alt="image-20220731232427010"></p>
-<p><img src="/../assets/HWgiGhVX12EIMsP.png" alt="image-20220731232442818"></p>
-<p><img src="/../assets/f9hDXltPCKRu6Tm.png" alt="image-20220731232457297"></p>
-<p><img src="/../assets/DsMl6tAGgx9chnd.png" alt="image-20220731232535324"></p>
-<p><img src="/../assets/DPLN5l4cjm7dqSs.png" alt="image-20220731232545928"></p>
-<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><p><img src="/../assets/GQZK1qPaDdEeNbh.png" alt="image-20220731232612887"></p>
-<p><img src="/../assets/se4QAvmtbdluScU.png" alt="image-20220731232625384"></p>
-<h2 id="资源配置"><a href="#资源配置" class="headerlink" title="资源配置"></a>资源配置</h2><p><img src="/../assets/itZb67RgEq2eCPh.png" alt="image-20220731232657461"></p>
-<p><img src="/../assets/YhtjUaobs3wy6BI.png" alt="image-20220731232751490"></p>
-<h2 id="多环境开发配置"><a href="#多环境开发配置" class="headerlink" title="多环境开发配置"></a>多环境开发配置</h2><p><img src="/../assets/4cUauPRLtrZSVsI.png" alt="image-20220731233003502"></p>
-<p><img src="/../assets/lbHZfsCvdLe7n2k.png" alt="image-20220731233024296"></p>
-<h2 id="跳过测试"><a href="#跳过测试" class="headerlink" title="跳过测试"></a>跳过测试</h2><p><img src="/../assets/qc2AYnaD74sEtKb.png" alt="image-20220801001845675"></p>
-<p><img src="/../assets/GkwhYel1jNiyDRT.png" alt="image-20220801001856988"></p>
-<p><img src="/../assets/Pnr7kV8EBivUFQD.png" alt="image-20220801001907859"></p>
-<p><img src="/../assets/YKa3SdDQ6hXU9pl.png" alt="image-20220801001919331"></p>
-<h2 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h2><p><img src="/../assets/oG7P64yvMLYxcpg.png" alt="image-20220801201249722"></p>
-<p><img src="/../assets/c24HVQb7lRDznFa.png" alt="image-20220801224451689"></p>
-<p><img src="/../assets/xC1zNndBwOrHfKV.png" alt="image-20220801224508583"></p>
-<p><img src="/../assets/IxjGnBiqr1dKM5y.png" alt="image-20220801224658165"></p>
-<p><img src="/../assets/mHWKRv7hyVszOkU.png" alt="image-20220801224714009"></p>
-<p><img src="/../assets/3Y6aJx5pPASvnZV.png" alt="image-20220801224729971"></p>
-<p><img src="/../assets/faEOFJm1xSYZ7uj.png" alt="image-20220801224741654"></p>
+<p><img data-src="/../assets/TXKfbuWEvnwzor7.png" alt="image-20220730200500379"></p>
+<h2 id="分模块开发与设计"><a href="#分模块开发与设计" class="headerlink" title="分模块开发与设计"></a>分模块开发与设计</h2><p><img data-src="/../assets/qhrH29cLbMBK5ZR.png" alt="image-20220730201547634"></p>
+<p><img data-src="/../assets/4VF71AeOmnps9Nr.png" alt="image-20220730203204821"></p>
+<p><img data-src="/../assets/yPGp59FrkfO3wNH.png" alt="image-20220730203309802"></p>
+<p><img data-src="/../assets/A28LiBM5aG7lU1Z.png"></p>
+<p><img data-src="/../assets/bSXFr3J4uM6lyGc.png" alt="image-20220730203323303"></p>
+<p><img data-src="/../assets/tg2BPIsFGLAEo9x.png" alt="image-20220730203335918"></p>
+<h2 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h2><p><img data-src="/../assets/lgG7EAvFzoHa9by.png" alt="image-20220731214102793"></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p><img data-src="/../assets/ypUsNJO6dqjFhtH.png" alt="image-20220731214245296"></p>
+<p><img data-src="/../assets/ZdlkfzM6bP7jotD.png" alt="image-20220731214533749"></p>
+<p><img data-src="/../assets/Jdaob3E8ZQptqYc.png" alt="image-20220731214559746"></p>
+<p><img data-src="/../assets/AsHwcIXNbgDCK9l.png" alt="image-20220731214618350"></p>
+<p><img data-src="/../assets/wARXOINaohYLTuc.png" alt="image-20220731214635574"></p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p><img data-src="/../assets/4uB5cnq6Edjxb3Q.png" alt="image-20220731232427010"></p>
+<p><img data-src="/../assets/HWgiGhVX12EIMsP.png" alt="image-20220731232442818"></p>
+<p><img data-src="/../assets/f9hDXltPCKRu6Tm.png" alt="image-20220731232457297"></p>
+<p><img data-src="/../assets/DsMl6tAGgx9chnd.png" alt="image-20220731232535324"></p>
+<p><img data-src="/../assets/DPLN5l4cjm7dqSs.png" alt="image-20220731232545928"></p>
+<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><p><img data-src="/../assets/GQZK1qPaDdEeNbh.png" alt="image-20220731232612887"></p>
+<p><img data-src="/../assets/se4QAvmtbdluScU.png" alt="image-20220731232625384"></p>
+<h2 id="资源配置"><a href="#资源配置" class="headerlink" title="资源配置"></a>资源配置</h2><p><img data-src="/../assets/itZb67RgEq2eCPh.png" alt="image-20220731232657461"></p>
+<p><img data-src="/../assets/YhtjUaobs3wy6BI.png" alt="image-20220731232751490"></p>
+<h2 id="多环境开发配置"><a href="#多环境开发配置" class="headerlink" title="多环境开发配置"></a>多环境开发配置</h2><p><img data-src="/../assets/4cUauPRLtrZSVsI.png" alt="image-20220731233003502"></p>
+<p><img data-src="/../assets/lbHZfsCvdLe7n2k.png" alt="image-20220731233024296"></p>
+<h2 id="跳过测试"><a href="#跳过测试" class="headerlink" title="跳过测试"></a>跳过测试</h2><p><img data-src="/../assets/qc2AYnaD74sEtKb.png" alt="image-20220801001845675"></p>
+<p><img data-src="/../assets/GkwhYel1jNiyDRT.png" alt="image-20220801001856988"></p>
+<p><img data-src="/../assets/Pnr7kV8EBivUFQD.png" alt="image-20220801001907859"></p>
+<p><img data-src="/../assets/YKa3SdDQ6hXU9pl.png" alt="image-20220801001919331"></p>
+<h2 id="私服"><a href="#私服" class="headerlink" title="私服"></a>私服</h2><p><img data-src="/../assets/oG7P64yvMLYxcpg.png" alt="image-20220801201249722"></p>
+<p><img data-src="/../assets/c24HVQb7lRDznFa.png" alt="image-20220801224451689"></p>
+<p><img data-src="/../assets/xC1zNndBwOrHfKV.png" alt="image-20220801224508583"></p>
+<p><img data-src="/../assets/IxjGnBiqr1dKM5y.png" alt="image-20220801224658165"></p>
+<p><img data-src="/../assets/mHWKRv7hyVszOkU.png" alt="image-20220801224714009"></p>
+<p><img data-src="/../assets/3Y6aJx5pPASvnZV.png" alt="image-20220801224729971"></p>
+<p><img data-src="/../assets/faEOFJm1xSYZ7uj.png" alt="image-20220801224741654"></p>
 
     </div>
 
@@ -572,6 +572,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
