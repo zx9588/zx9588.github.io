@@ -1,980 +1,981 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
 <head>
-  <meta charset="utf-8">
-  <title>三、web开发-面试题 | zx&#39;s blog</title>
-  <meta name="keywords" content=" Java , 面试题 ">
-  <meta name="description" content="三、web开发-面试题 | zx&#39;s blog">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://zx.js.cool/404/index.html">
-<meta property="og:site_name" content="zx&#39;s blog">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-09-30T09:25:30.000Z">
-<meta property="article:modified_time" content="2022-07-29T08:39:53.417Z">
-<meta property="article:author" content="zhangxin">
-<meta name="twitter:card" content="summary">
+    <meta charset="utf-8">
+    <meta name="keywords" content="三、web开发-面试题, zx&#39;s blog">
+    <meta name="description" content="Spring、SpringMVC、SpringBoot、MyBatis、ZooKeeper、Dubbo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-<link rel="icon" href="/img/zotero.ico">
+    
 
-<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+    <title>三、web开发-面试题 | zx&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
 
-<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
 
-<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
-
-<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
-<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
-
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="/js/titleTip.js?v=1.1.0" ></script>
-
-<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-
-<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-
-
-
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
-
-<script src="/js/iconfont.js?v=1.1.0" ></script>
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
 <meta name="generator" content="Hexo 6.2.0"></head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="">
-  <input class="theme_blog_path" value="">
-  <input id="theme_shortcut" value="true" />
-  <input id="theme_highlight_on" value="true" />
-  <input id="theme_code_copy" value="true" />
-</div>
-
 
 
 <body>
-<aside class="nav">
-    <div class="nav-left">
-        <a href="/"
-   class="avatar_target">
-    <img class="avatar"
-         src="/img/dino.ico"/>
-</a>
-<div class="author">
-    <span>zhangxin</span>
-</div>
-
-<div class="icon">
-    
-        
-            <a title="rss"
-               href="/atom.xml"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-rss"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="github"
-               href="https://github.com/zx20219898"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-github"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="facebook"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-facebook"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-    
-        
-            <a title="instagram"
-               href="https://www.facebook.com/faker.tops"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-instagram"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="reddit"
-               href="https://www.reddit.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-reddit"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="weibo"
-               href="http://weibo.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-weibo"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="jianshu"
-               href="https://www.jianshu.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-jianshu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="zhihu"
-               href="https://www.zhihu.com/people/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-zhihu"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="oschina"
-               href="https://my.oschina.net/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-oschina"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-    
-        
-            <a title="email"
-               href="mailto:1205362172@qq.com"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-email"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="qq"
-               href="http://wpa.qq.com/msgrd?v=3&uin=1205362172&site=qq&menu=yes"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-qq"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="kugou"
-               href="https://www.kugou.com/"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-kugou"></use>
-                    </svg>
-                
-            </a>
-        
-    
-        
-            <a title="neteasemusic"
-               href="https://music.163.com/#/my/m/music/playlist?id=5214265361"
-               target="_blank">
-                
-                    <svg class="iconfont-svg" aria-hidden="true">
-                        <use xlink:href="#icon-neteasemusic"></use>
-                    </svg>
-                
-            </a>
-        
-    
-</div>
-
-
-
-
-<ul>
-    <li>
-        <div class="all active" data-rel="全部文章">全部文章
-            
-                <small>(45)</small>
-            
-        </div>
-    </li>
-    
-        
-            
-                <li>
-                    <div data-rel="面试题">
-                        
-                        面试题
-                        <small>(11)</small>
-                        
-                    </div>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
                     
-                </li>
-            
-        
-    
-        
-            
-                <li>
-                    <div data-rel="教程">
-                        
-                        教程
-                        <small>(20)</small>
-                        
-                    </div>
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+<!--                     <img src="/medias/logo.png" class="logo-img" alt="LOGO"> -->
                     
-                </li>
+                    <span class="logo-span">zx&#39;s blog</span>
+                </a>
+            </div>
             
-        
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
     
-        
-            
-                <li>
-                    <div data-rel="摸鱼">
-                        
-                        摸鱼
-                        <small>(9)</small>
-                        
-                    </div>
-                    
-                </li>
-            
-        
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
     
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-folder-plus" style="zoom: 0.6;"></i>
+      
+      <span>文章</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>归档</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-wave-square" style="zoom: 0.6;"></i>
+      
+      <span>常用</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/posts/8b3a">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>书籍</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E6%95%99%E7%A8%8B">
+          
+          <i class="fas fa-chalkboard-user" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>教程</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98">
+          
+          <i class="fa-solid fa-dragon" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>面试题</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/posts/2f9">
+          
+          <i class="fas fa-keyboard" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>快捷键</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/posts/f687">
+          
+          <i class="fab fa-safari" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线工具/资源</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/posts/30c3">
+          
+          <i class="fab fa-safari" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>网络解决方案</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/posts/10f3">
+          
+          <i class="fas fa-camera-retro" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>随手拍</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-fish" style="zoom: 0.6;"></i>
+      
+      <span>摸鱼</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://blog.readgroup.cn/games/zhipai/">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>蜘蛛纸牌</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://guozhivip.com/fun/2048/">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线2048</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.minesweeper.cn/index1.htm">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线扫雷</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.html5tricks.com/demo/html5-fruit-ninja/index.html">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>水果忍者</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://www.ip33.com/rubik/index.html">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>3D魔方</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://wap.lltskb.com/shfw/game/wzq/index.html">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线五子棋</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://tools.jb51.net/static/api/chess/index.html">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线象棋</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://thethinking.gitee.io/klotski/customize.html">
+          
+          <i class="fas fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>在线华容道</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://xiabor.com/fluid/">
+          
+          <i class="fa-fw fab fa-google-wallet" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>液体</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://xiabor.com/fireworks/">
+          
+          <i class="fa-fw fab fa-yelp" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>烟花</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://xiabor.com/mikutap/">
+          
+          <i class="fa-fw fab fa-studiovinari" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Mikutap</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://xiabor.com/dot/">
+          
+          <i class="fa-fw far fa-dot-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>小圆点</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/%E6%91%B8%E9%B1%BC">
+          
+          <i class="fas fa-fish" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>硬核摸鱼</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/null">
+          
+          <span>新增ing...</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
 </ul>
-<div class="left-bottom">
-    <div class="menus">
-        
-            
-            
-            
-    </div>
-    <div>
-        
-        <a 
-                                           class="friends">友链</a>
-        
-    </div>
-</div>
-<input type="hidden" id="yelog_site_posts_number" value="45">
 
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
-</div>
 
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        友情链接
-        <i class="iconfont icon-left"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">zx&#39;s blog</div>
+        <div class="logo-desc">
             
-            <li><a target="_blank" href="https://hexo.io">Hexo</a></li>
+            Never really desperate, only the lost of the soul.
             
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
-            
-            <li><a target="_blank" href="https://butterfly.js.org/">Butterfly</a></li>
-            
-            <li><a target="_blank" href="https://blinkfox.github.io/">闪烁之狐</a></li>
-            
-            <li><a target="_blank" href="https://www.eg3.cn/">Meng</a></li>
-            
-            <li><a target="_blank" href="https://www.antmoe.com/categories/">小康博客</a></li>
-            
-            <li><a target="_blank" href="https://vlts.cn/categories/">小嘉的部落格</a></li>
-            
-            <li><a target="_blank" href="https://codeppx.gitee.io/myblog/">Code皮皮虾</a></li>
-            
-            <li><a target="_blank" href="https://www.fangshitao.top/">Wind</a></li>
-            
-            <li><a target="_blank" href="https://www.emoao.com">繁星</a></li>
-            
-            <li><a target="_blank" href="https://12580code.com/">12580code</a></li>
-            
-            <li><a target="_blank" href="https://zzzmh.cn">zzzmh</a></li>
-            
-        </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <div class="right-top">
-        <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
-            <div class="right-title">全部文章</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
-        </div>
-        <div id="search-panel">
-            <i class="iconfont icon-left" data-title="返回"></i>
-            <input id="local-search-input" autocomplete="off"/>
-            <label class="border-line" for="input"></label>
-            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
-            <i class="iconfont icon-tag" data-title="标签"></i>
-        </div>
-        <div id="outline-panel" style="display: none">
-            <div class="right-title">大纲</div>
-            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
         </div>
     </div>
 
-    <div class="tags-list">
-    <input id="tag-search" />
-    <div class="tag-wrapper">
+    <ul class="menu-list mobile-menu-list">
         
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>操作系统</a>
-            </li>
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
         
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>打工人</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>代码重构</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>单元测试</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>分布式</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>快捷键</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>面试题</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>软件设计</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>设计模式</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>书籍</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>租房</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Docker</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Git</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Hexo</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Homebrew</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>http请求</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>IDEA</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Java</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>macOS</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Nacos</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>PostMan</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Safari</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Spring Boot</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>UML</a>
-            </li>
-        
-    </div>
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-folder-plus"></i>
+			
+			文章
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
 
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
+			      
+		          <span>归档</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-wave-square"></i>
+			
+			常用
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/posts/8b3a " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>书籍</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E6%95%99%E7%A8%8B " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-chalkboard-user" style="position: absolute;left:50px" ></i>
+			      
+		          <span>教程</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98 " style="margin-left:75px">
+				  
+				   <i class="fa fa-solid fa-dragon" style="position: absolute;left:50px" ></i>
+			      
+		          <span>面试题</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/posts/2f9 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-keyboard" style="position: absolute;left:50px" ></i>
+			      
+		          <span>快捷键</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/posts/f687 " style="margin-left:75px">
+				  
+				   <i class="fa fab fa-safari" style="position: absolute;left:50px" ></i>
+			      
+		          <span>在线工具/资源</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/posts/30c3 " style="margin-left:75px">
+				  
+				   <i class="fa fab fa-safari" style="position: absolute;left:50px" ></i>
+			      
+		          <span>网络解决方案</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/posts/10f3 " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-camera-retro" style="position: absolute;left:50px" ></i>
+			      
+		          <span>随手拍</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-fish"></i>
+			
+			摸鱼
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://blog.readgroup.cn/games/zhipai/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>蜘蛛纸牌</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://guozhivip.com/fun/2048/ " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>在线2048</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.minesweeper.cn/index1.htm " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>在线扫雷</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.html5tricks.com/demo/html5-fruit-ninja/index.html " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>水果忍者</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://www.ip33.com/rubik/index.html " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>3D魔方</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://wap.lltskb.com/shfw/game/wzq/index.html " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>在线五子棋</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://tools.jb51.net/static/api/chess/index.html " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>在线象棋</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://thethinking.gitee.io/klotski/customize.html " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>在线华容道</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://xiabor.com/fluid/ " style="margin-left:75px">
+				  
+				   <i class="fa fa-fw fab fa-google-wallet" style="position: absolute;left:50px" ></i>
+			      
+		          <span>液体</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://xiabor.com/fireworks/ " style="margin-left:75px">
+				  
+				   <i class="fa fa-fw fab fa-yelp" style="position: absolute;left:50px" ></i>
+			      
+		          <span>烟花</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://xiabor.com/mikutap/ " style="margin-left:75px">
+				  
+				   <i class="fa fa-fw fab fa-studiovinari" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Mikutap</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://xiabor.com/dot/ " style="margin-left:75px">
+				  
+				   <i class="fa fa-fw far fa-dot-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>小圆点</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories/%E6%91%B8%E9%B1%BC " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-fish" style="position: absolute;left:50px" ></i>
+			      
+		          <span>硬核摸鱼</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/null " style="margin-left:75px">
+				  
+		          <span>新增ing...</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zx20219898/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
 </div>
 
-    
-    <div id="local-search-result">
-
-    </div>
-    
-    <nav id="title-list-nav">
-        
-        
-        <a id="top" class="全部文章 教程 "
-           href="/posts/9e31/"
-           data-tag="IDEA,Git"
-           data-author="" >
-            <span class="post-title" title="Git-教程">Git-教程</span>
-            <span class="post-date" title="2022-04-26 20:21:12">2022/04/26</span>
-        </a>
-        
-        
-        <a id="top" class="全部文章 教程 "
-           href="/posts/738/"
-           data-tag="Docker,Nacos"
-           data-author="" >
-            <span class="post-title" title="Docker-教程">Docker-教程</span>
-            <span class="post-date" title="2021-11-15 16:50:31">2021/11/15</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/78c8/"
-           data-tag="PostMan"
-           data-author="" >
-            <span class="post-title" title="PostMan-教程">PostMan-教程</span>
-            <span class="post-date" title="2022-08-05 10:15:37">2022/08/05</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/aeb0/"
-           data-tag="Spring Boot,http请求"
-           data-author="" >
-            <span class="post-title" title="Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</span>
-            <span class="post-date" title="2022-08-05 09:29:22">2022/08/05</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/4e88/"
-           data-tag="打工人,租房"
-           data-author="" >
-            <span class="post-title" title="租房淡季VS租房旺季：一年中什么时候租房最合适？">租房淡季VS租房旺季：一年中什么时候租房最合适？</span>
-            <span class="post-date" title="2022-08-03 21:49:49">2022/08/03</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/7265/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="太爽了，纯注解开发模式简直就是Spring中的Spring！">太爽了，纯注解开发模式简直就是Spring中的Spring！</span>
-            <span class="post-date" title="2022-08-02 12:10:03">2022/08/02</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/3699/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="资源预测数字模型搭建思路分享">资源预测数字模型搭建思路分享</span>
-            <span class="post-date" title="2022-08-01 09:08:32">2022/08/01</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/55b4/"
-           data-tag="代码重构,单元测试"
-           data-author="" >
-            <span class="post-title" title="代码重构：面向单元测试">代码重构：面向单元测试</span>
-            <span class="post-date" title="2022-07-30 13:12:52">2022/07/30</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/8d59/"
-           data-tag="Java"
-           data-author="" >
-            <span class="post-title" title="Java8新特性及使用">Java8新特性及使用</span>
-            <span class="post-date" title="2022-07-29 14:21:36">2022/07/29</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/d4c1/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="无语！Jenkins 也宣布弃用 Java 8。。">无语！Jenkins 也宣布弃用 Java 8。。</span>
-            <span class="post-date" title="2022-07-29 12:15:31">2022/07/29</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/7a93/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="监控神器：Prometheus 轻松入门，真香！">监控神器：Prometheus 轻松入门，真香！</span>
-            <span class="post-date" title="2022-07-29 08:26:47">2022/07/29</span>
-        </a>
-        
-        
-        <a  class="全部文章 摸鱼 "
-           href="/posts/d710/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="你还在用for循环遍历list吗？">你还在用for循环遍历list吗？</span>
-            <span class="post-date" title="2022-07-28 08:39:05">2022/07/28</span>
-        </a>
-        
-        
-        <a  class="全部文章 "
-           href="/posts/30c3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="网络解决方案">网络解决方案</span>
-            <span class="post-date" title="2022-07-27 09:23:58">2022/07/27</span>
-        </a>
-        
-        
-        <a  class="全部文章 "
-           href="/posts/8b3a/"
-           data-tag="书籍"
-           data-author="" >
-            <span class="post-title" title="书籍收藏">书籍收藏</span>
-            <span class="post-date" title="2022-07-23 10:14:58">2022/07/23</span>
-        </a>
-        
-        
-        <a  class="全部文章 "
-           href="/posts/f687/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="在线工具/资源">在线工具/资源</span>
-            <span class="post-date" title="2022-07-22 22:19:00">2022/07/22</span>
-        </a>
-        
-        
-        <a  class="全部文章 "
-           href="/posts/2f9/"
-           data-tag="快捷键,macOS,Safari,IDEA"
-           data-author="" >
-            <span class="post-title" title="快捷键">快捷键</span>
-            <span class="post-date" title="2022-07-15 16:35:00">2022/07/15</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/3879/"
-           data-tag="Java,Elasticsearch"
-           data-author="" >
-            <span class="post-title" title="Elasticsearch-教程">Elasticsearch-教程</span>
-            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 "
-           href="/posts/10f3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="随手拍">随手拍</span>
-            <span class="post-date" title="2022-07-01 15:09:20">2022/07/01</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/2491/"
-           data-tag="Hexo"
-           data-author="" >
-            <span class="post-title" title="Hexo-教程">Hexo-教程</span>
-            <span class="post-date" title="2022-03-12 10:55:05">2022/03/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/3f44/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="一、Java语言-面试题">一、Java语言-面试题</span>
-            <span class="post-date" title="2022-03-02 10:33:39">2022/03/02</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/15f3/"
-           data-tag="Java"
-           data-author="" >
-            <span class="post-title" title="Java语言-教程">Java语言-教程</span>
-            <span class="post-date" title="2022-02-27 09:08:17">2022/02/27</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/7c78/"
-           data-tag="Java,设计模式,UML,软件设计"
-           data-author="" >
-            <span class="post-title" title="Java设计模式-教程">Java设计模式-教程</span>
-            <span class="post-date" title="2022-02-26 22:23:51">2022/02/26</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/f5f4/"
-           data-tag="Homebrew"
-           data-author="" >
-            <span class="post-title" title="Homebrew-教程">Homebrew-教程</span>
-            <span class="post-date" title="2022-02-25 15:31:39">2022/02/25</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/1319/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Linux-教程">Linux-教程</span>
-            <span class="post-date" title="2022-02-23 10:01:22">2022/02/23</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/3652/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="二、数据库-面试题">二、数据库-面试题</span>
-            <span class="post-date" title="2022-01-29 10:46:32">2022/01/29</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/dcb7/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Markdown-教程">Markdown-教程</span>
-            <span class="post-date" title="2022-01-14 16:41:41">2022/01/14</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/1205/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Navicat-教程">Navicat-教程</span>
-            <span class="post-date" title="2022-01-12 13:22:26">2022/01/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/89de/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Maven-教程">Maven-教程</span>
-            <span class="post-date" title="2021-12-30 16:02:35">2021/12/30</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/953b/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="三、web开发-面试题">三、web开发-面试题</span>
-            <span class="post-date" title="2021-12-28 10:49:02">2021/12/28</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/c5c3/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="四、中间件-面试题">四、中间件-面试题</span>
-            <span class="post-date" title="2021-12-27 10:50:39">2021/12/27</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a3a7/"
-           data-tag="Java,面试题,分布式"
-           data-author="" >
-            <span class="post-title" title="五、分布式-面试题">五、分布式-面试题</span>
-            <span class="post-date" title="2021-12-26 10:52:23">2021/12/26</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/7056/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="六、计算机网络-面试题">六、计算机网络-面试题</span>
-            <span class="post-date" title="2021-12-25 10:53:33">2021/12/25</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/437/"
-           data-tag="Java,面试题,操作系统"
-           data-author="" >
-            <span class="post-title" title="七、操作系统-面试题">七、操作系统-面试题</span>
-            <span class="post-date" title="2021-12-24 10:53:44">2021/12/24</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/f169/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Parallels-教程">Parallels-教程</span>
-            <span class="post-date" title="2021-12-12 15:42:17">2021/12/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/1c28/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="MySQL-教程">MySQL-教程</span>
-            <span class="post-date" title="2021-11-26 22:11:55">2021/11/26</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/3715/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Spring家族-教程">Spring家族-教程</span>
-            <span class="post-date" title="2021-11-23 13:23:09">2021/11/23</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a013/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="八、数据结构与算法-面试题">八、数据结构与算法-面试题</span>
-            <span class="post-date" title="2021-11-17 10:58:12">2021/11/17</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/f7b0/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="SSH工具-教程">SSH工具-教程</span>
-            <span class="post-date" title="2021-11-15 17:05:04">2021/11/15</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/fb3/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="阿里云盘-教程">阿里云盘-教程</span>
-            <span class="post-date" title="2021-11-14 17:43:48">2021/11/14</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/62b7/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Tampermonkey-教程">Tampermonkey-教程</span>
-            <span class="post-date" title="2021-11-13 20:56:14">2021/11/13</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/7cbe/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="vpn-教程">vpn-教程</span>
-            <span class="post-date" title="2021-11-12 15:45:37">2021/11/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 教程 "
-           href="/posts/40cc/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="PicGo-教程">PicGo-教程</span>
-            <span class="post-date" title="2021-11-12 10:55:05">2021/11/12</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/a2d2/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="九、设计模式-面试题">九、设计模式-面试题</span>
-            <span class="post-date" title="2021-11-02 11:01:28">2021/11/02</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/5666/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="十、场景题-面试题">十、场景题-面试题</span>
-            <span class="post-date" title="2021-11-01 11:01:47">2021/11/01</span>
-        </a>
-        
-        
-        <a  class="全部文章 面试题 "
-           href="/posts/b524/"
-           data-tag="Java,面试题"
-           data-author="" >
-            <span class="post-title" title="十一、UML-面试题">十一、UML-面试题</span>
-            <span class="post-date" title="2021-11-01 00:02:01">2021/11/01</span>
-        </a>
-        
-        <div id="no-item-tips">
 
         </div>
-    </nav>
-    <div id="outline-list">
-    </div>
-</div>
 
-    </div>
-    <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
-        </div>
-    </div>
-</aside>
-<div id="post">
-    <div class="pjax">
-        <article id="post-面试题/三、web开发" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">三、web开发-面试题</h1>
-    
-    <div class="article-meta">
         
-        
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="面试题">面试题</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color5">Java</a>
-            
-            <a class="color4">面试题</a>
-            
-        </span>
-        
-    </div>
-    <div class="article-meta">
-        
-            发布时间 : <time class="date" title='最后更新: 2022-08-02 17:04:10'>2021-12-28 10:49</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        
-        <span id="busuanzi_container_page_pv">
-            阅读 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SpringBoot"><span class="toc-text">1. SpringBoot</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9Spring-Boot%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.1 说说你对Spring Boot的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Spring-Boot-Starter%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-text">1.2 Spring Boot Starter有什么用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%BB%8B%E7%BB%8DSpring-Boot%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="toc-text">1.3 介绍Spring Boot的启动流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-Spring-Boot%E9%A1%B9%E7%9B%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E5%8C%85%E7%9A%84%EF%BC%9F"><span class="toc-text">1.4 Spring Boot项目是如何导入包的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E8%AF%B7%E6%8F%8F%E8%BF%B0Spring-Boot%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">1.5 请描述Spring Boot自动装配的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9Spring-Boot%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">1.6 说说你对Spring Boot注解的了解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Spring"><span class="toc-text">2. Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4Spring%E7%9A%84%E6%A0%B8%E5%BF%83%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">2.1 请你说说Spring的核心是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Spring%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">2.2 说一说你对Spring容器的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9BeanFactory%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">2.3 说一说你对BeanFactory的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Spring-IOC%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.4 说一说你对Spring IOC的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Spring%E6%98%AF%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86Bean%E7%9A%84%EF%BC%9F"><span class="toc-text">2.5 Spring是如何管理Bean的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E4%BB%8B%E7%BB%8DBean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">2.6 介绍Bean的作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E8%AF%B4%E4%B8%80%E8%AF%B4Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">2.7 说一说Bean的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-Spring%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E7%9A%84%EF%BC%9F"><span class="toc-text">2.8 Spring是怎么解决循环依赖的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-Autowired%E5%92%8C-Resource%E6%B3%A8%E8%A7%A3%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.9 @Autowired和@Resource注解有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-Spring%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%8F%90%E4%BE%9B%E7%9A%84%E5%8D%95%E4%BE%8B%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">2.10 Spring中默认提供的单例是线程安全的吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Spring-AOP%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.11 说一说你对Spring AOP的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-%E8%AF%B7%E4%BD%A0%E8%AF%B4%E8%AF%B4AOP%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">2.12 请你说说AOP的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-13-Spring-AOP%E4%B8%8D%E8%83%BD%E5%AF%B9%E5%93%AA%E4%BA%9B%E7%B1%BB%E8%BF%9B%E8%A1%8C%E5%A2%9E%E5%BC%BA%EF%BC%9F"><span class="toc-text">2.13 Spring AOP不能对哪些类进行增强？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-14-JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8CCGLIB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.14 JDK动态代理和CGLIB有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-15-%E6%97%A2%E7%84%B6%E6%9C%89%E6%B2%A1%E6%9C%89%E6%8E%A5%E5%8F%A3%E9%83%BD%E5%8F%AF%E4%BB%A5%E7%94%A8CGLIB%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88Spring%E8%BF%98%E8%A6%81%E4%BD%BF%E7%94%A8JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%EF%BC%9F"><span class="toc-text">2.15 既然有没有接口都可以用CGLIB，为什么Spring还要使用JDK动态代理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-16-Spring%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E4%BA%8B%E5%8A%A1%EF%BC%9F"><span class="toc-text">2.16 Spring如何管理事务？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-17-Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">2.17 Spring的事务传播方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-18-Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%EF%BC%8C%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">2.18 Spring的事务如何配置，常用注解有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-19-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.19 说一说你对声明式事务的理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SpringMVC"><span class="toc-text">3. SpringMVC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%80%E4%B9%88%E6%98%AFMVC%EF%BC%9F"><span class="toc-text">3.1 什么是MVC？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-DAO%E5%B1%82%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%9F"><span class="toc-text">3.2 DAO层是做什么的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BSpring-MVC%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-text">3.3 介绍一下Spring MVC的执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E7%9F%A5%E9%81%93%E7%9A%84Spring-MVC%E6%B3%A8%E8%A7%A3"><span class="toc-text">3.4 说一说你知道的Spring MVC注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BSpring-MVC%E7%9A%84%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-text">3.5 介绍一下Spring MVC的拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E6%80%8E%E4%B9%88%E5%8E%BB%E5%81%9A%E8%AF%B7%E6%B1%82%E6%8B%A6%E6%88%AA%EF%BC%9F"><span class="toc-text">3.6 怎么去做请求拦截？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-MyBatis"><span class="toc-text">4. MyBatis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E8%B0%88%E8%B0%88MyBatis%E5%92%8CJPA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.1 谈谈MyBatis和JPA的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-MyBatis%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%94%AF%E6%8C%81%E7%9A%84%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">4.2 MyBatis输入输出支持的类型有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-MyBatis%E9%87%8C%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2%EF%BC%9F"><span class="toc-text">4.3 MyBatis里如何实现一对多关联查询？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-MyBatis%E4%B8%AD%E7%9A%84-%E5%92%8C-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">4.4 MyBatis中的$和#有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%97%A2%E7%84%B6-%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81-%EF%BC%8C%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E7%94%A8%E5%88%B0%E5%AE%83%EF%BC%9F"><span class="toc-text">4.5 既然$不安全，为什么还需要$，什么时候会用到它？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-MyBatis%E7%9A%84xml%E6%96%87%E4%BB%B6%E5%92%8CMapper%E6%8E%A5%E5%8F%A3%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%91%E5%AE%9A%E7%9A%84%EF%BC%9F"><span class="toc-text">4.6 MyBatis的xml文件和Mapper接口是怎么绑定的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-MyBatis%E5%88%86%E9%A1%B5%E5%92%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E5%88%86%E9%A1%B5%E5%93%AA%E4%B8%AA%E6%95%88%E7%8E%87%E9%AB%98%EF%BC%9F"><span class="toc-text">4.7 MyBatis分页和自己写的分页哪个效率高？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E4%BA%86%E8%A7%A3MyBatis%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E5%90%97%EF%BC%9F"><span class="toc-text">4.8 了解MyBatis缓存机制吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%85%B6%E4%BB%96"><span class="toc-text">5. 其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-cookie%E5%92%8Csession%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">5.1 cookie和session的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-cookie%E5%92%8Csession%E5%90%84%E8%87%AA%E9%80%82%E5%90%88%E7%9A%84%E5%9C%BA%E6%99%AF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">5.2 cookie和session各自适合的场景是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E8%AF%B7%E4%BB%8B%E7%BB%8Dsession%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">5.3 请介绍session的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-get%E8%AF%B7%E6%B1%82%E4%B8%8Epost%E8%AF%B7%E6%B1%82%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">5.4 get请求与post请求有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-get%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8F%82%E6%95%B0%E8%83%BD%E6%94%BE%E5%88%B0body%E9%87%8C%E9%9D%A2%E5%90%97%EF%BC%9F"><span class="toc-text">5.5 get请求的参数能放到body里面吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-post%E4%B8%8D%E5%B9%82%E7%AD%89%E6%98%AF%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">5.6 post不幂等是为什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E9%A1%B5%E9%9D%A2%E6%8A%A5400%E9%94%99%E8%AF%AF%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F"><span class="toc-text">5.7 页面报400错误是什么意思？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E8%AF%A5%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-text">5.8 请求数据出现乱码该怎么处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E5%A6%82%E4%BD%95%E5%9C%A8SpringBoot%E6%A1%86%E6%9E%B6%E4%B8%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="toc-text">5.9 如何在SpringBoot框架下实现一个定时任务？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3%E6%97%B6%E8%A6%81%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97%EF%BC%8C%E8%AF%A5%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-text">5.10 调用接口时要记录日志，该怎么设计？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BA%86%E8%A7%A3Spring-Boot-JPA%E5%90%97%EF%BC%9F"><span class="toc-text">5.11 了解Spring Boot JPA吗？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AZooKeeper"><span class="toc-text">补充：ZooKeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81ZooKeeper-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">1、ZooKeeper 是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Zookeeper-Watcher-%E6%9C%BA%E5%88%B6-%E2%80%93-%E6%95%B0%E6%8D%AE%E5%8F%98%E6%9B%B4%E9%80%9A%E7%9F%A5"><span class="toc-text">5、Zookeeper Watcher 机制 – 数据变更通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B3%A8%E5%86%8CWatcher%E5%AE%9E%E7%8E%B0"><span class="toc-text">6、客户端注册Watcher实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%A4%84%E7%90%86Watcher%E5%AE%9E%E7%8E%B0"><span class="toc-text">7、服务端处理Watcher实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9B%9E%E8%B0%83Watcher"><span class="toc-text">8、客户端回调Watcher</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%92%E8%89%B2"><span class="toc-text">9、服务器角色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81Zookeeper-%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6"><span class="toc-text">10、Zookeeper 通知机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81Zookeeper-%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-text">11、Zookeeper 做了什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81%E4%B8%BB%E4%BB%8E%E9%9B%86%E7%BE%A4%E5%92%8C%E4%B8%BB%E5%A4%87%E9%9B%86%E7%BE%A4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">12、主从集群和主备集群的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81zookeeper%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E4%BF%9D%E8%AF%81%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F"><span class="toc-text">13、zookeeper为什么能保证全局数据一致性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81Zookeeper%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="toc-text">14、Zookeeper有哪几种节点类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81Zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E3%80%81%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6"><span class="toc-text">15、Zookeeper 分布式锁(文件系统、通知机制)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81%E4%B8%80%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BF%AE%E6%94%B9%E4%BA%86%E6%9F%90%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%85%B6%E4%BB%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%83%BD%E5%A4%9F%E9%A9%AC%E4%B8%8A%E8%8E%B7%E5%8F%96%E5%88%B0%E8%BF%99%E4%B8%AA%E6%9C%80%E6%96%B0%E6%95%B0%E6%8D%AE%E5%90%97%EF%BC%9F"><span class="toc-text">16、一个客户端修改了某个节点的数据，其他客户端能够马上获取到这个最新数据吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81Zookeeper-%E6%95%B0%E6%8D%AE%E5%A4%8D%E5%88%B6"><span class="toc-text">17、Zookeeper 数据复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18%E3%80%81Zooke-eper-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">18、Zooke****eper 工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19%E3%80%81ZooKeeper-%E7%9A%84%E7%9B%91%E5%90%AC%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">19、ZooKeeper 的监听原理是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81zookeeper-%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%87%B4%E6%80%A7-%E7%9A%84"><span class="toc-text">20、zookeeper 是如何保证事务的顺序一致性 的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89Master%EF%BC%9F"><span class="toc-text">21、分布式集群中为什么会有Master？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22%E3%80%81Zookeeper-%E4%B8%8B-Server-%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="toc-text">22、Zookeeper 下 Server 工作状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E3%80%81zookeeper-%E6%98%AF%E5%A6%82%E4%BD%95%E9%80%89%E5%8F%96%E4%B8%BB-leader-%E7%9A%84"><span class="toc-text">23、zookeeper 是如何选取主 leader 的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E3%80%81Zookeeper-%E5%90%8C%E6%AD%A5%E6%B5%81%E7%A8%8B"><span class="toc-text">24、Zookeeper 同步流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25%E3%80%81%E5%88%86%E5%B8%83%E5%BC%8F%E9%80%9A%E7%9F%A5%E5%92%8C%E5%8D%8F%E8%B0%83"><span class="toc-text">25、分布式通知和协调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26%E3%80%81%E6%9C%BA%E5%99%A8%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89-leader"><span class="toc-text">26、机器中为什么会有 leader?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27%E3%80%81zk-%E8%8A%82%E7%82%B9%E5%AE%95%E6%9C%BA%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86"><span class="toc-text">27、zk 节点宕机如何处理?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28%E3%80%81zookeeper-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%92%8C-nginx-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1-%E5%8C%BA%E5%88%AB"><span class="toc-text">28、zookeeper 负载均衡和 nginx 负载均衡 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29%E3%80%81Zookeeper%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%87%A0%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">29、Zookeeper有哪几种几种部署模式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30%E3%80%81-%E9%9B%86%E7%BE%A4%E6%9C%80%E5%B0%91%E8%A6%81%E5%87%A0%E5%8F%B0%E6%9C%BA%E5%99%A8%EF%BC%8C%E9%9B%86%E7%BE%A4%E8%A7%84%E5%88%99%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="toc-text">30、 集群最少要几台机器，集群规则是怎样的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E3%80%81%E9%9B%86%E7%BE%A4%E6%94%AF%E6%8C%81%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E6%9C%BA%E5%99%A8%E5%90%97%EF%BC%9F"><span class="toc-text">32、集群支持动态添加机器吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E3%80%81Zookeeper%E5%AF%B9%E8%8A%82%E7%82%B9%E7%9A%84watch%E7%9B%91%E5%90%AC%E9%80%9A%E7%9F%A5%E6%98%AF%E6%B0%B8%E4%B9%85%E7%9A%84%E5%90%97%EF%BC%9F-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E6%B0%B8%E4%B9%85%E7%9A%84"><span class="toc-text">33、Zookeeper对节点的watch监听通知是永久的吗？****为什么不是永久的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34%E3%80%81ZAB%E5%8D%8F%E8%AE%AE%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">34、ZAB协议是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35%E3%80%81Zookeeper%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">35、Zookeeper的典型应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%8F%91%E5%B8%83-x2F-%E8%AE%A2%E9%98%85"><span class="toc-text">1. 数据发布&#x2F;订阅</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%EF%BC%88%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%89%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">数据（配置信息）特性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8EZookeeper%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">基于Zookeeper的实现方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-text">2. 负载均衡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">第一种分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">具体流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B"><span class="toc-text">总结一下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">第二种分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B-1"><span class="toc-text">总结一下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ADubbo"><span class="toc-text">补充：Dubbo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Dubbo-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">*1、Dubbo 是什么?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Dubbo-%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E5%8D%8F%E8%AE%AE%EF%BC%8C%E6%AF%8F%E7%A7%8D%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8C%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">3、Dubbo 支持哪些协议，每种协议的应用场景，优缺点?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81dubbo-%E6%8E%A8%E8%8D%90%E7%94%A8%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE"><span class="toc-text">*4、dubbo 推荐用什么协议?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Dubbo-%E6%9C%89%E4%BA%9B%E5%93%AA%E4%BA%9B%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">*6、Dubbo 有些哪些注册中心?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81Dubbo-%E9%BB%98%E8%AE%A4%E9%87%87%E7%94%A8%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">*7、Dubbo 默认采用注册中心?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81Dubbo-%E9%9B%86%E7%BE%A4%E7%9A%84%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%9C%89%E5%93%AA%E4%BA%9B%E7%AD%96%E7%95%A5"><span class="toc-text">8、Dubbo 集群的负载均衡有哪些策略 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81Dubbo-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD"><span class="toc-text">*9、Dubbo 的核心功能?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81Dubbo%E7%9A%84%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E5%92%8C%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-text">10、Dubbo的核心组件和核心配置？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81%E5%9C%A8-Provider-%E4%B8%8A%E5%8F%AF%E4%BB%A5%E9%85%8D%E7%BD%AE%E7%9A%84-Consumer-%E7%AB%AF%E7%9A%84%E5%B1%9E%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">11、在 Provider 上可以配置的 Consumer 端的属性有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81Dubbo%E5%90%AF%E5%8A%A8%E6%97%B6%E5%A6%82%E6%9E%9C%E4%BE%9D%E8%B5%96%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8D%E5%8F%AF%E7%94%A8%E4%BC%9A%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-text">12、Dubbo启动时如果依赖的服务不可用会怎样？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85%E8%83%BD%E5%AE%9E%E7%8E%B0%E5%A4%B1%E6%95%88%E8%B8%A2%E5%87%BA%E6%98%AF%E4%BB%80%E4%B9%88%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">13、服务提供者能实现失效踢出是什么原理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81%E6%9C%8D%E5%8A%A1%E4%B8%8A%E7%BA%BF%E6%80%8E%E4%B9%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E6%97%A7%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-text">14、服务上线怎么不影响旧版本？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E9%93%BE%E8%BF%87%E9%95%BF%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">15、如何解决服务调用链过长的问题？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81Dubbo-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-text">*16、Dubbo 服务注册与发现的流程?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81Dubbo%E9%9C%80%E8%A6%81-Web-%E5%AE%B9%E5%99%A8%E5%90%97%EF%BC%9F"><span class="toc-text">*17、Dubbo需要 Web 容器吗？*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18%E3%80%81Dubbo%E5%86%85%E7%BD%AE%E4%BA%86%E5%93%AA%E5%87%A0%E7%A7%8D%E6%9C%8D%E5%8A%A1%E5%AE%B9%E5%99%A8%EF%BC%9F"><span class="toc-text">*18、Dubbo内置了哪几种服务容器？*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19%E3%80%81Dubbo-%E7%9A%84%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%9C%89%E5%93%AA%E4%BA%9B%E5%88%86%E5%B1%82"><span class="toc-text">*19、Dubbo 的整体架构设计有哪些分层?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81Dubbo-%E7%9A%84%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="toc-text">*20、Dubbo 的服务调用流程?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81Dubbo-%E7%94%A8%E5%88%B0%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">*20、Dubbo 用到哪些设计模式？*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86"><span class="toc-text">*21、为什么需要服务治理?*</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22%E3%80%81Dubbo-%E7%9A%84%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E9%9B%86%E7%BE%A4%E6%8C%82%E6%8E%89%EF%BC%8C%E5%8F%91%E5%B8%83%E8%80%85%E5%92%8C%E8%AE%A2%E9%98%85%E8%80%85%E4%B9%8B%E9%97%B4%E8%BF%98%E8%83%BD%E9%80%9A%E4%BF%A1%E4%B9%88"><span class="toc-text">22、Dubbo 的注册中心集群挂掉，发布者和订阅者之间还能通信么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E3%80%81Dubbo-%E4%B8%8E-Spring-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">23、Dubbo 与 Spring 的关系?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E3%80%81Dubbo%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5%EF%BC%8C%E9%BB%98%E8%AE%A4%E6%98%AF%E5%93%AA%E7%A7%8D%EF%BC%9F"><span class="toc-text">24、Dubbo有哪几种负载均衡策略，默认是哪种？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25%E3%80%81%E6%B3%A8%E5%86%8C%E4%BA%86%E5%A4%9A%E4%B8%AA%E5%90%8C%E4%B8%80%E6%A0%B7%E7%9A%84%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%B5%8B%E8%AF%95%E6%8C%87%E5%AE%9A%E7%9A%84%E6%9F%90%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%91%A2%EF%BC%9F"><span class="toc-text">25、注册了多个同一样的服务，如果测试指定的某一个服务呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26%E3%80%81Dubbo%E6%94%AF%E6%8C%81%E6%9C%8D%E5%8A%A1%E5%A4%9A%E5%8D%8F%E8%AE%AE%E5%90%97%EF%BC%9F"><span class="toc-text">26、Dubbo支持服务多协议吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27%E3%80%81%E5%BD%93%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%A4%9A%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%97%B6%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="toc-text">27、当一个服务接口有多种实现时怎么做？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28%E3%80%81%E6%9C%8D%E5%8A%A1%E4%B8%8A%E7%BA%BF%E6%80%8E%E4%B9%88%E5%85%BC%E5%AE%B9%E6%97%A7%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-text">28、服务上线怎么兼容旧版本？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29%E3%80%81Dubbo%E5%8F%AF%E4%BB%A5%E5%AF%B9%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E7%BC%93%E5%AD%98%E5%90%97%EF%BC%9F"><span class="toc-text">29、Dubbo可以对结果进行缓存吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30%E3%80%81%E9%BB%98%E8%AE%A4%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E9%80%9A%E4%BF%A1%E6%A1%86%E6%9E%B6%EF%BC%8C%E8%BF%98%E6%9C%89%E5%88%AB%E7%9A%84%E9%80%89%E6%8B%A9%E5%90%97"><span class="toc-text">30、默认使用的是什么通信框架，还有别的选择吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#31%E3%80%81Dubbo%E6%9C%8D%E5%8A%A1%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B0%83%E7%94%A8%E6%98%AF%E9%98%BB%E5%A1%9E%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">31、Dubbo服务之间的调用是阻塞的吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E3%80%81Dubbo%E6%94%AF%E6%8C%81%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%90%97%EF%BC%9F"><span class="toc-text">32、Dubbo支持分布式事务吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E3%80%81Dubbo-%E7%9A%84%E9%9B%86%E7%BE%A4%E5%AE%B9%E9%94%99%E6%96%B9%E6%A1%88%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">33、Dubbo 的集群容错方案有哪些?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34%E3%80%81Dubbo-%E7%9A%84%E9%BB%98%E8%AE%A4%E9%9B%86%E7%BE%A4%E5%AE%B9%E9%94%99%E6%96%B9%E6%A1%88"><span class="toc-text">34、Dubbo 的默认集群容错方案?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35%E3%80%81Dubbo-%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F"><span class="toc-text">35、Dubbo 支持哪些序列化方式?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36%E3%80%81%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3"><span class="toc-text">36、服务调用超时问题怎么解决?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37%E3%80%81Dubbo-%E5%9C%A8%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6%E6%96%B9%E9%9D%A2%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="toc-text">37、Dubbo 在安全机制方面是如何解决?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38%E3%80%81Dubbo-%E5%92%8C-Dubbox-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">38、Dubbo 和 Dubbox 之间的区别?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39%E3%80%81Dubbo%E6%94%AF%E6%8C%81%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7%E5%90%97%EF%BC%9F"><span class="toc-text">39、Dubbo支持服务降级吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#40%E3%80%81Dubbo%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%81%9C%E6%9C%BA%EF%BC%9F"><span class="toc-text">40、Dubbo如何优雅停机？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41%E3%80%81%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E8%80%85%E8%83%BD%E5%AE%9E%E7%8E%B0%E5%A4%B1%E6%95%88%E8%B8%A2%E5%87%BA%E6%98%AF%E4%BB%80%E4%B9%88%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">41、服务提供者能实现失效踢出是什么原理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42%E3%80%81%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E9%93%BE%E8%BF%87%E9%95%BF%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">42、如何解决服务调用链过长的问题？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43%E3%80%81%E6%9C%8D%E5%8A%A1%E8%AF%BB%E5%86%99%E6%8E%A8%E8%8D%90%E7%9A%84%E5%AE%B9%E9%94%99%E7%AD%96%E7%95%A5%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-text">43、服务读写推荐的容错策略是怎样的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44%E3%80%81Dubbo%E5%BF%85%E9%A1%BB%E4%BE%9D%E8%B5%96%E7%9A%84%E5%8C%85%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">44、Dubbo必须依赖的包有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#45%E3%80%81Dubbo%E7%9A%84%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">45、Dubbo的管理控制台能做什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46%E3%80%81%E8%AF%B4%E8%AF%B4-Dubbo-%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%82"><span class="toc-text">46、说说 Dubbo 服务暴露的过程。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#47%E3%80%81Dubbo-%E5%92%8C-Spring-Cloud-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">47、Dubbo 和 Spring Cloud 的区别?</span></a></li></ol></li></ol>
-    
-<style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
-    }
-    .toc-level-6 i,
-    .toc-level-6 ol {
+            <style>
+    .nav-transparent .github-corner {
         display: none !important;
     }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
 </style>
-</div>
+
+<a href="https://github.com/zx20219898/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-SpringBoot"><a href="#1-SpringBoot" class="headerlink" title="1. SpringBoot"></a>1. SpringBoot</h2><h3 id="1-1-说说你对Spring-Boot的理解"><a href="#1-1-说说你对Spring-Boot的理解" class="headerlink" title="1.1 说说你对Spring Boot的理解"></a>1.1 说说你对Spring Boot的理解</h3><p><strong>参考答案</strong></p>
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/img_convert/ce5127623e8d75c27ec12f1218012976.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">三、web开发-面试题</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    /*#toc-content {*/
+    /*    padding-bottom: 30px;*/
+    /*    overflow: auto;*/
+    /*}*/
+
+    #toc-content {
+        padding-bottom: 30px;
+        height: calc(100vh - 250px);
+        overflow: scroll;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                面试题
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-12-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-02
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    26.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    96 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-SpringBoot"><a href="#1-SpringBoot" class="headerlink" title="1. SpringBoot"></a>1. SpringBoot</h2><h3 id="1-1-说说你对Spring-Boot的理解"><a href="#1-1-说说你对Spring-Boot的理解" class="headerlink" title="1.1 说说你对Spring Boot的理解"></a>1.1 说说你对Spring Boot的理解</h3><p><strong>参考答案</strong></p>
 <p>从本质上来说，Spring Boot就是Spring，它做了那些没有它你自己也会去做的Spring Bean配置。Spring Boot使用“习惯优于配置”的理念让你的项目快速地运行起来，使用Spring<br>Boot很容易创建一个能独立运行、准生产级别、基于Spring框架的项目，使用Spring Boot你可以不用或者只需要很少的Spring配置。</p>
 <p>简而言之，Spring Boot本身并不提供Spring的核心功能，而是作为Spring的脚手架框架，以达到快速构建项目、预置三方配置、开箱即用的目的。Spring Boot有如下的优点：</p>
 <ul>
@@ -2106,481 +2107,978 @@
 <p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/azhegps/article/details/99104880">https://blog.csdn.net/azhegps/article/details/99104880</a><br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/t4i2b10x4c22nf6a/article/details/89530201">https://blog.csdn.net/t4i2b10x4c22nf6a/article/details/89530201</a><br>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yanpenglei/article/details/88363884">https://blog.csdn.net/yanpenglei/article/details/88363884</a></p>
 </blockquote>
 
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">zhangxin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://zx.js.cool/posts/953b/">https://zx.js.cool/posts/953b/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">zhangxin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .twikoo-card {
+        margin: 1.5rem auto;
+    }
+
+    .twikoo-card .card-content {
+        padding: 20px;
+    }
+
+    #tcomments textarea {
+        box-sizing: border-box;
+        background: url("/") 100% 100% no-repeat;
+    }
+
+    #tcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #tcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #tcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #tcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #tcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #tcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #tcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #tcomments ul li {
+        list-style-type: disc;
+    }
+
+    #tcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #tcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #tcomments table,
+    th,
+    td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #tcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #tcomments table td {
+        min-width: 80px;
+    }
+
+    #tcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #tcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #tcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #tcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #tcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #tcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #tcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #tcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #tcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #tcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #tcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #tcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #tcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #tcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #tcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #tcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #tcomments dfn {
+        font-style: italic;
+    }
+
+    #tcomments small {
+        font-size: 85%;
+    }
+
+    #tcomments cite {
+        font-style: normal;
+    }
+
+    #tcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #tcomments table,
+    th,
+    td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+        background-color: #fafafa;
+    }
+
+    #tcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #tcomments table td {
+        min-width: 80px;
+    }
+
+    #tcomments [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card twikoo-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div class="card-content" style="display: grid">
+        <div id="tcomments"></div>
+    </div>
+</div>
+
+<script src="/libs/twikoo/twikoo.all.min.js"></script>
+<script>
+    twikoo.init({
+        envId: 'twikoo-1gs9l0fb17e7897a',
+        el: '#tcomments',
+        region: '',
+        path: ''
+    }).then(function () {
+        var tkInputs = document.querySelector('#twikoo').getElementsByTagName('input');
+        for (var tkInputsIndex = 0; tkInputsIndex < tkInputs.length; tkInputsIndex++) {
+            if (tkInputs[tkInputsIndex]) {
+                tkInputs[tkInputsIndex].classList.add('browser-default');
+            }
+        }
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/89de/">
+                    <div class="card-image">
+                        
+                        <img src="https://img2.baidu.com/it/u=560234147,729083503&fm=253&fmt=auto&app=138&f=JPEG?w=800&h=500" class="responsive-img" alt="Maven-教程">
+                        
+                        <span class="card-title">Maven-教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%99%E7%A8%8B/" class="post-category">
+                                    教程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/c5c3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://img-blog.csdnimg.cn/img_convert/862a84ff6fe26b399e96e98410aff427.png" class="responsive-img" alt="四、中间件-面试题">
+                        
+                        <span class="card-title">四、中间件-面试题</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Redis、消息队列MQ、搜索引擎、Kafka...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category">
+                                    面试题
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
 </article>
 
+</div>
 
 
 
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
-    
 
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
 
     </div>
-    <div class="copyright">
-        <p class="footer-entry"><span class="miit">
-                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
-                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
-        </span>
-    
-    ©2021-2022 zhangxin
-</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
-
-    </div>
-    <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
-<a class="" id="rocket" ></a>
-
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
     </div>
 </div>
 
-</body>
-<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+<!-- TOC 悬浮按钮. -->
 
-<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fas fa-list-ul"></i>
+        </a>
+    </div>
 
-<script src="/js/script.js?v=1.1.0" ></script>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
-    var img_resize = 'photoSwipe';
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $("#post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-
-        /*高亮代码块行号*/
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-
-        // PhotoSwipe
-        $('article').each(function(i){
-            $(this).find('img').each(function(){
-                if ($(this).closest('figure').hasClass('article-gallery-img')) {
-                    return;
-                }
-                var alt = this.alt;
-                $(this)
-                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
-                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
-                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
-            });
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('2'),
+            headingSelector: 'h1, h2, h3, h4'
         });
 
-        var pswpElement = document.querySelectorAll('.pswp')[0];
-        if (pswpElement) {
-            var gallerySelector = '.article-gallery, article';
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
 
-            var initPhotoSwipeFromDOM = function(gallerySelector) {
-
-                // parse slide data (url, title, size ...) from DOM elements
-                // (children of gallerySelector)
-                var parseThumbnailElements = function(el) {
-                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
-                        numNodes = thumbElements.length,
-                        items = [],
-                        figureEl,
-                        linkEl,
-                        size,
-                        imgEl,
-                        item;
-
-                    for (var i = 0; i < numNodes; i++) {
-
-                        figureEl = thumbElements[i]; // <figure> element
-
-                        // include only element nodes
-                        if (figureEl.nodeType !== 1) {
-                            continue;
-                        }
-
-                        linkEl = figureEl.children[0]; // <a> element
-                        imgEl = linkEl.children[0]; // <img>
-
-                        size = linkEl.getAttribute('data-size');
-                        size = size && size.split('x');
-
-                        // create slide object
-                        item = {
-                            src: linkEl.getAttribute('href'),
-                            w: size && parseInt(size[0], 10) || imgEl.width,
-                            h: size && parseInt(size[1], 10) || imgEl.height
-                        };
-
-                        if (figureEl.children.length > 1) {
-                            // <figcaption> content
-                            item.title = figureEl.children[1].innerHTML;
-                        }
-
-                        if (linkEl.children.length > 0) {
-                            // <img> thumbnail element, retrieving thumbnail url
-                            item.msrc = linkEl.children[0].getAttribute('src');
-                        }
-
-                        item.el = figureEl; // save link to element for getThumbBoundsFn
-                        items.push(item);
-                    }
-
-                    return items;
-                };
-
-                // find nearest parent element
-                var closest = function closest(el, fn) {
-                    return el && (fn(el) ? el : closest(el.parentNode, fn));
-                };
-
-                // triggers when user clicks on thumbnail
-                var onThumbnailsClick = function(e) {
-                    e = e || window.event;
-
-                    var eTarget = e.target || e.srcElement;
-
-                    // find root element of slide
-                    var clickedListItem = closest(eTarget, function(el) {
-                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
-                    });
-
-                    if (!clickedListItem) {
-                        return;
-                    }
-
-                    if (e.preventDefault) {
-                        e.preventDefault();
-                    } else {
-                        e.returnValue = false;
-                    }
-
-                    // find index of clicked item by looping through all child nodes
-                    // alternatively, you may define index via data- attribute
-                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
-                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
-                        numChildNodes = childNodes.length,
-                        nodeIndex = 0,
-                        index;
-
-                    for (var i = 0; i < numChildNodes; i++) {
-                        if (childNodes[i].nodeType !== 1) {
-                            continue;
-                        }
-
-                        if (childNodes[i] === clickedListItem) {
-                            index = nodeIndex;
-                            break;
-                        }
-                        nodeIndex++;
-                    }
-
-
-
-                    if (index >= 0) {
-                        // open PhotoSwipe if valid index found
-                        openPhotoSwipe(index, clickedGallery);
-                    }
-                    return false;
-                };
-
-                // parse picture index and gallery index from URL (#&pid=1&gid=2)
-                var photoswipeParseHash = function() {
-                    var hash = window.location.hash.substring(1),
-                        params = {};
-
-                    if (hash.length < 5) {
-                        return params;
-                    }
-
-                    var vars = hash.split('&');
-                    for (var i = 0; i < vars.length; i++) {
-                        if (!vars[i]) {
-                            continue;
-                        }
-                        var pair = vars[i].split('=');
-                        if (pair.length < 2) {
-                            continue;
-                        }
-                        params[pair[0]] = pair[1];
-                    }
-
-                    if (params.gid) {
-                        params.gid = parseInt(params.gid, 10);
-                    }
-
-                    return params;
-                };
-
-                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
-                    var pswpElement = document.querySelectorAll('.pswp')[0],
-                        gallery,
-                        options,
-                        items;
-
-                    items = parseThumbnailElements(galleryElement);
-
-                    // define options (if needed)
-                    options = {
-
-                        // define gallery index (for URL)
-                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-
-                        getThumbBoundsFn: function(index) {
-                            // See Options -> getThumbBoundsFn section of documentation for more info
-                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
-                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-                                rect = thumbnail.getBoundingClientRect();
-
-                            return {
-                                x: rect.left,
-                                y: rect.top + pageYScroll,
-                                w: rect.width
-                            };
-                        }
-                    };
-
-                    // PhotoSwipe opened from URL
-                    if (fromURL) {
-                        if (options.galleryPIDs) {
-                            // parse real index when custom PIDs are used
-                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
-                            for (var j = 0; j < items.length; j++) {
-                                if (items[j].pid == index) {
-                                    options.index = j;
-                                    break;
-                                }
-                            }
-                        } else {
-                            // in URL indexes start from 1
-                            options.index = parseInt(index, 10) - 1;
-                        }
-                    } else {
-                        options.index = parseInt(index, 10);
-                    }
-
-                    // exit if index not found
-                    if (isNaN(options.index)) {
-                        return;
-                    }
-
-                    if (disableAnimation) {
-                        options.showAnimationDuration = 0;
-                    }
-
-                    // Pass data to PhotoSwipe and initialize it
-                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-
-                    gallery.listen('imageLoadComplete', function(index, item) {
-                        var linkEl = item.el.children[0];
-                        var img = item.container.children[0];
-                        if (!linkEl.getAttribute('data-size')) {
-                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
-                            item.w = img.naturalWidth;
-                            item.h = img.naturalHeight;
-                            gallery.invalidateCurrItems();
-                            gallery.updateSize(true);
-                        }
-                    });
-
-                    gallery.init();
-                };
-
-                // loop through all gallery elements and bind events
-                var galleryElements = document.querySelectorAll(gallerySelector);
-
-                for (var i = 0, l = galleryElements.length; i < l; i++) {
-                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
-                    galleryElements[i].onclick = onThumbnailsClick;
-                }
-
-                // Parse URL and open gallery if it contains #&pid=3&gid=1
-                var hashData = photoswipeParseHash();
-                if (hashData.pid && hashData.gid) {
-                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
-                }
-            };
-
-            // execute above function
-            initPhotoSwipeFromDOM(gallerySelector);
-        }
         
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
         
-    }
-
-    /*打赏页面隐藏与展示*/
-    
-
+    });
 </script>
 
-<!--加入行号的高亮代码块样式-->
+    
 
-<!--自定义样式设置-->
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <style>
-    
-    
-    .nav {
-        width: 542px;
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
     }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
 
-    /*列表样式*/
-    
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
 
-    /* 背景图样式 */
     
-    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
 
-
-    /*引用块样式*/
-    
-
-    /*文章列表背景图*/
-    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
 
     
 </style>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
     </div>
+</div>
 
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021-2022</span>
+            
+            <a href="/about" target="_blank">zhangxin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">453.1k</span>
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "17";
+                        var startHour = "15";
+                        var startMinute = "28";
+                        var startSecond = "57";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="http://beian.miit.gov.cn/" target="_blank">皖ICP备2021018914号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/zx20219898" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1205362172@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1205362172" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1205362172" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<!--<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 1;">-->
+<!--    <div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>-->
+<!--    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=80 height=86 src="//music.163.com/outchain/player?type=2&id=29844519&auto=1&height=66"></iframe>-->
+<!--</div>-->
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 </div>
 
 
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
 
+    
 
+    
 
-<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
-<div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1478101516&auto=1&height=66"></iframe>
-</div>
-// <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1386259535&auto=1&height=66"></iframe>
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
 
 </html>
