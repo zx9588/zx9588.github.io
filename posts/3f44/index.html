@@ -1,270 +1,978 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="1. Java基础1.1 为什么Java代码可以实现一次编写、到处运行？参考答案 JVM（Java虚拟机）是Java跨平台的关键。 在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。 同一份Java源代码在不同的平台上运行，它不需要">
-<meta property="og:type" content="article">
-<meta property="og:title" content="一、Java语言-面试题">
-<meta property="og:url" content="https://zx.js.cool/posts/3f44/index.html">
+  <meta charset="utf-8">
+  <title>一、Java语言-面试题 | zx&#39;s blog</title>
+  <meta name="keywords" content=" Java , 面试题 ">
+  <meta name="description" content="一、Java语言-面试题 | zx&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://zx.js.cool/404/index.html">
 <meta property="og:site_name" content="zx&#39;s blog">
-<meta property="og:description" content="1. Java基础1.1 为什么Java代码可以实现一次编写、到处运行？参考答案 JVM（Java虚拟机）是Java跨平台的关键。 在程序运行前，Java源代码（.java）需要经过编译器编译成字节码（.class）。在程序运行时，JVM负责将字节码翻译成特定平台下的机器码并运行，也就是说，只要在不同的平台上安装对应的JVM，就可以运行字节码文件。 同一份Java源代码在不同的平台上运行，它不需要">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ciWpk6JxXjNtFYg.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/8DhLBqUPw9Clzex.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NcqugQ2r5sZKIlb.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/UKuYB3JGEWRfrH4.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/2UWedZ6FS1XsfJo.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/u4asUZbMTYxQiq7.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/MD7cNpEbzGugeFk.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3sglnAbuEaHJKiC.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/VnlY2xtOd3zAmJi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/gD1RHNMcWCXFabI.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/qx4mgiWSr5N32Pu.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/N1YR69ujBGOyqLM.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/kQIMDgjfzXLY4mV.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/KO8Bl5dsqa34eFN.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/UWbDgmEnQ4hT8P9.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NwsmJcPtKeoHB97.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/h6meZCliXGHVnkP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3bomTwGsxMHUjDL.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/oWBA2c3yHTUurwx.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hsdamuEQfXZ8pwY.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/4lPWDRCQHSq3Zeo.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/tYZEXxQ4cHUpbOM.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/28HOEyCiD1h4KIm.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/TvKInQG8xobLECX.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3Dkxg2KGJr1ehVS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/HwAQ7J5BUgLGtrm.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/gJ3Tk8b1rE9xBRF.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/CArQ5ayczd1ueGj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/YrkRmnqOBQTw6ha.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/c74zqaIpUKbFBHi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/YXZcP6vbyTCkIDr.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/DG4jsi7QeEVltJO.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/i3MGR97oO6FNgIu.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/3KgOGYtar7JACsy.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Cd73KsFXVaMcLQl.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/fxBUgyhnY3G7si2.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/q5ghbEjWmypXNv4.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/NufPtgYGL79oDsF.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/lEbMONjxWL8iTzV.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/g1aPhDYSoc5RvTH.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/TsmE2xf9ackWSq1.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/QMSqX5faTJ1K8mZ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/eYuhM7kCJDBj1KS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/p3foZeHJU1mtiSW.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/OwsUJDaZ7ozbPmE.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/j1y4QGXtNkng3a7.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/jePr2nxXsca6MiZ.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/sWc47QPMkfrIEpw.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/18/5EMxgRXvP9kCjTp.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/rt9EdbUPIQ5jeW8.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/auqvLOBjyXeghlt.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/2Kvd9ySYmGlbtFR.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/rX5IkTFxlH6jdUn.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/Gmcv7VtysPz1BJ8.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/LY4qF2stCpOHPBR.jpg">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/qi14PmyzJWgvcfn.webp">
-<meta property="og:image" content="https://s2.loli.net/2022/07/19/siJmuKF2lyhMpD8.webp">
-<meta property="article:published_time" content="2022-03-02T02:33:39.000Z">
-<meta property="article:modified_time" content="2022-08-03T08:23:56.108Z">
+<meta property="article:published_time" content="2018-09-30T09:25:30.000Z">
+<meta property="article:modified_time" content="2022-07-29T08:39:53.417Z">
 <meta property="article:author" content="zhangxin">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/17/ZsVFOCq5hcx2gXd.png">
-
-<link rel="canonical" href="https://zx.js.cool/posts/3f44/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
+<link rel="icon" href="/img/zotero.ico">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
 </script>
 
-  <title>一、Java语言-面试题 | zx's blog</title>
-  
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
 
 
 
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">zx's blog</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">旧版本入口：http://101.43.123.47:4000</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
+<meta name="generator" content="Hexo 6.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
 
 
 
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/dino.ico"/>
+</a>
+<div class="author">
+    <span>zhangxin</span>
 </div>
-    </header>
 
+<div class="icon">
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/zx20219898"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="facebook"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+            <a title="instagram"
+               href="https://www.facebook.com/faker.tops"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-instagram"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="reddit"
+               href="https://www.reddit.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-reddit"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="weibo"
+               href="http://weibo.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="jianshu"
+               href="https://www.jianshu.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-jianshu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="zhihu"
+               href="https://www.zhihu.com/people/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-zhihu"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="oschina"
+               href="https://my.oschina.net/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-oschina"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:1205362172@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1205362172&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="kugou"
+               href="https://www.kugou.com/"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-kugou"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="neteasemusic"
+               href="https://music.163.com/#/my/m/music/playlist?id=5214265361"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-neteasemusic"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content post posts-expand">
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
             
+                <small>(45)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="面试题">
+                        
+                        面试题
+                        <small>(11)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="教程">
+                        
+                        教程
+                        <small>(20)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="摸鱼">
+                        
+                        摸鱼
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        <a 
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="45">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://hexo.io">Hexo</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+            <li><a target="_blank" href="https://butterfly.js.org/">Butterfly</a></li>
+            
+            <li><a target="_blank" href="https://blinkfox.github.io/">闪烁之狐</a></li>
+            
+            <li><a target="_blank" href="https://www.eg3.cn/">Meng</a></li>
+            
+            <li><a target="_blank" href="https://www.antmoe.com/categories/">小康博客</a></li>
+            
+            <li><a target="_blank" href="https://vlts.cn/categories/">小嘉的部落格</a></li>
+            
+            <li><a target="_blank" href="https://codeppx.gitee.io/myblog/">Code皮皮虾</a></li>
+            
+            <li><a target="_blank" href="https://www.fangshitao.top/">Wind</a></li>
+            
+            <li><a target="_blank" href="https://www.emoao.com">繁星</a></li>
+            
+            <li><a target="_blank" href="https://12580code.com/">12580code</a></li>
+            
+            <li><a target="_blank" href="https://zzzmh.cn">zzzmh</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>打工人</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>代码重构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>单元测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分布式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>快捷键</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>面试题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件设计</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>设计模式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>书籍</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>租房</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Homebrew</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>http请求</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IDEA</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>macOS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Nacos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>PostMan</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Safari</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Spring Boot</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>UML</a>
+            </li>
+        
+    </div>
+
+</div>
 
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/3f44/">
+    <div id="local-search-result">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zhangxin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zx's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          一、Java语言-面试题
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-03-02 10:33:39" itemprop="dateCreated datePublished" datetime="2022-03-02T10:33:39+08:00">2022-03-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-03 16:23:56" itemprop="dateModified" datetime="2022-08-03T16:23:56+08:00">2022-08-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a>
-                </span>
-            </span>
-
-          
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a id="top" class="全部文章 教程 "
+           href="/posts/9e31/"
+           data-tag="IDEA,Git"
+           data-author="" >
+            <span class="post-title" title="Git-教程">Git-教程</span>
+            <span class="post-date" title="2022-04-26 20:21:12">2022/04/26</span>
+        </a>
+        
+        
+        <a id="top" class="全部文章 教程 "
+           href="/posts/738/"
+           data-tag="Docker,Nacos"
+           data-author="" >
+            <span class="post-title" title="Docker-教程">Docker-教程</span>
+            <span class="post-date" title="2021-11-15 16:50:31">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/78c8/"
+           data-tag="PostMan"
+           data-author="" >
+            <span class="post-title" title="PostMan-教程">PostMan-教程</span>
+            <span class="post-date" title="2022-08-05 10:15:37">2022/08/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/aeb0/"
+           data-tag="Spring Boot,http请求"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法">Spring Boot 一个接口同时支持 form 表单、form-data、json 的优雅写法</span>
+            <span class="post-date" title="2022-08-05 09:29:22">2022/08/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/4e88/"
+           data-tag="打工人,租房"
+           data-author="" >
+            <span class="post-title" title="租房淡季VS租房旺季：一年中什么时候租房最合适？">租房淡季VS租房旺季：一年中什么时候租房最合适？</span>
+            <span class="post-date" title="2022-08-03 21:49:49">2022/08/03</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/7265/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="太爽了，纯注解开发模式简直就是Spring中的Spring！">太爽了，纯注解开发模式简直就是Spring中的Spring！</span>
+            <span class="post-date" title="2022-08-02 12:10:03">2022/08/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/3699/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="资源预测数字模型搭建思路分享">资源预测数字模型搭建思路分享</span>
+            <span class="post-date" title="2022-08-01 09:08:32">2022/08/01</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/55b4/"
+           data-tag="代码重构,单元测试"
+           data-author="" >
+            <span class="post-title" title="代码重构：面向单元测试">代码重构：面向单元测试</span>
+            <span class="post-date" title="2022-07-30 13:12:52">2022/07/30</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/8d59/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java8新特性及使用">Java8新特性及使用</span>
+            <span class="post-date" title="2022-07-29 14:21:36">2022/07/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/d4c1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="无语！Jenkins 也宣布弃用 Java 8。。">无语！Jenkins 也宣布弃用 Java 8。。</span>
+            <span class="post-date" title="2022-07-29 12:15:31">2022/07/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/7a93/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="监控神器：Prometheus 轻松入门，真香！">监控神器：Prometheus 轻松入门，真香！</span>
+            <span class="post-date" title="2022-07-29 08:26:47">2022/07/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 摸鱼 "
+           href="/posts/d710/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="你还在用for循环遍历list吗？">你还在用for循环遍历list吗？</span>
+            <span class="post-date" title="2022-07-28 08:39:05">2022/07/28</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/30c3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="网络解决方案">网络解决方案</span>
+            <span class="post-date" title="2022-07-27 09:23:58">2022/07/27</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/8b3a/"
+           data-tag="书籍"
+           data-author="" >
+            <span class="post-title" title="书籍收藏">书籍收藏</span>
+            <span class="post-date" title="2022-07-23 10:14:58">2022/07/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/f687/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="在线工具/资源">在线工具/资源</span>
+            <span class="post-date" title="2022-07-22 22:19:00">2022/07/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/2f9/"
+           data-tag="快捷键,macOS,Safari,IDEA"
+           data-author="" >
+            <span class="post-title" title="快捷键">快捷键</span>
+            <span class="post-date" title="2022-07-15 16:35:00">2022/07/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/3879/"
+           data-tag="Java,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch-教程">Elasticsearch-教程</span>
+            <span class="post-date" title="2022-07-12 10:55:21">2022/07/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/posts/10f3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="随手拍">随手拍</span>
+            <span class="post-date" title="2022-07-01 15:09:20">2022/07/01</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/2491/"
+           data-tag="Hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo-教程">Hexo-教程</span>
+            <span class="post-date" title="2022-03-12 10:55:05">2022/03/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3f44/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="一、Java语言-面试题">一、Java语言-面试题</span>
+            <span class="post-date" title="2022-03-02 10:33:39">2022/03/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/15f3/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java语言-教程">Java语言-教程</span>
+            <span class="post-date" title="2022-02-27 09:08:17">2022/02/27</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/7c78/"
+           data-tag="Java,设计模式,UML,软件设计"
+           data-author="" >
+            <span class="post-title" title="Java设计模式-教程">Java设计模式-教程</span>
+            <span class="post-date" title="2022-02-26 22:23:51">2022/02/26</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/f5f4/"
+           data-tag="Homebrew"
+           data-author="" >
+            <span class="post-title" title="Homebrew-教程">Homebrew-教程</span>
+            <span class="post-date" title="2022-02-25 15:31:39">2022/02/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/1319/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Linux-教程">Linux-教程</span>
+            <span class="post-date" title="2022-02-23 10:01:22">2022/02/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/3652/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="二、数据库-面试题">二、数据库-面试题</span>
+            <span class="post-date" title="2022-01-29 10:46:32">2022/01/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/dcb7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Markdown-教程">Markdown-教程</span>
+            <span class="post-date" title="2022-01-14 16:41:41">2022/01/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/1205/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Navicat-教程">Navicat-教程</span>
+            <span class="post-date" title="2022-01-12 13:22:26">2022/01/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/89de/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Maven-教程">Maven-教程</span>
+            <span class="post-date" title="2021-12-30 16:02:35">2021/12/30</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/953b/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="三、web开发-面试题">三、web开发-面试题</span>
+            <span class="post-date" title="2021-12-28 10:49:02">2021/12/28</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/c5c3/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="四、中间件-面试题">四、中间件-面试题</span>
+            <span class="post-date" title="2021-12-27 10:50:39">2021/12/27</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a3a7/"
+           data-tag="Java,面试题,分布式"
+           data-author="" >
+            <span class="post-title" title="五、分布式-面试题">五、分布式-面试题</span>
+            <span class="post-date" title="2021-12-26 10:52:23">2021/12/26</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/7056/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="六、计算机网络-面试题">六、计算机网络-面试题</span>
+            <span class="post-date" title="2021-12-25 10:53:33">2021/12/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/437/"
+           data-tag="Java,面试题,操作系统"
+           data-author="" >
+            <span class="post-title" title="七、操作系统-面试题">七、操作系统-面试题</span>
+            <span class="post-date" title="2021-12-24 10:53:44">2021/12/24</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/f169/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Parallels-教程">Parallels-教程</span>
+            <span class="post-date" title="2021-12-12 15:42:17">2021/12/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/1c28/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="MySQL-教程">MySQL-教程</span>
+            <span class="post-date" title="2021-11-26 22:11:55">2021/11/26</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/3715/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring家族-教程">Spring家族-教程</span>
+            <span class="post-date" title="2021-11-23 13:23:09">2021/11/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a013/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="八、数据结构与算法-面试题">八、数据结构与算法-面试题</span>
+            <span class="post-date" title="2021-11-17 10:58:12">2021/11/17</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/f7b0/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="SSH工具-教程">SSH工具-教程</span>
+            <span class="post-date" title="2021-11-15 17:05:04">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/fb3/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="阿里云盘-教程">阿里云盘-教程</span>
+            <span class="post-date" title="2021-11-14 17:43:48">2021/11/14</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/62b7/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Tampermonkey-教程">Tampermonkey-教程</span>
+            <span class="post-date" title="2021-11-13 20:56:14">2021/11/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/7cbe/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vpn-教程">vpn-教程</span>
+            <span class="post-date" title="2021-11-12 15:45:37">2021/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 教程 "
+           href="/posts/40cc/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="PicGo-教程">PicGo-教程</span>
+            <span class="post-date" title="2021-11-12 10:55:05">2021/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/a2d2/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="九、设计模式-面试题">九、设计模式-面试题</span>
+            <span class="post-date" title="2021-11-02 11:01:28">2021/11/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/5666/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="十、场景题-面试题">十、场景题-面试题</span>
+            <span class="post-date" title="2021-11-01 11:01:47">2021/11/01</span>
+        </a>
+        
+        
+        <a  class="全部文章 面试题 "
+           href="/posts/b524/"
+           data-tag="Java,面试题"
+           data-author="" >
+            <span class="post-title" title="十一、UML-面试题">十一、UML-面试题</span>
+            <span class="post-date" title="2021-11-01 00:02:01">2021/11/01</span>
+        </a>
+        
+        <div id="no-item-tips">
 
         </div>
-      </header>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
 
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-面试题/一、Java语言" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">一、Java语言-面试题</h1>
     
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="面试题">面试题</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">Java</a>
+            
+            <a class="color4">面试题</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-08-03 16:23:56'>2022-03-02 10:33</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
     
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Java%E5%9F%BA%E7%A1%80"><span class="toc-text">1. Java基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%BA%E4%BB%80%E4%B9%88Java%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%BC%96%E5%86%99%E3%80%81%E5%88%B0%E5%A4%84%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="toc-text">1.1 为什么Java代码可以实现一次编写、到处运行？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%B8%80%E4%B8%AAJava%E6%96%87%E4%BB%B6%E9%87%8C%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%90%97%EF%BC%88%E4%B8%8D%E5%90%AB%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="toc-text">1.2 一个Java文件里可以有多个类吗（不含内部类）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">1.3 说一说你对Java访问权限的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.4 介绍一下Java的数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-int%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-text">1.5 int类型的数据范围是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.6 请介绍全局变量和局部变量的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">1.7 请介绍一下实例变量的默认值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-%E4%B8%BA%E5%95%A5%E8%A6%81%E6%9C%89%E5%8C%85%E8%A3%85%E7%B1%BB%EF%BC%9F"><span class="toc-text">1.8 为啥要有包装类？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-9-%E8%AF%B4%E4%B8%80%E8%AF%B4%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E3%80%81%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">1.9 说一说自动装箱、自动拆箱的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-10-%E5%A6%82%E4%BD%95%E5%AF%B9Integer%E5%92%8CDouble%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89%EF%BC%9F"><span class="toc-text">1.10 如何对Integer和Double类型判断相等？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-11-int%E5%92%8CInteger%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BA%8C%E8%80%85%E5%9C%A8%E5%81%9A-x3D-x3D-%E8%BF%90%E7%AE%97%E6%97%B6%E4%BC%9A%E5%BE%97%E5%88%B0%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%9C%EF%BC%9F"><span class="toc-text">1.11 int和Integer有什么区别，二者在做&#x3D;&#x3D;运算时会得到什么结果？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-12-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.12 说一说你对面向对象的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.13 面向对象的三大特征是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%BB%A7%E6%89%BF"><span class="toc-text">补充：继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-14-%E5%B0%81%E8%A3%85%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%B0%81%E8%A3%85%EF%BC%9F"><span class="toc-text">1.14 封装的目的是什么，为什么要有封装？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-15-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%A4%9A%E6%80%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.15 说一说你对多态的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-16-Java%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">1.16 Java中的多态是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-17-Java%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E7%BB%A7%E6%89%BF%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%A4%9A%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">1.17 Java为什么是单继承，为什么不能多继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-18-%E8%AF%B4%E4%B8%80%E8%AF%B4%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">1.18 说一说重写与重载的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-19-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E8%83%BD%E4%B8%8D%E8%83%BD%E9%87%8D%E5%86%99%EF%BC%9F"><span class="toc-text">1.19 构造方法能不能重写？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-20-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BObject%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">1.20 介绍一下Object类中的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-21-%E8%AF%B4%E4%B8%80%E8%AF%B4hashCode-%E5%92%8Cequals-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">1.21 说一说hashCode()和equals()的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashCode-%E5%92%8Cequals-%EF%BC%9F"><span class="toc-text">1.22 为什么要重写hashCode()和equals()？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-23-x3D-x3D-%E5%92%8Cequals-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.23 &#x3D;&#x3D;和equals()有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-24-String%E7%B1%BB%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">1.24 String类有哪些方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-25-String%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F"><span class="toc-text">1.25 String可以被继承吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-26-%E8%AF%B4%E4%B8%80%E8%AF%B4String%E5%92%8CStringBuffer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">1.26 说一说String和StringBuffer有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-27-%E8%AF%B4%E4%B8%80%E8%AF%B4StringBuffer%E5%92%8CStringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">1.27 说一说StringBuffer和StringBuilder有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-28-%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%EF%BC%8Cnew%E5%92%8C%E2%80%9D%E2%80%9D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">1.28 使用字符串时，new和””推荐使用哪种方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-29-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.29 说一说你对字符串拼接的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-30-%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0%E7%9A%84%E5%BA%95%E5%B1%82%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">1.30 两个字符串相加的底层是如何实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-31-String-a-x3D-%E2%80%9Cabc%E2%80%9D-%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E8%BF%87%E7%A8%8B%E4%BC%9A%E5%88%9B%E5%BB%BA%E4%BB%80%E4%B9%88%EF%BC%8C%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">1.31 String a &#x3D; “abc”; ，说一下这个过程会创建什么，放在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-32-new-String-%E2%80%9Cabc%E2%80%9D-%E6%98%AF%E5%8E%BB%E4%BA%86%E5%93%AA%E9%87%8C%EF%BC%8C%E4%BB%85%E4%BB%85%E6%98%AF%E5%9C%A8%E5%A0%86%E9%87%8C%E9%9D%A2%E5%90%97%EF%BC%9F"><span class="toc-text">1.32 new String(“abc”) 是去了哪里，仅仅是在堆里面吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-33-%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.33 接口和抽象类有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-34-%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%9C%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%90%97%EF%BC%9F"><span class="toc-text">1.34 接口中可以有构造函数吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-35-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.35 谈谈你对面向接口编程的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-36-%E9%81%87%E5%88%B0%E8%BF%87%E5%BC%82%E5%B8%B8%E5%90%97%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-text">1.36 遇到过异常吗，如何处理？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-37-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6"><span class="toc-text">1.37 说一说Java的异常机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-38-%E8%AF%B7%E4%BB%8B%E7%BB%8DJava%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8E%A5%E5%8F%A3"><span class="toc-text">1.38 请介绍Java的异常接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-39-finally%E6%98%AF%E6%97%A0%E6%9D%A1%E4%BB%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">1.39 finally是无条件执行的吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-40-%E5%9C%A8finally%E4%B8%ADreturn%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1.40 在finally中return会发生什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-41-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9static%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.41 说一说你对static关键字的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-42-static%E4%BF%AE%E9%A5%B0%E7%9A%84%E7%B1%BB%E8%83%BD%E4%B8%8D%E8%83%BD%E8%A2%AB%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">1.42 static修饰的类能不能被继承？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-43-static%E5%92%8Cfinal%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.43 static和final有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Afinalize"><span class="toc-text">补充：finalize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-44-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.44 说一说你对泛型的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-45-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4"><span class="toc-text">1.45 介绍一下泛型擦除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-46-List-lt-super-T-gt-%E5%92%8CList-lt-extends-T-gt-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">1.46 List&lt;? super T&gt;和List&lt;? extends T&gt;有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-47-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">1.47 说一说你对Java反射机制的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Ajava%E8%8E%B7%E5%8F%96%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">补充：java获取反射的三种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-48-Java%E5%8F%8D%E5%B0%84%E5%9C%A8%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">1.48 Java反射在实际项目中有哪些应用场景？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-49-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">1.49 说一说Java的四种引用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">补充：内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%95%B0%E7%BB%84%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%88%86%E9%85%8D"><span class="toc-text">补充：数组在内存中的分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9B%86%E5%90%88%E7%B1%BB"><span class="toc-text">2. 集合类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Java%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%B9%E5%99%A8%EF%BC%88%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="toc-text">2.1 Java中有哪些容器（集合类）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Java%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%92%8C%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%88%86%E5%88%AB%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">2.2 Java中的容器，线程安全和线程不安全的分别有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Map%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%9E%E7%8E%B0%E7%B1%BB%EF%BC%9F"><span class="toc-text">2.3 Map接口有哪些实现类？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8BMap-put%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">2.4 描述一下Map put的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84Map%EF%BC%9F"><span class="toc-text">2.5 如何得到一个线程安全的Map？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-HashMap%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-text">2.6 HashMap有什么特点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-JDK7%E5%92%8CJDK8%E4%B8%AD%E7%9A%84HashMap%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.7 JDK7和JDK8中的HashMap有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHashMap%E5%BA%95%E5%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">2.8 介绍一下HashMap底层的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHashMap%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="toc-text">2.9 介绍一下HashMap的扩容机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-HashMap%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8%E6%98%AF%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%9F"><span class="toc-text">2.10 HashMap中的循环链表是如何产生的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-HashMap%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E7%BA%A2%E9%BB%91%E6%A0%91%E8%80%8C%E4%B8%8D%E7%94%A8B%E6%A0%91%EF%BC%9F"><span class="toc-text">2.11 HashMap为什么用红黑树而不用B树？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-HashMap%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">2.12 HashMap为什么线程不安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-13-HashMap%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">2.13 HashMap如何实现线程安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-14-HashMap%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="toc-text">2.14 HashMap是如何解决哈希冲突的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-15-%E8%AF%B4%E4%B8%80%E8%AF%B4HashMap%E5%92%8CHashTable%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2.15 说一说HashMap和HashTable的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-16-HashMap%E4%B8%8EConcurrentHashMap%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.16 HashMap与ConcurrentHashMap有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-17-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BConcurrentHashMap%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">2.17 介绍一下ConcurrentHashMap是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-18-ConcurrentHashMap%E6%98%AF%E6%80%8E%E4%B9%88%E5%88%86%E6%AE%B5%E5%88%86%E7%BB%84%E7%9A%84%EF%BC%9F"><span class="toc-text">2.18 ConcurrentHashMap是怎么分段分组的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-19-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9LinkedHashMap%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">2.19 说一说你对LinkedHashMap的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-20-%E8%AF%B7%E4%BB%8B%E7%BB%8DLinkedHashMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-text">2.20 请介绍LinkedHashMap的底层原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-21-%E8%AF%B7%E4%BB%8B%E7%BB%8DTreeMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-text">2.21 请介绍TreeMap的底层原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-22-Map%E5%92%8CSet%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.22 Map和Set有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-23-List%E5%92%8CSet%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.23 List和Set有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-24-ArrayList%E5%92%8CLinkedList%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">2.24 ArrayList和LinkedList有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AArrayList%E3%80%81Vector%E3%80%81LinkedList-%E7%9A%84%E5%AD%98%E5%82%A8%E6%80%A7%E8%83%BD%E5%92%8C%E7%89%B9%E6%80%A7"><span class="toc-text">补充：ArrayList、Vector、LinkedList 的存储性能和特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-25-%E6%9C%89%E5%93%AA%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84List%EF%BC%9F"><span class="toc-text">2.25 有哪些线程安全的List？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-26-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BArrayList%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-text">2.26 介绍一下ArrayList的数据结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-27-%E8%B0%88%E8%B0%88CopyOnWriteArrayList%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">2.27 谈谈CopyOnWriteArrayList的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-28-%E8%AF%B4%E4%B8%80%E8%AF%B4TreeSet%E5%92%8CHashSet%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2.28 说一说TreeSet和HashSet的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-29-%E8%AF%B4%E4%B8%80%E8%AF%B4HashSet%E7%9A%84%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-text">2.29 说一说HashSet的底层结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AHashSet%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84"><span class="toc-text">补充：HashSet是如何保证不重复的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-30-BlockingQueue%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="toc-text">2.30 BlockingQueue中有哪些方法，为什么这样设计？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-31-BlockingQueue%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">2.31 BlockingQueue是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-32-Stream%EF%BC%88%E4%B8%8D%E6%98%AFIOStream%EF%BC%89%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">2.32 Stream（不是IOStream）有哪些方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AArrays-sort-%E5%92%8C-Collections-sort"><span class="toc-text">补充：Arrays.sort 和 Collections.sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ACloneable%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">补充：Cloneable接口实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-IO"><span class="toc-text">3. IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E4%B8%AD%E7%9A%84IO%E6%B5%81"><span class="toc-text">3.1 介绍一下Java中的IO流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%80%8E%E4%B9%88%E7%94%A8%E6%B5%81%E6%89%93%E5%BC%80%E4%B8%80%E4%B8%AA%E5%A4%A7%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-text">3.2 怎么用流打开一个大文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%AF%B4%E8%AF%B4NIO%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">3.3 说说NIO的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">3.4 介绍一下Java的序列化与反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Serializable%E6%8E%A5%E5%8F%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9A%E4%B9%89serialVersionUID%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="toc-text">3.5 Serializable接口为什么需要定义serialVersionUID变量？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%99%A4%E4%BA%86Java%E8%87%AA%E5%B8%A6%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B9%8B%E5%A4%96%EF%BC%8C%E4%BD%A0%E8%BF%98%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%E5%BA%8F%E5%88%97%E5%8C%96%E5%B7%A5%E5%85%B7%EF%BC%9F"><span class="toc-text">3.6 除了Java自带的序列化之外，你还了解哪些序列化工具？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E5%A6%82%E6%9E%9C%E4%B8%8D%E7%94%A8JSON%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%AF%A5%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="toc-text">3.7 如果不用JSON工具，该如何实现对实体类的序列化？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">4. 多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">4.1 创建线程有哪几种方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%AF%B4%E8%AF%B4Thread%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">4.2 说说Thread类的常用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-run-%E5%92%8Cstart-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">4.3 run()和start()有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%A4%8D%E5%90%AF%E5%8A%A8%EF%BC%8C%E4%BC%9A%E6%9C%89%E4%BB%80%E4%B9%88%E5%90%8E%E6%9E%9C%EF%BC%9F"><span class="toc-text">4.4 线程是否可以重复启动，会有什么后果？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">4.5 介绍一下线程的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-text">4.6 如何实现线程同步？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-text">4.7 说一说Java多线程之间的通信方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B8%AD%E7%9A%84wait%E5%92%8Cnotify"><span class="toc-text">4.8 说一说Java同步机制中的wait和notify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E8%AF%B4%E4%B8%80%E8%AF%B4sleep-%E5%92%8Cwait-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.9 说一说sleep()和wait()的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E8%AF%B4%E4%B8%80%E8%AF%B4notify-%E3%80%81notifyAll-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.10 说一说notify()、notifyAll()的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AD%90%E7%BA%BF%E7%A8%8B%E5%85%88%E6%89%A7%E8%A1%8C%EF%BC%8C%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%86%8D%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="toc-text">4.11 如何实现子线程先执行，主线程再执行？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E9%98%BB%E5%A1%9E%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">4.12 阻塞线程的方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E8%AF%B4%E4%B8%80%E8%AF%B4synchronized%E4%B8%8ELock%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.13 说一说synchronized与Lock的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14-%E8%AF%B4%E4%B8%80%E8%AF%B4synchronized%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">4.14 说一说synchronized的底层实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15-synchronized%E5%8F%AF%E4%BB%A5%E4%BF%AE%E9%A5%B0%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E5%90%97%EF%BC%9F"><span class="toc-text">4.15 synchronized可以修饰静态方法和静态代码块吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-16-%E8%B0%88%E8%B0%88ReentrantLock%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">4.16 谈谈ReentrantLock的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-17-%E5%A6%82%E6%9E%9C%E4%B8%8D%E4%BD%BF%E7%94%A8synchronized%E5%92%8CLock%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">4.17 如果不使用synchronized和Lock，如何保证线程安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-18-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E4%B8%AD%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">4.18 说一说Java中乐观锁和悲观锁的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-19-%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">4.19 公平锁与非公平锁是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-20-%E4%BA%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84%E9%94%81%E5%8D%87%E7%BA%A7%E5%90%97%EF%BC%9F"><span class="toc-text">4.20 了解Java中的锁升级吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-21-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5%E9%94%81%EF%BC%88mutex%EF%BC%89%EF%BC%9F"><span class="toc-text">4.21 如何实现互斥锁（mutex）？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-22-%E5%88%86%E6%AE%B5%E9%94%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">4.22 分段锁是怎么实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-23-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E8%AF%BB%E5%86%99%E9%94%81%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">4.23 说说你对读写锁的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-24-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-text">4.24 volatile关键字有什么用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-25-%E8%B0%88%E8%B0%88volatile%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">4.25 谈谈volatile的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-26-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9JUC%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="toc-text">4.26 说说你对JUC的了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-27-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9AQS%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">4.27 说说你对AQS的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-28-LongAdder%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E5%AE%83%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="toc-text">4.28 LongAdder解决了什么问题，它是如何实现的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-29-%E4%BB%8B%E7%BB%8D%E4%B8%8BThreadLocal%E5%92%8C%E5%AE%83%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">4.29 介绍下ThreadLocal和它的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-30-%E8%AF%B7%E4%BB%8B%E7%BB%8DThreadLocal%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8C%E5%AE%83%E6%98%AF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86hash%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="toc-text">4.30 请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-31-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-text">4.31 介绍一下线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-32-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-text">4.32 介绍一下线程池的工作流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-33-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="toc-text">4.33 线程池都有哪些状态？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-34-%E8%B0%88%E8%B0%88%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="toc-text">4.34 谈谈线程池的拒绝策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-35-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E9%98%9F%E5%88%97%E5%A4%A7%E5%B0%8F%E4%BD%A0%E9%80%9A%E5%B8%B8%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%EF%BC%9F"><span class="toc-text">4.35 线程池的队列大小你通常怎么设置？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-36-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%82%E6%95%B0%EF%BC%8C%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">4.36 线程池有哪些参数，各个参数的作用是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B"><span class="toc-text">线程和进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">实现多线程的方式有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-text">并发的三大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8Runnable%E8%BF%98%E6%98%AFThread%EF%BC%9F"><span class="toc-text">用Runnable还是Thread？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-%E7%B1%BB%E4%B8%AD%E7%9A%84start-%E5%92%8C-run"><span class="toc-text">Thread 类中的start() 和 run()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep-%E5%92%8C-wait"><span class="toc-text">sleep() 和 wait()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E3%80%81%E5%B9%B6%E8%A1%8C%E3%80%81%E4%B8%B2%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">并发、并行、串行的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E7%8A%B6%E6%80%81"><span class="toc-text">说说线程的生命周期和状态?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="toc-text">什么是线程死锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%844%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="toc-text">死锁的4个必要条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="toc-text">如何避免线程死锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81%EF%BC%8C%E6%B4%BB%E9%94%81%EF%BC%9F"><span class="toc-text">什么是死锁，活锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%ADCyclicBarrier-%E5%92%8C-CountDownLatch%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">java中CyclicBarrier 和 CountDownLatch有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E4%B8%8E%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">java中的同步集合与并发集合有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E5%A6%82%E4%BD%95%E5%9C%A8java%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%BA%BF%E7%A8%8B%E5%A0%86%E6%A0%88%EF%BC%9F"><span class="toc-text">你如何在java中获取线程堆栈？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ava%E4%B8%ADConcurrentHashMap%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BA%A6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">ava中ConcurrentHashMap的并发度是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E4%B8%8E%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F-1"><span class="toc-text">java中的同步集合与并发集合有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对守护线程的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread%E7%B1%BB%E4%B8%AD%E7%9A%84yield%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">Thread类中的yield方法有什么作用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对线程安全的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFThreadLocal%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="toc-text">什么是ThreadLocal变量？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadLocal%E5%8E%9F%E7%90%86%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">ThreadLocal原理和使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">java内存模型是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E7%9A%84volatile-%E5%8F%98%E9%87%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">java中的volatile 变量是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-%E5%8F%98%E9%87%8F%E5%92%8C-atomic-%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">volatile 变量和 atomic 变量有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%ADRunnable%E5%92%8CCallable%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">java中Runnable和Callable有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%E9%87%8A%E6%94%BE%E9%94%81%EF%BC%8C%E5%93%AA%E4%BA%9B%E4%B8%8D%E9%87%8A%E6%94%BE%E9%94%81%EF%BC%9F"><span class="toc-text">哪些操作释放锁，哪些不释放锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="toc-text">如何正确的终止线程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#interrupt-interrupted-isInterrupted-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">interrupt(), interrupted(), isInterrupted()的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized%E7%9A%84%E9%94%81%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">synchronized的锁对象是哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile%E5%92%8Csynchronized%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">volatile和synchronized的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE"><span class="toc-text">什么是缓存一致性协议?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronized%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81Lock%EF%BC%8C%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">Synchronized关键字、Lock，并解释它们之间的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Volatile%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%86%85%E5%AD%98%E5%8F%AF%E8%A7%81%E6%80%A7%EF%BC%9F"><span class="toc-text">Volatile如何保证内存可见性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java%E4%B8%AD%E4%BB%80%E4%B9%88%E6%98%AF%E7%AB%9E%E6%80%81%E6%9D%A1%E4%BB%B6%EF%BC%9F"><span class="toc-text">java中什么是竞态条件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88wait-notify-%E5%92%8C-notifyAll%E8%BF%99%E4%BA%9B%E6%96%B9%E6%B3%95%E4%B8%8D%E5%9C%A8thread%E7%B1%BB%E9%87%8C%E9%9D%A2%EF%BC%9F"><span class="toc-text">为什么wait, notify 和 notifyAll这些方法不在thread类里面？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E3%80%81java%E4%B8%ADsynchronized-%E5%92%8C-ReentrantLock-%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">32、java中synchronized 和 ReentrantLock 有什么不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E3%80%81Synchronized-%E7%94%A8%E8%BF%87%E5%90%97%EF%BC%8C%E5%85%B6%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">33、Synchronized 用过吗，其原理是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34%E3%80%81%E4%B8%8A%E9%9D%A2%E6%8F%90%E5%88%B0%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%81%EF%BC%8C%E8%BF%99%E4%B8%AA%E2%80%9C%E9%94%81%E2%80%9D%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%81"><span class="toc-text">34、上面提到获取对象的锁，这个“锁”到底是什么?如何确定对象的锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E6%80%A7%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="toc-text">35、什么是可重入性，为什么说 Synchronized 是可重入锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36%E3%80%81JVM-%E5%AF%B9-java-%E7%9A%84%E5%8E%9F%E7%94%9F%E9%94%81%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="toc-text">36、JVM 对 java 的原生锁做了哪些优化?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="toc-text">37、为什么说 Synchronized 是非公平锁?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E4%B8%80%E4%B8%AA%E6%82%B2%E8%A7%82%E9%94%81-%E4%B9%90%E8%A7%82%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86-%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88-%E4%BB%80%E4%B9%88%E6%98%AF-CAS%EF%BC%8C%E5%AE%83%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E6%80%A7"><span class="toc-text">38、为什么说 Synchronized 是一个悲观锁?乐观锁的实现原理 又是什么?什么是 CAS，它有什么特性?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39%E3%80%81%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%80%E5%AE%9A%E5%B0%B1%E6%98%AF%E5%A5%BD%E7%9A%84%E5%90%97"><span class="toc-text">39、乐观锁一定就是好的吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#40%E3%80%81%E8%B0%88%E4%B8%80%E8%B0%88AQS%E6%A1%86%E6%9E%B6%E3%80%82"><span class="toc-text">40、谈一谈AQS框架。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41%E3%80%81ReentrantLock-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%87%8D%E5%85%A5%E6%80%A7%E7%9A%84"><span class="toc-text">41、ReentrantLock 是如何实现可重入性的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42%E3%80%81java%E4%B8%ADSemaphore%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">42、java中Semaphore是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43%E3%80%81java-%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="toc-text">43、java 中的线程池是如何实现的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%98%AF%E6%80%8E%E4%B9%88%E5%88%9B%E5%BB%BA%E7%9A%84-%E6%98%AF%E4%B8%80%E5%BC%80%E5%A7%8B%E5%B0%B1%E9%9A%8F%E7%9D%80%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%90%AF%E5%8A%A8%E5%88%9B%E5%BB%BA%E5%A5%BD%E7%9A%84%E5%90%97"><span class="toc-text">44、线程池中的线程是怎么创建的?是一开始就随着线程池的启动创建好的吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#45%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%EF%BC%9F-%E5%A6%82%E4%BD%95%E5%8F%91%E7%8E%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E7%AB%9E%E4%BA%89%EF%BC%9F"><span class="toc-text">45、什么是竞争条件？****如何发现和解决竞争？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46%E3%80%81%E5%BE%88%E5%A4%9A%E4%BA%BA%E9%83%BD%E8%AF%B4%E8%A6%81%E6%85%8E%E7%94%A8-ThreadLocal%EF%BC%8C%E8%B0%88%E8%B0%88%E4%BD%A0%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E4%BD%BF%E7%94%A8ThreadLocal-%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="toc-text">46、很多人都说要慎用 ThreadLocal，谈谈你的理解，使用ThreadLocal 需要注意些什么?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JVM"><span class="toc-text">5. JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-JVM%E5%8C%85%E5%90%AB%E5%93%AA%E5%87%A0%E9%83%A8%E5%88%86%EF%BC%9F"><span class="toc-text">5.1 JVM包含哪几部分？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-JVM%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="toc-text">5.2 JVM是如何运行的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-Java%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="toc-text">5.3 Java程序是怎么运行的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="toc-text">5.4 本地方法栈有什么用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%B2%A1%E6%9C%89%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-text">5.5 没有程序计数器会怎么样？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5"><span class="toc-text">5.6 说一说Java的内存分布情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E7%B1%BB%E5%AD%98%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">5.7 类存放在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%AD%98%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">5.8 局部变量存放在哪里？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-text">5.9 介绍一下Java代码的编译过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">5.10 介绍一下类加载的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">5.11 介绍一下对象的实例化过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%AE%80%E8%BF%B0%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="toc-text">补充：简述对象创建方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-12-%E5%85%83%E7%A9%BA%E9%97%B4%E5%9C%A8%E6%A0%88%E5%86%85%E8%BF%98%E6%98%AF%E6%A0%88%E5%A4%96%EF%BC%9F"><span class="toc-text">5.12 元空间在栈内还是栈外？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-13-%E8%B0%88%E8%B0%88JVM%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="toc-text">5.13 谈谈JVM的类加载器，以及双亲委派模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-14-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6%E4%BC%9A%E8%A2%AB%E7%A0%B4%E5%9D%8F%E5%90%97%EF%BC%9F"><span class="toc-text">5.14 双亲委派机制会被破坏吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-15-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">5.15 介绍一下Java的垃圾回收机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-16-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%88%86%E4%BB%A3%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">5.16 请介绍一下分代回收机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-17-JVM%E4%B8%AD%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84GC%E6%B5%81%E7%A8%8B%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-text">5.17 JVM中一次完整的GC流程是怎样的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-18-Full-GC%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">5.18 Full GC会导致什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-19-JVM%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A7%A6%E5%8F%91GC%EF%BC%8C%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91FullGC%E7%9A%84%E6%AC%A1%E6%95%B0%EF%BC%9F"><span class="toc-text">5.19 JVM什么时候触发GC，如何减少FullGC的次数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-20-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%8F%AF%E5%9B%9E%E6%94%B6%E7%9A%84%EF%BC%9F"><span class="toc-text">5.20 如何确定对象是可回收的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-21-%E5%AF%B9%E8%B1%A1%E5%A6%82%E4%BD%95%E6%99%8B%E5%8D%87%E5%88%B0%E8%80%81%E5%B9%B4%E4%BB%A3%EF%BC%9F"><span class="toc-text">5.21 对象如何晋升到老年代？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%80%81%E5%B9%B4%E4%BB%A3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E6%A0%87%E8%AE%B0%E5%A4%8D%E5%88%B6%EF%BC%9F"><span class="toc-text">5.22 为什么老年代不能使用标记复制？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-23-%E6%96%B0%E7%94%9F%E4%BB%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%B8%BAEden%E5%92%8CSurvivor%EF%BC%8C%E5%AE%83%E4%BB%AC%E7%9A%84%E6%AF%94%E4%BE%8B%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-text">5.23 新生代为什么要分为Eden和Survivor，它们的比例是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-24-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AASurvivor%E5%8C%BA%E5%9F%9F%EF%BC%9F"><span class="toc-text">5.24 为什么要设置两个Survivor区域？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-25-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9GC%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%86%E8%A7%A3%E3%80%82"><span class="toc-text">5.25 说一说你对GC算法的了解。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-26-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%B0%E7%94%9F%E4%BB%A3%E5%92%8C%E8%80%81%E5%B9%B4%E4%BB%A3%E8%A6%81%E9%87%87%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="toc-text">5.26 为什么新生代和老年代要采用不同的回收算法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-27-%E8%AF%B7%E4%BB%8B%E7%BB%8DG1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">5.27 请介绍G1垃圾收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-28-%E8%AF%B7%E4%BB%8B%E7%BB%8DCMS%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">5.28 请介绍CMS垃圾收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-29-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%92%8C%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">5.29 内存泄漏和内存溢出有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-30-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">5.30 什么是内存泄漏，怎么解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-31-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">5.31 什么是内存溢出，怎么解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-32-%E5%93%AA%E4%BA%9B%E5%8C%BA%E5%9F%9F%E4%BC%9AOOM%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A6%E5%8F%91OOM%EF%BC%9F"><span class="toc-text">5.32 哪些区域会OOM，怎么触发OOM？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AMinor-GC-%E5%92%8CMajor-GC%E3%80%81Full-GC"><span class="toc-text">补充：Minor GC 和Major GC、Full GC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%A0%86%E9%87%8C%E9%9D%A2%E7%9A%84%E5%88%86%E5%8C%BA-Eden%EF%BC%8Csurvival-from-to-%EF%BC%8C%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-text">补充：堆里面的分区:Eden，survival (from+ to)，老年代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ASafePoint-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">补充：SafePoint 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AGC-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">补充：GC 收集器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B-JVM-%E5%8A%A0%E8%BD%BD-class-%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%9F%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-text">补充：描述一下 JVM 加载 class 文件的原理机制?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="toc-text">补充：对象的内存布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="toc-text">补充：对象的访问定位</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-Java基础"><a href="#1-Java基础" class="headerlink" title="1. Java基础"></a>1. Java基础</h2><h3 id="1-1-为什么Java代码可以实现一次编写、到处运行？"><a href="#1-1-为什么Java代码可以实现一次编写、到处运行？" class="headerlink" title="1.1 为什么Java代码可以实现一次编写、到处运行？"></a>1.1 为什么Java代码可以实现一次编写、到处运行？</h3><p><strong>参考答案</strong></p>
 <p>JVM（Java虚拟机）是Java跨平台的关键。</p>
@@ -3836,200 +4544,481 @@ child is doing anotherThing<span class="token punctuation">,</span>the thread na
 </li>
 </ol>
 
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1205362172@qq.com </span>
     </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag"># 面试题</a>
-          </div>
-
-        
+</article>
 
 
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/15f3/" rel="prev" title="Java语言-教程">
-      <i class="fa fa-chevron-left"></i> Java语言-教程
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/2491/" rel="next" title="Hexo-教程">
-      Hexo-教程 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
+
+
 
 
 
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Java%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">1. Java基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%B8%BA%E4%BB%80%E4%B9%88Java%E4%BB%A3%E7%A0%81%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%BC%96%E5%86%99%E3%80%81%E5%88%B0%E5%A4%84%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 为什么Java代码可以实现一次编写、到处运行？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E4%B8%80%E4%B8%AAJava%E6%96%87%E4%BB%B6%E9%87%8C%E5%8F%AF%E4%BB%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%90%97%EF%BC%88%E4%B8%8D%E5%90%AB%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 一个Java文件里可以有多个类吗（不含内部类）？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 说一说你对Java访问权限的了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 介绍一下Java的数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-int%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 int类型的数据范围是多少？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 请介绍全局变量和局部变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 请介绍一下实例变量的默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-%E4%B8%BA%E5%95%A5%E8%A6%81%E6%9C%89%E5%8C%85%E8%A3%85%E7%B1%BB%EF%BC%9F"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 为啥要有包装类？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-9-%E8%AF%B4%E4%B8%80%E8%AF%B4%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E3%80%81%E8%87%AA%E5%8A%A8%E6%8B%86%E7%AE%B1%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 说一说自动装箱、自动拆箱的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-10-%E5%A6%82%E4%BD%95%E5%AF%B9Integer%E5%92%8CDouble%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9B%B8%E7%AD%89%EF%BC%9F"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 如何对Integer和Double类型判断相等？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-int%E5%92%8CInteger%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%8C%E4%BA%8C%E8%80%85%E5%9C%A8%E5%81%9A-x3D-x3D-%E8%BF%90%E7%AE%97%E6%97%B6%E4%BC%9A%E5%BE%97%E5%88%B0%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%9C%EF%BC%9F"><span class="nav-number">1.11.</span> <span class="nav-text">1.11 int和Integer有什么区别，二者在做&#x3D;&#x3D;运算时会得到什么结果？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-12-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.12.</span> <span class="nav-text">1.12 说一说你对面向对象的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-13-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.13.</span> <span class="nav-text">1.13 面向对象的三大特征是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%BB%A7%E6%89%BF"><span class="nav-number">1.14.</span> <span class="nav-text">补充：继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-14-%E5%B0%81%E8%A3%85%E7%9A%84%E7%9B%AE%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%B0%81%E8%A3%85%EF%BC%9F"><span class="nav-number">1.15.</span> <span class="nav-text">1.14 封装的目的是什么，为什么要有封装？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-15-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%A4%9A%E6%80%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.16.</span> <span class="nav-text">1.15 说一说你对多态的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-16-Java%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">1.17.</span> <span class="nav-text">1.16 Java中的多态是怎么实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-17-Java%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E7%BB%A7%E6%89%BF%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%A4%9A%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="nav-number">1.18.</span> <span class="nav-text">1.17 Java为什么是单继承，为什么不能多继承？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-18-%E8%AF%B4%E4%B8%80%E8%AF%B4%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.19.</span> <span class="nav-text">1.18 说一说重写与重载的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-19-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E8%83%BD%E4%B8%8D%E8%83%BD%E9%87%8D%E5%86%99%EF%BC%9F"><span class="nav-number">1.20.</span> <span class="nav-text">1.19 构造方法能不能重写？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-20-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BObject%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.21.</span> <span class="nav-text">1.20 介绍一下Object类中的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-21-%E8%AF%B4%E4%B8%80%E8%AF%B4hashCode-%E5%92%8Cequals-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.22.</span> <span class="nav-text">1.21 说一说hashCode()和equals()的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%8D%E5%86%99hashCode-%E5%92%8Cequals-%EF%BC%9F"><span class="nav-number">1.23.</span> <span class="nav-text">1.22 为什么要重写hashCode()和equals()？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-23-x3D-x3D-%E5%92%8Cequals-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.24.</span> <span class="nav-text">1.23 &#x3D;&#x3D;和equals()有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-24-String%E7%B1%BB%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-number">1.25.</span> <span class="nav-text">1.24 String类有哪些方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-25-String%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%BB%A7%E6%89%BF%E5%90%97%EF%BC%9F"><span class="nav-number">1.26.</span> <span class="nav-text">1.25 String可以被继承吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-26-%E8%AF%B4%E4%B8%80%E8%AF%B4String%E5%92%8CStringBuffer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">1.27.</span> <span class="nav-text">1.26 说一说String和StringBuffer有什么区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-27-%E8%AF%B4%E4%B8%80%E8%AF%B4StringBuffer%E5%92%8CStringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">1.28.</span> <span class="nav-text">1.27 说一说StringBuffer和StringBuilder有什么区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-28-%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%EF%BC%8Cnew%E5%92%8C%E2%80%9D%E2%80%9D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="nav-number">1.29.</span> <span class="nav-text">1.28 使用字符串时，new和””推荐使用哪种方式？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-29-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.30.</span> <span class="nav-text">1.29 说一说你对字符串拼接的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-30-%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%8A%A0%E7%9A%84%E5%BA%95%E5%B1%82%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">1.31.</span> <span class="nav-text">1.30 两个字符串相加的底层是如何实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-31-String-a-x3D-%E2%80%9Cabc%E2%80%9D-%EF%BC%8C%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E8%BF%87%E7%A8%8B%E4%BC%9A%E5%88%9B%E5%BB%BA%E4%BB%80%E4%B9%88%EF%BC%8C%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="nav-number">1.32.</span> <span class="nav-text">1.31 String a &#x3D; “abc”; ，说一下这个过程会创建什么，放在哪里？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-32-new-String-%E2%80%9Cabc%E2%80%9D-%E6%98%AF%E5%8E%BB%E4%BA%86%E5%93%AA%E9%87%8C%EF%BC%8C%E4%BB%85%E4%BB%85%E6%98%AF%E5%9C%A8%E5%A0%86%E9%87%8C%E9%9D%A2%E5%90%97%EF%BC%9F"><span class="nav-number">1.33.</span> <span class="nav-text">1.32 new String(“abc”) 是去了哪里，仅仅是在堆里面吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-33-%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.34.</span> <span class="nav-text">1.33 接口和抽象类有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-34-%E6%8E%A5%E5%8F%A3%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%9C%89%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%90%97%EF%BC%9F"><span class="nav-number">1.35.</span> <span class="nav-text">1.34 接口中可以有构造函数吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-35-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.36.</span> <span class="nav-text">1.35 谈谈你对面向接口编程的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-36-%E9%81%87%E5%88%B0%E8%BF%87%E5%BC%82%E5%B8%B8%E5%90%97%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="nav-number">1.37.</span> <span class="nav-text">1.36 遇到过异常吗，如何处理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-37-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6"><span class="nav-number">1.38.</span> <span class="nav-text">1.37 说一说Java的异常机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-38-%E8%AF%B7%E4%BB%8B%E7%BB%8DJava%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.39.</span> <span class="nav-text">1.38 请介绍Java的异常接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-39-finally%E6%98%AF%E6%97%A0%E6%9D%A1%E4%BB%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-number">1.40.</span> <span class="nav-text">1.39 finally是无条件执行的吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-40-%E5%9C%A8finally%E4%B8%ADreturn%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.41.</span> <span class="nav-text">1.40 在finally中return会发生什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-41-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9static%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.42.</span> <span class="nav-text">1.41 说一说你对static关键字的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-42-static%E4%BF%AE%E9%A5%B0%E7%9A%84%E7%B1%BB%E8%83%BD%E4%B8%8D%E8%83%BD%E8%A2%AB%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="nav-number">1.43.</span> <span class="nav-text">1.42 static修饰的类能不能被继承？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-43-static%E5%92%8Cfinal%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.44.</span> <span class="nav-text">1.43 static和final有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Afinalize"><span class="nav-number">1.45.</span> <span class="nav-text">补充：finalize</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-44-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E6%B3%9B%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.46.</span> <span class="nav-text">1.44 说一说你对泛型的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-45-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4"><span class="nav-number">1.47.</span> <span class="nav-text">1.45 介绍一下泛型擦除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-46-List-lt-super-T-gt-%E5%92%8CList-lt-extends-T-gt-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.48.</span> <span class="nav-text">1.46 List&lt;? super T&gt;和List&lt;? extends T&gt;有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-47-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.49.</span> <span class="nav-text">1.47 说一说你对Java反射机制的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Ajava%E8%8E%B7%E5%8F%96%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-number">1.50.</span> <span class="nav-text">补充：java获取反射的三种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-48-Java%E5%8F%8D%E5%B0%84%E5%9C%A8%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="nav-number">1.51.</span> <span class="nav-text">1.48 Java反射在实际项目中有哪些应用场景？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-49-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.52.</span> <span class="nav-text">1.49 说一说Java的四种引用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%86%85%E9%83%A8%E7%B1%BB"><span class="nav-number">1.53.</span> <span class="nav-text">补充：内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%95%B0%E7%BB%84%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E5%88%86%E9%85%8D"><span class="nav-number">1.54.</span> <span class="nav-text">补充：数组在内存中的分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2. 集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Java%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%B9%E5%99%A8%EF%BC%88%E9%9B%86%E5%90%88%E7%B1%BB%EF%BC%89%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Java中有哪些容器（集合类）？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Java%E4%B8%AD%E7%9A%84%E5%AE%B9%E5%99%A8%EF%BC%8C%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%92%8C%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%88%86%E5%88%AB%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Java中的容器，线程安全和线程不安全的分别有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Map%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AE%9E%E7%8E%B0%E7%B1%BB%EF%BC%9F"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Map接口有哪些实现类？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8BMap-put%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 描述一下Map put的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E5%A6%82%E4%BD%95%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84Map%EF%BC%9F"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 如何得到一个线程安全的Map？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-HashMap%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 HashMap有什么特点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-JDK7%E5%92%8CJDK8%E4%B8%AD%E7%9A%84HashMap%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 JDK7和JDK8中的HashMap有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHashMap%E5%BA%95%E5%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 介绍一下HashMap底层的实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHashMap%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 介绍一下HashMap的扩容机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-HashMap%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8%E6%98%AF%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%9F"><span class="nav-number">2.10.</span> <span class="nav-text">2.10 HashMap中的循环链表是如何产生的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-HashMap%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E7%BA%A2%E9%BB%91%E6%A0%91%E8%80%8C%E4%B8%8D%E7%94%A8B%E6%A0%91%EF%BC%9F"><span class="nav-number">2.11.</span> <span class="nav-text">2.11 HashMap为什么用红黑树而不用B树？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-HashMap%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-number">2.12.</span> <span class="nav-text">2.12 HashMap为什么线程不安全？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-13-HashMap%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-number">2.13.</span> <span class="nav-text">2.13 HashMap如何实现线程安全？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-14-HashMap%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="nav-number">2.14.</span> <span class="nav-text">2.14 HashMap是如何解决哈希冲突的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-15-%E8%AF%B4%E4%B8%80%E8%AF%B4HashMap%E5%92%8CHashTable%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.15.</span> <span class="nav-text">2.15 说一说HashMap和HashTable的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-16-HashMap%E4%B8%8EConcurrentHashMap%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.16.</span> <span class="nav-text">2.16 HashMap与ConcurrentHashMap有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-17-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BConcurrentHashMap%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">2.17.</span> <span class="nav-text">2.17 介绍一下ConcurrentHashMap是怎么实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-18-ConcurrentHashMap%E6%98%AF%E6%80%8E%E4%B9%88%E5%88%86%E6%AE%B5%E5%88%86%E7%BB%84%E7%9A%84%EF%BC%9F"><span class="nav-number">2.18.</span> <span class="nav-text">2.18 ConcurrentHashMap是怎么分段分组的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-19-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9LinkedHashMap%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">2.19.</span> <span class="nav-text">2.19 说一说你对LinkedHashMap的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-20-%E8%AF%B7%E4%BB%8B%E7%BB%8DLinkedHashMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="nav-number">2.20.</span> <span class="nav-text">2.20 请介绍LinkedHashMap的底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-21-%E8%AF%B7%E4%BB%8B%E7%BB%8DTreeMap%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="nav-number">2.21.</span> <span class="nav-text">2.21 请介绍TreeMap的底层原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-22-Map%E5%92%8CSet%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.22.</span> <span class="nav-text">2.22 Map和Set有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-23-List%E5%92%8CSet%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.23.</span> <span class="nav-text">2.23 List和Set有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-24-ArrayList%E5%92%8CLinkedList%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">2.24.</span> <span class="nav-text">2.24 ArrayList和LinkedList有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AArrayList%E3%80%81Vector%E3%80%81LinkedList-%E7%9A%84%E5%AD%98%E5%82%A8%E6%80%A7%E8%83%BD%E5%92%8C%E7%89%B9%E6%80%A7"><span class="nav-number">2.25.</span> <span class="nav-text">补充：ArrayList、Vector、LinkedList 的存储性能和特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-25-%E6%9C%89%E5%93%AA%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84List%EF%BC%9F"><span class="nav-number">2.26.</span> <span class="nav-text">2.25 有哪些线程安全的List？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-26-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BArrayList%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="nav-number">2.27.</span> <span class="nav-text">2.26 介绍一下ArrayList的数据结构？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-27-%E8%B0%88%E8%B0%88CopyOnWriteArrayList%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">2.28.</span> <span class="nav-text">2.27 谈谈CopyOnWriteArrayList的原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-28-%E8%AF%B4%E4%B8%80%E8%AF%B4TreeSet%E5%92%8CHashSet%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.29.</span> <span class="nav-text">2.28 说一说TreeSet和HashSet的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-29-%E8%AF%B4%E4%B8%80%E8%AF%B4HashSet%E7%9A%84%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84"><span class="nav-number">2.30.</span> <span class="nav-text">2.29 说一说HashSet的底层结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AHashSet%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84"><span class="nav-number">2.31.</span> <span class="nav-text">补充：HashSet是如何保证不重复的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-30-BlockingQueue%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E8%AE%BE%E8%AE%A1%EF%BC%9F"><span class="nav-number">2.32.</span> <span class="nav-text">2.30 BlockingQueue中有哪些方法，为什么这样设计？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-31-BlockingQueue%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">2.33.</span> <span class="nav-text">2.31 BlockingQueue是怎么实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-32-Stream%EF%BC%88%E4%B8%8D%E6%98%AFIOStream%EF%BC%89%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-number">2.34.</span> <span class="nav-text">2.32 Stream（不是IOStream）有哪些方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AArrays-sort-%E5%92%8C-Collections-sort"><span class="nav-number">2.35.</span> <span class="nav-text">补充：Arrays.sort 和 Collections.sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ACloneable%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">2.36.</span> <span class="nav-text">补充：Cloneable接口实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-IO"><span class="nav-number">3.</span> <span class="nav-text">3. IO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E4%B8%AD%E7%9A%84IO%E6%B5%81"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 介绍一下Java中的IO流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%80%8E%E4%B9%88%E7%94%A8%E6%B5%81%E6%89%93%E5%BC%80%E4%B8%80%E4%B8%AA%E5%A4%A7%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 怎么用流打开一个大文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%AF%B4%E8%AF%B4NIO%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 说说NIO的实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 介绍一下Java的序列化与反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-Serializable%E6%8E%A5%E5%8F%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9A%E4%B9%89serialVersionUID%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 Serializable接口为什么需要定义serialVersionUID变量？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-%E9%99%A4%E4%BA%86Java%E8%87%AA%E5%B8%A6%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E4%B9%8B%E5%A4%96%EF%BC%8C%E4%BD%A0%E8%BF%98%E4%BA%86%E8%A7%A3%E5%93%AA%E4%BA%9B%E5%BA%8F%E5%88%97%E5%8C%96%E5%B7%A5%E5%85%B7%EF%BC%9F"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 除了Java自带的序列化之外，你还了解哪些序列化工具？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-%E5%A6%82%E6%9E%9C%E4%B8%8D%E7%94%A8JSON%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%AF%A5%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AF%B9%E5%AE%9E%E4%BD%93%E7%B1%BB%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%9F"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 如果不用JSON工具，该如何实现对实体类的序列化？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">4. 多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 创建线程有哪几种方式？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E8%AF%B4%E8%AF%B4Thread%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 说说Thread类的常用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-run-%E5%92%8Cstart-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 run()和start()有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%A4%8D%E5%90%AF%E5%8A%A8%EF%BC%8C%E4%BC%9A%E6%9C%89%E4%BB%80%E4%B9%88%E5%90%8E%E6%9E%9C%EF%BC%9F"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 线程是否可以重复启动，会有什么后果？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 介绍一下线程的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 如何实现线程同步？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 说一说Java多线程之间的通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%B8%AD%E7%9A%84wait%E5%92%8Cnotify"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 说一说Java同步机制中的wait和notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-%E8%AF%B4%E4%B8%80%E8%AF%B4sleep-%E5%92%8Cwait-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.9.</span> <span class="nav-text">4.9 说一说sleep()和wait()的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-10-%E8%AF%B4%E4%B8%80%E8%AF%B4notify-%E3%80%81notifyAll-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.10.</span> <span class="nav-text">4.10 说一说notify()、notifyAll()的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-11-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AD%90%E7%BA%BF%E7%A8%8B%E5%85%88%E6%89%A7%E8%A1%8C%EF%BC%8C%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%86%8D%E6%89%A7%E8%A1%8C%EF%BC%9F"><span class="nav-number">4.11.</span> <span class="nav-text">4.11 如何实现子线程先执行，主线程再执行？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-%E9%98%BB%E5%A1%9E%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">4.12.</span> <span class="nav-text">4.12 阻塞线程的方式有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-13-%E8%AF%B4%E4%B8%80%E8%AF%B4synchronized%E4%B8%8ELock%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.13.</span> <span class="nav-text">4.13 说一说synchronized与Lock的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-14-%E8%AF%B4%E4%B8%80%E8%AF%B4synchronized%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">4.14.</span> <span class="nav-text">4.14 说一说synchronized的底层实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-15-synchronized%E5%8F%AF%E4%BB%A5%E4%BF%AE%E9%A5%B0%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E5%90%97%EF%BC%9F"><span class="nav-number">4.15.</span> <span class="nav-text">4.15 synchronized可以修饰静态方法和静态代码块吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-16-%E8%B0%88%E8%B0%88ReentrantLock%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">4.16.</span> <span class="nav-text">4.16 谈谈ReentrantLock的实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-17-%E5%A6%82%E6%9E%9C%E4%B8%8D%E4%BD%BF%E7%94%A8synchronized%E5%92%8CLock%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="nav-number">4.17.</span> <span class="nav-text">4.17 如果不使用synchronized和Lock，如何保证线程安全？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-18-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E4%B8%AD%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.18.</span> <span class="nav-text">4.18 说一说Java中乐观锁和悲观锁的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-19-%E5%85%AC%E5%B9%B3%E9%94%81%E4%B8%8E%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">4.19.</span> <span class="nav-text">4.19 公平锁与非公平锁是怎么实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-20-%E4%BA%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84%E9%94%81%E5%8D%87%E7%BA%A7%E5%90%97%EF%BC%9F"><span class="nav-number">4.20.</span> <span class="nav-text">4.20 了解Java中的锁升级吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-21-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BA%92%E6%96%A5%E9%94%81%EF%BC%88mutex%EF%BC%89%EF%BC%9F"><span class="nav-number">4.21.</span> <span class="nav-text">4.21 如何实现互斥锁（mutex）？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-22-%E5%88%86%E6%AE%B5%E9%94%81%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">4.22.</span> <span class="nav-text">4.22 分段锁是怎么实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-23-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9%E8%AF%BB%E5%86%99%E9%94%81%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">4.23.</span> <span class="nav-text">4.23 说说你对读写锁的了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-24-volatile%E5%85%B3%E9%94%AE%E5%AD%97%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="nav-number">4.24.</span> <span class="nav-text">4.24 volatile关键字有什么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-25-%E8%B0%88%E8%B0%88volatile%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">4.25.</span> <span class="nav-text">4.25 谈谈volatile的实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-26-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9JUC%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">4.26.</span> <span class="nav-text">4.26 说说你对JUC的了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-27-%E8%AF%B4%E8%AF%B4%E4%BD%A0%E5%AF%B9AQS%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">4.27.</span> <span class="nav-text">4.27 说说你对AQS的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-28-LongAdder%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E5%AE%83%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-number">4.28.</span> <span class="nav-text">4.28 LongAdder解决了什么问题，它是如何实现的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-29-%E4%BB%8B%E7%BB%8D%E4%B8%8BThreadLocal%E5%92%8C%E5%AE%83%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.29.</span> <span class="nav-text">4.29 介绍下ThreadLocal和它的应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-30-%E8%AF%B7%E4%BB%8B%E7%BB%8DThreadLocal%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%EF%BC%8C%E5%AE%83%E6%98%AF%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86hash%E5%86%B2%E7%AA%81%E7%9A%84%EF%BC%9F"><span class="nav-number">4.30.</span> <span class="nav-text">4.30 请介绍ThreadLocal的实现原理，它是怎么处理hash冲突的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-31-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">4.31.</span> <span class="nav-text">4.31 介绍一下线程池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-32-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">4.32.</span> <span class="nav-text">4.32 介绍一下线程池的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-33-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-number">4.33.</span> <span class="nav-text">4.33 线程池都有哪些状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-34-%E8%B0%88%E8%B0%88%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="nav-number">4.34.</span> <span class="nav-text">4.34 谈谈线程池的拒绝策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-35-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E9%98%9F%E5%88%97%E5%A4%A7%E5%B0%8F%E4%BD%A0%E9%80%9A%E5%B8%B8%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%EF%BC%9F"><span class="nav-number">4.35.</span> <span class="nav-text">4.35 线程池的队列大小你通常怎么设置？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-36-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8F%82%E6%95%B0%EF%BC%8C%E5%90%84%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.36.</span> <span class="nav-text">4.36 线程池有哪些参数，各个参数的作用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-number">4.37.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.38.</span> <span class="nav-text">线程和进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">4.39.</span> <span class="nav-text">实现多线程的方式有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">4.40.</span> <span class="nav-text">并发的三大特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8Runnable%E8%BF%98%E6%98%AFThread%EF%BC%9F"><span class="nav-number">4.41.</span> <span class="nav-text">用Runnable还是Thread？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread-%E7%B1%BB%E4%B8%AD%E7%9A%84start-%E5%92%8C-run"><span class="nav-number">4.42.</span> <span class="nav-text">Thread 类中的start() 和 run()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sleep-%E5%92%8C-wait"><span class="nav-number">4.43.</span> <span class="nav-text">sleep() 和 wait()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E3%80%81%E5%B9%B6%E8%A1%8C%E3%80%81%E4%B8%B2%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.44.</span> <span class="nav-text">并发、并行、串行的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E8%AF%B4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E7%8A%B6%E6%80%81"><span class="nav-number">4.45.</span> <span class="nav-text">说说线程的生命周期和状态?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="nav-number">4.46.</span> <span class="nav-text">什么是线程死锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E7%9A%844%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">4.47.</span> <span class="nav-text">死锁的4个必要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="nav-number">4.48.</span> <span class="nav-text">如何避免线程死锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81%EF%BC%8C%E6%B4%BB%E9%94%81%EF%BC%9F"><span class="nav-number">4.49.</span> <span class="nav-text">什么是死锁，活锁？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%ADCyclicBarrier-%E5%92%8C-CountDownLatch%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-number">4.50.</span> <span class="nav-text">java中CyclicBarrier 和 CountDownLatch有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E4%B8%8E%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.51.</span> <span class="nav-text">java中的同步集合与并发集合有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%A0%E5%A6%82%E4%BD%95%E5%9C%A8java%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%BA%BF%E7%A8%8B%E5%A0%86%E6%A0%88%EF%BC%9F"><span class="nav-number">4.52.</span> <span class="nav-text">你如何在java中获取线程堆栈？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ava%E4%B8%ADConcurrentHashMap%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BA%A6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.53.</span> <span class="nav-text">ava中ConcurrentHashMap的并发度是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%AD%E7%9A%84%E5%90%8C%E6%AD%A5%E9%9B%86%E5%90%88%E4%B8%8E%E5%B9%B6%E5%8F%91%E9%9B%86%E5%90%88%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F-1"><span class="nav-number">4.54.</span> <span class="nav-text">java中的同步集合与并发集合有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">4.55.</span> <span class="nav-text">对守护线程的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thread%E7%B1%BB%E4%B8%AD%E7%9A%84yield%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="nav-number">4.56.</span> <span class="nav-text">Thread类中的yield方法有什么作用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">4.57.</span> <span class="nav-text">对线程安全的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFThreadLocal%E5%8F%98%E9%87%8F%EF%BC%9F"><span class="nav-number">4.58.</span> <span class="nav-text">什么是ThreadLocal变量？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal%E5%8E%9F%E7%90%86%E5%92%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">4.59.</span> <span class="nav-text">ThreadLocal原理和使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.60.</span> <span class="nav-text">java内存模型是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%AD%E7%9A%84volatile-%E5%8F%98%E9%87%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.61.</span> <span class="nav-text">java中的volatile 变量是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile-%E5%8F%98%E9%87%8F%E5%92%8C-atomic-%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-number">4.62.</span> <span class="nav-text">volatile 变量和 atomic 变量有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%ADRunnable%E5%92%8CCallable%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-number">4.63.</span> <span class="nav-text">java中Runnable和Callable有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%E9%87%8A%E6%94%BE%E9%94%81%EF%BC%8C%E5%93%AA%E4%BA%9B%E4%B8%8D%E9%87%8A%E6%94%BE%E9%94%81%EF%BC%9F"><span class="nav-number">4.64.</span> <span class="nav-text">哪些操作释放锁，哪些不释放锁？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BB%88%E6%AD%A2%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="nav-number">4.65.</span> <span class="nav-text">如何正确的终止线程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interrupt-interrupted-isInterrupted-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.66.</span> <span class="nav-text">interrupt(), interrupted(), isInterrupted()的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized%E7%9A%84%E9%94%81%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">4.67.</span> <span class="nav-text">synchronized的锁对象是哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile%E5%92%8Csynchronized%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.68.</span> <span class="nav-text">volatile和synchronized的区别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.69.</span> <span class="nav-text">什么是缓存一致性协议?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Synchronized%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81Lock%EF%BC%8C%E5%B9%B6%E8%A7%A3%E9%87%8A%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">4.70.</span> <span class="nav-text">Synchronized关键字、Lock，并解释它们之间的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volatile%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%86%85%E5%AD%98%E5%8F%AF%E8%A7%81%E6%80%A7%EF%BC%9F"><span class="nav-number">4.71.</span> <span class="nav-text">Volatile如何保证内存可见性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E4%B8%AD%E4%BB%80%E4%B9%88%E6%98%AF%E7%AB%9E%E6%80%81%E6%9D%A1%E4%BB%B6%EF%BC%9F"><span class="nav-number">4.72.</span> <span class="nav-text">java中什么是竞态条件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88wait-notify-%E5%92%8C-notifyAll%E8%BF%99%E4%BA%9B%E6%96%B9%E6%B3%95%E4%B8%8D%E5%9C%A8thread%E7%B1%BB%E9%87%8C%E9%9D%A2%EF%BC%9F"><span class="nav-number">4.73.</span> <span class="nav-text">为什么wait, notify 和 notifyAll这些方法不在thread类里面？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#32%E3%80%81java%E4%B8%ADsynchronized-%E5%92%8C-ReentrantLock-%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="nav-number">4.74.</span> <span class="nav-text">32、java中synchronized 和 ReentrantLock 有什么不同？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#33%E3%80%81Synchronized-%E7%94%A8%E8%BF%87%E5%90%97%EF%BC%8C%E5%85%B6%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">4.75.</span> <span class="nav-text">33、Synchronized 用过吗，其原理是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#34%E3%80%81%E4%B8%8A%E9%9D%A2%E6%8F%90%E5%88%B0%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%81%EF%BC%8C%E8%BF%99%E4%B8%AA%E2%80%9C%E9%94%81%E2%80%9D%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%94%81"><span class="nav-number">4.76.</span> <span class="nav-text">34、上面提到获取对象的锁，这个“锁”到底是什么?如何确定对象的锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E6%80%A7%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">4.77.</span> <span class="nav-text">35、什么是可重入性，为什么说 Synchronized 是可重入锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#36%E3%80%81JVM-%E5%AF%B9-java-%E7%9A%84%E5%8E%9F%E7%94%9F%E9%94%81%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8C%96"><span class="nav-number">4.78.</span> <span class="nav-text">36、JVM 对 java 的原生锁做了哪些优化?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#37%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81"><span class="nav-number">4.79.</span> <span class="nav-text">37、为什么说 Synchronized 是非公平锁?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#38%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4-Synchronized-%E6%98%AF%E4%B8%80%E4%B8%AA%E6%82%B2%E8%A7%82%E9%94%81-%E4%B9%90%E8%A7%82%E9%94%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86-%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88-%E4%BB%80%E4%B9%88%E6%98%AF-CAS%EF%BC%8C%E5%AE%83%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E6%80%A7"><span class="nav-number">4.80.</span> <span class="nav-text">38、为什么说 Synchronized 是一个悲观锁?乐观锁的实现原理 又是什么?什么是 CAS，它有什么特性?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#39%E3%80%81%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%80%E5%AE%9A%E5%B0%B1%E6%98%AF%E5%A5%BD%E7%9A%84%E5%90%97"><span class="nav-number">4.81.</span> <span class="nav-text">39、乐观锁一定就是好的吗?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#40%E3%80%81%E8%B0%88%E4%B8%80%E8%B0%88AQS%E6%A1%86%E6%9E%B6%E3%80%82"><span class="nav-number">4.82.</span> <span class="nav-text">40、谈一谈AQS框架。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#41%E3%80%81ReentrantLock-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E9%87%8D%E5%85%A5%E6%80%A7%E7%9A%84"><span class="nav-number">4.83.</span> <span class="nav-text">41、ReentrantLock 是如何实现可重入性的?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#42%E3%80%81java%E4%B8%ADSemaphore%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">4.84.</span> <span class="nav-text">42、java中Semaphore是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#43%E3%80%81java-%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="nav-number">4.85.</span> <span class="nav-text">43、java 中的线程池是如何实现的?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#44%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%98%AF%E6%80%8E%E4%B9%88%E5%88%9B%E5%BB%BA%E7%9A%84-%E6%98%AF%E4%B8%80%E5%BC%80%E5%A7%8B%E5%B0%B1%E9%9A%8F%E7%9D%80%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%90%AF%E5%8A%A8%E5%88%9B%E5%BB%BA%E5%A5%BD%E7%9A%84%E5%90%97"><span class="nav-number">4.86.</span> <span class="nav-text">44、线程池中的线程是怎么创建的?是一开始就随着线程池的启动创建好的吗?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#45%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%EF%BC%9F-%E5%A6%82%E4%BD%95%E5%8F%91%E7%8E%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E7%AB%9E%E4%BA%89%EF%BC%9F"><span class="nav-number">4.87.</span> <span class="nav-text">45、什么是竞争条件？****如何发现和解决竞争？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#46%E3%80%81%E5%BE%88%E5%A4%9A%E4%BA%BA%E9%83%BD%E8%AF%B4%E8%A6%81%E6%85%8E%E7%94%A8-ThreadLocal%EF%BC%8C%E8%B0%88%E8%B0%88%E4%BD%A0%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E4%BD%BF%E7%94%A8ThreadLocal-%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="nav-number">4.88.</span> <span class="nav-text">46、很多人都说要慎用 ThreadLocal，谈谈你的理解，使用ThreadLocal 需要注意些什么?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-JVM"><span class="nav-number">5.</span> <span class="nav-text">5. JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-JVM%E5%8C%85%E5%90%AB%E5%93%AA%E5%87%A0%E9%83%A8%E5%88%86%EF%BC%9F"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 JVM包含哪几部分？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-JVM%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 JVM是如何运行的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-Java%E7%A8%8B%E5%BA%8F%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%9F"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 Java程序是怎么运行的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 本地方法栈有什么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-%E6%B2%A1%E6%9C%89%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 没有程序计数器会怎么样？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-%E8%AF%B4%E4%B8%80%E8%AF%B4Java%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 说一说Java的内存分布情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-%E7%B1%BB%E5%AD%98%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="nav-number">5.7.</span> <span class="nav-text">5.7 类存放在哪里？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%AD%98%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="nav-number">5.8.</span> <span class="nav-text">5.8 局部变量存放在哪里？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E4%BB%A3%E7%A0%81%E7%9A%84%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">5.9.</span> <span class="nav-text">5.9 介绍一下Java代码的编译过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-10-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E7%B1%BB%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">5.10.</span> <span class="nav-text">5.10 介绍一下类加载的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-11-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="nav-number">5.11.</span> <span class="nav-text">5.11 介绍一下对象的实例化过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E7%AE%80%E8%BF%B0%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="nav-number">5.12.</span> <span class="nav-text">补充：简述对象创建方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-12-%E5%85%83%E7%A9%BA%E9%97%B4%E5%9C%A8%E6%A0%88%E5%86%85%E8%BF%98%E6%98%AF%E6%A0%88%E5%A4%96%EF%BC%9F"><span class="nav-number">5.13.</span> <span class="nav-text">5.12 元空间在栈内还是栈外？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-13-%E8%B0%88%E8%B0%88JVM%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.14.</span> <span class="nav-text">5.13 谈谈JVM的类加载器，以及双亲委派模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-14-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6%E4%BC%9A%E8%A2%AB%E7%A0%B4%E5%9D%8F%E5%90%97%EF%BC%9F"><span class="nav-number">5.15.</span> <span class="nav-text">5.14 双亲委派机制会被破坏吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-15-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BJava%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">5.16.</span> <span class="nav-text">5.15 介绍一下Java的垃圾回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-16-%E8%AF%B7%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%88%86%E4%BB%A3%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="nav-number">5.17.</span> <span class="nav-text">5.16 请介绍一下分代回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-17-JVM%E4%B8%AD%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%95%B4%E7%9A%84GC%E6%B5%81%E7%A8%8B%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="nav-number">5.18.</span> <span class="nav-text">5.17 JVM中一次完整的GC流程是怎样的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-18-Full-GC%E4%BC%9A%E5%AF%BC%E8%87%B4%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">5.19.</span> <span class="nav-text">5.18 Full GC会导致什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-19-JVM%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A7%A6%E5%8F%91GC%EF%BC%8C%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91FullGC%E7%9A%84%E6%AC%A1%E6%95%B0%EF%BC%9F"><span class="nav-number">5.20.</span> <span class="nav-text">5.19 JVM什么时候触发GC，如何减少FullGC的次数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-20-%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%8F%AF%E5%9B%9E%E6%94%B6%E7%9A%84%EF%BC%9F"><span class="nav-number">5.21.</span> <span class="nav-text">5.20 如何确定对象是可回收的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-21-%E5%AF%B9%E8%B1%A1%E5%A6%82%E4%BD%95%E6%99%8B%E5%8D%87%E5%88%B0%E8%80%81%E5%B9%B4%E4%BB%A3%EF%BC%9F"><span class="nav-number">5.22.</span> <span class="nav-text">5.21 对象如何晋升到老年代？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-22-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%80%81%E5%B9%B4%E4%BB%A3%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E6%A0%87%E8%AE%B0%E5%A4%8D%E5%88%B6%EF%BC%9F"><span class="nav-number">5.23.</span> <span class="nav-text">5.22 为什么老年代不能使用标记复制？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-23-%E6%96%B0%E7%94%9F%E4%BB%A3%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%88%86%E4%B8%BAEden%E5%92%8CSurvivor%EF%BC%8C%E5%AE%83%E4%BB%AC%E7%9A%84%E6%AF%94%E4%BE%8B%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="nav-number">5.24.</span> <span class="nav-text">5.23 新生代为什么要分为Eden和Survivor，它们的比例是多少？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-24-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E7%BD%AE%E4%B8%A4%E4%B8%AASurvivor%E5%8C%BA%E5%9F%9F%EF%BC%9F"><span class="nav-number">5.25.</span> <span class="nav-text">5.24 为什么要设置两个Survivor区域？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-25-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9GC%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%86%E8%A7%A3%E3%80%82"><span class="nav-number">5.26.</span> <span class="nav-text">5.25 说一说你对GC算法的了解。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-26-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%B0%E7%94%9F%E4%BB%A3%E5%92%8C%E8%80%81%E5%B9%B4%E4%BB%A3%E8%A6%81%E9%87%87%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%EF%BC%9F"><span class="nav-number">5.27.</span> <span class="nav-text">5.26 为什么新生代和老年代要采用不同的回收算法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-27-%E8%AF%B7%E4%BB%8B%E7%BB%8DG1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">5.28.</span> <span class="nav-text">5.27 请介绍G1垃圾收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-28-%E8%AF%B7%E4%BB%8B%E7%BB%8DCMS%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">5.29.</span> <span class="nav-text">5.28 请介绍CMS垃圾收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-29-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%92%8C%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">5.30.</span> <span class="nav-text">5.29 内存泄漏和内存溢出有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-30-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-number">5.31.</span> <span class="nav-text">5.30 什么是内存泄漏，怎么解决？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-31-%E4%BB%80%E4%B9%88%E6%98%AF%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="nav-number">5.32.</span> <span class="nav-text">5.31 什么是内存溢出，怎么解决？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-32-%E5%93%AA%E4%BA%9B%E5%8C%BA%E5%9F%9F%E4%BC%9AOOM%EF%BC%8C%E6%80%8E%E4%B9%88%E8%A7%A6%E5%8F%91OOM%EF%BC%9F"><span class="nav-number">5.33.</span> <span class="nav-text">5.32 哪些区域会OOM，怎么触发OOM？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AMinor-GC-%E5%92%8CMajor-GC%E3%80%81Full-GC"><span class="nav-number">5.34.</span> <span class="nav-text">补充：Minor GC 和Major GC、Full GC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%A0%86%E9%87%8C%E9%9D%A2%E7%9A%84%E5%88%86%E5%8C%BA-Eden%EF%BC%8Csurvival-from-to-%EF%BC%8C%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="nav-number">5.35.</span> <span class="nav-text">补充：堆里面的分区:Eden，survival (from+ to)，老年代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9ASafePoint-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">5.36.</span> <span class="nav-text">补充：SafePoint 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AGC-%E6%94%B6%E9%9B%86%E5%99%A8"><span class="nav-number">5.37.</span> <span class="nav-text">补充：GC 收集器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B-JVM-%E5%8A%A0%E8%BD%BD-class-%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%9F%E7%90%86%E6%9C%BA%E5%88%B6"><span class="nav-number">5.38.</span> <span class="nav-text">补充：描述一下 JVM 加载 class 文件的原理机制?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">5.39.</span> <span class="nav-text">补充：对象的内存布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">5.40.</span> <span class="nav-text">补充：对象的访问定位</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">zhangxin</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">45</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-        <span class="site-state-item-count">25</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
+    
 
 
 
-      </div>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2021-2022 zhangxin
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">zhangxin</span>
+    </div>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div id="musicMouseDrag" style="position:fixed; z-index: 9999; bottom: 0; right: 0;">
+<div id="musicDragArea" style="position: absolute; top: 0; left: 0; width: 100%;height: 10px;cursor: move; z-index: 10;"></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1478101516&auto=1&height=66"></iframe>
+</div>
+// <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1386259535&auto=1&height=66"></iframe>
+
 </html>
