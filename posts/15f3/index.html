@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://s2.loli.net/2022/07/18/P4MKTotLfHehNyz.png">
 <meta property="og:image" content="https://s2.loli.net/2022/07/18/T7cMt6dj4RAiZ5W.png">
 <meta property="article:published_time" content="2022-02-27T01:08:17.000Z">
-<meta property="article:modified_time" content="2022-08-05T03:04:22.666Z">
+<meta property="article:modified_time" content="2022-08-06T00:56:17.193Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -214,7 +214,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-05 11:04:22" itemprop="dateModified" datetime="2022-08-05T11:04:22+08:00">2022-08-05</time>
+                <time title="修改时间：2022-08-06 08:56:17" itemprop="dateModified" datetime="2022-08-06T08:56:17+08:00">2022-08-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -462,246 +462,246 @@ vim idea.vmoptions
 </ol>
 <p><strong>builder 比 JavaBeans 更安全。</strong></p>
 <p><strong>Buillder模式模拟了具名的可选参数</strong></p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Builder Pattern
-public class NutritionFacts &#123;
-    private final int servingSize;
-    private final int servings;
-    private final int calories;
-    private final int fat;
-    private final int sodium;
-    private final int carbohydrate;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Builder Pattern</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NutritionFacts</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> servingSize<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> servings<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> calories<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> fat<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> sodium<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> carbohydrate<span class="token punctuation">;</span>
     
-    private NutritionFacts(Builder builder) &#123;
-        servingSize &#x3D; builder.servingSize;
-        servings &#x3D; builder.servings;
-        calories &#x3D; builder.calories;
-        fat &#x3D; builder.fat;
-        sodium &#x3D; builder.sodium;
-        carbohydrate &#x3D; builder.carbohydrate;
-    &#125;
+    <span class="token keyword">private</span> <span class="token class-name">NutritionFacts</span><span class="token punctuation">(</span><span class="token class-name">Builder</span> builder<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        servingSize <span class="token operator">=</span> builder<span class="token punctuation">.</span>servingSize<span class="token punctuation">;</span>
+        servings <span class="token operator">=</span> builder<span class="token punctuation">.</span>servings<span class="token punctuation">;</span>
+        calories <span class="token operator">=</span> builder<span class="token punctuation">.</span>calories<span class="token punctuation">;</span>
+        fat <span class="token operator">=</span> builder<span class="token punctuation">.</span>fat<span class="token punctuation">;</span>
+        sodium <span class="token operator">=</span> builder<span class="token punctuation">.</span>sodium<span class="token punctuation">;</span>
+        carbohydrate <span class="token operator">=</span> builder<span class="token punctuation">.</span>carbohydrate<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
     
-    public static class Builder &#123;
-        &#x2F;&#x2F; Required parameters
-        private final int servingSize;
-        private final int servings;
-        &#x2F;&#x2F; Optional parameters - initialized to default values
-        private int calories &#x3D; 0;
-        private int fat &#x3D; 0;
-        private int sodium &#x3D; 0;
-        private int carbohydrate &#x3D; 0;
-        public Builder(int servingSize, int servings) &#123;
-            this.servingSize &#x3D; servingSize;
-            this.servings &#x3D; servings;
-        &#125;
-        public Builder calories(int val) &#123;
-            calories &#x3D; val;
-            return this;
-        &#125;
-        public Builder fat(int val) &#123;
-            fat &#x3D; val;
-            return this;
-        &#125;
-        public Builder sodium(int val) &#123;
-            sodium &#x3D; val;
-            return this;
-        &#125;
-        public Builder carbohydrate(int val) &#123;
-            carbohydrate &#x3D; val;
-            return this;
-        &#125;
-        public NutritionFacts build() &#123;
-            return new NutritionFacts(this);
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Builder</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// Required parameters</span>
+        <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> servingSize<span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> servings<span class="token punctuation">;</span>
+        <span class="token comment">// Optional parameters - initialized to default values</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> calories <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> fat <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> sodium <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">private</span> <span class="token keyword">int</span> carbohydrate <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span><span class="token punctuation">(</span><span class="token keyword">int</span> servingSize<span class="token punctuation">,</span> <span class="token keyword">int</span> servings<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>servingSize <span class="token operator">=</span> servingSize<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>servings <span class="token operator">=</span> servings<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span> <span class="token function">calories</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            calories <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span> <span class="token function">fat</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            fat <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span> <span class="token function">sodium</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            sodium <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span> <span class="token function">carbohydrate</span><span class="token punctuation">(</span><span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            carbohydrate <span class="token operator">=</span> val<span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">public</span> <span class="token class-name">NutritionFacts</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">NutritionFacts</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">NutritionFacts cocaCola &#x3D; new NutritionFacts.Builder(240, 8)
-    .calories(100).sodium(35).carbohydrate(27).build();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">NutritionFacts</span> cocaCola <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NutritionFacts<span class="token punctuation">.</span>Builder</span><span class="token punctuation">(</span><span class="token number">240</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">calories</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sodium</span><span class="token punctuation">(</span><span class="token number">35</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">carbohydrate</span><span class="token punctuation">(</span><span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>Builder 模式也适用于类层次结构。</strong></p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Builder pattern for class hierarchies
-import java.util.EnumSet;
-import java.util.Objects;
-import java.util.Set;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Builder pattern for class hierarchies</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">EnumSet</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Objects</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Set</span></span><span class="token punctuation">;</span>
 
-public abstract class Pizza &#123;
-    public enum Topping &#123;HAM, MUSHROOM, ONION, PEPPER, SAUSAGE&#125;
-    final Set&lt;Topping&gt; toppings;
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Pizza</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Topping</span> <span class="token punctuation">&#123;</span>HAM<span class="token punctuation">,</span> MUSHROOM<span class="token punctuation">,</span> ONION<span class="token punctuation">,</span> PEPPER<span class="token punctuation">,</span> SAUSAGE<span class="token punctuation">&#125;</span>
+    <span class="token keyword">final</span> <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Topping</span><span class="token punctuation">></span></span> toppings<span class="token punctuation">;</span>
     
-    abstract static class Builder&lt;T extends Builder&lt;T&gt;&gt; &#123;
-        EnumSet&lt;Topping&gt; toppings &#x3D; EnumSet.noneOf(Topping.class);
-        public T addTopping(Topping topping) &#123;
-            toppings.add(Objects.requireNonNull(topping));
-            return self();
-        &#125;
-        abstract Pizza build();
-        &#x2F;&#x2F; Subclasses must override this method to return &quot;this&quot;
-        protected abstract T self();
-    &#125;
+    <span class="token keyword">abstract</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Builder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span> <span class="token keyword">extends</span> <span class="token class-name">Builder</span><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">EnumSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Topping</span><span class="token punctuation">></span></span> toppings <span class="token operator">=</span> <span class="token class-name">EnumSet</span><span class="token punctuation">.</span><span class="token function">noneOf</span><span class="token punctuation">(</span><span class="token class-name">Topping</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">T</span> <span class="token function">addTopping</span><span class="token punctuation">(</span><span class="token class-name">Topping</span> topping<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            toppings<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>topping<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token function">self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">abstract</span> <span class="token class-name">Pizza</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Subclasses must override this method to return "this"</span>
+        <span class="token keyword">protected</span> <span class="token keyword">abstract</span> <span class="token class-name">T</span> <span class="token function">self</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
     
-    Pizza(Builder&lt;?&gt; builder) &#123;
-        toppings &#x3D; builder.toppings.clone(); &#x2F;&#x2F; See Item 50
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token class-name">Pizza</span><span class="token punctuation">(</span><span class="token class-name">Builder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">></span></span> builder<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        toppings <span class="token operator">=</span> builder<span class="token punctuation">.</span>toppings<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// See Item 50</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">import java.util.Objects;
-public class NyPizza extends Pizza &#123;
-    public enum Size &#123; SMALL, MEDIUM, LARGE &#125;
-    private final Size size;
-    public static class Builder extends Pizza.Builder&lt;Builder&gt; &#123;
-        private final Size size;
-        public Builder(Size size) &#123;
-            this.size &#x3D; Objects.requireNonNull(size);
-        &#125;
-        @Override public NyPizza build() &#123;
-            return new NyPizza(this);
-        &#125;
-        @Override protected Builder self() &#123;
-            return this;
-        &#125;
-    &#125;
-    private NyPizza(Builder builder) &#123;
-        super(builder);
-        size &#x3D; builder.size;
-    &#125;
-&#125;
-public class Calzone extends Pizza &#123;
-    private final boolean sauceInside;
-    public static class Builder extends Pizza.Builder&lt;Builder&gt; &#123;
-        private boolean sauceInside &#x3D; false; &#x2F;&#x2F; Default
-        public Builder sauceInside() &#123;
-            sauceInside &#x3D; true;
-            return this;
-        &#125;
-        @Override public Calzone build() &#123;
-            return new Calzone(this);
-        &#125;
-        @Override protected Builder self() &#123;
-            return this;
-        &#125;
-    &#125;
-    private Calzone(Builder builder) &#123;
-        super(builder);
-        sauceInside &#x3D; builder.sauceInside;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Objects</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NyPizza</span> <span class="token keyword">extends</span> <span class="token class-name">Pizza</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Size</span> <span class="token punctuation">&#123;</span> SMALL<span class="token punctuation">,</span> MEDIUM<span class="token punctuation">,</span> LARGE <span class="token punctuation">&#125;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Size</span> size<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Builder</span> <span class="token keyword">extends</span> <span class="token class-name">Pizza<span class="token punctuation">.</span>Builder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Builder</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Size</span> size<span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span><span class="token punctuation">(</span><span class="token class-name">Size</span> size<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">NyPizza</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">NyPizza</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token annotation punctuation">@Override</span> <span class="token keyword">protected</span> <span class="token class-name">Builder</span> <span class="token function">self</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">private</span> <span class="token class-name">NyPizza</span><span class="token punctuation">(</span><span class="token class-name">Builder</span> builder<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>builder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        size <span class="token operator">=</span> builder<span class="token punctuation">.</span>size<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Calzone</span> <span class="token keyword">extends</span> <span class="token class-name">Pizza</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">boolean</span> sauceInside<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Builder</span> <span class="token keyword">extends</span> <span class="token class-name">Pizza<span class="token punctuation">.</span>Builder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Builder</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token keyword">boolean</span> sauceInside <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// Default</span>
+        <span class="token keyword">public</span> <span class="token class-name">Builder</span> <span class="token function">sauceInside</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            sauceInside <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token class-name">Calzone</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Calzone</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token annotation punctuation">@Override</span> <span class="token keyword">protected</span> <span class="token class-name">Builder</span> <span class="token function">self</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Calzone</span><span class="token punctuation">(</span><span class="token class-name">Builder</span> builder<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>builder<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        sauceInside <span class="token operator">=</span> builder<span class="token punctuation">.</span>sauceInside<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>如果类的构造器或者静态工厂中具有多个参数，设计这种类时，Builder模式就是一种不错的选择。</strong></p>
 <h4 id="用私有构造器或者枚举类型强化Singleton属性"><a href="#用私有构造器或者枚举类型强化Singleton属性" class="headerlink" title="用私有构造器或者枚举类型强化Singleton属性"></a>用私有构造器或者枚举类型强化Singleton属性</h4><ol>
 <li><p>第一种方法中，成员是 final 修饰的属性</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Singleton with public final field
-public class Elvis &#123;
-    public static final Elvis INSTANCE &#x3D; new Elvis();
-    private Elvis() &#123; ... &#125;
-    public void leaveTheBuilding() &#123; ... &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Singleton with public final field</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Elvis</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Elvis</span> INSTANCE <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Elvis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Elvis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">leaveTheBuilding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>在第二个实现单例的方法中，公共成员是一个静态的工厂方法：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Singleton with static factory
-public class Elvis &#123;
-    private static final Elvis INSTANCE &#x3D; new Elvis();
-    private Elvis() &#123; ... &#125;
-    public static Elvis getInstance() &#123; return INSTANCE; &#125;
-    public void leaveTheBuilding() &#123; ... &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Singleton with static factory</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Elvis</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Elvis</span> INSTANCE <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Elvis</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Elvis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Elvis</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token keyword">return</span> INSTANCE<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">leaveTheBuilding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>创建一个使用这两种方法的单例类 (第 12 章)，仅仅将 implements Serializable 添加到声明中是不够的。 为了维护单例的保证，声明所有的实例属性为 transient ，并提供一个 readResolve 方法 (条目 89)。否则，每 当序列化实例被反序列化时，就会创建一个新的实例，在我们的例子中，导致出现新的 Elvis 实例。为了防止这种情 况发生，将这个 readResolve 方法添加到 Elvis 类：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; readResolve method to preserve singleton property
-private Object readResolve() &#123;
-    &#x2F;&#x2F; Return the one true Elvis and let the garbage collector
-    &#x2F;&#x2F; take care of the Elvis impersonator.
-    return INSTANCE;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// readResolve method to preserve singleton property</span>
+<span class="token keyword">private</span> <span class="token class-name">Object</span> <span class="token function">readResolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Return the one true Elvis and let the garbage collector</span>
+    <span class="token comment">// take care of the Elvis impersonator.</span>
+    <span class="token keyword">return</span> INSTANCE<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>实现一个单例的第三种方法是声明单一元素的枚举类：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Enum singleton - the preferred approach
-public enum Elvis &#123;
-    INSTANCE;
-    public void leaveTheBuilding() &#123; ... &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Enum singleton - the preferred approach</span>
+<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">Elvis</span> <span class="token punctuation">&#123;</span>
+    INSTANCE<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">leaveTheBuilding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>单元素的枚举类型经常成为实现Singleton的最佳方式。</strong></p>
 </li>
 </ol>
 <h4 id="通过私有构造器强化不可实例化的能力"><a href="#通过私有构造器强化不可实例化的能力" class="headerlink" title="通过私有构造器强化不可实例化的能力"></a>通过私有构造器强化不可实例化的能力</h4><p><strong>企图通过将类做成抽象类来强制该类不可被实例化是行不通的。</strong>因为该类可以被子类化，并且该子类也可以被实例化。它误导 用户认为该类是为继承而设计的（条目 19）。</p>
 <p><strong>让这个类包含一个私有构造器，它就不能被实例化。</strong></p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Noninstantiable utility class
-public class UtilityClass &#123;
-    &#x2F;&#x2F; Suppress default constructor for noninstantiability
-    private UtilityClass() &#123;
-        throw new AssertionError();
-    &#125;
-    ... &#x2F;&#x2F; Remainder omitted
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Noninstantiable utility class</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UtilityClass</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Suppress default constructor for noninstantiability</span>
+    <span class="token keyword">private</span> <span class="token class-name">UtilityClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">AssertionError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// Remainder omitted</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="优先考虑依赖注入来引用资源"><a href="#优先考虑依赖注入来引用资源" class="headerlink" title="优先考虑依赖注入来引用资源"></a>优先考虑依赖注入来引用资源</h4><p>ps: 有点像设计原则的依赖倒转原则</p>
 <p><strong>静态工具类和Singleton类不适合于需要引用底层资源的类。</strong></p>
 <p><strong>当创建一个新的实例时，就将该资源传到构造器中。</strong></p>
 <p>字典dictionary是拼写检查器的一个依赖项，当它创建时被注入到拼写检查器SpellChecker中。</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Dependency injection provides flexibility and testability
-public class SpellChecker &#123;
-    private final Lexicon dictionary;
-    public SpellChecker(Lexicon dictionary) &#123;
-        this.dictionary &#x3D; Objects.requireNonNull(dictionary);
-    &#125;
-    public boolean isValid(String word) &#123; ... &#125;
-    public List&lt;String&gt; suggestions(String typo) &#123; ... &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Dependency injection provides flexibility and testability</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpellChecker</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Lexicon</span> dictionary<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">SpellChecker</span><span class="token punctuation">(</span><span class="token class-name">Lexicon</span> dictionary<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>dictionary <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>dictionary<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isValid</span><span class="token punctuation">(</span><span class="token class-name">String</span> word<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token function">suggestions</span><span class="token punctuation">(</span><span class="token class-name">String</span> typo<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h4><pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">String s &#x3D; new String(&quot;bikini&quot;); &#x2F;&#x2F; DON&#39;T DO THIS!<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="避免创建不必要的对象"><a href="#避免创建不必要的对象" class="headerlink" title="避免创建不必要的对象"></a>避免创建不必要的对象</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"bikini"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// DON'T DO THIS!</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>改进后的版本如下：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">String s &#x3D; &quot;bikini&quot;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"bikini"</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>一些对象的创建比其他对象的创建要昂贵得多。 如果要重复使用这样一个「昂贵的对象」，建议将其缓存起来 以便重复使用。</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Reusing expensive object for improved performance
-public class RomanNumerals &#123;
-    private static final Pattern ROMAN &#x3D; Pattern.compile(
-        &quot;^(?&#x3D;.)M*(C[MD]|D?C&#123;0,3&#125;)&quot;
-        + &quot;(X[CL]|L?X&#123;0,3&#125;)(I[XV]|V?I&#123;0,3&#125;)$&quot;);
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Reusing expensive object for improved performance</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RomanNumerals</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">Pattern</span> ROMAN <span class="token operator">=</span> <span class="token class-name">Pattern</span><span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span>
+        <span class="token string">"^(?=.)M*(C[MD]|D?C&#123;0,3&#125;)"</span>
+        <span class="token operator">+</span> <span class="token string">"(X[CL]|L?X&#123;0,3&#125;)(I[XV]|V?I&#123;0,3&#125;)$"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    static boolean isRomanNumeral(String s) &#123;
-        return ROMAN.matcher(s).matches();
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isRomanNumeral</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> ROMAN<span class="token punctuation">.</span><span class="token function">matcher</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">matches</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>自动装箱使得基本类型和装箱基本类型之间的差别变得模糊起来，但是并没有完全消除。</strong></p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Hideously slow! Can you spot the object creation?
-private static long sum() &#123;
-    Long sum &#x3D; 0L;
-    for (long i &#x3D; 0; i &lt;&#x3D; Integer.MAX_VALUE; i++)
-        sum +&#x3D; i;
-    return sum;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Hideously slow! Can you spot the object creation?</span>
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">long</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Long</span> sum <span class="token operator">=</span> <span class="token number">0L</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">long</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>由于打错了一个字符，变量sum被声明成Long而不是long,这意味着程序构造了大约2的31次方个不必要的 Long 实例（大约每次往 Long 类型的 sum 变量 中增加一个 long 类型构造的实例），把 sum 变量的类型由 Long 改为 long ，在我的机器上运行时间从 6.3 秒降低到 0.59 秒。这个教训很明显：<strong>优先使用基本类型而不是装箱的基本类型，也要注意无意识的自动装箱。</strong></p>
 <h4 id="消除过期的对象引用"><a href="#消除过期的对象引用" class="headerlink" title="消除过期的对象引用"></a>消除过期的对象引用</h4><p>考虑以下简单的堆栈实现：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Can you spot the &quot;memory leak&quot;?
-public class Stack &#123;
-    private Object[] elements;
-    private int size &#x3D; 0;
-    private static final int DEFAULT_INITIAL_CAPACITY &#x3D; 16;
-    public Stack() &#123;
-        elements &#x3D; new Object[DEFAULT_INITIAL_CAPACITY];
-    &#125;
-    public void push(Object e) &#123;
-        ensureCapacity();
-        elements[size++] &#x3D; e;
-    &#125;
-    public Object pop() &#123;
-        if (size &#x3D;&#x3D; 0)
-            throw new EmptyStackException();
-        return elements[--size];
-    &#125;
-    &#x2F;**
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Can you spot the "memory leak"?</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Stack</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> elements<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> DEFAULT_INITIAL_CAPACITY <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        elements <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span>DEFAULT_INITIAL_CAPACITY<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">Object</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">ensureCapacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        elements<span class="token punctuation">[</span>size<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> e<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>size <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">EmptyStackException</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> elements<span class="token punctuation">[</span><span class="token operator">--</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">/**
 * Ensure space for at least one more element, roughly
 * doubling the capacity each time the array needs to grow.
-*&#x2F;
-    private void ensureCapacity() &#123;
-        if (elements.length &#x3D;&#x3D; size)
-            elements &#x3D; Arrays.copyOf(elements, 2 * size + 1);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+*/</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">ensureCapacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>elements<span class="token punctuation">.</span>length <span class="token operator">==</span> size<span class="token punctuation">)</span>
+            elements <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>elements<span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> size <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>如果一个栈增长后收缩，那么从栈弹出的对象不会被垃圾收集，即使使用栈的程序 不再引用这些对象。 这是因为栈维护对这些对象的过期引用（ obsolete references）。 过期引用简单来说就是永远不 会解除的引用。</p>
 <p><strong>清空对象引用应该是例外而不是规范。</strong></p>
@@ -714,27 +714,27 @@ public class Stack &#123;
 <p><strong>不应该依赖于 Finalizer 和 Cleaner 机制来更 新持久化状态。</strong></p>
 <p><strong>使用 finalizer 和 cleaner 机制会导致严重的性能损失。</strong></p>
 <p><strong>finalizer 机制有一个严重的安全问题：</strong></p>
-<h4 id="try-with-resources优先于try-finally"><a href="#try-with-resources优先于try-finally" class="headerlink" title="try-with-resources优先于try-finally"></a>try-with-resources优先于try-finally</h4><pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; try-with-resources on multiple resources - short and sweet
-static void copy(String src, String dst) throws IOException &#123;
-    try (InputStream in &#x3D; new FileInputStream(src);
-         OutputStream out &#x3D; new FileOutputStream(dst)) &#123;
-        byte[] buf &#x3D; new byte[BUFFER_SIZE];
-        int n;
-        while ((n &#x3D; in.read(buf)) &gt;&#x3D; 0)
-            out.write(buf, 0, n);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="try-with-resources优先于try-finally"><a href="#try-with-resources优先于try-finally" class="headerlink" title="try-with-resources优先于try-finally"></a>try-with-resources优先于try-finally</h4><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// try-with-resources on multiple resources - short and sweet</span>
+<span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">copy</span><span class="token punctuation">(</span><span class="token class-name">String</span> src<span class="token punctuation">,</span> <span class="token class-name">String</span> dst<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">InputStream</span> in <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>src<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">OutputStream</span> out <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>dst<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buf <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">byte</span><span class="token punctuation">[</span>BUFFER_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>n <span class="token operator">=</span> in<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buf<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            out<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>buf<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>作为一个稍微有些做作的例子，这里有一个版本的 firstLineOfFile 方法，它不 会抛出异常，但是如果它不能打开或读取文件，则返回默认值：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; try-with-resources with a catch clause
-static String firstLineOfFile(String path, String defaultVal) &#123;
-    try (BufferedReader br &#x3D; new BufferedReader(
-        new FileReader(path))) &#123;
-        return br.readLine();
-    &#125; catch (IOException e) &#123;
-        return defaultVal;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// try-with-resources with a catch clause</span>
+<span class="token keyword">static</span> <span class="token class-name">String</span> <span class="token function">firstLineOfFile</span><span class="token punctuation">(</span><span class="token class-name">String</span> path<span class="token punctuation">,</span> <span class="token class-name">String</span> defaultVal<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">(</span><span class="token class-name">BufferedReader</span> br <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span>
+        <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> br<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> defaultVal<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="2-对于所有对象都通用的方法"><a href="#2-对于所有对象都通用的方法" class="headerlink" title="2. 对于所有对象都通用的方法"></a>2. 对于所有对象都通用的方法</h3><h4 id="覆盖equals时请遵守通用约定"><a href="#覆盖equals时请遵守通用约定" class="headerlink" title="覆盖equals时请遵守通用约定"></a>覆盖equals时请遵守通用约定</h4><p>约定内容，来自Object的规范</p>
 <ul>
@@ -749,94 +749,94 @@ static String firstLineOfFile(String path, String defaultVal) &#123;
 </li>
 <li><p><strong>对称性（Symmetry）</strong></p>
 <p>如果这样编码：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">import java.util.Objects;
-public final class CaseInsensitiveString &#123;
-    private final String s;
-    public CaseInsensitiveString(String s) &#123;
-        this.s &#x3D; Objects.requireNonNull(s);
-    &#125;
-    &#x2F;&#x2F; Broken - violates symmetry!
-    @Override
-    public boolean equals(Object o) &#123;
-        if (o instanceof CaseInsensitiveString)
-            return s.equalsIgnoreCase(
-            ((CaseInsensitiveString) o).s);
-        if (o instanceof String) &#x2F;&#x2F; One-way interoperability!
-            return s.equalsIgnoreCase((String) o);
-        return false;
-    &#125;
-    ...&#x2F;&#x2F; Remainder omitted
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Objects</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">CaseInsensitiveString</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">CaseInsensitiveString</span><span class="token punctuation">(</span><span class="token class-name">String</span> s<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>s <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token punctuation">.</span><span class="token function">requireNonNull</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// Broken - violates symmetry!</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">CaseInsensitiveString</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span>
+            <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">CaseInsensitiveString</span><span class="token punctuation">)</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">String</span><span class="token punctuation">)</span> <span class="token comment">// One-way interoperability!</span>
+            <span class="token keyword">return</span> s<span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token comment">// Remainder omitted</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>将会导致：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">CaseInsensitiveString cis &#x3D; new CaseInsensitiveString(&quot;Polish&quot;);
-String s &#x3D; &quot;polish&quot;;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">CaseInsensitiveString</span> cis <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CaseInsensitiveString</span><span class="token punctuation">(</span><span class="token string">"Polish"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"polish"</span><span class="token punctuation">;</span>
 
-System.out.println(cis.equals(s)); &#x2F;&#x2F; true
-System.out.println(s.equals(cis)); &#x2F;&#x2F; false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>cis<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>cis<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>重构为：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">@Override
-public boolean equals(Object o) &#123;
-    return o instanceof CaseInsensitiveString &amp;&amp;
-        ((CaseInsensitiveString) o).s.equalsIgnoreCase(s);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> o <span class="token keyword">instanceof</span> <span class="token class-name">CaseInsensitiveString</span> <span class="token operator">&amp;&amp;</span>
+        <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">CaseInsensitiveString</span><span class="token punctuation">)</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>s<span class="token punctuation">.</span><span class="token function">equalsIgnoreCase</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p><strong>传递性（Transitivity）</strong></p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">public class Point &#123;
-    private final int x;
-    private final int y;
-    public Point(int x, int y) &#123;
-        this.x &#x3D; x;
-        this.y &#x3D; y;
-    &#125;
-    @Override
-    public boolean equals(Object o) &#123;
-        if (!(o instanceof Point))
-            return false;
-        Point p &#x3D; (Point) o;
-        return p.x &#x3D;&#x3D; x &amp;&amp; p.y &#x3D;&#x3D; y;
-    &#125;
-    ... &#x2F;&#x2F; Remainder omitted
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> y<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">Point</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token class-name">Point</span> p <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Point</span><span class="token punctuation">)</span> o<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">.</span>x <span class="token operator">==</span> x <span class="token operator">&amp;&amp;</span> p<span class="token punctuation">.</span>y <span class="token operator">==</span> y<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// Remainder omitted</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">public class ColorPoint extends Point &#123;
-    private final Color color;
-    public ColorPoint(int x, int y, Color color) &#123;
-        super(x, y);
-        this.color &#x3D; color;
-    &#125;
-    ... &#x2F;&#x2F; Remainder omitted
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ColorPoint</span> <span class="token keyword">extends</span> <span class="token class-name">Point</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Color</span> color<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> <span class="token class-name">Color</span> color<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">super</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>color <span class="token operator">=</span> color<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment">// Remainder omitted</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&#x2F;&#x2F; Broken - violates symmetry!
-@Override
-public boolean equals(Object o) &#123;
-    if (!(o instanceof ColorPoint))
-        return false;
-    return super.equals(o) &amp;&amp; ((ColorPoint) o).color &#x3D;&#x3D; color;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Broken - violates symmetry!</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">ColorPoint</span><span class="token punctuation">)</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>color <span class="token operator">==</span> color<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Point p &#x3D; new Point(1, 2);
-ColorPoint cp &#x3D; new ColorPoint(1, 2, Color.RED);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Point</span> p <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ColorPoint</span> cp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token class-name">Color</span><span class="token punctuation">.</span>RED<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>现在，p.equals(cp)返回true，cp.equals(p)则返回flase。</p>
 <p>你可以这样尝试，让ColorPoint.equals在进行”混合比较”时忽略颜色信息：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">@Override
-public boolean equals(Object o) &#123;
-    if (!(o instanceof Point))
-        return false;
-    &#x2F;&#x2F; If o is a normal Point, do a color-blind comparison
-    if (!(o instanceof ColorPoint))
-        return o.equals(this);
-    &#x2F;&#x2F; o is a ColorPoint; do a full comparison
-    return super.equals(o) &amp;&amp; ((ColorPoint) o).color &#x3D;&#x3D; color;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">equals</span><span class="token punctuation">(</span><span class="token class-name">Object</span> o<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">Point</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token comment">// If o is a normal Point, do a color-blind comparison</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>o <span class="token keyword">instanceof</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> o<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// o is a ColorPoint; do a full comparison</span>
+    <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">ColorPoint</span><span class="token punctuation">)</span> o<span class="token punctuation">)</span><span class="token punctuation">.</span>color <span class="token operator">==</span> color<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这种方法确实提供了对称性，但是却牺牲了传递性：</p>
-<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">ColorPoint p1 &#x3D; new ColorPoint(1, 2, Color.RED);
-Point p2 &#x3D; new Point(1, 2);
-ColorPoint p3 &#x3D; new ColorPoint(1, 2, Color.BLUE);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ColorPoint</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token class-name">Color</span><span class="token punctuation">.</span>RED<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Point</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Point</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">ColorPoint</span> p3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ColorPoint</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token class-name">Color</span><span class="token punctuation">.</span>BLUE<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>现在， p1.equals(p2) 和 p2.equals(p3) 返回了 true，但是 p1.equals(p3) 却返回了 false，很明显违 背了传递性的要求。前两个比较都是不考虑颜色信息的，而第三个比较时却包含颜色信息。</p>
 </li>
