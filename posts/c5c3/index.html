@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Redis、消息队列MQ、搜索引擎、Kafka...">
@@ -347,17 +347,17 @@
 <p>采用Redis实现分布式锁，就是在Redis里存一份代表锁的数据，通常用字符串即可。采用改进后的setnx命令（即set…nx…命令）实现分布式锁的思路，以及优化的过程如下：</p>
 <p>加锁：</p>
 <p>第一版，这种方式的缺点是容易产生死锁，因为客户端有可能忘记解锁，或者解锁失败。</p>
-<pre class="line-numbers language-none"><code class="language-none">setnx key value<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">setnx key value</span></span><br></pre></td></tr></table></figure>
 
 <p>第二版，给锁增加了过期时间，避免出现死锁。但这两个命令不是原子的，第二步可能会失败，依然无法避免死锁问题。</p>
-<pre class="line-numbers language-none"><code class="language-none">setnx key value expire key seconds<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight gauss"><table><tr><td class="code"><pre><span class="line">setnx <span class="built_in">key</span> value expire <span class="built_in">key</span> seconds</span><br></pre></td></tr></table></figure>
 
 <p>第三版，通过“set…nx…”命令，将加锁、过期命令编排到一起，它们是原子操作了，可以避免死锁。</p>
-<pre class="line-numbers language-none"><code class="language-none">set key value nx ex seconds <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> key <span class="comment">value nx ex seconds</span> </span><br></pre></td></tr></table></figure>
 
 <p>解锁：</p>
 <p>解锁就是删除代表锁的那份数据。</p>
-<pre class="line-numbers language-none"><code class="language-none">del key<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">del</span> <span class="built_in">key</span></span><br></pre></td></tr></table></figure>
 
 <p>问题：</p>
 <p>看起来已经很完美了，但实际上还有隐患，如下图。进程A在任务没有执行完毕时，锁已经到期被释放了。等进程A的任务执行结束后，它依然会尝试释放锁，因为它的代码逻辑就是任务结束后释放锁。但是，它的锁早已自动释放过了，它此时释放的可能是其他线程的锁。</p>
@@ -368,7 +368,7 @@
 <li>解锁时要先判断、再释放，这两步需要保证原子性，否则第二步失败的话，就会出现死锁。而获取和删除命令不是原子的，这就需要采用Lua脚本，通过Lua脚本将两个命令编排在一起，而整个Lua脚本的执行是原子的。</li>
 </ol>
 <p>按照以上思路，优化后的命令如下：</p>
-<pre class="line-numbers language-none"><code class="language-none"># 加锁 set key random-value nx ex seconds   # 解锁 if redis.call(&quot;get&quot;,KEYS[1]) &#x3D;&#x3D; ARGV[1] then     return redis.call(&quot;del&quot;,KEYS[1]) else     return 0 end<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line"># 加锁 <span class="keyword">set</span> <span class="keyword">key</span> random-value nx ex seconds   # 解锁 <span class="keyword">if</span> redis.<span class="keyword">call</span>(<span class="string">&quot;get&quot;</span>,KEYS[1]) == ARGV[1] <span class="keyword">then</span>     <span class="keyword">return</span> redis.<span class="keyword">call</span>(<span class="string">&quot;del&quot;</span>,KEYS[1]) <span class="keyword">else</span>     <span class="keyword">return</span> 0 <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="1-11-说一说Redis的持久化策略"><a href="#1-11-说一说Redis的持久化策略" class="headerlink" title="1.11 说一说Redis的持久化策略"></a>1.11 说一说Redis的持久化策略</h3><p><strong>参考答案</strong></p>
 <p>Redis支持RDB持久化、AOF持久化、RDB-AOF混合持久化这三种持久化方式。</p>
@@ -395,10 +395,10 @@
 <p>AOF（Append Only File），解决了数据持久化的实时性，是目前Redis持久化的主流方式。AOF以独立日志的方式，记录了每次写入命令，重启时再重新执行AOF文件中的命令来恢复数据。AOF的工作流程包括：命令写入（append）、文件同步（sync）、文件重写（rewrite）、重启加载（load），如下图：</p>
 <p><img src="/../assets/mBax1JP243ev8Ys.png"></p>
 <p>AOF默认不开启，需要修改配置项来启用它：</p>
-<pre class="line-numbers language-none"><code class="language-none">appendonly yes         # 启用AOF appendfilename &quot;appendonly.aof&quot;  # 设置文件名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">appendonly yes         # 启用AOF appendfilename <span class="string">&quot;appendonly.aof&quot;</span>  # 设置文件名</span><br></pre></td></tr></table></figure>
 
 <p>AOF以文本协议格式写入命令，如：</p>
-<pre class="line-numbers language-none"><code class="language-none">*3\r\n$3\r\nset\r\n$5\r\nhello\r\n$5\r\nworld\r\n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line">*<span class="number">3</span>\r\n$<span class="number">3</span>\r\nset\r\n$<span class="number">5</span>\r\nhello\r\n$<span class="number">5</span>\r\nworld\r\n</span><br></pre></td></tr></table></figure>
 
 <p>文本协议格式具有如下的优点：</p>
 <ol>
@@ -880,11 +880,7 @@
 </ul>
 <p>其中，ziplist编码的有序集合采用压缩列表作为底层实现，skiplist编码的有序集合采用zset结构作为底层实现。</p>
 <p>其中，zset是一个复合结构，它的内部采用字典和跳跃表来实现，其源码如下。其中，dict保存了从成员到分支的映射关系，zsl则按分值由小到大保存了所有的集合元素。这样，当按照成员来访问有序集合时可以直接从dict中取值，当按照分值的范围访问有序集合时可以直接从zsl中取值，采用了空间换时间的策略以提高访问效率。</p>
-<pre class="line-numbers language-none"><code class="language-none">typedef struct zset &#123;   
-  dict *dict;  &#x2F;&#x2F; 字典，保存了从成员到分值的映射关系；   
-  zskiplist *zsl; &#x2F;&#x2F; 跳跃表，按分值由小到大保存所有集合元素； 
-&#125; 
-zset;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight fsharp"><table><tr><td class="code"><pre><span class="line">typedef <span class="keyword">struct</span> <span class="keyword">zset</span> &#123;   </span><br><span class="line">  <span class="built_in">dict</span> <span class="operator">*</span><span class="built_in">dict</span>;  <span class="comment">// 字典，保存了从成员到分值的映射关系；   </span></span><br><span class="line">  zskiplist <span class="operator">*</span>zsl; <span class="comment">// 跳跃表，按分值由小到大保存所有集合元素； </span></span><br><span class="line">&#125; </span><br><span class="line">zset;</span><br></pre></td></tr></table></figure>
 
 <p>综上，zset对象的底层数据结构包括：压缩列表、字典、跳跃表。</p>
 <p>压缩列表：</p>
@@ -1058,13 +1054,13 @@ zset;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <ol>
 <li><p>加锁：</p>
 <p>第一版，这种方式的缺点是容易产生死锁，因为客户端有可能忘记解锁，或者解锁失败。</p>
-<pre class="line-numbers language-none"><code class="language-none">setnx key value<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">setnx key value</span></span><br></pre></td></tr></table></figure>
 
 <p>第二版，给锁增加了过期时间，避免出现死锁。但这两个命令不是原子的，第二步可能会失败，依然无法避免死锁问题。</p>
-<pre class="line-numbers language-none"><code class="language-none">setnx key value expire key seconds<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight gauss"><table><tr><td class="code"><pre><span class="line">setnx <span class="built_in">key</span> value expire <span class="built_in">key</span> seconds</span><br></pre></td></tr></table></figure>
 
 <p>第三版，通过“set…nx…”命令，将加锁、过期命令编排到一起，它们是原子操作了，可以避免死锁。</p>
-<pre class="line-numbers language-none"><code class="language-none">set key value nx ex seconds <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> key <span class="comment">value nx ex seconds</span> </span><br></pre></td></tr></table></figure>
 </li>
 <li><p>解锁：</p>
 <p>解锁就是删除代表锁的那份数据。<br><code>del key</code></p>
@@ -1080,13 +1076,7 @@ zset;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <li>解锁时要先判断、再释放，这两步需要保证原子性，否则第二步失败的话，就会出现死锁。而获取和删除命令不是原子的，这就需要采用Lua脚本，通过Lua脚本将两个命令编排在一起，而整个Lua脚本的执行是原子的。</li>
 </ol>
 <p>按照以上思路，优化后的命令如下：</p>
-<pre class="line-numbers language-redis" data-language="redis"><code class="language-redis"># 加锁 
-set key random-value nx ex seconds   
-# 解锁 
-if redis.call(&quot;get&quot;,KEYS[1]) &#x3D;&#x3D; ARGV[1] 
-    then     return redis.call(&quot;del&quot;,KEYS[1]) 
-else     return 0 
-end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 加锁 </span><br><span class="line">set key random-value nx ex seconds   </span><br><span class="line"># 解锁 </span><br><span class="line">if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] </span><br><span class="line">    then     return redis.call(&quot;del&quot;,KEYS[1]) </span><br><span class="line">else     return 0 </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
 <p>基于RedLock算法的分布式锁：</p>
 <p>上述分布式锁的实现方案，是建立在单个主节点之上的。它的潜在问题如下图所示，如果进程A在主节点上加锁成功，然后这个主节点宕机了，则从节点将会晋升为主节点。若此时进程B在新的主节点上加锁成果，之后原主节点重启，成为了从节点，系统中将同时出现两把锁，这是违背锁的唯一性原则的。</p>
@@ -1683,8 +1673,7 @@ end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span>
 <h3 id="RabbitMQ-中小型企业首选）"><a href="#RabbitMQ-中小型企业首选）" class="headerlink" title="RabbitMQ(中小型企业首选）"></a>RabbitMQ(中小型企业首选）</h3><p><strong>SpringAMQP</strong></p>
 <p><img src="/../assets/7ykoE5NSZ8FVc6b.png"></p>
 <p><img src="/../assets/7r58unDshyOo46L.png"></p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">DepartmentDao</span> <span class="token keyword">extends</span> <span class="token class-name">JpaRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Department</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">,</span> <span class="token class-name">JpaSpecificationExecutor</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Department</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">DepartmentDao</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;Department, String&gt;, JpaSpecificationExecutor&lt;Department&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="补充：Kafka"><a href="#补充：Kafka" class="headerlink" title="补充：Kafka"></a>补充：Kafka</h2><p>“你用过消息中间件吗？用过哪些？”</p>
 <p>这是在面试过程中面试官必问的一个问题，但是我真的听过很多人说没用过，也有人说用过但也仅仅知道怎么调用，其他的问题一概不知，在消息中间件在项目中发挥着中流砥柱作用的今天，仅仅知道调用显然是不够的的了，为了能让乡亲们多点底气，今天为大家带来Kafka的高频面试题（kafka我用的比较多）。</p>
