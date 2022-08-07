@@ -182,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/c976/">
+    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/3f44/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/avatar.webp">
@@ -196,18 +196,34 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/c976/" class="post-title-link" itemprop="url">被引用-实例化bean的三种方式</a>
+            <a href="/posts/3f44/" class="post-title-link" itemprop="url">Java工程师面试题1-Java语言</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
+            
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-07 14:46:59 / 修改时间：14:47:48" itemprop="dateCreated datePublished" datetime="2022-08-07T14:46:59+08:00">2022-08-07</time>
+              <time title="创建时间：2022-03-02 10:33:39" itemprop="dateCreated datePublished" datetime="2022-03-02T10:33:39+08:00">2022-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 08:23:00" itemprop="dateModified" datetime="2022-08-07T08:23:00+08:00">2022-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/interview-question/" itemprop="url" rel="index"><span itemprop="name">interview-question</span></a>
+                </span>
             </span>
 
           
@@ -221,32 +237,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><p>提供可访问的构造方法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookDaoImpl</span> <span class="keyword">implements</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line">    <span class="comment">// 默认空参构造，可不写</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">BookDaoImpl</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;book dao constructor is running ....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;book dao save ...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bookDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.dao.impl.BookDaoImpl&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：无参构造方法如果不存在，将抛出异常BeanCreationException</p>
-</blockquote>
-<h4 id="静态工厂（了解）"><a href="#静态工厂（了解）" class="headerlink" title="静态工厂（了解）"></a>静态工厂（了解）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//静态工厂创建对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderDaoFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> OrderDao <span class="title function_">getOrderDao</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">OrderDaoImpl</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;orderDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.factory.OrderDaoFactory&quot;</span> <span class="attr">factory-method</span>=<span class="string">&quot;getOrderDao&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="实例工厂"><a href="#实例工厂" class="headerlink" title="实例工厂"></a>实例工厂</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDaoFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> UserDao <span class="title function_">getUserDao</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">UserDaoImpl</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">&quot;userDaoFactory&quot;</span> <span class="attr">class</span> = <span class="string">&quot;com.itheima.factory.UserDaoFactory&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span> = <span class="string">&quot;userDao&quot;</span> <span class="attr">factory-method</span> = <span class="string">&quot;getUserDao&quot;</span> <span class="attr">factory-bean</span> = <span class="string">&quot;userDaoFactory&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：第一个bean配合使用的，实际无意义。工厂方法名不固定，每次需要配置。</p>
-</blockquote>
-<h4 id="实例工厂改良（实现FactoryBean）"><a href="#实例工厂改良（实现FactoryBean）" class="headerlink" title="实例工厂改良（实现FactoryBean）"></a>实例工厂改良（实现FactoryBean）</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserDaoFactoryBean</span> <span class="keyword">implements</span> <span class="title class_">FactoryBean</span>&lt;UserDao&gt; &#123;</span><br><span class="line">    <span class="comment">//代替原始实例工厂中创建对象的方法</span></span><br><span class="line">    <span class="keyword">public</span> UserDao <span class="title function_">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">UserDaoImpl</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//返回所创建类的Class对象</span></span><br><span class="line">    <span class="keyword">public</span> Class&lt;?&gt; getObjectType() &#123;</span><br><span class="line">        <span class="keyword">return</span> UserDao.class;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 默认为true，单例，可以不重写</span></span><br><span class="line">    <span class="keyword">default</span> <span class="type">boolean</span> <span class="title function_">isSingleton</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;userDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.factory.UserDaoFactoryBean&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+          <p>Java基础、集合类、IO、多线程、JVM</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/3f44/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -260,12 +259,13 @@
   
   
   
+
 
       
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/ac9d/">
+    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/15f3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/avatar.webp">
@@ -279,18 +279,34 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/ac9d/" class="post-title-link" itemprop="url">被引用-bean作用范围说明</a>
+            <a href="/posts/15f3/" class="post-title-link" itemprop="url">资源速查-Java语言</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
+            
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-07 14:46:34 / 修改时间：14:46:55" itemprop="dateCreated datePublished" datetime="2022-08-07T14:46:34+08:00">2022-08-07</time>
+              <time title="创建时间：2022-02-27 09:08:17" itemprop="dateCreated datePublished" datetime="2022-02-27T09:08:17+08:00">2022-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 08:39:11" itemprop="dateModified" datetime="2022-08-07T08:39:11+08:00">2022-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/resource-quick-check/" itemprop="url" rel="index"><span itemprop="name">resource-quick-check</span></a>
+                </span>
             </span>
 
           
@@ -304,21 +320,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ul>
-<li>为什么bean默认为单例？</li>
-<li>适合交给容器进行管理的bean<ul>
-<li>表现层对象</li>
-<li>业务层对象</li>
-<li>数据层对象</li>
-<li>工具对象</li>
-</ul>
-</li>
-<li>不适合交给容器进行管理的bean<ul>
-<li>封装实体的域对象</li>
-</ul>
-</li>
-</ul>
-
+          <p>Java语言相关的所有知识点合集</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/15f3/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -332,12 +342,13 @@
   
   
   
+
 
       
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/c47a/">
+    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/7c78/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/avatar.webp">
@@ -351,18 +362,34 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/c47a/" class="post-title-link" itemprop="url">被引用-bean作用范围-scope属性</a>
+            <a href="/posts/7c78/" class="post-title-link" itemprop="url">资源速查-Java设计模式</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
+            
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-07 14:44:53 / 修改时间：14:45:08" itemprop="dateCreated datePublished" datetime="2022-08-07T14:44:53+08:00">2022-08-07</time>
+              <time title="创建时间：2022-02-26 22:23:51" itemprop="dateCreated datePublished" datetime="2022-02-26T22:23:51+08:00">2022-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 08:39:11" itemprop="dateModified" datetime="2022-08-07T08:39:11+08:00">2022-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/resource-quick-check/" itemprop="url" rel="index"><span itemprop="name">resource-quick-check</span></a>
+                </span>
             </span>
 
           
@@ -376,8 +403,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>默认单例singleton、非单例prototype</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bookDao&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.dao.impl.BookDaoImpl&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;prototype&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+          <p>Java设计模式相关的所有知识点合集</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/7c78/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -391,12 +425,13 @@
   
   
   
+
 
       
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/39f4/">
+    <link itemprop="mainEntityOfPage" href="https://zx.js.cool/posts/f5f4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/avatar.webp">
@@ -410,18 +445,34 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/39f4/" class="post-title-link" itemprop="url">被引用-bean别名配置-name属性</a>
+            <a href="/posts/f5f4/" class="post-title-link" itemprop="url">资源速查-Homebrew</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
+            
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-07 14:43:18 / 修改时间：14:44:45" itemprop="dateCreated datePublished" datetime="2022-08-07T14:43:18+08:00">2022-08-07</time>
+              <time title="创建时间：2022-02-25 15:31:39" itemprop="dateCreated datePublished" datetime="2022-02-25T15:31:39+08:00">2022-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 08:39:11" itemprop="dateModified" datetime="2022-08-07T08:39:11+08:00">2022-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/resource-quick-check/" itemprop="url" rel="index"><span itemprop="name">resource-quick-check</span></a>
+                </span>
             </span>
 
           
@@ -435,13 +486,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>定义bean的别名，可定义多个，使用逗号（，）分号（；）空格（ ）分隔。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;bookDao&quot;</span> <span class="attr">name</span>=<span class="string">&quot;dao bookDaoImpl&quot;</span> <span class="attr">class</span>=<span class="string">&#x27;com.itheima.dao.impl.BookDaoImpl&#x27;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;service,bookServiceImpl&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.itheima.service.impl.BookServiceImpl&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：无法获取到，将抛出异常：NoSuchBeanDefinitionException</p>
-</blockquote>
-
+          <p>Homebrew相关的所有知识点合集</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/f5f4/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -455,11 +508,12 @@
   
   
   
+
 
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
