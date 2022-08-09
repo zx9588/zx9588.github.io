@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":null,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Spring知识点合集">
+  <meta name="description" content="Spring-Framework-4-架构图 核心层  Core Container:核心容器，这个模块是Spring最核心的模块，其他的都需要依赖该模块  AOP层  AOP:面向切面编程，它依赖核心层容器，目的是在不改变原有代码的前提下对其进行功能增强 Aspects:AOP是思想，Aspects是对AOP思想的具体实现  数据层  Data Access:数据访问，Spring全家桶中有对数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="资源速查-Spring">
 <meta property="og:url" content="https://zx.js.cool/posts/159/index.html">
 <meta property="og:site_name" content="zx.js.cool">
-<meta property="og:description" content="Spring知识点合集">
+<meta property="og:description" content="Spring-Framework-4-架构图 核心层  Core Container:核心容器，这个模块是Spring最核心的模块，其他的都需要依赖该模块  AOP层  AOP:面向切面编程，它依赖核心层容器，目的是在不改变原有代码的前提下对其进行功能增强 Aspects:AOP是思想，Aspects是对AOP思想的具体实现  数据层  Data Access:数据访问，Spring全家桶中有对数">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zx.js.cool/assets/1629720945720-2.png">
 <meta property="og:image" content="https://zx.js.cool/assets/1629735078619-2.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://zx.js.cool/assets/1630138916939.png">
 <meta property="og:image" content="https://zx.js.cool/assets/1630144353462-2.png">
 <meta property="article:published_time" content="2022-08-09T12:35:36.000Z">
-<meta property="article:modified_time" content="2022-08-09T12:42:16.241Z">
+<meta property="article:modified_time" content="2022-08-09T12:43:43.820Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Spring">
@@ -237,7 +237,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-09 20:35:36 / 修改时间：20:42:16" itemprop="dateCreated datePublished" datetime="2022-08-09T20:35:36+08:00">2022-08-09</time>
+              <time title="创建时间：2022-08-09 20:35:36 / 修改时间：20:43:43" itemprop="dateCreated datePublished" datetime="2022-08-09T20:35:36+08:00">2022-08-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,7 +264,6 @@
   </span>
   
   
-            <div class="post-description">Spring知识点合集</div>
 
         </div>
       </header>
@@ -299,6 +298,8 @@
 <ul>
 <li>Spring主要整合了Junit来完成单元测试和集成测试</li>
 </ul>
+<span id="more"></span>
+
 <h3 id="Spring与IOC、DI之间关系"><a href="#Spring与IOC、DI之间关系" class="headerlink" title="Spring与IOC、DI之间关系"></a>Spring与IOC、DI之间关系</h3><p>IOC（Inversion of Control）控制反转</p>
 <ul>
 <li>使用对象时，由主动new产生对象转换为由”外部“提供对象，此过程中对象创建控制权由程序转移到外部，此思想称为控制反转。</li>
