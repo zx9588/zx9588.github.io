@@ -1,38 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>书籍收藏</title>
-    <url>/posts/8b3a/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>frequently-used</category>
-      </categories>
-      <tags>
-        <tag>书籍</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在线工具/资源</title>
     <url>/posts/f687/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>frequently-used</category>
+        <category>常用</category>
       </categories>
+  </entry>
+  <entry>
+    <title>租房淡季VS租房旺季：一年中什么时候租房最合适？</title>
+    <url>/posts/4e88/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>短文杂记</category>
+      </categories>
+      <tags>
+        <tag>打工人</tag>
+        <tag>租房</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>摸鱼</title>
+    <url>/posts/6e6b/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>短文杂记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>资源速查-PostMan</title>
+    <url>/posts/78c8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>资源速查</category>
+      </categories>
+      <tags>
+        <tag>PostMan</tag>
+      </tags>
   </entry>
   <entry>
     <title>网络解决方案</title>
     <url>/posts/30c3/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>frequently-used</category>
+        <category>常用</category>
       </categories>
+  </entry>
+  <entry>
+    <title>书籍收藏</title>
+    <url>/posts/8b3a/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>常用</category>
+      </categories>
+      <tags>
+        <tag>书籍</tag>
+      </tags>
   </entry>
   <entry>
     <title>快捷键</title>
     <url>/posts/2f9/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>frequently-used</category>
+        <category>常用</category>
       </categories>
       <tags>
         <tag>快捷键</tag>
@@ -42,27 +73,11 @@
       </tags>
   </entry>
   <entry>
-    <title>摸鱼</title>
-    <url>/posts/6e6b/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>资源速查-PostMan</title>
-    <url>/posts/78c8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>resource-quick-check</category>
-      </categories>
-      <tags>
-        <tag>PostMan</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>资源速查-Elasticsearch</title>
     <url>/posts/3879/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -74,7 +89,7 @@
     <url>/posts/9e31/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>IDEA</tag>
@@ -86,7 +101,7 @@
     <url>/posts/2491/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -97,10 +112,10 @@
     <url>/posts/3f44/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -109,7 +124,7 @@
     <url>/posts/15f3/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -120,7 +135,7 @@
     <url>/posts/7c78/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>Java</tag>
@@ -134,7 +149,7 @@
     <url>/posts/f5f4/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>Homebrew</tag>
@@ -145,7 +160,7 @@
     <url>/posts/1319/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -153,10 +168,10 @@
     <url>/posts/3652/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -165,7 +180,7 @@
     <url>/posts/dcb7/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -173,7 +188,7 @@
     <url>/posts/1205/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -181,7 +196,7 @@
     <url>/posts/89de/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -189,10 +204,10 @@
     <url>/posts/953b/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -201,10 +216,10 @@
     <url>/posts/c5c3/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -213,10 +228,10 @@
     <url>/posts/a3a7/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
         <tag>分布式</tag>
       </tags>
@@ -226,10 +241,10 @@
     <url>/posts/7056/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -238,10 +253,10 @@
     <url>/posts/437/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
         <tag>操作系统</tag>
       </tags>
@@ -251,7 +266,7 @@
     <url>/posts/f169/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -259,7 +274,7 @@
     <url>/posts/1c28/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -267,7 +282,7 @@
     <url>/posts/3715/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -275,10 +290,10 @@
     <url>/posts/a013/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -287,7 +302,7 @@
     <url>/posts/f7b0/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -295,7 +310,7 @@
     <url>/posts/738/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
       <tags>
         <tag>Docker</tag>
@@ -307,7 +322,7 @@
     <url>/posts/fb3/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -315,7 +330,7 @@
     <url>/posts/62b7/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -323,7 +338,7 @@
     <url>/posts/7cbe/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -331,7 +346,7 @@
     <url>/posts/40cc/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>resource-quick-check</category>
+        <category>资源速查</category>
       </categories>
   </entry>
   <entry>
@@ -339,10 +354,10 @@
     <url>/posts/a2d2/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -351,11 +366,12 @@
     <url>/posts/5666/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -363,10 +379,10 @@
     <url>/posts/b524/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>interview-question</category>
+        <category>Java工程师面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
+        <tag>Java工程师面试题</tag>
         <tag>Java</tag>
       </tags>
   </entry>
