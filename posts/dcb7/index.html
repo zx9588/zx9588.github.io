@@ -247,13 +247,6 @@
             </span>
 
           
-            <span id="/posts/dcb7/" class="post-meta-item leancloud_visitors" data-flag-title="资源速查-Typora" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
   
   <span class="post-meta-item">
     
@@ -599,14 +592,14 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz',
       appKey     : 'y4hUKKnP2A2FzMFxbPFem6b6',
-      placeholder: "欢迎留言评论 ^_^",
+      placeholder: "欢迎留言评论， ^_^",
       avatar     : 'wavatar',
       meta       : guest,
       pageSize   : '10' || 10,
-      visitor    : true,
+      visitor    : false,
       lang       : '' || 'zh-cn',
       path       : location.pathname,
       recordIP   : false,
