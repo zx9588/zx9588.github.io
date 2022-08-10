@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810132552360.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810133534572.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810134458715.png">
-<meta property="og:image" content="https://theme-next.js.org/images/next-schemes.png">
+<meta property="og:image" content="https://zx.js.cool/Downloads/next-schemes.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810155045942.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810161144551.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810170207435.png">
@@ -49,8 +49,9 @@
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810162939988.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810163626019.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220810181644985.png">
+<meta property="og:image" content="https://zx.js.cool/assets/image-20220810192531525.png">
 <meta property="article:published_time" content="2022-08-10T03:51:49.000Z">
-<meta property="article:modified_time" content="2022-08-10T10:43:33.707Z">
+<meta property="article:modified_time" content="2022-08-10T11:32:43.124Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="nexT">
@@ -118,7 +119,12 @@
     </div>
   </div>
 
-  <div class="site-meta">
+  <div class="site-meta custom-logo">
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="/avatar.webp" alt="zx.js.cool">
+        </a>
+      </div>
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
@@ -248,7 +254,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-10 11:51:49 / 修改时间：18:43:33" itemprop="dateCreated datePublished" datetime="2022-08-10T11:51:49+08:00">2022-08-10</time>
+              <time title="创建时间：2022-08-10 11:51:49 / 修改时间：19:32:43" itemprop="dateCreated datePublished" datetime="2022-08-10T11:51:49+08:00">2022-08-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,14 +293,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
+              <span>5.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
             <div class="post-description">一篇文章教会你从0基础搭建博客+主题配置+主题优化</div>
 
@@ -307,7 +313,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="新手快速搭建"><a href="#新手快速搭建" class="headerlink" title="新手快速搭建"></a>新手快速搭建</h2><p><code>效果展示</code>：<a href="https://zx.js.cool/">https://zx.js.cool</a></p>
+        <blockquote>
+<p><code>本教程编辑于2022年8月10日</code></p>
+<p><code>会随着博客升级、主题升级，实时更新</code></p>
+</blockquote>
+<h2 id="新手快速搭建"><a href="#新手快速搭建" class="headerlink" title="新手快速搭建"></a>新手快速搭建</h2><p><code>效果展示</code>：<a href="https://zx.js.cool/">https://zx.js.cool</a></p>
 <p><code>跟着本文一步一步走，就能完成搭建，保姆级教程~</code></p>
 <p>不懂的可以点击加QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=sGovlZbEY8P8oAgLw-7TGNW14pnzTcsl&jump_from=webapi">Hexo博客新手交流群</a></p>
 <p>群里都是身经百战的搭建高手，趟过各种坑~</p>
@@ -364,11 +374,11 @@
 <figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;我的第一篇博客&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>然后：</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="meta">&amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo s</span><br></pre></td></tr></table></figure>
 
 <p>再次启动博客，然后访问：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看见刚刚新建的文章</p>
 <p>你所有的生成的文章都在<code>/Users/zhangxin/blog/source/_posts</code>目录下</p>
-<p>博客下配置文件<code>../blog/themes/_config.yml</code>语言改为中文支持：</p>
+<p>博客下配置文件<code>../blog/_config.yml</code>语言改为中文支持：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br></pre></td></tr></table></figure>
 
 <p>到此，hexo博客本地程序搭建完成~~~</p>
@@ -397,9 +407,9 @@
 <p>现在你就可以通过你gtihub的名字 + .github.io来访问<br>比如我的博客: <a target="_blank" rel="noopener" href="https://zx20219898.github.io/">https://zx20219898.github.io/</a></p>
 <h3 id="Hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new postName       #新建文章 在source/_posts 下生成</span><br><span class="line">hexo new page pageName  #新建页面 在source/pageName 下生成</span><br><span class="line">hexo deploy             #将.deploy目录部署到GitHub 简写指令：hexo d </span><br><span class="line">hexo generate           #生成静态页面至public目录 简写指令：hexo g </span><br><span class="line">hexo server             #开启预览访问端口（默认端口4000，&#x27;ctrl + c&#x27;关闭server）简写指令hexo s </span><br><span class="line">hexo clean              #清除所有静态页面和缓存数据</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用Hexo-nexT主题"><a href="#使用Hexo-nexT主题" class="headerlink" title="使用Hexo-nexT主题"></a>使用Hexo-nexT主题</h2><h3 id="切换成nexT主题"><a href="#切换成nexT主题" class="headerlink" title="切换成nexT主题"></a>切换成nexT主题</h3><p><img src="https://theme-next.js.org/images/next-schemes.png"></p>
+<h2 id="使用Hexo-nexT主题"><a href="#使用Hexo-nexT主题" class="headerlink" title="使用Hexo-nexT主题"></a>使用Hexo-nexT主题</h2><h3 id="切换成nexT主题"><a href="#切换成nexT主题" class="headerlink" title="切换成nexT主题"></a>切换成nexT主题</h3><p><img src="/../../../Downloads/next-schemes.png"></p>
 <p>终端控制台<code>cd</code>到博客主题（<code>/themes</code>）目录下，然后输入<code>git clone https://github.com/next-theme/hexo-theme-next</code>按下回车键</p>
-<p>即可将nexT主题代码克隆到本地themes目录下。</p>
+<p>即可将nexT主题<code>最新</code>代码克隆到本地themes目录下。</p>
 <p>如图：（我克隆过，这里就不回车了）</p>
 <p><img src="/../assets/image-20220810155045942.png" alt="image-20220810155045942"></p>
 <p>克隆成功后，将<code>博客目录</code>下的<code>_config.yml</code>配置文件的主题改为hexo-theme-next</p>
@@ -407,14 +417,14 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="comment">#theme: landscape</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-next</span></span><br></pre></td></tr></table></figure>
 
 <p>刷新配置：</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="meta">&amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="variable">&amp;&amp;</span> hexo g <span class="variable">&amp;&amp;</span> hexo s</span><br></pre></td></tr></table></figure>
 
 <p>访问：<a href="http://localhost:4000查看是否生效">http://localhost:4000查看是否生效</a></p>
 <h3 id="主题配置-代码高亮"><a href="#主题配置-代码高亮" class="headerlink" title="主题配置-代码高亮"></a>主题配置-代码高亮</h3><blockquote>
 <p><code>先看效果</code>：</p>
 <p><img src="/../assets/image-20220810161144551.png" alt="image-20220810161144551"></p>
 </blockquote>
-<p>博客下配置文件<code>../blog/themes/_config.yml</code>设置为<code>true</code></p>
+<p>博客下配置文件<code>../blog/_config.yml</code>设置为<code>true</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>主题下配置文件<code>../blog/themes/hexo-theme-next/_config.yml</code> 配置修改为：</p>
@@ -429,16 +439,16 @@
 
 <p>如图：</p>
 <p><img src="/../assets/image-20220810170101341.png" alt="image-20220810170101341"></p>
-<p>博客下配置文件<code>../blog/themes/_config.yml</code> 最后一行新增内容：</p>
+<p>博客下配置文件<code>../blog/_config.yml</code> 最后一行新增内容：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>主题下配置文件<code>../blog/themes/hexo-theme-next/_config.yml</code> 配置修改为：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 字数统计</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>刷新配置</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
-<h3 id="主题配置：Valine评论系统-阅读数"><a href="#主题配置：Valine评论系统-阅读数" class="headerlink" title="主题配置：Valine评论系统+阅读数"></a>主题配置：Valine评论系统+阅读数</h3><blockquote>
+<h3 id="主题配置-Valine评论系统-阅读数"><a href="#主题配置-Valine评论系统-阅读数" class="headerlink" title="主题配置-Valine评论系统+阅读数"></a>主题配置-Valine评论系统+阅读数</h3><blockquote>
 <p><code>先看效果</code>：</p>
 <p><img src="/../assets/image-20220810170230365.png" alt="image-20220810170230365"></p>
 <p><img src="/../assets/image-20220810172900634.png" alt="image-20220810172900634"></p>
@@ -468,14 +478,29 @@
 <p>安装插件：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 
-<p>博客下配置文件<code>../blog/themes/_config.yml</code> 最后一行新增内容：</p>
+<p>博客下配置文件 <code>../blog/_config.yml</code> 最后一行新增内容：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 
-<p>主题下配置文件 <code>../blog/themes/hexo-theme-next/_config.yml</code> 配置修改为：</p>
+<p>主题下配置文件 <code>../blog/themes/hexo-theme-next/_config.yml</code>配置修改为：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local Search</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 如果是自动，则通过更改输入触发搜索。</span></span><br><span class="line">  <span class="comment"># 如果是手动，则通过按回车键或搜索按钮触发搜索。</span></span><br><span class="line">  <span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">  <span class="comment"># 显示每篇文章的前 n 个结果，设置为 -1 显示所有结果</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># 将 html 字符串转义为可读字符串。</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 在页面加载时预加载搜索数据。</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 <p>刷新配置</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="主题配置-博客主标题上方的logo"><a href="#主题配置-博客主标题上方的logo" class="headerlink" title="主题配置-博客主标题上方的logo"></a>主题配置-博客主标题上方的logo</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Custom Logo (Do not support scheme Mist)</span></span><br><span class="line"><span class="attr">custom_logo:</span> <span class="string">/avatar.webp</span></span><br><span class="line"><span class="comment">#custom_logo: /uploads/custom-logo.jpg</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="主题配置-版权信息声明"><a href="#主题配置-版权信息声明" class="headerlink" title="主题配置-版权信息声明"></a>主题配置-版权信息声明</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Creative Commons 4.0 International License.</span></span><br><span class="line"><span class="comment"># See: https://creativecommons.org/about/cclicenses/</span></span><br><span class="line"><span class="comment"># Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero</span></span><br><span class="line"><span class="comment"># You can set a language value if you prefer a translated version of CC license, e.g. deed.zh</span></span><br><span class="line"><span class="comment"># CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span> <span class="comment">#侧边栏中的版权标识</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span> <span class="comment">#每篇文章底部都显示版权信息</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="拓展-修改文章永久链接为随机编号"><a href="#拓展-修改文章永久链接为随机编号" class="headerlink" title="拓展-修改文章永久链接为随机编号"></a>拓展-修改文章永久链接为随机编号</h2><blockquote>
+<p>配置完成后的链接示例：<a href="https://zx.js.cool/posts/5a75/">https://zx.js.cool/posts/5a75/</a></p>
+</blockquote>
+<p><code>cd</code>到博客目录下，执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<p>如图：（然后回车，我安装过了，就不演示了）</p>
+<p><img src="/../assets/image-20220810192531525.png" alt="image-20220810192531525"></p>
+<p>博客下配置文件 <code>../blog/_config.yml</code> 修改：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 网站域名</span></span><br><span class="line"><span class="comment">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://zx.js.cool/</span></span><br><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="comment"># permalink: :title/</span></span><br><span class="line"><span class="comment"># 文章链接地址格式 。即文章存放的目录。</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br><span class="line"><span class="comment"># 文章链接数字插件</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc16</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -599,7 +624,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">新手快速搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">为什么用Hexo搭建博客？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E5%AE%89%E8%A3%85Node-js%E5%92%8Cnpm"><span class="nav-number">1.2.</span> <span class="nav-text">步骤1：安装Node.js和npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9A%E5%AE%89%E8%A3%85npm"><span class="nav-number">1.3.</span> <span class="nav-text">步骤2：安装npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A43%EF%BC%9A%E5%AE%89%E8%A3%85Hexo%E5%B9%B6%E5%86%99%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">步骤3：安装Hexo并写一篇文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A44%EF%BC%9A%E6%B3%A8%E5%86%8CGitHub%E8%B4%A6%E5%8F%B7"><span class="nav-number">1.5.</span> <span class="nav-text">步骤4：注册GitHub账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A45%EF%BC%9A%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85git%EF%BC%8C%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0GitHub%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E8%AE%BF%E9%97%AE"><span class="nav-number">1.6.</span> <span class="nav-text">步骤5：本地安装git，将博客推送到GitHub，实现在线访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.</span> <span class="nav-text">Hexo常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Hexo-nexT%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">使用Hexo-nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%88%90nexT%E4%B8%BB%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">切换成nexT主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="nav-number">2.2.</span> <span class="nav-text">主题配置-代码高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">2.3.</span> <span class="nav-text">主题配置-字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%EF%BC%9AValine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F-%E9%98%85%E8%AF%BB%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">主题配置：Valine评论系统+阅读数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E5%8D%9A%E5%AE%A2%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.5.</span> <span class="nav-text">主题配置-博客搜索服务</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">新手快速搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">为什么用Hexo搭建博客？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A41%EF%BC%9A%E5%AE%89%E8%A3%85Node-js%E5%92%8Cnpm"><span class="nav-number">1.2.</span> <span class="nav-text">步骤1：安装Node.js和npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A42%EF%BC%9A%E5%AE%89%E8%A3%85npm"><span class="nav-number">1.3.</span> <span class="nav-text">步骤2：安装npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A43%EF%BC%9A%E5%AE%89%E8%A3%85Hexo%E5%B9%B6%E5%86%99%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="nav-number">1.4.</span> <span class="nav-text">步骤3：安装Hexo并写一篇文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A44%EF%BC%9A%E6%B3%A8%E5%86%8CGitHub%E8%B4%A6%E5%8F%B7"><span class="nav-number">1.5.</span> <span class="nav-text">步骤4：注册GitHub账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A45%EF%BC%9A%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85git%EF%BC%8C%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0GitHub%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E8%AE%BF%E9%97%AE"><span class="nav-number">1.6.</span> <span class="nav-text">步骤5：本地安装git，将博客推送到GitHub，实现在线访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.</span> <span class="nav-text">Hexo常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Hexo-nexT%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">使用Hexo-nexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%88%90nexT%E4%B8%BB%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">切换成nexT主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="nav-number">2.2.</span> <span class="nav-text">主题配置-代码高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">2.3.</span> <span class="nav-text">主题配置-字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F-%E9%98%85%E8%AF%BB%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">主题配置-Valine评论系统+阅读数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E5%8D%9A%E5%AE%A2%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.5.</span> <span class="nav-text">主题配置-博客搜索服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E5%8D%9A%E5%AE%A2%E4%B8%BB%E6%A0%87%E9%A2%98%E4%B8%8A%E6%96%B9%E7%9A%84logo"><span class="nav-number">2.6.</span> <span class="nav-text">主题配置-博客主标题上方的logo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE-%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF%E5%A3%B0%E6%98%8E"><span class="nav-number">2.7.</span> <span class="nav-text">主题配置-版权信息声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95-%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E6%B0%B8%E4%B9%85%E9%93%BE%E6%8E%A5%E4%B8%BA%E9%9A%8F%E6%9C%BA%E7%BC%96%E5%8F%B7"><span class="nav-number">3.</span> <span class="nav-text">拓展-修改文章永久链接为随机编号</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -696,12 +721,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">844k</span>
+    <span title="站点总字数">845k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">12:47</span>
+    <span title="站点阅读时长">12:48</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
