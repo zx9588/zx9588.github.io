@@ -14,8 +14,6 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
@@ -37,7 +35,7 @@
 <meta property="og:image" content="https://zx.js.cool/assets/Y1Kfj6IXJeiZb5y.png">
 <meta property="og:image" content="https://zx.js.cool/assets/6UqkExFIK7fSTaj.png">
 <meta property="article:published_time" content="2022-03-12T02:55:05.000Z">
-<meta property="article:modified_time" content="2022-08-12T08:15:05.741Z">
+<meta property="article:modified_time" content="2022-08-12T11:12:44.419Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -243,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-12 16:15:05" itemprop="dateModified" datetime="2022-08-12T16:15:05+08:00">2022-08-12</time>
+                <time title="修改时间：2022-08-12 19:12:44" itemprop="dateModified" datetime="2022-08-12T19:12:44+08:00">2022-08-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -316,6 +314,7 @@
 <li><a target="_blank" rel="noopener" href="https://akilar.top/posts/e82444a6/">使用github-action推送博客部署仓库至NPM | Akilarの糖果屋</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.wwru.cn/134.html">把Hexo博客部署到服务器</a></li>
 <li><a target="_blank" rel="noopener" href="https://console.leancloud.cn/">https://console.leancloud.cn</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iPudC09g4nyh">主页demo.zip</a></li>
 </ul>
 <h2 id="hexo下-config-yml必要配置"><a href="#hexo下-config-yml必要配置" class="headerlink" title="hexo下_config.yml必要配置"></a>hexo下_config.yml必要配置</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">&lt;主题文件夹名&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">title:</span> <span class="string">博客主题</span></span><br><span class="line"></span><br><span class="line"><span class="attr">author:</span> <span class="string">博客作者</span></span><br><span class="line"></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">reward:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># true 开启打赏功能</span></span><br><span class="line"></span><br><span class="line"><span class="attr">bottom_text:</span> <span class="string">©2021-2022</span> <span class="string">zhangxin</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文末声明</span></span><br><span class="line"><span class="attr">article_txt:</span> <span class="string">转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至</span> <span class="number">1205362172</span><span class="string">@qq.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击图片放大样式</span></span><br><span class="line"><span class="attr">img_resize:</span> <span class="string">photoSwipe</span></span><br><span class="line"><span class="comment"># 可选值：</span></span><br><span class="line"><span class="comment"># default: 默认(自己写的简单的放大)</span></span><br><span class="line"><span class="comment"># photoSwipe: 使用photoSwipe插件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 底部备案号</span></span><br><span class="line"><span class="attr">miit:</span></span><br><span class="line">  <span class="attr">on:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">info:</span> <span class="string">皖ICP备2021018914号-1</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">http://beian.miit.gov.cn/</span> <span class="comment"># 默认链接为 http://beian.miit.gov.cn/</span></span><br></pre></td></tr></table></figure>
 
@@ -469,10 +468,9 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull taskbjorn/hexo</span><br><span class="line"></span><br><span class="line">docker volume create my_hexo_data</span><br><span class="line">docker run -it -f-name my_hexo_container -p 4000:4000 -v my_hexo_data:/home/hexo/.hexo taskbjorn/hexo</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>数据卷位置：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes</p>
-<p>换服务器时搬运</p>
-</blockquote>
+<p>数据卷位置：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd <span class="regexp">/var/</span>lib<span class="regexp">/docker/</span>volumes</span><br></pre></td></tr></table></figure>
+
 <p>进入容器内部:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it my_hexo_container sh</span><br></pre></td></tr></table></figure>
 
