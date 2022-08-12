@@ -28,8 +28,12 @@
 <meta property="og:description" content="SpringMVC知识点合集">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220811213419323.png">
+<meta property="og:image" content="https://zx.js.cool/assets/image-20220812233130278.png">
+<meta property="og:image" content="https://zx.js.cool/assets/image-20220812233224637.png">
+<meta property="og:image" content="https://zx.js.cool/assets/image-20220812233239449.png">
+<meta property="og:image" content="https://zx.js.cool/assets/image-20220812233252209.png">
 <meta property="article:published_time" content="2022-08-11T13:11:53.000Z">
-<meta property="article:modified_time" content="2022-08-12T10:51:38.432Z">
+<meta property="article:modified_time" content="2022-08-12T16:18:36.760Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Spring">
@@ -237,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-12 18:51:38" itemprop="dateModified" datetime="2022-08-12T18:51:38+08:00">2022-08-12</time>
+                <time title="修改时间：2022-08-13 00:18:36" itemprop="dateModified" datetime="2022-08-13T00:18:36+08:00">2022-08-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,14 +280,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
             <div class="post-description">SpringMVC知识点合集</div>
 
@@ -410,6 +414,73 @@
 <td>设置当前控制器方法响应内容为当前返回值，无需解析</td>
 </tr>
 </tbody></table>
+<h3 id="入门案例工程流程分析"><a href="#入门案例工程流程分析" class="headerlink" title="入门案例工程流程分析"></a>入门案例工程流程分析</h3><p><img src="/../assets/image-20220812233130278.png" alt="image-20220812233130278"></p>
+<p><code>启动服务器初始化过程：</code></p>
+<ol>
+<li><p>服务器启动，执行ServletContainersInitConfig类，初始化web容器</p>
+<ul>
+<li>功能类似于以前的web.xml</li>
+</ul>
+</li>
+<li><p>执行createServletApplicationContext方法，创建了WebApplicationContext对象</p>
+<ul>
+<li>该方法加载SpringMVC的配置类SpringMvcConfig来初始化SpringMVC的容器</li>
+</ul>
+</li>
+<li><p>加载SpringMvcConfig配置类</p>
+<p><img src="/../assets/image-20220812233224637.png" alt="image-20220812233224637"></p>
+</li>
+<li><p>执行@ComponentScan加载对应的bean</p>
+<ul>
+<li>扫描指定包及其子包下所有类上的注解，如Controller类上的@Controller注解</li>
+</ul>
+</li>
+<li><p>加载UserController，每个@RequestMapping的名称对应一个具体的方法</p>
+<p><img src="/../assets/image-20220812233239449.png" alt="image-20220812233239449"></p>
+<ul>
+<li>此时就建立了 <code>/save</code> 和 save方法的对应关系</li>
+</ul>
+</li>
+<li><p>执行getServletMappings方法，设定SpringMVC拦截请求的路径规则</p>
+<p><img src="/../assets/image-20220812233252209.png" alt="image-20220812233252209"></p>
+<ul>
+<li><code>/</code>代表所拦截请求的路径规则，只有被拦截后才能交给SpringMVC来处理请求</li>
+</ul>
+</li>
+</ol>
+<p><code>单次请求过程：</code></p>
+<ol>
+<li>发送请求<code>http://localhost/save</code></li>
+<li>web容器发现该请求满足SpringMVC拦截规则，将请求交给SpringMVC处理</li>
+<li>解析请求路径&#x2F;save</li>
+<li>由&#x2F;save匹配执行对应的方法save(）<ul>
+<li>上面的第五步已经将请求路径和方法建立了对应关系，通过&#x2F;save就能找到对应的save方法</li>
+</ul>
+</li>
+<li>执行save()</li>
+<li>检测到有@ResponseBody直接将save()方法的返回值作为响应体返回给请求方</li>
+</ol>
+<h3 id="Controller加载控制与业务bean加载控制"><a href="#Controller加载控制与业务bean加载控制" class="headerlink" title="Controller加载控制与业务bean加载控制"></a>Controller加载控制与业务bean加载控制</h3><p>SpringMVC相关bean(表现层bean),也就是controller包下的类</p>
+<p>Spring控制的bean</p>
+<ul>
+<li>业务bean(Service)</li>
+<li>功能bean(DataSource,SqlSessionFactoryBean,MapperScannerConfigurer等)</li>
+</ul>
+<p><code>@ComponentScan</code> </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan(value=&quot;com.itheima&quot;,</span></span><br><span class="line"><span class="meta">    excludeFilters=@ComponentScan.Filter(</span></span><br><span class="line"><span class="meta">    	type = FilterType.ANNOTATION,</span></span><br><span class="line"><span class="meta">        classes = Controller.class</span></span><br><span class="line"><span class="meta">    )</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SpringConfig</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>excludeFilters：排除扫描路径中加载的bean，需要指定类型（type)与具体项（classes）</p>
+</li>
+<li><p>includeFilters：加载指定的bean，需要指定类别（type)与具体项（classes)</p>
+</li>
+</ul>
+<p><strong>bean的加载格式</strong></p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ServletContainersInitConfig</span> <span class="keyword">extends</span> <span class="title">AbstractDispatcherServletInitializer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">WebApplicationContext</span> createServletApplicationContext() &#123;</span><br><span class="line">        <span class="type">AnnotationConfigWebApplicationContext</span> ctx = <span class="keyword">new</span> <span class="type">AnnotationConfigWebApplicationContext</span>();</span><br><span class="line">        ctx.register(<span class="type">SpringMvcConfig</span>.<span class="keyword">class</span>);</span><br><span class="line">        <span class="keyword">return</span> ctx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span>[] getServletMappings() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">String</span>[]&#123;<span class="string">&quot;/&quot;</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">WebApplicationContext</span> createRootApplicationContext() &#123;</span><br><span class="line">      <span class="type">AnnotationConfigWebApplicationContext</span> ctx = <span class="keyword">new</span> <span class="type">AnnotationConfigWebApplicationContext</span>();</span><br><span class="line">        ctx.register(<span class="type">SpringConfig</span>.<span class="keyword">class</span>);</span><br><span class="line">        <span class="keyword">return</span> ctx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>—-&gt; 简化开发：</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ServletContainersInitConfig</span> <span class="keyword">extends</span> <span class="title">AbstractAnnotationConfigDispatcherServletInitializer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">Class</span>&lt;?&gt;[] getRootConfigClasses() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">Class</span>[]&#123;<span class="type">SpringConfig</span>.<span class="keyword">class</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">Class</span>&lt;?&gt;[] getServletConfigClasses() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">Class</span>[]&#123;<span class="type">SpringMvcConfig</span>.<span class="keyword">class</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">String</span>[] getServletMappings() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="type">String</span>[]&#123;<span class="string">&quot;/&quot;</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -532,7 +603,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">入门案例</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%E5%B7%A5%E7%A8%8B%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">入门案例工程流程分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%B8%9A%E5%8A%A1bean%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">Controller加载控制与业务bean加载控制</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -604,12 +675,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">872k</span>
+    <span title="站点总字数">874k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:12</span>
+    <span title="站点阅读时长">13:15</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
