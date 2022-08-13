@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220812233239449.png">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220812233252209.png">
 <meta property="article:published_time" content="2022-08-11T13:11:53.000Z">
-<meta property="article:modified_time" content="2022-08-13T07:34:51.220Z">
+<meta property="article:modified_time" content="2022-08-13T08:34:09.110Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Spring">
@@ -241,7 +241,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-13 15:34:51" itemprop="dateModified" datetime="2022-08-13T15:34:51+08:00">2022-08-13</time>
+                <time title="修改时间：2022-08-13 16:34:09" itemprop="dateModified" datetime="2022-08-13T16:34:09+08:00">2022-08-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,14 +280,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>9.3k</span>
+              <span>10k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>9 分钟</span>
             </span>
             <div class="post-description">SpringMVC知识点合集</div>
 
@@ -574,6 +574,51 @@
 <li><code>http://localhost/users</code>    修改用户信息    PUT（修改&#x2F;更新）</li>
 <li><code>http://localhost/users/1</code>  删除用户信息    DELETE（删除）</li>
 </ul>
+<h3 id="RESTful入门案例"><a href="#RESTful入门案例" class="headerlink" title="RESTful入门案例"></a>RESTful入门案例</h3><p>1.设定http请求动作</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">@<span class="constructor">RequestMapping(<span class="params">value</span> = <span class="string">&quot;/users&quot;</span>,<span class="params">method</span> = RequestMethod.POST)</span></span><br></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostMapping(value = <span class="string">&quot;/users&quot;</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>2.设定请求参数</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@DeleteMapping(value = &quot;/users/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">delete</span><span class="params">(<span class="meta">@PathVariable</span> Integer id)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;user delete...&quot;</span> + id);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&#123;&#x27;module&#x27;:&#x27;user delete&#x27;&#125;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>知识点1：@PathVariable</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>@PathVariable</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>&#x3D;&#x3D;形参注解&#x3D;&#x3D;</td>
+</tr>
+<tr>
+<td>位置</td>
+<td>SpringMVC控制器方法形参定义前面</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>绑定路径参数与处理器方法形参间的关系，要求路径参数名与形参名一一对应</td>
+</tr>
+</tbody></table>
+<p><code>@RequestBody</code>、<code>@RequestParam</code>、<code>@PathVariable</code></p>
+<ul>
+<li>区别<ul>
+<li>@RequestParam用于接收url地址传参或表单传参</li>
+<li>@RequestBody用于接收json数据</li>
+<li>@PathVariable用于接收路径参数，使用{参数名称}描述路径参数</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>后期开发中，发送请求参数超过1个时，以json格式为主，@RequestBody应用较广</li>
+<li>如果发送非json格式数据，选用@RequestParam接收请求参数</li>
+<li>采用RESTful进行开发，当参数数量较少时，例如1个，可以采用@PathVariable接收请求路径变量，通常用于传递id值</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -699,7 +744,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%E5%B7%A5%E7%A8%8B%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">入门案例工程流程分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%B8%9A%E5%8A%A1bean%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">Controller加载控制与业务bean加载控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">bean的加载格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E7%A7%8D%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">6.</span> <span class="nav-text">五种类型参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8F%82%E6%95%B0"><span class="nav-number">6.1.</span> <span class="nav-text">普通参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POJO%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.2.</span> <span class="nav-text">POJO类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97POJO%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.3.</span> <span class="nav-text">嵌套POJO类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.4.</span> <span class="nav-text">数组类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.5.</span> <span class="nav-text">集合类型参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%8F%82%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">JSON数据传输参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%9E%8B%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">8.</span> <span class="nav-text">日期型参数传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94"><span class="nav-number">9.</span> <span class="nav-text">请求与响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful%E7%AE%80%E4%BB%8B"><span class="nav-number">10.</span> <span class="nav-text">RESTful简介</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringMVC%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">SpringMVC简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%E5%B7%A5%E7%A8%8B%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">入门案例工程流程分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%B8%9A%E5%8A%A1bean%E5%8A%A0%E8%BD%BD%E6%8E%A7%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">Controller加载控制与业务bean加载控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bean%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">bean的加载格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E7%A7%8D%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">6.</span> <span class="nav-text">五种类型参数传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8F%82%E6%95%B0"><span class="nav-number">6.1.</span> <span class="nav-text">普通参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POJO%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.2.</span> <span class="nav-text">POJO类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97POJO%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.3.</span> <span class="nav-text">嵌套POJO类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.4.</span> <span class="nav-text">数组类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="nav-number">6.5.</span> <span class="nav-text">集合类型参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E5%8F%82%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">JSON数据传输参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%9E%8B%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">8.</span> <span class="nav-text">日期型参数传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94"><span class="nav-number">9.</span> <span class="nav-text">请求与响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful%E7%AE%80%E4%BB%8B"><span class="nav-number">10.</span> <span class="nav-text">RESTful简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">11.</span> <span class="nav-text">RESTful入门案例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -771,12 +816,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">881k</span>
+    <span title="站点总字数">883k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:21</span>
+    <span title="站点阅读时长">13:22</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
