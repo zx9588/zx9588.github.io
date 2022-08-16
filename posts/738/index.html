@@ -505,11 +505,11 @@
 </tbody></table>
 <h3 id="Dockerfile-案例"><a href="#Dockerfile-案例" class="headerlink" title="Dockerfile 案例"></a>Dockerfile 案例</h3><p><strong>案例一</strong></p>
 <p>需求：自定义centos7镜像。要求： 1. 默认登录路径为 &#x2F;usr 2. 可以使用vim</p>
-<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#105;&#116;&#104;&#101;&#105;&#109;&#x61;&#64;&#x69;&#x74;&#99;&#x61;&#115;&#116;&#x2e;&#99;&#110;">&#105;&#116;&#104;&#101;&#105;&#109;&#x61;&#64;&#x69;&#x74;&#99;&#x61;&#115;&#116;&#x2e;&#99;&#110;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#x74;&#104;&#x65;&#x69;&#x6d;&#97;&#64;&#x69;&#116;&#x63;&#x61;&#x73;&#x74;&#46;&#x63;&#x6e;">&#x69;&#x74;&#104;&#x65;&#x69;&#x6d;&#97;&#64;&#x69;&#116;&#x63;&#x61;&#x73;&#x74;&#46;&#x63;&#x6e;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
 <p><strong>案例二</strong></p>
 <p>需求：定义dockerfile，发布springboot项目</p>
 <p>实现步骤：</p>
-<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#x74;&#104;&#x65;&#x69;&#x6d;&#x61;&#x40;&#x69;&#x74;&#x63;&#97;&#x73;&#x74;&#x2e;&#x63;&#110;">&#x69;&#x74;&#104;&#x65;&#x69;&#x6d;&#x61;&#x40;&#x69;&#x74;&#x63;&#97;&#x73;&#x74;&#x2e;&#x63;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
+<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#x68;&#x65;&#x69;&#109;&#97;&#x40;&#105;&#116;&#99;&#x61;&#115;&#116;&#x2e;&#99;&#x6e;">&#x69;&#116;&#x68;&#x65;&#x69;&#109;&#97;&#x40;&#105;&#116;&#99;&#x61;&#115;&#116;&#x2e;&#99;&#x6e;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
 <figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> java:<span class="number">8</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> zhangxin &lt;<span class="number">1205362172</span>@qq.com&gt;</span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> springboot.jar app.jar</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> java–jar app.jar</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -f ./springboot_dockerfile -t app . </span><br></pre></td></tr></table></figure>
@@ -1004,7 +1004,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">208</span>
+          <span class="site-state-item-count">215</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1054,7 +1054,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>站点总字数:
     </span>
-    <span title="站点总字数">935k</span>
+    <span title="站点总字数">940k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
