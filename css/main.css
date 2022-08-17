@@ -80,6 +80,7 @@ abbr[title] {
 b,
 strong {
   font-weight: bolder;
+  color: #1e90ff; /* 2 */
 }
 code,
 kbd,
@@ -1316,7 +1317,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f9550d;
+  background: #a7bef7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
