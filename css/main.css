@@ -196,8 +196,8 @@ template {
   display: none;
 }
 ::selection {
-  background: #262a30;
-  color: #eee;
+  background: #00c4b6;
+  color: #fff;
 }
 html,
 body {
@@ -457,7 +457,7 @@ code {
 }
 .highlight *::selection {
   color: #fff;
-  background: #33caa6;
+  background: #00c4b6;
 }
 .highlight pre {
   border: 0;
@@ -1321,7 +1321,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9d9955;
+  background: #d1cc37;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
