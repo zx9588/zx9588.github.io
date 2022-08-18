@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":null,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"zx.js.cool","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":null,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Java工程师面试题">
@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://zx.js.cool/assets/dZ2MkoPqYLjHctw.png">
 <meta property="og:image" content="https://zx.js.cool/assets/QydVcWTF4PJErm1.png">
 <meta property="article:published_time" content="2021-12-26T02:52:23.000Z">
-<meta property="article:modified_time" content="2022-08-16T09:05:44.191Z">
+<meta property="article:modified_time" content="2022-08-18T06:26:32.297Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java工程师面试题">
 <meta property="article:tag" content="Java">
@@ -122,7 +122,7 @@
       <h1 class="site-title">zx's blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">精美短文，碎片化阅读。| 无目录沉浸式阅读。| 善用搜索功能。</p>
+      <p class="site-subtitle" itemprop="description">善用搜索功能。</p>
   </div>
 
   <div class="site-nav-right">
@@ -256,17 +256,8 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-16 17:05:44" itemprop="dateModified" datetime="2022-08-16T17:05:44+08:00">2022-08-16</time>
+                <time title="修改时间：2022-08-18 14:26:32" itemprop="dateModified" datetime="2022-08-18T14:26:32+08:00">2022-08-18</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">Java工程师面试题</span></a>
-                </span>
-            </span>
 
           
             <span id="/posts/a3a7/" class="post-meta-item leancloud_visitors" data-flag-title="Java工程师面试题-分布式" title="阅读次数">
@@ -316,9 +307,9 @@
 
       
         <blockquote>
-<p><code>推荐先阅读</code>：<a href="/posts/b2c4">Java工程师面试题-合集</a></p>
+<p><code>推荐先阅读</code>：<a href="/posts/b2c4">【合集】Java工程师面试题</a></p>
 </blockquote>
-<h4 id="1-1-什么是CAP原则？"><a href="#1-1-什么是CAP原则？" class="headerlink" title="1.1 什么是CAP原则？"></a>1.1 什么是CAP原则？</h4><p><strong>参考答案</strong></p>
+<h3 id="什么是CAP原则？"><a href="#什么是CAP原则？" class="headerlink" title="什么是CAP原则？"></a>什么是CAP原则？</h3><p><strong>参考答案</strong></p>
 <p>CAP定理又称CAP原则，指的是在一个分布式系统中，Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），最多只能同时三个特性中的两个，三者不可兼得。</p>
 <ul>
 <li><p>Consistency (一致性)：</p>
@@ -331,7 +322,7 @@
 <p>即分布式系统在遇到某节点或网络分区故障的时候，仍然能够对外提供满足一致性和可用性的服务。分区容错性要求能够使应用虽然是一个分布式系统，而看上去却好像是在一个可以运转正常的整体。比如现在的分布式系统中有某一个或者几个机器宕掉了，其他剩下的机器还能够正常运转满足系统需求，对于用户而言并没有什么体验上的影响。</p>
 </li>
 </ul>
-<h4 id="1-2-说一说你对高并发的理解"><a href="#1-2-说一说你对高并发的理解" class="headerlink" title="1.2 说一说你对高并发的理解"></a>1.2 说一说你对高并发的理解</h4><p><strong>参考答案</strong></p>
+<h3 id="说一说你对高并发的理解"><a href="#说一说你对高并发的理解" class="headerlink" title="说一说你对高并发的理解"></a>说一说你对高并发的理解</h3><p><strong>参考答案</strong></p>
 <p>\1. 如何理解高并发？</p>
 <p>高并发意味着大流量，需要运用技术手段抵抗流量的冲击，这些手段好比操作流量，能让流量更平稳地被系统所处理，带给用户更好的体验。我们常见的高并发场景有：淘宝的双11、春运时的抢票、微博大V的热点新闻等。除了这些典型事情，每秒几十万请求的秒杀系统、每天千万级的订单系统、每天亿级日活的信息流系统等，都可以归为高并发。很显然，上面谈到的高并发场景，并发量各不相同，那到底多大并发才算高并发呢？</p>
 <ol>
@@ -434,7 +425,7 @@
 <li>存储层的拆分：按照业务维度做垂直拆分、按照数据特征维度进一步做水平拆分（分库分表）。</li>
 <li>业务层的拆分：最常见的是按照业务维度拆（比如电商场景的商品服务、订单服务等），也可以按照核心接口和非核心接口拆，还可以按照请求源拆（比如To C和To B，APP和H5）。</li>
 </ol>
-<h4 id="1-3-如何实现分布式存储？"><a href="#1-3-如何实现分布式存储？" class="headerlink" title="1.3 如何实现分布式存储？"></a>1.3 如何实现分布式存储？</h4><p><strong>参考答案</strong></p>
+<h3 id="如何实现分布式存储？"><a href="#如何实现分布式存储？" class="headerlink" title="如何实现分布式存储？"></a>如何实现分布式存储？</h3><p><strong>参考答案</strong></p>
 <p>分布式存储是一个大的概念，其包含的种类繁多，除了传统意义上的分布式文件系统、分布式块存储和分布式对象存储外，还包括分布式数据库和分布式缓存等。下面我们探讨一下分布式文件系统等传统意义上的存储架构，实现这种存储架构主要有三种通用的形式，其它存储架构也基本上基于上述架构，并没有太大的变化。</p>
 <p>中间控制节点架构（HDFS）</p>
 <p>分布式存储最早是由谷歌提出的，其目的是通过廉价的服务器来提供使用与大规模，高并发场景下的Web访问问题。下图是谷歌分布式存储（HDFS）的简化的模型。在该系统的整个架构中将服务器分为两种类型，一种名为namenode，这种类型的节点负责管理管理数据（元数据），另外一种名为datanode，这种类型的服务器负责实际数据的管理。</p>
@@ -450,7 +441,7 @@
 <p>上图是一致性哈希的基本原理，为了绘制简单，本文以一个服务器上的一个磁盘为例进行介绍。为了保证数据分配的均匀性及出现设备故障时数据迁移的均匀性，一致性哈希将磁盘划分为比较多的虚拟分区，每个虚拟分区是哈希环上的一个节点。整个环是一个从0到32位最大值的一个区间，并且首尾相接。当计算出数据（或者数据名称）的哈希值后，必然落到哈希环的某个区间，然后以顺时针，必然能够找到一个节点。那么，这个节点就是存储数据的位置。 Swift存储的整个数据定位算法就是基于上述一致性哈希实现的。在Swift对象存储中，通过账户名&#x2F;容器名&#x2F;对象名三个名称组成一个位置的标识，通过该唯一标识可以计算出一个整型数来。而在存储设备方面，Swift构建一个虚拟分区表，表的大小在创建集群是确定（通常为几十万），这个表其实就是一个数组。这样，根据上面计算的整数值，以及这个数组，通过一致性哈希算法就可以确定该整数在数组的位置。而数组中的每项内容是数据3个副本（也可以是其它副本数量）的设备信息（包含服务器和磁盘等信息）。也就是经过上述计算，可以确定一个数据存储的具体位置。这样，Swift就可以将请求重新定向到该设备进行处理。</p>
 <p><img src="/../assets/Ech4gyo9wBuf7NW.png" alt="img"></p>
 <p>上述计算过程是在一个名为Proxy的服务中进行的，该服务可以集群化部署。因此可以分摊请求的负载，不会成为性能瓶颈。</p>
-<h4 id="1-4-说一说你对分布式事务的了解"><a href="#1-4-说一说你对分布式事务的了解" class="headerlink" title="1.4 说一说你对分布式事务的了解"></a>1.4 说一说你对分布式事务的了解</h4><p><strong>参考答案</strong></p>
+<h3 id="说一说你对分布式事务的了解"><a href="#说一说你对分布式事务的了解" class="headerlink" title="说一说你对分布式事务的了解"></a>说一说你对分布式事务的了解</h3><p><strong>参考答案</strong></p>
 <p>分布式事务就是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。简单的说，就是一次大的操作由不同的小操作组成，这些小的操作分布在不同的服务器上，且属于不同的应用，分布式事务需要保证这些小操作要么全部成功，要么全部失败。本质上来说，分布式事务就是为了保证不同数据库的数据一致性。</p>
 <p>要实现分布式事务，有如下几种常见的解决方案：</p>
 <p>2PC</p>
@@ -527,7 +518,7 @@
 </ul>
 <p>我们一次进行T1，T2，T3如果发生问题，就执行发生问题的C操作的反向。 上面说到的隔离性的问题会出现在，如果执行到T3这个时候需要执行回滚，但是这个用户已经把水喝了(另外一个事务)，回滚的时候就会发现，无法给用户减一瓶水了。这就是事务之间没有隔离性的问题。</p>
 <p>可以看见saga模式没有隔离性的影响还是较大，可以参照华为的解决方案:从业务层面入手加入一 Session 以及锁的机制来保证能够串行化操作资源。也可以在业务层面通过预先冻结资金的方式隔离这部分资源， 最后在业务操作的过程中可以通过及时读取当前状态的方式获取到最新的更新。</p>
-<h4 id="1-5-分布式系统如何保证最终一致性？"><a href="#1-5-分布式系统如何保证最终一致性？" class="headerlink" title="1.5 分布式系统如何保证最终一致性？"></a>1.5 分布式系统如何保证最终一致性？</h4><p><strong>参考答案</strong></p>
+<h3 id="分布式系统如何保证最终一致性？"><a href="#分布式系统如何保证最终一致性？" class="headerlink" title="分布式系统如何保证最终一致性？"></a>分布式系统如何保证最终一致性？</h3><p><strong>参考答案</strong></p>
 <p>国际开放标准组织Open Group定义了DTS（分布式事务处理模型），模型中包含4种角色：应用程序、事务管理器、资源管理器和通信资源管理器。事务管理器是统管全局的管理者，资源管理器和通信资源管理器是事务的参与者。</p>
 <p>JEE（Java企业版）规范也包含此分布式事务处理模型的规范，并在所有AppServer中进行实现。在JEE规范中定义了TX协议和XA协议，TX协议定义应用程序与事务管理器之间的接口，XA协议则定义事务管理器与资源管理器之间的接口。在过去使用 AppServer如WebSphere、 WebLogic、JBoss等配置数据源时会看见类似XADatasource的数据源，这就是实现了分布式事务处理模型的关系型数据库的数据源。在企业级开发JEE中，关系型数据库、JMS服务扮演资源管理器的角色，而EJB容器扮演事务管理器的角色。</p>
 <p>下面我们介绍两阶段提交协议、三阶段提交协议及阿里巴巴提出的 TCC，它们都是根据DTS这一思想演变而来的。</p>
@@ -602,7 +593,7 @@
 <li>使用缓存牺牲了一致性，为了提高性能，数据库与缓存只需要保持弱一致性，而不需要保持强一致性，否则违背了使用缓存的初衷。</li>
 <li>读的顺序是先读缓存，后读数据库，写的顺序要先写数据库，后写缓存。</li>
 </ul>
-<h4 id="1-6-谈谈你对分布式的单点问题的了解"><a href="#1-6-谈谈你对分布式的单点问题的了解" class="headerlink" title="1.6 谈谈你对分布式的单点问题的了解"></a>1.6 谈谈你对分布式的单点问题的了解</h4><p><strong>参考答案</strong></p>
+<h3 id="谈谈你对分布式的单点问题的了解"><a href="#谈谈你对分布式的单点问题的了解" class="headerlink" title="谈谈你对分布式的单点问题的了解"></a>谈谈你对分布式的单点问题的了解</h3><p><strong>参考答案</strong></p>
 <p>在分布式系统中，单点问题是一个比较常见的问题，对于单点问题可以分为有状态服务的单点问题和无状态服务的单点问题。</p>
 <p>无状态服务的单点问题</p>
 <p>对于无状态的服务，单点问题的解决比较简单，因为服务是无状态的，所以服务节点很容易进行平行扩展。比如，在分布式系统中，为了降低各进程通信的网络结构的复杂度，我们会增加一个代理节点，专门做消息的转发，其他的业务进行直接和代理节点进行通信，类似一个星型的网络结构。</p>
@@ -622,7 +613,7 @@
 <p>对于方案一的缺点主要要多维护一套ZooKeeper的服务，如果原本业务上并没有部署该服务的话，要增加该服务的维护也是比较麻烦的事情。这个时候我们可以在业务进程中加入Master的选举方案。目前有比较成熟的选举算法，比如Paxos和Raft。然后再配合租约机制，就可以实现Master的选举，并且确保当前只有一个Master的方案。但是，这些选举算法理解起来并不是那么地容易，要实现一套完善的方案也是挺难的。所以不建议重复造轮子，业内有很多成熟的框架或者组件可以使用，比如微信的PhxPaxos。</p>
 <p><img src="/../assets/QydVcWTF4PJErm1.png" alt="img"></p>
 <p>比如上图的方案中，三个节点其实都是对等的，通过选举算法确定一个Master。为了确保任何时候都只能存在一个Matster，需要加入租约的机制。一个节点成为Master后，Master和非Master节点都会进行计时，在超过租约时间后，三个节点后可以发起“我要成为Master”的请求，进行重新选举。由于三个节点都是对等的，任意一个都可以成为Master，也就是说租期过后，有可能会出现Master切换的情况，所以为了避免Master的频繁切换，Master节点需要比另外两个节点先发起自己要成为Master的请求（续租），告诉其他两个节点我要继续成为Master，然后另外两个节点收到请求后会进行应答，正常情况下另外两个节点会同意该请求。关键点就是，在租约过期之前，非Master节点不能发起“我要成为Master”的请求，这样就可以解决Master频繁切换的问题。</p>
-<h4 id="1-7-HTTP和RPC有什么区别？"><a href="#1-7-HTTP和RPC有什么区别？" class="headerlink" title="1.7 HTTP和RPC有什么区别？"></a>1.7 HTTP和RPC有什么区别？</h4><p><strong>参考答案</strong></p>
+<h3 id="HTTP和RPC有什么区别？"><a href="#HTTP和RPC有什么区别？" class="headerlink" title="HTTP和RPC有什么区别？"></a>HTTP和RPC有什么区别？</h3><p><strong>参考答案</strong></p>
 <p>传输协议</p>
 <ul>
 <li>RPC，可以基于TCP协议，也可以基于HTTP协议。</li>
@@ -777,7 +768,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFCAP%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1.1 什么是CAP原则？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">1.2 说一说你对高并发的理解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">1.3 如何实现分布式存储？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">4.</span> <span class="nav-text">1.4 说一说你对分布式事务的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">1.5 分布式系统如何保证最终一致性？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84%E5%8D%95%E7%82%B9%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">6.</span> <span class="nav-text">1.6 谈谈你对分布式的单点问题的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-HTTP%E5%92%8CRPC%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">1.7 HTTP和RPC有什么区别？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCAP%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是CAP原则？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">说一说你对高并发的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">如何实现分布式存储？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E4%B8%80%E8%AF%B4%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">4.</span> <span class="nav-text">说一说你对分布式事务的了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">分布式系统如何保证最终一致性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84%E5%8D%95%E7%82%B9%E9%97%AE%E9%A2%98%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">6.</span> <span class="nav-text">谈谈你对分布式的单点问题的了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP%E5%92%8CRPC%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">HTTP和RPC有什么区别？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -793,20 +784,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">250</span>
+          <span class="site-state-item-count">251</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -843,7 +834,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>站点总字数:
     </span>
-    <span title="站点总字数">942k</span>
+    <span title="站点总字数">943k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
@@ -891,7 +882,7 @@
 <script src="/js/utils.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
