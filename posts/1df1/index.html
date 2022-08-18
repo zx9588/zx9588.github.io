@@ -28,8 +28,10 @@
 <meta property="og:description" content="MyBatisPlus">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zx.js.cool/assets/image-20220818110251928.png">
+<meta property="og:image" content="https://zx.js.cool/assets/image-20220818154424656.png">
+<meta property="og:image" content="https://zx.js.cool/assets/1631243987800.png">
 <meta property="article:published_time" content="2022-08-17T11:54:28.000Z">
-<meta property="article:modified_time" content="2022-08-18T07:02:36.289Z">
+<meta property="article:modified_time" content="2022-08-18T08:03:14.660Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="MyBatisPlus">
 <meta name="twitter:card" content="summary">
@@ -236,7 +238,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-18 15:02:36" itemprop="dateModified" datetime="2022-08-18T15:02:36+08:00">2022-08-18</time>
+                <time title="修改时间：2022-08-18 16:03:14" itemprop="dateModified" datetime="2022-08-18T16:03:14+08:00">2022-08-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,14 +277,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>7.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>6 分钟</span>
             </span>
             <div class="post-description">MyBatisPlus</div>
 
@@ -344,8 +346,120 @@
 <p>null值处理</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lqw = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;User&gt;();</span><br><span class="line">lqw.lt(<span class="literal">null</span>!=uq.getAge2(),User::getAge, uq.getAge2())</span><br><span class="line">    .gt(<span class="literal">null</span>!=uq.getAge(),User::getAge, uq.getAge());</span><br><span class="line">List&lt;User&gt; userList = userDao.selectList(lqw);</span><br></pre></td></tr></table></figure>
 
+<h3 id="查询投影"><a href="#查询投影" class="headerlink" title="查询投影"></a>查询投影</h3><h4 id="查询指定字段"><a href="#查询指定字段" class="headerlink" title="查询指定字段"></a>查询指定字段</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lqw = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;User&gt;();</span><br><span class="line">lqw.select(User::getId,User::getName,User::getAge);</span><br><span class="line">List&lt;User&gt; userList = userDao.selectList(lqw);</span><br></pre></td></tr></table></figure>
 
-<h3 id="查询投影"><a href="#查询投影" class="headerlink" title="查询投影"></a>查询投影</h3>
+<blockquote>
+<p>&#x2F;&#x2F; 非lambda版</p>
+<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line">QueryWrapper<span class="variable">&lt;User&gt;</span> qw = new QueryWrapper<span class="variable">&lt;User&gt;</span>();</span><br><span class="line">qw.select(<span class="string">&quot;id&quot;</span>,<span class="string">&quot;name&quot;</span>,<span class="string">&quot;age&quot;</span>,<span class="string">&quot;tel&quot;</span>);</span><br><span class="line">List<span class="variable">&lt;User&gt;</span> <span class="keyword">user</span>List = <span class="keyword">user</span>Dao.selectList(qw);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h4><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">QueryWrapper&lt;<span class="keyword">User</span>&gt; lqw = <span class="built_in">new</span> QueryWrapper&lt;<span class="keyword">User</span>&gt;();</span><br><span class="line">//<span class="keyword">SELECT</span> count(*) <span class="keyword">as</span> count <span class="keyword">FROM</span> <span class="keyword">user</span></span><br><span class="line">lqw.<span class="keyword">select</span>(&quot;count(*) as count&quot;);</span><br><span class="line">lqw.<span class="keyword">select</span>(&quot;max(age) as maxAge&quot;);</span><br><span class="line">lqw.<span class="keyword">select</span>(&quot;min(age) as minAge&quot;);</span><br><span class="line">lqw.<span class="keyword">select</span>(&quot;sum(age) as sumAge&quot;);</span><br><span class="line">lqw.<span class="keyword">select</span>(&quot;avg(age) as avgAge&quot;);</span><br><span class="line">List&lt;Map&lt;String, <span class="keyword">Object</span>&gt;&gt; userList = userDao.selectMaps(lqw);</span><br></pre></td></tr></table></figure>
+
+<h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">QueryWrapper&lt;User&gt; lqw = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;User&gt;();</span><br><span class="line">lqw.select(<span class="string">&quot;count(*) as count,tel&quot;</span>);</span><br><span class="line">lqw.groupBy(<span class="string">&quot;tel&quot;</span>);</span><br><span class="line">List&lt;Map&lt;String, Object&gt;&gt; list = userDao.selectMaps(lqw);</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询条件"><a href="#查询条件" class="headerlink" title="查询条件"></a>查询条件</h3><p>MP的查询条件有很多:</p>
+<ul>
+<li>范围匹配（&gt; 、 &#x3D; 、between）</li>
+<li>模糊匹配（like）</li>
+<li>空判定（null）</li>
+<li>包含性匹配（in）</li>
+<li>分组（group）</li>
+<li>排序（order）</li>
+<li>……</li>
+</ul>
+<h4 id="等值查询"><a href="#等值查询" class="headerlink" title="等值查询"></a>等值查询</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lqw = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;User&gt;();</span><br><span class="line">lqw.eq(User::getName, <span class="string">&quot;Jerry&quot;</span>).eq(User::getPassword, <span class="string">&quot;jerry&quot;</span>);</span><br><span class="line"><span class="type">User</span> <span class="variable">loginUser</span> <span class="operator">=</span> userDao.selectOne(lqw);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相当于：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id,<span class="type">name</span>,<span class="keyword">password</span>,age,tel <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> (<span class="type">name</span> = ? <span class="keyword">AND</span> <span class="keyword">password</span> = ?)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lqw = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;User&gt;();</span><br><span class="line">lqw.between(User::getAge, <span class="number">10</span>, <span class="number">30</span>);</span><br><span class="line">List&lt;User&gt; userList = userDao.selectList(lqw);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相当于：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id,<span class="type">name</span>,<span class="keyword">password</span>,age,tel <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> (age <span class="keyword">BETWEEN</span> ? <span class="keyword">AND</span> ?)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>gt():大于(&gt;)</li>
+<li>ge():大于等于(&gt;&#x3D;)</li>
+<li>lt():小于(&lt;)</li>
+<li>lte():小于等于(&lt;&#x3D;)</li>
+<li>between():between ? and ?</li>
+</ul>
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lqw = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;User&gt;();</span><br><span class="line">lqw.likeLeft(User::getName, <span class="string">&quot;J&quot;</span>);</span><br><span class="line">List&lt;User&gt; userList = userDao.selectList(lqw);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>相当于：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id,<span class="type">name</span>,<span class="keyword">password</span>,age,tel <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> (<span class="type">name</span> <span class="keyword">LIKE</span> ?)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>like():前后加百分号,如 %J%</li>
+<li>likeLeft():前面加百分号,如 %J</li>
+<li>likeRight():后面加百分号,如 J%</li>
+</ul>
+<h4 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lwq = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * condition ：条件，返回boolean，</span></span><br><span class="line"><span class="comment">    当condition为true，进行排序，如果为false，则不排序</span></span><br><span class="line"><span class="comment">    * isAsc:是否为升序，true为升序，false为降序</span></span><br><span class="line"><span class="comment">    * columns：需要操作的列</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">lwq.orderBy(<span class="literal">true</span>,<span class="literal">false</span>, User::getId);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../assets/image-20220818154424656.png" alt="image-20220818154424656"></p>
+<ul>
+<li>orderBy排序<ul>
+<li>condition:条件，true则添加排序，false则不添加排序</li>
+<li>isAsc:是否为升序，true升序，false降序</li>
+<li>columns:排序字段，可以有多个</li>
+</ul>
+</li>
+<li>orderByAsc&#x2F;Desc(单个column):按照指定字段进行升序&#x2F;降序</li>
+<li>orderByAsc&#x2F;Desc(多个column):按照多个字段进行升序&#x2F;降序</li>
+<li>orderByAsc&#x2F;Desc<ul>
+<li>condition:条件，true添加排序，false不添加排序</li>
+<li>多个columns：按照多个字段进行排序</li>
+</ul>
+</li>
+</ul>
+<p>除了上面介绍的这几种查询条件构建方法以外还会有很多其他的方法，比如isNull,isNotNull,in,notIn等等方法可供选择，具体参考官方文档的条件构造器来学习使用，具体的网址为:</p>
+<p><code>https://mp.baomidou.com/guide/wrapper.html#abstractwrapper</code></p>
+<h3 id="映射匹配兼容性"><a href="#映射匹配兼容性" class="headerlink" title="映射匹配兼容性"></a>映射匹配兼容性</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 使用@TableName设置当前类与数据库表对应关系</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">// 查询时将pwd隐藏（使用@TableField映射关系）</span></span><br><span class="line">    <span class="meta">@TableField(value=&quot;pwd&quot;,select=false)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String tel;</span><br><span class="line">    <span class="comment">// 使用@TableField排除字段</span></span><br><span class="line">    <span class="meta">@TableField(exist=false)</span></span><br><span class="line">    <span class="keyword">private</span> Integer online;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="id生成策略控制"><a href="#id生成策略控制" class="headerlink" title="id生成策略控制"></a>id生成策略控制</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@TableId(type = IdType.AUTO)</span></span><br><span class="line"><span class="keyword">private</span> Long id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>AUTO: 使用数据库ID自增</li>
+<li>NONE: 不设置id生成策略</li>
+<li>INPUT: 用户手工输入id<br>这种ID生成策略，需要将表的自增策略删除掉</li>
+<li>ASSIGN_ID: 雪花算法生成id(可兼容数值型与字符串型)，<br>这种生成策略，不需要手动设置ID，如果手动设置ID，则会使用自己设置的值。</li>
+<li>ASSIGN_UUID: 以UUID生成算法作为id生成策略，<br>使用uuid需要注意的是，主键的类型不能是Long，而应该改成String类型</li>
+<li>其他的几个策略均已过时，都将被ASSIGN_ID和ASSIGN_UUID代替掉。</li>
+</ul>
+<blockquote>
+<p><strong>ID生成策略对比</strong></p>
+<p>介绍了这些主键ID的生成策略，我们以后该用哪个呢?</p>
+<ul>
+<li>NONE: 不设置id生成策略，MP不自动生成，约等于INPUT,所以这两种方式都需要用户手动设置，但是手动设置第一个问题是容易出现相同的ID造成主键冲突，为了保证主键不冲突就需要做很多判定，实现起来比较复杂</li>
+<li>AUTO:数据库ID自增,这种策略适合在数据库服务器只有1台的情况下使用,不可作为分布式ID使用</li>
+<li>ASSIGN_UUID:可以在分布式的情况下使用，而且能够保证唯一，但是生成的主键是32位的字符串，长度过长占用空间而且还不能排序，查询性能也慢</li>
+<li>ASSIGN_ID:可以在分布式的情况下使用，生成的是Long类型的数字，可以排序性能也高，但是生成的策略和服务器时间有关，如果修改了系统时间就有可能导致出现重复主键</li>
+<li>综上所述，每一种主键策略都有自己的优缺点，根据自己项目业务的实际情况来选择使用才是最明智的选择。</li>
+</ul>
+</blockquote>
+<h3 id="简化配置"><a href="#简化配置" class="headerlink" title="简化配置"></a>简化配置</h3><p>模型类主键策略设置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">    	<span class="attr">id-type:</span> <span class="string">assign_id</span></span><br></pre></td></tr></table></figure>
+
+<p>数据库表与模型类的映射关系：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">    	<span class="attr">table-prefix:</span> <span class="string">tbl_</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="雪花算法"><a href="#雪花算法" class="headerlink" title="雪花算法"></a>雪花算法</h3><p>雪花算法(SnowFlake),是Twitter官方给出的算法实现 是用Scala写的。其生成的结果是一个64bit大小整数，它的结构如下图:</p>
+<p><img src="/../assets/1631243987800.png" alt="1631243987800"></p>
+<ol>
+<li>1bit,不用,因为二进制中最高位是符号位，1表示负数，0表示正数。生成的id一般都是用整数，所以最高位固定为0。</li>
+<li>41bit-时间戳，用来记录时间戳，毫秒级</li>
+<li>10bit-工作机器id，用来记录工作机器id,其中高位5bit是数据中心ID其取值范围0-31，低位5bit是工作节点ID其取值范围0-31，两个组合起来最多可以容纳1024个节点</li>
+<li>序列号占用12bit，每个节点每毫秒0开始不断累加，最多可以累加到4095，一共可以产生4096个ID</li>
+</ol>
+<h3 id="多记录操作"><a href="#多记录操作" class="headerlink" title="多记录操作"></a>多记录操作</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;T&gt; <span class="title function_">selectBatchIds</span><span class="params">(<span class="meta">@Param(Constants.COLLECTION)</span> Collection&lt;? extends Serializable&gt; idList)</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询指定多条数据</span></span><br><span class="line">List&lt;Long&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">list.add(<span class="number">1L</span>);</span><br><span class="line">list.add(<span class="number">3L</span>);</span><br><span class="line">list.add(<span class="number">4L</span>);</span><br><span class="line">userDao.selectBatchIds(list);</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑删除"><a href="#逻辑删除" class="headerlink" title="逻辑删除"></a>逻辑删除</h3>
     </div>
 
     
@@ -465,7 +579,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%95%B0%E6%8D%AE%E5%B1%82CRUD%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">标准数据层CRUD功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lombok"><span class="nav-number">3.</span> <span class="nav-text">lombok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MP%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">MP分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E6%97%A5%E5%BF%97"><span class="nav-number">5.</span> <span class="nav-text">开启日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%8A%95%E5%BD%B1"><span class="nav-number">7.</span> <span class="nav-text">查询投影</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">入门案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E6%95%B0%E6%8D%AE%E5%B1%82CRUD%E5%8A%9F%E8%83%BD"><span class="nav-number">2.</span> <span class="nav-text">标准数据层CRUD功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lombok"><span class="nav-number">3.</span> <span class="nav-text">lombok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MP%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.</span> <span class="nav-text">MP分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E6%97%A5%E5%BF%97"><span class="nav-number">5.</span> <span class="nav-text">开启日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">6.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%8A%95%E5%BD%B1"><span class="nav-number">7.</span> <span class="nav-text">查询投影</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%8C%87%E5%AE%9A%E5%AD%97%E6%AE%B5"><span class="nav-number">7.1.</span> <span class="nav-text">查询指定字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="nav-number">7.2.</span> <span class="nav-text">聚合查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">7.3.</span> <span class="nav-text">分组查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%9D%A1%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">查询条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E6%9F%A5%E8%AF%A2"><span class="nav-number">8.1.</span> <span class="nav-text">等值查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-number">8.2.</span> <span class="nav-text">范围查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="nav-number">8.3.</span> <span class="nav-text">模糊查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2"><span class="nav-number">8.4.</span> <span class="nav-text">排序查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E5%8C%B9%E9%85%8D%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="nav-number">9.</span> <span class="nav-text">映射匹配兼容性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5%E6%8E%A7%E5%88%B6"><span class="nav-number">10.</span> <span class="nav-text">id生成策略控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">简化配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95"><span class="nav-number">12.</span> <span class="nav-text">雪花算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%AE%B0%E5%BD%95%E6%93%8D%E4%BD%9C"><span class="nav-number">13.</span> <span class="nav-text">多记录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%88%A0%E9%99%A4"><span class="nav-number">14.</span> <span class="nav-text">逻辑删除</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -531,7 +645,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>站点总字数:
     </span>
-    <span title="站点总字数">943k</span>
+    <span title="站点总字数">948k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
       <span class="post-meta-item-icon">
