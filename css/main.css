@@ -196,7 +196,7 @@ template {
   display: none;
 }
 ::selection {
-  background: #262a30;
+  background: #222;
   color: #eee;
 }
 html,
@@ -1173,7 +1173,7 @@ pre .javascript .function {
   }
 }
 .book-mark-link::before {
-  color: #eb5055;
+  color: #fc6423;
   content: '\f02e';
   font-size: 32px;
   line-height: 1;
@@ -1321,7 +1321,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6bffff;
+  background: #b80496;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1855,7 +1855,7 @@ a.posts-collapse::before {
 .post-body h6 {
   display: inline-block;
   font-weight: normal;
-  background-color: #eb5055;
+  background-color: #fc6423;
   color: #fff;
   padding: 3px 10px 1px;
   border-top-right-radius: 3px;
@@ -2534,12 +2534,16 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .site-brand-container {
+  color: #ffe78f;
   background: #222;
 }
 @media (max-width: 991px) {
   .site-brand-container {
     box-shadow: 0 0 16px rgba(0,0,0,0.5);
   }
+}
+.a {
+  color: #ffe78f;
 }
 .site-meta {
   padding: 20px 0;
