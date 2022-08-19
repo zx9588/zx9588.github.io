@@ -1173,7 +1173,7 @@ pre .javascript .function {
   }
 }
 .book-mark-link::before {
-  color: #ff5057;
+  color: #eb5055;
   content: '\f02e';
   font-size: 32px;
   line-height: 1;
@@ -1321,7 +1321,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3cb418;
+  background: #6bffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1837,9 +1837,10 @@ a.posts-collapse::before {
   color: #42b983;
   font-weight: 500;
 }
-.post-body #ff5057,
-.post-body +desktop() {
-  text-align: justify;
+@media (min-width: 992px) {
+  .post-body {
+    text-align: justify;
+  }
 }
 @media (max-width: 991px) {
   .post-body {
@@ -1854,7 +1855,7 @@ a.posts-collapse::before {
 .post-body h6 {
   display: inline-block;
   font-weight: normal;
-  background-color: #ff5057;
+  background-color: #eb5055;
   color: #fff;
   padding: 3px 10px 1px;
   border-top-right-radius: 3px;
