@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img-blog.csdnimg.cn/f11e7d9dfc4348e48742d2dcfcf792af.png#pic_center">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zxblog.eu.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#fc6423","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":null,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Java语言相关的所有知识点合集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【合集】JavaSE">
+<meta property="og:url" content="https://zxblog.eu.org/posts/15f3/index.html">
+<meta property="og:site_name" content="zxblog | 知行博客">
+<meta property="og:description" content="Java语言相关的所有知识点合集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zxblog.eu.org/assets/P4MKTotLfHehNyz.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/T7cMt6dj4RAiZ5W.png">
+<meta property="article:published_time" content="2022-02-27T01:08:17.000Z">
+<meta property="article:modified_time" content="2022-08-18T07:02:36.292Z">
+<meta property="article:author" content="zhangxin">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zxblog.eu.org/assets/P4MKTotLfHehNyz.png">
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/15f3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【合集】JavaSE | zxblog | 知行博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zxblog | 知行博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一 | 善用搜索功能</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-个人主页">
+
+    <a href="https://zxhome.eu.org/" rel="noopener" target="_blank"><i class="fa fa-wave-square fa-fw"></i>个人主页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>☆分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-java开发">
+
+    <a href="/categories/Java%E5%BC%80%E5%8F%91%E5%90%88%E9%9B%86/" rel="section"><i class="fa fa-coffee fa-fw"></i>Java开发</a>
+
+  </li>
+        <li class="menu-item menu-item-友链">
+
+    <a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zx20219898" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/15f3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
+      <meta itemprop="name" content="zhangxin">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zxblog | 知行博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【合集】JavaSE
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-27 09:08:17" itemprop="dateCreated datePublished" datetime="2022-02-27T09:08:17+08:00">2022-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-18 15:02:36" itemprop="dateModified" datetime="2022-08-18T15:02:36+08:00">2022-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E5%BC%80%E5%8F%91%E5%90%88%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">Java开发合集</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/15f3/" class="post-meta-item leancloud_visitors" data-flag-title="【合集】JavaSE" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/posts/15f3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/15f3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+            <div class="post-description">Java语言相关的所有知识点合集</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ul>
+<li><a href="/posts/247">Java开发环境配置</a></li>
+<li><a href="/posts/1e72">《EffectiveJava》读书笔记</a></li>
+<li><a href="/posts/fb2b">IO流</a></li>
+<li><a href="/posts/94">Java集合</a></li>
+<li><a href="/posts/3385">枚举</a></li>
+<li><a href="/posts/e37c">递归</a></li>
+<li><a href="/posts/462a">日志级别</a></li>
+<li><a href="/posts/4dbd">时间复杂度</a></li>
+<li><a href="/posts/f685">Stream流</a></li>
+<li><a href="/posts/2f5d">Lambda</a></li>
+<li><a href="/posts/2eb6">方法引用</a></li>
+<li><a href="/posts/93cd">Java正则表达式</a></li>
+<li><a href="/posts/43c9">Java定时任务</a></li>
+<li><a href="/posts/2f35">Java算法</a></li>
+<li><a href="/posts/a081">Java工具类</a></li>
+<li><a href="/posts/c01a">并发编程</a></li>
+<li><a href="/posts/5081">字符集&#x2F;编码集</a></li>
+</ul>
+<p><strong>Java语言-相关书籍</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i3Lib08a6v7i">Effective-Java-中文-第2版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/idG6p08a6vhi">Effective-Java-中文-第3版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iIGdW08a6w9g">Java 8实战</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iPcUL08a75kb">Java并发编程的艺术</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/CbnGASScGGH">Java核心技术-卷1-原书-第10版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iS9Jq08a76na">Java核心技术-卷2-原书-第10版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iNEZa08a74pa">Java编程思想-中文版-第4版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i09tn08a936h">JAVA编程思想-英文版-第4版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iOCUU08a92rc">Spring实战-中文-第4版</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i37F008a8wti">Java开发实战经典</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iEn6S08sdkaf">Head First Java 中文高清版.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/aRPMgTC3ugD">《Java并发编程之美》翟陆续.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iDI7V08sd9kj">21天学通Java.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/M7xgMWo11kB">疯狂JAVA讲义（第2版）–带书签版.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/5PMa1rFXBVK">经典JavaEE企业应用实战.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/uHQi2Sqqpdc">码出高效：Java开发手册.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iyy6f08sdb4f">深入浅出 Java 多线程.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/NeitTXd7ZMJ">实战Java高并发程序设计（第2版) .pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iRWPa08sjc9c">图解Java多线程设计模式.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iKvNV08sdgja">Effective Java中文版（第2版）.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/FCTntaFdWmB">EXPERT.ONE.ON.ONE.J2EE.DEVELOPMENT.WITHOUT.EJB-中文.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i6cvV08seqzc">Hibernate实战（第2版）.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iRKM308sermf">Java 8 实战.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/imTSm08sf1dg">Java 程序员进阶之路（亮白版）.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ixH9p08sf33i">Java8函数式编程.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iFL8Z08sf3kf">Java8中的炫酷特性和Java9中的新特性-杨晓峰.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iiiwE08sflle">Java编程思想(第4版).pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iq9T108sfone">Java并发编程的艺术.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/idjHD08sfybc">JAVA并发编程实践（中文）.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/NeitTXd7ZMJ">Java程序性能优化-让你的Java程序更快、更稳定.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/Jwd6qoNJywu">Java高手真经-编程基础卷：Java核心编程技术-mk.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/n9mkRWU1oWg">Java高手真经-高级编程卷：Java-Web高级开发技术-mk.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/u9jzhSK6c67">Java高手真经-网络开发卷：JAVA-WEB核心技术-mk.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/rZL3oMJrYUY">Java高手真经-系统架构卷：JAVA-WEB系统设计与架构-mk.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/aXDaUZjzfSm">Java高手真经-应用框架卷：Java-Web核心框架-mk.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/3suQKcNvC7M">Java核心技术 卷II 高级特性(原书第9版).pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i16UU08sgfle">Java核心技术(卷I)基础知识(原书第9版)》.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/irXWg08sgldc">Java基础与案例开发详解.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/imLSD08sglsh">Java加密与解密的艺术 梁栋.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/idYHg08sgpsb">Java开发实战经典.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/WWULkdnG6HE">Java面向对象编程.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/eHBZCdPAa5K">Java深入解析- 透析Java本质的36个话题.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/inMsf08sgqih">java线程.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/XnQgCkbNXsF">Java项目开发案例全程实录_第二版_.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ieHiM08sgtcj">Java性能权威指南.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/n3wwWW277s8">Java性能优化权威指南.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iaf7s08sgzpi">Java学习路线图：Java必须知道的300个问题.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iYvUv08sh1ch">JAVA优化编程.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iHNCt08sh7kb">Java语言程序设计-基础篇(原书第8版).pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iQrue08shcta">Java语言程序设计-进阶篇(原书第8版).pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i58xe08shfhg">Java语言规范中文版(第三版).pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/il1KU08shfmb">JavaNIO（中文版）.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i14uj089fo4b">JAVA核心知识点整理</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ii4OI089fnhi">深入探讨HashMap的底层结构、原理、扩容机制</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iz4E5089fnta">ConcurrentHashMap的实现原理(JDK1.7和JDK1.8)</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iS7ZK089sczi">集合框架</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ieX3s089scwf">泛型需要注意的问题</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iHWdu08aojzc">抽象类与接口.xmind</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iYaum08aok8b">Java常用集合.xmind</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/icWGT08aok9c">java基础总结：IO流.xmind</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iaxMl08aokad">JSON与AJAX.xmind</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/i7xYN08aokfi">Servlet.xmind</a></li>
+</ul>
+<p><strong>Java语言-资源</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/api/index.html">Java 8 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.matools.com/api/java8">Java 8 中文版</a></li>
+<li><a target="_blank" rel="noopener" href="http://doc.canglaoshi.org/">达内开发文档服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://r2coding.com/#/">Road 2 Coding</a>  <a target="_blank" rel="noopener" href="https://github.com/rd2coding/Road2Coding">Road2Coding-github仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nowcoder.com/">牛客网</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.javased.com/">JavaSED</a></li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/">LeetCode</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lintcode.com/">LintCode</a></li>
+<li><a target="_blank" rel="noopener" href="http://yun.itheima.com/map?hm=">黑马程序员</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bjsxt.com/biyeshejishipin.html">尚学堂</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv9965357/">2022黑马程序员Java学习路线图</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv5216534">2022年度上硅谷全网最全Java学习路线</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wyq1995/p/13764608.html">easyexcel解析excel</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/IQ-iiUhyeM1nuDhY6hRyvg">Java 8 一行代码解决了空指针问题，太厉害了…</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/javastack/p/9913270.html">Java 程序员必备的 15 个框架，前 3 个地位无可动摇！</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/luckystar_99/article/details/103596277">SpringBoot中.yml文件的使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tk55/p/6058508.html">一个十年java程序员的心得</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/AntCoder/p/12886220.html">学习Spring，看这几本书就够了</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/lX3T5d7QePkPIBFKNkNaGA">满屏的if-else，看我怎么消灭你！</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31614308">漫画：什么是ConcurrentHashMap？</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sy_white/article/details/122112440">索引失效的情况及解决(超详细)</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/W9xT9hNQjjIfjGxbePqDJw">领域驱动编程，代码怎么写？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qY4y1a7JD?p=6&spm_id_from=pageDriver&vd_source=c57311942d38847adc4597a126bba185">B站最透彻讲解Redis分布式锁【Redis setnx分布式锁、Redisson分布式锁】大厂秒杀系统如何实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangzhongshun/article/details/122482796">Java中 List、Set、Map遍历方式以及性能比较</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liqiangchn/p/12432236.html">图解MySQL索引(上)—MySQL有中“8种”索引？</a></li>
+</ul>
+<p><strong>Java面试</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nowcoder.com/tutorial/94">Java工程师面试宝典-牛客网</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nowcoder.com/login?callBack=/study/live/689/4/1?&headNav=www">课程列表-牛客网</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23696693/article/details/108406217">Java 八股文</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41425590/article/details/122924915">2022java面试题小总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45545542/article/details/117929169">MySQL索引面试题（2021最新版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41386332/article/details/90668875">简历—项目经验范例</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34556594">面试必问的CAS，你懂了吗？</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIyNDE1NTA4OQ==&action=getalbum&album_id=1318989330031017985&subscene=159&subscene=190&scenenote=https://mp.weixin.qq.com/s?__biz=MzIyNDE1NTA4OQ==&mid=2651090032&idx=1&sn=3187a9f48576f740b35fa6a751d46a59&chksm=f3e388cec49401d8eeeaaa4672ad63707bf942143313db7155c5786af9e8dd13a225e495df12&cur_album_id=1318989330031017985&scene=190%23rd&nolastread=1#wechat_redirect">高级程序员面试专辑</a></li>
+</ul>
+<hr>
+<ul>
+<li>推荐：优先使用不可变的类 LocalDate</li>
+<li>不推荐使用：Switch语句 goto语句 char类型 int i, j</li>
+<li>Character类的 isJavaIdentifierStart isJavaIdentifierPart</li>
+<li>15&#x2F;2 &#x3D; 7 15%2 &#x3D; 1 15.0&#x2F;2 &#x3D; 7.5<br>整数被0除→异常<br>浮点数被0除→无穷大或NaN</li>
+<li>strictfp</li>
+<li>Math.sprt(x) 平方根<br>Math.pow(x,a) 幂运算<br>Math.PI π的近似值<br>Math.E e的近似值</li>
+<li>StrictMath类 得到一个完全可预测的结果，速度比Math差</li>
+<li>int[ ] arrs2&#x3D; Arrays.copyof(arrs1,arrs1.length)<br>int[ ] arrs &#x3D; Arrays.copyof(arrs,2*arrs.length)<br>int[ ] a &#x3D; new int[4]<br>int[ ] a &#x3D; {1,2,3,4}<br>new int[ ] {1,2,3,4}<br>new elementType[ ]{ }<br>Arrays.equals(arrs1,arrs2) 判断数组对象相等（字段全相等）</li>
+<li>依赖 uses-a<br>聚合 has-a<br>继承 is-a</li>
+<li>jdeprscan 工具类（检测代码中是否使用用已经废弃的API)</li>
+<li>Objects.requireNonNullElse(n,”unknow”)<br>Objects.requireNonNull(n,”The name cannot be null”)</li>
+<li>值传递、引用传递<br>Java：对象引用是按照值传递的</li>
+<li>SELECT DISTINCT vend_id FROM products</li>
+<li>DESC关键字只应用到直接位于其前面的列名<br>SELECT prod_id, prod_prrice, prod_name FROM products ORDER BY prod_price DESC, prod_name;</li>
+<li>SQL优先处理AND操作符</li>
+<li>IN操作符一般比OR操作符清单执行更快</li>
+<li>cat 1.txt 查看文件内容</li>
+</ul>
+<p>ResultFul</p>
+<p>restful资源设计<br>RESTFul设计指南<br>DDD以及软件架构设计<br>看看ES的RESTful接口<br>找个技术栈的restful学习</p>
+<p>JDK JRE JVM</p>
+<p>JDK：java Develpment Kit java 开发工具</p>
+<p>JRE：java Runtime Environment java运行时环境</p>
+<p>JVM：java Virtual Machine java 虚拟机</p>
+<p><img src="/../assets/P4MKTotLfHehNyz.png"></p>
+<p><img src="/../assets/T7cMt6dj4RAiZ5W.png"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>zhangxin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxblog.eu.org/posts/15f3/" title="【合集】JavaSE">https://zxblog.eu.org/posts/15f3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/7c78/" rel="prev" title="【合集】Java设计模式">
+      <i class="fa fa-chevron-left"></i> 【合集】Java设计模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/3f44/" rel="next" title="Java工程师面试题1-Java语言">
+      Java工程师面试题1-Java语言 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">252</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zx20219898" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zx20219898" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+         <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>站点总字数:
+    </span>
+    <span title="站点总字数">1m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量:
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxin</span>
+    <span class="post-meta-divider">|</span>
+  <span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+  </span>
+
+</div>
+
+        
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="100" alpha="0.8" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz',
+      appKey     : 'y4hUKKnP2A2FzMFxbPFem6b6',
+      placeholder: "欢迎留言评论，批评指正 ^_^",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":50,"vOffset":10},"mobile":{"show":false}});</script></body>
+</html>

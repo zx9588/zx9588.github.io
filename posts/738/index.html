@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://img-blog.csdnimg.cn/f11e7d9dfc4348e48742d2dcfcf792af.png#pic_center">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zxblog.eu.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#fc6423","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":null,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Docker相关的所有知识点合集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【合集】Docker">
+<meta property="og:url" content="https://zxblog.eu.org/posts/738/index.html">
+<meta property="og:site_name" content="zxblog | 知行博客">
+<meta property="og:description" content="Docker相关的所有知识点合集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zxblog.eu.org/assets/mkbldeLMjas6NFR.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/xMAvJHYPugjBQT4.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/q9iZ2cL6B8anUtG.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/cI4jmzVTPtnEK1C.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/gPnX8rxjEspyNvZ.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/BOU6IJNSCwQV8vE.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/7Lwr9HiIc64XNfG.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/FcHlojMBP4iyZVn.png">
+<meta property="article:published_time" content="2021-11-15T08:50:31.000Z">
+<meta property="article:modified_time" content="2022-08-18T07:02:36.300Z">
+<meta property="article:author" content="zhangxin">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Nacos">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zxblog.eu.org/assets/mkbldeLMjas6NFR.png">
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/738/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【合集】Docker | zxblog | 知行博客</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">zxblog | 知行博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">知行合一 | 善用搜索功能</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-个人主页">
+
+    <a href="https://zxhome.eu.org/" rel="noopener" target="_blank"><i class="fa fa-wave-square fa-fw"></i>个人主页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>☆分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-java开发">
+
+    <a href="/categories/Java%E5%BC%80%E5%8F%91%E5%90%88%E9%9B%86/" rel="section"><i class="fa fa-coffee fa-fw"></i>Java开发</a>
+
+  </li>
+        <li class="menu-item menu-item-友链">
+
+    <a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/zx20219898" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/738/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
+      <meta itemprop="name" content="zhangxin">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zxblog | 知行博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【合集】Docker
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+            
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-15 16:50:31" itemprop="dateCreated datePublished" datetime="2021-11-15T16:50:31+08:00">2021-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-18 15:02:36" itemprop="dateModified" datetime="2022-08-18T15:02:36+08:00">2022-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E5%BC%80%E5%8F%91%E5%90%88%E9%9B%86/" itemprop="url" rel="index"><span itemprop="name">Java开发合集</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/posts/738/" class="post-meta-item leancloud_visitors" data-flag-title="【合集】Docker" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论：</span>
+    
+    <a title="valine" href="/posts/738/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/738/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>30k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>27 分钟</span>
+            </span>
+            <div class="post-description">Docker相关的所有知识点合集</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Docker-相关书籍"><a href="#Docker-相关书籍" class="headerlink" title="Docker-相关书籍"></a>Docker-相关书籍</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iyaEy08a4roj">Docker技术入门与实战</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iwBsI08a4p1e">第一本Docker书</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/6nxFfhMHpbR">Docker技术入门与实战  第3版.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/MBomBqvpPoT">Docker基础与实战.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/eHtq9sMmRUs">Docker全攻略.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/ib2qH08rkmqj">Docker实战.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/isaMw08rkjwh">Docker开源书.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iqBP508rkjdi">深入浅出docker.pdf</a></li>
+</ul>
+<h2 id="Docker-资源"><a href="#Docker-资源" class="headerlink" title="Docker-资源"></a>Docker-资源</h2><ul>
+<li>Docker 官方主页: <a target="_blank" rel="noopener" href="https://www.docker.com/">https://www.docker.com</a></li>
+<li>Docker 官方博客: <a target="_blank" rel="noopener" href="https://blog.docker.com/">https://blog.docker.com/</a></li>
+<li>Docker 官方文档: <a target="_blank" rel="noopener" href="https://docs.docker.com/">https://docs.docker.com/</a></li>
+<li>Docker Store: <a target="_blank" rel="noopener" href="https://store.docker.com/">https://store.docker.com</a></li>
+<li>Docker Cloud: <a target="_blank" rel="noopener" href="https://cloud.docker.com/">https://cloud.docker.com</a></li>
+<li>Docker Hub: <a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com</a></li>
+<li>Docker 的源代码仓库: <a target="_blank" rel="noopener" href="https://github.com/moby/moby">https://github.com/moby/moby</a></li>
+<li>Docker 发布版本历史: <a target="_blank" rel="noopener" href="https://docs.docker.com/release-notes/">https://docs.docker.com/release-notes/</a></li>
+<li>Docker 常见问题: <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/faq/">https://docs.docker.com/engine/faq/</a></li>
+<li>Docker 远端应用 API: <a target="_blank" rel="noopener" href="https://docs.docker.com/develop/sdk/">https://docs.docker.com/develop/sdk/</a></li>
+</ul>
+<h2 id="Mac-OS安装Docker"><a href="#Mac-OS安装Docker" class="headerlink" title="Mac OS安装Docker"></a>Mac OS安装Docker</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3122.html">Mac OS安装Docker（图解教程）</a></li>
+</ul>
+<h2 id="CentOS安装Docker"><a href="#CentOS安装Docker" class="headerlink" title="CentOS安装Docker"></a>CentOS安装Docker</h2><blockquote>
+<p>Docker 分为 CE 和 EE 两大版本。CE 即社区版（免费，支持周期 7 个月），EE 即企业版，强调安全，付费使用，支持周期 24 个月。<br>Docker CE 分为 <code>stable</code> <code>test</code> 和 <code>nightly</code> 三个更新频道。<br>官方网站上有各种环境下的 <a target="_blank" rel="noopener" href="https://docs.docker.com/install/">安装指南</a>，这里主要介绍 Docker CE 在 CentOS上的安装。<br>Docker CE 支持 64 位版本 CentOS 7，并且要求内核版本不低于 3.10， CentOS 7 满足最低内核的要求，所以我们在CentOS 7安装Docker。<br>docker-ce为社区免费版本。稍等片刻，docker即可安装成功。</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li>yum 包更新到最新<code>yum update</code></li>
+<li>安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的<br><code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></li>
+<li>设置yum源<code>yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</code><br><code>sed -i &#39;s/download.docker.com/mirrors.aliyun.com\/docker-ce/g&#39; /etc/yum.repos.d/docker-ce.repo</code><br><code>yum makecache fast</code></li>
+<li>安装docker，出现输入的界面都按 y <code>yum install -y docker-ce</code></li>
+<li>查看docker版本，验证是否验证成功<code>docker -v</code></li>
+</ol>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>如果之前安装过旧版本的Docker，可以使用下面命令卸载：<br><code>yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine docker-ce</code></p>
+<h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3><p>Docker应用需要用到各种端口，逐一去修改防火墙设置。非常麻烦，因此建议大家直接关闭防火墙！<br>启动docker前，一定要关闭防火墙后！！</p>
+<p>关闭防火墙<code>systemctl stop firewalld</code><br>禁止开机启动防火墙 <code>systemctl disable firewalld</code><br>启动docker<code>systemctl start docker</code><br>查看版本<code>docker -v</code></p>
+<h3 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h3><p>docker官方镜像仓库网速较差，我们需要设置国内镜像服务：</p>
+<p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">参考阿里云的镜像加速文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-beijing/instances/mirrors">阿里云查询镜像连接</a></p>
+<blockquote>
+<p><strong>Docker 国内镜像</strong><br>阿里云的加速器：<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/60750.html">https://help.aliyun.com/document_detail/60750.html</a><br>网易加速器：<a target="_blank" rel="noopener" href="http://hub-mirror.c.163.com/">http://hub-mirror.c.163.com</a><br>官方中国加速器：<a target="_blank" rel="noopener" href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a><br>ustc 的镜像：<a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a><br>daocloud：<a target="_blank" rel="noopener" href="https://www.daocloud.io/mirror#accelerator-doc%EF%BC%88%E6%B3%A8%E5%86%8C%E5%90%8E%E4%BD%BF%E7%94%A8%EF%BC%89">https://www.daocloud.io/mirror#accelerator-doc（注册后使用）</a></p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/docker</span><br><span class="line">sudo <span class="built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://bhhj3hr0.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>查看文件<code>cat /etc/docker/daemon.json</code></p>
+<h2 id="Docker配置数据卷和数据卷容器"><a href="#Docker配置数据卷和数据卷容器" class="headerlink" title="Docker配置数据卷和数据卷容器"></a>Docker配置数据卷和数据卷容器</h2><h3 id="配置数据卷"><a href="#配置数据卷" class="headerlink" title="配置数据卷"></a>配置数据卷</h3><p><code>docker run ... –v 宿主机目录(文件):容器内目录(文件) ...</code></p>
+<p>注意事项：</p>
+<ol>
+<li>目录必须是绝对路径</li>
+<li>如果目录不存在，会自动创建</li>
+<li>可以挂载多个数据卷</li>
+</ol>
+<p>演示持久化：</p>
+<ol>
+<li>创建容器和数据卷，将宿主机的数据券&#x2F;root&#x2F;data 与 容器的目录 &#x2F;root&#x2F;data_container 挂载<br><code>docker run -it --name c1 -v /root/data:/root/data_container centos:7 /bin/bash</code></li>
+<li>宿主机&#x2F;root&#x2F;data下创建文件，容器中&#x2F;root&#x2F;data_container会同步<br><code>touch zhangxin.txt</code></li>
+<li>反之亦如此&#x2F;root&#x2F;data_container下，宿主机&#x2F;root&#x2F;data会同步<br>echo zhangxin &gt; zhangxin2.txt</li>
+<li>重新建立容器并挂载保留的数据卷<br>docker run -it –name c2 -v ~&#x2F;data:&#x2F;root&#x2F;data_con centos:7</li>
+</ol>
+<p>挂载多个：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it --name c4 \</span><br><span class="line">    -v ~/data2:/root/data2 \</span><br><span class="line">    -v ~/data3:/root/data3 \</span><br><span class="line">    centos:7</span><br></pre></td></tr></table></figure>
+
+<p>两个容器挂载同一个数据卷：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -it --name c5 -v ~/data:/root/data centos:7</span><br><span class="line">docker run -it --name c6 -v ~/data:/root/data centos:7</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置数据卷容器"><a href="#配置数据卷容器" class="headerlink" title="配置数据卷容器"></a>配置数据卷容器</h3><p>创建启动c3数据卷容器，使用 –v 参数 设置数据卷<br><code>docker run –it --name c3 –v /volume centos:7 /bin/bash</code></p>
+<p>创建启动 c1 c2 容器，使用 –-volumes-from 参数 设置数据卷<br><code>docker run –it --name=c1 --volumes-from c3 centos:7 /bin/bash</code><br><code>docker run –it --name=c2 --volumes-from c3 centos:7 /bin/bash</code></p>
+<p>案例：执行完之后三个容器挂载在宿主机同一个数据卷下，<br>比如：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;06f881244d61ebd6e36992c8186fc944ba4f609d966b8668d7522710e6ed3c7e&#x2F;_data<br><code>docker run -it --name c3 -v /volume centos:7</code><br><code>docker run -it --name c1 --volumes-from c3 centos:7</code><br><code>docker run -it --name c2 --volumes-from c3 centos:7</code></p>
+<h2 id="Docker镜像制作"><a href="#Docker镜像制作" class="headerlink" title="Docker镜像制作"></a>Docker镜像制作</h2><p>容器转为镜像流程<br><code>docker commit 容器id 镜像名称:版本号</code><br><code>docker save -o 压缩文件名称 镜像名称:版本号</code><br><code>docker load –i 压缩文件名称</code></p>
+<h2 id="Docker镜像仓库"><a href="#Docker镜像仓库" class="headerlink" title="Docker镜像仓库"></a>Docker镜像仓库</h2><p>搭建镜像仓库可以基于Docker官方提供的DockerRegistry来实现。</p>
+<p>官网地址 <a target="_blank" rel="noopener" href="https://hub.docker.com/_/registry">https://hub.docker.com/_/registry</a></p>
+<h3 id="简化版镜像仓库"><a href="#简化版镜像仓库" class="headerlink" title="简化版镜像仓库"></a>简化版镜像仓库</h3><p>Docker官方的Docker Registry是一个基础版本的Docker镜像仓库，具备仓库管理的完整功能，但是没有图形化界面。</p>
+<p>搭建方式比较简单，命令如下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --restart=always \</span><br><span class="line">    --name registry	\</span><br><span class="line">    -p 5000:5000 \</span><br><span class="line">    -v registry-data:/var/lib/registry \</span><br><span class="line">    registry</span><br></pre></td></tr></table></figure>
+
+<p>命令中挂载了一个数据卷registry-data到容器内的&#x2F;var&#x2F;lib&#x2F;registry 目录，这是私有镜像库存放数据的目录。</p>
+<p>访问<a target="_blank" rel="noopener" href="http://yourip:5000/v2/_catalog">http://YourIp:5000/v2/_catalog</a> 可以查看当前私有镜像服务中包含的镜像</p>
+<h3 id="带有图形化界面版本"><a href="#带有图形化界面版本" class="headerlink" title="带有图形化界面版本"></a>带有图形化界面版本</h3><p>使用DockerCompose部署带有图象界面的DockerRegistry，命令如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.0&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">registry:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">registry</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./registry-data:/var/lib/registry</span></span><br><span class="line">  <span class="attr">ui:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">joxit/docker-registry-ui:static</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">REGISTRY_TITLE=传智教育私有仓库</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">REGISTRY_URL=http://registry:5000</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">registry</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置Docker信任地址"><a href="#配置Docker信任地址" class="headerlink" title="配置Docker信任地址"></a>配置Docker信任地址</h3><p>我们的私服采用的是http协议，默认不被Docker信任，所以需要做一个配置：</p>
+<ol>
+<li>打开要修改的文件<code>vi /etc/docker/daemon.json</code></li>
+<li>添加内容： <code>&quot;insecure-registries&quot;:[&quot;http://192.168.150.101:8080&quot;]</code></li>
+<li>重加载 <code>systemctl daemon-reload</code></li>
+<li>重启docker <code>systemctl restart docker</code> <code>docker start registry</code></li>
+</ol>
+<h3 id="将镜像上传至私有仓库"><a href="#将镜像上传至私有仓库" class="headerlink" title="将镜像上传至私有仓库"></a>将镜像上传至私有仓库</h3><ol>
+<li>标记镜像为私有仓库的镜像 <code>docker tag centos:7 私有仓库服务器IP:5000/centos:7</code></li>
+<li>上传标记的镜像 <code>docker push 私有仓库服务器IP:5000/centos:7</code></li>
+</ol>
+<h3 id="从私有仓库拉取镜像"><a href="#从私有仓库拉取镜像" class="headerlink" title="从私有仓库拉取镜像"></a>从私有仓库拉取镜像</h3><p><code>docker pull 私有仓库服务器ip:5000/centos:7</code></p>
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><h3 id="Dockerfile关键字"><a href="#Dockerfile关键字" class="headerlink" title="Dockerfile关键字"></a>Dockerfile关键字</h3><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM</td>
+<td>指定父镜像</td>
+<td>指定dockerfile基于那个image构建</td>
+</tr>
+<tr>
+<td>MAINTAINER</td>
+<td>作者信息</td>
+<td>用来标明这个dockerfile谁写的</td>
+</tr>
+<tr>
+<td>LABEL</td>
+<td>标签</td>
+<td>用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>执行命令</td>
+<td>执行一段命令 默认是&#x2F;bin&#x2F;sh 格式: RUN command 或者 RUN [“command” , “param1”,”param2”]</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>容器启动命令</td>
+<td>提供启动容器时候的默认命令 和ENTRYPOINT配合使用.格式 CMD command param1 param2 或者 CMD [“command” , “param1”,”param2”]</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>入口</td>
+<td>一般在制作一些执行就关闭的容器中会使用</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>复制文件</td>
+<td>build的时候复制文件到image中</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>添加文件</td>
+<td>build的时候添加文件到image中 不仅仅局限于当前build上下文 可以来源于远程服务</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>环境变量</td>
+<td>指定build时候的环境变量 可以在启动的容器的时候 通过-e覆盖 格式ENV name&#x3D;value</td>
+</tr>
+<tr>
+<td>ARG</td>
+<td>构建参数</td>
+<td>构建参数 只在构建的时候使用的参数 如果有ENV 那么ENV的相同名字的值始终覆盖arg的参数</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>定义外部可以挂载的数据卷</td>
+<td>指定build的image那些目录可以启动的时候挂载到文件系统中 启动容器的时候使用 -v 绑定 格式 VOLUME [“目录”]</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>暴露端口</td>
+<td>定义容器运行的时候监听的端口 启动容器的使用-p来绑定暴露端口 格式: EXPOSE 8080 或者 EXPOSE 8080&#x2F;udp</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>工作目录</td>
+<td>指定容器内部的工作目录 如果没有创建则自动创建 如果指定&#x2F; 使用的是绝对地址 如果不是&#x2F;开头那么是在上一条workdir的路径的相对路径</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>指定执行用户</td>
+<td>指定build或者启动的时候 用户 在RUN CMD ENTRYPONT执行的时候的用户</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>健康检查</td>
+<td>指定监测当前容器的健康监测的命令 基本上没用 因为很多时候 应用本身有健康监测机制</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td>触发器</td>
+<td>当存在ONBUILD关键字的镜像作为基础镜像的时候 当执行FROM完成之后 会执行 ONBUILD的命令 但是不影响当前镜像 用处也不怎么大</td>
+</tr>
+<tr>
+<td>STOPSIGNAL</td>
+<td>发送信号量到宿主机</td>
+<td>该STOPSIGNAL指令设置将发送到容器的系统调用信号以退出。</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>指定执行脚本的shell</td>
+<td>指定RUN CMD ENTRYPOINT 执行命令的时候 使用的shellDocker 应用部署</td>
+</tr>
+</tbody></table>
+<h3 id="Dockerfile-案例"><a href="#Dockerfile-案例" class="headerlink" title="Dockerfile 案例"></a>Dockerfile 案例</h3><p><strong>案例一</strong></p>
+<p>需求：自定义centos7镜像。要求： 1. 默认登录路径为 &#x2F;usr 2. 可以使用vim</p>
+<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#x68;&#101;&#105;&#109;&#97;&#x40;&#x69;&#116;&#99;&#x61;&#115;&#116;&#46;&#x63;&#110;">&#x69;&#116;&#x68;&#101;&#105;&#109;&#97;&#x40;&#x69;&#116;&#99;&#x61;&#115;&#116;&#46;&#x63;&#110;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+<p><strong>案例二</strong></p>
+<p>需求：定义dockerfile，发布springboot项目</p>
+<p>实现步骤：</p>
+<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#x74;&#104;&#101;&#x69;&#x6d;&#97;&#x40;&#105;&#x74;&#x63;&#97;&#115;&#x74;&#46;&#99;&#110;">&#x69;&#x74;&#104;&#101;&#x69;&#x6d;&#97;&#x40;&#105;&#x74;&#x63;&#97;&#115;&#x74;&#46;&#99;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> java:<span class="number">8</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> zhangxin &lt;<span class="number">1205362172</span>@qq.com&gt;</span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> springboot.jar app.jar</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> java–jar app.jar</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -f ./springboot_dockerfile -t app . </span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title="Docker-Compose"></a>Docker-Compose</h2><p>参考文章：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-compose.html">https://www.runoob.com/docker/docker-compose.html</a></p>
+<h3 id="安装Docker-Compose"><a href="#安装Docker-Compose" class="headerlink" title="安装Docker Compose"></a>安装Docker Compose</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Compose目前已经完全支持Linux、Mac OS和Windows，在我们安装Compose之前，需要先安装Docker。下面我 们以编译好的二进制包方式安装在Linux系统中。</span> </span><br><span class="line">curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置文件可执行权限</span> </span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看版本信息</span> </span><br><span class="line">docker-compose -version</span><br><span class="line"></span><br><span class="line">1、换源：</span><br><span class="line">curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">2、更改权限：</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">3、查看版本：</span><br><span class="line">docker-compose --version</span><br><span class="line"></span><br><span class="line">4. 创建软链</span><br><span class="line">ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p>如果下载速度较慢，或者下载失败，可以使用课前资料提供的docker-compose文件：</p>
+<p><img src="/../assets/mkbldeLMjas6NFR.png"></p>
+<p>上传到<code>/usr/local/bin/</code>目录也可以。</p>
+<p><strong>Base自动补全命令</strong>：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 补全命令</span></span><br><span class="line">curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose</span><br></pre></td></tr></table></figure>
+
+<p>如果这里出现错误，需要修改自己的hosts文件：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;199.232.68.133 raw.githubusercontent.com&quot;</span> &gt;&gt; /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载Docker-Compose"><a href="#卸载Docker-Compose" class="headerlink" title="卸载Docker Compose"></a>卸载Docker Compose</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">二进制包方式安装的，删除二进制文件即可</span></span><br><span class="line">rm /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h3 id="编排nginx-springboot项目"><a href="#编排nginx-springboot项目" class="headerlink" title="编排nginx+springboot项目"></a>编排nginx+springboot项目</h3><ol>
+<li>创建docker-compose目录</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir ~/docker-compose</span><br><span class="line">cd ~/docker-compose</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编写 docker-compose.yml 文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  nginx:</span><br><span class="line">   image: nginx</span><br><span class="line">   ports:</span><br><span class="line">    - 80:80</span><br><span class="line">   links:</span><br><span class="line">    - app</span><br><span class="line">   volumes:</span><br><span class="line">    - ./nginx/conf.d:/etc/nginx/conf.d</span><br><span class="line">  app:</span><br><span class="line">    image: app</span><br><span class="line">    expose:</span><br><span class="line">      - &quot;8080&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建.&#x2F;nginx&#x2F;conf.d目录</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p ./nginx/conf.d</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在.&#x2F;nginx&#x2F;conf.d目录下 编写itheima.conf文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    access_log off;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://app:8080;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>在~&#x2F;docker-compose 目录下 使用docker-compose 启动容器</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>测试访问</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http://192.168.149.135/hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dcoker部署应用"><a href="#Dcoker部署应用" class="headerlink" title="Dcoker部署应用"></a>Dcoker部署应用</h2><h3 id="Docker创建自定义网络"><a href="#Docker创建自定义网络" class="headerlink" title="Docker创建自定义网络"></a>Docker创建自定义网络</h3><p>(用于容器之间的通信 common-network 是网络名称 可改)</p>
+<p><code>docker network create common-network</code> 创建自定义网络(用于容器之间的通信 common-network 是网络名称 可改)</p>
+<p><code>docker network ls</code> 查看网络</p>
+<p><code>docker network rm  名称</code> 删除自定义网络</p>
+<p><img src="/../assets/xMAvJHYPugjBQT4.png"></p>
+<h3 id="Docker部署CentOS"><a href="#Docker部署CentOS" class="headerlink" title="Docker部署CentOS"></a>Docker部署CentOS</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir ~/centos/root</span><br><span class="line">cd ~/centos</span><br><span class="line"></span><br><span class="line">docker run -id \</span><br><span class="line">--name=centos \</span><br><span class="line">-p 12345:12345 \</span><br><span class="line">-v $PWD/root:/root \</span><br><span class="line">centos</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker部署MySQL"><a href="#Docker部署MySQL" class="headerlink" title="Docker部署MySQL"></a>Docker部署MySQL</h3><ol>
+<li><p>创建数据卷目录<code>mkdir ~/mysql</code> <code>cd ~/mysql</code></p>
+</li>
+<li><p>创建自定义网络common-network</p>
+</li>
+<li><p>自动拉取镜像并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -id \</span><br><span class="line">-p 3306:3306 \</span><br><span class="line">--name=mysql \</span><br><span class="line">--network common-network \</span><br><span class="line">--restart=always \</span><br><span class="line">-e TZ=Asia/Shanghai \</span><br><span class="line">-v $PWD/conf:/etc/mysql/conf.d \</span><br><span class="line">-v $PWD/logs:/logs \</span><br><span class="line">-v $PWD/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root \</span><br><span class="line">mysql:5.6</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li><strong>-p 3307:3306</strong>：将容器的 3306 端口映射到宿主机的 3307 端口。</li>
+<li><strong>-v $PWD&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d</strong>：将主机当前目录下的 conf&#x2F;my.cnf 挂载到容器的 &#x2F;etc&#x2F;mysql&#x2F;my.cnf。配置目录</li>
+<li><strong>-v $PWD&#x2F;logs:&#x2F;logs</strong>：将主机当前目录下的 logs 目录挂载到容器的 &#x2F;logs。日志目录</li>
+<li><strong>-v $PWD&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql</strong> ：将主机当前目录下的data目录挂载到容器的 &#x2F;var&#x2F;lib&#x2F;mysql 。数据目录</li>
+<li><strong>-e MYSQL_ROOT_PASSWORD&#x3D;root：</strong>初始化 root 用户的密码为root。</li>
+</ul>
+</li>
+<li><p>进入容器，操作mysql<br><code>docker exec -it mysql /bin/bash</code><br><code>mysql -uroot -proot</code></p>
+</li>
+<li><p>使用外部机器连接容器中的mysql</p>
+<p><img src="/../assets/q9iZ2cL6B8anUtG.png"></p>
+</li>
+</ol>
+<h3 id="Docker部署Nginx"><a href="#Docker部署Nginx" class="headerlink" title="Docker部署Nginx"></a>Docker部署Nginx</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45784642/article/details/102932905">docker安装nginx并配置通过https访问【阿里云证书申请】</a></li>
+</ul>
+<ol>
+<li><p>创建数据卷目录<br><code>mkdir -p ~/nginx/conf</code><br><code>mkdir -p ~/nginx/conf/conf.d</code><br><code>cd ~/nginx/conf</code></p>
+</li>
+<li><p>conf目录下创建nginx.conf文件</p>
+<p><code>vim nginx.conf</code></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">user</span>  nginx;</span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">error_log</span>  /var/log/nginx/<span class="literal">error</span>.log <span class="literal">warn</span>;</span><br><span class="line"><span class="attribute">pid</span>        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       /etc/nginx/mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">log_format</span>  main  <span class="string">&#x27;<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] &quot;<span class="variable">$request</span>&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> &quot;<span class="variable">$http_referer</span>&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;&quot;<span class="variable">$http_user_agent</span>&quot; &quot;<span class="variable">$http_x_forwarded_for</span>&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span>  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>conf.d目录下</p>
+<p><code>vim default.conf</code></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">      <span class="attribute">listen</span> <span class="number">443</span>;</span><br><span class="line">      <span class="attribute">server_name</span> <span class="number">101.43.123.47</span></span><br><span class="line">      root html;</span><br><span class="line">      <span class="attribute">index</span> index.html index.htm;</span><br><span class="line"> </span><br><span class="line">       <span class="comment"># 定义首页索引目录和名称</span></span><br><span class="line">       <span class="section">location</span> / &#123;</span><br><span class="line">          <span class="attribute">root</span>   /usr/share/nginx/html;</span><br><span class="line">          <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nginx目录下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -id \</span><br><span class="line">--name=nginx \</span><br><span class="line">--restart=always \</span><br><span class="line">-p 80:80 \</span><br><span class="line">-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">-v $PWD/conf/conf.d/default.conf:/etc/nginx/conf.d/default.conf \</span><br><span class="line">-v $PWD/logs:/var/log/nginx \</span><br><span class="line">-v $PWD/html:/usr/share/nginx/html \</span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li><strong>-p 80:80</strong>：将容器的 80端口映射到宿主机的 80 端口。</li>
+<li><strong>-v $PWD&#x2F;conf&#x2F;nginx.conf:&#x2F;etc&#x2F;nginx&#x2F;nginx.conf</strong>：将主机当前目录下的 &#x2F;conf&#x2F;nginx.conf 挂载到容器的 :&#x2F;etc&#x2F;nginx&#x2F;nginx.conf。配置目录</li>
+<li><strong>-v $PWD&#x2F;logs:&#x2F;var&#x2F;log&#x2F;nginx</strong>：将主机当前目录下的 logs 目录挂载到容器的&#x2F;var&#x2F;log&#x2F;nginx。日志目录</li>
+</ul>
+</li>
+<li><p>使用外部机器访问nginx</p>
+<p><img src="/../assets/cI4jmzVTPtnEK1C.png"></p>
+</li>
+</ol>
+<h3 id="Docker部署Tomcat"><a href="#Docker部署Tomcat" class="headerlink" title="Docker部署Tomcat"></a>Docker部署Tomcat</h3><ol>
+<li><p>创建数据卷目录 <code>mkdir ~/tomcat</code> <code>cd ~/tomcat</code></p>
+</li>
+<li><p>自动拉取镜像并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -id \</span><br><span class="line">--name=tomcat \</span><br><span class="line">-p 8080:8080 \</span><br><span class="line">-e TZ=&quot;Asia/Shanghai&quot; \</span><br><span class="line">--privileged=true \</span><br><span class="line">-v $PWD/webapps:/usr/local/tomcat/webapps \</span><br><span class="line">-v $PWD/logs:/mnt/applog \</span><br><span class="line">tomcat</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li><strong>-p 8080:8080：</strong>将容器的8080端口映射到主机的8080端口</li>
+<li><strong>-v $PWD:&#x2F;usr&#x2F;local&#x2F;tomcat&#x2F;webapps：</strong>将主机中当前目录挂载到容器的webapps</li>
+</ul>
+</li>
+<li><p>使用外部机器访问tomcat</p>
+<p><img src="/../assets/gPnX8rxjEspyNvZ.png"></p>
+</li>
+</ol>
+<h3 id="Docker部署Redis"><a href="#Docker部署Redis" class="headerlink" title="Docker部署Redis"></a>Docker部署Redis</h3><ol>
+<li><p>自动拉取镜像并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -id \</span><br><span class="line">--name=c_redis \</span><br><span class="line">-p 6379:6379 \</span><br><span class="line">redis:5.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用外部机器连接redis</p>
+<p><code>./redis-cli.exe -h 192.168.149.135 -p 6379</code></p>
+</li>
+</ol>
+<h3 id="Docker部署Wordpress"><a href="#Docker部署Wordpress" class="headerlink" title="Docker部署Wordpress"></a>Docker部署Wordpress</h3><ol>
+<li><p>创建目录 <code>mkdir ~/wordpress</code></p>
+</li>
+<li><p>部署MySQL<br><code>mkdir ~/wordpress/mysql</code><br><code>cd ~/wordpress/mysql</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -id \</span><br><span class="line">-p 3307:3306 \</span><br><span class="line">--name=mysql4WP \</span><br><span class="line">--network common-network \</span><br><span class="line">--restart=always \</span><br><span class="line">-e TZ=Asia/Shanghai \</span><br><span class="line">-v $PWD/conf:/etc/mysql/conf.d \</span><br><span class="line">-v $PWD/logs:/logs \</span><br><span class="line">-v $PWD/data:/var/lib/mysql \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=root \</span><br><span class="line">mysql:5.6</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库wordpress</p>
+</li>
+<li><p>自动拉取镜像并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d --name wordpress \</span><br><span class="line">-e TZ=&quot;Asia/Shanghai&quot; \</span><br><span class="line">-e WORDPRESS_DB_HOST=101.43.123.47:3307 \</span><br><span class="line">-e WORDPRESS_DB_USER=root \</span><br><span class="line">-e WORDPRESS_DB_PASSWORD=root \</span><br><span class="line">-e WORDPRESS_DB_NAME=wordpress \  </span><br><span class="line">-v ~/wordpress/www:/var/www/html \</span><br><span class="line">-p 1080:80 \</span><br><span class="line">--restart=always \</span><br><span class="line">wordpress</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li>WORDPRESS_DB_HOST：mysql的IP+端口</li>
+<li>WORDPRESS_DB_USER：mysq用户名</li>
+<li>WORDPRESS_DB_PASSWORD：mysql密码</li>
+<li>WORDPRESS_DB_NAME：数据库名，默认是wordpress</li>
+<li>-p 1080:80 是指宿主机的1080端口映射容器的80端口，容器内端口80不要修改</li>
+<li>restart&#x3D;always 随docker的启动而启动</li>
+</ul>
+</li>
+<li><p>运行完可以查看日志 <code>docker logs --tail 10 wordpress | grep info</code></p>
+</li>
+<li><p>打开地址安装：<a target="_blank" rel="noopener" href="https://www.zhangxin.cloud/wp-admin/setup-config.php">https://www.zhangxin.cloud/wp-admin/setup-config.php</a></p>
+</li>
+<li><p>后台管理地址 <a target="_blank" rel="noopener" href="http://127.0.0.1/wp-admin">http://127.0.0.1:80/wp-admin</a></p>
+</li>
+</ol>
+<h3 id="Docker-Composs部署Wordpress"><a href="#Docker-Composs部署Wordpress" class="headerlink" title="Docker-Composs部署Wordpress"></a>Docker-Composs部署Wordpress</h3><ol>
+<li><p>创建挂载目录</p>
+<p>注意：若挂载的为文件夹，则不需要，在执行命令时会自动创建，但是要是<em><strong>挂载文件，必须要提前准备</strong></em></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/nginx/data</span><br><span class="line">mkdir -p ~/nginx/config/conf.d</span><br><span class="line">mkdir -p ~/nginx/logs</span><br><span class="line">mkdir -p ~/nginx/ssl</span><br><span class="line">touch ~/nginx/config/nginx.conf</span><br><span class="line">touch ~/nginx/config/conf.d/default.conf</span><br><span class="line"></span><br><span class="line">mkdir -p ~/wordpress/html</span><br><span class="line">mkdir -p ~/mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wordpress目录下添加</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">mysql:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">mysql</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">mysql</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&#x27;3306:3306&#x27;</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./mysql:/var/lib/mysql</span></span><br><span class="line">        <span class="attr">environment:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">MYSQL_ROOT_PASSWORD=7963zxv!</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">MYSQL_DATABASE=wordpress</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">MYSQL_USER=wordpress</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">MYSQL_PASSWORD=7963zxv!</span></span><br><span class="line">        <span class="attr">networks:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">backend</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">wordpress:</span></span><br><span class="line">        <span class="attr">depends_on:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">mysql</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">wordpress</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">wordpress</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&#x27;9000:80&#x27;</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./wordpress/html:/var/www/html</span></span><br><span class="line">        <span class="attr">environment:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">WORDPRESS_DB_NAME=wordpress</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">WORDPRESS_TABLE_PREFIX=wp_</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">WORDPRESS_DB_HOST=mysql:3306</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">WORDPRESS_DB_USER=wordpress</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">WORDPRESS_DB_PASSWORD=7963zxv!</span></span><br><span class="line">        <span class="attr">links:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">mysql</span></span><br><span class="line">        <span class="attr">networks:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">backend</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">frontend</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">nginx:</span></span><br><span class="line">        <span class="attr">image:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="attr">container_name:</span> <span class="string">nginx</span></span><br><span class="line">        <span class="attr">ports:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;443:443&quot;</span></span><br><span class="line">        <span class="attr">volumes:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./nginx/data:/usr/share/nginx/html</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./nginx/config/nginx.conf:/etc/nginx/nginx.conf</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./nginx/config/conf.d/default.conf:/etc/nginx/conf.d/default.conf</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./nginx/logs:/var/log/nginx</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./nginx/ssl:/ssl</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/tmp/docker.sock:ro</span></span><br><span class="line">        <span class="attr">links:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">wordpress</span></span><br><span class="line">        <span class="attr">networks:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">frontend</span></span><br><span class="line">        <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">    <span class="attr">frontend:</span></span><br><span class="line">        <span class="comment">#name: test_frontend</span></span><br><span class="line">        <span class="attr">driver:</span> <span class="string">bridge</span></span><br><span class="line">    <span class="attr">backend:</span></span><br><span class="line">        <span class="comment">#name: test_backend</span></span><br><span class="line">        <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nginx目录下添加 <code>nginx.conf</code></p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment">#运行nginx的用户</span></span><br><span class="line"><span class="attribute">user</span>  nginx;</span><br><span class="line"><span class="comment">#启动进程设置成和CPU数量相等</span></span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#全局错误日志及PID文件的位置</span></span><br><span class="line"><span class="attribute">error_log</span>  /var/log/nginx/<span class="literal">error</span>.log <span class="literal">warn</span>;</span><br><span class="line"><span class="attribute">pid</span>        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="comment">#工作模式及连接数上限</span></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line"><span class="comment">#单个后台work进程最大并发数设置为1024</span></span><br><span class="line"><span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line"><span class="comment">#设定mime类型</span></span><br><span class="line"><span class="attribute">include</span>       /etc/nginx/mime.types;</span><br><span class="line"><span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line"><span class="comment">#设定日志格式</span></span><br><span class="line"> <span class="attribute">log_format</span>  main  <span class="string">&#x27;<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] &quot;<span class="variable">$request</span>&quot; &#x27;</span></span><br><span class="line">                   <span class="string">&#x27;<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> &quot;<span class="variable">$http_referer</span>&quot; &#x27;</span></span><br><span class="line">                   <span class="string">&#x27;&quot;<span class="variable">$http_user_agent</span>&quot; &quot;<span class="variable">$http_x_forwarded_for</span>&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">access_log</span>  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line"> <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">#设置连接超时的事件</span></span><br><span class="line"> <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">     <span class="comment">#开启GZIP压缩</span></span><br><span class="line"> <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line"> <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wpress目录，<code>docker-compose  up -d</code></p>
+</li>
+<li><p>docker ps 查看容器</p>
+</li>
+<li><p>配置https</p>
+<p>考文章：SSL 证书 Nginx 服务器 SSL 证书安装部署 - 证书安装 - 文档中心 - 腾讯云 <a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/400/35244">https://cloud.tencent.com/document/product/400/35244</a></p>
+</li>
+<li><p>打开地址安装：<a target="_blank" rel="noopener" href="https://www.zhangxin.cloud/wp-admin/setup-config.php">https://www.zhangxin.cloud/wp-admin/setup-config.php</a></p>
+</li>
+<li><p>后台管理地址 <a target="_blank" rel="noopener" href="https://www.zhangxin.cloud/wp-admin/">https://www.zhangxin.cloud/wp-admin/</a></p>
+</li>
+<li><p>解决https访问不加载css样式<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36237054/article/details/113027073">https://blog.csdn.net/weixin_36237054/article/details/113027073</a></p>
+<p>wordpress如何开启https-WordPress-PHP中文网 <a target="_blank" rel="noopener" href="https://www.php.cn/cms/wordpress/425534.html">https://www.php.cn/cms/wordpress/425534.html</a></p>
+<p>wordpress开启https失败问题_weixin_34297300的博客-CSDN博客 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34297300/article/details/92397756">https://blog.csdn.net/weixin_34297300/article/details/92397756</a></p>
+<p>WORDPRESS安装SSL证书后，无法加载CSS解决办法 - 菜鸟学苑 <a target="_blank" rel="noopener" href="https://www.cainiaoxueyuan.com/cms/11356.html">https://www.cainiaoxueyuan.com/cms/11356.html</a></p>
+</li>
+</ol>
+<h3 id="Docker部署RabbitMQ"><a href="#Docker部署RabbitMQ" class="headerlink" title="Docker部署RabbitMQ"></a>Docker部署RabbitMQ</h3><p>自动拉取镜像并启动容器</p>
+   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line"> -e RABBITMQ_DEFAULT_USER=itcast \</span><br><span class="line"> -e RABBITMQ_DEFAULT_PASS=123321 \</span><br><span class="line"> --name mq \</span><br><span class="line"> --hostname mq1 \</span><br><span class="line"> -p 15672:15672 \</span><br><span class="line"> -p 5672:5672 \</span><br><span class="line"> -d \</span><br><span class="line"> rabbitmq:3-management</span><br></pre></td></tr></table></figure>
+
+<h3 id="Docker部署hexo"><a href="#Docker部署hexo" class="headerlink" title="Docker部署hexo"></a>Docker部署hexo</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34015566/article/details/89064483">参考文章</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiachunchun/article/details/90235492">docker搭建Git来放置hexo实现加速</a></li>
+</ul>
+<ol>
+<li><p>创建并进入数据卷目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /zx/hexo</span><br><span class="line">cd /zx/hexo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-id \</span><br><span class="line">--name hexo \</span><br><span class="line">-p 4000:4000 \</span><br><span class="line">-v $PWD/data:/opt/website \</span><br><span class="line">hexo:1.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入容器内部<code>docker exec -it hexo /bin/bash</code></p>
+</li>
+<li><p>初始化环境<code>hexo init</code></p>
+<p>现在$PWD&#x2F;data中已经有了hexo的内容</p>
+</li>
+<li><p>生成网站内容<code>hexo g</code></p>
+</li>
+<li><p>预览<code>hexo s</code>，在宿主机的浏览器上输入 127.0.0.1:4000</p>
+</li>
+<li><p>待补充。。。</p>
+</li>
+</ol>
+<h3 id="Docker部署Cloudreve"><a href="#Docker部署Cloudreve" class="headerlink" title="Docker部署Cloudreve"></a>Docker部署Cloudreve</h3><p>参考文章：<a target="_blank" rel="noopener" href="https://hub.docker.com/r/xavierniu/cloudreve">https://hub.docker.com/r/xavierniu/cloudreve</a></p>
+<ol>
+<li><p>创建数据卷目录</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /zx/cloudreve/uploads</span><br><span class="line"><span class="built_in">mkdir</span> -p /zx/cloudreve/config</span><br><span class="line"><span class="built_in">mkdir</span> -p /zx/cloudreve/db</span><br><span class="line"><span class="built_in">mkdir</span> -p /zx/cloudreve/avatar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进行目录<code>cd /zx/cloudreve</code></p>
+</li>
+<li><p>自动拉取镜像并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name cloudreve \</span><br><span class="line">-e PUID=1000 \ # optional</span><br><span class="line">-e PGID=1000 \ # optional</span><br><span class="line">-e TZ=&quot;Asia/Shanghai&quot; \ # optional</span><br><span class="line">-p 5212:5212 \</span><br><span class="line">--restart=unless-stopped \</span><br><span class="line">-v $PWD/uploads:/cloudreve/uploads \</span><br><span class="line">-v $PWD/config:/cloudreve/config \</span><br><span class="line">-v $PWD/db:/cloudreve/db \</span><br><span class="line">-v $PWD/avatar:/cloudreve/avatar \</span><br><span class="line">xavierniu/cloudreve</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取初始密码<code>docker logs -f cloudreve</code></p>
+</li>
+</ol>
+<h3 id="Dcoker部署Nacos"><a href="#Dcoker部署Nacos" class="headerlink" title="Dcoker部署Nacos"></a>Dcoker部署Nacos</h3><blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wandoupeas/p/12205176.html">https://www.cnblogs.com/wandoupeas/p/12205176.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_56000832/article/details/120890310">https://blog.csdn.net/m0_56000832/article/details/120890310</a></p>
+</blockquote>
+<ol>
+<li><p>创建自定义网络common-network</p>
+</li>
+<li><p>创建存储<code>nacos</code>配置的数据库<br><code>create database nacos_config</code></p>
+</li>
+<li><p>初始化数据库，导入初始化文件<a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/blob/master/config/src/main/resources/META-INF/nacos-db.sql">nacos-db.sql</a></p>
+</li>
+<li><p>创建数据卷目录</p>
+<p><code>mkdir ~/nacos/logs</code><br><code>mkdir ~/nacos/init.d</code><br><code>cd ~/nacos</code></p>
+</li>
+<li><p>自动拉取镜像并启动容器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name nacos \</span><br><span class="line">-p 8848:8848 \ </span><br><span class="line">-restart=always \</span><br><span class="line">--privileged=true \</span><br><span class="line">-e PREFER_HOST_MODE=101.43.123.47 \</span><br><span class="line">-e SPRING_DATASOURCE_PLATFORM=mysql \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PORT=3306 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_USER=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PASSWORD=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_DB_NAME=nacos_config \</span><br><span class="line">-e MYSQL_SLAVE_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e JVM_XMS=256m \</span><br><span class="line">-e JVM_XMX=256m \</span><br><span class="line">-e MODE=standalone \</span><br><span class="line">-v $PWD/logs:/home/nacos/logs \</span><br><span class="line">-v $PWD/init.d/custom.properties:/home/nacos/init.d/custom.properties \</span><br><span class="line">-v $PWD/conf:/home/nacos/conf \</span><br><span class="line">--restart=always \</span><br><span class="line">--network common-network \</span><br><span class="line">nacos/nacos-server:1.4.1</span><br></pre></td></tr></table></figure>
+
+<p><strong>具体配置参数参考<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start-docker.html">官方文档</a></strong></p>
+<p>参数说明：</p>
+<ul>
+<li>–network common-network :  容器网络</li>
+<li>-v &#x2F;zx&#x2F;nacos&#x2F;init.d&#x2F;custom.properties:&#x2F;home&#x2F;nacos&#x2F;init.d&#x2F;custom.properties  ：配置文件映射路径</li>
+</ul>
+</li>
+<li><p>查看网络容器</p>
+<p><code>docker network inspect common-network</code></p>
+<p>这个时候mysql容器和nacos容器的网络就注册到了我们创建的那个网络里面了</p>
+<p><img src="/../assets/BOU6IJNSCwQV8vE.png"></p>
+</li>
+<li><p>进入nacos容器内部 修改一下配置</p>
+<p><code>docker exec -it nacos bash</code> 进入容器命令</p>
+<p><code>vim conf/application.properties</code> 修改配置文件</p>
+<p><img src="/../assets/7Lwr9HiIc64XNfG.png"></p>
+<p><strong>也可以从其他地方获取：</strong></p>
+<p>复制nacos配置目录到宿主机（或从其他地方复制需要application.properties、cluster.conf）</p>
+<p><code>docker cp 1d8a4a767027:/home/nacos/conf /zx/nacos</code></p>
+</li>
+<li><p>修改完成后 退出nacos容器并且重启nacos容器</p>
+<p><code>docker restart nacos</code> 重启nacos命令</p>
+<p><code>http://ip:8848/nacos/index.html</code><br><code>nacos/nacos(用户名密码)</code></p>
+</li>
+<li><p>添加的配置信息可在数据库中下面那张表中看到</p>
+<p><img src="/../assets/FcHlojMBP4iyZVn.png"></p>
+</li>
+</ol>
+<h3 id="Docker部署Nacos集群"><a href="#Docker部署Nacos集群" class="headerlink" title="Docker部署Nacos集群"></a>Docker部署Nacos集群</h3><p>(先执行完上面的nacos单容器)</p>
+<p><code>cd /zx/nacos/conf</code><br><code>vim cluster.conf</code></p>
+<p><strong>cluster.conf文件内容</strong></p>
+<figure class="highlight accesslog"><table><tr><td class="code"><pre><span class="line"><span class="number">101.43.123.47:8841</span></span><br><span class="line"><span class="number">101.43.123.47:8842</span></span><br><span class="line"><span class="number">101.43.123.47:8843</span></span><br></pre></td></tr></table></figure>
+
+<p>创建3个nacos容器(conf绑定同的port)</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建三个nacos容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">--name nacos1 \</span><br><span class="line">-e SPRING_DATASOURCE_PLATFORM=mysql \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PORT=3306 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_USER=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PASSWORD=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_DB_NAME=nacos \</span><br><span class="line">-e MYSQL_SLAVE_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e PREFER_HOST_MODE=101.43.123.47 \</span><br><span class="line">-e MODE=cluster \</span><br><span class="line">-e NACOS_SERVER_PORT=8841 \</span><br><span class="line">-e NACOS_SERVERS=<span class="string">&quot;101.43.123.47:8841 101.43.123.47:8842 101.43.123.47:8843&quot;</span> \</span><br><span class="line">-e NACOS_SERVER_IP=101.43.123.47 \</span><br><span class="line">-e JVM_XMS=256m -e JVM_XMX=256m  \</span><br><span class="line">-v /zx/nacos1/logs:/home/nacos/logs \</span><br><span class="line">-v /zx/nacos1/init.d/custom.properties:/home/nacos/init.d/custom.properties \</span><br><span class="line">-v /zx/nacos1/conf:/home/nacos/conf \</span><br><span class="line">-p 8841:8841 \</span><br><span class="line">--restart=always \</span><br><span class="line">nacos/nacos-server:1.4.1</span><br><span class="line"></span><br><span class="line">docker run -d \</span><br><span class="line">--name nacos2 \</span><br><span class="line">-e SPRING_DATASOURCE_PLATFORM=mysql \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PORT=3306 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_USER=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PASSWORD=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_DB_NAME=nacos \</span><br><span class="line">-e MYSQL_SLAVE_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e PREFER_HOST_MODE=101.43.123.47 \</span><br><span class="line">-e MODE=cluster \</span><br><span class="line">-e NACOS_SERVER_PORT=8842 \</span><br><span class="line">-e NACOS_SERVERS=<span class="string">&quot;101.43.123.47:8841 101.43.123.47:8842 101.43.123.47:8843&quot;</span> \</span><br><span class="line">-e NACOS_SERVER_IP=101.43.123.47 \</span><br><span class="line">-e JVM_XMS=256m -e JVM_XMX=256m  \</span><br><span class="line">-v /zx/nacos2/logs:/home/nacos/logs \</span><br><span class="line">-v /zx/nacos2/init.d/custom.properties:/home/nacos/init.d/custom.properties \</span><br><span class="line">-v /zx/nacos2/conf:/home/nacos/conf \</span><br><span class="line">-p 8842:8842 \</span><br><span class="line">--restart=always \</span><br><span class="line">nacos/nacos-server:1.4.1</span><br><span class="line"></span><br><span class="line">docker run -d \</span><br><span class="line">--name nacos3 \</span><br><span class="line">-e SPRING_DATASOURCE_PLATFORM=mysql \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PORT=3306 \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_USER=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_PASSWORD=root \</span><br><span class="line">-e MYSQL_MASTER_SERVICE_DB_NAME=nacos \</span><br><span class="line">-e MYSQL_SLAVE_SERVICE_HOST=101.43.123.47 \</span><br><span class="line">-e PREFER_HOST_MODE=101.43.123.47 \</span><br><span class="line">-e MODE=cluster \</span><br><span class="line">-e NACOS_SERVER_PORT=8843 \</span><br><span class="line">-e NACOS_SERVERS=<span class="string">&quot;101.43.123.47:8841 101.43.123.47:8842 101.43.123.47:8843&quot;</span> \</span><br><span class="line">-e NACOS_SERVER_IP=101.43.123.47 \</span><br><span class="line">-e JVM_XMS=256m -e JVM_XMX=256m  \</span><br><span class="line">-v /zx/nacos3/logs:/home/nacos/logs \</span><br><span class="line">-v /zx/nacos3/init.d/custom.properties:/home/nacos/init.d/custom.properties \</span><br><span class="line">-v /zx/nacos3/conf:/home/nacos/conf \</span><br><span class="line">-p 8843:8843 \</span><br><span class="line">--restart=always \</span><br><span class="line">nacos/nacos-server:1.4.1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>安装nginx 反向代理nacos</strong></p>
+<blockquote>
+<p>nginx.conf内容(新启动的容器copy过来的)</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">user</span>  nginx;</span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">error_log</span>  /var/log/nginx/<span class="literal">error</span>.log <span class="literal">warn</span>;</span><br><span class="line"><span class="attribute">pid</span>        /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line"><span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line"><span class="attribute">include</span>       /etc/nginx/mime.types;</span><br><span class="line"><span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line"><span class="attribute">log_format</span>  main  <span class="string">&#x27;<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] &quot;<span class="variable">$request</span>&quot; &#x27;</span></span><br><span class="line"><span class="string">&#x27;<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> &quot;<span class="variable">$http_referer</span>&quot; &#x27;</span></span><br><span class="line"><span class="string">&#x27;&quot;<span class="variable">$http_user_agent</span>&quot; &quot;<span class="variable">$http_x_forwarded_for</span>&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">access_log</span>  /var/log/nginx/access.log  main;</span><br><span class="line"></span><br><span class="line"><span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line"><span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -<span class="built_in">id</span> --name=nginx \</span><br><span class="line">-p 80:80 \</span><br><span class="line">-v /zx/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">-v /zx/nginx/logs:/var/log/nginx \</span><br><span class="line">-v /zx/nginx/html:/usr/share/nginx/html \</span><br><span class="line">nginx:1.8</span><br></pre></td></tr></table></figure>
+
+<p>修改conf&#x2F;nginx.conf文件，配置如下：</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">upstream</span> nacos-cluster &#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">101.43.123.47:8841</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">101.43.123.47:8842</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">101.43.123.47:8843</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  <span class="number">101.43.123.47</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /nacos &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://nacos-cluster;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>而后在浏览器访问：<a target="_blank" rel="noopener" href="http://localhost/nacos%E5%8D%B3%E5%8F%AF%E3%80%82">http://localhost/nacos即可。</a></p>
+<p>代码中application.yml文件配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="string">localhost:80</span> <span class="comment"># Nacos地址</span></span><br></pre></td></tr></table></figure>
+
+<p>如果项目注册不了</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 设置本机名称：<span class="regexp">/etc/</span>hostname   mName</span><br><span class="line"><span class="number">2</span>. 在<span class="regexp">/etc/</span>hosts里加一行 本机IP mName</span><br></pre></td></tr></table></figure>
+
+<p>还是无法解决 错误：</p>
+<blockquote>
+<p>(目前最靠谱解释：)</p>
+<p>由于集群模式中，配置nacos.naming.data.warmup 属性为 true，因此当集群中只有一台服务时，会导致nacos服务为不可用状态。而本地测试时，该属性没有配置（默认值为false），因此集群只有一台服务也可以正常使用。</p>
+<p>因此在使用时，如果是开发或者测试环境，只部署一台服务时，使用单机模式就可以了，配置集群模式在刚开始使用时，会遇到许多坑。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">  .   ____          _            __ _ _</span><br><span class="line"> /\\ / ___<span class="string">&#x27;_ __ _ _(_)_ __  __ _ \ \ \ \</span></span><br><span class="line"><span class="string">( ( )\___ | &#x27;</span>_ | <span class="string">&#x27;_| | &#x27;</span>_ \/ _` | \ \ \ \</span><br><span class="line"> \\/  ___)| |_)| | | | | || (_| |  ) ) ) )</span><br><span class="line">  <span class="string">&#x27;  |____| .__|_| |_|_| |_\__, | / / / /</span></span><br><span class="line"><span class="string"> =========|_|==============|___/=/_/_/_/</span></span><br><span class="line"><span class="string"> :: Spring Boot ::        (v2.3.9.RELEASE)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">12-20 22:25:23:135  INFO 6676 --- [           main] cn.itcast.order.OrderApplication         : No active profile set, falling back to default profiles: default</span></span><br><span class="line"><span class="string">12-20 22:25:23:549  INFO 6676 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1e3d3419-6ac5-3b72-b649-6b2133cfab3e</span></span><br><span class="line"><span class="string">12-20 22:25:23:730  INFO 6676 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)</span></span><br><span class="line"><span class="string">12-20 22:25:23:736  INFO 6676 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]</span></span><br><span class="line"><span class="string">12-20 22:25:23:737  INFO 6676 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]</span></span><br><span class="line"><span class="string">12-20 22:25:23:826  INFO 6676 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext</span></span><br><span class="line"><span class="string">12-20 22:25:23:826  INFO 6676 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 677 ms</span></span><br><span class="line"><span class="string">12-20 22:25:23:972  WARN 6676 --- [           main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.</span></span><br><span class="line"><span class="string">12-20 22:25:23:973  INFO 6676 --- [           main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</span></span><br><span class="line"><span class="string">12-20 22:25:23:975  WARN 6676 --- [           main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.</span></span><br><span class="line"><span class="string">12-20 22:25:23:975  INFO 6676 --- [           main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.</span></span><br><span class="line"><span class="string">12-20 22:25:24:060  INFO 6676 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#x27;</span>applicationTaskExecutor<span class="string">&#x27;</span></span><br><span class="line"><span class="string">12-20 22:25:24:232  INFO 6676 --- [           main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService &#x27;</span>Nacos-Watch-Task-Scheduler<span class="string">&#x27;</span></span><br><span class="line"><span class="string">12-20 22:25:24:702  INFO 6676 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &#x27;</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">12-20 22:25:24:797 ERROR 6676 --- [           main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, orderServer register failed...NacosRegistration&#123;nacosDiscoveryProperties=NacosDiscoveryProperties&#123;serverAddr=&#x27;</span><span class="number">101.43</span><span class="number">.123</span><span class="number">.47</span>:<span class="number">8841</span><span class="string">&#x27;, endpoint=&#x27;</span><span class="string">&#x27;, namespace=&#x27;</span><span class="string">&#x27;, watchDelay=30000, logName=&#x27;</span><span class="string">&#x27;, service=&#x27;</span>orderServer<span class="string">&#x27;, weight=1.0, clusterName=&#x27;</span>DEFAULT<span class="string">&#x27;, group=&#x27;</span>DEFAULT_GROUP<span class="string">&#x27;, namingLoadCacheAtStart=&#x27;</span><span class="literal">false</span><span class="string">&#x27;, metadata=&#123;preserved.register.source=SPRING_CLOUD&#125;, registerEnabled=true, ip=&#x27;</span><span class="number">192.168</span><span class="number">.124</span><span class="number">.25</span><span class="string">&#x27;, networkInterface=&#x27;</span><span class="string">&#x27;, port=8080, secure=false, accessKey=&#x27;</span><span class="string">&#x27;, secretKey=&#x27;</span><span class="string">&#x27;, heartBeatInterval=null, heartBeatTimeout=null, ipDeleteTimeout=null&#125;&#125;,</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">com.alibaba.nacos.api.exception.NacosException: failed to req API:/nacos/v1/ns/instance after all servers([101.43.123.47:8841]) tried: ErrCode:503, ErrMsg:server is DOWN now, please try again later!</span></span><br><span class="line"><span class="string">	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.Java:556) ~[nacos-client-1.4.1.jar:na]</span></span><br><span class="line"><span class="string">	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.Java:498) ~[nacos-client-1.4.1.jar:na]</span></span><br><span class="line"><span class="string">	at com.alibaba.nacos.client.naming.net.NamingProxy.reqApi(NamingProxy.Java:493) ~[nacos-client-1.4.1.jar:na]</span></span><br><span class="line"><span class="string">	at com.alibaba.nacos.client.naming.net.NamingProxy.registerService(NamingProxy.Java:246) ~[nacos-client-1.4.1.jar:na]</span></span><br><span class="line"><span class="string">	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.Java:212) ~[nacos-client-1.4.1.jar:na]</span></span><br><span class="line"><span class="string">	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.Java:74) ~[spring-cloud-starter-alibaba-nacos-discovery-2.2.5.RELEASE.jar:2.2.5.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.Java:239) [spring-cloud-commons-2.2.7.RELEASE.jar:2.2.7.RELEASE]</span></span><br><span class="line"><span class="string">	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.Java:78) [spring-cloud-starter-alibaba-nacos-discovery-2.2.5.RELEASE.jar:2.2.5.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.Java:138) [spring-cloud-commons-2.2.7.RELEASE.jar:2.2.7.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.Java:101) [spring-cloud-commons-2.2.7.RELEASE.jar:2.2.7.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.Java:88) [spring-cloud-commons-2.2.7.RELEASE.jar:2.2.7.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.Java:47) [spring-cloud-commons-2.2.7.RELEASE.jar:2.2.7.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.Java:172) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.Java:165) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.Java:139) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.Java:404) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.Java:361) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.Java:46) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.Java:182) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.Java:53) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.Java:360) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.Java:158) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.Java:122) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.Java:895) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.Java:554) [spring-context-5.2.13.RELEASE.jar:5.2.13.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.Java:143) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.SpringApplication.refresh(SpringApplication.Java:758) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.SpringApplication.refresh(SpringApplication.Java:750) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.Java:405) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.SpringApplication.run(SpringApplication.Java:315) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.SpringApplication.run(SpringApplication.Java:1237) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at org.springframework.boot.SpringApplication.run(SpringApplication.Java:1226) [spring-boot-2.3.9.RELEASE.jar:2.3.9.RELEASE]</span></span><br><span class="line"><span class="string">	at cn.itcast.order.OrderApplication.main(OrderApplication.Java:17) [classes/:na]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">12-20 22:25:24:797  WARN 6676 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean &#x27;</span>webServerStartStop<span class="string">&#x27;; nested exception is Java.lang.reflect.UndeclaredThrowableException</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-command-manual.html">Docker 命令大全 | 菜鸟教程</a></li>
+</ul>
+<h3 id="Docker进程相关"><a href="#Docker进程相关" class="headerlink" title="Docker进程相关"></a>Docker进程相关</h3><p>linux系统</p>
+<ul>
+<li><code>systemctl start docker</code> 启动docker服务</li>
+<li><code>systemctl status docker</code> 查看docker服务状态</li>
+<li><code>systemctl stop docker</code> 停止docker服务</li>
+<li><code>systemctl restart docker</code> 重启docker服务</li>
+<li><code>systemctl enable docker</code> 设置开机启动docker服务</li>
+</ul>
+<h3 id="Docker-镜像相关"><a href="#Docker-镜像相关" class="headerlink" title="Docker 镜像相关"></a>Docker 镜像相关</h3><ul>
+<li><code>docker images</code>查看本地所有的镜像</li>
+<li><code>docker images –q</code>查看所用镜像的id</li>
+<li><code>docker search 镜像名称</code>从网络中查找需要的镜像</li>
+<li><code>docker pull 镜像名称</code>拉取镜像，不加版本号，默认latest版本</li>
+<li><code>docker pull redis:5.0</code></li>
+<li><code>docker rmi 镜像id</code>删除指定本地镜像</li>
+<li><code>docker rmi 镜像名称：版本号</code>删除指定本地镜像</li>
+<li><code>docker rmi $(docker images –qa)</code>删除所有本地镜像</li>
+<li><code>docker rmi $(docker images –q redis)</code>删除所有仓库名为redis的镜像</li>
+</ul>
+<h3 id="创建并启动容器"><a href="#创建并启动容器" class="headerlink" title="创建并启动容器"></a>创建并启动容器</h3><p>docker run 参数<br>参数说明：</p>
+<ul>
+<li>-i：保持容器运行。通常与 -t 同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。</li>
+<li>-t：为容器重新分配一个伪输入终端，通常与 -i 同时使用。</li>
+<li>-d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用docker exec 进入容器。退出后，容器不会关闭。<br>• -it：创建的容器一般称为交互式容器，<br>• -id：创建的容器一般称为守护式容器<br>• –name：为创建的容器命名。</li>
+</ul>
+<p>两种启动方式</p>
+<ol>
+<li><p><code>docker run -it --name c1 centos:7 /bin/bash</code> 执行完会进入容器内部<br><code>exit</code> 退出容器会关闭容器</p>
+</li>
+<li><p><code>docker run -id --name c2 centos:7</code> 后台运行<br><code>docker exec -it c2 /bin/bash</code><br><code>exit</code> 退出容器不会关闭容器</p>
+</li>
+</ol>
+<h3 id="Docker-容器相关命令"><a href="#Docker-容器相关命令" class="headerlink" title="Docker 容器相关命令"></a>Docker 容器相关命令</h3><ul>
+<li><code>docker ps</code> 查看正在运行的容器</li>
+<li><code>docker ps –a</code> 查看所有容器</li>
+<li><code>docker pa -aq</code> 查看所有容器的id列表</li>
+<li><code>docker exec 参数</code>进入容器，退出容器，容器不会关闭<br><code>docker exec -it c1 /bin/bash</code></li>
+<li><code>docker stop 容器名称</code> 停止容器</li>
+<li><code>docker start 容器名称</code> 启动容器</li>
+<li><code>docker rm 容器名称</code> 删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除</li>
+<li><code>docker rm $(docker ps -aq)</code> 删除所有容器，正在运行的删除不了，所有未运行的都被删除f\</li>
+<li><code>docker inspect 容器名称</code> 查看容器信息</li>
+</ul>
+<h3 id="docker-compose常用命令"><a href="#docker-compose常用命令" class="headerlink" title="docker-compose常用命令"></a>docker-compose常用命令</h3><ul>
+<li><code>docker-compose up</code> 前台运行</li>
+<li><code>docker-compose up -d</code> 后台运行</li>
+<li><code>docker-compose down</code> 关闭</li>
+<li><code>docker-compose restart</code> 重启</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>zhangxin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zxblog.eu.org/posts/738/" title="【合集】Docker">https://zxblog.eu.org/posts/738/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+              <a href="/tags/Nacos/" rel="tag"><i class="fa fa-tag"></i> Nacos</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/fb3/" rel="prev" title="资源速查-阿里云盘">
+      <i class="fa fa-chevron-left"></i> 资源速查-阿里云盘
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/f7b0/" rel="next" title="资源速查-SSH工具">
+      资源速查-SSH工具 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E7%9B%B8%E5%85%B3%E4%B9%A6%E7%B1%8D"><span class="nav-number">1.</span> <span class="nav-text">Docker-相关书籍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E8%B5%84%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">Docker-资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-OS%E5%AE%89%E8%A3%85Docker"><span class="nav-number">3.</span> <span class="nav-text">Mac OS安装Docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS%E5%AE%89%E8%A3%85Docker"><span class="nav-number">4.</span> <span class="nav-text">CentOS安装Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">4.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD"><span class="nav-number">4.2.</span> <span class="nav-text">卸载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="nav-number">4.3.</span> <span class="nav-text">启动docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F"><span class="nav-number">4.4.</span> <span class="nav-text">配置镜像加速</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">Docker配置数据卷和数据卷容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="nav-number">5.1.</span> <span class="nav-text">配置数据卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8"><span class="nav-number">5.2.</span> <span class="nav-text">配置数据卷容器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E9%95%9C%E5%83%8F%E5%88%B6%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">Docker镜像制作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">Docker镜像仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8C%96%E7%89%88%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="nav-number">7.1.</span> <span class="nav-text">简化版镜像仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E6%9C%89%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E7%89%88%E6%9C%AC"><span class="nav-number">7.2.</span> <span class="nav-text">带有图形化界面版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEDocker%E4%BF%A1%E4%BB%BB%E5%9C%B0%E5%9D%80"><span class="nav-number">7.3.</span> <span class="nav-text">配置Docker信任地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E9%95%9C%E5%83%8F%E4%B8%8A%E4%BC%A0%E8%87%B3%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93"><span class="nav-number">7.4.</span> <span class="nav-text">将镜像上传至私有仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-number">7.5.</span> <span class="nav-text">从私有仓库拉取镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile"><span class="nav-number">8.</span> <span class="nav-text">Dockerfile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">8.1.</span> <span class="nav-text">Dockerfile关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile-%E6%A1%88%E4%BE%8B"><span class="nav-number">8.2.</span> <span class="nav-text">Dockerfile 案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-Compose"><span class="nav-number">9.</span> <span class="nav-text">Docker-Compose</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Docker-Compose"><span class="nav-number">9.1.</span> <span class="nav-text">安装Docker Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BDDocker-Compose"><span class="nav-number">9.2.</span> <span class="nav-text">卸载Docker Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E6%8E%92nginx-springboot%E9%A1%B9%E7%9B%AE"><span class="nav-number">9.3.</span> <span class="nav-text">编排nginx+springboot项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dcoker%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8"><span class="nav-number">10.</span> <span class="nav-text">Dcoker部署应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BD%91%E7%BB%9C"><span class="nav-number">10.1.</span> <span class="nav-text">Docker创建自定义网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2CentOS"><span class="nav-number">10.2.</span> <span class="nav-text">Docker部署CentOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2MySQL"><span class="nav-number">10.3.</span> <span class="nav-text">Docker部署MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2Nginx"><span class="nav-number">10.4.</span> <span class="nav-text">Docker部署Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2Tomcat"><span class="nav-number">10.5.</span> <span class="nav-text">Docker部署Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2Redis"><span class="nav-number">10.6.</span> <span class="nav-text">Docker部署Redis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2Wordpress"><span class="nav-number">10.7.</span> <span class="nav-text">Docker部署Wordpress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-Composs%E9%83%A8%E7%BD%B2Wordpress"><span class="nav-number">10.8.</span> <span class="nav-text">Docker-Composs部署Wordpress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2RabbitMQ"><span class="nav-number">10.9.</span> <span class="nav-text">Docker部署RabbitMQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2hexo"><span class="nav-number">10.10.</span> <span class="nav-text">Docker部署hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2Cloudreve"><span class="nav-number">10.11.</span> <span class="nav-text">Docker部署Cloudreve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dcoker%E9%83%A8%E7%BD%B2Nacos"><span class="nav-number">10.12.</span> <span class="nav-text">Dcoker部署Nacos</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E9%83%A8%E7%BD%B2Nacos%E9%9B%86%E7%BE%A4"><span class="nav-number">10.13.</span> <span class="nav-text">Docker部署Nacos集群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">11.</span> <span class="nav-text">Docker命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3"><span class="nav-number">11.1.</span> <span class="nav-text">Docker进程相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E9%95%9C%E5%83%8F%E7%9B%B8%E5%85%B3"><span class="nav-number">11.2.</span> <span class="nav-text">Docker 镜像相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">11.3.</span> <span class="nav-text">创建并启动容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">11.4.</span> <span class="nav-text">Docker 容器相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">11.5.</span> <span class="nav-text">docker-compose常用命令</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">252</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zx20219898" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zx20219898" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+         <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>站点总字数:
+    </span>
+    <span title="站点总字数">1m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>总访问量:
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxin</span>
+    <span class="post-meta-divider">|</span>
+  <span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+  </span>
+
+</div>
+
+        
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="100" alpha="0.8" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz',
+      appKey     : 'y4hUKKnP2A2FzMFxbPFem6b6',
+      placeholder: "欢迎留言评论，批评指正 ^_^",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":50,"vOffset":10},"mobile":{"show":false}});</script></body>
+</html>
