@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-z.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-z.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-z.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/orange/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#FF0000","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Java开发环境相关配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【软件】Java开发环境相关工具IDEA、JDK、Maven">
+<meta property="og:url" content="https://zxblog.eu.org/posts/247/index.html">
+<meta property="og:site_name" content="知行博客">
+<meta property="og:description" content="Java开发环境相关配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zxblog.eu.org/assets/pTgKha6XDAdWtPi.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/n24WPdNuHI1QEq5.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/PBY9HosCwbIcTRJ.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/KeUng68tYM2aFTP.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/tmh48PFvlQBUYf3.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/YVxkfgTzs4pMrLe.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/Wi54nkP2yBFTGg9.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/h5lXFaGjK1v6sVe.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/guRtiBbJ1lhxQ46.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/h2YyvkEWNis7Q9d.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220822153829249.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220822153904726.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220820193318422.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220820193338709.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/SjXTcDYzgCN4h68.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220820150756611.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220820150741963.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220820150840855.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20220820151108774.png">
+<meta property="article:published_time" content="2022-01-15T01:05:40.000Z">
+<meta property="article:modified_time" content="2022-08-23T01:53:09.160Z">
+<meta property="article:author" content="zhangxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zxblog.eu.org/assets/pTgKha6XDAdWtPi.png">
+
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/247/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zxblog.eu.org/posts/247/","path":"posts/247/","title":"【软件】Java开发环境相关工具IDEA、JDK、Maven"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【软件】Java开发环境相关工具IDEA、JDK、Maven | 知行博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">知行博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">zxblog.eu.org</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-友链"><a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK%E5%AE%89%E8%A3%85"><span class="nav-text">JDK安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS%E5%B9%B3%E5%8F%B0"><span class="nav-text">macOS平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows%E5%AE%89%E8%A3%85JDK"><span class="nav-text">Windows安装JDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC"><span class="nav-text">macOS切换jdk版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS%E5%8D%B8%E8%BD%BD%E5%AE%89%E8%A3%85%E5%A4%9A%E4%BD%99%E7%9A%84jdk"><span class="nav-text">macOS卸载安装多余的jdk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IntelliJ-IDEA"><span class="nav-text">IntelliJ IDEA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E5%AE%89%E8%A3%85"><span class="nav-text">IDEA安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#macOS%E7%89%88"><span class="nav-text">macOS版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows%E7%89%88"><span class="nav-text">Windows版</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD"><span class="nav-text">IDEA完全卸载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E9%85%8D%E7%BD%AEmaven"><span class="nav-text">IDEA配置maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-text">实用插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE-mac"><span class="nav-text">IDEA常用快捷键-mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-x2F-Bug%E6%94%B6%E9%9B%86"><span class="nav-text">问题&#x2F;Bug收集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E9%80%89%E6%8B%A9jdk"><span class="nav-text">IDEA选择jdk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E6%9F%A5%E7%9C%8B%E6%BA%90%E7%A0%81%E6%97%B6%EF%BC%8C%E6%97%A0%E6%B3%A8%E9%87%8A%EF%BC%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E6%98%AF%E5%8F%8D%E7%BC%96%E8%AF%91%E5%90%8E%E7%9A%84-class%E6%96%87%E4%BB%B6"><span class="nav-text">IDEA查看源码时，无注释，出现的是反编译后的.class文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E4%BF%AE%E6%94%B9"><span class="nav-text">IDEA工作空间修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IDEA%E5%8D%B8%E8%BD%BD%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%E6%89%93%E4%B8%8D%E5%BC%80"><span class="nav-text">IDEA卸载重新安装打不开</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#macOS%E5%AE%89%E8%A3%85Maven"><span class="nav-text">macOS安装Maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows%E5%AE%89%E8%A3%85maven"><span class="nav-text">Windows安装maven</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jdk%E3%80%81Maven%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="nav-text">Jdk、Maven环境变量配置</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="/avatar.webp">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">253</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><i class="fa fa-heart fa-fw"></i>个人主页</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/247/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.webp">
+      <meta itemprop="name" content="zhangxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知行博客">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【软件】Java开发环境相关工具IDEA、JDK、Maven | 知行博客">
+      <meta itemprop="description" content="Java开发环境相关配置">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【软件】Java开发环境相关工具IDEA、JDK、Maven
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-15 09:05:40" itemprop="dateCreated datePublished" datetime="2022-01-15T09:05:40+08:00">2022-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-23 09:53:09" itemprop="dateModified" datetime="2022-08-23T09:53:09+08:00">2022-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Java开发</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/247/" class="post-meta-item leancloud_visitors" data-flag-title="【软件】Java开发环境相关工具IDEA、JDK、Maven" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Java开发环境相关配置</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>本篇会持续收集实际开发遇到的问题</p>
+</blockquote>
+<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><h3 id="macOS平台"><a href="#macOS平台" class="headerlink" title="macOS平台"></a>macOS平台</h3><p>进入<a target="_blank" rel="noopener" href="https://www.azul.com/downloads/?package=jdk#download-openjdk">azul.com</a> 选择版本：arm架构的.dmg文件</p>
+<p><img src="/../assets/pTgKha6XDAdWtPi.png" alt="image-20220803101922724"></p>
+<p>下载打开双击安装，终端输入<code>java -version</code> 即可完成</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">zhangxin@ZhangdeMacBook-Air ~ % java -version</span><br><span class="line">openjdk version &quot;18.0.1&quot; 2022-04-19</span><br><span class="line">OpenJDK Runtime Environment Zulu18.30+11-CA (build 18.0.1+10)</span><br><span class="line">OpenJDK 64-Bit Server VM Zulu18.30+11-CA (build 18.0.1+10, mixed mode, sharing)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows安装JDK"><a href="#Windows安装JDK" class="headerlink" title="Windows安装JDK"></a>Windows安装JDK</h3><p>默认安装路径<br><img src="/../assets/n24WPdNuHI1QEq5.png" alt="img"></p>
+<h3 id="macOS切换jdk版本"><a href="#macOS切换jdk版本" class="headerlink" title="macOS切换jdk版本"></a>macOS切换jdk版本</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8e9277d9f2c5">https://www.jianshu.com/p/8e9277d9f2c5</a></p>
+<h3 id="macOS卸载安装多余的jdk"><a href="#macOS卸载安装多余的jdk" class="headerlink" title="macOS卸载安装多余的jdk"></a>macOS卸载安装多余的jdk</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ashanxiaoya/p/15177954.html">https://www.cnblogs.com/ashanxiaoya/p/15177954.html</a></p>
+<h2 id="IntelliJ-IDEA"><a href="#IntelliJ-IDEA" class="headerlink" title="IntelliJ IDEA"></a>IntelliJ IDEA</h2><h3 id="IDEA安装"><a href="#IDEA安装" class="headerlink" title="IDEA安装"></a>IDEA安装</h3><h4 id="macOS版"><a href="#macOS版" class="headerlink" title="macOS版"></a>macOS版</h4><p>官网所有版本：<a target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/idea/download/other.html">https://www.jetbrains.com/zh-cn/idea/download/other.html</a></p>
+<p>被墙可访问：<a target="_blank" rel="noopener" href="https://3.jetbra.in/">https://3.jetbra.in</a></p>
+<p>jetbrains全家桶：<a target="_blank" rel="noopener" href="https://www.123pan.com/s/c6cA-NJkw3">https://www.123pan.com/s/c6cA-NJkw3</a></p>
+<p>进入窗口，下载<a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iaiP007rjwbc">30天重置插件</a>拖入打开的idea窗口</p>
+<blockquote>
+<p>最简洁方便教程：<a target="_blank" rel="noopener" href="https://www.macwk.com/article/jetbrains-crack">https://www.macwk.com/article/jetbrains-crack</a></p>
+</blockquote>
+<p>永久激活（不好用）</p>
+<blockquote>
+<p>下载激活脚本：</p>
+<p>mac <a target="_blank" rel="noopener" href="https://wws.lanzoub.com/isv7l07rk3mf">https://wws.lanzoub.com/isv7l07rk3mf</a></p>
+<p>windows <a target="_blank" rel="noopener" href="https://wws.lanzoub.com/iTHb707rrzli">https://wws.lanzoub.com/iTHb707rrzli</a></p>
+<p>Mac执行 <code>sh ./reset_jetbrains_eval_mac_linux.sh</code>激活30天使用</p>
+<p>下载破解补丁放入桌面<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/uW5a5G4XUUM">https://www.aliyundrive.com/s/uW5a5G4XUUM</a></p>
+<p>在“应用程序”列表，选中IntelliJ IDEA.app，右键“显示包内容”，会跳转至Contents目录</p>
+<p>进入目录~&#x2F;Contents&#x2F;bin&#x2F;, 修改配置文件的内容idea.vmoptions，</p>
+<p>最后一行增加破解jar（fineagent.jar）所在的路径<code>-javaagent:/Users/zhangxin/Desktop/FineAgent.jar</code></p>
+<p>激活码激活：<a target="_blank" rel="noopener" href="https://www.yuque.com/docs/share/bebb2938-dc4d-4ba5-a097-6722c63ee726">https://www.yuque.com/docs/share/bebb2938-dc4d-4ba5-a097-6722c63ee726</a></p>
+<p>激活码2：</p>
+<p><a target="_blank" rel="noopener" href="https://www.ajihuo.com/idea/4222.html">https://www.ajihuo.com/idea/4222.html</a></p>
+</blockquote>
+<h4 id="Windows版"><a href="#Windows版" class="headerlink" title="Windows版"></a>Windows版</h4><p>被墙可访问：<a target="_blank" rel="noopener" href="https://3.jetbra.in/">https://3.jetbra.in</a></p>
+<p><img src="/../assets/PBY9HosCwbIcTRJ.png" alt="img"></p>
+<p>随便输入一个邮箱，获取30天<br><img src="/../assets/KeUng68tYM2aFTP.png" alt="img"></p>
+<p>任意打开一个项目后，解压得到jar包（30天），拖入idea.<br><img src="/../assets/tmh48PFvlQBUYf3.png" alt="img"></p>
+<p><img src="/../assets/YVxkfgTzs4pMrLe.png"></p>
+<h3 id="IDEA完全卸载"><a href="#IDEA完全卸载" class="headerlink" title="IDEA完全卸载"></a>IDEA完全卸载</h3><p>应用程序右键idea图标垃圾篓</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/Library/</span><br><span class="line">rm -rf Logs/IntelliJIdeaxxx/</span><br><span class="line">rm -rf Preferences/IntelliJIdeaxxx/</span><br><span class="line">rm -rf Application\ Support/IntelliJIdeaxxx/</span><br><span class="line">rm -rf Caches/IntelliJIdeaxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="IDEA配置maven"><a href="#IDEA配置maven" class="headerlink" title="IDEA配置maven"></a>IDEA配置maven</h3><p>全局配置：</p>
+<p><img src="/../assets/Wi54nkP2yBFTGg9.png" alt="image-20220803110906035"></p>
+<p><img src="/../assets/h5lXFaGjK1v6sVe.png" alt="image-20220803111045002"></p>
+<p><a href="/posts/b51f/">Maven-阿里云镜像仓库、settings文件</a></p>
+<p><code>/Users/zhangxin</code>下<code>command+shift+.</code>  打开隐藏文件，  <code>.m2</code>放入settings文件。</p>
+<p>虽然全局设置了，但是老项目还是会自带设置，在作为meaven项目load之前，需要二次修改确认。<strong>（踩过大坑）</strong></p>
+<h3 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h3><p><strong>Key promoter X</strong> 快捷键提醒</p>
+<p><strong>Translation</strong>  翻译插件，Tools -&gt; Translation 里面配置</p>
+<p><strong>CamelCase</strong> 命名风格转换插件，快捷键苹果为 <strong>⇧+⌥+ U</strong> ，windows 下为 <strong>Shift + Alt +U</strong>。</p>
+<p><strong>MybatisX</strong> 提供了 <strong>Mapper</strong> 接口和 <strong>XML</strong>之间的跳转和自动生成模版的功能。</p>
+<p><strong>Git Commit Template</strong>  Git 提交格式化模版</p>
+<p><strong>Xcode-Dark Theme</strong> 主题插件</p>
+<p><strong>One Dark theme</strong> 主题插件</p>
+<h3 id="IDEA常用快捷键-mac"><a href="#IDEA常用快捷键-mac" class="headerlink" title="IDEA常用快捷键-mac"></a>IDEA常用快捷键-mac</h3><ul>
+<li><p>⌘⇧E：查看最近文件，并展示修改的内容</p>
+</li>
+<li><p>⌘O：模糊匹配查询指定文件名的文件，默认查询class类型文件</p>
+</li>
+<li><p>⇧⌘O：模糊匹配查询指定文件名的文件，默认查询所有类型文件</p>
+</li>
+<li><p>⌥F7：查找用法。显示在项目中使用代码元素的所有位置</p>
+</li>
+<li><p>⌘G：⌘F查找出内容后，⌘G定位到下一个查找出的内容</p>
+</li>
+<li><p>⇧⌘V：IDEA的剪切板</p>
+</li>
+<li><p>⇧⌘U：大小写转换</p>
+</li>
+<li><p>⇧F6：重命名</p>
+</li>
+<li><p>F6：改变文件位置</p>
+</li>
+<li><p>⌘,：打开Preferences</p>
+</li>
+<li><p>⌘;：打开Project Structure</p>
+</li>
+<li><p>⇧⌘↑ 或 ⇧⌘↓：代码向上或向下移一行</p>
+</li>
+<li><p>⌥␣：类、方法、属性快速弹框预览</p>
+</li>
+<li><p>⌥⌘← 或 →：返回到上次编辑的位置</p>
+</li>
+<li><p>⌘[ 或 ]：返回到上次编辑的位置</p>
+</li>
+<li><p>⌘B：导航到实例化类、方法或字段的初始声明</p>
+</li>
+<li><p>⌘⌥B：导航到一个抽象方法的实现代码</p>
+</li>
+<li><p>⌘F12：显示当前文件的结构</p>
+</li>
+<li><p>⌃V：CVS操作</p>
+</li>
+<li><p>⌃T：调用重构，重构插入符号下的元素，例如，安全删除、复制、移动、重命名等。</p>
+</li>
+<li><p>⌘N：自动生成补充内容，如set&#x2F;get&#x2F;override等</p>
+</li>
+<li><p>⌥⌘T：自动补充代码，如for、try-catch-finally、while等流程逻辑</p>
+</li>
+<li><p>⌥⏎：显示上下文操作，快速修复突出显示的错误和警告，改进和优化代码的意图操作。</p>
+</li>
+<li><p>F2,⇧F2：在代码问题之间导航，跳转到下一个或上一个突出显示的错误。</p>
+</li>
+<li><p>⇧⏎：换行，并将插入符放在下一行语句的开头位置</p>
+</li>
+<li><p>⌘⏎：下一行新增一行，插入符位置不变</p>
+</li>
+<li><p>⌥⌘L：重新格式化整个文件或选定片段</p>
+</li>
+<li><p>⌥↑、⌥↓：扩展或收缩选择，根据特定的代码构造增加或减少选择范围。</p>
+</li>
+<li><p>⌘&#x2F;、⌥⌘&#x2F;：添加&#x2F;删除行注释或块注释，注释掉一行或一段代码。</p>
+</li>
+<li><p>⌘1：聚焦项目工具窗口</p>
+</li>
+<li><p>⌥F1：定位到当前文件</p>
+</li>
+<li><p>⎋：聚焦编辑</p>
+</li>
+<li><p>⌘+&#x2F;- 扩展&#x2F;收缩 某一个方法代码</p>
+</li>
+<li><p>⌘⇧+&#x2F;- 扩展&#x2F;收缩 整个类的方法代码</p>
+</li>
+<li><p>⌃⌘+Q 扩展&#x2F;收缩类注释</p>
+</li>
+<li><p>双击⇧：快速查找任何文件、操作、符号、工具窗口或设置。</p>
+</li>
+<li><p>⌘E：查看最近文件，列表展示</p>
+</li>
+<li><p>⌘F：当前文件查询文本内容</p>
+</li>
+<li><p>⇧⌘F：指定域查询文本内容</p>
+</li>
+<li><p>⌘R：当前文件替换文本内容</p>
+</li>
+<li><p>⇧⌘R：指定域替换文本内容</p>
+</li>
+</ul>
+<h3 id="问题-x2F-Bug收集"><a href="#问题-x2F-Bug收集" class="headerlink" title="问题&#x2F;Bug收集"></a>问题&#x2F;Bug收集</h3><h4 id="IDEA选择jdk"><a href="#IDEA选择jdk" class="headerlink" title="IDEA选择jdk"></a>IDEA选择jdk</h4><p><code>command + ；</code></p>
+<p><img src="/../assets/guRtiBbJ1lhxQ46.png" alt="image-20220803111632669"></p>
+<p>项目选择</p>
+<p><img src="/../assets/h2YyvkEWNis7Q9d.png" alt="image-20220803111747386"></p>
+<h4 id="IDEA查看源码时，无注释，出现的是反编译后的-class文件"><a href="#IDEA查看源码时，无注释，出现的是反编译后的-class文件" class="headerlink" title="IDEA查看源码时，无注释，出现的是反编译后的.class文件"></a>IDEA查看源码时，无注释，出现的是反编译后的.class文件</h4><p><img src="/../assets/image-20220822153829249.png" alt="image-20220822153829249"></p>
+<p>解决方案：</p>
+<p>maven下的配置</p>
+<p><img src="/../assets/image-20220822153904726.png" alt="image-20220822153904726"></p>
+<p>然后，在 <strong>pom.xml 里右键 maven-&gt;reimport</strong>，成功了！！！</p>
+<blockquote>
+<p>如果不成功，大概率就是Maven的版本问题了，常规操作是选用低版本的Maven和idea兼容</p>
+<p>我这里换了个 <code>Use Maven wrapper</code> 也成功了</p>
+</blockquote>
+<p>此时，源码注释虽然有了，但是会报<code>Library source does not match the bytecode for class</code>的问题，</p>
+<p>解决办法：点击 File -&gt; Invalidate Caches and Restart。<br>如果还未解决，那就是因为：<br>通过Maven查看依赖的源码时，通常是Maven自动下载JAR包附属的source包，但是会出现一个问题，<strong>由于使用lombok插件会造成编写的Java文件和编译后的class上有差别</strong>，所以IDEA打开时看到的是Maven打包时用的源码，而IDEA会自动匹配与.class反编译后的源代码，造成不匹配的提示。</p>
+<p>不用管了，不影响查看源码。</p>
+<h4 id="IDEA工作空间修改"><a href="#IDEA工作空间修改" class="headerlink" title="IDEA工作空间修改"></a>IDEA工作空间修改</h4><p><img src="/../assets/image-20220820193318422.png" alt="image-20220820193318422"></p>
+<p><img src="/../assets/image-20220820193338709.png" alt="image-20220820193338709"></p>
+<h4 id="IDEA卸载重新安装打不开"><a href="#IDEA卸载重新安装打不开" class="headerlink" title="IDEA卸载重新安装打不开"></a>IDEA卸载重新安装打不开</h4><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">cd <span class="regexp">/Users/</span>zhangxin<span class="regexp">/Library/</span>Application\ Support<span class="regexp">/JetBrains/</span></span><br><span class="line">ls 找到你的Idea版本进入, 如：cd IntelliJIdea2021.<span class="number">3</span></span><br><span class="line">vim idea.vmoptions</span><br><span class="line">输入i 编辑模式</span><br><span class="line">修改错误的配置（回复成你未修改时的配置）</span><br></pre></td></tr></table></figure>
+
+<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><h3 id="macOS安装Maven"><a href="#macOS安装Maven" class="headerlink" title="macOS安装Maven"></a>macOS安装Maven</h3><p>首先到官网下载对应压缩包，<a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">官方下载地址</a></p>
+<p>选择<code>apache-maven-版本号-bin.zip</code></p>
+<p>下载解压缩，放入任一位置：<code>/Users/zhangxin/apache-maven-3.8.6</code></p>
+<p>编辑：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>添加Maven路径：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> <span class="attribute">M2_HOME</span>=/Users/zhangxin/apache-maven-3.8.6</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">PATH</span>=<span class="variable">$PATH</span>:$M2_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p>刷新配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>检验：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">mvn</span> -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="Windows安装maven"><a href="#Windows安装maven" class="headerlink" title="Windows安装maven"></a>Windows安装maven</h3><p>下载得到的maven压缩包解压到C:\Program Files下<br><img src="/../assets/SjXTcDYzgCN4h68.png" alt="img"></p>
+<blockquote>
+<p>资源下载<br><a target="_blank" rel="noopener" href="https://wws.lanzoub.com/b0cap2akf">https://wws.lanzoub.com/b0cap2akf</a><br>密码:e7fk</p>
+</blockquote>
+<h2 id="Jdk、Maven环境变量配置"><a href="#Jdk、Maven环境变量配置" class="headerlink" title="Jdk、Maven环境变量配置"></a>Jdk、Maven环境变量配置</h2><p><img src="/../assets/image-20220820150756611.png" alt="image-20220820150756611"></p>
+<p><img src="/../assets/image-20220820150741963.png" alt="image-20220820150741963"><img src="/../assets/image-20220820150840855.png" alt="image-20220820150840855"></p>
+<p><strong>path</strong></p>
+<p><img src="/../assets/image-20220820151108774.png" alt="image-20220820151108774"></p>
+<blockquote>
+<p>C:\Program Files\JetBrains\IntelliJ IDEA 2021.2\bin;</p>
+<p>CLASSPATH<br>%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</p>
+<p>JAVA_HOME<br>C:\Program Files\Java\jre1.8.0_291</p>
+<p>MAVEN_HOME<br>C:\Program Files\apache-maven-3.5.2</p>
+<p>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</p>
+<p>%MAVEN_HOME%\bin</p>
+</blockquote>
+<p>检查</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">java -<span class="keyword">version</span></span><br><span class="line"><span class="keyword">man</span> -v</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/dcb7/" rel="prev" title="【软件】Typora">
+                  <i class="fa fa-chevron-left"></i> 【软件】Typora
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/b2c4/" rel="next" title="【合集】Java工程师面试题">
+                  【合集】Java工程师面试题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<span class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line">本站总字数:</i>
+    </span>
+    <span title="站点总字数">1.1m</span>
+  </span>
+
+
+
+<span class="post-meta-divider">|</span>
+
+
+<span class="busuanzi-count">
+
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye">本站总访问量:</i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+
+</span>
+
+
+
+
+
+
+
+ <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+
+
+
+<div>
+
+<span class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxin</span>
+</span>
+
+<span class="post-meta-divider">|</span>
+<span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+</span>
+
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="100" alpha="0.8" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz","app_key":"y4hUKKnP2A2FzMFxbPFem6b6","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: false,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+if (window.darkmode && !window.darkmode.isActivated()) {
+  window.darkmode.toggle();
+  var toggleButtons = document.getElementsByClassName("darkmode-toggle");
+  if (toggleButtons && toggleButtons.length > 0) {
+    for (i = 0; i < toggleButtons.length; i++) {
+      toggleButtons[i].classList.add("darkmode-toggle--white");
+    }
+  }
+}
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":200,"hOffset":30,"vOffset":10},"mobile":{"show":true}});</script></body>
+</html>
