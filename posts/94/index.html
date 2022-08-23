@@ -2,25 +2,27 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="https://img-blog.csdnimg.cn/f11e7d9dfc4348e48742d2dcfcf792af.png#pic_center">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-zx.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zxblog.eu.org","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#fc6423","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":null,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/orange/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-  <meta name="description" content="资源速查-Java语言">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#FF0000","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="资源速查-Java语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaSE-Java集合">
 <meta property="og:url" content="https://zxblog.eu.org/posts/94/index.html">
@@ -30,86 +32,52 @@
 <meta property="og:image" content="https://zxblog.eu.org/assets/QUHmKwsgcpOy7eG.gif">
 <meta property="og:image" content="https://zxblog.eu.org/assets/ZTGKogfRHed9ptX.png">
 <meta property="article:published_time" content="2022-08-15T01:43:15.000Z">
-<meta property="article:modified_time" content="2022-08-21T08:39:00.796Z">
+<meta property="article:modified_time" content="2022-08-23T01:38:02.308Z">
 <meta property="article:author" content="zhangxin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://zxblog.eu.org/assets/QUHmKwsgcpOy7eG.gif">
 
+
 <link rel="canonical" href="https://zxblog.eu.org/posts/94/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>JavaSE-Java集合 | 知行博客</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zxblog.eu.org/posts/94/","path":"posts/94/","title":"JavaSE-Java集合"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaSE-Java集合 | 知行博客</title>
   
 
 
-  <script data-pjax>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">知行博客</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">知行博客</p>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">zxblog.eu.org</p>
   </div>
@@ -123,34 +91,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-友链">
-
-    <a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-友链"><a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -161,23 +103,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -185,102 +126,173 @@
   </div>
 
 </div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-text">集合的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%A7%8D%E7%B1%BB"><span class="nav-text">常见的数据结构种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedList"><span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedHashSet"><span class="nav-text">LinkedHashSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">集合的使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeSet"><span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection%E6%8E%92%E5%BA%8F"><span class="nav-text">Collection排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections-Util"><span class="nav-text">Collections Util</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#args"><span class="nav-text">args</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91"><span class="nav-text">斗地主游戏的案例开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API-1"><span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B"><span class="nav-text">存储自定义类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedHashMap"><span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%82%EF%BC%88%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%89"><span class="nav-text">输出一个字符串中每个字符出现的次数。（经典面试题）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91-Map%E9%9B%86%E5%90%88%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="nav-text">斗地主游戏的案例开发-Map集合实现。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91"><span class="nav-text">图书管理系统的开发</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">253</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><i class="fa fa-heart fa-fw"></i>个人主页</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
   <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
-  <a href="https://github.com/zx20219898" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    <div class="main-inner post posts-expand">
 
-          <div class="content post posts-expand">
-            
 
-    
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
       <meta itemprop="name" content="zhangxin">
-      <meta itemprop="description" content="知行合一.">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="知行博客">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaSE-Java集合 | 知行博客">
+      <meta itemprop="description" content="资源速查-Java语言">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           JavaSE-Java集合
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-            
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-15 09:43:15" itemprop="dateCreated datePublished" datetime="2022-08-15T09:43:15+08:00">2022-08-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-21 16:39:00" itemprop="dateModified" datetime="2022-08-21T16:39:00+08:00">2022-08-21</time>
-              </span>
-
-          
-            <span id="/posts/94/" class="post-meta-item leancloud_visitors" data-flag-title="JavaSE-Java集合" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      
       <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
+        <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">评论：</span>
-    
-    <a title="valine" href="/posts/94/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/94/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>20k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>19 分钟</span>
-            </span>
-            <div class="post-description">资源速查-Java语言</div>
+      <span class="post-meta-item-text">发表于</span>
 
+      <time title="创建时间：2022-08-15 09:43:15" itemprop="dateCreated datePublished" datetime="2022-08-15T09:43:15+08:00">2022-08-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-23 09:38:02" itemprop="dateModified" datetime="2022-08-23T09:38:02+08:00">2022-08-23</time>
+    </span>
+
+  
+    <span id="/posts/94/" class="post-meta-item leancloud_visitors" data-flag-title="JavaSE-Java集合" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>20k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>19 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">资源速查-Java语言</div>
         </div>
       </header>
 
@@ -288,21 +300,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <blockquote>
 <p><code>推荐先阅读</code>：<a href="/posts/15f3">JavaSE</a></p>
 </blockquote>
-<p><img src="/../assets/QUHmKwsgcpOy7eG.gif"></p>
-<p><img src="/../assets/ZTGKogfRHed9ptX.png"></p>
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set系列集合：添加的元素是无序（底层采用了哈希表存储元素），不重复，无索引的。<br>无序，不可重复，最多允许有一个Null元素对象，取元素时只能用Iterator接口取得所有元 素，在逐一遍历各个元素。元素在set中的位置是有该元素的 HashCode 决定的，其位置其实是固定的（加入Set 的 Object 必须定义 equals ()方法）。<br>迭代方法：迭代器 foreach lambda<br>查询慢，增删快（因为增删不会引起元素位置改变 ）</p>
+<p><img src="/../../assets/QUHmKwsgcpOy7eG.gif"></p>
+<p><img src="/../../assets/ZTGKogfRHed9ptX.png"></p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set系列集合：添加的元素是无序（底层采用了哈希表存储元素），不重复，无索引的。<br>无序，不可重复，最多允许有一个Null元素对象，取元素时只能用Iterator接口取得所有元 素，在逐一遍历各个元素。元素在set中的位置是有该元素的 HashCode 决定的，其位置其实是固定的（加入Set 的 Object 必须定义 equals ()方法）。<br>迭代方法：迭代器 foreach lambda<br>查询慢，增删快（因为增删不会引起元素位置改变 ）</p>
 <ul>
 <li>HashSet:添加的元素是无序，不重复，无索引的。</li>
 <li>LinkedHashSet:添加的元素是有序，不重复，无索引的。</li>
 <li>TreeSet:不重复，无索引，按照大小默认升序排序!!</li>
 </ul>
 <p>JDK 1.8之前：哈希表 &#x3D; 数组 + 链表  + （哈希算法）<br>JDK 1.8之后：哈希表 &#x3D; 数组 + 链表 + 红黑树  + （哈希算法）<br>当链表长度超过阈值（8）时，将链表转换为红黑树，这样大大减少了查找时间。<br>Set系列集合是基于哈希表存储数据的<br>它的增删改查的性能都很好！！但是它是无序不重复的！如果不在意当然可以使用！</p>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>List系列集合：添加的元素是有序，可重复，有索引。<br>有序，按对象进入的顺序保存对象，可重复，允许多个Null元素对象，可以使用Iterator取出所有元素，在逐一遍历，还可以使用get(int index)获取指定下标的元素。<br>迭代方法：迭代器 foreach lambda fori<br>查询快（通过下标），增删慢（因为会引起其他元素位置改变）</p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>List系列集合：添加的元素是有序，可重复，有索引。<br>有序，按对象进入的顺序保存对象，可重复，允许多个Null元素对象，可以使用Iterator取出所有元素，在逐一遍历，还可以使用get(int index)获取指定下标的元素。<br>迭代方法：迭代器 foreach lambda fori<br>查询快（通过下标），增删慢（因为会引起其他元素位置改变）</p>
 <ul>
 <li>ArrayList：基于数组存储数据的，添加的元素是有序，可重复，有索引。查询快，增删慢。</li>
 <li>LinekdList：添加的元素是有序，可重复，有索引。</li>
@@ -312,7 +322,7 @@
 <li><code>public E remove(int index)</code>: 移除列表中指定位置的元素, 返回的是被移除的元素。</li>
 <li><code>public E set(int index, E element)</code>:用指定元素替换集合中指定位置的元素,返回更新前的元素值。</li>
 </ul>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><ul>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
 <li><code>public boolean add(E e)</code>：  把给定的对象添加到当前集合中 。</li>
 <li><code>public void clear()</code> :清空集合中所有的元素。</li>
 <li><code>public boolean remove(E e)</code>: 把给定的对象在当前集合中删除。</li>
@@ -321,7 +331,7 @@
 <li><code>public int size()</code>: 返回集合中元素的个数。</li>
 <li><code>public Object[] toArray()</code>: 把集合中的元素，存储到数组中</li>
 </ul>
-<h3 id="集合的遍历"><a href="#集合的遍历" class="headerlink" title="集合的遍历"></a>集合的遍历</h3><ul>
+<h2 id="集合的遍历"><a href="#集合的遍历" class="headerlink" title="集合的遍历"></a>集合的遍历</h2><ul>
 <li><p>迭代器</p>
   <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Iterator&lt;String&gt; it = lists.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">ele</span> <span class="operator">=</span> it.next();</span><br><span class="line">    System.out.println(ele);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -334,7 +344,7 @@
 <p>List集合遍历比Collection集合多一个<code>fori</code>循环</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; lists.size() ; i++ ) &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">ele</span> <span class="operator">=</span> lists.get(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="常见的数据结构种类"><a href="#常见的数据结构种类" class="headerlink" title="常见的数据结构种类"></a>常见的数据结构种类</h3><p>a.队列（queue）</p>
+<h2 id="常见的数据结构种类"><a href="#常见的数据结构种类" class="headerlink" title="常见的数据结构种类"></a>常见的数据结构种类</h2><p>a.队列（queue）</p>
 <ul>
 <li>先进先出，后进后出。</li>
 <li>场景：各种排队。叫号系统。</li>
@@ -362,7 +372,7 @@
 </ul>
 <p>e.红黑树<br>二叉树：binary tree 永远只有一个根节点,是每个结点不超过2个节点的树（tree） 。<br>查找二叉树,排序二叉树：小的左边，大的右边，但是可能树很高，性能变差。<br>为了做排序和搜索会进行左旋和右旋实现平衡查找二叉树，让树的高度差不大于1</p>
 <p>红黑树（就是基于红黑规则实现了自平衡的排序二叉树）：<br>树尽量的保证到了很矮小，但是又排好序了，性能最高的树。<br>红黑树的增删查改性能都好！！！</p>
-<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><p>LinkedList: 基于链表，增删比较快，查询慢！！<br>LinkedList是支持双链表，定位前后的元素是非常快的，增删首尾的元素也是最快的<br>所以提供了很多操作首尾元素的特殊API可以做栈和队列的实现。</p>
+<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><p>LinkedList: 基于链表，增删比较快，查询慢！！<br>LinkedList是支持双链表，定位前后的元素是非常快的，增删首尾的元素也是最快的<br>所以提供了很多操作首尾元素的特殊API可以做栈和队列的实现。</p>
 <ul>
 <li><code>public void addFirst(E e)</code>:将指定元素插入此列表的开头。</li>
 <li><code>public void addLast(E e)</code>:将指定元素添加到此列表的结尾。</li>
@@ -379,11 +389,11 @@
 <p>做一个栈</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LinkedList&lt;String&gt; stack = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line"><span class="comment">// 压栈</span></span><br><span class="line">stack.push(<span class="string">&quot;第1颗子弹&quot;</span>);</span><br><span class="line">stack.push(<span class="string">&quot;第2颗子弹&quot;</span>);</span><br><span class="line">stack.push(<span class="string">&quot;第3颗子弹&quot;</span>);</span><br><span class="line">stack.push(<span class="string">&quot;第4颗子弹&quot;</span>);</span><br><span class="line">System.out.println(stack); <span class="comment">// [第4颗子弹, 第3颗子弹, 第2颗子弹, 第1颗子弹]</span></span><br><span class="line"><span class="comment">// 弹栈</span></span><br><span class="line">System.out.println(stack.pop());</span><br><span class="line">System.out.println(stack.pop());</span><br><span class="line">System.out.println(stack);</span><br></pre></td></tr></table></figure>
 
-<h3 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h3><p>LinkedHashSet: HashSet的子类，元素是“有序” 不重复，无索引.<br>LinkedHashSet底层依然是使用哈希表存储元素的，<br>但是每个元素都额外带一个链来维护添加顺序！！<br>不光增删查快，还有序。<br>缺点是多了一个存储顺序的链会占内存空间!!而且不允许重复，无索引。</p>
-<h3 id="集合的使用场景"><a href="#集合的使用场景" class="headerlink" title="集合的使用场景"></a>集合的使用场景</h3><p>如果希望元素可以重复，又有索引，查询要快用ArrayList集合。（用的最多）<br>如果希望元素可以重复，又有索引，增删要快要用LinkedList集合。（适合查询元素比较少的情况，经常要首尾操作元素的情况）<br>如果希望增删改查都很快，但是元素不重复以及无序无索引，那么用HashSet集合。<br>如果希望增删改查都很快且有序，但是元素不重复以及无索引，那么用LinkedHashSet集合。</p>
-<h3 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h3><p>TreeSet: 不重复，无索引，按照大小默认升序排序!!<br>TreeSet集合称为排序不重复集合，可以对元素进行默认的升序排序。</p>
+<h2 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h2><p>LinkedHashSet: HashSet的子类，元素是“有序” 不重复，无索引.<br>LinkedHashSet底层依然是使用哈希表存储元素的，<br>但是每个元素都额外带一个链来维护添加顺序！！<br>不光增删查快，还有序。<br>缺点是多了一个存储顺序的链会占内存空间!!而且不允许重复，无索引。</p>
+<h2 id="集合的使用场景"><a href="#集合的使用场景" class="headerlink" title="集合的使用场景"></a>集合的使用场景</h2><p>如果希望元素可以重复，又有索引，查询要快用ArrayList集合。（用的最多）<br>如果希望元素可以重复，又有索引，增删要快要用LinkedList集合。（适合查询元素比较少的情况，经常要首尾操作元素的情况）<br>如果希望增删改查都很快，但是元素不重复以及无序无索引，那么用HashSet集合。<br>如果希望增删改查都很快且有序，但是元素不重复以及无索引，那么用LinkedHashSet集合。</p>
+<h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><p>TreeSet: 不重复，无索引，按照大小默认升序排序!!<br>TreeSet集合称为排序不重复集合，可以对元素进行默认的升序排序。</p>
 <p>TreeSet集合自自排序的方式：<br>1.有值特性的元素直接可以升序排序。（浮点型，整型）<br>2.字符串类型的元素会按照首字符的编号排序。<br>3.对于自定义的引用数据类型，TreeSet默认无法排序，执行的时候直接报错，因为人家不知道排序规则。</p>
-<h3 id="Collection排序"><a href="#Collection排序" class="headerlink" title="Collection排序"></a>Collection排序</h3><p>注意：如果类和集合都存在大小规则，默认使用集合自带的规则进行大小排序！！</p>
+<h2 id="Collection排序"><a href="#Collection排序" class="headerlink" title="Collection排序"></a>Collection排序</h2><p>注意：如果类和集合都存在大小规则，默认使用集合自带的规则进行大小排序！！</p>
 <p>a. 类实现Comparable接口</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Orange</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> weight;</span><br><span class="line">    <span class="keyword">private</span> String price;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Orange&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, weight=&quot;</span> + weight +</span><br><span class="line">                <span class="string">&quot;, price=&#x27;&quot;</span> + price + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>+<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="type">Orange</span> <span class="variable">o2</span> <span class="operator">=</span> (Orange) o;</span><br><span class="line">        <span class="comment">// 集合会自动送入两个句子对象来比较！！</span></span><br><span class="line">        <span class="comment">// 认为o1 &gt; o2返回正整数。</span></span><br><span class="line">        <span class="comment">// 认为o1 = o2返回0。</span></span><br><span class="line">        <span class="comment">// 认为o1 &lt; o2返回负整数。</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.weight &gt; o2.weight) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.weight &lt; o2.weight) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -394,32 +404,32 @@
 <p>Collections集合的方法</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Orange&gt; oranges1 = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="type">Orange</span> <span class="variable">o11</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Orange</span>(<span class="string">&quot;红橘子&quot;</span>,<span class="number">654.0</span> ,<span class="string">&quot;贼便宜~&quot;</span>);</span><br><span class="line"><span class="type">Orange</span> <span class="variable">o22</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Orange</span>(<span class="string">&quot;黄橘子&quot;</span>,<span class="number">454.0</span> ,<span class="string">&quot;贼便宜~&quot;</span>);</span><br><span class="line"><span class="type">Orange</span> <span class="variable">o33</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Orange</span>(<span class="string">&quot;黄橘子&quot;</span>,<span class="number">454.0</span> ,<span class="string">&quot;贼便宜~&quot;</span>);</span><br><span class="line"><span class="type">Orange</span> <span class="variable">o44</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Orange</span>(<span class="string">&quot;青橘子&quot;</span>,<span class="number">456.0</span> ,<span class="string">&quot;贼便宜~&quot;</span>);</span><br><span class="line">Collections.addAll(oranges1,o11,o22,o33,o44);</span><br><span class="line"><span class="comment">// 优先用方法自带的比较器对象Comparator而不会用类的比较规则！！</span></span><br><span class="line">Collections.sort(oranges1, <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Orange&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Orange o1, Orange o2)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(o1.getWeight() &gt; o2.getWeight()) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(o1.getWeight() &lt; o2.getWeight()) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">System.out.println(oranges1);</span><br></pre></td></tr></table></figure>
 
-<h3 id="Collections-Util"><a href="#Collections-Util" class="headerlink" title="Collections Util"></a>Collections Util</h3><ul>
+<h2 id="Collections-Util"><a href="#Collections-Util" class="headerlink" title="Collections Util"></a>Collections Util</h2><ul>
 <li><code>public static &lt;T&gt; boolean addAll(Collection&lt;? super T&gt; c, T... elements)</code>:给集合对象批量添加元素！</li>
 <li><code>public static void shuffle(List&lt;?&gt; list)</code> :打乱集合顺序。</li>
 <li><code>public static &lt;T&gt; void sort(List&lt;T&gt; list)</code>:将集合中元素按照默认规则排序。</li>
 <li><code>public static &lt;T&gt; void sort(List&lt;T&gt; list，Comparator&lt;? super T&gt; )</code>:将集合中元素按照指定规则排序。</li>
 </ul>
-<h3 id="args"><a href="#args" class="headerlink" title="args"></a>args</h3><p>可变参数的格式：数据类型… 参数名称<br>可变参数在方法内部本质上就是一个数组。</p>
+<h2 id="args"><a href="#args" class="headerlink" title="args"></a>args</h2><p>可变参数的格式：数据类型… 参数名称<br>可变参数在方法内部本质上就是一个数组。</p>
 <p>可变参数的注意事项：<br>1.一个形参列表中可变参数只能有一个！！<br>2.可变参数必须放在形参列表的最后面！！</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MethodDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        sum(); <span class="comment">// 可以不传输参数。</span></span><br><span class="line">        sum(<span class="number">10</span>); <span class="comment">// 可以传输一个参数。</span></span><br><span class="line">        sum(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>); <span class="comment">// 可以传输多个参数。</span></span><br><span class="line">        sum(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">10</span>,<span class="number">30</span>,<span class="number">50</span>,<span class="number">70</span>,<span class="number">90</span>&#125;); <span class="comment">// 可以传输一个数组。</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span>...nums)</span>&#123;</span><br><span class="line">        <span class="comment">// 可变参数在方法内部本质上就是一个数组。</span></span><br><span class="line">        System.out.println(<span class="string">&quot;元素个数：&quot;</span>+nums.length);</span><br><span class="line">        System.out.println(<span class="string">&quot;元素内容：&quot;</span>+ Arrays.toString(nums));</span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------------&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h3 id="斗地主游戏的案例开发"><a href="#斗地主游戏的案例开发" class="headerlink" title="斗地主游戏的案例开发"></a>斗地主游戏的案例开发</h3><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line">目标：斗地主游戏的案例开发。</span><br><span class="line"></span><br><span class="line">业务需求分析:</span><br><span class="line">斗地主的做牌，洗牌，发牌,排序（拓展知识）, 看牌</span><br><span class="line">业务:总共有<span class="number">54</span>张牌。</span><br><span class="line">点数: <span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;10&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;2&quot;</span></span><br><span class="line">花色: <span class="string">&quot;♠&quot;</span>, <span class="string">&quot;♥&quot;</span>, <span class="string">&quot;♣&quot;</span>, <span class="string">&quot;♦&quot;</span></span><br><span class="line">大小王: <span class="string">&quot;👲&quot;</span> , <span class="string">&quot;&quot;</span></span><br><span class="line">点数分别要组合<span class="number">4</span>种花色，大小王各一张。</span><br><span class="line">斗地主：发出<span class="number">51</span>张牌，剩下<span class="number">3</span>张作为底牌。</span><br><span class="line"></span><br><span class="line">功能：</span><br><span class="line"><span class="number">1</span>.做牌。</span><br><span class="line"><span class="number">2</span>.洗牌</span><br><span class="line"><span class="number">3</span>.定义<span class="number">3</span>个玩家。</span><br><span class="line"><span class="number">4</span>.发牌。</span><br><span class="line"><span class="number">5</span>.排序（拓展，了解）</span><br><span class="line"><span class="number">6</span>.看牌。</span><br><span class="line"></span><br><span class="line">用面向对象设计案例：</span><br><span class="line">a.定义一个牌类，代表牌对象。 一个牌对象代表一张牌。</span><br><span class="line">b.定义一个集合存储<span class="number">54</span>张牌，集合只需要一个(因为牌只需要一副)</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h2 id="斗地主游戏的案例开发"><a href="#斗地主游戏的案例开发" class="headerlink" title="斗地主游戏的案例开发"></a>斗地主游戏的案例开发</h2><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line">目标：斗地主游戏的案例开发。</span><br><span class="line"></span><br><span class="line">业务需求分析:</span><br><span class="line">斗地主的做牌，洗牌，发牌,排序（拓展知识）, 看牌</span><br><span class="line">业务:总共有<span class="number">54</span>张牌。</span><br><span class="line">点数: <span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;10&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;2&quot;</span></span><br><span class="line">花色: <span class="string">&quot;♠&quot;</span>, <span class="string">&quot;♥&quot;</span>, <span class="string">&quot;♣&quot;</span>, <span class="string">&quot;♦&quot;</span></span><br><span class="line">大小王: <span class="string">&quot;👲&quot;</span> , <span class="string">&quot;&quot;</span></span><br><span class="line">点数分别要组合<span class="number">4</span>种花色，大小王各一张。</span><br><span class="line">斗地主：发出<span class="number">51</span>张牌，剩下<span class="number">3</span>张作为底牌。</span><br><span class="line"></span><br><span class="line">功能：</span><br><span class="line"><span class="number">1</span>.做牌。</span><br><span class="line"><span class="number">2</span>.洗牌</span><br><span class="line"><span class="number">3</span>.定义<span class="number">3</span>个玩家。</span><br><span class="line"><span class="number">4</span>.发牌。</span><br><span class="line"><span class="number">5</span>.排序（拓展，了解）</span><br><span class="line"><span class="number">6</span>.看牌。</span><br><span class="line"></span><br><span class="line">用面向对象设计案例：</span><br><span class="line">a.定义一个牌类，代表牌对象。 一个牌对象代表一张牌。</span><br><span class="line">b.定义一个集合存储<span class="number">54</span>张牌，集合只需要一个(因为牌只需要一副)</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GameDemo</span> &#123;</span><br><span class="line">    <span class="comment">/** a.定义一个静态集合，存储54张牌对象，集合只需要一个 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Card&gt; ALL_CARDS = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** b.做牌 */</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// 1.定义一个数组存储牌的点数，类型确定，个数确定请用数组存储！</span></span><br><span class="line">        String[] numbers = &#123;<span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;10&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;2&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 2.定义一个数组存储牌的花色，类型确定，个数确定请用数组存储！</span></span><br><span class="line">        String[] colors = &#123; <span class="string">&quot;♠&quot;</span>, <span class="string">&quot;♥&quot;</span>, <span class="string">&quot;♣&quot;</span>, <span class="string">&quot;♦&quot;</span> &#125;;</span><br><span class="line">        <span class="comment">// 3.先遍历点数与四种花色组装成牌对象存入到集合中去</span></span><br><span class="line">        <span class="keyword">for</span> (String number : numbers) &#123;</span><br><span class="line">            <span class="comment">// 遍历花色</span></span><br><span class="line">            <span class="keyword">for</span> (String color : colors) &#123;</span><br><span class="line">                <span class="comment">// 创建一张牌对象封装点数和花色</span></span><br><span class="line">                <span class="type">Card</span> <span class="variable">card</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(number , color);</span><br><span class="line">                ALL_CARDS.add(card);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 4.单独加入大小王</span></span><br><span class="line">        Collections.addAll(ALL_CARDS ,  <span class="keyword">new</span> <span class="title class_">Card</span>(<span class="string">&quot;&quot;</span>,<span class="string">&quot;🃏&quot;</span>) ,<span class="keyword">new</span> <span class="title class_">Card</span>(<span class="string">&quot;&quot;</span>,<span class="string">&quot;👲&quot;</span>) );</span><br><span class="line">        System.out.println(<span class="string">&quot;输出新牌：&quot;</span>+ALL_CARDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 牌类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Card</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String number;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> number+color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Map</span>集合的体系：</span><br><span class="line">        <span class="built_in">Map</span><span class="operator">&lt;</span><span class="built_in">K</span> <span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span><span class="punctuation">(</span>接口<span class="operator">,</span><span class="built_in">Map</span>集合的祖宗类<span class="punctuation">)</span></span><br><span class="line">       <span class="operator">/</span>                      \</span><br><span class="line">      <span class="variable">TreeMap</span><span class="operator">&lt;</span><span class="built_in">K</span> <span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span>           <span class="variable">HashMap</span><span class="operator">&lt;</span><span class="built_in">K</span> <span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span><span class="punctuation">(</span>实现类<span class="operator">,</span>经典的，用的最多<span class="punctuation">)</span></span><br><span class="line">                                 \</span><br><span class="line">                                  <span class="variable">LinkedHashMap</span><span class="operator">&lt;</span><span class="built_in">K</span><span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span><span class="punctuation">(</span>实现类<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Map</span>集合的体系：</span><br><span class="line">        <span class="built_in">Map</span><span class="operator">&lt;</span><span class="built_in">K</span> <span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span><span class="punctuation">(</span>接口<span class="operator">,</span><span class="built_in">Map</span>集合的祖宗类<span class="punctuation">)</span></span><br><span class="line">       <span class="operator">/</span>                      \</span><br><span class="line">      <span class="variable">TreeMap</span><span class="operator">&lt;</span><span class="built_in">K</span> <span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span>           <span class="variable">HashMap</span><span class="operator">&lt;</span><span class="built_in">K</span> <span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span><span class="punctuation">(</span>实现类<span class="operator">,</span>经典的，用的最多<span class="punctuation">)</span></span><br><span class="line">                                 \</span><br><span class="line">                                  <span class="variable">LinkedHashMap</span><span class="operator">&lt;</span><span class="built_in">K</span><span class="operator">,</span> <span class="variable">V</span><span class="operator">&gt;</span><span class="punctuation">(</span>实现类<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">Map集合是另一个集合体系。</span><br><span class="line">Collection是单值集合体系。</span><br><span class="line"></span><br><span class="line">Map集合是一种双列集合，每个元素包含两个值。</span><br><span class="line">Map集合的每个元素的格式：<span class="attribute">key</span>=value(键值对元素)。</span><br><span class="line">Map集合也被称为“键值对集合”。</span><br><span class="line"></span><br><span class="line">Map集合的完整格式：&#123;<span class="attribute">key1</span>=value1 , <span class="attribute">key2</span>=value2 , <span class="attribute">key3</span>=value3 , <span class="built_in">..</span>.&#125;</span><br><span class="line"></span><br><span class="line">Map集合有啥用？</span><br><span class="line">1.Map集合存储的信息更加的具体丰富。</span><br><span class="line">Collection: [<span class="string">&quot;苍老师&quot;</span>,<span class="string">&quot;日本&quot;</span>,<span class="string">&quot;女&quot;</span>,<span class="string">&quot;动作演员&quot;</span>,23,<span class="string">&quot;广州&quot;</span>]</span><br><span class="line">Map : &#123;<span class="attribute">name</span>=<span class="string">&quot;苍老师&quot;</span> , <span class="attribute">jiaxiang</span>=小日本 , <span class="attribute">sex</span>=<span class="string">&quot;女&quot;</span> , age = 23 , <span class="attribute">addr</span>=广州&#125;</span><br><span class="line"></span><br><span class="line">2.Map集合很适合做购物车这样的系统。</span><br><span class="line">Map:  &#123;娃娃=30 , <span class="attribute">huawei</span>=1 , <span class="attribute">iphonex</span>=1&#125;</span><br><span class="line"></span><br><span class="line">注意：集合和泛型都只能支持引用数据类型，集合完全可以称为是对象容器，存储都是对象。</span><br><span class="line"></span><br><span class="line">Map集合的特点：</span><br><span class="line">1.Map集合的特点都是由键决定的。</span><br><span class="line">2.Map集合的键是无序,不重复的，无索引的。</span><br><span class="line">Map集合后面重复的键对应的元素会覆盖前面的整个元素！</span><br><span class="line">3.Map集合的值无要求。</span><br><span class="line">4.Map集合的键值对都可以为<span class="literal">null</span>。</span><br><span class="line"></span><br><span class="line">HashMap:元素按照键是无序，不重复，无索引，值不做要求。</span><br><span class="line">LinkedHashMap:元素按照键是有序，不重复，无索引，值不做要求。</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一行经典代码</span></span><br><span class="line">maps.put(<span class="string">&quot;娃娃&quot;</span>,<span class="number">1</span>);</span><br><span class="line">maps.put(<span class="string">&quot;huawei&quot;</span>,<span class="number">10</span>);</span><br><span class="line">maps.put(<span class="string">&quot;iphoneXS&quot;</span>,<span class="number">2</span>);</span><br><span class="line">maps.put(<span class="literal">null</span> , <span class="literal">null</span> );</span><br><span class="line">maps.put(<span class="string">&quot;娃娃&quot;</span>,<span class="number">30</span>);</span><br><span class="line">maps.put(<span class="string">&quot;特仑苏&quot;</span>,<span class="number">2</span>);</span><br><span class="line">System.out.println(maps);</span><br></pre></td></tr></table></figure>
 
-<h3 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">- V <span class="title function_">remove</span><span class="params">(Object key)</span>: 把指定的键 所对应的键值对元素 在Map集合中删除，返回被删除元素的值。</span><br><span class="line">- Set&lt;K&gt; <span class="title function_">keySet</span><span class="params">()</span>: 获取Map集合中所有的键，存储到Set集合中。</span><br><span class="line">- Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet(): 获取到Map集合中所有的键值对对象的集合(Set集合)。</span><br><span class="line">- <span class="type">boolean</span> <span class="title function_">containKey</span><span class="params">(Object key)</span>:判断该集合中是否有此键。</span><br><span class="line">- <span class="type">boolean</span> <span class="title function_">containsValue</span><span class="params">(Object value)</span>;</span><br><span class="line">- <span class="keyword">void</span> <span class="title function_">clear</span><span class="params">()</span>;清空集合</span><br><span class="line">- Collection&lt;V&gt; <span class="title function_">values</span><span class="params">()</span>;获取全部值的集合 Map集合的值是不做要求的，可能重复，所以值要用Collection集合接收!</span><br><span class="line">- <span class="keyword">void</span> <span class="title function_">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; m)</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="API-1"><a href="#API-1" class="headerlink" title="API"></a>API</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">- V <span class="title function_">remove</span><span class="params">(Object key)</span>: 把指定的键 所对应的键值对元素 在Map集合中删除，返回被删除元素的值。</span><br><span class="line">- Set&lt;K&gt; <span class="title function_">keySet</span><span class="params">()</span>: 获取Map集合中所有的键，存储到Set集合中。</span><br><span class="line">- Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet(): 获取到Map集合中所有的键值对对象的集合(Set集合)。</span><br><span class="line">- <span class="type">boolean</span> <span class="title function_">containKey</span><span class="params">(Object key)</span>:判断该集合中是否有此键。</span><br><span class="line">- <span class="type">boolean</span> <span class="title function_">containsValue</span><span class="params">(Object value)</span>;</span><br><span class="line">- <span class="keyword">void</span> <span class="title function_">clear</span><span class="params">()</span>;清空集合</span><br><span class="line">- Collection&lt;V&gt; <span class="title function_">values</span><span class="params">()</span>;获取全部值的集合 Map集合的值是不做要求的，可能重复，所以值要用Collection集合接收!</span><br><span class="line">- <span class="keyword">void</span> <span class="title function_">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; m)</span>;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加元素: 无序，不重复，无索引。</span></span><br><span class="line">Map&lt;String , Integer&gt; maps = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">maps.put(<span class="string">&quot;iphoneX&quot;</span>,<span class="number">10</span>);</span><br><span class="line">maps.put(<span class="string">&quot;iphoneX&quot;</span>,<span class="number">100</span>);<span class="comment">//  Map集合后面重复的键对应的元素会覆盖前面重复的整个元素！</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><p>a.“键找值”</p>
+<h2 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h2><p>a.“键找值”</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Set&lt;String&gt; keys = maps.keySet();</span><br><span class="line"><span class="keyword">for</span> (String key : keys) &#123;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">value</span> <span class="operator">=</span> maps.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>b.“键值对”</p>
@@ -428,210 +438,113 @@
 <p>c.Lambda表达式</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">maps.forEach((k , v) -&gt; System.out.println(k+<span class="string">&quot;==&gt;&quot;</span>+v));</span><br></pre></td></tr></table></figure>
 
-<h3 id="存储自定义类型"><a href="#存储自定义类型" class="headerlink" title="存储自定义类型"></a>存储自定义类型</h3><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">Map集合的键和值都可以存储自定义类型。</span><br><span class="line">如果希望Map集合认为自定义类型的键对象重复了，必须重写对象的<span class="built_in">hashCode</span>()和<span class="built_in">equals</span>()方法</span><br></pre></td></tr></table></figure>
+<h2 id="存储自定义类型"><a href="#存储自定义类型" class="headerlink" title="存储自定义类型"></a>存储自定义类型</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">Map集合的键和值都可以存储自定义类型。</span><br><span class="line">如果希望Map集合认为自定义类型的键对象重复了，必须重写对象的<span class="built_in">hashCode</span>()和<span class="built_in">equals</span>()方法</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Orange,String&gt; maps = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"><span class="type">Orange</span> <span class="variable">o1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Orange</span>(<span class="string">&quot;黄橘子&quot;</span>,<span class="number">20.3</span> , <span class="string">&quot;贼便宜！&quot;</span>);</span><br><span class="line">maps.put(o1 , <span class="string">&quot;江西\n&quot;</span>);</span><br><span class="line">maps.put(o2 , <span class="string">&quot;赣州\n&quot;</span>);</span><br><span class="line">maps.put(o3 , <span class="string">&quot;广州\n&quot;</span>);</span><br><span class="line">maps.put(o4 , <span class="string">&quot;广西\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Orange</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">double</span> weight;</span><br><span class="line">    <span class="keyword">private</span> String price;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == o) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="literal">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">Orange</span> <span class="variable">orange</span> <span class="operator">=</span> (Orange) o;</span><br><span class="line">        <span class="keyword">return</span> Double.compare(orange.weight, weight) == <span class="number">0</span> &amp;&amp;</span><br><span class="line">            Objects.equals(name, orange.name) &amp;&amp;</span><br><span class="line">            Objects.equals(price, orange.price);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(name, weight, price);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Orange&#123;name = &quot;</span> + name + <span class="string">&quot;, weight = &quot;</span> + weight + <span class="string">&quot;, price = &quot;</span> + price + <span class="string">&quot;&#125;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h3><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="built_in">HashMap</span> 无序不重复</span><br><span class="line">LinkedHashMap 有序不重复 </span><br><span class="line">他们都是基于哈希表存储数据,增删改查都很好。</span><br><span class="line"></span><br><span class="line">HashSet集合相当于是<span class="built_in">HashMap</span>集合的键都不带值。</span><br><span class="line">LinkedHashSet集合相当于是LinkedHashMap集合的键都不带值。</span><br></pre></td></tr></table></figure>
+<h2 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h2><figure class="highlight processing"><table><tr><td class="code"><pre><span class="line"><span class="built_in">HashMap</span> 无序不重复</span><br><span class="line">LinkedHashMap 有序不重复 </span><br><span class="line">他们都是基于哈希表存储数据,增删改查都很好。</span><br><span class="line"></span><br><span class="line">HashSet集合相当于是<span class="built_in">HashMap</span>集合的键都不带值。</span><br><span class="line">LinkedHashSet集合相当于是LinkedHashMap集合的键都不带值。</span><br></pre></td></tr></table></figure>
 
-<h3 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">TreeMap集合按照键是可排序不重复的键值对集合。(默认升序)</span><br><span class="line">TreeMap集合和TreeSet集合都是排序不重复集合</span><br><span class="line"></span><br><span class="line">TreeSet集合的底层是基于TreeMap，只是键没有附属值而已。</span><br><span class="line">所以TreeMap集合指定大小规则有<span class="number">2</span>种方式：</span><br><span class="line"><span class="selector-tag">a</span>.直接为对象的类实现比较器规则接口Comparable，重写比较方法（拓展方式）</span><br><span class="line"><span class="selector-tag">b</span>.直接为集合设置比较器Comparator对象,重写比较方法</span><br></pre></td></tr></table></figure>
+<h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">TreeMap集合按照键是可排序不重复的键值对集合。(默认升序)</span><br><span class="line">TreeMap集合和TreeSet集合都是排序不重复集合</span><br><span class="line"></span><br><span class="line">TreeSet集合的底层是基于TreeMap，只是键没有附属值而已。</span><br><span class="line">所以TreeMap集合指定大小规则有<span class="number">2</span>种方式：</span><br><span class="line"><span class="selector-tag">a</span>.直接为对象的类实现比较器规则接口Comparable，重写比较方法（拓展方式）</span><br><span class="line"><span class="selector-tag">b</span>.直接为集合设置比较器Comparator对象,重写比较方法</span><br></pre></td></tr></table></figure>
 
-<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">-- <span class="keyword">public</span> Object <span class="title function_">setProperty</span><span class="params">(String key, String value)</span> ： 保存一对属性。</span><br><span class="line">-- <span class="keyword">public</span> String <span class="title function_">getProperty</span><span class="params">(String key)</span> ：使用此属性列表中指定的键搜索属性值</span><br><span class="line">-- <span class="keyword">public</span> Set&lt;String&gt; <span class="title function_">stringPropertyNames</span><span class="params">()</span> ：所有键的名称的集合</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">store</span><span class="params">(OutputStream out, String comments)</span>:保存数据到属性文件中去</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">store</span><span class="params">(Writer fw, String comments)</span>:保存数据到属性文件中去</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">load</span><span class="params">(InputStream inStream)</span>:加载属性文件的数据到属性集对象中去</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">load</span><span class="params">(Reader fr)</span>:加载属性文件的数据到属性集对象中去</span><br><span class="line"></span><br><span class="line">properties.load(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;Day10Demo/src/users.properties&quot;</span>));</span><br><span class="line">System.out.println(properties);</span><br><span class="line">System.out.println(properties.getProperty(<span class="string">&quot;dlei&quot;</span>));</span><br><span class="line">System.out.println(properties.getProperty(<span class="string">&quot;admin&quot;</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">-- <span class="keyword">public</span> Object <span class="title function_">setProperty</span><span class="params">(String key, String value)</span> ： 保存一对属性。</span><br><span class="line">-- <span class="keyword">public</span> String <span class="title function_">getProperty</span><span class="params">(String key)</span> ：使用此属性列表中指定的键搜索属性值</span><br><span class="line">-- <span class="keyword">public</span> Set&lt;String&gt; <span class="title function_">stringPropertyNames</span><span class="params">()</span> ：所有键的名称的集合</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">store</span><span class="params">(OutputStream out, String comments)</span>:保存数据到属性文件中去</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">store</span><span class="params">(Writer fw, String comments)</span>:保存数据到属性文件中去</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">load</span><span class="params">(InputStream inStream)</span>:加载属性文件的数据到属性集对象中去</span><br><span class="line">-- <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">load</span><span class="params">(Reader fr)</span>:加载属性文件的数据到属性集对象中去</span><br><span class="line"></span><br><span class="line">properties.load(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;Day10Demo/src/users.properties&quot;</span>));</span><br><span class="line">System.out.println(properties);</span><br><span class="line">System.out.println(properties.getProperty(<span class="string">&quot;dlei&quot;</span>));</span><br><span class="line">System.out.println(properties.getProperty(<span class="string">&quot;admin&quot;</span>));</span><br></pre></td></tr></table></figure>
 
-<h3 id="输出一个字符串中每个字符出现的次数。（经典面试题）"><a href="#输出一个字符串中每个字符出现的次数。（经典面试题）" class="headerlink" title="输出一个字符串中每个字符出现的次数。（经典面试题）"></a>输出一个字符串中每个字符出现的次数。（经典面试题）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zx._07Map集合练习;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    目标：输出一个字符串中每个字符出现的次数。（经典面试题）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    分析：</span></span><br><span class="line"><span class="comment">        （1）键盘录入一个字符串。aabbccddaa123。</span></span><br><span class="line"><span class="comment">        （2）定义一个Map集合，键是每个字符，值是其出现的次数。 &#123;a=4 , b=2 ,...&#125;</span></span><br><span class="line"><span class="comment">        （3）遍历字符串中的每一个字符。</span></span><br><span class="line"><span class="comment">        （4）拿着这个字符去Map集合中看是否有这个字符键，有说明之前统计过，其值+1</span></span><br><span class="line"><span class="comment">            没有这个字符键，说明该字符是第一次统计，直接存入“该字符=1”</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// （1）键盘录入一个字符串。aabbccddaa123。</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入一个字符串：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">datas</span> <span class="operator">=</span> scanner.nextLine();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// （2）定义一个Map集合，键是每个字符，值是其出现的次数。</span></span><br><span class="line">        Map&lt;Character , Integer&gt; infos = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// &#123;a=2,b=2&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// （3）遍历字符串中的每一个字符。</span></span><br><span class="line">        <span class="comment">// datas = aabbccddaa123</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; datas.length() ; i++ )&#123;</span><br><span class="line">            <span class="comment">// 取出当前索引的字符</span></span><br><span class="line">            <span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> datas.charAt(i);</span><br><span class="line">            <span class="comment">// （4）拿着这个字符去Map集合中看是否有这个字符键，有说明之前统计过，其值+1</span></span><br><span class="line">            <span class="comment">//   没有这个字符键，说明该字符是第一次统计，直接存入“该字符=1”</span></span><br><span class="line">            <span class="keyword">if</span>(infos.containsKey(ch))&#123;</span><br><span class="line">                <span class="comment">// 说明这个字符之前已经出现过，其值+1</span></span><br><span class="line">                infos.put(ch , infos.get(ch) + <span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 说明这个字符第一次出现，直接存入 a=1</span></span><br><span class="line">                infos.put(ch , <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// （5）输出结果</span></span><br><span class="line">        System.out.println(<span class="string">&quot;结果：&quot;</span>+infos);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="输出一个字符串中每个字符出现的次数。（经典面试题）"><a href="#输出一个字符串中每个字符出现的次数。（经典面试题）" class="headerlink" title="输出一个字符串中每个字符出现的次数。（经典面试题）"></a>输出一个字符串中每个字符出现的次数。（经典面试题）</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zx._07Map集合练习;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    目标：输出一个字符串中每个字符出现的次数。（经典面试题）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    分析：</span></span><br><span class="line"><span class="comment">        （1）键盘录入一个字符串。aabbccddaa123。</span></span><br><span class="line"><span class="comment">        （2）定义一个Map集合，键是每个字符，值是其出现的次数。 &#123;a=4 , b=2 ,...&#125;</span></span><br><span class="line"><span class="comment">        （3）遍历字符串中的每一个字符。</span></span><br><span class="line"><span class="comment">        （4）拿着这个字符去Map集合中看是否有这个字符键，有说明之前统计过，其值+1</span></span><br><span class="line"><span class="comment">            没有这个字符键，说明该字符是第一次统计，直接存入“该字符=1”</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo01</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// （1）键盘录入一个字符串。aabbccddaa123。</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入一个字符串：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">datas</span> <span class="operator">=</span> scanner.nextLine();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// （2）定义一个Map集合，键是每个字符，值是其出现的次数。</span></span><br><span class="line">        Map&lt;Character , Integer&gt; infos = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// &#123;a=2,b=2&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// （3）遍历字符串中的每一个字符。</span></span><br><span class="line">        <span class="comment">// datas = aabbccddaa123</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; datas.length() ; i++ )&#123;</span><br><span class="line">            <span class="comment">// 取出当前索引的字符</span></span><br><span class="line">            <span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> datas.charAt(i);</span><br><span class="line">            <span class="comment">// （4）拿着这个字符去Map集合中看是否有这个字符键，有说明之前统计过，其值+1</span></span><br><span class="line">            <span class="comment">//   没有这个字符键，说明该字符是第一次统计，直接存入“该字符=1”</span></span><br><span class="line">            <span class="keyword">if</span>(infos.containsKey(ch))&#123;</span><br><span class="line">                <span class="comment">// 说明这个字符之前已经出现过，其值+1</span></span><br><span class="line">                infos.put(ch , infos.get(ch) + <span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 说明这个字符第一次出现，直接存入 a=1</span></span><br><span class="line">                infos.put(ch , <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// （5）输出结果</span></span><br><span class="line">        System.out.println(<span class="string">&quot;结果：&quot;</span>+infos);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="斗地主游戏的案例开发-Map集合实现。"><a href="#斗地主游戏的案例开发-Map集合实现。" class="headerlink" title="斗地主游戏的案例开发-Map集合实现。"></a>斗地主游戏的案例开发-Map集合实现。</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zx._08斗地主游戏洗牌发牌看牌;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    目标：斗地主游戏的案例开发-Map集合实现。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    业务需求分析:</span></span><br><span class="line"><span class="comment">        斗地主的做牌，洗牌，发牌,排序（拓展知识）, 看牌</span></span><br><span class="line"><span class="comment">        业务:总共有54张牌。</span></span><br><span class="line"><span class="comment">        点数: &quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;J&quot;,&quot;Q&quot;,&quot;K&quot;,&quot;A&quot;,&quot;2&quot;</span></span><br><span class="line"><span class="comment">        花色: &quot;♠&quot;, &quot;♥&quot;, &quot;♣&quot;, &quot;♦&quot;</span></span><br><span class="line"><span class="comment">        大小王: &quot;👲&quot; , &quot;🃏&quot;</span></span><br><span class="line"><span class="comment">        点数分别要组合4种花色，大小王各一张。</span></span><br><span class="line"><span class="comment">        斗地主：发出51张牌，剩下3张作为底牌。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    功能：</span></span><br><span class="line"><span class="comment">        1.做牌。</span></span><br><span class="line"><span class="comment">        2.洗牌</span></span><br><span class="line"><span class="comment">        3.定义3个玩家。</span></span><br><span class="line"><span class="comment">        4.发牌。</span></span><br><span class="line"><span class="comment">        5.</span></span><br><span class="line"><span class="comment">        6.看牌。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    用面向对象设计案例：</span></span><br><span class="line"><span class="comment">        a.定义一个牌类，代表牌对象。 一个牌对象代表一张牌。</span></span><br><span class="line"><span class="comment">        b.定义一个集合存储54张牌，集合只需要一个(因为牌只需要一副)</span></span><br><span class="line"><span class="comment">                &#123;card1=0 , card2=1, ......&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GameDemo</span> &#123;</span><br><span class="line">    <span class="comment">/** 1.定义一个Map集合存储54张牌对象，键是牌对象，值是其大小 用于实现大小排序  */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;Card , Integer&gt; ALL_CARDS_SIZE = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">// 真正存储54张牌对象的List集合，用于做牌，洗牌，发牌！</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Card&gt; ALL_CARDS = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">/** 2.做牌：静态代码块初始化54张牌对象  */</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// 1.定义一个数组存储牌的点数，类型确定，个数确定请用数组存储！</span></span><br><span class="line">        String[] numbers = &#123;<span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;10&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;2&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 2.定义一个数组存储牌的花色，类型确定，个数确定请用数组存储！</span></span><br><span class="line">        String[] colors = &#123; <span class="string">&quot;♠&quot;</span>, <span class="string">&quot;♥&quot;</span>, <span class="string">&quot;♣&quot;</span>, <span class="string">&quot;♦&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3.先遍历点数与四种花色组装成牌对象存入到集合中去</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String number : numbers) &#123;</span><br><span class="line">            <span class="comment">// 遍历花色</span></span><br><span class="line">            <span class="keyword">for</span> (String color : colors) &#123;</span><br><span class="line">                <span class="comment">// 创建一张牌对象封装点数和花色</span></span><br><span class="line">                <span class="type">Card</span> <span class="variable">card</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(number , color);</span><br><span class="line">                ALL_CARDS.add(card);</span><br><span class="line">                ALL_CARDS_SIZE.put(card , index++);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Card</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(<span class="string">&quot;&quot;</span>,<span class="string">&quot;🃏&quot;</span>);</span><br><span class="line">        <span class="type">Card</span> <span class="variable">c2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(<span class="string">&quot;&quot;</span>, <span class="string">&quot;👲&quot;</span>);</span><br><span class="line"></span><br><span class="line">        ALL_CARDS.add(c1);</span><br><span class="line">        ALL_CARDS.add(c2);</span><br><span class="line">        ALL_CARDS_SIZE.put(c1 , index++);</span><br><span class="line">        ALL_CARDS_SIZE.put(c2 , index++);</span><br><span class="line">        System.out.println(<span class="string">&quot;新牌：&quot;</span>+ ALL_CARDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         c.洗牌(把新牌的牌顺序打乱)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Collections.shuffle(ALL_CARDS);</span><br><span class="line">        System.out.println(<span class="string">&quot;洗牌后：&quot;</span>+ALL_CARDS);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         d.定义3个玩家。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        List&lt;Card&gt; lingHuChong = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;Card&gt; jiuMoZhi = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;Card&gt; dongfangbubai = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         e.发牌 依次发出51张牌出去。</span></span><br><span class="line"><span class="comment">         ALL_CARDS = [J♠, 5♠, 2♠, 9♣, 5♦, 4♠, Q♣, 6♥, 8♠, ......</span></span><br><span class="line"><span class="comment">         0   1   2   3   4    5   6   7   8   % 3（轮询的长度）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; ALL_CARDS.size() - <span class="number">3</span> ; i++ )&#123;</span><br><span class="line">            <span class="comment">// 得到当前这张牌对象</span></span><br><span class="line">            <span class="type">Card</span> <span class="variable">c</span> <span class="operator">=</span> ALL_CARDS.get(i);</span><br><span class="line">            <span class="comment">// 判断这个牌发给谁</span></span><br><span class="line">            <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">0</span> )&#123;</span><br><span class="line">                <span class="comment">// 请令狐冲接牌</span></span><br><span class="line">                lingHuChong.add(c);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">// 请啊鸠接牌</span></span><br><span class="line">                jiuMoZhi.add(c);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">2</span>)&#123;</span><br><span class="line">                <span class="comment">// 请阿东接牌</span></span><br><span class="line">                dongfangbubai.add(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * f.对牌进行排序（拓展,了解）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        sortCards(lingHuChong);</span><br><span class="line">        sortCards(jiuMoZhi);</span><br><span class="line">        sortCards(dongfangbubai);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         g.看牌</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">&quot;令狐冲：&quot;</span>+lingHuChong);</span><br><span class="line">        System.out.println(<span class="string">&quot;鸠摩智：&quot;</span>+jiuMoZhi);</span><br><span class="line">        System.out.println(<span class="string">&quot;东方不败：&quot;</span>+dongfangbubai);</span><br><span class="line">        <span class="comment">//System.out.println(&quot;底牌：&quot;+ALL_CARDS.get(53) +&quot;-&quot;+ALL_CARDS.get(52) + &quot;-&quot; +ALL_CARDS.get(51) );</span></span><br><span class="line">        <span class="comment">// 拓展: 截取集合的最后三张牌到一个新的List集合中去。</span></span><br><span class="line">        List&lt;Card&gt; lastThreeCards = ALL_CARDS.subList(ALL_CARDS.size() -<span class="number">3</span> , ALL_CARDS.size());</span><br><span class="line">        System.out.println(<span class="string">&quot;底牌：&quot;</span>+lastThreeCards);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     对牌的List集合进行排序（降序排序）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sortCards</span><span class="params">(List&lt;Card&gt; cards)</span> &#123;</span><br><span class="line">        <span class="comment">// cards = [ 3♦ , 👲,  10♣ , 9♦ , 8♦ , J♠ , ...</span></span><br><span class="line">        Collections.sort(cards, <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Card&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Card o1, Card o2)</span> &#123;</span><br><span class="line">                <span class="comment">// o1   Q♦</span></span><br><span class="line">                <span class="comment">// o2   👲</span></span><br><span class="line">                <span class="comment">// 牌的大小就是当前牌在Map集合中的值存储的大小！</span></span><br><span class="line">                <span class="keyword">return</span> ALL_CARDS_SIZE.get(o2) - ALL_CARDS_SIZE.get(o1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="斗地主游戏的案例开发-Map集合实现。"><a href="#斗地主游戏的案例开发-Map集合实现。" class="headerlink" title="斗地主游戏的案例开发-Map集合实现。"></a>斗地主游戏的案例开发-Map集合实现。</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zx._08斗地主游戏洗牌发牌看牌;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    目标：斗地主游戏的案例开发-Map集合实现。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    业务需求分析:</span></span><br><span class="line"><span class="comment">        斗地主的做牌，洗牌，发牌,排序（拓展知识）, 看牌</span></span><br><span class="line"><span class="comment">        业务:总共有54张牌。</span></span><br><span class="line"><span class="comment">        点数: &quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;J&quot;,&quot;Q&quot;,&quot;K&quot;,&quot;A&quot;,&quot;2&quot;</span></span><br><span class="line"><span class="comment">        花色: &quot;♠&quot;, &quot;♥&quot;, &quot;♣&quot;, &quot;♦&quot;</span></span><br><span class="line"><span class="comment">        大小王: &quot;👲&quot; , &quot;🃏&quot;</span></span><br><span class="line"><span class="comment">        点数分别要组合4种花色，大小王各一张。</span></span><br><span class="line"><span class="comment">        斗地主：发出51张牌，剩下3张作为底牌。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    功能：</span></span><br><span class="line"><span class="comment">        1.做牌。</span></span><br><span class="line"><span class="comment">        2.洗牌</span></span><br><span class="line"><span class="comment">        3.定义3个玩家。</span></span><br><span class="line"><span class="comment">        4.发牌。</span></span><br><span class="line"><span class="comment">        5.</span></span><br><span class="line"><span class="comment">        6.看牌。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    用面向对象设计案例：</span></span><br><span class="line"><span class="comment">        a.定义一个牌类，代表牌对象。 一个牌对象代表一张牌。</span></span><br><span class="line"><span class="comment">        b.定义一个集合存储54张牌，集合只需要一个(因为牌只需要一副)</span></span><br><span class="line"><span class="comment">                &#123;card1=0 , card2=1, ......&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GameDemo</span> &#123;</span><br><span class="line">    <span class="comment">/** 1.定义一个Map集合存储54张牌对象，键是牌对象，值是其大小 用于实现大小排序  */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;Card , Integer&gt; ALL_CARDS_SIZE = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">// 真正存储54张牌对象的List集合，用于做牌，洗牌，发牌！</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Card&gt; ALL_CARDS = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">/** 2.做牌：静态代码块初始化54张牌对象  */</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// 1.定义一个数组存储牌的点数，类型确定，个数确定请用数组存储！</span></span><br><span class="line">        String[] numbers = &#123;<span class="string">&quot;3&quot;</span>,<span class="string">&quot;4&quot;</span>,<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>,<span class="string">&quot;7&quot;</span>,<span class="string">&quot;8&quot;</span>,<span class="string">&quot;9&quot;</span>,<span class="string">&quot;10&quot;</span>,<span class="string">&quot;J&quot;</span>,<span class="string">&quot;Q&quot;</span>,<span class="string">&quot;K&quot;</span>,<span class="string">&quot;A&quot;</span>,<span class="string">&quot;2&quot;</span>&#125;;</span><br><span class="line">        <span class="comment">// 2.定义一个数组存储牌的花色，类型确定，个数确定请用数组存储！</span></span><br><span class="line">        String[] colors = &#123; <span class="string">&quot;♠&quot;</span>, <span class="string">&quot;♥&quot;</span>, <span class="string">&quot;♣&quot;</span>, <span class="string">&quot;♦&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3.先遍历点数与四种花色组装成牌对象存入到集合中去</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (String number : numbers) &#123;</span><br><span class="line">            <span class="comment">// 遍历花色</span></span><br><span class="line">            <span class="keyword">for</span> (String color : colors) &#123;</span><br><span class="line">                <span class="comment">// 创建一张牌对象封装点数和花色</span></span><br><span class="line">                <span class="type">Card</span> <span class="variable">card</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(number , color);</span><br><span class="line">                ALL_CARDS.add(card);</span><br><span class="line">                ALL_CARDS_SIZE.put(card , index++);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Card</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(<span class="string">&quot;&quot;</span>,<span class="string">&quot;🃏&quot;</span>);</span><br><span class="line">        <span class="type">Card</span> <span class="variable">c2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Card</span>(<span class="string">&quot;&quot;</span>, <span class="string">&quot;👲&quot;</span>);</span><br><span class="line"></span><br><span class="line">        ALL_CARDS.add(c1);</span><br><span class="line">        ALL_CARDS.add(c2);</span><br><span class="line">        ALL_CARDS_SIZE.put(c1 , index++);</span><br><span class="line">        ALL_CARDS_SIZE.put(c2 , index++);</span><br><span class="line">        System.out.println(<span class="string">&quot;新牌：&quot;</span>+ ALL_CARDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         c.洗牌(把新牌的牌顺序打乱)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Collections.shuffle(ALL_CARDS);</span><br><span class="line">        System.out.println(<span class="string">&quot;洗牌后：&quot;</span>+ALL_CARDS);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         d.定义3个玩家。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        List&lt;Card&gt; lingHuChong = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;Card&gt; jiuMoZhi = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;Card&gt; dongfangbubai = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         e.发牌 依次发出51张牌出去。</span></span><br><span class="line"><span class="comment">         ALL_CARDS = [J♠, 5♠, 2♠, 9♣, 5♦, 4♠, Q♣, 6♥, 8♠, ......</span></span><br><span class="line"><span class="comment">         0   1   2   3   4    5   6   7   8   % 3（轮询的长度）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; ALL_CARDS.size() - <span class="number">3</span> ; i++ )&#123;</span><br><span class="line">            <span class="comment">// 得到当前这张牌对象</span></span><br><span class="line">            <span class="type">Card</span> <span class="variable">c</span> <span class="operator">=</span> ALL_CARDS.get(i);</span><br><span class="line">            <span class="comment">// 判断这个牌发给谁</span></span><br><span class="line">            <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">0</span> )&#123;</span><br><span class="line">                <span class="comment">// 请令狐冲接牌</span></span><br><span class="line">                lingHuChong.add(c);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">// 请啊鸠接牌</span></span><br><span class="line">                jiuMoZhi.add(c);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i % <span class="number">3</span> == <span class="number">2</span>)&#123;</span><br><span class="line">                <span class="comment">// 请阿东接牌</span></span><br><span class="line">                dongfangbubai.add(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * f.对牌进行排序（拓展,了解）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        sortCards(lingHuChong);</span><br><span class="line">        sortCards(jiuMoZhi);</span><br><span class="line">        sortCards(dongfangbubai);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         g.看牌</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        System.out.println(<span class="string">&quot;令狐冲：&quot;</span>+lingHuChong);</span><br><span class="line">        System.out.println(<span class="string">&quot;鸠摩智：&quot;</span>+jiuMoZhi);</span><br><span class="line">        System.out.println(<span class="string">&quot;东方不败：&quot;</span>+dongfangbubai);</span><br><span class="line">        <span class="comment">//System.out.println(&quot;底牌：&quot;+ALL_CARDS.get(53) +&quot;-&quot;+ALL_CARDS.get(52) + &quot;-&quot; +ALL_CARDS.get(51) );</span></span><br><span class="line">        <span class="comment">// 拓展: 截取集合的最后三张牌到一个新的List集合中去。</span></span><br><span class="line">        List&lt;Card&gt; lastThreeCards = ALL_CARDS.subList(ALL_CARDS.size() -<span class="number">3</span> , ALL_CARDS.size());</span><br><span class="line">        System.out.println(<span class="string">&quot;底牌：&quot;</span>+lastThreeCards);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     对牌的List集合进行排序（降序排序）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">sortCards</span><span class="params">(List&lt;Card&gt; cards)</span> &#123;</span><br><span class="line">        <span class="comment">// cards = [ 3♦ , 👲,  10♣ , 9♦ , 8♦ , J♠ , ...</span></span><br><span class="line">        Collections.sort(cards, <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Card&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Card o1, Card o2)</span> &#123;</span><br><span class="line">                <span class="comment">// o1   Q♦</span></span><br><span class="line">                <span class="comment">// o2   👲</span></span><br><span class="line">                <span class="comment">// 牌的大小就是当前牌在Map集合中的值存储的大小！</span></span><br><span class="line">                <span class="keyword">return</span> ALL_CARDS_SIZE.get(o2) - ALL_CARDS_SIZE.get(o1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="图书管理系统的开发"><a href="#图书管理系统的开发" class="headerlink" title="图书管理系统的开发"></a>图书管理系统的开发</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zx._09图书管理案例;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    目标：图书管理系统的开发。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    业务需求分析：</span></span><br><span class="line"><span class="comment">        （1）查看全部书籍。query</span></span><br><span class="line"><span class="comment">        （2）添加书本信息。add</span></span><br><span class="line"><span class="comment">        （3）删除书本信息。delete</span></span><br><span class="line"><span class="comment">        （4）修改书本信息。update</span></span><br><span class="line"><span class="comment">        （5）退出系统。 exit</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    书本信息的结构:</span></span><br><span class="line"><span class="comment">        类型                书名            价格        作者</span></span><br><span class="line"><span class="comment">        ---------------------------------------------------</span></span><br><span class="line"><span class="comment">        言情小说</span></span><br><span class="line"><span class="comment">                         《金瓶梅》         99.9        阿猫</span></span><br><span class="line"><span class="comment">                         《红楼梦》         198.2       曹雪芹</span></span><br><span class="line"><span class="comment">        武侠小说</span></span><br><span class="line"><span class="comment">                         《三少爷的剑》      98.2        古龙</span></span><br><span class="line"><span class="comment">                         《神雕侠侣》        98.2        金庸</span></span><br><span class="line"><span class="comment">        ------------------------------------------------------</span></span><br><span class="line"><span class="comment">    分析：</span></span><br><span class="line"><span class="comment">        （1）定义一个书本类。</span></span><br><span class="line"><span class="comment">        （2）定义一个集合表示图书馆用于存储书本信息数据：Map&lt;String,List&lt;Book&gt;&gt;。</span></span><br><span class="line"><span class="comment">        （3）展示操作界面。</span></span><br><span class="line"><span class="comment">        （4）完成相应功能。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookSystem</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        1.定义一个集合表示图书馆用于存储书本信息数据：Map&lt;String,List&lt;Book&gt;&gt;。</span></span><br><span class="line"><span class="comment">        使用Map集合，键是橱柜的栏目类型名称，值是橱柜的List集合对象存储书本信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Scanner</span> <span class="variable">SYS_SCANNER</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/** 2.展示操作界面 ：独立功能建立封装成方法调用 方便互相之间的逻辑调用 */</span></span><br><span class="line">        showCommand();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 展示操作界面的命令</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showCommand</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===============欢迎您进入系统===================&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（1）查看全部书籍。query&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（2）添加书本信息。add&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（3）删除书本信息。delete&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（4）修改书本信息。update&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（5）退出系统。 exit&quot;</span>);</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入您的操作命令：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">command</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        <span class="comment">// 判断用户的命令是想干啥</span></span><br><span class="line">        <span class="keyword">switch</span> (command)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;query&quot;</span>:</span><br><span class="line">                <span class="comment">// 查看全部书籍</span></span><br><span class="line">                queryBooks();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;add&quot;</span>:</span><br><span class="line">                <span class="comment">// 添加书籍</span></span><br><span class="line">                addBook();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;delete&quot;</span>:</span><br><span class="line">                <span class="comment">// 删除书籍</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;update&quot;</span>:</span><br><span class="line">                <span class="comment">// 修改书籍</span></span><br><span class="line">                updateBook();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;exit&quot;</span>:</span><br><span class="line">                <span class="comment">// 退出系统</span></span><br><span class="line">                System.out.println(<span class="string">&quot;退出成功，期待您下次光临！&quot;</span>);</span><br><span class="line">                System.exit(<span class="number">0</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.err.println(<span class="string">&quot;您的命令输入有无，请重新确认！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        showCommand(); <span class="comment">// 调用自己</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        修改书本信息。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">updateBook</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(BOOK_STORE.size() == <span class="number">0</span> )&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您现在根本没有任何栏目可以修改!&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            queryBooks();</span><br><span class="line">            System.out.println(<span class="string">&quot;===============欢迎您进入修改书本业务=================&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;请您输入修改书本的栏目：&quot;</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                <span class="comment">// 1.判断是否存在该栏目</span></span><br><span class="line">                <span class="keyword">if</span>(BOOK_STORE.containsKey(type))&#123;</span><br><span class="line">                    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                        <span class="comment">// 存在该栏目</span></span><br><span class="line">                        <span class="comment">// 2.请输入要修改的书名</span></span><br><span class="line">                        System.out.print(<span class="string">&quot;请您输入修改书本的名称：&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                        <span class="comment">// 3.判断该栏目下是否存在该书本对象。</span></span><br><span class="line">                        <span class="comment">// 根据栏目和书名去栏目下查询出这本书对象</span></span><br><span class="line">                        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> getBookByTypeAndName(type , name);</span><br><span class="line">                        <span class="keyword">if</span>(book == <span class="literal">null</span>)&#123;</span><br><span class="line">                            System.err.println(<span class="string">&quot;您的输入的书名不存在，，请重新确认！&quot;</span>);</span><br><span class="line">                        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                            <span class="comment">// 书名正确了，开始正式修改</span></span><br><span class="line">                            System.out.println(<span class="string">&quot;请您输入修改书本的新名称：&quot;</span>);</span><br><span class="line">                            <span class="type">String</span> <span class="variable">newName</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                            System.out.println(<span class="string">&quot;请您输入修改书本的新价格：&quot;</span>);</span><br><span class="line">                            <span class="type">String</span> <span class="variable">newPrice</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                            System.out.println(<span class="string">&quot;请您输入修改书本的新作者：&quot;</span>);</span><br><span class="line">                            <span class="type">String</span> <span class="variable">newAuthor</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                            book.setName(newName);</span><br><span class="line">                            book.setPrice(Double.valueOf(newPrice));</span><br><span class="line">                            book.setAuthor(newAuthor);</span><br><span class="line">                            queryBooks();</span><br><span class="line">                            System.out.println(<span class="string">&quot;您修改的书本成功，请看如上信息确认！&quot;</span>);</span><br><span class="line">                            <span class="keyword">return</span>; <span class="comment">// 结束修改的方法！</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">// 不存在该栏目</span></span><br><span class="line">                    System.err.println(<span class="string">&quot;您输入的栏目不存在，请重新确认！&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在某个栏目下，根据书名查询出这本书对象返回！</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> type  栏目名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name  书名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 书本对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Book <span class="title function_">getBookByTypeAndName</span><span class="params">(String type , String name)</span>&#123;</span><br><span class="line">        <span class="comment">// 1.先提取这个栏目的橱柜，根据栏目提取它的值</span></span><br><span class="line">        List&lt;Book&gt; books = BOOK_STORE.get(type);</span><br><span class="line">        <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">            <span class="comment">// 如果本书的名称与要找的名称一样，该书就是我们要的，直接返回！</span></span><br><span class="line">            <span class="keyword">if</span>(book.getName().equals(name))&#123;</span><br><span class="line">                <span class="keyword">return</span> book;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;<span class="comment">// 没有这本书</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        查询全部书本信息</span></span><br><span class="line"><span class="comment">         Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = &#123;type1=[b1, b2, b3] , type2=[b1] &#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">queryBooks</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===============欢迎您进入查询书本业务=================&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(BOOK_STORE.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的图书馆一本书都没有，请赶紧买书去！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;类型\t\t\t\t书名\t\t\t\t\t价格\t\t\t作者&quot;</span>);</span><br><span class="line">            BOOK_STORE.forEach((type , books) -&gt; &#123;</span><br><span class="line">                System.out.println(type);</span><br><span class="line">                <span class="comment">// 遍历该类型下的橱柜中的全部书本对象</span></span><br><span class="line">                <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;\t\t\t\t&quot;</span>+book.getName()+<span class="string">&quot;\t\t\t&quot;</span>+book.getPrice()+<span class="string">&quot;\t\t&quot;</span>+book.getAuthor());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        添加书本信息数据</span></span><br><span class="line"><span class="comment">        Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = &#123;type1=[] , &#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addBook</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===============欢迎您进入添加书本业务=================&quot;</span>);</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入添加书本的栏目：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        <span class="comment">// 定义一个List集合用于指向栏目的橱柜</span></span><br><span class="line">        <span class="comment">// 这个橱柜变量要根据栏目是否存在来确定是用已经存在的橱柜，还是创建一个新橱柜！</span></span><br><span class="line">        List&lt;Book&gt; books = <span class="literal">null</span> ;</span><br><span class="line">        <span class="comment">// 1.判断是否存在该栏目。</span></span><br><span class="line">        <span class="keyword">if</span>(BOOK_STORE.containsKey(type)) &#123;</span><br><span class="line">            <span class="comment">// 3.存在该栏目</span></span><br><span class="line">            <span class="comment">// 直接得到该栏目存在的橱柜对象</span></span><br><span class="line">             books = BOOK_STORE.get(type);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 2.该栏目是第一次添加。</span></span><br><span class="line">            <span class="comment">// 为该栏目创建一个橱柜对象（List&lt;Book&gt;）</span></span><br><span class="line">             books = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">             <span class="comment">// 新橱柜和新栏目必须手工加入到图书馆！</span></span><br><span class="line">             BOOK_STORE.put(type , books);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;请您输入添加书本的名称：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        System.out.println(<span class="string">&quot;请您输入添加书本的价格：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">price</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        System.out.println(<span class="string">&quot;请您输入添加书本的作者：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">author</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        <span class="comment">// 定义一个书本对象封装用户输入的书本信息。</span></span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>(name , Double.valueOf(price) , author);</span><br><span class="line">        books.add(book);</span><br><span class="line">        System.out.println(<span class="string">&quot;您添加在&quot;</span>+type+<span class="string">&quot;下的书本&quot;</span>+book.getName()+<span class="string">&quot;成功！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图书管理系统的开发"><a href="#图书管理系统的开发" class="headerlink" title="图书管理系统的开发"></a>图书管理系统的开发</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zx._09图书管理案例;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    目标：图书管理系统的开发。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    业务需求分析：</span></span><br><span class="line"><span class="comment">        （1）查看全部书籍。query</span></span><br><span class="line"><span class="comment">        （2）添加书本信息。add</span></span><br><span class="line"><span class="comment">        （3）删除书本信息。delete</span></span><br><span class="line"><span class="comment">        （4）修改书本信息。update</span></span><br><span class="line"><span class="comment">        （5）退出系统。 exit</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    书本信息的结构:</span></span><br><span class="line"><span class="comment">        类型                书名            价格        作者</span></span><br><span class="line"><span class="comment">        ---------------------------------------------------</span></span><br><span class="line"><span class="comment">        言情小说</span></span><br><span class="line"><span class="comment">                         《金瓶梅》         99.9        阿猫</span></span><br><span class="line"><span class="comment">                         《红楼梦》         198.2       曹雪芹</span></span><br><span class="line"><span class="comment">        武侠小说</span></span><br><span class="line"><span class="comment">                         《三少爷的剑》      98.2        古龙</span></span><br><span class="line"><span class="comment">                         《神雕侠侣》        98.2        金庸</span></span><br><span class="line"><span class="comment">        ------------------------------------------------------</span></span><br><span class="line"><span class="comment">    分析：</span></span><br><span class="line"><span class="comment">        （1）定义一个书本类。</span></span><br><span class="line"><span class="comment">        （2）定义一个集合表示图书馆用于存储书本信息数据：Map&lt;String,List&lt;Book&gt;&gt;。</span></span><br><span class="line"><span class="comment">        （3）展示操作界面。</span></span><br><span class="line"><span class="comment">        （4）完成相应功能。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookSystem</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        1.定义一个集合表示图书馆用于存储书本信息数据：Map&lt;String,List&lt;Book&gt;&gt;。</span></span><br><span class="line"><span class="comment">        使用Map集合，键是橱柜的栏目类型名称，值是橱柜的List集合对象存储书本信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Scanner</span> <span class="variable">SYS_SCANNER</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">/** 2.展示操作界面 ：独立功能建立封装成方法调用 方便互相之间的逻辑调用 */</span></span><br><span class="line">        showCommand();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 展示操作界面的命令</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showCommand</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===============欢迎您进入系统===================&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（1）查看全部书籍。query&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（2）添加书本信息。add&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（3）删除书本信息。delete&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（4）修改书本信息。update&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;（5）退出系统。 exit&quot;</span>);</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入您的操作命令：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">command</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        <span class="comment">// 判断用户的命令是想干啥</span></span><br><span class="line">        <span class="keyword">switch</span> (command)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;query&quot;</span>:</span><br><span class="line">                <span class="comment">// 查看全部书籍</span></span><br><span class="line">                queryBooks();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;add&quot;</span>:</span><br><span class="line">                <span class="comment">// 添加书籍</span></span><br><span class="line">                addBook();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;delete&quot;</span>:</span><br><span class="line">                <span class="comment">// 删除书籍</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;update&quot;</span>:</span><br><span class="line">                <span class="comment">// 修改书籍</span></span><br><span class="line">                updateBook();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&quot;exit&quot;</span>:</span><br><span class="line">                <span class="comment">// 退出系统</span></span><br><span class="line">                System.out.println(<span class="string">&quot;退出成功，期待您下次光临！&quot;</span>);</span><br><span class="line">                System.exit(<span class="number">0</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                System.err.println(<span class="string">&quot;您的命令输入有无，请重新确认！&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        showCommand(); <span class="comment">// 调用自己</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        修改书本信息。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">updateBook</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(BOOK_STORE.size() == <span class="number">0</span> )&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您现在根本没有任何栏目可以修改!&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            queryBooks();</span><br><span class="line">            System.out.println(<span class="string">&quot;===============欢迎您进入修改书本业务=================&quot;</span>);</span><br><span class="line">            <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;请您输入修改书本的栏目：&quot;</span>);</span><br><span class="line">                <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                <span class="comment">// 1.判断是否存在该栏目</span></span><br><span class="line">                <span class="keyword">if</span>(BOOK_STORE.containsKey(type))&#123;</span><br><span class="line">                    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">                        <span class="comment">// 存在该栏目</span></span><br><span class="line">                        <span class="comment">// 2.请输入要修改的书名</span></span><br><span class="line">                        System.out.print(<span class="string">&quot;请您输入修改书本的名称：&quot;</span>);</span><br><span class="line">                        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                        <span class="comment">// 3.判断该栏目下是否存在该书本对象。</span></span><br><span class="line">                        <span class="comment">// 根据栏目和书名去栏目下查询出这本书对象</span></span><br><span class="line">                        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> getBookByTypeAndName(type , name);</span><br><span class="line">                        <span class="keyword">if</span>(book == <span class="literal">null</span>)&#123;</span><br><span class="line">                            System.err.println(<span class="string">&quot;您的输入的书名不存在，，请重新确认！&quot;</span>);</span><br><span class="line">                        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                            <span class="comment">// 书名正确了，开始正式修改</span></span><br><span class="line">                            System.out.println(<span class="string">&quot;请您输入修改书本的新名称：&quot;</span>);</span><br><span class="line">                            <span class="type">String</span> <span class="variable">newName</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                            System.out.println(<span class="string">&quot;请您输入修改书本的新价格：&quot;</span>);</span><br><span class="line">                            <span class="type">String</span> <span class="variable">newPrice</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                            System.out.println(<span class="string">&quot;请您输入修改书本的新作者：&quot;</span>);</span><br><span class="line">                            <span class="type">String</span> <span class="variable">newAuthor</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">                            book.setName(newName);</span><br><span class="line">                            book.setPrice(Double.valueOf(newPrice));</span><br><span class="line">                            book.setAuthor(newAuthor);</span><br><span class="line">                            queryBooks();</span><br><span class="line">                            System.out.println(<span class="string">&quot;您修改的书本成功，请看如上信息确认！&quot;</span>);</span><br><span class="line">                            <span class="keyword">return</span>; <span class="comment">// 结束修改的方法！</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">// 不存在该栏目</span></span><br><span class="line">                    System.err.println(<span class="string">&quot;您输入的栏目不存在，请重新确认！&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在某个栏目下，根据书名查询出这本书对象返回！</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> type  栏目名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name  书名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 书本对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Book <span class="title function_">getBookByTypeAndName</span><span class="params">(String type , String name)</span>&#123;</span><br><span class="line">        <span class="comment">// 1.先提取这个栏目的橱柜，根据栏目提取它的值</span></span><br><span class="line">        List&lt;Book&gt; books = BOOK_STORE.get(type);</span><br><span class="line">        <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">            <span class="comment">// 如果本书的名称与要找的名称一样，该书就是我们要的，直接返回！</span></span><br><span class="line">            <span class="keyword">if</span>(book.getName().equals(name))&#123;</span><br><span class="line">                <span class="keyword">return</span> book;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;<span class="comment">// 没有这本书</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        查询全部书本信息</span></span><br><span class="line"><span class="comment">         Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = &#123;type1=[b1, b2, b3] , type2=[b1] &#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">queryBooks</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===============欢迎您进入查询书本业务=================&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(BOOK_STORE.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;您的图书馆一本书都没有，请赶紧买书去！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;类型\t\t\t\t书名\t\t\t\t\t价格\t\t\t作者&quot;</span>);</span><br><span class="line">            BOOK_STORE.forEach((type , books) -&gt; &#123;</span><br><span class="line">                System.out.println(type);</span><br><span class="line">                <span class="comment">// 遍历该类型下的橱柜中的全部书本对象</span></span><br><span class="line">                <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;\t\t\t\t&quot;</span>+book.getName()+<span class="string">&quot;\t\t\t&quot;</span>+book.getPrice()+<span class="string">&quot;\t\t&quot;</span>+book.getAuthor());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">        添加书本信息数据</span></span><br><span class="line"><span class="comment">        Map&lt;String, List&lt;Book&gt;&gt; BOOK_STORE = &#123;type1=[] , &#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">addBook</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;===============欢迎您进入添加书本业务=================&quot;</span>);</span><br><span class="line">        System.out.print(<span class="string">&quot;请您输入添加书本的栏目：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">type</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        <span class="comment">// 定义一个List集合用于指向栏目的橱柜</span></span><br><span class="line">        <span class="comment">// 这个橱柜变量要根据栏目是否存在来确定是用已经存在的橱柜，还是创建一个新橱柜！</span></span><br><span class="line">        List&lt;Book&gt; books = <span class="literal">null</span> ;</span><br><span class="line">        <span class="comment">// 1.判断是否存在该栏目。</span></span><br><span class="line">        <span class="keyword">if</span>(BOOK_STORE.containsKey(type)) &#123;</span><br><span class="line">            <span class="comment">// 3.存在该栏目</span></span><br><span class="line">            <span class="comment">// 直接得到该栏目存在的橱柜对象</span></span><br><span class="line">             books = BOOK_STORE.get(type);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// 2.该栏目是第一次添加。</span></span><br><span class="line">            <span class="comment">// 为该栏目创建一个橱柜对象（List&lt;Book&gt;）</span></span><br><span class="line">             books = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">             <span class="comment">// 新橱柜和新栏目必须手工加入到图书馆！</span></span><br><span class="line">             BOOK_STORE.put(type , books);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;请您输入添加书本的名称：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        System.out.println(<span class="string">&quot;请您输入添加书本的价格：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">price</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        System.out.println(<span class="string">&quot;请您输入添加书本的作者：&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">author</span> <span class="operator">=</span> SYS_SCANNER.nextLine();</span><br><span class="line">        <span class="comment">// 定义一个书本对象封装用户输入的书本信息。</span></span><br><span class="line">        <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>(name , Double.valueOf(price) , author);</span><br><span class="line">        books.add(book);</span><br><span class="line">        System.out.println(<span class="string">&quot;您添加在&quot;</span>+type+<span class="string">&quot;下的书本&quot;</span>+book.getName()+<span class="string">&quot;成功！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
     
     
-        <div class="reward-container">
+
+    <footer class="post-footer">
+          <div class="reward-container">
   <div>今天我想吃5毛钱的辣条！！！</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    打赏
+  <button>
+    赞赏
   </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/wechatpay.webp" alt="zhangxin 微信支付">
-        <p>微信支付</p>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信">
+        <span>微信</span>
       </div>
-      
-      <div style="display: inline-block;">
+      <div>
         <img src="/images/alipay.webp" alt="zhangxin 支付宝">
-        <p>支付宝</p>
+        <span>支付宝</span>
       </div>
 
   </div>
 </div>
 
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>zhangxin
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://zxblog.eu.org/posts/94/" title="JavaSE-Java集合">https://zxblog.eu.org/posts/94/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-
-      <footer class="post-footer">
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/posts/fb2b/" rel="prev" title="JavaSE-IO流">
-      <i class="fa fa-chevron-left"></i> JavaSE-IO流
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/posts/3385/" rel="next" title="JavaSE-枚举">
-      JavaSE-枚举 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/fb2b/" rel="prev" title="JavaSE-IO流">
+                  <i class="fa fa-chevron-left"></i> JavaSE-IO流
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/3385/" rel="next" title="JavaSE-枚举">
+                  JavaSE-枚举 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="valine-comments"></div>
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
   </div>
 
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-text">API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-text">集合的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%A7%8D%E7%B1%BB"><span class="nav-text">常见的数据结构种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList"><span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedHashSet"><span class="nav-text">LinkedHashSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">集合的使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeSet"><span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection%E6%8E%92%E5%BA%8F"><span class="nav-text">Collection排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Collections-Util"><span class="nav-text">Collections Util</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#args"><span class="nav-text">args</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91"><span class="nav-text">斗地主游戏的案例开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API-1"><span class="nav-text">API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B"><span class="nav-text">存储自定义类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedHashMap"><span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TreeMap"><span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Properties"><span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%82%EF%BC%88%E7%BB%8F%E5%85%B8%E9%9D%A2%E8%AF%95%E9%A2%98%EF%BC%89"><span class="nav-text">输出一个字符串中每个字符出现的次数。（经典面试题）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%97%E5%9C%B0%E4%B8%BB%E6%B8%B8%E6%88%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E5%BC%80%E5%8F%91-Map%E9%9B%86%E5%90%88%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="nav-text">斗地主游戏的案例开发-Map集合实现。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91"><span class="nav-text">图书管理系统的开发</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="zhangxin"
-      src="https://img-blog.csdnimg.cn/75a1b714a4984d19adf1fc1101a662a4.webp#pic_center">
-  <p class="site-author-name" itemprop="name">zhangxin</p>
-  <div class="site-description" itemprop="description">知行合一.</div>
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangxin</span>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">253</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">39</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><i class="fa fa-heart fa-fw"></i>个人主页</a>
-      </span>
-  </div>
-
-
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-         <div style="font-size: 0.85rem">
- <span id="timeDate">载入天数...</span>
- <span id="times">载入时分秒...</span>
- <script src="/runtime.js"></script>
- </div>
-<div class="busuanzi-count">
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="wordcount">
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>站点总字数:
+      <i class="fa fa-chart-line"></i>
     </span>
     <span title="站点总字数">1.1m</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">16:30</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>总访问量:
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
@@ -639,137 +552,31 @@
     </span>
 </div>
 
-
-
-
-
-<div class="copyright">
-  
-  &copy; 2021 – 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">zhangxin</span>
-    <span class="post-meta-divider">|</span>
-  <span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
-  </span>
-
-</div>
-
-        
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script size="100" alpha="0.8" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/pjax/pjax.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
-
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-
+  <script size="100" alpha="0.8" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
 
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
+  <script src="/js/third-party/pace.js"></script>
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz","app_key":"y4hUKKnP2A2FzMFxbPFem6b6","server_url":null,"security":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
 <script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
@@ -800,35 +607,5 @@ if (window.darkmode && !window.darkmode.isActivated()) {
 }
 </script>
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz',
-      appKey     : 'y4hUKKnP2A2FzMFxbPFem6b6',
-      placeholder: "欢迎留言评论，批评指正 ^_^",
-      avatar     : 'wavatar',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : true,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : false,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
-
-    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":200,"hOffset":30,"vOffset":10},"mobile":{"show":true}});</script></body>
 </html>
