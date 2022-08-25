@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://zxblog.eu.org/assets/8RLor6mKJHSuFgE.png">
 <meta property="og:image" content="https://zxblog.eu.org/assets/DAwB5aejogZkxS9.png">
 <meta property="article:published_time" content="2022-08-15T02:21:23.000Z">
-<meta property="article:modified_time" content="2022-08-23T01:31:44.624Z">
+<meta property="article:modified_time" content="2022-08-25T08:51:03.119Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Java设计模式">
 <meta name="twitter:card" content="summary">
@@ -140,7 +140,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -153,6 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84"><span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-text">案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%88%E6%B7%B1%E5%85%8B%E9%9A%86%EF%BC%89"><span class="nav-text">扩展（深克隆）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -260,7 +261,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 09:31:44" itemprop="dateModified" datetime="2022-08-23T09:31:44+08:00">2022-08-23</time>
+      <time title="修改时间：2022-08-25 16:51:03" itemprop="dateModified" datetime="2022-08-25T16:51:03+08:00">2022-08-25</time>
     </span>
 
   
@@ -313,10 +314,8 @@
         <blockquote>
 <p><code>推荐先阅读</code>：<a href="/posts/7c78">Java设计模式</a></p>
 </blockquote>
-<p><strong>概述</strong></p>
-<p>用一个已经创建的实例作为原型，通过复制该原型对象来创建一个和原型对象相同的新对象。</p>
-<p><strong>结构</strong></p>
-<p>原型模式包含如下角色：</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用一个已经创建的实例作为原型，通过复制该原型对象来创建一个和原型对象相同的新对象。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>原型模式包含如下角色：</p>
 <ul>
 <li>抽象原型类：规定了具体原型对象必须实现的的 clone() 方法。</li>
 <li>具体原型类：实现抽象原型类的 clone() 方法，它是可被复制的对象。</li>
@@ -324,8 +323,7 @@
 </ul>
 <p>接口类图如下：</p>
 <p><img src="/../../assets/bGpMtzTLg54sWxk.png"></p>
-<p><strong>实现</strong></p>
-<p>原型模式的克隆分为浅克隆和深克隆。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>原型模式的克隆分为浅克隆和深克隆。</p>
 <blockquote>
 <p>浅克隆：创建一个新对象，新对象的属性和原来对象完全相同，对于非基本类型属性，仍指向原有属性所指向的对象的内存地址。</p>
 <p>深克隆：创建一个新对象，属性中引用的其他对象也会被克隆，不再指向原有对象地址。</p>
@@ -337,21 +335,18 @@
 <p><strong>PrototypeTest（测试访问类）：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PrototypeTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="type">Realizetype</span> <span class="variable">r1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Realizetype</span>();</span><br><span class="line">        <span class="type">Realizetype</span> <span class="variable">r2</span> <span class="operator">=</span> r1.clone();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;对象r1和r2是同一个对象？&quot;</span> + (r1 == r2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>案例</strong></p>
-<p><strong>用原型模式生成“三好学生”奖状</strong></p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p><strong>用原型模式生成“三好学生”奖状</strong></p>
 <p>同一学校的“三好学生”奖状除了获奖人姓名不同，其他都相同，可以使用原型模式复制多个“三好学生”奖状出来，然后在修改奖状上的名字即可。</p>
 <p>类图如下：</p>
 <p><img src="/../../assets/oOzIX5h1aNpQ2U3.png"></p>
 <p>代码如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//奖状类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Citation</span> <span class="keyword">implements</span> <span class="title class_">Cloneable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(name + <span class="string">&quot;同学：在2020学年第一学期中表现优秀，被评为三好学生。特发此状！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Citation <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="keyword">return</span> (Citation) <span class="built_in">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试访问类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CitationTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="type">Citation</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Citation</span>();</span><br><span class="line">        c1.setName(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//复制奖状</span></span><br><span class="line">        <span class="type">Citation</span> <span class="variable">c2</span> <span class="operator">=</span> c1.clone();</span><br><span class="line">        <span class="comment">//将奖状的名字修改李四</span></span><br><span class="line">        c2.setName(<span class="string">&quot;李四&quot;</span>);</span><br><span class="line"></span><br><span class="line">        c1.show();</span><br><span class="line">        c2.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>使用场景</strong></p>
-<ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
 <li>对象的创建非常复杂，可以使用原型模式快捷的创建对象。</li>
 <li>性能和安全要求比较高。</li>
 </ul>
-<p><strong>扩展（深克隆）</strong></p>
-<p>将上面的“三好学生”奖状的案例中Citation类的name属性修改为Student类型的属性。代码如下：</p>
+<h2 id="扩展（深克隆）"><a href="#扩展（深克隆）" class="headerlink" title="扩展（深克隆）"></a>扩展（深克隆）</h2><p>将上面的“三好学生”奖状的案例中Citation类的name属性修改为Student类型的属性。代码如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//奖状类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Citation</span> <span class="keyword">implements</span> <span class="title class_">Cloneable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Student stu;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Student <span class="title function_">getStu</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> stu;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setStu</span><span class="params">(Student stu)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.stu = stu;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(stu.getName() + <span class="string">&quot;同学：在2020学年第一学期中表现优秀，被评为三好学生。特发此状！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Citation <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line">        <span class="keyword">return</span> (Citation) <span class="built_in">super</span>.clone();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学生类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, String address)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getAddress</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAddress</span><span class="params">(String address)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CitationTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Citation</span> <span class="variable">c1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Citation</span>();</span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;西安&quot;</span>);</span><br><span class="line">        c1.setStu(stu);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//复制奖状</span></span><br><span class="line">        <span class="type">Citation</span> <span class="variable">c2</span> <span class="operator">=</span> c1.clone();</span><br><span class="line">        <span class="comment">//获取c2奖状所属学生对象</span></span><br><span class="line">        <span class="type">Student</span> <span class="variable">stu1</span> <span class="operator">=</span> c2.getStu();</span><br><span class="line">        stu1.setName(<span class="string">&quot;李四&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//判断stu对象和stu1对象是否是同一个对象</span></span><br><span class="line">        System.out.println(<span class="string">&quot;stu和stu1是同一个对象？&quot;</span> + (stu == stu1));</span><br><span class="line"></span><br><span class="line">        c1.show();</span><br><span class="line">        c2.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果为：</p>
