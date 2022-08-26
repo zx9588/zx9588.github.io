@@ -16,11 +16,10 @@
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/red/pace-theme-minimal.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#FF0000","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#FF0000","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Docker相关的所有知识点合集">
 <meta property="og:type" content="article">
@@ -68,7 +67,7 @@
   </noscript>
 <style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -521,11 +520,11 @@
 </tbody></table>
 <h2 id="Dockerfile-案例"><a href="#Dockerfile-案例" class="headerlink" title="Dockerfile 案例"></a>Dockerfile 案例</h2><p><strong>案例一</strong></p>
 <p>需求：自定义centos7镜像。要求： 1. 默认登录路径为 &#x2F;usr 2. 可以使用vim</p>
-<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#x74;&#104;&#x65;&#105;&#109;&#x61;&#64;&#105;&#x74;&#99;&#x61;&#115;&#x74;&#x2e;&#x63;&#110;">&#x69;&#x74;&#104;&#x65;&#105;&#109;&#x61;&#64;&#105;&#x74;&#99;&#x61;&#115;&#x74;&#x2e;&#x63;&#110;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
+<p>实现步骤：<br>① 定义父镜像：FROM centos:7<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#104;&#101;&#105;&#109;&#97;&#64;&#x69;&#x74;&#x63;&#97;&#x73;&#x74;&#x2e;&#x63;&#x6e;">&#x69;&#116;&#104;&#101;&#105;&#109;&#97;&#64;&#x69;&#x74;&#x63;&#97;&#x73;&#x74;&#x2e;&#x63;&#x6e;</a><br>③ 执行安装vim命令： RUN yum install -y vim<br>④ 定义默认的工作目录：WORKDIR &#x2F;usr<br>⑤ 定义容器启动执行的命令：CMD &#x2F;bin&#x2F;bash<br>⑥ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本</p>
 <p><strong>案例二</strong></p>
 <p>需求：定义dockerfile，发布springboot项目</p>
 <p>实现步骤：</p>
-<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#x69;&#116;&#x68;&#x65;&#x69;&#x6d;&#97;&#x40;&#105;&#x74;&#99;&#x61;&#x73;&#x74;&#x2e;&#x63;&#110;">&#x69;&#116;&#x68;&#x65;&#x69;&#x6d;&#97;&#x40;&#105;&#x74;&#99;&#x61;&#x73;&#x74;&#x2e;&#x63;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
+<p>① 定义父镜像：FROM java:8<br>② 定义作者信息：MAINTAINER itheima <a href="mailto:&#105;&#x74;&#104;&#x65;&#105;&#109;&#x61;&#x40;&#105;&#116;&#99;&#x61;&#x73;&#116;&#46;&#x63;&#110;">&#105;&#x74;&#104;&#x65;&#105;&#109;&#x61;&#x40;&#105;&#116;&#99;&#x61;&#x73;&#116;&#46;&#x63;&#110;</a><br>③ 将jar包添加到容器： ADD springboot.jar app.jar<br>④ 定义容器启动执行的命令：CMD java–jar app.jar<br>⑤ 通过dockerfile构建镜像：docker bulid –f dockerfile文件路径 –t 镜像名称:版本<br>定义dockerfile，发布springboot项目</p>
 <figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> java:<span class="number">8</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> zhangxin &lt;<span class="number">1205362172</span>@qq.com&gt;</span><br><span class="line"><span class="keyword">ADD</span><span class="language-bash"> springboot.jar app.jar</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> java–jar app.jar</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker build -f ./springboot_dockerfile -t app . </span><br></pre></td></tr></table></figure>
@@ -1006,7 +1005,7 @@
   <script size="100" alpha="0.8" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
 
   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
