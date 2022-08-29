@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://zxblog.eu.org/assets/1631243987800.png">
 <meta property="og:image" content="https://zxblog.eu.org/assets/image-20220819142340644.png">
 <meta property="article:published_time" content="2021-11-17T17:54:28.000Z">
-<meta property="article:modified_time" content="2022-08-23T01:38:20.425Z">
+<meta property="article:modified_time" content="2022-08-29T00:45:25.448Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="MyBatisPlus">
 <meta name="twitter:card" content="summary">
@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">258</span>
+          <span class="site-state-item-count">259</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 09:38:20" itemprop="dateModified" datetime="2022-08-23T09:38:20+08:00">2022-08-23</time>
+      <time title="修改时间：2022-08-29 08:45:25" itemprop="dateModified" datetime="2022-08-29T08:45:25+08:00">2022-08-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -339,7 +339,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserDao</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;User&gt;&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="标准数据层CRUD功能"><a href="#标准数据层CRUD功能" class="headerlink" title="标准数据层CRUD功能"></a>标准数据层CRUD功能</h2><p><img src="/../assets/image-20220818110251928.png" alt="image-20220818110251928"></p>
+<h2 id="标准数据层CRUD功能"><a href="#标准数据层CRUD功能" class="headerlink" title="标准数据层CRUD功能"></a>标准数据层CRUD功能</h2><p><img src="/../../assets/image-20220818110251928.png" alt="image-20220818110251928"></p>
 <h2 id="lombok"><a href="#lombok" class="headerlink" title="lombok"></a>lombok</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;version&gt;1.18.12&lt;/version&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -419,7 +419,7 @@
 </ul>
 <h3 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LambdaQueryWrapper&lt;User&gt; lwq = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * condition ：条件，返回boolean，</span></span><br><span class="line"><span class="comment">    当condition为true，进行排序，如果为false，则不排序</span></span><br><span class="line"><span class="comment">    * isAsc:是否为升序，true为升序，false为降序</span></span><br><span class="line"><span class="comment">    * columns：需要操作的列</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">lwq.orderBy(<span class="literal">true</span>,<span class="literal">false</span>, User::getId);</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../assets/image-20220818154424656.png" alt="image-20220818154424656"></p>
+<p><img src="/../../assets/image-20220818154424656.png" alt="image-20220818154424656"></p>
 <ul>
 <li>orderBy排序<ul>
 <li>condition:条件，true则添加排序，false则不添加排序</li>
@@ -468,7 +468,7 @@
 
 
 <h2 id="雪花算法"><a href="#雪花算法" class="headerlink" title="雪花算法"></a>雪花算法</h2><p>雪花算法(SnowFlake),是Twitter官方给出的算法实现 是用Scala写的。其生成的结果是一个64bit大小整数，它的结构如下图:</p>
-<p><img src="/../assets/1631243987800.png" alt="1631243987800"></p>
+<p><img src="/../../assets/1631243987800.png" alt="1631243987800"></p>
 <ol>
 <li>1bit,不用,因为二进制中最高位是符号位，1表示负数，0表示正数。生成的id一般都是用整数，所以最高位固定为0。</li>
 <li>41bit-时间戳，用来记录时间戳，毫秒级</li>
@@ -492,7 +492,7 @@
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> tbl_user <span class="keyword">SET</span> deleted<span class="operator">=</span><span class="number">1</span> <span class="keyword">where</span> id <span class="operator">=</span> ? <span class="keyword">AND</span> deleted<span class="operator">=</span><span class="number">0</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h2><p>步骤1：数据库中添加锁标记字段</p>
-<p><img src="/../assets/image-20220819142340644.png" alt="image-20220819142340644"></p>
+<p><img src="/../../assets/image-20220819142340644.png" alt="image-20220819142340644"></p>
 <p>步骤2：实体类中添加对应的属性</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Version</span></span><br><span class="line"><span class="keyword">private</span> Integer version;</span><br></pre></td></tr></table></figure>
 
@@ -638,7 +638,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">zhangxin</span>
+  <span url ="https://zxhome.eu.org/" class="author" itemprop="copyrightHolder">zhangxin</span>
 </span>
 
 <span class="post-meta-divider">|</span>

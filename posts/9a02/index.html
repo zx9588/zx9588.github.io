@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-z.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-z.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-z.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/red/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="原创 史培培(安辰) 阿里开发者 2022-08-26 12:28 发表于北京">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试环境不稳定&amp;复杂的必然性及其对策">
+<meta property="og:url" content="https://zxblog.eu.org/posts/9a02/index.html">
+<meta property="og:site_name" content="知行博客">
+<meta property="og:description" content="原创 史培培(安辰) 阿里开发者 2022-08-26 12:28 发表于北京">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-1734505.jpeg">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505547.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-1734505.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505476.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505536.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505532.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505593.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085506175.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505593.jpeg">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085505716.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/640-20220829085506074.png">
+<meta property="article:published_time" content="2022-08-29T00:53:04.000Z">
+<meta property="article:modified_time" content="2022-08-29T01:03:16.201Z">
+<meta property="article:author" content="zhangxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zxblog.eu.org/assets/640-1734505.jpeg">
+
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/9a02/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zxblog.eu.org/posts/9a02/","path":"posts/9a02/","title":"测试环境不稳定&复杂的必然性及其对策"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>测试环境不稳定&复杂的必然性及其对策 | 知行博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb"></script>
+
+
+
+
+<link rel="dns-prefetch" href="https://zxwaline.vercel.app">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">知行博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">每天一篇生活杂志~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-友链"><a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8D%E7%A8%B3%E5%AE%9A%E7%9A%84%E5%BF%85%E7%84%B6%E6%80%A7"><span class="nav-text">测试环境不稳定的必然性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%AF%94%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E6%9B%B4%E5%A4%8D%E6%9D%82"><span class="nav-text">测试环境比生产环境更复杂</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E8%AE%A9%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E5%B0%BD%E9%87%8F%E7%A8%B3%E5%AE%9A%E5%92%8C%E7%AE%80%E5%8D%95%E4%B8%80%E7%82%B9"><span class="nav-text">怎么让测试环境尽量稳定和简单一点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%A4%8D%E7%94%A8"><span class="nav-text">环境复用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB"><span class="nav-text">环境隔离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-text">环境稳定性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9C%8D%E5%8A%A1%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-text">基础服务稳定性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E5%B9%B2%E7%8E%AF%E5%A2%83%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-text">主干环境稳定性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E5%87%86%E7%A1%AE%E6%80%A7"><span class="nav-text">路由准确性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="/avatar.webp">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">259</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><span class="with-love" id="animate1"><i class="fa fa-heart"></i></span>个人主页</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/9a02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.webp">
+      <meta itemprop="name" content="zhangxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知行博客">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="测试环境不稳定&复杂的必然性及其对策 | 知行博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          测试环境不稳定&复杂的必然性及其对策
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-29 08:53:04 / 修改时间：09:03:16" itemprop="dateCreated datePublished" datetime="2022-08-29T08:53:04+08:00">2022-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">技术分享</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/9a02/" class="post-meta-item leancloud_visitors" data-flag-title="测试环境不稳定&复杂的必然性及其对策" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">评论：</span>
+  
+    <a title="waline" href="/posts/9a02/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/9a02/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>原创 史培培(安辰) <a href="javascript:void(0);">阿里开发者</a> <em>2022-08-26 12:28</em> <em>发表于北京</em></p>
+<span id="more"></span>
+
+
+
+<p><img src="/../../assets/640-1734505.jpeg" alt="图片"></p>
+<p>这篇文章想要讲的，的确是两件事情：</p>
+<p>1.为什么测试环境的不稳定是必然的，怎么让它尽量稳定一点？</p>
+<p>2.为什么测试环境比生产环境更复杂，怎么让它尽量简单一点？</p>
+<p>此外，还会谈一谈对测试环境和生产环境的区别的理解。</p>
+<p>这里是本文的主要观点：</p>
+<p>1.测试环境与生产环境是两个不同的场景，测试环境的不稳定是必然的，在没有实现TiP（Test in Production）之前，当前我们能做的是尽量让它稳定一点；</p>
+<p>2.测试环境比生产环境更为复杂，最核心的是要解决共振问题，即做好隔离能力，Mesh 是解决隔离问题的一个未来方向；</p>
+<p>在 DevOps 领域，测试环境其实是介于 Dev 和 Ops 中间重叠的部分，一提到测试环境，大家就会说测试环境不够用、测试环境不稳定，尤其是在微服务化了之后，对测试环境的诉求与挑战也愈发明显。</p>
+<p><img src="/../../assets/640-20220829085505547.png" alt="图片"></p>
+<p>从软件研发过程的角度来说（如上图），从左往右呈现一个漏斗模型，随着研发的阶段推进，复杂度和稳定性都在逐步收敛：</p>
+<p>1.在开发和集成阶段，代码等变更是非常频繁的，在这个阶段里研发人员在不断的迭代、联调、验证等，从本质上来说，高复杂度和低稳定性是必然的，对于依赖的中间件等基础设施的不稳定，这是偶然的；</p>
+<p>2.到了预发、灰度和发布阶段，变更已经趋于稳定，经过了前面阶段的洗礼，复杂度是相对低的，稳定性也能得到保证；</p>
+<p><img src="/../../assets/640-1734505.png" alt="图片"></p>
+<p>﻿﻿</p>
+<p>另一方面，如上图所示，生产环境只有一套，链路和应用间的调用关系比较清晰，但在测试环境中，因为涉及到多个项目的自测、联调、验证等，相当于千军万马过独木桥，很容易产生共振效应，影响所有人的研发，在这方面来讲，测试环境比生产环境要复杂很多，亟需解决隔离、低成本以及稳定的依赖这几个重要的问题。</p>
+<h1 id="测试环境不稳定的必然性"><a href="#测试环境不稳定的必然性" class="headerlink" title="测试环境不稳定的必然性"></a>测试环境不稳定的必然性</h1><p>测试环境和生产环境的区别是什么？有的人说线下的容量没有线上大，有的人说线下没有真实用户，有的人说线下缺少生产的真实数据，等等，各种答案都有。<strong>在我看来，测试环境和生产环境的本质区别是：它们是两个不同的场景。</strong>对于生产环境，准确与稳定性最重要；对于测试环境，隔离、低成本和稳定的依赖最重要。</p>
+<p>在日常的研发中，会面临诸多场景，涉及的测试环境总结如下：</p>
+<ul>
+<li>开发环境（dev）：开发或测试同学自己的电脑或服务器，非 Aone 管理的应用服务器</li>
+<li>项目环境（project）：关联到某个变更的环境，仅部署该变更对应的分支</li>
+<li>单应用测试</li>
+<li>多应用联调</li>
+<li>性能测试：对该变更对应的分支做性能测试</li>
+<li>日常集成环境（daily）：我们最熟悉的 daily 环境，可部署多个变更对应分支的合并代码</li>
+<li>主干环境（testing-trunk）：部署最新正式环境发布分支，即正式环境镜像 mirror of production</li>
+<li>自动化测试环境（auto-testing）：跑自动化测试用例的环境</li>
+<li>… …</li>
+</ul>
+<p>﻿</p>
+<p>大家经常吐槽测试环境的稳定性，提起不稳定的原因，经常会听到如下解释：</p>
+<ul>
+<li>测试环境都是过保的机器而且超卖了，为了节省成本</li>
+<li>生产有的配置，在测试环境没有，导致启动失败了</li>
+<li>监控、告警等能力在测试环境没有配套</li>
+<li>投入不够，不重视，对问题的响应不及时，流程机制等没建立起来</li>
+<li>… …</li>
+</ul>
+<p>其实这些原因中大部分都不是本质问题。换句话说，即便狠狠的砸钱、砸人，即使机器不用过保机、硬件不超卖、工具建设好把配置监控自愈等和生产环境保持对齐、问题响应机制建立起来，测试环境也还是会不稳定的。﻿</p>
+<p><strong>因为测试环境不稳定的根源在于：</strong></p>
+<p><strong>1.测试环境里面有不稳定的代码</strong></p>
+<p><strong>2.测试环境不稳定带来的影响小</strong></p>
+<h1 id="测试环境比生产环境更复杂"><a href="#测试环境比生产环境更复杂" class="headerlink" title="测试环境比生产环境更复杂"></a>测试环境比生产环境更复杂</h1><p>如上文所说，生产环境只有一套，链路和应用间的调用关系比较清晰，服务也相对比较稳定，但在测试环境中，因为涉及到并行研发，服务间的依赖会变得很复杂，比如 A 对 B 强依赖，那么 A 的功能是否成功取决于 B，而且 B 变化了之后，也要保证不影响 A。</p>
+<p>首先是环境创建，此处的“环境创建”指的并不只是通过 yaml 创建出一台 pod 部署应用这么简单，而是创建出一套“可测”的环境，“可测”的准则包括：服务可用、链路联通（包括上下游的服务）、请求隔离等。</p>
+<p>随着分布式系统的演进，微服务的数量也呈指数级增长，整个系统的复杂度也会随之升级。这些“微服务”可能单个服务很简单，但是<strong>交互建立起的系统将成为复杂性的瓶颈</strong>，很有可能成为一个复杂的地狱。﻿</p>
+<p>我们以一个简单的样例来说明：</p>
+<p><img src="/../../assets/640-20220829085505476.png" alt="图片"></p>
+<p>一条链路上有上百的应用数，其中两个应用 A 与 B 有变更，我们想一想，如果只创建了包含两个单应用的环境，那么能不能满足“可测”条件？我们会面临如下诸多问题：</p>
+<p>1.需要将链路上所有的应用都创建一套环境才能将链路跑通，谁能清楚整条链路上的应用？</p>
+<p>2.多个项目&#x2F;变更，每次都将整条链路上的应用<strong>重新创建一套环境？</strong> <strong>维护</strong>和<strong>排查</strong>成本如何？</p>
+<p>3.多套环境，势必会带来<strong>并行干扰的问题</strong>，如何将请求准确的路由到期望的服务上？</p>
+<p>4.同一套中间件、数据库等基础设施如何软隔离？</p>
+<p>表面上我们只是为某个应用创建了项目环境，实际上背后涉及了一整套环境复用与隔离方案，水静流深。</p>
+<p>而对于这种场景，生产环境（预发、正式等）之间首先是物理隔离（预发与正式是两套独立的中间件），其次是只需要一套环境即可满足，不存在并行的问题。</p>
+<h1 id="怎么让测试环境尽量稳定和简单一点"><a href="#怎么让测试环境尽量稳定和简单一点" class="headerlink" title="怎么让测试环境尽量稳定和简单一点"></a>怎么让测试环境尽量稳定和简单一点</h1><p>“测试环境的复杂度”，归根到底，无外乎来自于三个地方：</p>
+<ul>
+<li>环境的复用</li>
+<li>环境的隔离</li>
+<li>环境的稳定性（主干环境）</li>
+</ul>
+<p>﻿我们先来梳理两个业务视角：</p>
+<ul>
+<li>上层业务平台视角：对于上层业务而言，他们的痛点及诉求是希望是底层的中台能更加稳定</li>
+<li>中台视角：对于中台而言，除了给上层业务提供服务外，自身还有集成诉求</li>
+</ul>
+<h2 id="环境复用"><a href="#环境复用" class="headerlink" title="环境复用"></a>环境复用</h2><p>站在一个项目中的开发同学的角度，他通常只需要为有变更的应用创建环境即可，其余的应用都复用一套兜底的环境，如下图所示，这就是项目环境+主干环境模式：</p>
+<p><img src="/../../assets/640-20220829085505536.png" alt="图片"></p>
+<ul>
+<li>有一个主干环境，主干环境之上“挂着”若干个项目环境</li>
+<li>“主干环境”，跑的是和正式环境的版本相同的代码，每次生产环境发布后，主干环境也会同步更新</li>
+<li>“项目环境”，每个项目有自己的项目环境，部署的是项目的分支代码，这个项目上的同学就在这个项目环境里做测试联调（集成）</li>
+<li>项目环境不是全量的，例如，交易链路一共有一百个左右的应用，它的主干环境是全量的，但项目环境只包含这个项目涉及的应用，测试发起的流量会被路由机制从主干环境的应用路由到项目环境的应用</li>
+</ul>
+<p>﻿除了项目环境+主干环境模式，还有一种日常集成环境模式，如下图所示：</p>
+<p><img src="/../../assets/640-20220829085505532.png" alt="图片"></p>
+<p>对不变的服务或基础设施进行复用后，搭建环境无论是从资源成本还是从复杂度上都得到了极大的降低。</p>
+<h2 id="环境隔离"><a href="#环境隔离" class="headerlink" title="环境隔离"></a>环境隔离</h2><p>当对环境复用之后，势必会带来<strong>并行干扰的问题</strong>，就需要对环境进行隔离来解决，将请求准确的路由到期望的服务。</p>
+<p>隔离大致分为以下几类：</p>
+<p>1.服务隔离（RPC）</p>
+<p>2.中间件隔离（消息、配置、缓存等）</p>
+<p>3.数据库隔离</p>
+<p>4.HTTP 流量隔离（无线端 + PC 端）</p>
+<p>﻿以服务隔离为例，如下图，当多个项目并行研发时，对于不同的环境如何做到之间互相不干扰时需要解决的问题：﻿﻿</p>
+<p><img src="/../../assets/640-20220829085505593.png" alt="图片"></p>
+<p>未来的方向：通过 Service Mesh 实现隔离</p>
+<p>﻿Service Mesh 的权威定义如下：</p>
+<p>“A service mesh is a dedicated infrastructure layer for handling service-to-service communication. It’s responsible for the reliable delivery of requests through the complex topology of services that comprise a modern, cloud native application. In practice, the service mesh is typically implemented as an array of lightweight network proxies that are deployed alongside application code, without the application needing to be aware.”</p>
+<p>用一句话来总结就是，Service Mesh 是一组用来处理服务间通讯的网络代理，如下图：</p>
+<p><img src="/../../assets/640-20220829085506175.png" alt="图片"></p>
+<p>从上图可以看到，Sidecar 接管了网络的控制权，在隔离的场景下，所有的事情都可以在 Sidecar 内完成。</p>
+<p>使用 Service Mesh 实现隔离有如下优点：</p>
+<p>1.对应用本身无侵入</p>
+<p>2.适配多种协议（web socket、rpc 等）、多种中间件（消息、配置、DB 等）</p>
+<p>3.屏蔽了技术栈的差异</p>
+<p>4.升级对应用本身无影响</p>
+<h2 id="环境稳定性"><a href="#环境稳定性" class="headerlink" title="环境稳定性"></a>环境稳定性</h2><p>环境的稳定性对应着如下的金字塔模型，越往下层，稳定性越需要保障，以一个经典的案例为例，如果每一层的稳定性只有 99%，那么 0.99 ^ 4 &#x3D; 0.96，随着影响因素的增多，<strong>整体稳定性就会被放大</strong>，如 0.99 ^ 365 &#x3D; 0.03，所以每一层的稳定性都很重要，<strong>都必须 100%，或者至少应该是“五个9”</strong>，这样整体的稳定性才有可能提高。﻿</p>
+<p><img src="/../../assets/640-20220829085505593.jpeg" alt="图片"></p>
+<h3 id="基础服务稳定性"><a href="#基础服务稳定性" class="headerlink" title="基础服务稳定性"></a>基础服务稳定性</h3><p>这个的基础服务包括基础设施、中间件和数据库，虽然是测试环境的基础服务，但需要按照生产级的标准进行保障，因为基础服务抖一抖，对于上层服务来说可以说是地震。﻿</p>
+<p>测试环境可以说没什么可用的基础平台，由于生产环境与测试环境的不同，导致很多生产的监控、排查工具、运维平台在测试环境都没有运行，因此需要建设可以被使用的工具来保障基础服务的稳定性。</p>
+<p>首先对于基础服务而言，需要<strong>建立系统 SLI&#x2F;SLO 监控指标，稳定性必须达到 100%，或者至少应该是“五个9”。</strong>其次需要建立快恢机制，及时止血，做到 “1-5-10”，即 1 分钟发现，5 分钟定位，10 分钟恢复。</p>
+<h3 id="主干环境稳定性"><a href="#主干环境稳定性" class="headerlink" title="主干环境稳定性"></a>主干环境稳定性</h3><p>今天我们研发同学的心智是：当一个同学在测试遇到错误的时候，他的第一反应是“一定是环境问题”。也就是说，他的第一反应是“别人的问题”，只有当“别人的问题”都排出后他才会认真的去看是不是他自己的问题（包括项目的问题）。﻿</p>
+<p><strong>主干环境的稳定性治理，最终就是在做一道证明题：拿出数据来，证明主干环境是稳定的。所以，如果有问题，请先排查你的项目。</strong>﻿</p>
+<p>证明主干环境是稳定的数据分两类，单应用和链路：</p>
+<ul>
+<li><strong>单应用</strong>就是像健康检查和 RPC 检查这类，它验证的是单个应用是可用的，不管业务逻辑对不对，不管配置对不对，至少这个应用、这个服务、这个微服务是正常启动且运行的。单应用稳定性必须达到100%，或者至少应该是“五个9”。这个要求是合理的，因为单应用的稳定性是链路稳定性的基础。如果单应用都没有正常启动且运行，链路功能的可用和正确性就根本无从谈起；</li>
+</ul>
+<p><img src="/../../assets/640-20220829085505716.png" alt="图片"></p>
+<ul>
+<li><strong>链路</strong>的稳定性，说白了就是跑脚本、跑测试用例。频率是分钟级也可以，小时级也可以。验证链路的脚本是需要不断的补充丰富的，当发生了一个主干环境的问题但是验证脚本没有发现，就要把这个问题的场景补充到链路验证脚本（测试用例）里面去。也可以借用测试用例充分度的度量手段（例如，行覆盖率、业务覆盖率等等），主动的补充链路验证脚本。很多其他测试用例自动生成的技术也可以用上来；</li>
+</ul>
+<p>﻿</p>
+<p>最后，达到的效果就是：用数据说话。用很有说服力的数据说话：主干环境的单应用都是好的，链路也都是能跑通的，这时候出现了问题，就应该先怀疑是项目环境的问题。</p>
+<h3 id="路由准确性"><a href="#路由准确性" class="headerlink" title="路由准确性"></a>路由准确性</h3><p>对于隔离而言，一旦路由调飞，一方面用户想验证的功能没有验证到，另一方面排查成本也是极其高的，每次排查至少需要半小时起步。﻿</p>
+<p><strong>路由准确性的治理，最终也是在做一道证明题：拿出数据来，证明路由逻辑是准确的，包括隔离插件、隔离配置等。所以，如果有问题，请先排查你的服务。</strong></p>
+<p>证明路由是准确的数据分两类，隔离插件覆盖和隔离数据同步：</p>
+<ul>
+<li><strong>隔离插件覆盖</strong>就是保证所有需要隔离的机器上都安装了隔离插件，如 HSF 隔离插件、MetaQ 隔离插件等，不管路由逻辑对不对，如果没有安装隔离插件，必然是会调飞的（随机调用）。隔离插件的覆盖率必须达到<strong>100%，或者至少应该是“五个9”</strong>。这个要求是合理的，因为隔离插件是隔离的基础。如果隔离插件都没有正常安装，隔离的可用和正确性就根本无从谈起；</li>
+<li><strong>隔离数据</strong>同步就是保证隔离数据的正确性以及同步的效率，如 服务上是否打上了隔离标签、消息是否带上了隔离标签，当环境创建或者变更完成后，隔离数据是否会立即生效，隔离数据同步的效率必须是秒级，同步的成功率必须达到**100%**<strong>，或者至少应该是“五个9”。</strong>隔离数据同样是隔离的基础，隔离插件以及整个隔离体系的逻辑都是围绕着隔离数据展开的；</li>
+</ul>
+<p>我们通过 StarAgent 在测试环境的每台机器上部署 Metricbeat 采集代理，采集插件安装情况、服务健康检查情况等，分钟级上报 5w+ 机器的巡检数据，并在出现问题后及时自愈：</p>
+<p><img src="/../../assets/640-20220829085506074.png" alt="图片"></p>
+<p>﻿﻿</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>关于本文的结论，总结如下：</p>
+<p>1.测试环境与生产环境是两个不同的场景，测试环境的不稳定是必然的，在没有实现TiP（Test in Production）之前，当前我们能做的是尽量让它稳定一点；</p>
+<p>2.测试环境比生产环境更为复杂，最核心的是要解决共振问题，即做好隔离能力，Mesh 是解决隔离问题的一个未来方向；</p>
+<p>聊现在谈未来：</p>
+<p>我们希望将环境一站式&#x2F;沉浸式的产品体验，覆盖整个联调验证的生命周期，提供从环境搭建到回归验证的全方位服务，局部的试点优化及改进能形成全局计划，总结出的方法论与工具能逐步覆盖到全局，使得联调问题往正向循环发展，最终全面解决联调效能问题。</p>
+<p><strong>参考：</strong></p>
+<p>1.﻿《Pattern: Service Mesh》﻿</p>
+<p>2.﻿《What Is a Service Mesh?》</p>
+<hr>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/rQSwS7kMsdUxtAvSSmTD6Q">文章来源</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/27a4/" rel="next" title="“不好意思，你很难赚到我们中年人的钱”">
+                  “不好意思，你很难赚到我们中年人的钱” <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<span class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"> 站点总字数:</i>
+    </span>
+    <span title="站点总字数">1.1m</span>
+  </span>
+
+
+
+<span class="post-meta-divider">|</span>
+
+
+<span class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"> 站点总访客:</i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+
+<!--
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye">站点总访问量:</i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+-->
+
+</span>
+
+
+
+
+
+
+
+ <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+
+
+
+<div>
+
+<span class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span url ="https://zxhome.eu.org/" class="author" itemprop="copyrightHolder">zhangxin</span>
+</span>
+
+<span class="post-meta-divider">|</span>
+<span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+</span>
+
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz","app_key":"y4hUKKnP2A2FzMFxbPFem6b6","server_url":"https://f8hohjt8.lc-cn-n1-shared.com","security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://zxwaline.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":null,"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/qq","https://unpkg.com/@waline/emojis@1.0.1/tieba","https://unpkg.com/@waline/emojis@1.0.1/tw-emoji"],"el":"#waline","comment":true,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","path":"/posts/9a02/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

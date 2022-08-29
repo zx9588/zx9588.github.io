@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://zxblog.eu.org/assets/image-20220811205826949.png">
 <meta property="og:image" content="https://zxblog.eu.org/assets/image-20220811210251515.png">
 <meta property="article:published_time" content="2021-11-17T08:28:57.000Z">
-<meta property="article:modified_time" content="2022-08-23T01:38:35.474Z">
+<meta property="article:modified_time" content="2022-08-29T00:45:25.464Z">
 <meta property="article:author" content="zhangxin">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">258</span>
+          <span class="site-state-item-count">259</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -269,7 +269,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 09:38:35" itemprop="dateModified" datetime="2022-08-23T09:38:35+08:00">2022-08-23</time>
+      <time title="修改时间：2022-08-29 08:45:25" itemprop="dateModified" datetime="2022-08-29T08:45:25+08:00">2022-08-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,7 +328,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Spring-Framework-4-架构图"><a href="#Spring-Framework-4-架构图" class="headerlink" title="Spring-Framework-4-架构图"></a>Spring-Framework-4-架构图</h2><p><img src="/../assets/1629720945720-2.png" alt="1629720945720-2"></p>
+        <h2 id="Spring-Framework-4-架构图"><a href="#Spring-Framework-4-架构图" class="headerlink" title="Spring-Framework-4-架构图"></a>Spring-Framework-4-架构图</h2><p><img src="/../../assets/1629720945720-2.png" alt="1629720945720-2"></p>
 <p>核心层</p>
 <ul>
 <li>Core Container:核心容器，这个模块是Spring最核心的模块，其他的都需要依赖该模块</li>
@@ -369,7 +369,7 @@
 <ul>
 <li>在容器中建立bean与bean之间的依赖关系的整个过程，称为依赖注入</li>
 </ul>
-<p><img src="/../assets/1629735078619-2.png" alt="1629735078619-2"></p>
+<p><img src="/../../assets/1629735078619-2.png" alt="1629735078619-2"></p>
 <h2 id="Bean销毁时机"><a href="#Bean销毁时机" class="headerlink" title="Bean销毁时机"></a>Bean销毁时机</h2><p>容器关闭前触发bean的销毁</p>
 <p>关闭容器方式</p>
 <ol>
@@ -562,7 +562,7 @@
 
 <h3 id="获取bean的方式"><a href="#获取bean的方式" class="headerlink" title="获取bean的方式"></a>获取bean的方式</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式1：bean名称</span></span><br><span class="line"><span class="type">BookDao</span> <span class="variable">bookDao</span> <span class="operator">=</span> (BookDao)ctx.getBean(<span class="string">&quot;bookDao&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式2：bean名称+指定类型</span></span><br><span class="line"><span class="type">BookDao</span> <span class="variable">bookDao</span> <span class="operator">=</span> ctx.getBean(<span class="string">&quot;bookDao&quot;</span>, BookDao.class);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式3：bean类型</span></span><br><span class="line"><span class="type">BookDao</span> <span class="variable">bookDao</span> <span class="operator">=</span> ctx.getBean(BookDao.class);</span><br></pre></td></tr></table></figure>
 
-<h3 id="容器类层次结构图"><a href="#容器类层次结构图" class="headerlink" title="容器类层次结构图"></a>容器类层次结构图</h3><p><img src="/../assets/1629984980781.png" alt="1629984980781"></p>
+<h3 id="容器类层次结构图"><a href="#容器类层次结构图" class="headerlink" title="容器类层次结构图"></a>容器类层次结构图</h3><p><img src="/../../assets/1629984980781.png" alt="1629984980781"></p>
 <blockquote>
 <p>spring扩展思维：增加子接口加入新功能</p>
 <p>从图中可以看出，容器类也是从无到有根据需要一层层叠加上来的，大家重点理解下这种设计思想。</p>
@@ -573,9 +573,9 @@
 
 <p>BeanFactory创建完毕后，所有的bean均为延迟加载</p>
 <h3 id="bean、依赖、容器总结"><a href="#bean、依赖、容器总结" class="headerlink" title="bean、依赖、容器总结"></a>bean、依赖、容器总结</h3><p><strong>Bean相关总结</strong></p>
-<p><img src="/../assets/1629986510487-2.png" alt="1629986510487-2"></p>
+<p><img src="/../../assets/1629986510487-2.png" alt="1629986510487-2"></p>
 <p><strong>依赖注入相关总结</strong></p>
-<p><img src="/../assets/1629986848563-2.png" alt="1629986848563-2"></p>
+<p><img src="/../../assets/1629986848563-2.png" alt="1629986848563-2"></p>
 <p><strong>容器相关总结</strong></p>
 <ul>
 <li>BeanFactory是IoC容器的顶层接口，初始化BeanFactory对象时，加载的bean延迟加载</li>
@@ -717,8 +717,8 @@
 <blockquote>
 <p>拓展：配置演变</p>
 <p>从xml文件 –&gt; 注解+配置类</p>
-<p><img src="/../assets/1630138835057.png" alt="1630138835057"></p>
-<p><img src="/../assets/1630138916939.png" alt="1630138916939"></p>
+<p><img src="/../../assets/1630138835057.png" alt="1630138835057"></p>
+<p><img src="/../../assets/1630138916939.png" alt="1630138916939"></p>
 <p>xml版本：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> spring_db <span class="type">character</span> <span class="keyword">set</span> utf8;</span><br><span class="line">use spring_db;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> tbl_account(</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary key</span> auto_increment,</span><br><span class="line">    <span class="type">name</span> <span class="type">varchar</span>(<span class="number">35</span>),</span><br><span class="line">    <span class="type">money</span> <span class="type">double</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
@@ -792,7 +792,7 @@
 </ul>
 <p>作用:在不惊动原始设计的基础上为其进行功能<code>增强</code></p>
 <p>Spring理念：无入侵式&#x2F;无侵入式</p>
-<p><img src="/../assets/1630144353462-2.png" alt="1630144353462-2"></p>
+<p><img src="/../../assets/1630144353462-2.png" alt="1630144353462-2"></p>
 <h3 id="AOP核心理念"><a href="#AOP核心理念" class="headerlink" title="AOP核心理念"></a>AOP核心理念</h3><ul>
 <li>连接点(JoinPoint)：程序执行过程中的任意位置，粒度为执行方法、抛出异常、设置变量等<ul>
 <li>在SpringAOP中，理解为方法的执行</li>
@@ -1099,10 +1099,10 @@
 <li>事务管理员：发起事务方，在Spring中通常指代业务层开启事务的方法</li>
 <li>事务协调员：加入事务方，在Spring中通常指代数据层方法，也可以是业务层方法</li>
 </ul>
-<p><img src="/../assets/image-20220811202615572.png" alt="image-20220811202615572"></p>
-<h3 id="Spring事务属性"><a href="#Spring事务属性" class="headerlink" title="Spring事务属性"></a>Spring事务属性</h3><p><img src="/../assets/image-20220811204624726.png" alt="image-20220811204624726"></p>
-<h3 id="Spring事务传播行为"><a href="#Spring事务传播行为" class="headerlink" title="Spring事务传播行为"></a>Spring事务传播行为</h3><p><img src="/../assets/image-20220811205826949.png" alt="image-20220811205826949"></p>
-<p><img src="/../assets/image-20220811210251515.png" alt="image-20220811210251515"></p>
+<p><img src="/../../assets/image-20220811202615572.png" alt="image-20220811202615572"></p>
+<h3 id="Spring事务属性"><a href="#Spring事务属性" class="headerlink" title="Spring事务属性"></a>Spring事务属性</h3><p><img src="/../../assets/image-20220811204624726.png" alt="image-20220811204624726"></p>
+<h3 id="Spring事务传播行为"><a href="#Spring事务传播行为" class="headerlink" title="Spring事务传播行为"></a>Spring事务传播行为</h3><p><img src="/../../assets/image-20220811205826949.png" alt="image-20220811205826949"></p>
+<p><img src="/../../assets/image-20220811210251515.png" alt="image-20220811210251515"></p>
 <h3 id="转账业务追加日志"><a href="#转账业务追加日志" class="headerlink" title="转账业务追加日志"></a>转账业务追加日志</h3><p>在业务层接口上添加Spring事务，设置事务传播行为为REQUIRES_NEW(需要新事务)</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">LogService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> LogDao logDao;</span><br><span class="line">	<span class="comment">//propagation设置事务属性：传播行为设置为当前操作需要新事务</span></span><br><span class="line">    <span class="meta">@Transactional(propagation = Propagation.REQUIRES_NEW)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">log</span><span class="params">(String out,String in,Double money )</span> &#123;</span><br><span class="line">        logDao.log(<span class="string">&quot;转账操作由&quot;</span>+out+<span class="string">&quot;到&quot;</span>+in+<span class="string">&quot;,金额：&quot;</span>+money);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1227,7 +1227,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">zhangxin</span>
+  <span url ="https://zxhome.eu.org/" class="author" itemprop="copyrightHolder">zhangxin</span>
 </span>
 
 <span class="post-meta-divider">|</span>
