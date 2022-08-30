@@ -3020,3 +3020,6 @@ body {
 .post-block + .post-block {
   border-radius: 15px 15px 15px 15px;
 }
+.back-to-top {
+  border-radius: 15px 15px 15px 15px;
+}
