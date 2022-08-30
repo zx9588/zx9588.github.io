@@ -2620,7 +2620,7 @@ mark.search-keyword {
 }
 .header-inner {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: $yuanjiao;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   width: 240px;
 }
@@ -2654,7 +2654,7 @@ mark.search-keyword {
   }
 }
 .main-inner {
-  border-radius: initial;
+  border-radius: $yuanjiao;
   box-sizing: border-box;
   width: calc(100% - 252px);
 }
@@ -2784,7 +2784,7 @@ mark.search-keyword {
 }
 .sidebar-inner {
   background: var(--content-bg-color);
-  border-radius: 15px;
+  border-radius: $yuanjiao;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   box-sizing: border-box;
   color: var(--text-color);
@@ -2846,7 +2846,7 @@ mark.search-keyword {
 .main-inner > .comments,
 .main-inner > .pagination {
   background: var(--content-bg-color);
-  border-radius: initial;
+  border-radius: $yuanjiao;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
 }
 .main-inner > .sub-menu:not(:first-child):not(.sub-menu),
@@ -2854,7 +2854,7 @@ mark.search-keyword {
 .main-inner > .tabs-comment:not(:first-child):not(.sub-menu),
 .main-inner > .comments:not(:first-child):not(.sub-menu),
 .main-inner > .pagination:not(:first-child):not(.sub-menu) {
-  border-radius: 15px;
+  border-radius: $yuanjiao;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
   margin-top: 12px;
 }
@@ -2937,7 +2937,7 @@ mark.search-keyword {
   width: 300px;
   font-size: 1rem;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 22px;
   transition-duration: 0.15s;
   margin-bottom: 1rem;
   display: flex;
@@ -2951,6 +2951,7 @@ mark.search-keyword {
 .card:hover {
   transform: scale(1.1);
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), 0 0 6px 0 rgba(0,0,0,0.04);
+  background-color: #6c6c6c;
 }
 .card a {
   border: none;
@@ -3001,21 +3002,27 @@ body {
   background-attachment: fixed;
 }
 .header-inner {
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 22px 22px 22px 22px;
 }
 .sidebar {
   transition-duration: 0.4s;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 22px 22px 22px 22px;
 }
 .sidebar-inner {
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 22px 22px 22px 22px;
 }
 .post-block {
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 22px 22px 22px 22px;
 }
 .post-block + .post-block {
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 22px 22px 22px 22px;
 }
 .back-to-top {
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 0 0 22px 22px;
+}
+.comments {
+  border-radius: 22px 22px 22px 22px;
+}
+.pagination {
+  border-radius: 22px 22px 22px 22px;
 }
