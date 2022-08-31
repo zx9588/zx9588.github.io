@@ -1299,7 +1299,7 @@ header.header {
   }
 }
 .book-mark-link::before {
-  color: #1e90ff;
+  color: #222;
   font-size: 32px;
   line-height: 1;
   content: '\f02e';
@@ -2996,8 +2996,8 @@ a:hover {
   white-space: nowrap;
 }
 body {
-  background-image: linear-gradient(to left, rgba(255,0,149,0.2), rgba(0,247,255,0.2)), url("https://p0.ssl.qhmsg.com/t01667b501297776783.jpg");
   background-size: cover;
+  background: url("https://bing.getlove.cn/bingImage");
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
