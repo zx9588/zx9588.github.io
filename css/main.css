@@ -3003,15 +3003,16 @@ body {
 }
 .header-inner {
   border-radius: 22px 22px 22px 22px;
-  opacity: 0.85;
+  opacity: 1;
 }
 .sidebar {
   transition-duration: 0.4s;
-  opacity: 0.85;
+  opacity: 1;
   border-radius: 22px 22px 22px 22px;
 }
 .sidebar-inner {
   border-radius: 22px 22px 22px 22px;
+  opacity: 1;
 }
 .post-block {
   background-image: linear-gradient(to left, rgba(255,0,149,0.2), rgba(0,247,255,0.2)), url("https://p0.ssl.qhmsg.com/t01667b501297776783.jpg");
@@ -3021,6 +3022,7 @@ body {
   border-radius: 22px 22px 22px 22px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   padding: 40px;
+  opacity: 1;
 }
 .back-to-top {
   border-radius: 0 0 22px 22px;
