@@ -3014,6 +3014,9 @@ body {
   border-radius: 22px 22px 22px 22px;
   opacity: 1;
 }
+.sub-menu {
+  background: var(--content-bg-color);
+}
 .post-block {
   background-image: linear-gradient(to left, rgba(255,0,149,0.2), rgba(0,247,255,0.2)), url("https://p0.ssl.qhmsg.com/t01667b501297776783.jpg");
   background-size: cover;
