@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-z.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-z.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-z.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/red/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="【合集】Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【合集】Oracle">
+<meta property="og:url" content="https://zxblog.eu.org/posts/375f/index.html">
+<meta property="og:site_name" content="知行博客">
+<meta property="og:description" content="【合集】Oracle">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-17T18:11:56.000Z">
+<meta property="article:modified_time" content="2022-09-14T02:08:32.068Z">
+<meta property="article:author" content="zhangxin">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/375f/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zxblog.eu.org/posts/375f/","path":"posts/375f/","title":"【合集】Oracle"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【合集】Oracle | 知行博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">知行博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">zxblog.eu.org | 电脑浏览,体验拉满</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-友链"><a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#oracle%E5%88%A4%E6%96%AD%E8%A1%A8%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8-%E5%A6%82%E6%9E%9C%E5%AD%98%E5%9C%A8%E5%B0%B1%E5%88%A0%E9%99%A4"><span class="nav-text">oracle判断表是否存在,如果存在就删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A%E5%9C%A8end-%E5%90%8E%E7%9A%84-%E4%B8%8D%E8%A6%81%E7%9C%81%E7%95%A5%EF%BC%8C%E4%B8%8D%E7%84%B6%E4%BC%9A%E6%8A%A5%E9%94%99%EF%BC%81%EF%BC%81%EF%BC%81"><span class="nav-text">注意：在end;后的&#x2F;不要省略，不然会报错！！！</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oracle%E4%B9%8B%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="nav-text">oracle之唯一索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-text">索引说明：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA%E8%AF%AD%E5%8F%A5%EF%BC%9A"><span class="nav-text">索引创建语句：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8E%9F%E5%88%99%EF%BC%9A"><span class="nav-text">索引的建立原则：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="nav-text">索引的优点：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="/avatar.webp">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">276</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><span class="with-love" id="animate1"><i class="fa fa-heart"></i></span>个人主页</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/375f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.webp">
+      <meta itemprop="name" content="zhangxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知行博客">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【合集】Oracle | 知行博客">
+      <meta itemprop="description" content="【合集】Oracle">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【合集】Oracle
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-18 02:11:56" itemprop="dateCreated datePublished" datetime="2021-11-18T02:11:56+08:00">2021-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-14 10:08:32" itemprop="dateModified" datetime="2022-09-14T10:08:32+08:00">2022-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Java开发</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/375f/" class="post-meta-item leancloud_visitors" data-flag-title="【合集】Oracle" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">【合集】Oracle</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>教程1：<a target="_blank" rel="noopener" href="https://www.yiibai.com/oracle/oracle-drop-table.html">https://www.yiibai.com/oracle/oracle-drop-table.html</a></p>
+<p>W3c:<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/oraclejc/">https://www.w3cschool.cn/oraclejc/</a></p>
+<h3 id="oracle判断表是否存在-如果存在就删除"><a href="#oracle判断表是否存在-如果存在就删除" class="headerlink" title="oracle判断表是否存在,如果存在就删除"></a>oracle判断表是否存在,如果存在就删除</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 判断是否存在</span></span><br><span class="line"><span class="keyword">declare</span> </span><br><span class="line">      num   number; </span><br><span class="line"><span class="keyword">begin</span> </span><br><span class="line">      <span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">into</span> num <span class="keyword">from</span> user_tables <span class="keyword">where</span> table_name <span class="operator">=</span><span class="built_in">upper</span>(<span class="string">&#x27;mid_bd_corp&#x27;</span>); </span><br><span class="line">      if   num <span class="operator">=</span> <span class="number">1</span>   <span class="keyword">then</span> </span><br><span class="line">          <span class="keyword">execute</span> immediate <span class="string">&#x27;drop table mid_bd_corp&#x27;</span>; </span><br><span class="line">      <span class="keyword">end</span> if; </span><br><span class="line"><span class="keyword">end</span>; </span><br><span class="line"><span class="operator">/</span></span><br><span class="line"><span class="comment">--创建表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> mid_bd_corp</span><br><span class="line">(</span><br><span class="line">    BAG_ID               VARCHAR2(<span class="number">36</span> BYTE)    <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    USER_ID              VARCHAR2(<span class="number">36</span> BYTE)    <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">    TYPE                 VARCHAR2(<span class="number">36</span> BYTE),</span><br><span class="line">    ASSOCIATED_FIELD     VARCHAR2(<span class="number">36</span> BYTE),</span><br><span class="line">    <span class="keyword">constraint</span> PK_DPMS_BAG_FILE <span class="keyword">primary</span> key (BAG_ID, USER_ID)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="注意：在end-后的-不要省略，不然会报错！！！"><a href="#注意：在end-后的-不要省略，不然会报错！！！" class="headerlink" title="注意：在end;后的/不要省略，不然会报错！！！"></a><strong>注意：在end;后的<code>/</code>不要省略，不然会报错！！！</strong></h2></blockquote>
+<h3 id="oracle之唯一索引"><a href="#oracle之唯一索引" class="headerlink" title="oracle之唯一索引"></a>oracle之唯一索引</h3><p>1 oracle支持唯一索引。可以理解为唯一约束。用来控制和约束需要插入的表中字段。（主键自动为唯一约束，且不为空）。</p>
+<p>2 唯一索引，可以理解为：唯一约束，用来控制表中字段的。例如表中有两个或多个字段。插入数据库时，不希望这些字段值出现重复。则可以将这些字段添加为唯一索引。unique 表示唯一<br>如：create  unique index user_password_index on users(username,password);<br>格式：create unique index 唯一索引名 on 表名(字段1，字段2..)。<br>这样进行插入时，先检查唯一索引值是否出现重复。如果出现重复则报错。</p>
+<p>3 唯一索引也能删除。通过drop index  索引名即可。<br>如：drop index user_password_index<br>格式：drop index  索引名</p>
+<p>4 唯一索引的字段也可以出现null。而主键不能出现null.</p>
+<p>综述：唯一索引用来控制表中的字段不出现重复的。对表中的字段进行约束。<br>例子：<br>select * from USERS</p>
+<p>create  unique index user_password_index on users(username,password);<br>select * from users<br>insert into users values(101,’admin’,’888888’,1)<br>insert into users values(102,’xcl’,’123’,1)–如果数据库中出现重复了，则报错<br>drop index user_password_index</p>
+<h3 id="索引说明："><a href="#索引说明：" class="headerlink" title="索引说明："></a>索引说明：</h3><p>索引是数据库对象之一，用于加快数据的检索，类似于书籍的索引。如果有一份10页的账单，请你找出账单中客户名&#x3D;“小雨”的所有流水。如果没有索引，你需要搜索整个账单，因为不能保证只有一个‘小雨’的流水，必须全部搜索一遍，这种方法就相当于全表扫描检索方式。但如果账单前页附有索引，里面有所有客户名+rowid的索引条目，且按客户名升序排列，你只需要检索索引页，就可以直接查到对应的记录，这就是索引的工作原理。相比之下，索引可以有效的提高检索速度。</p>
+<ul>
+<li>索引在逻辑上和物理上都与相关的表和数据无关，当创建或者删除一个索引时，不会影响基本的表。</li>
+<li>索引一旦建立，在表上进行DML操作时（例如在执行插入、修改或者删除相关操作时），oracle会自动管理索引，索引删除，不会对表产生影响。</li>
+<li>索引对用户是透明的，无论表上是否有索引，sql语句的用法不变。</li>
+<li>oracle创建主键时会自动在该列上创建索引。</li>
+</ul>
+<h3 id="索引创建语句："><a href="#索引创建语句：" class="headerlink" title="索引创建语句："></a>索引创建语句：</h3><ul>
+<li>单列索引：</li>
+</ul>
+<p>​     create index index_name on table_name(column_name);</p>
+<ul>
+<li>复合索引：</li>
+</ul>
+<p>​     create index index_name on table_name(column_name1, column_name2, column_name, …);</p>
+<ul>
+<li>删除索引：</li>
+</ul>
+<p>​      drop index index_name;</p>
+<ul>
+<li>查看某表的所有索引：</li>
+</ul>
+<p>​     select * from all_index where table_name&#x3D;’表名’;</p>
+<ul>
+<li>查看某表中带有索引的所有列：</li>
+</ul>
+<p>​     select * from all_ind_columns where table_name&#x3D;’表名’;</p>
+<h3 id="索引的建立原则："><a href="#索引的建立原则：" class="headerlink" title="索引的建立原则："></a>索引的建立原则：</h3><ul>
+<li>索引应该建立在WHERE子句中经常使用的列上。如果某个大表经常使用某个字段进行查询，并且检索的行数少于5%，则应该考虑在该列上建立索引。</li>
+<li>对于两个表连接的字段应该建立索引。</li>
+<li>如果经常在某个表的字段上进行order by 的话，则也应该在这个列上建立索引。</li>
+<li>小表数据很少使用全表扫描速度已经很快，没必要建立索引。</li>
+</ul>
+<h3 id="索引的优点："><a href="#索引的优点：" class="headerlink" title="索引的优点："></a>索引的优点：</h3><ul>
+<li>很大的提高了数据检索的速度；</li>
+<li>创建唯一索引能够保证数据库表中每一行数据的唯一性（唯一约束性）。</li>
+<li>提高表与表之间的连接速度。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/89de/" rel="prev" title="【合集】Maven">
+                  <i class="fa fa-chevron-left"></i> 【合集】Maven
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/1c28/" rel="next" title="【合集】数据库&MySQL">
+                  【合集】数据库&MySQL <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<span class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"> 站点总字数:</i>
+    </span>
+    <span title="站点总字数">1.6m</span>
+  </span>
+
+
+
+<span class="post-meta-divider">|</span>
+
+
+<span class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"> 站点总访客:</i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+
+<!--
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye">站点总访问量:</i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+-->
+
+</span>
+
+
+
+
+
+
+
+ <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+
+
+
+<div>
+
+<span class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span url ="https://zxhome.eu.org/" class="author" itemprop="copyrightHolder">zhangxin</span>
+</span>
+
+<span class="post-meta-divider">|</span>
+<span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+</span>
+
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz","app_key":"y4hUKKnP2A2FzMFxbPFem6b6","server_url":"https://f8hohjt8.lc-cn-n1-shared.com","security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>
