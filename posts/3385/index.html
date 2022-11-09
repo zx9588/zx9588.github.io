@@ -29,7 +29,7 @@
 <meta property="og:description" content="资源速查-Java语言">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-15T01:43:53.000Z">
-<meta property="article:modified_time" content="2022-08-21T08:39:00.641Z">
+<meta property="article:modified_time" content="2022-11-08T15:56:43.956Z">
 <meta property="article:author" content="zhangxin">
 <meta name="twitter:card" content="summary">
 
@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">281</span>
+          <span class="site-state-item-count">280</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -254,7 +254,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-21 16:39:00" itemprop="dateModified" datetime="2022-08-21T16:39:00+08:00">2022-08-21</time>
+      <time title="修改时间：2022-11-08 23:56:43" itemprop="dateModified" datetime="2022-11-08T23:56:43+08:00">2022-11-08</time>
     </span>
 
   
@@ -271,7 +271,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>13</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -293,19 +293,8 @@
         <blockquote>
 <p><code>推荐先阅读</code>：<a href="/posts/15f3">JavaSE</a></p>
 </blockquote>
-<ul>
-<li>枚举类是用final修饰的，枚举类不能被继承！</li>
-<li>枚举类默认继承了java.lang.Enum枚举类。</li>
-<li>枚举类的第一行都是常量,存储都是枚举类的对象。</li>
-<li>枚举类的第一行必须是罗列枚举类的实例名称。<br>所以：枚举类相当于是多例设计模式。</li>
-<li>java建议做信息标志和信息分类应该使用枚举实现：最优雅的方式。<br>可以实现可读性，而且入参受限制，不能乱输入！！！</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">修饰符 <span class="keyword">enum</span> 枚举名称&#123;</span><br><span class="line">    第一行都是罗列枚举实例的名称。</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 枚举</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">Season</span> &#123;</span><br><span class="line">    SPRING , SUMMER , AUTUMN , WINTER;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 枚举类的编译以后源代码：</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">Season</span> <span class="keyword">extends</span> <span class="title class_">java</span>.lang.Enum&lt;Season&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Season</span> <span class="variable">SPRING</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Season</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Season</span> <span class="variable">SUMMER</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Season</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Season</span> <span class="variable">AUTUMN</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Season</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Season</span> <span class="variable">WINTER</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Season</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Season[] values();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Season <span class="title function_">valueOf</span><span class="params">(java.lang.String)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>- </p>
 
-<p>API</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取当前类的全部枚举实例 ： public static Season[] values()</span></span><br><span class="line">Season[] ss = Season.values();</span><br><span class="line"><span class="comment">// 获取枚举对象的索引: ordinal()</span></span><br><span class="line"><span class="type">Season</span> <span class="variable">s2</span> <span class="operator">=</span> Season.AUTUMN;</span><br><span class="line">System.out.println(s2.ordinal()); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">Season</span>&#123;</span><br><span class="line">    SPRING, SUMMER , AUTUMN, WINTER ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用案例</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">Oritation</span>&#123;</span><br><span class="line">    UP , DOWN , LEFT , RIGHT ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">move</span><span class="params">(Oritation o)</span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (o)&#123;</span><br><span class="line">        <span class="keyword">case</span> UP:</span><br><span class="line">            System.out.println(<span class="string">&quot;让🐎往👆蹦~~~~&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> DOWN:</span><br><span class="line">            System.out.println(<span class="string">&quot;让🐎往👇蹦~~~~&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LEFT:</span><br><span class="line">            System.out.println(<span class="string">&quot;让🐎往👈蹦~~~~&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> RIGHT:</span><br><span class="line">            System.out.println(<span class="string">&quot;让🐎往👉蹦~~~~&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
