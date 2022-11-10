@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-z.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-z.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-z.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/red/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Java8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8">
+<meta property="og:url" content="https://zxblog.eu.org/posts/aa4f/index.html">
+<meta property="og:site_name" content="知行博客">
+<meta property="og:description" content="Java8">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zxblog.eu.org/assets/v2-50b25a5f65fe02d6eebe27801a94c833_1440w.webp">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20221109235606337.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/image-20221110121723647.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/stream%E6%B5%81.png">
+<meta property="article:published_time" content="2021-11-17T07:28:58.000Z">
+<meta property="article:modified_time" content="2022-11-10T10:50:21.636Z">
+<meta property="article:author" content="zhangxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zxblog.eu.org/assets/v2-50b25a5f65fe02d6eebe27801a94c833_1440w.webp">
+
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/aa4f/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zxblog.eu.org/posts/aa4f/","path":"posts/aa4f/","title":"Java8"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java8 | 知行博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">知行博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">zxblog.eu.org | 电脑浏览,体验拉满</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-友链"><a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="nav-text">Java弱引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="nav-text">为什么使用弱引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E9%98%9F%E5%88%97"><span class="nav-text">引用队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadLocal"><span class="nav-text">ThreadLocal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal%E6%80%8E%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="nav-text">ThreadLocal怎么用？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">ThreadLocal源码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98"><span class="nav-text">ThreadLocal 内存泄漏问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88key%E4%BD%BF%E7%94%A8%E5%BC%B1%E5%BC%95%E7%94%A8%EF%BC%9F"><span class="nav-text">为什么key使用弱引用？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda-%E8%A1%8C%E4%B8%BA%E5%8F%82%E6%95%B0%E5%8C%96"><span class="nav-text">Lambda(行为参数化)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F"><span class="nav-text">Lambda 表达式的不同形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3"><span class="nav-text">函数接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD"><span class="nav-text">类型推断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream%E6%B5%81"><span class="nav-text">Stream流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E8%A7%88%E5%9B%BE"><span class="nav-text">总览图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">流的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#peek"><span class="nav-text">peek</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concat%E5%90%88%E5%B9%B6%E6%B5%81"><span class="nav-text">concat合并流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86%E5%90%88%EF%BC%8C%E5%90%88%E5%B9%B6%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">字符集合，合并成字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapToInt"><span class="nav-text">mapToInt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parallelStream"><span class="nav-text">parallelStream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted"><span class="nav-text">sorted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List%E8%BD%ACMap"><span class="nav-text">List转Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#limit"><span class="nav-text">limit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skip%E8%B7%B3%E8%BF%87%E5%89%8D%E5%87%A0%E4%B8%AA"><span class="nav-text">skip跳过前几个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct%E5%8E%BB%E9%87%8D"><span class="nav-text">distinct去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96API"><span class="nav-text">其他API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E5%88%86%E7%BB%84"><span class="nav-text">多级分组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional"><span class="nav-text">Optional</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E8%AF%A6%E8%A7%A3"><span class="nav-text">类详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ifPresent%E3%80%81ifPresentOrElse"><span class="nav-text">ifPresent、ifPresentOrElse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orElse"><span class="nav-text">orElse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-1"><span class="nav-text">map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="nav-text">方法引用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="/avatar.webp">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">282</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><span class="with-love" id="animate1"><i class="fa fa-heart"></i></span>个人主页</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/aa4f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.webp">
+      <meta itemprop="name" content="zhangxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知行博客">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java8 | 知行博客">
+      <meta itemprop="description" content="Java8">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java8
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-17 15:28:58" itemprop="dateCreated datePublished" datetime="2021-11-17T15:28:58+08:00">2021-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-10 18:50:21" itemprop="dateModified" datetime="2022-11-10T18:50:21+08:00">2022-11-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Java开发</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/aa4f/" class="post-meta-item leancloud_visitors" data-flag-title="Java8" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>17k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>16 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Java8</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Java弱引用"><a href="#Java弱引用" class="headerlink" title="Java弱引用"></a>Java弱引用</h2><blockquote>
+<p>Java中存在四种引用，它们由强到弱依次是：强引用、软引用、弱引用、虚引用。下面我们简单介绍下除弱引用外的其他三种引用：</p>
+<ul>
+<li>强引用（Strong Reference）：通常我们通过new来创建一个新对象时返回的引用就是一个强引用，若一个对象通过一系列强引用可到达，它就是强可达的(strongly reachable)，那么它就不被回收</li>
+<li>弱引用（Weak Reference）：弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了<strong>只具有弱引用</strong>的对象，不管当前内存空间足够与否，都会回收它的内存</li>
+<li>软引用（Soft Reference）：软引用和弱引用的区别在于，若一个对象是弱引用可达，无论当前内存是否充足它都会被回收，而软引用可达的对象在内存不充足时才会被回收，因此软引用要比弱引用“强”一些</li>
+<li>虚引用（Phantom Reference）：虚引用是Java中最弱的引用，那么它弱到什么程度呢？它是如此脆弱以至于我们通过虚引用甚至无法获取到被引用的对象，虚引用存在的唯一作用就是当它指向的对象被回收后，虚引用本身会被加入到引用队列中，用作记录它指向的对象已被回收。</li>
+</ul>
+</blockquote>
+<p>判断弱引用对象的关键在于只具有弱引用的对象，也就是说，如果一个对象有强引用，那么在系统GC时，是不会回收此对象的，也不会释放弱引用。</p>
+<h3 id="为什么使用弱引用"><a href="#为什么使用弱引用" class="headerlink" title="为什么使用弱引用"></a>为什么使用弱引用</h3><p>Java常通过使用弱引用来避免内存泄漏，例如在JDK中有一种内存变量ThreadLocal，通过ThreadLocal变量可以使共享的变量在不同的线程中有不同的副本，原理是在每一个Thread有一个threadLocalMap的属性，用来存放ThreadLocal对象，ThreadLocalMap中是通过一个Entry[]的散列表存放ThreadLocal变量以及ThreadLocal的value，而作为Entry的key的ThreadLocal就是使用的弱引用，结构如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Entry</span> <span class="keyword">extends</span> <span class="title class_">WeakReference</span>&lt;ThreadLocal&lt;?&gt;&gt; &#123;</span><br><span class="line">    <span class="comment">/** The value associated with this ThreadLocal. */</span></span><br><span class="line">    Object value;</span><br><span class="line"></span><br><span class="line">    Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</span><br><span class="line">        <span class="built_in">super</span>(k);</span><br><span class="line">        value = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Entry通过继承了WeakReference并通过get、set设置ThreadLocal为Entry的referent。</p>
+<p><strong>这里为什么要使用弱引用呢？</strong></p>
+<p>原因是如果不使用弱引用，那么当持有value的强引用释放掉后，当线程没有回收释放时，threadLocalMap会一直持有ThreadLocal以及value的强应用，导致value不能够被回收，从而造成内存泄漏。</p>
+<p>通过使用弱引用，当ThreadLocal的强引用释放掉后，通过一次系统gc检查，发现ThreadLocal对象只有threadLocalMap中Entry的若引用持有，此时根据弱引用的机制就会回收ThreadLocal对象，从而避免了内存泄露。当然ThreadLocal还有一些额外的保护措施，详细分析可以参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/640f2c0ac4b0">死磕Java源码之ThreadLocal实现分析</a></p>
+<p>这里我们可以通过一个示例来验证一下：</p>
+<p><strong>WeakReferenceDemo.java</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.ref.WeakReference;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 弱引用回收测试</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WeakReferenceDemo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> WeakReference&lt;String&gt; weakReference1;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> WeakReference&lt;String&gt; weakReference2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        test1();</span><br><span class="line">        <span class="comment">//可以输出hello值，此时两个弱引用扔持有对象，而且未进行gc</span></span><br><span class="line">        System.out.println(<span class="string">&quot;未进行gc时，只有弱引用指向value内存区域：&quot;</span> + weakReference1.get());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//此时已无强一用执行&quot;value&quot;所在内存区域，gc时会回收弱引用</span></span><br><span class="line">        System.gc();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//此时输出都为nuill</span></span><br><span class="line">        System.out.println(<span class="string">&quot;进行gc时，只有弱引用指向value内存区域：&quot;</span> + weakReference1.get());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">test1</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">hello</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;value&quot;</span>);</span><br><span class="line"></span><br><span class="line">        weakReference1 = <span class="keyword">new</span> <span class="title class_">WeakReference</span>&lt;&gt;(hello);</span><br><span class="line"></span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="comment">//此时gc不会回收弱引用，因为字符串&quot;value&quot;仍然被hello对象强引用</span></span><br><span class="line">        System.out.println(<span class="string">&quot;进行gc时，强引用与弱引用同时指向value内存区域：&quot;</span> + weakReference1.get());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">进行gc时，强引用与弱引用同时指向value内存区域：value</span><br><span class="line">未进行gc时，只有弱引用指向value内存区域：value</span><br><span class="line">进行gc时，只有弱引用指向value内存区域：<span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<p>分析输出结果可以看出：</p>
+<p>当有强引用指向value内存区域时，即使进行gc，弱引用也不会被释放，对象不回被回收。</p>
+<p>当无强引用指向value内存区域是，此时进行gc，弱引用会被释放，对象将会执行回收流程。</p>
+<h3 id="引用队列"><a href="#引用队列" class="headerlink" title="引用队列"></a>引用队列</h3><p>下面我们来简单地介绍下引用队列的概念。实际上，WeakReference类有两个构造函数：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个指向给定对象的弱引用``WeakReference(T referent) </span></span><br><span class="line"><span class="comment">//创建一个指向给定对象并且登记到给定引用队列的弱引用``WeakReference(T referent, ReferenceQueue&lt;? ``super` `T&gt; q)</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到第二个构造方法中提供了一个ReferenceQueue类型的参数，通过提供这个参数，我们便把创建的弱引用对象注册到了一个引用队列上，这样当它被垃圾回收器清除时，就会把它送入这个引用队列中，我们便可以对这些被清除的弱引用对象进行统一管理。</p>
+<h2 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h2><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
+<li>1、在进行对象跨层传递的时候，使用ThreadLocal可以避免多次传递，打破层次间的约束。</li>
+<li>2、线程间数据隔离</li>
+<li>3、进行事务操作，用于存储线程事务信息。</li>
+<li>4、数据库连接，<code>Session</code>会话管理。</li>
+</ul>
+<h3 id="ThreadLocal怎么用？"><a href="#ThreadLocal怎么用？" class="headerlink" title="ThreadLocal怎么用？"></a>ThreadLocal怎么用？</h3><p>下面让我们来看一个例子：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadLocalTest02</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ThreadLocal&lt;String&gt; local = <span class="keyword">new</span> <span class="title class_">ThreadLocal</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        IntStream.range(<span class="number">0</span>, <span class="number">10</span>).forEach(i -&gt; <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            local.set(Thread.currentThread().getName() + <span class="string">&quot;:&quot;</span> + i);</span><br><span class="line">            System.out.println(<span class="string">&quot;线程：&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;,local:&quot;</span> + local.get());</span><br><span class="line">        &#125;).start());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">线程：Thread-<span class="number">0</span>,local:Thread-<span class="number">0</span>:<span class="number">0</span></span><br><span class="line">线程：Thread-<span class="number">1</span>,local:Thread-<span class="number">1</span>:<span class="number">1</span></span><br><span class="line">线程：Thread-<span class="number">2</span>,local:Thread-<span class="number">2</span>:<span class="number">2</span></span><br><span class="line">线程：Thread-<span class="number">3</span>,local:Thread-<span class="number">3</span>:<span class="number">3</span></span><br><span class="line">线程：Thread-<span class="number">4</span>,local:Thread-<span class="number">4</span>:<span class="number">4</span></span><br><span class="line">线程：Thread-<span class="number">5</span>,local:Thread-<span class="number">5</span>:<span class="number">5</span></span><br><span class="line">线程：Thread-<span class="number">6</span>,local:Thread-<span class="number">6</span>:<span class="number">6</span></span><br><span class="line">线程：Thread-<span class="number">7</span>,local:Thread-<span class="number">7</span>:<span class="number">7</span></span><br><span class="line">线程：Thread-<span class="number">8</span>,local:Thread-<span class="number">8</span>:<span class="number">8</span></span><br><span class="line">线程：Thread-<span class="number">9</span>,local:Thread-<span class="number">9</span>:<span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<p>从结果可以看到，每一个线程都有自己的local 值，这就是TheadLocal的基本使用 。</p>
+<p>下面我们从源码的角度来分析一下，ThreadLocal的工作原理。</p>
+<h3 id="ThreadLocal源码分析"><a href="#ThreadLocal源码分析" class="headerlink" title="ThreadLocal源码分析"></a>ThreadLocal源码分析</h3><p>1、<code>set</code> 方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">set</span><span class="params">(T value)</span> &#123;</span><br><span class="line">    <span class="comment">//首先获取当前线程对象</span></span><br><span class="line">    <span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> Thread.currentThread();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取线程中变量 ThreadLocal.ThreadLocalMap</span></span><br><span class="line">    <span class="type">ThreadLocalMap</span> <span class="variable">map</span> <span class="operator">=</span> getMap(t);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//如果不为空，</span></span><br><span class="line">    <span class="keyword">if</span> (map != <span class="literal">null</span>)</span><br><span class="line">        map.set(<span class="built_in">this</span>, value);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment">//如果为空，初始化该线程对象的map变量，其中key 为当前的threadlocal 变量</span></span><br><span class="line">        createMap(t, value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化线程内部变量 threadLocals ，key 为当前 threadlocal</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">createMap</span><span class="params">(Thread t, T firstValue)</span> &#123;</span><br><span class="line">    t.threadLocals = <span class="keyword">new</span> <span class="title class_">ThreadLocalMap</span>(<span class="built_in">this</span>, firstValue);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ThreadLocalMap(ThreadLocal&lt;?&gt; firstKey, Object firstValue) &#123;</span><br><span class="line">    table = <span class="keyword">new</span> <span class="title class_">Entry</span>[INITIAL_CAPACITY];</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - <span class="number">1</span>);</span><br><span class="line">    table[i] = <span class="keyword">new</span> <span class="title class_">Entry</span>(firstKey, firstValue);</span><br><span class="line">    size = <span class="number">1</span>;</span><br><span class="line">    setThreshold(INITIAL_CAPACITY);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Entry</span> <span class="keyword">extends</span> <span class="title class_">WeakReference</span>&lt;ThreadLocal&lt;?&gt;&gt; &#123;</span><br><span class="line">    <span class="comment">/** The value associated with this ThreadLocal. */</span></span><br><span class="line">    Object value;</span><br><span class="line"></span><br><span class="line">    Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</span><br><span class="line">        <span class="built_in">super</span>(k);</span><br><span class="line">        value = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>汇总下，<code>ThreadLocalMap</code> 为 <code>ThreadLocal</code> 的一个静态内部类，里面定义了<code>Entry</code> 来保存数据。而且是继承的弱引用。在<code>Entry</code>内部使用<code>ThreadLocal</code>作为<code>key</code>，使用我们设置的<code>value</code>作为<code>value</code>。</p>
+<p>对于每个线程内部有个<code>ThreadLocal.ThreadLocalMap</code> 变量，存取值的时候，也是从这个容器中来获取。</p>
+<p>2、<code>get</code>方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> T <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> Thread.currentThread();</span><br><span class="line">    <span class="type">ThreadLocalMap</span> <span class="variable">map</span> <span class="operator">=</span> getMap(t);</span><br><span class="line">    <span class="keyword">if</span> (map != <span class="literal">null</span>) &#123;</span><br><span class="line">        ThreadLocalMap.<span class="type">Entry</span> <span class="variable">e</span> <span class="operator">=</span> map.getEntry(<span class="built_in">this</span>);</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">            <span class="type">T</span> <span class="variable">result</span> <span class="operator">=</span> (T)e.value;</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> setInitialValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的分析，相信你对该方法已经有所理解了，首先获取当前线程，然后通过<code>key threadlocal</code> 获取 设置的<code>value</code> 。</p>
+<h3 id="ThreadLocal-内存泄漏问题"><a href="#ThreadLocal-内存泄漏问题" class="headerlink" title="ThreadLocal 内存泄漏问题"></a>ThreadLocal 内存泄漏问题</h3><p>我们首先来看下，下面这个类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* The entries in this hash map extend WeakReference, using</span></span><br><span class="line"><span class="comment">* its main ref field as the key (which is always a</span></span><br><span class="line"><span class="comment">* ThreadLocal object).  Note that null keys (i.e. entry.get()</span></span><br><span class="line"><span class="comment">* == null) mean that the key is no longer referenced, so the</span></span><br><span class="line"><span class="comment">* entry can be expunged from table.  Such entries are referred to</span></span><br><span class="line"><span class="comment">* as &quot;stale entries&quot; in the code that follows.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Entry</span> <span class="keyword">extends</span> <span class="title class_">WeakReference</span>&lt;ThreadLocal&lt;?&gt;&gt; &#123;</span><br><span class="line">    <span class="comment">/** The value associated with this ThreadLocal. */</span></span><br><span class="line">    Object value;</span><br><span class="line"></span><br><span class="line">    Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;</span><br><span class="line">        <span class="built_in">super</span>(k);</span><br><span class="line">        value = v;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注释说的很清楚了，<code>Note that null keys (i.e. entry.get()* == null)</code></p>
+<p>如果 <code>key threadlocal</code> 为 <code>null</code> 了，这个 <code>entry</code> 就可以清除了。</p>
+<p><code>ThreadLocal</code>是一个弱引用，当为<code>null</code>时，会被当成垃圾回收 。</p>
+<p><img src="/../../assets/v2-50b25a5f65fe02d6eebe27801a94c833_1440w.webp" alt="img"></p>
+<p><strong>重点来了，突然我们ThreadLocal是null了，也就是要被垃圾回收器回收了，但是此时我们的ThreadLocalMap（thread 的内部属性）生命周期和Thread的一样，它不会回收，这时候就出现了一个现象。那就是ThreadLocalMap的key没了，但是value还在，这就造成了内存泄漏。</strong></p>
+<p>解决办法：使用完<code>ThreadLocal</code>后，执行<code>remove</code>操作，避免出现内存溢出情况。</p>
+<p>所以 如同 <code>lock</code> 的操作 最后要执行解锁操作一样，<code>ThreadLocal</code>使用完毕一定记得执行remove 方法，清除当前线程的数值。</p>
+<p>如果不<code>remove</code> 当前线程对应的<code>VALUE</code> ,就会一直存在这个值。</p>
+<p>使用了线程池，可以达到“线程复用”的效果。但是归还线程之前记得清除<code>ThreadLocalMap</code>，要不然再取出该线程的时候，<code>ThreadLocal</code>变量还会存在。这就不仅仅是内存泄露的问题了，整个业务逻辑都可能会出错。</p>
+<h3 id="为什么key使用弱引用？"><a href="#为什么key使用弱引用？" class="headerlink" title="为什么key使用弱引用？"></a>为什么key使用弱引用？</h3><p>如果使用强引用，当<code>ThreadLocal</code> 对象的引用（强引用）被回收了，<code>ThreadLocalMap</code>本身依然还持有<code>ThreadLocal</code>的强引用，如果没有手动删除这个key ,则<code>ThreadLocal</code>不会被回收，所以只要当前线程不消亡，<code>ThreadLocalMap</code>引用的那些对象就不会被回收， 可以认为这导致<code>Entry</code>内存泄漏。</p>
+<p>附：强引用-软引用-弱引用</p>
+<ul>
+<li>强引用：普通的引用，强引用指向的对象不会被回收；</li>
+<li>软引用：仅有软引用指向的对象，只有发生gc且内存不足，才会被回收；</li>
+<li>弱引用：仅有弱引用指向的对象，只要发生gc就会被回收。</li>
+</ul>
+<h2 id="Lambda-行为参数化"><a href="#Lambda-行为参数化" class="headerlink" title="Lambda(行为参数化)"></a>Lambda(行为参数化)</h2><p>Lambda 表达式中引用的局部变量必须是 final 或既成事实上的 final 变量。</p>
+<h3 id="Lambda-表达式的不同形式"><a href="#Lambda-表达式的不同形式" class="headerlink" title="Lambda 表达式的不同形式"></a>Lambda 表达式的不同形式</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Runnable</span> <span class="variable">noArguments</span> <span class="operator">=</span> () -&gt; System.out.println(<span class="string">&quot;Hello World&quot;</span>); </span><br><span class="line"></span><br><span class="line"><span class="type">ActionListener</span> <span class="variable">oneArgument</span> <span class="operator">=</span> event -&gt; System.out.println(<span class="string">&quot;button clicked&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Runnable</span> <span class="variable">multiStatement</span> <span class="operator">=</span> () -&gt; &#123; </span><br><span class="line">    System.out.print(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot; World&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">BinaryOperator&lt;Long&gt; add = (x, y) -&gt; x + y; </span><br><span class="line"></span><br><span class="line">BinaryOperator&lt;Long&gt; addExplicit = (Long x, Long y) -&gt; x + y; </span><br></pre></td></tr></table></figure>
+
+<h3 id="函数接口"><a href="#函数接口" class="headerlink" title="函数接口"></a>函数接口</h3><p>函数接口是只有一个抽象方法的接口，用作 Lambda 表达式的类型。</p>
+<p>@FunctionalInterface函数式接口注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ActionListener 只有一个抽象方法:actionPerformed，被用来表示行为:接受一个参数， 返回空。记住，由于 actionPerformed 定义在一个接口里，因此 abstract 关键字不是必需 的。该接口也继承自一个不具有任何方法的父接口:EventListener。</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ActionListener</span> <span class="keyword">extends</span> <span class="title class_">EventListener</span> &#123; </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">actionPerformed</span><span class="params">(ActionEvent event)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Java中重要的函数接口</p>
+<p><img src="/../../assets/image-20221109235606337.png" alt="image-20221109235606337"></p>
+<blockquote>
+<p>Predicate 接受一个对象，返回一个布尔值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Predicate</span>&lt;T&gt; &#123; </span><br><span class="line">  <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(T t)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="../../assets/image-20221110121723647.png" alt="image-20221110121723647" style="zoom:25%;" /> 
+
+
+
+<p>BinaryOperator 接受两个参数，返回一个值</p>
+<p>BinaryOperator 是一个具有泛型参数的函数 接口，该类型既是参数 x 和 y 的类型，也是返回值的类型。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BinaryOperator&lt;Long&gt; addLongs = (x, y) -&gt; x + y;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h3><h2 id="Stream流"><a href="#Stream流" class="headerlink" title="Stream流"></a>Stream流</h2><h3 id="总览图"><a href="#总览图" class="headerlink" title="总览图"></a>总览图</h3><p><img src="/../../assets/stream%E6%B5%81.png" alt="stream流"></p>
+<h3 id="流的创建"><a href="#流的创建" class="headerlink" title="流的创建"></a>流的创建</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1、通过Collection系列提供的stream()（串行） 或parallelStream()（并行）获取</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="comment">// 串行流</span></span><br><span class="line">list.stream();</span><br><span class="line"><span class="comment">// 并行流</span></span><br><span class="line">list.parallelStream();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、通过Arrays中的静态方法stream() 获取数据流</span></span><br><span class="line">String[] u = <span class="keyword">new</span> <span class="title class_">String</span>[<span class="number">2</span>];</span><br><span class="line">Arrays.stream(u);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、通过Stream；类中的静态方法of()</span></span><br><span class="line">Stream.of(<span class="string">&quot;11&quot;</span>, <span class="string">&quot;2&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="peek"><a href="#peek" class="headerlink" title="peek"></a>peek</h3><p>需求是将Map&lt;String,Object&gt;改为Map&lt;String,Object.字段&gt;</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String,Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">map.put(<span class="string">&quot;a&quot;</span>,<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">1</span>,<span class="string">&quot;张三&quot;</span>));</span><br><span class="line">map.put(<span class="string">&quot;b&quot;</span>,<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">2</span>,<span class="string">&quot;李四&quot;</span>));</span><br><span class="line">map.put(<span class="string">&quot;c&quot;</span>,<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">3</span>,<span class="string">&quot;王五&quot;</span>));</span><br><span class="line">map.put(<span class="string">&quot;d&quot;</span>,<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="number">4</span>,<span class="string">&quot;赵六&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需求是将Map&lt;String,Object&gt;改为Map&lt;String,Object.字段&gt;</span></span><br><span class="line">Map&lt;String, Object&gt; collect = map.entrySet()</span><br><span class="line">    .stream()</span><br><span class="line">    <span class="comment">// peek支持在每个元素上执行一个操作并且返回新的stream，我们就利用这个方法转换数据</span></span><br><span class="line">    .peek(obj -&gt; obj.setValue(((Student) obj.getValue()).getName()))</span><br><span class="line">    <span class="comment">// collect方法用来将流转到集合对象</span></span><br><span class="line">    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));</span><br><span class="line"><span class="comment">//遍历输出</span></span><br><span class="line">collect.forEach((key,value)-&gt;System.out.println(key+<span class="string">&quot;：&quot;</span>+value));</span><br></pre></td></tr></table></figure>
+
+<h3 id="concat合并流"><a href="#concat合并流" class="headerlink" title="concat合并流"></a>concat合并流</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 合并流 数组流和集合流也可以合并</span></span><br><span class="line"><span class="keyword">static</span> &lt;T&gt; Stream&lt;T&gt; <span class="title function_">concat</span><span class="params">(Stream&lt;? extends T&gt; a, Stream&lt;? extends T&gt; b)</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符集合，合并成字符串"><a href="#字符集合，合并成字符串" class="headerlink" title="字符集合，合并成字符串"></a>字符集合，合并成字符串</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">strings.stream().collect(Collectors.joining(<span class="string">&quot;, &quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Stream&lt;T&gt; <span class="title function_">filter</span><span class="params">(Predicate&lt;? <span class="built_in">super</span> T&gt; predicate)</span>; <span class="comment">// 过滤元素</span></span><br><span class="line"></span><br><span class="line">list.stream()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">&quot;张&quot;</span>))</span><br><span class="line">    .filter( s -&gt; s.length()== <span class="number">3</span> )</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"><span class="comment">// filter 筛选出原Id集合中包含130的id元素</span></span><br><span class="line">List&lt;String&gt; newId = oldId.stream().filter(item -&gt; item.contains(<span class="string">&quot;130&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="mapToInt"><a href="#mapToInt" class="headerlink" title="mapToInt"></a>mapToInt</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回一个IntStream ，其中包含将给定函数应用于此流的元素的结果。 </span></span><br><span class="line">IntStream <span class="title function_">mapToInt</span><span class="params">(ToIntFunction&lt;? <span class="built_in">super</span> T&gt; mapper)</span>; </span><br><span class="line"></span><br><span class="line"><span class="type">IntSummaryStatistics</span> <span class="variable">stats</span> <span class="operator">=</span> integers.stream().mapToInt((x) -&gt;x).summaryStatistics();</span><br><span class="line">stats.getMax();<span class="comment">// 列表中最大的数</span></span><br><span class="line">stats.getMin(); <span class="comment">// 列表中最小的数</span></span><br><span class="line">stats.getSum();<span class="comment">// 求和</span></span><br><span class="line">stats.getAverage(); <span class="comment">// 平均数</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="parallelStream"><a href="#parallelStream" class="headerlink" title="parallelStream"></a>parallelStream</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">count = strings.parallelStream().filter(string -&gt; string.isEmpty()).count();</span><br><span class="line">System.out.println(<span class="string">&quot;空字符串的数量为: &quot;</span> + count);</span><br></pre></td></tr></table></figure>
+
+<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回由此流的元素组成的流，根据自然顺序排序。 </span></span><br><span class="line"><span class="comment">// 如果该流的元件不是Comparable ，一个java.lang.ClassCastException执行终端操作时，</span></span><br><span class="line"><span class="comment">// 可以抛出。对于有序流，排序稳定。 对于无序的流，不能保证稳定性。</span></span><br><span class="line">Stream&lt;T&gt; <span class="title function_">sorted</span><span class="params">()</span>;  </span><br><span class="line"><span class="comment">// 返回由该流的元素组成的流，根据提供的Comparator进行排序。 </span></span><br><span class="line"><span class="comment">// 对于有序流，排序稳定。 对于无序的流，不能保证稳定性。</span></span><br><span class="line">Stream&lt;T&gt; <span class="title function_">sorted</span><span class="params">(Comparator&lt;? <span class="built_in">super</span> T&gt; comparator)</span>; </span><br></pre></td></tr></table></figure>
+
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 加工方法（把原来的元素加工以后，重新放上去）</span></span><br><span class="line">&lt;R&gt; Stream&lt;R&gt; <span class="title function_">map</span><span class="params">(Function&lt;? <span class="built_in">super</span> T,? extends R&gt; mapper)</span>;</span><br><span class="line"></span><br><span class="line">Stream&lt;String&gt; nameStream = persons.stream().map(Person::getName);</span><br></pre></td></tr></table></figure>
+
+<h3 id="List转Map"><a href="#List转Map" class="headerlink" title="List转Map"></a>List转Map</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; strList = Arrays.asList(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;ba&quot;</span>, <span class="string">&quot;bb&quot;</span>, <span class="string">&quot;abc&quot;</span>, <span class="string">&quot;cbb&quot;</span>, <span class="string">&quot;bba&quot;</span>, <span class="string">&quot;cab&quot;</span>);</span><br><span class="line">Map&lt;Integer, String&gt; strMap = strList.stream()</span><br><span class="line">    .collect( Collectors.toMap( str -&gt; strList.indexOf(str), str -&gt; str ) );</span><br></pre></td></tr></table></figure>
+
+<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Stream&lt;T&gt; <span class="title function_">limit</span><span class="params">(<span class="type">long</span> maxSize)</span>; <span class="comment">// 取前几个元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// limit 筛选出前10条数据</span></span><br><span class="line">List&lt;String&gt; newId = oldId.stream().limit(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="skip跳过前几个"><a href="#skip跳过前几个" class="headerlink" title="skip跳过前几个"></a>skip跳过前几个</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Stream&lt;T&gt; <span class="title function_">skip</span><span class="params">(<span class="type">long</span> n)</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// skip 跳过前10个元素,此时就会从第11个元素开始操作</span></span><br><span class="line">List&lt;String&gt; newId = oldId.stream().skip(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="distinct去重"><a href="#distinct去重" class="headerlink" title="distinct去重"></a>distinct去重</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Stream&lt;T&gt; <span class="title function_">distinct</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">List&lt;String&gt; newId = oldId.stream().distinct();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="其他API"><a href="#其他API" class="headerlink" title="其他API"></a>其他API</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">count</span><span class="params">()</span>; <span class="comment">// 统计个数</span></span><br><span class="line">forEach(); <span class="comment">// 逐一处理(遍历)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多级分组"><a href="#多级分组" class="headerlink" title="多级分组"></a>多级分组</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Student&gt; testList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Student&gt;();</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张一&quot;</span>, <span class="number">1</span>, <span class="number">13</span>, <span class="string">&quot;3&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张二&quot;</span>, <span class="number">2</span>, <span class="number">13</span>, <span class="string">&quot;4&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">3</span>, <span class="number">14</span>, <span class="string">&quot;4&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;老王&quot;</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="string">&quot;2&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张四&quot;</span>, <span class="number">1</span>, <span class="number">15</span>, <span class="string">&quot;3&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张五&quot;</span>, <span class="number">2</span>, <span class="number">16</span>, <span class="string">&quot;1&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张六&quot;</span>, <span class="number">3</span>, <span class="number">17</span>, <span class="string">&quot;3&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张七&quot;</span>, <span class="number">3</span>, <span class="number">18</span>, <span class="string">&quot;5&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;老王&quot;</span>, <span class="number">1</span>, <span class="number">15</span>, <span class="string">&quot;1&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张八&quot;</span>, <span class="number">5</span>, <span class="number">15</span>, <span class="string">&quot;3&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;张九&quot;</span>, <span class="number">2</span>, <span class="number">15</span>, <span class="string">&quot;2&quot;</span>));</span><br><span class="line">testList.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;老王&quot;</span>, <span class="number">4</span>, <span class="number">13</span>, <span class="string">&quot;3&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通分组</span></span><br><span class="line">Map&lt;Integer, List&lt;Student&gt;&gt; testMap = testList.stream().collect(Collectors.groupingBy(s -&gt; s.getStuId()));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多级分组</span></span><br><span class="line">Map&lt;Integer, Map&lt;Integer, Map&lt;String, List&lt;Student&gt;&gt;&gt;&gt; stuIdMapMap = testList.stream()</span><br><span class="line">    .collect(Collectors.groupingBy(Student::getStuId,</span><br><span class="line">                                   Collectors.groupingBy(Student::getStuAge,</span><br><span class="line">                                                         Collectors.groupingBy(Student::getClassNum))));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 分组之后进行业务处理</span></span><br><span class="line">stuIdMapMap.forEach((stuId, stuAgeMapMap) -&gt; &#123;</span><br><span class="line">    <span class="comment">// 业务处理</span></span><br><span class="line">    stuAgeMapMap.forEach((stuAge, classNumMapMap) -&gt; &#123;</span><br><span class="line">        <span class="comment">// 业务处理</span></span><br><span class="line">        classNumMapMap.forEach((classNum, studentList) -&gt; &#123;</span><br><span class="line">            Optional.ofNullable(studentList).orElse(Collections.emptyList()).forEach(student -&gt; &#123;</span><br><span class="line">                <span class="comment">// 业务处理</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h2><h3 id="类详解"><a href="#类详解" class="headerlink" title="类详解"></a>类详解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">Optional</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="comment">// 空的Optional对象</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Optional&lt;?&gt; EMPTY = <span class="keyword">new</span> <span class="title class_">Optional</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果非空，就是value值，如果为空，就没有值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> T value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 无参构造，将value初始化为null</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Optional</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取一个Optional对象，value为null</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>&lt;T&gt; Optional&lt;T&gt; <span class="title function_">empty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">        Optional&lt;T&gt; t = (Optional&lt;T&gt;) EMPTY;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用构造器生成一个Optional对象，如果value值为null，就抛出空指针异常</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Optional</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = Objects.requireNonNull(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用静态方法获取一个Optional对象，如果value值为null，就抛出空指针异常</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; Optional&lt;T&gt; <span class="title function_">of</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Optional</span>&lt;&gt;(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果value为null，返回value为null的Optional对象，否则生成一个value为传入value的对象</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; Optional&lt;T&gt; <span class="title function_">ofNullable</span><span class="params">(T value)</span> &#123;</span><br><span class="line">        <span class="type">return</span> <span class="variable">value</span> <span class="operator">=</span>= <span class="literal">null</span> ? empty() : of(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取当前Optional对象的value值，如果value为null，则抛出异常</span></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">get</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchElementException</span>(<span class="string">&quot;No value present&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断当前Optional对象value值是否非空，不为null则返回true</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPresent</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value != <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 对当前Optional对象的value值进行操作</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">ifPresent</span><span class="params">(Consumer&lt;? <span class="built_in">super</span> T&gt; consumer)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (value != <span class="literal">null</span>)</span><br><span class="line">            <span class="comment">// 使用consumer消费者方法</span></span><br><span class="line">            consumer.accept(value);</span><br><span class="line">        <span class="comment">// 否则不做任何操作</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据条件过滤Optional对象</span></span><br><span class="line">    <span class="keyword">public</span> Optional&lt;T&gt; <span class="title function_">filter</span><span class="params">(Predicate&lt;? <span class="built_in">super</span> T&gt; predicate)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果predicate比较方法为null，则抛出空指针异常</span></span><br><span class="line">        Objects.requireNonNull(predicate);</span><br><span class="line">        <span class="comment">// 如果value值为空，则返回当前Optional对象</span></span><br><span class="line">        <span class="keyword">if</span> (!isPresent())</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="comment">// 如果value有值</span></span><br><span class="line">            <span class="comment">// 则使用predicate进行比较，如果匹配则返回当前Optional对象</span></span><br><span class="line">            <span class="comment">// 不匹配则返回一个value为null的Optional对象</span></span><br><span class="line">            <span class="keyword">return</span> predicate.test(value) ? <span class="built_in">this</span> : empty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将当前Optional对象的value根据mapper函数封装成另外的Optional对象</span></span><br><span class="line">    <span class="comment">// mapper函数入参的类型为value类型的超类型，返回类型为U类型的子类型</span></span><br><span class="line">    <span class="keyword">public</span>&lt;U&gt; Optional&lt;U&gt; <span class="title function_">map</span><span class="params">(Function&lt;? <span class="built_in">super</span> T, ? extends U&gt; mapper)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果mapper函数为null，则抛出空指针异常</span></span><br><span class="line">        Objects.requireNonNull(mapper);</span><br><span class="line">        <span class="comment">// 如果value值为空，则返回value为null的Optional对象</span></span><br><span class="line">        <span class="keyword">if</span> (!isPresent())</span><br><span class="line">            <span class="keyword">return</span> empty();</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 如果value有值</span></span><br><span class="line">            <span class="comment">// 将mapper.apply(value)的返回值等装成一个Optional对象</span></span><br><span class="line">            <span class="keyword">return</span> Optional.ofNullable(mapper.apply(value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将当前Optional对象的value根据mapper函数封装成另外的Optional对象</span></span><br><span class="line">    <span class="comment">// mapper函数入参的类型为value类型的超类型，返回类型为value为U类型的Optional对象</span></span><br><span class="line">    <span class="keyword">public</span>&lt;U&gt; Optional&lt;U&gt; <span class="title function_">flatMap</span><span class="params">(Function&lt;? <span class="built_in">super</span> T, Optional&lt;U&gt;&gt; mapper)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果mapper函数为null，则抛出空指针异常</span></span><br><span class="line">        Objects.requireNonNull(mapper);</span><br><span class="line">        <span class="comment">// 如果value值为空，则返回value为null的Optional对象</span></span><br><span class="line">        <span class="keyword">if</span> (!isPresent())</span><br><span class="line">            <span class="keyword">return</span> empty();</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 如果value有值</span></span><br><span class="line">            <span class="comment">// 如果mapper.apply(value)为null，则抛出空指针异常</span></span><br><span class="line">            <span class="comment">// 返回mapper.apply(value)</span></span><br><span class="line">            <span class="keyword">return</span> Objects.requireNonNull(mapper.apply(value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果value不为空则返回value，否则返回other</span></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">orElse</span><span class="params">(T other)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value != <span class="literal">null</span> ? value : other;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果value不为空则返回value，否则返回other.get()</span></span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">orElseGet</span><span class="params">(Supplier&lt;? extends T&gt; other)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value != <span class="literal">null</span> ? value : other.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果value不为空则返回value，否则抛出exceptionSupplier.get()定义的异常</span></span><br><span class="line">    <span class="keyword">public</span> &lt;X <span class="keyword">extends</span> <span class="title class_">Throwable</span>&gt; T <span class="title function_">orElseThrow</span><span class="params">(Supplier&lt;? extends X&gt; exceptionSupplier)</span> <span class="keyword">throws</span> X &#123;</span><br><span class="line">        <span class="keyword">if</span> (value != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> exceptionSupplier.get();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 比较当前Optional对象与obj是否相等</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == obj) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!(obj <span class="keyword">instanceof</span> Optional)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Optional&lt;?&gt; other = (Optional&lt;?&gt;) obj;</span><br><span class="line">        <span class="keyword">return</span> Objects.equals(value, other.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取当前value的hashcode</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hashCode(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// toString</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value != <span class="literal">null</span></span><br><span class="line">            ? String.format(<span class="string">&quot;Optional[%s]&quot;</span>, value)</span><br><span class="line">            : <span class="string">&quot;Optional.empty&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ifPresent、ifPresentOrElse"><a href="#ifPresent、ifPresentOrElse" class="headerlink" title="ifPresent、ifPresentOrElse"></a>ifPresent、ifPresentOrElse</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 判断对象是否有值</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">present</span> <span class="operator">=</span> Optional.ofNullable(user).isPresent();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存在即执行</span></span><br><span class="line">Optional.ofNullable(testList).ifPresent(System.out::println);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存在时，消费value，为null时，消费空Runnable emptyAction</span></span><br><span class="line">Optional.ofNullable(testList).ifPresentOrElse((studentList) -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Value is present, its: &quot;</span> + studentList);</span><br><span class="line">&#125;, () -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Value is empty&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="orElse"><a href="#orElse" class="headerlink" title="orElse"></a>orElse</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Optional.ofNullable(testList).orElse(Collections.emptyList());</span><br><span class="line"></span><br><span class="line">https:<span class="comment">//blog.csdn.net/suyujiezhang/article/details/81215386</span></span><br><span class="line"><span class="comment">// orElse(T)无论前面Optional容器是null还是non-null，都会执行orElse里的方法，orElseGet(Supplier)并不会，</span></span><br><span class="line"><span class="comment">// 如果service无异常抛出的情况下，Optional使用orElse或者orElseGet的返回结果都是一样的</span></span><br><span class="line"><span class="keyword">return</span> Optional.ofNullable(service.A()).orElse(service.B());</span><br><span class="line"><span class="comment">// 修改为：</span></span><br><span class="line"><span class="keyword">return</span> Optional.ofNullable(service.A()).orElseGet(() -&gt; service.B())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结论：Optional的orElse(T)若方法不是纯计算型的，有与数据库交互或者远程调用的，都应该使用orElseGet()</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="map-1"><a href="#map-1" class="headerlink" title="map"></a>map</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Optional.ofNullable(user).map(User::getAge).orElse(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h2><p>1.静态方法的引用。（类名::静态方法）</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Collections</span>.</span></span>sort(lists, ( o1, o2) -&gt; <span class="module-access"><span class="module"><span class="identifier">Student</span>.</span></span>compare<span class="constructor">ByAge(<span class="params">o1</span> , <span class="params">o2</span>)</span>);</span><br><span class="line"><span class="comment">// 如果前后参数是一样的，而且方法是静态方法，既可以使用静态方法引用</span></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Collections</span>.</span></span>sort(lists, Student::compareByAge);</span><br></pre></td></tr></table></figure>
+
+<p>2.实例方法的引用。(对象::实例方法)</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象是 System.out = new PrintStream();</span></span><br><span class="line"><span class="comment">// 实例方法：println()</span></span><br><span class="line"><span class="comment">// 前后参数正好都是一个</span></span><br><span class="line">lists.<span class="keyword">for</span><span class="constructor">Each(<span class="params">s</span> -&gt; System.<span class="params">out</span>.<span class="params">println</span>(<span class="params">s</span>)</span>);</span><br><span class="line">lists.<span class="keyword">for</span><span class="constructor">Each(System.<span class="params">out</span>::<span class="params">println</span>)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>3.特定类型方法的引用。(特定类型::方法。)</p>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line"><span class="regexp">// 如果第一个参数列表中的形参中的第一个参数作为了后面的方法的调用者，</span></span><br><span class="line"><span class="regexp">//</span> 并且其余参数作为后面方法的形参，那么就可以用特定类型方法引用了。</span><br><span class="line">Arrays.sort<span class="function"><span class="params">(strs, ( s1,  s2 ) -&gt;  s1.compareToIgnoreCase(s2))</span>;</span></span><br><span class="line"><span class="function">// 特定类型的方法引用：</span></span><br><span class="line"><span class="function"><span class="title">Arrays</span>.<span class="title">sort</span><span class="params">(strs,  <span class="built_in">String</span>::compareToIgnoreCase)</span>;</span></span><br></pre></td></tr></table></figure>
+
+<p>4.构造器引用(类名::new)</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意点：前后参数一致的情况下，又在创建对象就可以使用构造器引用</span></span><br><span class="line">List&lt;String&gt; lists = <span class="keyword">new</span> ArrayList&lt;&gt;<span class="literal">()</span>;</span><br><span class="line">lists.add(<span class="string">&quot;java1&quot;</span>);</span><br><span class="line">lists.add(<span class="string">&quot;java2&quot;</span>);</span><br><span class="line">lists.add(<span class="string">&quot;java3&quot;</span>);</span><br><span class="line"><span class="comment">// 集合默认只能转成Object类型的数组。</span></span><br><span class="line">Object<span class="literal">[]</span> objs = lists.<span class="keyword">to</span><span class="constructor">Array()</span>;</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">&quot;Object类型的数组：&quot;</span>+ <span class="module-access"><span class="module"><span class="identifier">Arrays</span>.</span></span><span class="keyword">to</span><span class="constructor">String(<span class="params">objs</span>)</span>);</span><br><span class="line"><span class="comment">// 我们想指定转换成字符串类型的数组！！</span></span><br><span class="line"><span class="comment">// 最新的写法可以结合构造器引用实现 。</span></span><br><span class="line"><span class="comment">// default &lt;T&gt; T[] toArray(IntFunction&lt;T[]&gt; generator)</span></span><br><span class="line">String<span class="literal">[]</span> strs = lists.<span class="keyword">to</span><span class="constructor">Array(<span class="params">new</span> IntFunction&lt;String[]&gt;()</span> &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String<span class="literal">[]</span> apply(<span class="built_in">int</span> value) &#123;</span><br><span class="line">        return <span class="keyword">new</span> String<span class="literal">[<span class="identifier">value</span>]</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">String<span class="literal">[]</span> strs1 = lists.<span class="keyword">to</span><span class="constructor">Array(<span class="params">s</span> -&gt; <span class="params">new</span> String[<span class="params">s</span>] )</span>;</span><br><span class="line">String<span class="literal">[]</span> strs2 = lists.<span class="keyword">to</span><span class="constructor">Array(String[]::<span class="params">new</span>)</span>;</span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">&quot;String类型的数组：&quot;</span>+ <span class="module-access"><span class="module"><span class="identifier">Arrays</span>.</span></span><span class="keyword">to</span><span class="constructor">String(<span class="params">strs2</span>)</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/62cf/" rel="prev" title="Java代码规范">
+                  <i class="fa fa-chevron-left"></i> Java代码规范
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/15f3/" rel="next" title="JavaSE">
+                  JavaSE <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<span class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"> 站点总字数:</i>
+    </span>
+    <span title="站点总字数">1.8m</span>
+  </span>
+
+
+
+<span class="post-meta-divider">|</span>
+
+
+<span class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"> 站点总访客:</i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+
+<!--
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye">站点总访问量:</i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+-->
+
+</span>
+
+
+
+
+
+
+
+ <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+
+
+
+<div>
+
+<span class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span url ="https://zxhome.eu.org/" class="author" itemprop="copyrightHolder">zhangxin</span>
+</span>
+
+<span class="post-meta-divider">|</span>
+<span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+</span>
+
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz","app_key":"y4hUKKnP2A2FzMFxbPFem6b6","server_url":"https://f8hohjt8.lc-cn-n1-shared.com","security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

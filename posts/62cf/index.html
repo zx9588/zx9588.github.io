@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-z.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-z.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-z.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/red/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zxblog.eu.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Java代码规范">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java代码规范">
+<meta property="og:url" content="https://zxblog.eu.org/posts/62cf/index.html">
+<meta property="og:site_name" content="知行博客">
+<meta property="og:description" content="Java代码规范">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zxblog.eu.org/assets/f73e8bcec5971a8cba656b232dfd1632.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/2e81f2da0f77b52eb3b3e6c4f76b2f65.png">
+<meta property="og:image" content="https://zxblog.eu.org/assets/v2-f9a26e955d49395c2ac30864eb586ba7_r.jpg">
+<meta property="article:published_time" content="2021-11-17T07:28:59.000Z">
+<meta property="article:modified_time" content="2022-11-10T11:09:45.222Z">
+<meta property="article:author" content="zhangxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zxblog.eu.org/assets/f73e8bcec5971a8cba656b232dfd1632.png">
+
+
+<link rel="canonical" href="https://zxblog.eu.org/posts/62cf/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zxblog.eu.org/posts/62cf/","path":"posts/62cf/","title":"Java代码规范"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java代码规范 | 知行博客</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?fb48c8bb75fab347992bbfb0ecaab7cb"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">知行博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">zxblog.eu.org | 电脑浏览,体验拉满</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-友链"><a href="/links" rel="section"><i class="fas fa-link fa-fw"></i>友链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="nav-text">Spring Boot 代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81MyBatis-%E4%B8%8D%E8%A6%81%E4%B8%BA%E4%BA%86%E5%A4%9A%E4%B8%AA%E6%9F%A5%E8%AF%A2%E6%9D%A1%E4%BB%B6%E8%80%8C%E5%86%99-1-x3D-1"><span class="nav-text">一、MyBatis 不要为了多个查询条件而写 1 &#x3D; 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E8%BF%AD%E4%BB%A3entrySet-%E8%8E%B7%E5%8F%96Map-%E7%9A%84key-%E5%92%8Cvalue"><span class="nav-text">二、 迭代entrySet() 获取Map 的key 和value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8Collection-isEmpty-%E6%A3%80%E6%B5%8B%E7%A9%BA"><span class="nav-text">三、使用Collection.isEmpty() 检测空</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%86%E5%90%88%E6%97%B6%E5%B0%BD%E9%87%8F%E6%8C%87%E5%AE%9A%E5%85%B6%E5%A4%A7%E5%B0%8F"><span class="nav-text">四、初始化集合时尽量指定其大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BD%BF%E7%94%A8StringBuilder-%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">五、使用StringBuilder 拼接字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%8B%A5%E9%9C%80%E9%A2%91%E7%B9%81%E8%B0%83%E7%94%A8Collection-contains-%E6%96%B9%E6%B3%95%E5%88%99%E4%BD%BF%E7%94%A8Set"><span class="nav-text">六、若需频繁调用Collection.contains 方法则使用Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E5%AE%9E%E7%8E%B0%E8%B5%8B%E5%80%BC%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-text">七、使用静态代码块实现赋值静态成员变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E5%88%A0%E9%99%A4%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E3%80%81%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E3%80%81%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E3%80%81%E5%AD%97%E6%AE%B5%E5%92%8C%E5%A4%9A%E4%BD%99%E7%9A%84%E6%8B%AC%E5%8F%B7%E3%80%82"><span class="nav-text">八、删除未使用的局部变量、方法参数、私有方法、字段和多余的括号。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%B8%AD%E5%B1%8F%E8%94%BD%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">九、工具类中屏蔽构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E7%9A%84%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7%E5%B9%B6%E6%8A%9B%E5%87%BA"><span class="nav-text">十、删除多余的异常捕获并抛出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E5%8C%96%E4%BD%BF%E7%94%A8String-valueOf-value-%E4%BB%A3%E6%9B%BF-%E2%80%9C-%E2%80%9C-value"><span class="nav-text">十一、字符串转化使用String.valueOf(value) 代替 “ “ + value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8BigDecimal-double"><span class="nav-text">十二、避免使用BigDecimal(double)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E8%BF%94%E5%9B%9E%E7%A9%BA%E6%95%B0%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E8%80%8C%E9%9D%9E-null"><span class="nav-text">十三、返回空数组和集合而非 null</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%B8%B8%E9%87%8F%E6%88%96%E7%A1%AE%E5%AE%9A%E5%80%BC%E8%B0%83%E7%94%A8equals-%E6%96%B9%E6%B3%95"><span class="nav-text">十四、优先使用常量或确定值调用equals 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%B1%9E%E6%80%A7%E5%AD%97%E6%AE%B5%E5%BF%85%E9%A1%BB%E6%98%AF%E7%A7%81%E6%9C%89%E4%B8%94%E4%B8%8D%E5%8F%AF%E5%8F%98"><span class="nav-text">十五、枚举的属性字段必须是私有且不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E3%80%81String-split-String-regex-%E9%83%A8%E5%88%86%E5%85%B3%E9%94%AE%E5%AD%97%E9%9C%80%E8%A6%81%E8%BD%AC%E8%AF%91"><span class="nav-text">十六、String.split(String regex)部分关键字需要转译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%BB%E5%BA%95%E6%B6%88%E7%81%ADif-else"><span class="nav-text">彻底消灭if-else</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-1%EF%BC%9A%E6%8F%90%E5%89%8D-return%EF%BC%8C%E5%8E%BB%E9%99%A4%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84-else"><span class="nav-text">优化方案 1：提前 return，去除不必要的 else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-2%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">优化方案 2：使用条件三目运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-3%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9E%9A%E4%B8%BE"><span class="nav-text">优化方案 3：使用枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-4%EF%BC%9A%E5%90%88%E5%B9%B6%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">优化方案 4：合并条件表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-5%EF%BC%9A%E4%BD%BF%E7%94%A8-Optional"><span class="nav-text">优化方案 5：使用 Optional</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-6%EF%BC%9A%E8%A1%A8%E9%A9%B1%E5%8A%A8%E6%B3%95"><span class="nav-text">优化方案 6：表驱动法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-7%EF%BC%9A%E4%BC%98%E5%8C%96%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%EF%BC%8C%E8%AE%A9%E6%AD%A3%E5%B8%B8%E6%B5%81%E7%A8%8B%E8%B5%B0%E4%B8%BB%E5%B9%B2"><span class="nav-text">优化方案 7：优化逻辑结构，让正常流程走主干</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88-8%EF%BC%9A%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%B6%88%E9%99%A4-if-else"><span class="nav-text">优化方案 8：策略模式+工厂方法消除 if else</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhangxin"
+      src="/avatar.webp">
+  <p class="site-author-name" itemprop="name">zhangxin</p>
+  <div class="site-description" itemprop="description">知行合一.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">282</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://zxhome.eu.org/" title="个人主页 → https:&#x2F;&#x2F;zxhome.eu.org" rel="noopener" target="_blank"><span class="with-love" id="animate1"><i class="fa fa-heart"></i></span>个人主页</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zxblog.eu.org/posts/62cf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.webp">
+      <meta itemprop="name" content="zhangxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="知行博客">
+      <meta itemprop="description" content="知行合一.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java代码规范 | 知行博客">
+      <meta itemprop="description" content="Java代码规范">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java代码规范
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-17 15:28:59" itemprop="dateCreated datePublished" datetime="2021-11-17T15:28:59+08:00">2021-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-11-10 19:09:45" itemprop="dateModified" datetime="2022-11-10T19:09:45+08:00">2022-11-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Java开发</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/62cf/" class="post-meta-item leancloud_visitors" data-flag-title="Java代码规范" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">Java代码规范</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Spring-Boot-代码规范"><a href="#Spring-Boot-代码规范" class="headerlink" title="Spring Boot 代码规范"></a>Spring Boot 代码规范</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010517268/article/details/119635290">https://blog.csdn.net/u010517268/article/details/119635290</a></p>
+<h3 id="一、MyBatis-不要为了多个查询条件而写-1-x3D-1"><a href="#一、MyBatis-不要为了多个查询条件而写-1-x3D-1" class="headerlink" title="一、MyBatis 不要为了多个查询条件而写 1 &#x3D; 1"></a><strong>一、MyBatis 不要为了多个查询条件而写 1 &#x3D; 1</strong></h3><p>当遇到多个查询条件，使用where 1&#x3D;1 可以很方便的解决我们的问题，但是这样很可能会造成非常大的性能损失，因为添加了 “where 1&#x3D;1 ”的过滤条件之后，数据库系统就无法使用索引等查询优化策略，数据库系统将会被迫对每行数据进行扫描（即全表扫描） 以比较此行是否满足过滤条件，当表中的数据量较大时查询速度会非常慢；此外，还会存在SQL 注入的风险。</p>
+<p>反例：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;queryBookInfo&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;com.tjt.platform.entity.BookInfo&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;java.lang.Integer&quot;</span>&gt;</span></span><br><span class="line">select count(*) from t_rule_BookInfo t where 1=1</span><br><span class="line"><span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;title !=null and title !=&#x27;&#x27; &quot;</span>&gt;</span></span><br><span class="line"> AND title = #&#123;title&#125; </span><br><span class="line"><span class="tag">&lt;/<span class="name">if</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;author !=null and author !=&#x27;&#x27; &quot;</span>&gt;</span></span><br><span class="line"> AND author = #&#123;author&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">if</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>正例：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;queryBookInfo&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;com.tjt.platform.entity.BookInfo&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;java.lang.Integer&quot;</span>&gt;</span></span><br><span class="line">select count(*) from t_rule_BookInfo t</span><br><span class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;title !=null and title !=&#x27;&#x27; &quot;</span>&gt;</span></span><br><span class="line"> title = #&#123;title&#125; </span><br><span class="line"><span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">&quot;author !=null and author !=&#x27;&#x27; &quot;</span>&gt;</span> </span><br><span class="line"> AND author = #&#123;author&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>UPDATE 操作也一样，可以用<set> 标记代替 1&#x3D;1。</p>
+<h3 id="二、-迭代entrySet-获取Map-的key-和value"><a href="#二、-迭代entrySet-获取Map-的key-和value" class="headerlink" title="二、 迭代entrySet() 获取Map 的key 和value"></a><strong>二、 迭代entrySet() 获取Map 的key 和value</strong></h3><p>当循环中只需要获取Map 的主键key时，迭代keySet() 是正确的；但是，当需要主键key 和取值value 时，迭代entrySet() 才是更高效的做法，其比先迭代keySet() 后再去通过get 取值性能更佳。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Map 获取value 反例:</span></span><br><span class="line">HashMap&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (String key : map.keySet())&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> map.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Map 获取key &amp; value 正例:</span></span><br><span class="line">HashMap&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String,String&gt; entry : map.entrySet())&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">key</span> <span class="operator">=</span> entry.getKey();</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、使用Collection-isEmpty-检测空"><a href="#三、使用Collection-isEmpty-检测空" class="headerlink" title="三、使用Collection.isEmpty() 检测空"></a><strong>三、使用Collection.isEmpty() 检测空</strong></h3><p>使用Collection.size() 来检测是否为空在逻辑上没有问题，但是使用Collection.isEmpty() 使得代码更易读，并且可以获得更好的性能；除此之外，任何Collection.isEmpty() 实现的时间复杂度都是O(1) ，不需要多次循环遍历，但是某些通过Collection.size() 方法实现的时间复杂度可能是O(n)。O(1)纬度减少循环次数 例子</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LinkedList&lt;Object&gt; collection = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">if</span> (collection.size() == <span class="number">0</span>)&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;collection is empty.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LinkedList&lt;Object&gt; collection = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">if</span> (collection.isEmpty())&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;collection is empty.&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//检测是否为null 可以使用CollectionUtils.isEmpty()</span></span><br><span class="line"><span class="keyword">if</span> (CollectionUtils.isEmpty(collection))&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;collection is null.&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、初始化集合时尽量指定其大小"><a href="#四、初始化集合时尽量指定其大小" class="headerlink" title="四、初始化集合时尽量指定其大小"></a><strong>四、初始化集合时尽量指定其大小</strong></h3><p>尽量在初始化时指定集合的大小，能有效减少集合的扩容次数，因为集合每次扩容的时间复杂度很可能时O(n)，耗费时间和性能。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化list，往list 中添加元素反例：</span></span><br><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i : arr)&#123;</span><br><span class="line">    list.add(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化list，往list 中添加元素正例：</span></span><br><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;</span><br><span class="line"><span class="comment">//指定集合list 的容量大小</span></span><br><span class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(arr.length);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i : arr)&#123;</span><br><span class="line">    list.add(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、使用StringBuilder-拼接字符串"><a href="#五、使用StringBuilder-拼接字符串" class="headerlink" title="五、使用StringBuilder 拼接字符串"></a><strong>五、使用StringBuilder 拼接字符串</strong></h3><p>一般的字符串拼接在编译期Java 会对其进行优化，但是在循环中字符串的拼接Java 编译期无法执行优化，所以需要使用StringBuilder 进行替换。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在循环中拼接字符串反例</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">    <span class="comment">//在循环中字符串拼接Java 不会对其进行优化</span></span><br><span class="line">    str += i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在循环中拼接字符串正例</span></span><br><span class="line"><span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;Love&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> <span class="string">&quot;Courage&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">strConcat</span> <span class="operator">=</span> str1 + str2;  <span class="comment">//Java 编译器会对该普通模式的字符串拼接进行优化</span></span><br><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">    <span class="comment">//在循环中，Java 编译器无法进行优化，所以要手动使用StringBuilder</span></span><br><span class="line">    sb.append(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、若需频繁调用Collection-contains-方法则使用Set"><a href="#六、若需频繁调用Collection-contains-方法则使用Set" class="headerlink" title="六、若需频繁调用Collection.contains 方法则使用Set"></a><strong>六、若需频繁调用Collection.contains 方法则使用Set</strong></h3><p>在Java 集合类库中，List的contains 方法普遍时间复杂度为O(n)，若代码中需要频繁调用contains 方法查找数据则先将集合list 转换成HashSet 实现，将O(n) 的时间复杂度将为O(1)。</p>
+<p>反例：<br>​​​​​​</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//频繁调用Collection.contains() 反例</span></span><br><span class="line">List&lt;Object&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= Integer.MAX_VALUE; i++)&#123;</span><br><span class="line"><span class="comment">//时间复杂度为O(n)</span></span><br><span class="line"><span class="keyword">if</span> (list.contains(i))</span><br><span class="line">  System.out.println(<span class="string">&quot;list contains &quot;</span>+ i);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//频繁调用Collection.contains() 正例</span></span><br><span class="line">List&lt;Object&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">Set&lt;Object&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt;= Integer.MAX_VALUE; i++)&#123;</span><br><span class="line">    <span class="comment">//时间复杂度为O(1)</span></span><br><span class="line">    <span class="keyword">if</span> (set.contains(i))&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;list contains &quot;</span>+ i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、使用静态代码块实现赋值静态成员变量"><a href="#七、使用静态代码块实现赋值静态成员变量" class="headerlink" title="七、使用静态代码块实现赋值静态成员变量"></a><strong>七、使用静态代码块实现赋值静态成员变量</strong></h3><p>对于集合类型的静态成员变量，应该使用静态代码块赋值，而不是使用集合实现来赋值。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//赋值静态成员变量反例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, Integer&gt;()&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        map.put(<span class="string">&quot;Leo&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        map.put(<span class="string">&quot;Family-loving&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        map.put(<span class="string">&quot;Cold on the out side passionate on the inside&quot;</span>,<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;()&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        list.add(<span class="string">&quot;Sagittarius&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Charming&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;Perfectionist&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//赋值静态成员变量正例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String, Integer&gt;();</span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    map.put(<span class="string">&quot;Leo&quot;</span>,<span class="number">1</span>);</span><br><span class="line">    map.put(<span class="string">&quot;Family-loving&quot;</span>,<span class="number">2</span>);</span><br><span class="line">    map.put(<span class="string">&quot;Cold on the out side passionate on the inside&quot;</span>,<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    list.add(<span class="string">&quot;Sagittarius&quot;</span>);</span><br><span class="line">    list.add(<span class="string">&quot;Charming&quot;</span>);</span><br><span class="line">    list.add(<span class="string">&quot;Perfectionist&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="八、删除未使用的局部变量、方法参数、私有方法、字段和多余的括号。"><a href="#八、删除未使用的局部变量、方法参数、私有方法、字段和多余的括号。" class="headerlink" title="八、删除未使用的局部变量、方法参数、私有方法、字段和多余的括号。"></a><strong>八、删除未使用的局部变量、方法参数、私有方法、字段和多余的括号。</strong></h3><h3 id="九、工具类中屏蔽构造函数"><a href="#九、工具类中屏蔽构造函数" class="headerlink" title="九、工具类中屏蔽构造函数"></a><strong>九、工具类中屏蔽构造函数</strong></h3><p>工具类是一堆静态字段和函数的集合，其不应该被实例化；但是，Java 为每个没有明确定义构造函数的类添加了一个隐式公有构造函数，为了避免不必要的实例化，应该显式定义私有构造函数来屏蔽这个隐式公有构造函数。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PasswordUtils</span> &#123;</span><br><span class="line">    <span class="comment">//工具类构造函数反例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">LOG</span> <span class="operator">=</span> LoggerFactory.getLogger(PasswordUtils.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">DEFAULT_CRYPT_ALGO</span> <span class="operator">=</span> <span class="string">&quot;PBEWithMD5AndDES&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encryptPassword</span><span class="params">(String aPassword)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PasswordUtils</span>(aPassword).encrypt();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PasswordUtils</span> &#123;</span><br><span class="line">    <span class="comment">//工具类构造函数正例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">LOG</span> <span class="operator">=</span> LoggerFactory.getLogger(PasswordUtils.class);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义私有构造函数来屏蔽这个隐式公有构造函数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">PasswordUtils</span><span class="params">()</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">DEFAULT_CRYPT_ALGO</span> <span class="operator">=</span> <span class="string">&quot;PBEWithMD5AndDES&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">encryptPassword</span><span class="params">(String aPassword)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PasswordUtils</span>(aPassword).encrypt();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十、删除多余的异常捕获并抛出"><a href="#十、删除多余的异常捕获并抛出" class="headerlink" title="十、删除多余的异常捕获并抛出"></a><strong>十、删除多余的异常捕获并抛出</strong></h3><p>用catch 语句捕获异常后，若什么也不进行处理，就只是让异常重新抛出，这跟不捕获异常的效果一样，可以删除这块代码或添加别的处理。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//多余异常反例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">fileReader</span><span class="params">(String fileName)</span><span class="keyword">throws</span> IOException&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> (<span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(fileName))) &#123;</span><br><span class="line">        String line;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> builder.toString();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="comment">//仅仅是重复抛异常 未作任何处理</span></span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//多余异常正例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">fileReader</span><span class="params">(String fileName)</span><span class="keyword">throws</span> IOException&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> (<span class="type">BufferedReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">FileReader</span>(fileName))) &#123;</span><br><span class="line">        String line;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">while</span> ((line = reader.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">            builder.append(line);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> builder.toString();</span><br><span class="line">        <span class="comment">//删除多余的抛异常，或增加其他处理：</span></span><br><span class="line">        <span class="comment">/*catch (Exception e) &#123;</span></span><br><span class="line"><span class="comment">            return &quot;fileReader exception&quot;;</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十一、字符串转化使用String-valueOf-value-代替-“-“-value"><a href="#十一、字符串转化使用String-valueOf-value-代替-“-“-value" class="headerlink" title="十一、字符串转化使用String.valueOf(value) 代替 “ “ + value"></a><strong>十一、字符串转化使用String.valueOf(value) 代替 “ “ + value</strong></h3><p>把其它对象或类型转化为字符串时，使用String.valueOf(value) 比 “”+value 的效率更高。</p>
+<p>反例：<br>​​​​​​</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//把其它对象或类型转化为字符串反例：</span></span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">520</span>;</span><br><span class="line"><span class="comment">// &quot;&quot; + value</span></span><br><span class="line"><span class="type">String</span> <span class="variable">strLove</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span> + num;</span><br></pre></td></tr></table></figure>
+
+<p>正例：<br>​​​​​​</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//把其它对象或类型转化为字符串正例：</span></span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">520</span>;</span><br><span class="line"><span class="comment">// String.valueOf() 效率更高</span></span><br><span class="line"><span class="type">String</span> <span class="variable">strLove</span> <span class="operator">=</span> String.valueOf(num);</span><br></pre></td></tr></table></figure>
+
+<h3 id="十二、避免使用BigDecimal-double"><a href="#十二、避免使用BigDecimal-double" class="headerlink" title="十二、避免使用BigDecimal(double)"></a><strong>十二、避免使用BigDecimal(double)</strong></h3><p>BigDecimal(double) 存在精度损失风险，在精确计算或值比较的场景中可能会导致业务逻辑异常。</p>
+<p>反例：<br>​​​​​​</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BigDecimal 反例</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">bigDecimal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="number">0.11D</span>);</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BigDecimal 正例</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">bigDecimal1</span> <span class="operator">=</span> bigDecimal.valueOf(<span class="number">0.11D</span>);</span><br></pre></td></tr></table></figure>
+
+<p>图1. 失去精度</p>
+<p><img src="/../../assets/f73e8bcec5971a8cba656b232dfd1632.png" alt="图片"></p>
+<h3 id="十三、返回空数组和集合而非-null"><a href="#十三、返回空数组和集合而非-null" class="headerlink" title="十三、返回空数组和集合而非 null"></a><strong>十三、返回空数组和集合而非 null</strong></h3><p>若程序运行返回null，需要调用方强制检测null，否则就会抛出空指针异常；返回空数组或空集合，有效地避免了调用方因为未检测null 而抛出空指针异常的情况，还可以删除调用方检测null 的语句使代码更简洁。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//返回null 反例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Result[] getResults() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Result&gt; <span class="title function_">getResultList</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, Result&gt; <span class="title function_">getResultMap</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//返回空数组和空集正例</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Result[] getResults() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Result</span>[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Result&gt; <span class="title function_">getResultList</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> Collections.emptyList();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, Result&gt; <span class="title function_">getResultMap</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> Collections.emptyMap();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十四、优先使用常量或确定值调用equals-方法"><a href="#十四、优先使用常量或确定值调用equals-方法" class="headerlink" title="十四、优先使用常量或确定值调用equals 方法"></a><strong>十四、优先使用常量或确定值调用equals 方法</strong></h3><p>对象的equals 方法容易抛空指针异常，应使用常量或确定有值的对象来调用equals 方法。</p>
+<p>反例：<br>​​​​​​</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//调用 equals 方法反例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">fileReader</span><span class="params">(String fileName)</span><span class="keyword">throws</span> IOException&#123;</span><br><span class="line">    <span class="comment">// 可能抛空指针异常</span></span><br><span class="line">    <span class="keyword">return</span> fileName.equals(<span class="string">&quot;Charming&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//调用 equals 方法正例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">fileReader</span><span class="params">(String fileName)</span><span class="keyword">throws</span> IOException&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用常量或确定有值的对象来调用 equals 方法</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Charming&quot;</span>.equals(fileName);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//或使用：java.util.Objects.equals() 方法</span></span><br><span class="line">    <span class="keyword">return</span> Objects.equals(<span class="string">&quot;Charming&quot;</span>,fileName);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十五、枚举的属性字段必须是私有且不可变"><a href="#十五、枚举的属性字段必须是私有且不可变" class="headerlink" title="十五、枚举的属性字段必须是私有且不可变"></a><strong>十五、枚举的属性字段必须是私有且不可变</strong></h3><p>枚举通常被当做常量使用，如果枚举中存在公共属性字段或设置字段方法，那么这些枚举常量的属性很容易被修改；理想情况下，枚举中的属性字段是私有的，并在私有构造函数中赋值，没有对应的Setter 方法，最好加上final 修饰符。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">SwitchStatus</span> &#123;</span><br><span class="line">    <span class="comment">// 枚举的属性字段反例</span></span><br><span class="line">    DISABLED(<span class="number">0</span>, <span class="string">&quot;禁用&quot;</span>),</span><br><span class="line">    ENABLED(<span class="number">1</span>, <span class="string">&quot;启用&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> value;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">SwitchStatus</span><span class="params">(<span class="type">int</span> value, String description)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = value;</span><br><span class="line">        <span class="built_in">this</span>.description = description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getDescription</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setDescription</span><span class="params">(String description)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.description = description;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">SwitchStatus</span> &#123;</span><br><span class="line">    <span class="comment">// 枚举的属性字段正例</span></span><br><span class="line">    DISABLED(<span class="number">0</span>, <span class="string">&quot;禁用&quot;</span>),</span><br><span class="line">    ENABLED(<span class="number">1</span>, <span class="string">&quot;启用&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// final 修饰</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> value;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">SwitchStatus</span><span class="params">(<span class="type">int</span> value, String description)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = value;</span><br><span class="line">        <span class="built_in">this</span>.description = description;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 没有Setter 方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getDescription</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> description;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十六、String-split-String-regex-部分关键字需要转译"><a href="#十六、String-split-String-regex-部分关键字需要转译" class="headerlink" title="十六、String.split(String regex)部分关键字需要转译"></a><strong>十六、String.split(String regex)部分关键字需要转译</strong></h3><p>使用字符串String 的plit 方法时，传入的分隔字符串是正则表达式，则部分关键字（比如 .<a href=""></a>| 等）需要转义。</p>
+<p>反例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// String.split(String regex) 反例</span></span><br><span class="line">String[] split = <span class="string">&quot;a.ab.abc&quot;</span>.split(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">System.out.println(Arrays.toString(split));   <span class="comment">// 结果为[]</span></span><br><span class="line">String[] split1 = <span class="string">&quot;a|ab|abc&quot;</span>.split(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">System.out.println(Arrays.toString(split1));  <span class="comment">// 结果为[&quot;a&quot;, &quot;|&quot;, &quot;a&quot;, &quot;b&quot;, &quot;|&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>正例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// String.split(String regex) 正例</span></span><br><span class="line"><span class="comment">// . 需要转译</span></span><br><span class="line">String[] split2 = <span class="string">&quot;a.ab.abc&quot;</span>.split(<span class="string">&quot;\\.&quot;</span>);</span><br><span class="line">System.out.println(Arrays.toString(split2));  <span class="comment">// 结果为[&quot;a&quot;, &quot;ab&quot;, &quot;abc&quot;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// | 需要转译</span></span><br><span class="line">String[] split3 = <span class="string">&quot;a|ab|abc&quot;</span>.split(<span class="string">&quot;\\|&quot;</span>);</span><br><span class="line">System.out.println(Arrays.toString(split3));  <span class="comment">// 结果为[&quot;a&quot;, &quot;ab&quot;, &quot;abc&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>图2. String.split(String regex) 正反例</p>
+<p><img src="/../../assets/2e81f2da0f77b52eb3b3e6c4f76b2f65.png" alt="图片"></p>
+<h2 id="彻底消灭if-else"><a href="#彻底消灭if-else" class="headerlink" title="彻底消灭if-else"></a>彻底消灭if-else</h2><p><img src="/../../assets/v2-f9a26e955d49395c2ac30864eb586ba7_r.jpg" alt="img"></p>
+<h3 id="优化方案-1：提前-return，去除不必要的-else"><a href="#优化方案-1：提前-return，去除不必要的-else" class="headerlink" title="优化方案 1：提前 return，去除不必要的 else"></a>优化方案 1：提前 return，去除不必要的 else</h3><p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition)&#123;</span><br><span class="line">    <span class="comment">//doSomething</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>（!condition）&#123;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//doSomething</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="优化方案-2：使用条件三目运算符"><a href="#优化方案-2：使用条件三目运算符" class="headerlink" title="优化方案 2：使用条件三目运算符"></a>优化方案 2：使用条件三目运算符</h3><p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>  price ;</span><br><span class="line"><span class="keyword">if</span>(condition)&#123;</span><br><span class="line">    price = <span class="number">80</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    price = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">price</span> <span class="operator">=</span> condition?<span class="number">80</span>:<span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化方案-3：使用枚举"><a href="#优化方案-3：使用枚举" class="headerlink" title="优化方案 3：使用枚举"></a>优化方案 3：使用枚举</h3><p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String OrderStatusDes;</span><br><span class="line"><span class="keyword">if</span>(orderStatus==<span class="number">0</span>)&#123;</span><br><span class="line">    OrderStatusDes =<span class="string">&quot;订单未支付&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(OrderStatus==<span class="number">1</span>)&#123;</span><br><span class="line">    OrderStatusDes =<span class="string">&quot;订单已支付&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(OrderStatus==<span class="number">2</span>)&#123;</span><br><span class="line">   OrderStatusDes =<span class="string">&quot;已发货&quot;</span>; </span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>优化后：（先定义一个枚举）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">OrderStatusEnum</span> &#123;</span><br><span class="line">    </span><br><span class="line">    UN_PAID(<span class="number">0</span>,<span class="string">&quot;订单未支付&quot;</span>),PAIDED(<span class="number">1</span>,<span class="string">&quot;订单已支付&quot;</span>),SENDED(<span class="number">2</span>,<span class="string">&quot;已发货&quot;</span>),;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> index;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String desc;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getIndex</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getDesc</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> desc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    OrderStatusEnum(<span class="type">int</span> index, String desc)&#123;</span><br><span class="line">        <span class="built_in">this</span>.index = index;</span><br><span class="line">        <span class="built_in">this</span>.desc =desc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    OrderStatusEnum <span class="title function_">of</span><span class="params">(<span class="type">int</span> orderStatus)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (OrderStatusEnum temp : OrderStatusEnum.values()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (temp.getIndex() == orderStatus) &#123;</span><br><span class="line">                <span class="keyword">return</span> temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有了枚举之后，以上 if-else 逻辑分支，可以优化为一行代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">OrderStatusDes</span> <span class="operator">=</span> OrderStatusEnum<span class="number">.0f</span>(orderStatus).getDesc();</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化方案-4：合并条件表达式"><a href="#优化方案-4：合并条件表达式" class="headerlink" title="优化方案 4：合并条件表达式"></a>优化方案 4：合并条件表达式</h3><p>如果有一系列条件返回一样的结果，可以将它们合并为一个条件表达式，让逻辑更加清晰。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">getVipDiscount</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="keyword">if</span>(age&lt;<span class="number">18</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">0.8</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(<span class="string">&quot;深圳&quot;</span>.equals(city))&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">0.8</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(isStudent)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">0.8</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//do somethig</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">getVipDiscount</span><span class="params">()</span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(age&lt;<span class="number">18</span>|| <span class="string">&quot;深圳&quot;</span>.equals(city)||isStudent)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">0.8</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//doSomthing</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="优化方案-5：使用-Optional"><a href="#优化方案-5：使用-Optional" class="headerlink" title="优化方案 5：使用 Optional"></a>优化方案 5：使用 Optional</h3><p>有时候 if-else 比较多，是因为非空判断导致的，这时候你可以使用 java8 的 Optional 进行优化。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;jay@huaxiao&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (str != <span class="literal">null</span>) &#123;</span><br><span class="line">    System.out.println(str);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Null&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Optional&lt;String&gt; strOptional = Optional.of(<span class="string">&quot;jay@huaxiao&quot;</span>);</span><br><span class="line">strOptional.ifPresentOrElse(System.out::println, () </span><br></pre></td></tr></table></figure>
+
+<h3 id="优化方案-6：表驱动法"><a href="#优化方案-6：表驱动法" class="headerlink" title="优化方案 6：表驱动法"></a>优化方案 6：表驱动法</h3><p>表驱动法，又称之为表驱动、表驱动方法。表驱动方法是一种使你可以在表中查找信息，而不必用很多的逻辑语句（if 或 case）来把它们找出来的方法。</p>
+<p>以下的 demo，把 map 抽象成表，在 map 中查找信息，而省去不必要的逻辑语句。</p>
+<p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (param.equals(value1)) &#123;</span><br><span class="line">    doAction1(someParams);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (param.equals(value2)) &#123;</span><br><span class="line">    doAction2(someParams);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (param.equals(value3)) &#123;</span><br><span class="line">    doAction3(someParams);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;?, Function&lt;?&gt; action&gt; actionMappings = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(); <span class="comment">// 这里泛型 ? 是为方便演示，实际可替换为你需要的类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">actionMappings.put(value1, (someParams) -&gt; &#123; doAction1(someParams)&#125;);</span><br><span class="line">actionMappings.put(value2, (someParams) -&gt; &#123; doAction2(someParams)&#125;);</span><br><span class="line">actionMappings.put(value3, (someParams) -&gt; &#123; doAction3(someParams)&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 省略多余逻辑语句</span></span><br><span class="line">actionMappings.get(param).apply(someParams);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="优化方案-7：优化逻辑结构，让正常流程走主干"><a href="#优化方案-7：优化逻辑结构，让正常流程走主干" class="headerlink" title="优化方案 7：优化逻辑结构，让正常流程走主干"></a>优化方案 7：优化逻辑结构，让正常流程走主干</h3><p>优化前：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getAdjustedCapital</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(_capital &lt;= <span class="number">0.0</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(_intRate &gt; <span class="number">0</span> &amp;&amp; _duration &gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> (_income / _duration) *ADJ_FACTOR;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>优化后：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getAdjustedCapital</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(_capital &lt;= <span class="number">0.0</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(_intRate &lt;= <span class="number">0</span> || _duration &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (_income / _duration) *ADJ_FACTOR;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>将条件反转使异常情况先退出，让正常流程维持在主干流程，可以让代码结构更加清晰。</p>
+<h3 id="优化方案-8：策略模式-工厂方法消除-if-else"><a href="#优化方案-8：策略模式-工厂方法消除-if-else" class="headerlink" title="优化方案 8：策略模式+工厂方法消除 if else"></a>优化方案 8：策略模式+工厂方法消除 if else</h3><p>假设需求为，根据不同勋章类型，处理相对应的勋章服务，优化前有以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">medalType</span> <span class="operator">=</span> <span class="string">&quot;guest&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="string">&quot;guest&quot;</span>.equals(medalType)) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;嘉宾勋章&quot;</span>);</span><br><span class="line"> &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;vip&quot;</span>.equals(medalType)) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;会员勋章&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;guard&quot;</span>.equals(medalType)) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;展示守护勋章&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+
+
+<p>首先，我们把每个条件逻辑代码块，抽象成一个公共的接口，可以得到以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//勋章接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IMedalService</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">showMedal</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们根据每个逻辑条件，定义相对应的策略实现类，可得以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//守护勋章策略实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GuardMedalServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">IMedalService</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">showMedal</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;展示守护勋章&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//嘉宾勋章策略实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GuestMedalServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">IMedalService</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">showMedal</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;嘉宾勋章&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//VIP勋章策略实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">VipMedalServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">IMedalService</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">showMedal</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;会员勋章&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接下来，我们再定义策略工厂类，用来管理这些勋章实现策略类，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//勋章服务工产类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MedalServicesFactory</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Map&lt;String, IMedalService&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        map.put(<span class="string">&quot;guard&quot;</span>, <span class="keyword">new</span> <span class="title class_">GuardMedalServiceImpl</span>());</span><br><span class="line">        map.put(<span class="string">&quot;vip&quot;</span>, <span class="keyword">new</span> <span class="title class_">VipMedalServiceImpl</span>());</span><br><span class="line">        map.put(<span class="string">&quot;guest&quot;</span>, <span class="keyword">new</span> <span class="title class_">GuestMedalServiceImpl</span>());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> IMedalService <span class="title function_">getMedalService</span><span class="params">(String medalType)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> map.get(medalType);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用了策略+工厂模式之后，代码变得简洁多了，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">medalType</span> <span class="operator">=</span> <span class="string">&quot;guest&quot;</span>;</span><br><span class="line">        <span class="type">IMedalService</span> <span class="variable">medalService</span> <span class="operator">=</span> MedalServicesFactory.getMedalService(medalType);</span><br><span class="line">        medalService.showMedal();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>今天我想吃5毛钱的辣条！！！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.webp" alt="zhangxin 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.webp" alt="zhangxin 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/159/" rel="prev" title="Spring">
+                  <i class="fa fa-chevron-left"></i> Spring
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/aa4f/" rel="next" title="Java8">
+                  Java8 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<span class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"> 站点总字数:</i>
+    </span>
+    <span title="站点总字数">1.8m</span>
+  </span>
+
+
+
+<span class="post-meta-divider">|</span>
+
+
+<span class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"> 站点总访客:</i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+
+<!--
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye">站点总访问量:</i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+-->
+
+</span>
+
+
+
+
+
+
+
+ <div style="font-size: 0.85rem">
+ <span id="timeDate">载入天数...</span>
+ <span id="times">载入时分秒...</span>
+ <script src="/runtime.js"></script>
+ </div>
+
+
+
+<div>
+
+<span class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span url ="https://zxhome.eu.org/" class="author" itemprop="copyrightHolder">zhangxin</span>
+</span>
+
+<span class="post-meta-divider">|</span>
+<span class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">皖ICP备2021018914号-1 </a>
+</span>
+
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"f8hOhjT8KAiRzyRrjNInGKvu-gzGzoHsz","app_key":"y4hUKKnP2A2FzMFxbPFem6b6","server_url":"https://f8hohjt8.lc-cn-n1-shared.com","security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>
